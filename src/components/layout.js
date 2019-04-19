@@ -1,11 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TypographyStyle, GoogleFont } from 'react-typography'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import palette from 'theme/palette'
-import Header from 'components/header'
-import './layout.css'
+import palette from '../theme/palette'
+import Header from '../components/header'
 
 const Root = styled.div`
   margin: 0 auto;
