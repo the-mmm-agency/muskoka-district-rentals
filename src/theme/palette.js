@@ -11,3 +11,5 @@ const palette = {
     secondary: '#B6B6B6',
   },
 }
+
+export default palette
