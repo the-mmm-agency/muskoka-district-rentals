@@ -1,22 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import palette from '../theme/palette'
-import Layout from '../components/layout'
-import Home from '../images/home.jpg'
-import SEO from '../components/seo'
+import { scale, rhythm } from 'utils/typography'
+import palette from 'theme/palette'
+import Rentals from 'components/rentals'
+import Layout from 'components/layout'
+import SEO from 'components/seo'
+
+const Hero = styled.section`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+  text-align: center;
+`
 
 const About = styled.span`
   justify-self: flex-start;
   color: ${palette.text.secondary};
   position: relative;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
 `
 
 const Welcome = styled.div`
   display: flex;
+  text-align: left;
   flex-direction: column;
   justify-content: center;
   padding: 10%;
@@ -24,12 +38,20 @@ const Welcome = styled.div`
   width: 50%;
 `
 
-const WelcomeImage = styled(Img)`
+const WelcomeAboard = styled.h3`
+  ${scale(1.2)}
+`
+
+const WelcomeImageContainer = styled.div`
   background-color: ${palette.background.light};
   padding: 8px;
-  overflow: hidden;
   height: 500px;
-  width: 300px;
+  width: 400px;
+`
+const WelcomeImage = styled(Img)`
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
 `
 
 const WelcomeContainer = styled.div`
@@ -43,7 +65,7 @@ const WelcomeContainer = styled.div`
   padding: 10%;
 `
 
-const Hero = styled.div`
+const FirstSection = styled(BackgroundImage)`
   align-items: center;
   justify-content: center;
   display: flex;
@@ -51,37 +73,43 @@ const Hero = styled.div`
   min-height: 100vh;
   max-height: 100vh;
   text-align: center;
-`
-
-const FirstSection = styled(Hero)`
-  color: #ffffff;
-  min-height: calc(100vh - 71px);
-  max-height: calc(100vh - 71px);
-  position: relative;
+  &::before,
   &::after {
-    content: '""';
-    position: absolute;
-    background-size: cover;
-    background-image: url(${Home});
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    filter: grayscale(80%);
+    filter: brightness(0.5);
   }
 `
 
+const Message = styled.span`
+  ${scale(1 / 3)}
+  color: #ffffff;
+  margin-bottom: ${rhythm(2)};
+  font-weight: 600;
+`
+
+const WelcomeMessage = styled(Message)`
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+`
+
 const Header = styled.h1`
-  text-transform: capitalize;
+  color: #ffffff;
+  margin-bottom: ${rhythm(2)};
+  text-transform: uppercase;
 `
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "welcome.jpg" }) {
+      home: file(relativePath: { eq: "home.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 500, maxHeight: 1000) {
+          fluid(quality: 100, maxWidth: 4160) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      welcome: file(relativePath: { eq: "welcome.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 500, maxHeight: 400) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -92,17 +120,23 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <FirstSection>
-        <span>Welcome To</span>
-        <Header>Musoka District</Header>
-        <span>Come unwind with us</span>
+      <FirstSection
+        Tag="section"
+        fluid={data.home.childImageSharp.fluid}
+        backgroundColor={palette.primary}
+      >
+        <WelcomeMessage>welcome to</WelcomeMessage>
+        <Header>muskoka district</Header>
+        <Message>Come unwind with us</Message>
       </FirstSection>
       <Hero>
         <About>about us</About>
         <WelcomeContainer>
-          <WelcomeImage fluid={data.file.childImageSharp.fluid} />
+          <WelcomeImageContainer>
+            <WelcomeImage fluid={data.welcome.childImageSharp.fluid} />
+          </WelcomeImageContainer>
           <Welcome>
-            <h3>Welcome Aboard!</h3>
+            <WelcomeAboard>Welcome Aboard!</WelcomeAboard>
             <p>
               Nisi laborum dolore minim qui laborum. Ut incididunt qui ex amet
               aute cupidatat. Ullamco ex nostrud non aliqua eu adipisicing
@@ -113,6 +147,7 @@ const IndexPage = () => {
           </Welcome>
         </WelcomeContainer>
       </Hero>
+      <Rentals />
     </Layout>
   )
 }

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Muskoka Family Fun",
+    "startFrom": 1142,
+    "squareFeet": 3600,
+    "propery": "Cottage",
+    "sleeps": 11,
+    "beds": 5,
+    "bathrooms": 4,
+    "petFriendly": true,
+    "image": "../src/images/muskoka-family-fun.jpg"
+  },
+  {
+    "name": "Helmlock Lakeouse",
+    "startFrom": 1000,
+    "squareFeet": 2500,
+    "propery": "Villa",
+    "sleeps": 8,
+    "beds": 4,
+    "bathrooms": 4,
+    "petFriendly": false,
+    "image": "../src/images/helmlock-lakehouse.jpg"
+  },
+  {
+    "name": "Cedar Bluffs",
+    "startFrom": 1150,
+    "squareFeet": 4173,
+    "propery": "House",
+    "sleeps": 12,
+    "beds": 5,
+    "bathrooms": 3,
+    "petFriendly": false,
+    "image": "../src/images/cedar-bluffs.jpg"
+  }
+]

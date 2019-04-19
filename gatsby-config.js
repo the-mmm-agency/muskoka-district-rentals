@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   siteMetadata: {
     title: `Muskoka District Rentals`,
@@ -10,7 +8,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
-        root: path.join(__dirname, `src`),
+        components: `${__dirname}/src/components`,
+        images: `${__dirname}/src/images`,
+        pages: `${__dirname}/src/pages`,
+        theme: `${__dirname}/src/theme`,
+        utils: `${__dirname}/src/utils`,
       },
     },
     {
@@ -20,9 +22,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: `${__dirname}/data/`,
+      },
+    },
+    'gatsby-transformer-json',
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -32,16 +42,16 @@ module.exports = {
         background_color: `#eaecef`,
         theme_color: `#eaecef`,
         display: `standalone`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/muskoka-icon.png`,
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-nprogress`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigFile: `src/utils/typography`,
+        pathToConfigModule: `src/utils/typography`,
       },
     },
   ],

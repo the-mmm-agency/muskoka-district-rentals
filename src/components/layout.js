@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import palette from '../theme/palette'
-import Header from '../components/header'
+import palette from 'theme/palette'
+import Header from 'components/header'
 
 const Root = styled.div`
   margin: 0 auto;

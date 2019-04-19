@@ -3,7 +3,7 @@ const palette = {
   secondary: '#3278b5',
   background: {
     dark: '#eaecef',
-    default: '#fafafa',
+    default: '#f1f1f1',
     light: '#ffffff',
   },
   text: {

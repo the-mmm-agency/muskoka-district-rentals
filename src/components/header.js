@@ -13,6 +13,7 @@ const StyledLink = styled(Link)`
   border-radius: 0;
   color: inherit;
   cursor: pointer;
+  font-family: 'Playfair Display';
   font-weight: 500;
   margin: auto;
   outline: none;
@@ -36,7 +37,7 @@ const Header = () => {
     query {
       file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 218, height: 71) {
+          fixed(width: 300, height: 155) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -55,7 +56,7 @@ const Header = () => {
       <StyledLink to="/guest-services">
         <span>Guest Services</span>
       </StyledLink>
-      <StyledLink to="/rent">
+      <StyledLink to="/rent-your-cottage">
         <span>Rent your cottage</span>
       </StyledLink>
       <StyledLink to="/buy-or-sell">

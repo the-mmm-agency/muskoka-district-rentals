@@ -1,6 +1,6 @@
 import Typography from 'typography'
 
-import palette from '../theme/palette'
+import palette from 'theme/palette'
 
 const typography = new Typography({
   baseFontSize: '16px',
@@ -8,7 +8,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Playfair Display',
-      styles: ['700'],
+      styles: ['500', '700'],
     },
     {
       name: 'Raleway',
@@ -22,6 +22,16 @@ const typography = new Typography({
   bodyWeight: 400,
   boldWeight: 700,
   headerWeight: 700,
+  scaleRatio: 3,
+  overrideStyles: () => ({
+    html: {
+      '-moz-osk-font-smoothing': 'grayscale',
+      '-webkit-font-smoothing': 'subpixel-anitaliased',
+    },
+    'h1,h2,h3,h4,h5,h6': {
+      letterSpacing: '0.1em',
+    },
+  }),
 })
 
 if (process.env.NODE_ENV !== `production`) {
