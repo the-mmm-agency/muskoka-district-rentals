@@ -1,8 +1,8 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
-import styled from "styled-components"
-import Logo from "../images/logo.png"
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import styled from 'styled-components'
+import Logo from '../images/logo.png'
 
 const LogoImage = styled.img`
   margin: 30px;
@@ -17,8 +17,7 @@ const StyledLink = styled(Link)`
   -moz-focus-inner: {
     borderstyle: none;
   }
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  appearance: none;
   border: 0;
   border-radius: 0;
   color: inherit;

@@ -1,15 +1,25 @@
-import Typography from "typography"
+import Typography from 'typography'
 
 const typography = new Typography({
-  baseFontSize: "18px",
+  baseFontSize: '18px',
   baseLineHeight: 1.666,
-  headerFontFamily: ["Didot", "serif"],
+  headerFontFamily: ['GFS Didot', 'serif'],
   bodyFontFamily: [
-    "Raleway",
-    "Helvetica Neue",
-    "Segoe UI",
-    "Helvetica",
-    "sans-serif",
+    'Raleway',
+    'Helvetica Neue',
+    'Segoe UI',
+    'Helvetica',
+    'sans-serif',
+  ],
+  googleFonts: [
+    {
+      name: 'Raleway',
+      styles: ['400', '700'],
+    },
+    {
+      name: 'Playfair Display',
+      styles: ['400', '700'],
+    },
   ],
 })
 

@@ -28,7 +28,9 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "stylelint": "^10.0.1",
+    "stylelint-config-styled-components": "^0.1.1"
   },
   "keywords": [
     "gatsby"
@@ -44,9 +46,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brettm12345/muskoka"
+    "url": "https://github.com/brettm12345/muskoka-district-rentals"
   },
   "bugs": {
-    "url": "https://github.com/brettm12345/muskoka/issues"
+    "url": "https://github.com/brettm12345/muskoka-district-rentals/issues"
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-styled-components",
+    "rules": {
+      "at-rule-empty-line-before": null
+    }
   }
 }
