@@ -8,7 +8,6 @@ import Header from '../components/header'
 const Root = styled.div`
   margin: 0 auto;
   max-width: 9609;
-  padding: 0px 1.0875rem 1.45rem;
   padding-top: 0;
 `
 

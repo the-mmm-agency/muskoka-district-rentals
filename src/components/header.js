@@ -1,16 +1,8 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import Logo from '../images/logo.png'
-
-const LogoImage = styled.img`
-  margin: 30px;
-`
-const StyledHeader = styled.header`
-  align-items: center;
-  display: flex;
-  margin-bottom: 1.45rem;
-`
+import Img from 'gatsby-image'
+import { useStaticQuery, graphql } from 'gatsby'
 
 const StyledLink = styled(Link)`
   -moz-focus-inner: {
@@ -31,28 +23,49 @@ const StyledLink = styled(Link)`
   -webkit-tap-highlight-color: transparent;
   text-transform: uppercase;
 `
+const StyledHeader = styled.header`
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  position: sticky;
+  text-align: center;
+`
 
-const Header = () => (
-  <StyledHeader>
-    <Link to="/">
-      <LogoImage src={Logo} />
-    </Link>
-    <StyledLink to="/cottages">
-      <span>Cottages</span>
-    </StyledLink>
-    <StyledLink to="/guest-services">
-      <span>Guest Services</span>
-    </StyledLink>
-    <StyledLink to="/rent">
-      <span>Rent your cottage</span>
-    </StyledLink>
-    <StyledLink to="/buy-or-sell">
-      <span>Buy or sell cottages</span>
-    </StyledLink>
-    <StyledLink to="/private-fleet">
-      <span>Private Fleet</span>
-    </StyledLink>
-  </StyledHeader>
-)
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(width: 218, height: 71) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <StyledHeader>
+      <Link to="/">
+        <Img fixed={data.file.childImageSharp.fixed} />
+      </Link>
+      <StyledLink to="/cottages">
+        <span>Cottages</span>
+      </StyledLink>
+      <StyledLink to="/guest-services">
+        <span>Guest Services</span>
+      </StyledLink>
+      <StyledLink to="/rent">
+        <span>Rent your cottage</span>
+      </StyledLink>
+      <StyledLink to="/buy-or-sell">
+        <span>Buy or sell cottages</span>
+      </StyledLink>
+      <StyledLink to="/private-fleet">
+        <span>Private Fleet</span>
+      </StyledLink>
+    </StyledHeader>
+  )
+}
 
 export default Header

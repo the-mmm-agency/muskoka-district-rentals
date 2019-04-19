@@ -7,7 +7,12 @@ module.exports = {
     author: `@brettm12345`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-root-import`,
+      options: {
+        root: path.join(__dirname, `src`),
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,6 +21,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -29,20 +35,14 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`,
       },
     },
-    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-nprogress`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigFile: `src/theme/typography`,
+        pathToConfigFile: `src/utils/typography`,
       },
     },
-    {
-      resolve: `gatsby-plugin-root-import`,
-      options: {
-        root: path.join(__dirname, 'src'),
-      },
-    },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-nprogress`,
   ],
 }
