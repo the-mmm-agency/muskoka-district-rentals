@@ -45,7 +45,7 @@ const StyledLink = styled(Link)`
     opacity: 1;
   }
   color: #fff;
-  opacity: 0.8;
+  opacity: 0.4;
   transition: opacity ease 0.3s;
 `
 
