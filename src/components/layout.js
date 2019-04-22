@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 import palette from 'theme/palette'
 import Header from 'components/header'
+import Footer from 'components/footer'
 
 const Root = styled.div`
   margin: 0 auto;
@@ -37,11 +38,7 @@ const Layout = ({ children }) => (
     <Header />
     <Root>
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </Root>
   </>
 )

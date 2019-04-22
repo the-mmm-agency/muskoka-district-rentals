@@ -1,29 +1,18 @@
-import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import Link from 'components/link'
+
 const StyledLink = styled(Link)`
-  -moz-focus-inner: {
-    borderstyle: none;
-  }
-  appearance: none;
-  border: 0;
-  border-radius: 0;
   color: inherit;
-  cursor: pointer;
   font-family: 'Playfair Display';
   font-weight: 500;
   margin: auto;
-  outline: none;
-  padding: 0;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: middle;
-  -webkit-tap-highlight-color: transparent;
   text-transform: uppercase;
 `
+
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
@@ -37,7 +26,7 @@ const Header = () => {
     query {
       file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 300, height: 155) {
+          fixed(width: 200, height: 104) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
