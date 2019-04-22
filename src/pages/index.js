@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import { scale, rhythm } from 'utils/typography'
 import palette from 'theme/palette'
+import Contact from 'components/contact'
 import Rentals from 'components/rentals'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
@@ -148,6 +149,7 @@ const IndexPage = () => {
         </WelcomeContainer>
       </Hero>
       <Rentals />
+      <Contact />
     </Layout>
   )
 }
