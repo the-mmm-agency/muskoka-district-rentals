@@ -53,8 +53,6 @@ const Rentals = () => {
     }
   `)
 
-  console.log(data)
-
   const [selected, setSelected] = useState(data.allRentalsJson.nodes[0].image)
 
   return (
