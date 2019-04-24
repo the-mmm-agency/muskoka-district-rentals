@@ -110,7 +110,7 @@ const Cottage = ({
       </Rating>
       <H2>{name}</H2>
       <StartFrom>Start from </StartFrom>
-      <Price>{' ' + startFrom}</Price>
+      <Price>{' $' + startFrom}</Price>
       <Night>/Night</Night>
       <p>{description}</p>
       <Properties>
