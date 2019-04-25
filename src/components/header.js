@@ -19,6 +19,7 @@ const StyledHeader = styled.header`
   padding: 16px;
   position: sticky;
   text-align: center;
+  background: #FFF;
 `
 
 const Header = () => {
