@@ -16,9 +16,12 @@ const StyledLink = styled(Link)`
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
-  padding: 16px;
+  padding: 7px;
   position: sticky;
+  top: 0;
+  z-index:10;
   text-align: center;
+  background: #FFF;
 `
 
 const Header = () => {

@@ -81,21 +81,40 @@ const FirstSection = styled(BackgroundImage)`
 `
 
 const Message = styled.span`
-  ${scale(1 / 3)}
+  ${scale(0.3 / 3)}
   color: #ffffff;
-  margin-bottom: ${rhythm(2)};
-  font-weight: 600;
+  margin-bottom: ${rhythm(1.5)};
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
 `
 
 const WelcomeMessage = styled(Message)`
-  letter-spacing: 0.3em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-weight: 500;
 `
 
 const Header = styled.h1`
   color: #ffffff;
-  margin-bottom: ${rhythm(2)};
+  margin-bottom: ${rhythm(1.5)};
   text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  font-weight: 400;
+`
+
+const HeaderOverlay = styled.div`
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0,0,0,0.3);
 `
 
 const IndexPage = () => {
@@ -121,15 +140,16 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <FirstSection
-        Tag="section"
-        fluid={data.home.childImageSharp.fluid}
-        backgroundColor={palette.primary}
-      >
-        <WelcomeMessage>welcome to</WelcomeMessage>
-        <Header>muskoka district</Header>
-        <Message>Come unwind with us</Message>
-      </FirstSection>
+        <FirstSection
+          Tag="section"
+          fluid={data.home.childImageSharp.fluid}
+          backgroundColor={palette.primary}
+        >
+        <HeaderOverlay/>
+          <WelcomeMessage>welcome to</WelcomeMessage>
+            <Header>muskoka district</Header>
+          <Message>Come unwind with us</Message>
+        </FirstSection>
       <Hero>
         <About>about us</About>
         <WelcomeContainer>
