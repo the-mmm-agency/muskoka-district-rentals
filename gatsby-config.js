@@ -53,5 +53,18 @@ module.exports = {
         pathToConfigModule: `src/theme/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-eslint`,
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|.history|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: true,
+          formatter: require('eslint-formatter-pretty'),
+        },
+      },
+    },
   ],
 }

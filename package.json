@@ -5,19 +5,10 @@
   "version": "0.0.1",
   "author": "Brett Mandler <brett@themmmagency.com>",
   "dependencies": {
-    "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.3.25",
     "gatsby-background-image": "^0.3.5",
     "gatsby-cli": "^2.5.9",
     "gatsby-image": "^2.0.37",
-    "gatsby-plugin-manifest": "^2.0.29",
-    "gatsby-plugin-nprogress": "^2.0.10",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-root-import": "^2.0.5",
-    "gatsby-plugin-sharp": "^2.0.35",
-    "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-plugin-typography": "^2.2.13",
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-transformer-json": "^2.1.11",
     "gatsby-transformer-sharp": "^2.1.18",
@@ -37,10 +28,24 @@
   },
   "devDependencies": {
     "babel-plugin-polished": "^1.1.0",
+    "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-gatsby": "^0.1.11",
+    "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-config-react-app": "^4.0.0",
+    "eslint-formatter-pretty": "^2.1.1",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react-hooks": "^1.6.0",
+    "gatsby-plugin-eslint": "^2.0.4",
+    "gatsby-plugin-manifest": "^2.0.29",
+    "gatsby-plugin-nprogress": "^2.0.10",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-root-import": "^2.0.5",
+    "gatsby-plugin-sharp": "^2.0.35",
+    "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-plugin-typography": "^2.2.13",
     "prettier": "^1.17.0",
     "stylelint": "^10.0.1",
     "stylelint-config-styled-components": "^0.1.1"
@@ -95,7 +100,23 @@
       "react-app",
       "prettier",
       "prettier/react"
-    ]
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    }
   },
   "prettier": {
     "endOfLine": "lf",

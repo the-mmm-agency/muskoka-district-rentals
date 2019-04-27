@@ -1,6 +1,5 @@
 {
-  "prettier.eslintIntegration": false,
-  "prettier.stylelintIntegration": true,
+  "vsprettier.useEsLint": true,
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true
