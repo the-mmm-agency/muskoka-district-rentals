@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { scale, rhythm } from 'utils/typography'
+import { scale, rhythm } from 'theme/typography'
 
 const Call = styled.span`
   margin-top: ${rhythm(1 / 2)};

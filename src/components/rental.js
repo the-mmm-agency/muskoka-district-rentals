@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
-import { rhythm } from 'utils/typography'
+import { rhythm } from 'theme/typography'
 
 const ListItem = styled.li`
   &:hover {

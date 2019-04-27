@@ -5,7 +5,7 @@ import BackgroundImage from 'gatsby-background-image'
 
 import Layout from 'components/layout'
 import SEO from 'components/seo'
-import { rhythm } from 'utils/typography'
+import { rhythm } from 'theme/typography'
 
 const Wrapper = styled.div`
   padding: ${rhythm(1)} 20%;
@@ -18,6 +18,7 @@ const Image = styled(BackgroundImage)`
     filter: brightness(0.4);
   }
 `
+
 const BuyOrSell = () => {
   const data = useStaticQuery(graphql`
     query {

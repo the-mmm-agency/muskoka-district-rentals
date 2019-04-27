@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Link from 'components/link'
-import { rhythm } from 'utils/typography'
+import { rhythm } from 'theme/typography'
 
 const List = styled.ul`
   list-style: none;

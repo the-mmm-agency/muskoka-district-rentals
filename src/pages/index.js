@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { scale, rhythm } from 'utils/typography'
+import { scale, rhythm } from 'theme/typography'
 import palette from 'theme/palette'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
