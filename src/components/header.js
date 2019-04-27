@@ -19,9 +19,9 @@ const StyledHeader = styled.header`
   padding: 7px;
   position: sticky;
   top: 0;
-  z-index:10;
+  z-index: 10;
   text-align: center;
-  background: #FFF;
+  background: #fff;
 `
 
 const Header = () => {

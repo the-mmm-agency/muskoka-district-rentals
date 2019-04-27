@@ -5,7 +5,7 @@ import BackgroundImage from 'gatsby-background-image'
 
 import Layout from 'components/layout'
 import SEO from 'components/seo'
-import { rhythm } from 'utils/typography'
+import { rhythm } from 'theme/typography'
 
 const Wrapper = styled.div`
   padding: ${rhythm(1)} 20%;

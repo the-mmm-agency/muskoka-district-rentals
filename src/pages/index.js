@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { scale, rhythm } from 'utils/typography'
+import { scale, rhythm } from 'theme/typography'
 import palette from 'theme/palette'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
@@ -114,7 +114,7 @@ const HeaderOverlay = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
 `
 
 const IndexPage = () => {
@@ -140,16 +140,16 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <FirstSection
-          Tag="section"
-          fluid={data.home.childImageSharp.fluid}
-          backgroundColor={palette.primary}
-        >
-        <HeaderOverlay/>
-          <WelcomeMessage>welcome to</WelcomeMessage>
-            <Header>muskoka district</Header>
-          <Message>Come unwind with us</Message>
-        </FirstSection>
+      <FirstSection
+        Tag="section"
+        fluid={data.home.childImageSharp.fluid}
+        backgroundColor={palette.primary}
+      >
+        <HeaderOverlay />
+        <WelcomeMessage>welcome to</WelcomeMessage>
+        <Header>muskoka district</Header>
+        <Message>Come unwind with us</Message>
+      </FirstSection>
       <Hero>
         <About>about us</About>
         <WelcomeContainer>

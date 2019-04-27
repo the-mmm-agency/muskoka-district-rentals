@@ -12,7 +12,6 @@ module.exports = {
         images: `${__dirname}/src/images`,
         pages: `${__dirname}/src/pages`,
         theme: `${__dirname}/src/theme`,
-        utils: `${__dirname}/src/utils`,
       },
     },
     {
@@ -51,7 +50,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        pathToConfigModule: `src/theme/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-eslint`,
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|.history|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: true,
+          formatter: require('eslint-formatter-pretty'),
+        },
       },
     },
   ],

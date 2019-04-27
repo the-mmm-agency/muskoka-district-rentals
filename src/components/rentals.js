@@ -4,7 +4,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Rental from 'components/rental'
-import { rhythm, scale } from 'utils/typography'
+import { rhythm, scale } from 'theme/typography'
 
 const Header = styled.h3`
   ${scale(1)}

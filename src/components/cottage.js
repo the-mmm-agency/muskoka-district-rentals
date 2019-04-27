@@ -4,7 +4,7 @@ import StarRatings from 'react-star-ratings'
 import Img from 'gatsby-image'
 
 import Number from 'components/number'
-import { scale, rhythm } from 'utils/typography'
+import { scale, rhythm } from 'theme/typography'
 import palette from 'theme/palette'
 
 const Wrapper = styled.div`
