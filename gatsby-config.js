@@ -31,7 +31,6 @@ module.exports = {
     'gatsby-transformer-json',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-subfont`,
     `gatsby-plugin-brotli`,
     `gatsby-plugin-styled-components`,
     {

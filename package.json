@@ -49,7 +49,6 @@
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-sharp": "^2.0.35",
     "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-plugin-subfont": "^1.0.6",
     "gatsby-plugin-typography": "^2.2.13",
     "prettier": "^1.17.0",
     "stylelint": "^10.0.1",
