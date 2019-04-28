@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "author": "Brett Mandler <brett@themmmagency.com>",
   "dependencies": {
+    "dayjs": "^1.8.13",
     "gatsby": "^2.3.25",
     "gatsby-background-image": "^0.3.5",
     "gatsby-cli": "^2.5.9",
@@ -16,6 +17,7 @@
     "polished": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-day-picker": "^7.3.0",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-star-ratings": "^2.3.0",
@@ -24,7 +26,8 @@
     "styled-reset": "^2.0.9",
     "styled-theming": "^2.2.0",
     "typescript": "^3.4.4",
-    "typography": "^0.16.19"
+    "typography": "^0.16.19",
+    "use-onclickoutside": "^0.3.1"
   },
   "devDependencies": {
     "babel-plugin-polished": "^1.1.0",
