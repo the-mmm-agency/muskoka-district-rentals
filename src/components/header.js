@@ -3,7 +3,12 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import Button from 'components/button'
 import Link from 'components/link'
+
+const StyledButton = styled(Button)`
+  text-transform: uppercase;
+`
 
 const StyledLink = styled(Link)`
   color: inherit;
@@ -57,6 +62,9 @@ const Header = () => {
       <StyledLink to="/private-fleet">
         <span>Private Fleet</span>
       </StyledLink>
+      <StyledButton font="serif" size="large">
+        Reserve Now
+      </StyledButton>
     </StyledHeader>
   )
 }

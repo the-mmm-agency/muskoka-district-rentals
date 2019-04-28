@@ -30,8 +30,9 @@ const StyledCheckbox = styled.div`
   display: inline-block;
   width: 16px;
   height: 16px;
+  margin-top: 0.5em;
   background: ${props =>
-    props.checked ? palette.primary : palette.background.dark};
+    props.checked ? palette.primary : 'rgba(0,0,0, 0.2)'};
   border-radius: 3px;
   transition: ${transitions.create(['background'], {
     duration: transitions.duration.shortest,

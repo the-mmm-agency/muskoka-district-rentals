@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { createGlobalStyle } from 'styled-components'
-import reset from 'styled-reset'
 
 import palette from 'theme/palette'
 import Header from 'components/header'
@@ -31,10 +30,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     color: ${palette.primary}
   }
-  main {
-      position: relative;
-  }
-  ${reset};
 `
 
 const Layout = ({ children }) => (

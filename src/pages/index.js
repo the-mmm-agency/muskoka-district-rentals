@@ -10,6 +10,7 @@ import Contact from 'components/contact'
 import Rentals from 'components/rentals'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
+import CheckAvailability from 'components/checkAvailability'
 
 const Hero = styled.section`
   align-items: center;
@@ -150,6 +151,7 @@ const IndexPage = () => {
         <Header>muskoka district</Header>
         <Message>Come unwind with us</Message>
       </FirstSection>
+      <CheckAvailability />
       <Hero>
         <About>about us</About>
         <WelcomeContainer>

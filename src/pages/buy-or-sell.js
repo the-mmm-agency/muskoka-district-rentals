@@ -18,6 +18,7 @@ const Image = styled(BackgroundImage)`
     filter: brightness(0.4);
   }
 `
+
 const BuyOrSell = () => {
   const data = useStaticQuery(graphql`
     query {
