@@ -30,9 +30,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     color: ${palette.primary}
   }
-  main {
-      position: relative;
-  }
 `
 
 const Layout = ({ children }) => (

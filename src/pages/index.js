@@ -10,6 +10,7 @@ import Contact from 'components/contact'
 import Rentals from 'components/rentals'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
+import CheckAvailability from 'components/checkAvailability'
 
 const Hero = styled.section`
   align-items: center;
@@ -25,6 +26,7 @@ const About = styled.span`
   justify-self: flex-start;
   color: ${palette.text.secondary};
   position: relative;
+  margin-top: ${rhythm(2)};
   letter-spacing: 0.4em;
   text-transform: uppercase;
 `
@@ -150,6 +152,7 @@ const IndexPage = () => {
         <Header>muskoka district</Header>
         <Message>Come unwind with us</Message>
       </FirstSection>
+      <CheckAvailability />
       <Hero>
         <About>about us</About>
         <WelcomeContainer>
