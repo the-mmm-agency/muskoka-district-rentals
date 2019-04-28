@@ -22,7 +22,7 @@ const Image = styled(BackgroundImage)`
 const BuyOrSell = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "home.jpg" }) {
+      home: file(relativePath: { eq: "home.jpg" }) {
         childImageSharp {
           fluid(quality: 80, maxHeight: 400) {
             ...GatsbyImageSharpFluid_withWebp
@@ -35,7 +35,7 @@ const BuyOrSell = () => {
   return (
     <Layout>
       <SEO title="Buy or Sell Cottages" />
-      <Image fluid={data.file.childImageSharp.fluid} Tag="section" />
+      <Image fluid={data.home.childImageSharp.fluid} Tag="section" />
       <Wrapper>
         <h1>Buying or selling a cottage property?</h1>
         <h6>Discover the Difference</h6>

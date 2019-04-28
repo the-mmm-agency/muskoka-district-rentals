@@ -38,15 +38,17 @@ const Wrapper = styled.div`
   left: 15%;
   margin-top: -75px;
   height: 150px;
-  width: 70%;
+  min-width: 980px;
+  width: 60%;
 `
 
 const DatePickerWrapper = styled.div`
   background-color: white;
   box-shadow: ${shadows[6]};
   display: flex;
+  flex-wrap: nowrap;
   position: absolute;
-  width: 50%;
+  min-width: 50%;
 `
 
 const Section = styled.div`

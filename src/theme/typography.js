@@ -22,7 +22,7 @@ const typography = new Typography({
   bodyWeight: 400,
   boldWeight: 700,
   headerWeight: 700,
-  scaleRatio: 3,
+  scaleRatio: 4,
   overrideStyles: () => ({
     html: {
       '-moz-osk-font-smoothing': 'grayscale',

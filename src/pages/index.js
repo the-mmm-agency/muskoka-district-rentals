@@ -26,7 +26,7 @@ const About = styled.span`
   justify-self: flex-start;
   color: ${palette.text.secondary};
   position: relative;
-  margin-top: ${rhythm(2)};
+  margin-top: 150px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
 `
@@ -42,7 +42,7 @@ const Welcome = styled.div`
 `
 
 const WelcomeAboard = styled.h3`
-  ${scale(1.2)}
+  ${scale(1)}
 `
 
 const WelcomeImageContainer = styled.div`

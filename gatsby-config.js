@@ -31,6 +31,8 @@ module.exports = {
     'gatsby-transformer-json',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-subfont`,
+    `gatsby-plugin-brotli`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -45,8 +47,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-nprogress`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#3278b5`,
+        showSpinner: false,
+      },
+    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {

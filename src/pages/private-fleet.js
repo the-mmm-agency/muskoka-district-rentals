@@ -24,7 +24,7 @@ const BuyOrSell = () => {
     query {
       file(relativePath: { eq: "private-fleet.jpg" }) {
         childImageSharp {
-          fluid(quality: 80, maxHeight: 400) {
+          fluid(quality: 100, maxHeight: 400) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

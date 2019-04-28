@@ -6,14 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Rental from 'components/rental'
 import { rhythm, scale } from 'theme/typography'
 
-const Header = styled.h3`
-  ${scale(1)}
-  color: #fff;
-  letter-spacing: 0.2em;
-  margin-bottom: ${rhythm(4)};
-`
-
-const Background = styled(BackgroundImage)`
+const Wrapper = styled(BackgroundImage)`
   align-items: center;
   justify-content: center;
   display: flex;
@@ -25,12 +18,17 @@ const Background = styled(BackgroundImage)`
   &::after {
     filter: brightness(0.5);
   }
-`
-
-const List = styled.ul`
-  display: flex;
-  flex-basis: calc(100% / 3);
-  list-style: none;
+  h3 {
+    ${scale(1)}
+    color: #fff;
+    letter-spacing: 0.2em;
+    margin-bottom: ${rhythm(4)};
+  }
+  ul {
+    display: flex;
+    flex-basis: calc(100% / 3);
+    list-style: none;
+  }
 `
 
 const Rentals = () => {
@@ -56,9 +54,9 @@ const Rentals = () => {
   const [selected, setSelected] = useState(data.allRentalsJson.nodes[0].image)
 
   return (
-    <Background fadeIn fluid={selected.childImageSharp.fluid} Tag="section">
-      <Header>Our Rentals</Header>
-      <List>
+    <Wrapper fadeIn fluid={selected.childImageSharp.fluid} Tag="section">
+      <h3>Our Rentals</h3>
+      <ul>
         {data.allRentalsJson.nodes.map(rental => (
           <Rental
             image={rental.image}
@@ -68,8 +66,8 @@ const Rentals = () => {
             onMouseOver={() => setSelected(rental.image)}
           />
         ))}
-      </List>
-    </Background>
+      </ul>
+    </Wrapper>
   )
 }
 
