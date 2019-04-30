@@ -35,18 +35,21 @@ const GlobalStyle = createGlobalStyle`
     src: url( '../../fonts/Didot Regular.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
   }
   @font-face {
     font-family: 'Didot';
     src: url( '../../fonts/Didot Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
   }
   @font-face {
     font-family: 'Didot';
     src: url( '../../fonts/Didot Italic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
+    font-display: swap;
   }
 `
 
