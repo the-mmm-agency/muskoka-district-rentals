@@ -5,6 +5,12 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import Button from 'components/button'
 import Link from 'components/link'
+import { options as typography } from 'theme/typography'
+
+const Logo = styled(Img)`
+  min-width: 200px;
+  width: 20%;
+`
 
 const StyledButton = styled(Button)`
   text-transform: uppercase;
@@ -12,7 +18,7 @@ const StyledButton = styled(Button)`
 
 const StyledLink = styled(Link)`
   color: inherit;
-  font-family: 'Playfair Display';
+  font-family: ${typography.headerFontFamily.join(',')};
   font-weight: 500;
   margin: auto;
   text-transform: uppercase;
@@ -34,8 +40,8 @@ const Header = () => {
     query {
       file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 200, height: 104) {
-            ...GatsbyImageSharpFixed_withWebp
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -45,7 +51,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <Link to="/">
-        <Img fixed={data.file.childImageSharp.fixed} />
+        <Logo fadeIn={false} fixed={data.file.childImageSharp.fluid} />
       </Link>
       <StyledLink to="/cottages">
         <span>Cottages</span>

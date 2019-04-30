@@ -6,6 +6,7 @@ import { opacify } from 'polished'
 
 import palette from 'theme/palette'
 import shadows from 'theme/shadows'
+import { options as typography } from 'theme/typography'
 import transitions from 'theme/transitions'
 
 const buttonTransition = transitions.create(
@@ -75,7 +76,10 @@ const StyledButton = styled.button`
   cursor: pointer;
   display: inline-flex;
   font-weight: 500;
-  font-family: ${fontFamily};
+  font-family: ${switchProp('font', {
+    sansSerif: typography.bodyFontFamily.join(','),
+    serif: typography.headerFontFamily.join(','),
+  })};
   outline: none;
   margin: 0;
   padding: 0;

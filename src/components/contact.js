@@ -17,6 +17,11 @@ const H5 = styled.h5`
   margin-bottom: calc(-1 * ${rhythm(2 / 3)});
   width: 100%;
 `
+const ContactUs = styled.h3`
+  ${scale(1)}
+  color: #fff;
+  width: 100%;
+`
 
 const H4 = styled.h4`
   ${scale(3 / 4)}
@@ -24,11 +29,6 @@ const H4 = styled.h4`
   width: 100%;
 `
 
-const ContactUs = styled.h3`
-  ${scale(1)}
-  color: #fff;
-  width: 100%;
-`
 const Section = styled(BackgroundImage)`
   align-items: center;
   color: #fff;

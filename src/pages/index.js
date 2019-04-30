@@ -144,6 +144,7 @@ const IndexPage = () => {
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <FirstSection
         Tag="section"
+        fadeIn
         fluid={data.home.childImageSharp.fluid}
         backgroundColor={palette.primary}
       >
