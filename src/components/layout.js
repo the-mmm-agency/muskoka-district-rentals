@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Didot';
     src: url( '../../fonts/Didot Bold.ttf') format('truetype');
     font-weight: 700;
-    font-style: normal;
+    font-style: bold;
     font-display: swap;
   }
   @font-face {
