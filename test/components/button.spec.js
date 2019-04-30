@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer'
 
 import Button from 'components/button'
 import palette from 'theme/palette'
+import { options as typography } from 'theme/typography'
 
 test('it matches the snapshot', () => {
   const tree = renderer.create(<Button>Test Button</Button>).toJSON()
@@ -18,7 +19,10 @@ test('it applies styles according to passed props', () => {
     )
     .toJSON()
   expect(tree).toHaveStyleRule('background', palette.secondary)
-  expect(tree).toHaveStyleRule('font-family', 'Playfair Display')
+  expect(tree).toHaveStyleRule(
+    'font-family',
+    typography.headerFontFamily.join(',')
+  )
   expect(tree).toHaveStyleRule('font-size', '0.65rem')
   expect(tree).toHaveStyleRule('border-radius', '6px')
 })

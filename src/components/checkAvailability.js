@@ -11,6 +11,7 @@ import DownIcon from 'components/downIcon'
 import palette from 'theme/palette'
 import shadows from 'theme/shadows'
 import { rhythm } from 'theme/typography'
+import { options as typography } from 'theme/typography'
 
 const CheckboxWrapper = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const CheckboxWrapper = styled.div`
 
 const CheckboxLabel = styled.span`
   color: ${palette.secondary};
-  font-family: 'Playfair Display';
+  font-family: ${typography.headerFontFamily.join(',')};
   margin-right: ${rhythm(1 / 4)};
   vertical-align: baseline;
 `

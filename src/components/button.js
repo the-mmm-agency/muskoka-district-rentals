@@ -6,6 +6,7 @@ import { switchProp } from 'styled-tools'
 
 import palette from 'theme/palette'
 import shadows from 'theme/shadows'
+import { options as typography } from 'theme/typography'
 import transitions from 'theme/transitions'
 
 const StyledButton = styled.button`
@@ -32,8 +33,8 @@ const StyledButton = styled.button`
   display: inline-flex;
   font-weight: 500;
   font-family: ${switchProp('font', {
-    sansSerif: 'Raleway',
-    serif: 'Playfair Display',
+    sansSerif: typography.bodyFontFamily.join(','),
+    serif: typography.headerFontFamily.join(','),
   })};
   outline: none;
   margin: 0;
