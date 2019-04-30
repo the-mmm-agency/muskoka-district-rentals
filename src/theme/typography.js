@@ -15,7 +15,7 @@ const typography = new Typography({
       styles: ['400', '700'],
     },
   ],
-  headerFontFamily: ['Playfair Display', 'serif'],
+  headerFontFamily: ['Didot', 'serif'],
   bodyFontFamily: ['Raleway', 'sans-serif'],
   headerColor: palette.text.primary,
   bodyColor: palette.text.primary,
