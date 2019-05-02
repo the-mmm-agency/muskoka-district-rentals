@@ -1,16 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
-import { useStaticQuery, graphql } from 'gatsby'
 
 import Button from 'components/button'
 import Link from 'components/link'
+import Logo from 'components/logo'
 import { options as typography } from 'theme/typography'
-
-const Logo = styled(Img)`
-  min-width: 200px;
-  width: 20%;
-`
 
 const StyledButton = styled(Button)`
   text-transform: uppercase;
@@ -36,23 +30,9 @@ const StyledHeader = styled.header`
 `
 
 const Header = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <StyledHeader>
-      <Link to="/">
-        <Logo fadeIn={false} fixed={data.file.childImageSharp.fluid} />
-      </Link>
+      <Logo />
       <StyledLink to="/cottages">
         <span>Cottages</span>
       </StyledLink>
