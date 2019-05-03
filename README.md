@@ -19,37 +19,66 @@ The following components are required to run the project (tested on *Arch Linux*
 
 ## Running Muskoka District Rentals
 
-1. Clone the GitHub repository: `git clone git@github.com:the-mmm-agency/muskoka-district-rentals`
-2. Switch to the project directory: `cd muskoka-district-rentals`
-3. Run `npm install` to install dependencies
-4. Start Muskoka with `npm start`
-5. Muskoka should now be running at `http://localhost:8000`
+1. Clone the GitHub repository: `git clone git@github.com:the-mmm-agency/muskoka-district-rentals`.
+2. Switch to the project directory: `cd muskoka-district-rentals`.
+3. Run `npm install` to install dependencies.
+4. Start Muskoka with `npm start`.
+5. Muskoka should now be running at `http://localhost:8000`.
 
-### Accesing the graphql api
+### Accessing the graphql api
 
 Gatsby exposes the [GraphQL](https://graphql.org) playground at `http://localhost:8000/___graphql`. For more information refer to the [GatsbyJS Docs](https://www.gatsbyjs.org/docs/graphql/).
 
 ### Running with ssl
 
-If you wish to run Musoka with ssl enabled use `npm run develop:ssl` Gatsby takes care of generating the cerfiticates
+If you wish to run Muskoka with ssl enabled use `npm run develop:ssl` Gatsby takes care of generating the certificates.
 
-## Running Tests
+## Testing
 
-To verify that everything is working properly you can run the project's tests
+To verify that everything is working properly you can run the project's tests.
 
-1. Install the projects dependencies with `npm install`
-2. Build the project with `npm run build`
-3. `npm test`
+## Setup
 
-- **If you wish to run the tests in watch mode** replace `npm test` with `npm run test:watch`
+Install the projects dependencies with `npm install`.
+
+## Unit tests
+
+Unit testing done with [Jest](https://jestjs.io).
+
+### Setup
+
+Build the project with `npm run build`.
+
+## Running tests
+
+Unit tests can be run with `npm test`.
+
+- **If you wish to run the tests in watch mode** replace `npm test` with `npm run test:watch`.
+
+## Writing tests
+
+All of the tests in the [test](test/) correspond to the file in the [src](src/) directory with the `.spec` extension added so for example [src/components/button.js](src/components/button.js) becomes [test/components/button.spec.js](test/components/button.spec.js). All mocks are stored in the [test/__mocks__/](test/__mocks__) directory and any files used in setting up Jest are stored in [test/__setup__/](test/__setup__/).
+
+## Integration tests
+
+Integration testing done with [Cypress](https://www.cypress.io).
+
+### Running tests
+
+- To start a development server and open a Cypress window with screenshot validating and hot reloading use `npm run test:e2e:dev`.
+- To start a development server and run cypress tests in the command line use `npm run test:e2e:run`.
+
+### Writing tests
+
+Integration tests are stored in the [cypress/e2e](cypress/e2e) directory.
 
 ## Other Scripts
 
 Other npm scripts not mentioned above.
 
 - `npm run format` formats the code with [Prettier](https://prettier.io/).
-- `npm run lint-js` runs code linting with [Eslint](https://eslint.org).
-- `npm run lint-js:fix` runs code linting with [Eslint](https://eslint.org). Attempting to automatically fix issues.
-- `npm run lint-css` lints [styled-components](https://styled-components.com) templates with [stylelint](https://stylelint.io).
-- `npm run lint-css:fix` lints [styled-components](https://styled-components.com) templates with [stylelint](https://stylelint.io). Attempting to automatically fix issues.
-- `npm run serve` serves a static build built with `npm run build`
+- `npm run lint` runs code linting with [Eslint](https://eslint.org).
+- `npm run lint:fix` runs code linting with [Eslint](https://eslint.org). Attempting to automatically fix issues.
+- `npm run lint:styles` lints [styled-components](https://styled-components.com) templates with [stylelint](https://stylelint.io).
+- `npm run lint:styles:fix` lints [styled-components](https://styled-components.com) templates with [stylelint](https://stylelint.io). Attempting to automatically fix issues.
+- `npm run serve` serves a static build built with `npm run build`.
