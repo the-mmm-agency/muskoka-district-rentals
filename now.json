@@ -1,1 +1,14 @@
-{"version":2,"name":"muskoka-district-rentals","builds":[{"src":"package.json","use":"@now/static-build","config":{"distDir":"public"}}]}
+{
+  "version": 2,
+  "name": "muskoka-district-rentals",
+  "env": {
+    "PERCY_TOKEN": "dfe5ce3c05064af2b51a0531c0a426bbee1538eba83a8d5678c00382afb5ceef"
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
+    }
+  ]
+}
