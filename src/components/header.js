@@ -38,30 +38,28 @@ const StyledHeader = styled.header`
   background: #fff;
 `
 
-const Header = () => {
-  return (
-    <StyledHeader>
-      <Logo />
-      <StyledLink to="/cottages">
-        <span>Cottages</span>
-      </StyledLink>
-      <StyledLink to="/guest-services">
-        <span>Guest Services</span>
-      </StyledLink>
-      <StyledLink to="/rent-your-cottage">
-        <span>Rent your cottage</span>
-      </StyledLink>
-      <StyledLink to="/buy-or-sell">
-        <span>Buy or sell cottages</span>
-      </StyledLink>
-      <StyledLink to="/private-fleet">
-        <span>Private Fleet</span>
-      </StyledLink>
-      <StyledButton font="serif" size="large">
-        Reserve Now
-      </StyledButton>
-    </StyledHeader>
-  )
-}
+const Header = () => (
+  <StyledHeader>
+    <Logo />
+    <StyledLink to="/cottages">
+      <span>Cottages</span>
+    </StyledLink>
+    <StyledLink to="/guest-services">
+      <span>Guest Services</span>
+    </StyledLink>
+    <StyledLink to="/rent-your-cottage">
+      <span>Rent your cottage</span>
+    </StyledLink>
+    <StyledLink to="/buy-or-sell">
+      <span>Buy or sell cottages</span>
+    </StyledLink>
+    <StyledLink to="/private-fleet">
+      <span>Private Fleet</span>
+    </StyledLink>
+    <StyledButton font="serif" size="large">
+      Reserve Now
+    </StyledButton>
+  </StyledHeader>
+)
 
 export default Header
