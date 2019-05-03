@@ -21,13 +21,16 @@ const StyledLink = styled(Link)`
   margin: auto;
   text-transform: uppercase;
   padding: 20px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-items: stretch;
 `
 
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
-  padding: 7px;
   position: sticky;
   top: 0;
   z-index: 10;
