@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   margin: ${rhythm(1 / 2)} ${rhythm(1 / 4)};
   text-align: center;
   text-transform: uppercase;
+  transform: scale(0.8);
   h1 {
     ${scale(3 / 4)}
     margin-bottom: 0;
