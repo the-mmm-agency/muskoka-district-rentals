@@ -8,6 +8,10 @@ import { options as typography } from 'theme/typography'
 
 const StyledButton = styled(Button)`
   text-transform: uppercase;
+  padding: 10px;
+  font-size: 0.8rem;
+  margin: 24px;
+  min-width: 150px;
 `
 
 const StyledLink = styled(Link)`
@@ -16,6 +20,8 @@ const StyledLink = styled(Link)`
   font-weight: 500;
   margin: auto;
   text-transform: uppercase;
+  padding: 20px;
+  font-size: 0.8rem;
 `
 
 const StyledHeader = styled.header`
