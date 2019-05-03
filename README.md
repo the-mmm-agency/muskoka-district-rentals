@@ -6,6 +6,7 @@
 <h1 align="center">
   Muskoka District Rentals
 </h1>
+[![Maintainability](https://api.codeclimate.com/v1/badges/286e7758d65155f310fc/maintainability)](https://codeclimate.com/repos/5ccc050e4ee755025800767b/maintainability) [![Build Status](https://travis-ci.com/the-mmm-agency/muskoka-district-rentals.svg?token=QVYQcxXPfbbPMPMBfYwd&branch=develop)](https://travis-ci.com/the-mmm-agency/muskoka-district-rentals)
 
 Muskoka District Rentals is a Progressive Web Application for renting properties in the  Muskoka district of Canada.
 
