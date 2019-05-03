@@ -49,7 +49,7 @@ const StyledButton = styled.button`
     }
   )};
   user-select: none;
-  ${switchProp('variant', {
+  ${/* sc-block */ switchProp('variant', {
     flat: css`
       background: ${props => palette[props.color]};
       border: none;
@@ -61,7 +61,7 @@ const StyledButton = styled.button`
       color: ${palette.text.primary};
     `,
   })};
-  ${switchProp('size', {
+  ${/* sc-block */ switchProp('size', {
     small: css`
       font-size: 0.65rem;
       padding: 4px 8px;
