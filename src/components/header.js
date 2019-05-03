@@ -18,7 +18,7 @@ const StyledButton = styled(Button)`
 const StyledLink = styled(Link)`
   color: inherit;
   font-family: ${typography.headerFontFamily.join(',')};
-  font-weight: 500;
+  font-weight: 600;
   margin: auto;
   text-transform: uppercase;
   padding: 20px;
