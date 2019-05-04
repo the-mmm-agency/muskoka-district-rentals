@@ -3,12 +3,8 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Link from 'components/link'
+import FooterList from 'components/footerList'
 import { rhythm } from 'theme/typography'
-
-const List = styled.ul`
-  list-style: none;
-`
 
 const Copyright = styled.span`
   align-self: center;
@@ -23,7 +19,7 @@ const Divider = styled.div`
   width: 100%;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   background-color: #212020;
   color: #fff;
   display: flex;
@@ -40,15 +36,6 @@ const LinkWrapper = styled.div`
   min-width: 100%;
 `
 
-const StyledLink = styled(Link)`
-  &:hover {
-    opacity: 1;
-  }
-  color: #fff;
-  opacity: 0.4;
-  transition: opacity ease 0.3s;
-`
-
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -62,62 +49,25 @@ const Footer = () => {
     }
   `)
 
+  const links = [
+    ['/site-map', '/terms-and-conditions', '/privacy-policy', '/help'],
+    ['/our-rentals', '/guest-concierge', '/about', '/contact'],
+    ['/faqs', '/blog', '/our-blog', '/press'],
+  ]
+
   return (
-    <footer>
-      <Wrapper>
-        <LinkWrapper>
-          <List>
-            <li>
-              <StyledLink to="/site-map">Site Map</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/terms-and-conditions">
-                Terms & Conditions
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/privacy-policy">Privacy Policy</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/help">Help</StyledLink>
-            </li>
-          </List>
-          <List>
-            <li>
-              <StyledLink to="/our-rentals">Our Rentals</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/guest-concierge">Guest Concierge</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/about">About</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/contact">Contact</StyledLink>
-            </li>
-          </List>
-          <List>
-            <li>
-              <StyledLink to="/faqs">FAQs</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/blog">Blog</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/our-blog">Our Blog</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/press">Press</StyledLink>
-            </li>
-          </List>
-        </LinkWrapper>
-        <Divider />
-        <Img fixed={data.file.childImageSharp.fixed} />
-        <Copyright>
-          © {new Date().getFullYear()} Muskoka District Rentals
-        </Copyright>
-      </Wrapper>
-    </footer>
+    <Wrapper>
+      <LinkWrapper>
+        {links.map(list => (
+          <FooterList links={list} key={list[0]} />
+        ))}
+      </LinkWrapper>
+      <Divider />
+      <Img fixed={data.file.childImageSharp.fixed} />
+      <Copyright>
+        © {new Date().getFullYear()} Muskoka District Rentals
+      </Copyright>
+    </Wrapper>
   )
 }
 
