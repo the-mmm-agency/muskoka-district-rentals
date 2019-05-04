@@ -8,6 +8,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
+        constants: `${__dirname}/src/constants`,
         components: `${__dirname}/src/components`,
         images: `${__dirname}/src/images`,
         pages: `${__dirname}/src/pages`,
