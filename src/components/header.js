@@ -1,4 +1,5 @@
 import React from 'react'
+import Headroom from 'react-headroom'
 import styled from 'styled-components'
 
 import Button from 'components/button'
@@ -8,20 +9,30 @@ import { options as typography } from 'theme/typography'
 
 const StyledButton = styled(Button)`
   text-transform: uppercase;
+  padding: 10px;
+  font-size: 0.85rem;
+  margin: 24px;
+  min-width: 150px;
 `
 
 const StyledLink = styled(Link)`
   color: inherit;
   font-family: ${typography.headerFontFamily.join(',')};
-  font-weight: 500;
+  font-weight: bold;
+  font-style: bold;
   margin: auto;
   text-transform: uppercase;
+  padding: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-items: stretch;
 `
 
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
-  padding: 7px;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -29,8 +40,8 @@ const StyledHeader = styled.header`
   background: #fff;
 `
 
-const Header = () => {
-  return (
+const Header = () => (
+  <Headroom>
     <StyledHeader>
       <Logo />
       <StyledLink to="/cottages">
@@ -52,7 +63,7 @@ const Header = () => {
         Reserve Now
       </StyledButton>
     </StyledHeader>
-  )
-}
+  </Headroom>
+)
 
 export default Header
