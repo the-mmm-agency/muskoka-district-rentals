@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import links from 'constants/footerLinks'
 import FooterList from 'components/footerList'
 import { rhythm } from 'theme/typography'
 
@@ -48,12 +49,6 @@ const Footer = () => {
       }
     }
   `)
-
-  const links = [
-    ['/site-map', '/terms-and-conditions', '/privacy-policy', '/help'],
-    ['/our-rentals', '/guest-concierge', '/about', '/contact'],
-    ['/faqs', '/blog', '/our-blog', '/press'],
-  ]
 
   return (
     <Wrapper>
