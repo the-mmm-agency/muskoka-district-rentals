@@ -10,7 +10,7 @@ import { options as typography } from 'theme/typography'
 const StyledButton = styled(Button)`
   text-transform: uppercase;
   padding: 10px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin: 24px;
   min-width: 150px;
 `
