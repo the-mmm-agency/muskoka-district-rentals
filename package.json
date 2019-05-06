@@ -65,6 +65,7 @@
     "jest-extended": "^0.11.1",
     "jest-styled-components": "^6.3.1",
     "jest-watch-typeahead": "^0.3.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.17.0",
     "react-test-renderer": "^16.8.6",
     "source-map-support": "^0.5.12",
@@ -81,21 +82,21 @@
     "now-build": "npm run build",
     "develop": "gatsby develop",
     "develop:ssl": "gatsby develop --ssl",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.js",
     "lint": "eslint src/**/*.js",
-    "lint:fix": "eslint src/**/*.js --fix",
+    "lint:fix": "npm run lint -- --fix",
     "lint:styles": "stylelint src/**/*.js",
-    "lint:styles:fix": "stylelint src/**/*.js --fix",
+    "lint:styles:fix": "npm run lint:styles -- --fix",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",
-    "test:watch": "jest --watch --verbose",
+    "test:watch": "npm run test -- --watch --verbose",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:e2e:dev": "start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e:run": "start-server-and-test develop http://localhost:8000 cy:run",
     "test:e2e:percy": "percy exec -- npm run test:e2e:run",
-    "validate": "npm run lint && npm run test && npm run test:e2e:percy"
+    "validate": "run-p test:e2e:percy lint test"
   },
   "repository": {
     "type": "git",
@@ -136,7 +137,7 @@
     ],
     "parserOptions": {
       "sourceType": "module",
-      "ecmaFatures": {
+      "ecmaFeatures": {
         "jsx": true
       }
     },
