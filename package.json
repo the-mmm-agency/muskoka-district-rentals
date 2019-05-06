@@ -95,7 +95,7 @@
     "cy:run": "cypress run",
     "test:e2e:dev": "start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e:run": "start-server-and-test develop http://localhost:8000 cy:run",
-    "test:e2e:percy": "percy exec -- npm run test:e2e:run",
+    "test:e2e:percy": "percy exec -t 350 -- npm run test:e2e:run",
     "validate": "run-p test:e2e:percy lint test"
   },
   "repository": {
