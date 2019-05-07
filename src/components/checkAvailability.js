@@ -32,7 +32,7 @@ const StyledButton = styled(Button)`
 
 const Wrapper = styled.div`
   background: white;
-  box-shadow: ${shadows[5]};
+  box-shadow: ${shadows[25]};
   display: flex;
   flex-basis: 25%;
   position: absolute;
