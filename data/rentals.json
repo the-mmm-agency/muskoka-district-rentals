@@ -43,5 +43,35 @@
     "description": "In excepteur incididunt voluptate et ut laboris aute ut.",
     "status": "Available",
     "image": "../src/images/cedar-bluffs.jpg"
+  },
+  {
+    "name": "Big Sound Lakehouse",
+    "startFrom": 2250,
+    "squareFeet": 4173,
+    "property": "House",
+    "sleeps": 12,
+    "beds": 5,
+    "bathrooms": 3,
+    "petFriendly": false,
+    "reviewAvg": 4.8,
+    "reviewCount": 10,
+    "description": "In excepteur incididunt voluptate et ut laboris aute ut.",
+    "status": "Available",
+    "image": "../src/images/big-sound.jpg"
+  },
+  {
+    "name": "Georgian Bay Beach",
+    "startFrom": 2100,
+    "squareFeet": 4173,
+    "property": "House",
+    "sleeps": 12,
+    "beds": 5,
+    "bathrooms": 3,
+    "petFriendly": false,
+    "reviewAvg": 4.8,
+    "reviewCount": 10,
+    "description": "In excepteur incididunt voluptate et ut laboris aute ut.",
+    "status": "Available",
+    "image": "../src/images/our-rentals.jpg"
   }
 ]

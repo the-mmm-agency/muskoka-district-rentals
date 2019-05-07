@@ -19,10 +19,10 @@ const Wrapper = styled(BackgroundImage)`
     filter: brightness(0.5);
   }
   h3 {
-    ${scale(1)}
+    ${scale(0.8)}
     color: #fff;
     letter-spacing: 0.2em;
-    margin-bottom: ${rhythm(4)};
+    margin-bottom: ${rhythm(2)};
   }
   ul {
     display: flex;
