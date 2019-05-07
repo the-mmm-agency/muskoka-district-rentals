@@ -20,6 +20,7 @@ const Hero = styled.section`
   min-height: 100vh;
   max-height: 100vh;
   text-align: center;
+  margin-bottom: 100px;
 `
 
 const About = styled.span`
@@ -27,6 +28,7 @@ const About = styled.span`
   color: ${palette.text.secondary};
   position: relative;
   margin-top: 150px;
+  margin-bottom: 50px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
 `
@@ -36,7 +38,7 @@ const Welcome = styled.div`
   text-align: left;
   flex-direction: column;
   justify-content: center;
-  padding: 10%;
+  padding: 10% 0 10% 10%;
   height: 100%;
   width: 50%;
 `
@@ -45,11 +47,30 @@ const WelcomeAboard = styled.h3`
   ${scale(1)}
 `
 
+const WelcomeAboardBorder = styled.div`
+  border: 2px solid rgba(0, 0, 0, 1);
+  width: 15%;
+  vertical-align: top;
+  text-align: left;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+`
+
+const WelcomeAboardCopy = styled.p`
+  font-size: 14px;
+`
+
+const Author = styled.div`
+  padding-top: 20px;
+  font-size: 15px;
+`
+
 const WelcomeImageContainer = styled.div`
   background-color: ${palette.background.light};
   padding: 8px;
-  height: 500px;
-  width: 400px;
+  height: 400px;
+  width: 300px;
 `
 const WelcomeImage = styled(Img)`
   overflow: hidden;
@@ -161,14 +182,20 @@ const IndexPage = () => {
             <WelcomeImage fluid={data.welcome.childImageSharp.fluid} />
           </WelcomeImageContainer>
           <Welcome>
-            <WelcomeAboard>Welcome Aboard!</WelcomeAboard>
-            <p>
+            <WelcomeAboard>
+              <WelcomeAboardBorder />
+              <span>Welcome Aboard!</span>
+            </WelcomeAboard>
+            <WelcomeAboardCopy>
               Nisi laborum dolore minim qui laborum. Ut incididunt qui ex amet
               aute cupidatat. Ullamco ex nostrud non aliqua eu adipisicing
               proident fugiat non pariatur do aliqua enim. Velit cupidatat id
               veniam labore voluptate ex nulla ut sit anim. Elit mollit est est
               ex ad ut id do ut ea ex.
-            </p>
+            </WelcomeAboardCopy>
+            <Author>
+              <strong>Ross Halloran -</strong> Founder Muskoka District Rentals
+            </Author>
           </Welcome>
         </WelcomeContainer>
       </Hero>
