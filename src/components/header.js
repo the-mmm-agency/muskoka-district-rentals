@@ -38,6 +38,7 @@ const StyledHeader = styled.header`
   z-index: 10;
   text-align: center;
   background: #fff;
+  padding: 20px;
 `
 
 const Header = () => (
