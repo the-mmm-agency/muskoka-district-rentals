@@ -3,10 +3,9 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
-const Wrapper = styled(Link)`
+const Wrapper = styled.div`
   height: auto;
-  min-width: 120px;
-  padding: 10px;
+  min-width: 100px;
 `
 
 const Logo = () => {
@@ -22,7 +21,7 @@ const Logo = () => {
     }
   `)
   return (
-    <Wrapper to="/">
+    <Wrapper>
       <Img
         critical
         fadeIn
