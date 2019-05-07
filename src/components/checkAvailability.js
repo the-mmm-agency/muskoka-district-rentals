@@ -76,6 +76,15 @@ const Header = styled.span`
   font-size: 0.875rem;
   width: 100%;
   text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 15px;
+`
+
+const Day = styled.h1`
+  font-weight: 500;
+  font-size: 3.3rem;
+  vertical-align: baseline;
+  height: 50px;
 `
 
 const CheckAvailability = () => {
@@ -122,9 +131,9 @@ const CheckAvailability = () => {
       <Section>
         <SectionWrapper noBorder>
           <Header>guests</Header>
-          <h1>
+          <Day>
             03 <DownIcon />
-          </h1>
+          </Day>
         </SectionWrapper>
       </Section>
       <Section>
