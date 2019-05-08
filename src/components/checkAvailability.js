@@ -16,7 +16,7 @@ import { options as typography } from 'theme/typography'
 const CheckboxWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: ${rhythm(1)};
+  margin-bottom: ${rhythm(0.5)};
 `
 
 const CheckboxLabel = styled.span`
@@ -28,6 +28,7 @@ const CheckboxLabel = styled.span`
 
 const StyledButton = styled(Button)`
   text-transform: uppercase;
+  margin-bottom: 15px;
 `
 
 const Wrapper = styled.div`
