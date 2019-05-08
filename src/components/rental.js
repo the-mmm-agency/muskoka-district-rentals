@@ -20,6 +20,11 @@ const LineItem = styled.div`
   margin: 10px 0;
   padding-bottom: 10px;
   width: auto;
+  &:after {
+    content: '';
+    display: block;
+    border-bottom: ${props => (props.border ? '1px solid' : 'none')};
+  }
 `
 
 const RentalImg = styled(Img)`

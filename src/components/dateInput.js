@@ -17,7 +17,6 @@ const Day = styled.h1`
   font-size: 3.3rem;
   vertical-align: baseline;
   height: 50px;
-  color: #000;
 `
 
 const Month = styled.h3`

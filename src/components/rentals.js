@@ -31,14 +31,6 @@ const Wrapper = styled(BackgroundImage)`
   }
 `
 
-const ViewAllRentals = styled.a`
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 15px;
-  line-height: 100px;
-`
-
 const Rentals = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -75,7 +67,6 @@ const Rentals = () => {
           />
         ))}
       </ul>
-      <ViewAllRentals href="/cottages">View All Rentals</ViewAllRentals>
     </Wrapper>
   )
 }

@@ -14,11 +14,11 @@ const Call = styled.span`
 const H5 = styled.h5`
   ${scale(1 / 2)}
   color: #fff;
-  margin-bottom: 25px;
+  margin-bottom: calc(-1 * ${rhythm(2 / 3)});
   width: 100%;
 `
 const ContactUs = styled.h3`
-  ${scale(0.8)}
+  ${scale(1)}
   color: #fff;
   width: 100%;
 `
@@ -39,7 +39,7 @@ const Section = styled(BackgroundImage)`
   flex-wrap: wrap;
   min-height: 100vh;
   max-height: 100vh;
-  padding: 10% 20%;
+  padding: 20%;
   text-align: center;
   &::before,
   &::after {

@@ -44,10 +44,7 @@ const Welcome = styled.div`
 `
 
 const WelcomeAboard = styled.h3`
-  ${scale(0.8)}
-  max-width: 250px;
-  line-height: 60px;
-  color: #000;
+  ${scale(1)}
 `
 
 const WelcomeAboardBorder = styled.div`
