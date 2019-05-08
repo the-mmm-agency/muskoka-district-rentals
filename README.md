@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://muskoka-district-rentals-git-develop.brettm12345.now.sh">
-    <img alt="Muskoka District Rentals" src="https://raw.githubusercontent.com/the-mmm-agency/muskoka-district-rentals/develop/src/images/muskoka-icon.png?token=ABZYMRBUCO33Z2575LNUMIS42EJSA" width="200" />
+    <img alt="Muskoka District Rentals" src="../blob/develop/src/images/muskoka-icon.png?raw=true" width="200" />
   </a>
 </p>
 <h1 align="center">
