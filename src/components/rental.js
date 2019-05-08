@@ -16,14 +16,32 @@ const ListItem = styled.li`
   transition: opacity ease 0.3s;
 `
 
+const LineItem = styled.div`
+  margin: 10px 0;
+  padding-bottom: 10px;
+  width: auto;
+  &:after {
+    content: '';
+    display: block;
+    border-bottom: ${props => (props.border ? '1px solid' : 'none')};
+  }
+`
+
+const RentalImg = styled(Img)`
+  width: 180px;
+  height: 130px;
+  position: relative;
+  margin: auto;
+`
+
 const Rental = ({ image, name, startFrom, onMouseOver, selected }) => {
   return (
     <ListItem onMouseOver={onMouseOver} selected={selected}>
-      <span>
-        Starting from <strong>{startFrom}</strong>
-      </span>
-      <Img fluid={image.childImageSharp.fluid} />
-      <span>{name}</span>
+      <LineItem>
+        Starting from $<strong>{startFrom}/night</strong>
+      </LineItem>
+      <RentalImg fluid={image.childImageSharp.fluid} />
+      <LineItem border>{name}</LineItem>
     </ListItem>
   )
 }

@@ -20,7 +20,9 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 const Icon = styled.svg`
   fill: none;
   stroke: white;
-  stroke-width: 2px;
+  stroke-width: 4px;
+  margin-bottom: 2px;
+  transform: scale(0.8);
 `
 
 const StyledCheckbox = styled.div`
@@ -28,11 +30,11 @@ const StyledCheckbox = styled.div`
     box-shadow: 0 0 0 3px ${palette.primary};
   }
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   margin-top: 0.5em;
-  background: ${props =>
-    props.checked ? palette.primary : 'rgba(0,0,0, 0.2)'};
+  background: ${props => (props.checked ? palette.primary : 'transparent')};
+  border: 1px solid ${palette.primary};
   border-radius: 3px;
   transition: ${transitions.create(['background'], {
     duration: transitions.duration.shortest,

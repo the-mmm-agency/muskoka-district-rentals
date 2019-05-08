@@ -9,10 +9,9 @@ import { options as typography } from 'theme/typography'
 
 const StyledButton = styled(Button)`
   text-transform: uppercase;
-  padding: 10px;
-  font-size: 0.85rem;
+  padding: 10px 30px;
+  font-size: 0.8rem;
   margin: 24px;
-  min-width: 150px;
 `
 
 const StyledLink = styled(Link)`
@@ -22,12 +21,15 @@ const StyledLink = styled(Link)`
   font-style: bold;
   margin: auto;
   text-transform: uppercase;
-  padding: 20px;
+  padding: 10px;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
   flex-direction: row;
   align-items: stretch;
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
 `
 
 const StyledHeader = styled.header`
@@ -38,12 +40,15 @@ const StyledHeader = styled.header`
   z-index: 10;
   text-align: center;
   background: #fff;
+  padding: 10px;
 `
 
 const Header = () => (
   <Headroom>
     <StyledHeader>
-      <Logo />
+      <StyledLink to="/">
+        <Logo />
+      </StyledLink>
       <StyledLink to="/cottages">
         <span>Cottages</span>
       </StyledLink>

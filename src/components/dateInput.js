@@ -14,12 +14,16 @@ const Wrapper = styled.span`
 
 const Day = styled.h1`
   font-weight: 500;
+  font-size: 3.3rem;
   vertical-align: baseline;
+  height: 50px;
 `
 
 const Month = styled.h3`
   font-weight: 400;
+  font-size: 1.3rem;
   vertical-align: baseline;
+  min-width: 60px;
 `
 
 const DateInput = ({ onClick, value }) => (
