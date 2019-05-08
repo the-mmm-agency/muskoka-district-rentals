@@ -11,7 +11,8 @@
     "reviewAvg": 4.8,
     "reviewCount": 10,
     "image": "../src/images/muskoka-family-fun.jpg",
-    "status": "Available",
+    "status": "Unavailable",
+    "address": "Port Carling, ON",
     "description": "In excepteur incididunt voluptate et ut laboris aute ut."
   },
   {
@@ -27,6 +28,7 @@
     "reviewCount": 10,
     "description": "In excepteur incididunt voluptate et ut laboris aute ut.",
     "status": "Available",
+    "address": "Port Carling, ON",
     "image": "../src/images/helmlock-lakehouse.jpg"
   },
   {
@@ -42,6 +44,7 @@
     "reviewCount": 10,
     "description": "In excepteur incididunt voluptate et ut laboris aute ut.",
     "status": "Available",
+    "address": "Port Carling, ON",
     "image": "../src/images/cedar-bluffs.jpg"
   },
   {
@@ -53,10 +56,11 @@
     "beds": 5,
     "bathrooms": 3,
     "petFriendly": false,
-    "reviewAvg": 4.8,
+    "reviewAvg": 2.8,
     "reviewCount": 10,
     "description": "In excepteur incididunt voluptate et ut laboris aute ut.",
     "status": "Available",
+    "address": "Port Carling, ON",
     "image": "../src/images/big-sound.jpg"
   },
   {
@@ -72,6 +76,7 @@
     "reviewCount": 10,
     "description": "In excepteur incididunt voluptate et ut laboris aute ut.",
     "status": "Available",
+    "address": "Port Carling, ON",
     "image": "../src/images/our-rentals.jpg"
   }
 ]
