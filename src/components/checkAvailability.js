@@ -49,7 +49,7 @@ const DatePickerWrapper = styled.div`
   display: flex;
   flex-wrap: nowrap;
   position: absolute;
-  min-width: 50%;
+  min-width: 60%;
 `
 
 const Section = styled.div`
