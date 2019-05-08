@@ -10,13 +10,15 @@ import palette from 'theme/palette'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: ${props => (props.reverse ? 'row' : 'row-reverse')};
-  margin: ${rhythm(2)};
+  margin: 5rem ${rhythm(2)};
 `
 
 const Box = styled.div`
   border: 1px solid #1e1e1e;
-  padding: ${rhythm(2)};
+  padding: ${rhythm(1)};
   margin: ${rhythm(4)};
+  margin-top: 0;
+  max-height: 350px;
 `
 
 const Rating = styled.div`
@@ -117,7 +119,6 @@ const Cottage = ({
   sleeps,
   beds,
   bathrooms,
-  isAvailable,
   petFriendly,
   image,
   number,
@@ -147,7 +148,7 @@ const Cottage = ({
       <Properties>
         <li>
           Status:{' '}
-          {isAvailable ? (
+          {status === 'Available' ? (
             <SecondaryText>Available</SecondaryText>
           ) : (
             'Unavailable'

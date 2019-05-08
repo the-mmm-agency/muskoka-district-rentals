@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import CheckAvailability from 'components/checkAvailability'
+import Button from 'components/button'
 import Cottage from 'components/cottage'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
@@ -25,6 +26,17 @@ const Image = styled(BackgroundImage)`
   &::after {
     filter: brightness(0.4);
   }
+`
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-bottom: 100px;
+`
+
+const StyledButton = styled(Button)`
+  text-transform: uppercase;
+  margin-bottom: 15px;
 `
 
 const Cottages = () => {
@@ -75,6 +87,9 @@ const Cottages = () => {
           <Cottage {...rental} number={index} />
         ))}
       </List>
+      <ButtonWrapper>
+        <StyledButton font="serif">See More Rentals</StyledButton>
+      </ButtonWrapper>
     </Layout>
   )
 }
