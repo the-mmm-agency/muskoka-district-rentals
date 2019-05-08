@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
   height: auto;
   min-width: 100px;
 `
