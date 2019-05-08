@@ -70,6 +70,33 @@ const GuestServices = () => {
     }
   `)
 
+  const guestServices = [
+    {
+      image: 'https:/placehold.it/75x75',
+      name: 'Travel Insurance',
+      body: `Veniam consectetur exercitation exercitation laboris fugiat irure
+      fugiat exercitation ullamco ad Lorem.`,
+    },
+    {
+      image: 'https:/placehold.it/75x75',
+      name: 'Guest Concierge',
+      body: `Veniam consectetur exercitation exercitation laboris fugiat irure
+      fugiat exercitation ullamco ad Lorem.`,
+    },
+    {
+      image: 'https:/placehold.it/75x75',
+      name: 'Vacation Property Searches',
+      body: `Veniam consectetur exercitation exercitation laboris fugiat irure
+      fugiat exercitation ullamco ad Lorem.`,
+    },
+    {
+      image: 'https:/placehold.it/75x75',
+      name: 'Guest Pre-approval Registration',
+      body: `Veniam consectetur exercitation exercitation laboris fugiat irure
+      fugiat exercitation ullamco ad Lorem.`,
+    },
+  ]
+
   return (
     <Layout>
       <SEO title="Guest Services" />
@@ -79,54 +106,17 @@ const GuestServices = () => {
         <SecondaryHeader>
           Reserve your vacation rental with MDR.
         </SecondaryHeader>
-        <LineItem>
-          <ItemWrapper>
-            <ItemIcon src="https:/placehold.it/75x75" />
-          </ItemWrapper>
-          <ItemWrapper>
-            <ItemHeader>Guest Pre-approval Registration</ItemHeader>
-            <ItemBody>
-              Veniam consectetur exercitation exercitation laboris fugiat irure
-              in fugiat exercitation ullamco ad Lorem.
-            </ItemBody>
-          </ItemWrapper>
-        </LineItem>
-        <LineItem>
-          <ItemWrapper>
-            <ItemIcon src="https:/placehold.it/75x75" />
-          </ItemWrapper>
-          <ItemWrapper>
-            <ItemHeader>Vacation Property Searches</ItemHeader>
-            <ItemBody>
-              Veniam consectetur exercitation exercitation laboris fugiat irure
-              fugiat exercitation ullamco ad Lorem.
-            </ItemBody>
-          </ItemWrapper>
-        </LineItem>
-        <LineItem>
-          <ItemWrapper>
-            <ItemIcon src="https:/placehold.it/75x75" />
-          </ItemWrapper>
-          <ItemWrapper>
-            <ItemHeader>Guest Concierge</ItemHeader>
-            <ItemBody>
-              Veniam consectetur exercitation exercitation laboris fugiat irure
-              fugiat exercitation ullamco ad Lorem.
-            </ItemBody>
-          </ItemWrapper>
-        </LineItem>
-        <LineItem>
-          <ItemWrapper>
-            <ItemIcon src="https:/placehold.it/75x75" />
-          </ItemWrapper>
-          <ItemWrapper>
-            <ItemHeader>Travel Insurance</ItemHeader>
-            <ItemBody>
-              Veniam consectetur exercitation exercitation laboris fugiat irure
-              fugiat exercitation ullamco ad Lorem.
-            </ItemBody>
-          </ItemWrapper>
-        </LineItem>
+        {guestServices.map(service => (
+          <LineItem>
+            <ItemWrapper>
+              <ItemIcon src={service.image} />
+            </ItemWrapper>
+            <ItemWrapper>
+              <ItemHeader>{service.name}</ItemHeader>
+              <ItemBody>{service.body}</ItemBody>
+            </ItemWrapper>
+          </LineItem>
+        ))}
       </Wrapper>
     </Layout>
   )
