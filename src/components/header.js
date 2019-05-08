@@ -6,6 +6,7 @@ import Button from 'components/button'
 import Link from 'components/link'
 import Logo from 'components/logo'
 import { options as typography } from 'theme/typography'
+import transitions from 'theme/transitions'
 
 const StyledButton = styled(Button)`
   text-transform: uppercase;
@@ -27,6 +28,7 @@ const StyledLink = styled(Link)`
   align-items: center;
   flex-direction: row;
   align-items: stretch;
+  transition: ${transitions.create('background')};
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
