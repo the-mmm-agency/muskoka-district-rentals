@@ -55,6 +55,9 @@ const Header = () => (
       <StyledLink to="/guest-services">
         <span>Guest Services</span>
       </StyledLink>
+      <StyledLink to="/about-us">
+        <span>About Us</span>
+      </StyledLink>
       <StyledLink to="/rent-your-cottage">
         <span>Rent your cottage</span>
       </StyledLink>
