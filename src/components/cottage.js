@@ -10,31 +10,46 @@ import palette from 'theme/palette'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: ${props => (props.reverse ? 'row' : 'row-reverse')};
-  margin: ${rhythm(2)};
+  margin: 5rem ${rhythm(2)};
 `
 
 const Box = styled.div`
   border: 1px solid #1e1e1e;
-  padding: ${rhythm(2)};
+  padding: ${rhythm(1)};
   margin: ${rhythm(4)};
+  margin-top: 0;
+  max-height: 350px;
 `
 
 const Rating = styled.div`
   margin: ${rhythm(1)} 0;
+  margin-top: 0;
 `
+
+const RatingText = styled.div`
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 14px;
+  vertical-align: text-bottom;
+`
+
 const H2 = styled.h2`
   width: 100%;
+  color: #000;
+  ${scale(0.8)}
 `
 
 const Info = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: ${rhythm(2)};
+  padding-top: 0;
   width: 33%;
 `
 
 const PrimaryText = styled.span`
   color: ${palette.text.primary};
+  font-weight: 500;
 `
 
 const SecondaryText = styled.span`
@@ -48,6 +63,15 @@ const Image = styled(Img)`
 const Properties = styled.ul`
   color: ${palette.text.secondary};
   list-style: none;
+  margin-left: 0;
+`
+
+const ViewDetails = styled.a`
+  width: 100%;
+  text-align: left;
+  color: #000;
+  font-size: 14px;
+  text-decoration: none;
 `
 
 const UprightText = styled.span`
@@ -56,16 +80,25 @@ const UprightText = styled.span`
 `
 
 const StartFrom = styled.span`
-  ${scale(1 / 2)};
+  ${scale(0.1)};
   color: ${palette.text.secondary};
+  padding-top: 15px;
 `
 const Price = styled.span`
   font-weight: 500;
-  ${scale(3 / 4)}
+  ${scale(0.4)}
+  line-height: 1.875;
+  min-width: 90px;
+  text-align: center;
 `
 
 const Night = styled.span`
-  ${scale(1 / 2)};
+  ${scale(0.1)};
+  padding-top: 15px;
+`
+
+const Description = styled.p`
+  margin-top: 20px;
 `
 
 const StyledNumber = styled(Number)`
@@ -86,7 +119,6 @@ const Cottage = ({
   sleeps,
   beds,
   bathrooms,
-  isAvailable,
   petFriendly,
   image,
   number,
@@ -106,17 +138,17 @@ const Cottage = ({
           starDimension="20px"
           name="rating"
         />{' '}
-        {reviewCount} reviews
+        <RatingText>{reviewCount} reviews</RatingText>
       </Rating>
       <H2>{name}</H2>
       <StartFrom>Start from: </StartFrom>
       <Price>{' $' + startFrom}</Price>
       <Night>/Night</Night>
-      <p>{description}</p>
+      <Description>{description}</Description>
       <Properties>
         <li>
           Status:{' '}
-          {isAvailable ? (
+          {status === 'Available' ? (
             <SecondaryText>Available</SecondaryText>
           ) : (
             'Unavailable'
@@ -141,6 +173,7 @@ const Cottage = ({
           Pet Friendly: <PrimaryText>{petFriendly ? 'Yes' : 'No'}</PrimaryText>
         </li>
       </Properties>
+      <ViewDetails href="/">View Detail &nbsp;&rsaquo;</ViewDetails>
     </Info>
     <Image fluid={image.childImageSharp.fluid} />
   </Wrapper>
