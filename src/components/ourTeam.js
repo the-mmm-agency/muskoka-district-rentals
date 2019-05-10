@@ -1,97 +1,124 @@
-import React, { useState } from 'react'
+import React, { memo, useMemo, useState } from 'react'
+import posed, { PoseGroup } from 'react-pose'
 import { useStaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import Img from 'gatsby-image'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
+import MemberInfo from 'components/memberInfo'
 import RightIcon from 'components/rightIcon'
-import { rhythm, options as typography } from 'theme/typography'
+import palette from 'theme/palette'
+import { rhythm } from 'theme/typography'
 import transitions from 'theme/transitions'
 
 const Wrapper = styled.section`
-  &::before {
-    background-color: ${props => props.color};
-    height: 80%;
-  }
-  transition: ${(transitions.create('background-color'),
+  background: linear-gradient(180deg, ${props => props.color} 80%, white 20%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  transition: ${(transitions.create('background'),
   {
     duration: transitions.duration.enteringScreen,
     easing: transitions.easing.easeInOut,
   })};
   h2 {
+    color: white;
     padding-top: ${rhythm(4)};
+    margin-bottom: ${rhythm(4)};
     text-align: center;
     text-transform: uppercase;
   }
 `
-
-const Name = styled.div`
-  padding-left: ${rhythm(2)};
-  width: 100%;
-  h6 {
-    font-family: ${typography.bodyFontFamily};
-    font-weight: 400;
-  }
-  span {
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-`
-const Info = styled.div`
-  padding-left: 30%;
-`
 const InfoWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 `
-const Bio = styled.div`
-  background-color: #fff;
-  width: 20vh;
+
+const Picture = styled(Img)`
+  object-fit: contain;
+  flex-grow: 1;
+  height: calc(80vh - ${rhythm(5)} - 4px);
 `
 
 const NextButton = styled.div`
   &:hover {
     background-color: rgba(0, 0, 0, 0.24);
   }
+  align-items: center;
+  background-color: ${palette.background.dark};
   cursor: pointer;
-  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  transition: ${transitions.create('background-color', {
+    duration: transitions.duration.complex,
+    easing: transitions.easing.sharp,
+  })};
   width: 25%;
 `
-const Picture = styled(Img)`
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
+
+const TeamWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 `
 
 const Team = styled.div`
   display: flex;
-  flex-basis: 25%;
-  flex-direction: column;
-  margin-top: auto;
-  height: 20%;
+  min-height: 20%;
+  width: 100%;
+`
+
+const StyledPose = styled(PoseGroup)`
+  display: flex;
+  list-style: none;
+  margin: 0;
+  width: 75%;
+`
+
+const PosedTeamMember = posed.li({
+  enter: { opacity: 1, x: 0 },
+  exit: {
+    x: ({ selectedItemId, id }) => (id === selectedItemId ? 100 : -100),
+  },
+})
+
+const TeamMemberWrapper = styled(PosedTeamMember)`
+  width: calc(100% / 3);
 `
 
 const TeamMember = styled(BackgroundImage)`
-  span {
-    &:hover {
-      opacity: 100;
-    }
-    opacity: 80;
-    font-weight: 500;
-    padding: 10% 40%;
-    transform: ${transitions.create('opacity', {
-      duration: transitions.duration.complex,
-      easing: transitions.easing.sharp,
-    })};
-    text-align: center;
-    text-transform: uppercase;
-    width: 25%;
+  &::before,
+  &::after {
+    filter: grayscale(50%);
   }
+  &:hover {
+    opacity: 1;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: ${transitions.create('opacity', {
+    duration: transitions.duration.complex,
+    easing: transitions.easing.sharp,
+  })};
+  opacity: 1;
+  span {
+    font-weight: 600;
+    margin: auto;
+    text-transform: uppercase;
+  }
+  height: 100%;
+  width: 100%;
 `
 
-const OurTeam = () => {
+const OurTeam = memo(() => {
   const [selected, setSelected] = useState(0)
-  const { nodes: team } = useStaticQuery(graphql`
+  const [transitioning, setTransitioning] = useState(false)
+  const colors = ['#323e50', '#23547e', '#232b38', '#183b58']
+  const data = useStaticQuery(graphql`
     query {
       team: allTeamJson {
         nodes {
@@ -111,38 +138,62 @@ const OurTeam = () => {
     }
   `)
   const handleClick = () => {
-    if (selected === team.length) {
-      setSelected(0)
-    } else {
-      setSelected(selected + 1)
-    }
+    setTransitioning(true)
+
+    setTimeout(() => {
+      if (selected === data.team.nodes.length - 1) {
+        setSelected(0)
+      } else {
+        setSelected(selected + 1)
+      }
+      setTransitioning(false)
+    }, 500)
   }
+  const color = useMemo(() => colors[selected], [colors, selected])
+  const members = useMemo(
+    () =>
+      data.team.nodes
+        .slice(selected + 1, 3)
+        .concat(data.team.nodes.slice(0, selected)),
+    [data.team.nodes, selected]
+  )
+  const team = data.team.nodes
   return (
-    <Wrapper>
+    <Wrapper color={color}>
       <h2>Our Team</h2>
       <InfoWrapper>
-        <Info>
-          <Name>
-            <h6>{team[selected].name}</h6>
-            <span>{team[selected].title}</span>
-          </Name>
-          <Bio>{team[selected].bio}</Bio>
-        </Info>
-        <Picture fluid={team[selected].picture.childImageSharp.fluid} />
+        <MemberInfo
+          key={team[selected].id}
+          name={team[selected].name}
+          bio={team[selected].bio}
+          title={team[selected].title}
+          selected={!transitioning}
+        />
+        <TeamWrapper>
+          <Picture fluid={team[selected].picture.childImageSharp.fluid} />
+          <Team>
+            <StyledPose selectedItemId={team[selected].id}>
+              {members.map((member, index) => (
+                <TeamMemberWrapper key={member.id} id={member.id}>
+                  <TeamMember
+                    key={member.id}
+                    fluid={member.picture.childImageSharp.fluid}
+                    backgroundColor={colors[index]}
+                    tag="li"
+                  >
+                    <span>{member.name}</span>
+                  </TeamMember>
+                </TeamMemberWrapper>
+              ))}
+            </StyledPose>
+            <NextButton onClick={handleClick}>
+              <RightIcon />
+            </NextButton>
+          </Team>
+        </TeamWrapper>
       </InfoWrapper>
-      <Team>
-        {team.slice(selected + 1, selected + 4).map(member => (
-          <TeamMember
-            key={member.id}
-            fluid={member.picture.childImageSharp.fluid}
-          >
-            <span>{member.name}</span>
-          </TeamMember>
-        ))}
-        <NextButton onClick={handleClick}>
-          <RightIcon />
-        </NextButton>
-      </Team>
     </Wrapper>
   )
-}
+})
+
+export default OurTeam

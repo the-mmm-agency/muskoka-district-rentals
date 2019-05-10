@@ -2,11 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import palette from 'theme/palette'
-import { rhythm } from 'theme/typography'
 
 const Icon = styled.svg`
   align-self: center;
-  margin-left: ${rhythm(1)};
   fill: ${palette.text.primary};
   height: 50px;
   width: 50px;
