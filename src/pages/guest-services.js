@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 
 import Layout from 'components/layout'
@@ -43,7 +44,7 @@ const ItemWrapper = styled.div`
   }
 `
 
-const ItemIcon = styled.img`
+const ItemIcon = styled(Img)`
   border-radius: 8px;
 `
 
@@ -60,56 +61,42 @@ const ItemBody = styled.p`
 const GuestServices = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "guest-services.jpg" }) {
+      header: file(relativePath: { eq: "guest-services.jpg" }) {
         childImageSharp {
           fluid(quality: 80, maxHeight: 400) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
+      guestServices: allGuestServicesJson {
+        nodes {
+          id
+          name
+          image {
+            childImageSharp {
+              fixed(width: 75, height: 75) {
+                ...GatsbyImageSharpFixed_withWebp
+              }
+            }
+          }
+        }
+      }
     }
   `)
-
-  const guestServices = [
-    {
-      image: 'https:/placehold.it/75x75',
-      name: 'Travel Insurance',
-      body: `Veniam consectetur exercitation exercitation laboris fugiat irure
-      fugiat exercitation ullamco ad Lorem.`,
-    },
-    {
-      image: 'https:/placehold.it/75x75',
-      name: 'Guest Concierge',
-      body: `Veniam consectetur exercitation exercitation laboris fugiat irure
-      fugiat exercitation ullamco ad Lorem.`,
-    },
-    {
-      image: 'https:/placehold.it/75x75',
-      name: 'Vacation Property Searches',
-      body: `Veniam consectetur exercitation exercitation laboris fugiat irure
-      fugiat exercitation ullamco ad Lorem.`,
-    },
-    {
-      image: 'https:/placehold.it/75x75',
-      name: 'Guest Pre-approval Registration',
-      body: `Veniam consectetur exercitation exercitation laboris fugiat irure
-      fugiat exercitation ullamco ad Lorem.`,
-    },
-  ]
 
   return (
     <Layout>
       <SEO title="Guest Services" />
-      <Image fluid={data.file.childImageSharp.fluid} Tag="section" />
+      <Image fluid={data.header.childImageSharp.fluid} Tag="section" />
       <Wrapper>
         <Header>Guest Services</Header>
         <SecondaryHeader>
           Reserve your vacation rental with MDR.
         </SecondaryHeader>
-        {guestServices.map(service => (
-          <LineItem>
+        {data.guestServices.nodes.map(service => (
+          <LineItem key={service.id}>
             <ItemWrapper>
-              <ItemIcon src={service.image} />
+              <ItemIcon fixed={service.image.childImageSharp.fixed} />
             </ItemWrapper>
             <ItemWrapper>
               <ItemHeader>{service.name}</ItemHeader>
