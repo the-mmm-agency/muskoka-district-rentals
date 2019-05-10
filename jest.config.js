@@ -15,7 +15,7 @@ module.exports = {
   },
   setupFilesAfterEnv: ['<rootDir>/test/__setup__/setupTests.js'],
   testRegex: '/test/.*?\\.(test|spec)\\.js$',
-  testURL: `http://localhost:8000`,
+  testURL: `http://localhost`,
   setupFiles: [`<rootDir>/test/__setup__/loadershim.js`],
   watchPlugins: [
     'jest-watch-typeahead/filename',
