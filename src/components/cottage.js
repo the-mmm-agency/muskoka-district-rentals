@@ -9,9 +9,10 @@ import { scale, rhythm } from 'theme/typography'
 import palette from 'theme/palette'
 
 const Wrapper = styled.div`
+  background: ${palette.background.default};
   display: flex;
   flex-direction: ${properties => (properties.reverse ? 'row' : 'row-reverse')};
-  margin: 5rem ${rhythm(2)};
+  margin: 5rem 0;
 `
 
 const Box = styled.div`
@@ -30,8 +31,9 @@ const Rating = styled.div`
 const RatingText = styled.div`
   display: inline-block;
   margin-left: 10px;
-  font-size: 14px;
-  vertical-align: text-bottom;
+  margin-top: 1px;
+  font-weight: 500;
+  font-size: 16px;
 `
 
 const H2 = styled.h2`
@@ -58,19 +60,20 @@ const SecondaryText = styled.span`
 `
 
 const Image = styled(Img)`
-  width: 33%;
+  width: 40%;
 `
 
 const Properties = styled.ul`
   color: ${palette.text.secondary};
+  font-weight: 500;
   margin-left: 0;
 `
 
 const ViewDetails = styled.a`
   width: 100%;
   text-align: left;
-  color: #000;
-  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
   text-decoration: none;
 `
 
@@ -80,20 +83,22 @@ const UprightText = styled.span`
 `
 
 const StartFrom = styled.span`
-  ${scale(0.1)};
+  ${scale(1 / 10)};
   color: ${palette.text.secondary};
+  font-weight: 500;
   padding-top: 15px;
 `
 const Price = styled.span`
+  ${scale(2 / 3)}
   font-weight: 500;
-  ${scale(0.4)}
-  line-height: 1.875;
+  margin: 0 ${rhythm(1 / 4)};
   min-width: 90px;
   text-align: center;
 `
 
 const Night = styled.span`
-  ${scale(0.1)};
+  ${scale(1 / 10)};
+  font-weight: 500;
   padding-top: 15px;
 `
 
@@ -141,7 +146,7 @@ const Cottage = ({
         <RatingText>{reviewCount} reviews</RatingText>
       </Rating>
       <H2>{name}</H2>
-      <StartFrom>Start from: </StartFrom>
+      <StartFrom>Start from </StartFrom>
       <Price>{' $' + startFrom}</Price>
       <Night>/Night</Night>
       <Description>{description}</Description>

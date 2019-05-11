@@ -29,7 +29,7 @@ const Info = styled.div`
   width: 50%;
 `
 const Bio = styled.div`
-  ${scale(1 / 6)};
+  ${scale(1 / 4)};
   background-color: white;
   color: ${palette.text.primary};
   margin-left: ${rhythm(2)};
