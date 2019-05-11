@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { opacify } from 'polished'
+import { rgba } from 'polished'
 import { switchProp } from 'styled-tools'
 
 import palette from 'theme/palette'
@@ -57,7 +57,7 @@ const StyledButton = styled.button`
     `,
     outlined: css`
       background: transparent;
-      border: 1px solid ${props => opacify(0.5, palette[props.color])};
+      border: 1px solid ${(props => rgba(palette[props.color]), 0.5)};
       color: ${palette.text.primary};
     `,
     transparent: css`

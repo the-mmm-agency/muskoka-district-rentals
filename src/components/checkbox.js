@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { rgba } from 'polished'
 
 import palette from 'theme/palette'
-import transitions, { duration } from 'theme/transitions'
+import transitions from 'theme/transitions'
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
@@ -27,19 +28,17 @@ const Icon = styled.svg`
 `
 
 const StyledCheckbox = styled.div`
-  &:focus {
-    box-shadow: 0 0 0 3px ${palette.primary};
-  }
   display: inline-block;
   width: 18px;
   height: 18px;
   margin-top: 0.5em;
   background: ${props => (props.checked ? palette.primary : 'transparent')};
   border: 1px solid ${palette.primary};
-  border-radius: 3px;
-  transition: ${transitions.create(['background'], {
-    duration: duration.shortest,
-  })};
+  border-radius: 2px;
+  transition: ${transitions.create(['background', 'box-shadow'])};
+  ${HiddenCheckbox}:hover + & {
+    box-shadow: 0 0 0 3px ${rgba(palette.primary, 0.2)};
+  }
   ${Icon} {
     visibility: ${props => (props.checked ? 'visible' : 'hidden')};
   }

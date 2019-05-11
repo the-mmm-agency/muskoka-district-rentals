@@ -62,11 +62,12 @@ const Info = styled.div`
     margin-top: 20px;
   }
   display: flex;
+  flex-shrink: 0;
   flex-wrap: wrap;
   justify-content: inherit;
   padding: ${rhythm(2)};
   padding-top: 0;
-  width: 33%;
+  width: calc(100% / 3);
 `
 
 const ViewDetail = styled(Button)`

@@ -17,8 +17,7 @@ const Hero = styled.section`
   justify-content: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 100vh;
   text-align: center;
   margin-bottom: 100px;
 `
@@ -97,8 +96,7 @@ const FirstSection = styled(BackgroundImage)`
   justify-content: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 100vh;
   text-align: center;
   &::before,
   &::after {
