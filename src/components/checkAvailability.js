@@ -66,7 +66,7 @@ const Section = styled.div`
 
 const SectionWrapper = styled.div`
   border-right: ${properties =>
-    properties.noBorder ? 'none' : `1px solid ${palette.text.secondary}`};
+    properties.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1)`};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
