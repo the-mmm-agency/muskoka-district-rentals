@@ -9,7 +9,7 @@ exports[`it matches the snapshot 1`] = `
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 0px;
+  border-radius: 2px;
   cursor: pointer;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;

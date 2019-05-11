@@ -27,6 +27,7 @@
   "rules": {
     "jsx-a11y/label-has-associated-control": "off",
     "prettier/prettier": "error",
+    "react/prefer-stateless-function": "warn",
     "react/sort-prop-types": "error",
     "unicorn/filename-case": ["error", { "case": "camelCase" }],
     "unicorn/prevent-abbreviations": "off"
