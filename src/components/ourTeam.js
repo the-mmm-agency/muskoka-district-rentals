@@ -43,7 +43,7 @@ const InfoWrapper = styled.div`
 `
 
 const Picture = styled(Img)`
-  min-height: 100%;
+  height: 60vh;
   width: 100%;
 `
 
@@ -121,7 +121,7 @@ const TeamMember = styled(BackgroundImage)`
 
 const OurTeam = () => {
   const [transitioning, setTransitioning] = useState(false)
-  const selected = useNumber(0, { lowerLimit: 0, upperLimit: 3, loop: true })
+  const selected = useNumber(0, { lowerLimit: 0, upperLimit: 2, loop: true })
   const colors = ['#323e50', '#23547e', '#232b38', '#183b58']
   const data = useStaticQuery(graphql`
     query {
@@ -149,12 +149,12 @@ const OurTeam = () => {
       setTransitioning(false)
     }, 500)
   }
-  const color = useMemo(() => colors[selected], [colors, selected])
+  const color = useMemo(() => colors[selected.value], [colors, selected])
   const members = useMemo(
     () =>
       data.team.nodes
-        .slice(selected + 1, 3)
-        .concat(data.team.nodes.slice(0, selected)),
+        .slice(selected.value + 1, 3)
+        .concat(data.team.nodes.slice(0, selected.value)),
     [data.team.nodes, selected]
   )
   const team = data.team.nodes
@@ -163,19 +163,19 @@ const OurTeam = () => {
       <h2>Our Team</h2>
       <InfoWrapper>
         <MemberInfo
-          key={team[selected].id}
-          name={team[selected].name}
-          bio={team[selected].bio}
-          title={team[selected].title}
+          key={team[selected.value].id}
+          name={team[selected.value].name}
+          bio={team[selected.value].bio}
+          title={team[selected.value].title}
           selected={!transitioning}
         />
         <TeamWrapper>
           <Picture
-            fluid={team[selected].picture.childImageSharp.fluid}
+            fluid={team[selected.value].picture.childImageSharp.fluid}
             objectFit="contain"
           />
           <Team>
-            <StyledPose selectedItemId={team[selected].id}>
+            <StyledPose selectedItemId={team[selected.value].id}>
               {members.map((member, index) => (
                 <TeamMemberWrapper key={member.id} id={member.id}>
                   <TeamMember
