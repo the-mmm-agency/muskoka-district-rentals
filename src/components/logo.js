@@ -5,6 +5,8 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 
 const Wrapper = styled(Link)`
   height: auto;
+  padding: 2px;
+  margin-left: 16px;
   min-width: 70px;
 `
 
