@@ -5,16 +5,9 @@
     "stylelint-config-styled-components",
     "stylelint-prettier/recommended"
   ],
-  "plugins": ["stylelint-order"],
+  "plugins": ["stylelint-order", "stylelint-config-rational-order/plugin"],
   "rules": {
-    "order/order": [
-      "custom-properties",
-      "dollar-variables",
-      "at-variables",
-      "declarations",
-      "rules",
-      "at-rules"
-    ],
-    "order/properties-alphabetical-order": true
+    "order/order": [],
+    "plugin/rational-order": true
   }
 }
