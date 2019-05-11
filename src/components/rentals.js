@@ -19,9 +19,8 @@ const Wrapper = styled(BackgroundImage)`
     filter: brightness(0.5);
   }
   h3 {
-    ${scale(0.8)}
-    color: #fff;
-    letter-spacing: 0.2em;
+    ${scale(1)}
+    color: white;
     margin-bottom: ${rhythm(2)};
   }
   ul {
@@ -33,7 +32,7 @@ const Wrapper = styled(BackgroundImage)`
 const ViewAllRentals = styled.a`
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: white;
   font-size: 15px;
   line-height: 100px;
 `

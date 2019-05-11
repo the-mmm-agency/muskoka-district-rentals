@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Link from 'components/link'
+import transitions from 'theme/transitions'
 import { options as typography } from 'theme/typography'
 
 const StyledLink = styled(Link)`
@@ -18,6 +19,7 @@ const StyledLink = styled(Link)`
   align-items: center;
   flex-direction: row;
   align-items: stretch;
+  transition: ${transitions.create('background')};
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }

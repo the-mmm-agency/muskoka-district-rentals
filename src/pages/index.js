@@ -47,11 +47,11 @@ const WelcomeAboard = styled.h3`
   ${scale(0.8)}
   max-width: 250px;
   line-height: 60px;
-  color: #000;
+  color: black;
 `
 
 const WelcomeAboardBorder = styled.div`
-  border: 2px solid rgba(0, 0, 0, 1);
+  border-top: 2px solid rgba(0, 0, 0, 1);
   width: 15%;
   vertical-align: top;
   text-align: left;
@@ -108,7 +108,7 @@ const FirstSection = styled(BackgroundImage)`
 
 const Message = styled.span`
   ${scale(0.3 / 3)}
-  color: #ffffff;
+  color: white;
   margin-bottom: ${rhythm(1.5)};
   font-weight: 500;
   position: relative;
@@ -122,7 +122,7 @@ const WelcomeMessage = styled(Message)`
 `
 
 const Header = styled.h1`
-  color: #ffffff;
+  color: white;
   margin-bottom: ${rhythm(1.5)};
   text-transform: uppercase;
   position: relative;

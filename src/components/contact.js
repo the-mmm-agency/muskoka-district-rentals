@@ -3,35 +3,11 @@ import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { scale, rhythm } from 'theme/typography'
-
-const Call = styled.span`
-  margin-top: ${rhythm(1 / 2)};
-  font-weight: 700;
-  opacity: 0.4;
-  width: 100%;
-`
-const H5 = styled.h5`
-  ${scale(1 / 2)}
-  color: #fff;
-  margin-bottom: 25px;
-  width: 100%;
-`
-const ContactUs = styled.h3`
-  ${scale(0.8)}
-  color: #fff;
-  width: 100%;
-`
-
-const H4 = styled.h4`
-  ${scale(3 / 4)}
-  color: #fff;
-  width: 100%;
-`
+import { scale } from 'theme/typography'
 
 const Section = styled(BackgroundImage)`
   align-items: center;
-  color: #fff;
+  color: white;
   justify-content: center;
   display: flex;
   flex-direction: row;
@@ -44,6 +20,33 @@ const Section = styled(BackgroundImage)`
   &::before,
   &::after {
     filter: brightness(0.5);
+  }
+  p {
+    margin-bottom: auto;
+  }
+  span {
+    margin-top: auto;
+    font-weight: 700;
+    opacity: 0.4;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  h3 {
+    ${scale(1)}
+    color: white;
+    width: 100%;
+  }
+  h4 {
+    ${scale(3 / 4)}
+    color: white;
+    margin-bottom: auto;
+    width: 100%;
+  }
+  h5 {
+    ${scale(1 / 2)}
+    color: white;
+    margin-top: auto;
+    width: 100%;
   }
 `
 
@@ -62,8 +65,8 @@ const Contact = () => {
 
   return (
     <Section Tag="section" fluid={data.file.childImageSharp.fluid}>
-      <ContactUs>Contact us</ContactUs>
-      <H5>Ontario, Canada</H5>
+      <h3>Contact us</h3>
+      <h5>Ontario, Canada</h5>
       <p>
         Port Carling: 113 Medora St <strong>Port Carling</strong> ON Pob 1jo{' '}
         <br />
@@ -74,8 +77,8 @@ const Contact = () => {
         <br />
         <strong>Email</strong>: hello@muskokadistrictrentals.com
       </p>
-      <Call>Call toll free:</Call>
-      <H4>+1 800 615 2537</H4>
+      <span>Call toll free:</span>
+      <h4>+1 800 615 2537</h4>
     </Section>
   )
 }
