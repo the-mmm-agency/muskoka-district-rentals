@@ -95,13 +95,14 @@ export default createGlobalStyle`
     box-sizing: inherit;
   }
   h1,h2,h3,h4,h5,h6 {
+    color: ${palette.text.primary};
     text-rendering: optimizeLegibility;
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum";
   }
   body {
     margin: 0;
-    color: ${palette.text.primary};
+    color: ${palette.text.secondary};
     background-color: ${palette.background.default};
   }
   a {

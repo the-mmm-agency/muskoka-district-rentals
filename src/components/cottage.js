@@ -12,14 +12,20 @@ import palette from 'theme/palette'
 const Wrapper = styled.div`
   background: ${palette.background.default};
   display: flex;
-  flex-direction: ${properties => (properties.reverse ? 'row' : 'row-reverse')};
+  justify-content: ${props => (props.reverse ? 'flex-start' : 'flex-end')};
+  text-align: ${props => (props.reverse ? 'left' : 'right')};
+  flex-direction: ${props => (props.reverse ? 'row' : 'row-reverse')};
   margin: 5rem 0;
 `
 
 const Box = styled.div`
   border: 1px solid #1e1e1e;
-  padding: ${rhythm(1)};
-  margin: ${rhythm(4)};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${rhythm(7 / 8)};
+  margin: ${rhythm(3)};
   margin-top: 0;
   max-height: 350px;
 `
@@ -28,7 +34,6 @@ const Rating = styled.div`
   margin: ${rhythm(1)} 0;
   margin-top: 0;
   span {
-    color: ${palette.text.secondary};
     margin-left: 1px;
     font-weight: 500;
   }
@@ -41,6 +46,7 @@ const Info = styled.div`
   }
   big {
     ${scale(2 / 3)};
+    color: ${palette.text.primary};
     font-weight: bold;
     font-style: bold;
     margin: 0 ${rhythm(1 / 4)};
@@ -57,6 +63,7 @@ const Info = styled.div`
   }
   display: flex;
   flex-wrap: wrap;
+  justify-content: inherit;
   padding: ${rhythm(2)};
   padding-top: 0;
   width: 33%;
@@ -83,24 +90,28 @@ const Image = styled(Img)`
 `
 
 const Properties = styled.ul`
-  color: ${palette.text.secondary};
+  li {
+    margin-bottom: ${rhythm(1 / 5)};
+  }
   font-weight: bold;
   font-style: bold;
   margin-left: 0;
   width: 100%;
 `
 
-const UprightText = styled.span`
+const Address = styled.span`
+  letter-spacing: 0.2em;
+  font-weight: bold;
+  font-style: bold;
+  text-transform: uppercase;
   writing-mode: vertical-lr;
-  text-orientation: upright;
-`
-
-const StartFrom = styled.span`
-  color: ${palette.text.secondary};
 `
 
 const StyledNumber = styled(Number)`
-  font-weight: 600;
+  color: ${palette.text.primary};
+  font-weight: bold;
+  font-style: bold;
+  margin: auto;
   ${scale(1 / 2)};
 `
 
@@ -123,7 +134,7 @@ const Cottage = ({
 }) => (
   <Wrapper reverse={number % 2 === 0}>
     <Box>
-      <UprightText>{address}</UprightText>
+      <Address>{address}</Address>
       <StyledNumber>{number + 1}</StyledNumber>
     </Box>
     <Info>
@@ -139,7 +150,7 @@ const Cottage = ({
         <span>{reviewCount} reviews</span>
       </Rating>
       <h2>{name}</h2>
-      <StartFrom>Start from </StartFrom>
+      <span>Start from </span>
       <big>{' $' + startFrom}</big>
       <span>/Night</span>
       <p>{description}</p>

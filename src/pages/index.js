@@ -29,7 +29,7 @@ const About = styled.span`
   position: relative;
   margin-top: 150px;
   margin-bottom: 50px;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
 `
 
@@ -107,18 +107,22 @@ const FirstSection = styled(BackgroundImage)`
 `
 
 const Message = styled.span`
-  ${scale(0.3 / 3)}
+  ${scale(1 / 4)}
   color: white;
   margin-bottom: ${rhythm(1.5)};
-  font-weight: 500;
+  font-weight: 600;
   position: relative;
+  letter-spacing: 0.06em;
   z-index: 2;
 `
 
 const WelcomeMessage = styled(Message)`
-  letter-spacing: 0.1em;
+  ${scale(1 / 4)}
+  letter-spacing: 0.18em;
+  margin-bottom: ${rhythm(2)};
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: bold;
+  font-style: bold;
 `
 
 const Header = styled.h1`

@@ -26,6 +26,8 @@ const CheckboxLabel = styled.span`
 `
 
 const StyledButton = styled(Button)`
+  font-weight: bold;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 15px;
 `

@@ -7,6 +7,9 @@ import Logo from 'components/logo'
 import HeaderLink from 'components/headerLink'
 
 const StyledButton = styled(Button)`
+  font-weight: bold;
+  font-style: bold;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 10px 30px;
   font-size: 0.8rem;

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Number = ({ children }) => (
-  <span>{children < 10 ? `0${children}` : children}</span>
+const Number = ({ children, ...props }) => (
+  <span {...props}>{children < 10 ? `0${children}` : children}</span>
 )
 
 Number.propTypes = {

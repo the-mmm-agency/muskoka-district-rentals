@@ -4,17 +4,19 @@ import styled from 'styled-components'
 
 import Link from 'components/link'
 import transitions from 'theme/transitions'
+import palette from 'theme/palette'
 import { options as typography } from 'theme/typography'
 
 const StyledLink = styled(Link)`
-  color: inherit;
+  color: ${palette.text.primary};
   font-family: ${typography.headerFontFamily.join(',')};
   font-weight: bold;
   font-style: bold;
   margin: auto;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 10px;
-  font-size: 0.9rem;
   display: flex;
   align-items: center;
   flex-direction: row;

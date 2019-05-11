@@ -45,6 +45,7 @@ const Cottages = () => {
       rentals: allRentalsJson {
         nodes {
           name
+          address
           reviewAvg
           reviewCount
           startFrom

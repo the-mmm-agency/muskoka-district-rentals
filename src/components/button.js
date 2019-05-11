@@ -70,6 +70,9 @@ const StyledButton = styled.button`
       box-shadow: none;
       border: none;
       color: ${palette.text.primary};
+      font-weight: bold;
+      font-style: bold;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: ${transitions.create('background', {
         duration: duration.short,
