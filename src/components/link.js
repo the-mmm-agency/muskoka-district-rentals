@@ -2,16 +2,16 @@ import { Link as GatsbyLink } from 'gatsby'
 import styled from 'styled-components'
 
 const Link = styled(GatsbyLink)`
-  appearance: none;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: middle;
   border: 0;
   border-radius: 0;
-  cursor: pointer;
   outline: none;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
   user-select: none;
-  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
   -moz-focus-inner: {
     borderstyle: none;
   }

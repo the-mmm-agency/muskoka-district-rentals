@@ -94,6 +94,9 @@ const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: inherit
   }
+  h1,h2,h3,h4,h5,h6 {
+    text-rendering: optimizeLegibility;
+  }
   body {
     margin: 0;
     color: ${palette.text.primary};

@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import { useNumber } from 'react-hanger'
 
 import MemberInfo from 'components/memberInfo'
 import RightIcon from 'components/rightIcon'
@@ -119,8 +120,8 @@ const TeamMember = styled(BackgroundImage)`
 `
 
 const OurTeam = () => {
-  const [selected, setSelected] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
+  const selected = useNumber(0, { lowerLimit: 0, upperLimit: 3, loop: true })
   const colors = ['#323e50', '#23547e', '#232b38', '#183b58']
   const data = useStaticQuery(graphql`
     query {
@@ -143,13 +144,8 @@ const OurTeam = () => {
   `)
   const handleClick = () => {
     setTransitioning(true)
-
     setTimeout(() => {
-      if (selected === data.team.nodes.length - 1) {
-        setSelected(0)
-      } else {
-        setSelected(selected + 1)
-      }
+      selected.increase()
       setTransitioning(false)
     }, 500)
   }
