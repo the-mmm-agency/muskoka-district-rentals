@@ -16,7 +16,7 @@ const StyledButton = styled.button`
   &:hover {
     background: ${props => palette[props.color]};
     @media (hover: none) {
-      background-color: 'transparent';
+      background-color: transparent;
     }
     box-shadow: ${shadows[2]};
     text-decoration: none;

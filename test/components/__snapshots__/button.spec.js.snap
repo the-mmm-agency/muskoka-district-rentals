@@ -56,7 +56,7 @@ exports[`it matches the snapshot 1`] = `
 
 @media (hover:none) {
   .c0:hover {
-    background-color: 'transparent';
+    background-color: transparent;
   }
 }
 

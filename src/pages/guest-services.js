@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 
+import ContactForm from 'components/contactForm'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 import { scale, rhythm } from 'theme/typography'
@@ -104,6 +105,7 @@ const GuestServices = () => {
             </ItemWrapper>
           </LineItem>
         ))}
+        <ContactForm />
       </Wrapper>
     </Layout>
   )

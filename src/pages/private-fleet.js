@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
+import ContactForm from 'components/contactForm'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 import { rhythm } from 'theme/typography'
@@ -12,11 +13,11 @@ const Wrapper = styled.div`
 `
 
 const Image = styled(BackgroundImage)`
-  height: 400px;
   &::before,
   &::after {
     filter: brightness(0.4);
   }
+  height: 400px;
 `
 
 const BuyOrSell = () => {
@@ -57,6 +58,7 @@ const BuyOrSell = () => {
         <h6>
           For more information or to enroll in PRIVATE FLEET © contact us!
         </h6>
+        <ContactForm />
       </Wrapper>
     </Layout>
   )
