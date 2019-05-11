@@ -4,12 +4,12 @@ import palette from 'theme/palette'
 
 const typography = new Typography({
   baseFontSize: '16px',
-  baseLineHeight: 1.6875,
+  baseLineHeight: 1.5,
   headerFontFamily: ['Didot', 'serif'],
   bodyFontFamily: ['Raleway', 'sans-serif'],
   headerColor: palette.text.primary,
   bodyColor: palette.text.primary,
-  bodyWeight: 400,
+  bodyWeight: 500,
   boldWeight: 700,
   headerWeight: 700,
   scaleRatio: 4,

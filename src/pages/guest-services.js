@@ -26,7 +26,7 @@ const SecondaryHeader = styled.h6`
 `
 
 const LineItem = styled.div`
-  display: block;
+  display: flex;
 `
 
 const ItemWrapper = styled.div`
@@ -48,7 +48,6 @@ const ItemHeader = styled.h4`
 
 const ItemBody = styled.p`
   margin-bottom: 25px;
-  color: rgba(0, 0, 0, 0.4);
 `
 
 const GuestServices = () => {
@@ -65,6 +64,7 @@ const GuestServices = () => {
         nodes {
           id
           name
+          body
           image {
             childImageSharp {
               fixed(width: 75, height: 75) {

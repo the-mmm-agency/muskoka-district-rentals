@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
 import Number from 'components/number'
+import Button from 'components/button'
 import { scale, rhythm } from 'theme/typography'
 import palette from 'theme/palette'
 
@@ -26,23 +27,34 @@ const Box = styled.div`
 const Rating = styled.div`
   margin: ${rhythm(1)} 0;
   margin-top: 0;
-`
-
-const RatingText = styled.div`
-  display: inline-block;
-  margin-left: 10px;
-  margin-top: 1px;
-  font-weight: 500;
-  font-size: 16px;
-`
-
-const H2 = styled.h2`
-  width: 100%;
-  color: #000;
-  ${scale(0.8)}
+  span {
+    color: ${palette.text.secondary};
+    margin-left: 1px;
+    font-weight: 500;
+  }
 `
 
 const Info = styled.div`
+  h2 {
+    width: 100%;
+    ${scale(3 / 4)}
+  }
+  big {
+    ${scale(2 / 3)};
+    font-weight: bold;
+    font-style: bold;
+    margin: 0 ${rhythm(1 / 4)};
+    min-width: 90px;
+    text-align: center;
+  }
+  span {
+    ${scale(1 / 10)};
+    font-weight: 600;
+    padding-top: 15px;
+  }
+  p {
+    margin-top: 20px;
+  }
   display: flex;
   flex-wrap: wrap;
   padding: ${rhythm(2)};
@@ -50,9 +62,14 @@ const Info = styled.div`
   width: 33%;
 `
 
+const ViewDetail = styled(Button)`
+  margin-left: ${rhythm(-2 / 3)};
+`
+
 const PrimaryText = styled.span`
   color: ${palette.text.primary};
-  font-weight: 500;
+  font-style: bold;
+  font-weight: bold;
 `
 
 const SecondaryText = styled.span`
@@ -60,21 +77,17 @@ const SecondaryText = styled.span`
 `
 
 const Image = styled(Img)`
-  width: 40%;
+  min-width: 50%;
+  max-height: 30vw;
+  flex-grow: 1;
 `
 
 const Properties = styled.ul`
   color: ${palette.text.secondary};
-  font-weight: 500;
+  font-weight: bold;
+  font-style: bold;
   margin-left: 0;
-`
-
-const ViewDetails = styled.a`
   width: 100%;
-  text-align: left;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
 `
 
 const UprightText = styled.span`
@@ -83,27 +96,7 @@ const UprightText = styled.span`
 `
 
 const StartFrom = styled.span`
-  ${scale(1 / 10)};
   color: ${palette.text.secondary};
-  font-weight: 500;
-  padding-top: 15px;
-`
-const Price = styled.span`
-  ${scale(2 / 3)}
-  font-weight: 500;
-  margin: 0 ${rhythm(1 / 4)};
-  min-width: 90px;
-  text-align: center;
-`
-
-const Night = styled.span`
-  ${scale(1 / 10)};
-  font-weight: 500;
-  padding-top: 15px;
-`
-
-const Description = styled.p`
-  margin-top: 20px;
 `
 
 const StyledNumber = styled(Number)`
@@ -137,19 +130,19 @@ const Cottage = ({
       <Rating>
         <StarRatings
           rating={reviewAvg}
-          starRatedColor="#f4d942"
+          starRatedColor="#efa913"
           numberOfStars={5}
           starSpacing="1px"
-          starDimension="20px"
+          starDimension="1rem"
           name="rating"
         />{' '}
-        <RatingText>{reviewCount} reviews</RatingText>
+        <span>{reviewCount} reviews</span>
       </Rating>
-      <H2>{name}</H2>
+      <h2>{name}</h2>
       <StartFrom>Start from </StartFrom>
-      <Price>{' $' + startFrom}</Price>
-      <Night>/Night</Night>
-      <Description>{description}</Description>
+      <big>{' $' + startFrom}</big>
+      <span>/Night</span>
+      <p>{description}</p>
       <Properties>
         <li>
           Status:{' '}
@@ -178,7 +171,9 @@ const Cottage = ({
           Pet Friendly: <PrimaryText>{petFriendly ? 'Yes' : 'No'}</PrimaryText>
         </li>
       </Properties>
-      <ViewDetails href="/">View Detail &nbsp;&rsaquo;</ViewDetails>
+      <ViewDetail href="/" variant="transparent">
+        View Details &nbsp;&rsaquo;
+      </ViewDetail>
     </Info>
     <Image fluid={image.childImageSharp.fluid} />
   </Wrapper>

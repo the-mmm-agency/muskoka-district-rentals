@@ -60,6 +60,25 @@ const StyledButton = styled.button`
       border: 1px solid ${props => opacify(0.5, palette[props.color])};
       color: ${palette.text.primary};
     `,
+    transparent: css`
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: none;
+        transform: none;
+      }
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      color: ${palette.text.primary};
+      text-transform: uppercase;
+      transition: ${transitions.create('background', {
+        duration: duration.short,
+      })}
+
+      border: none;
+      font-weight: bold;
+      font-style: bold;
+    `,
   })};
   ${/* sc-dec */ switchProp('size', {
     small: css`
@@ -77,9 +96,7 @@ const StyledButton = styled.button`
   })}
 `
 
-const Button = props => {
-  return <StyledButton {...props} />
-}
+const Button = props => <StyledButton {...props} />
 
 Button.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary']),

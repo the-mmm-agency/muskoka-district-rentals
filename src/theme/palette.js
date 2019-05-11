@@ -8,7 +8,7 @@ const palette = {
   },
   text: {
     primary: '#344051',
-    secondary: '#B6B6B6',
+    secondary: '#999999',
   },
 }
 

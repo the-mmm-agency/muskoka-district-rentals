@@ -1,22 +1,22 @@
 [
   {
-    "image": "../src/images/placeholder-75x75.png",
-    "name": "Travel Insurance",
-    "body": "Culpa eu fugiat dolore elit dolor."
-  },
-  {
-    "image": "../src/images/placeholder-75x75.png",
-    "name": "Guest Concierge",
-    "body": "Culpa eu fugiat dolore elit dolor."
-  },
-  {
-    "image": "../src/images/placeholder-75x75.png",
-    "name": "Vacation Property Searches",
-    "body": "Culpa eu fugiat dolore elit dolor."
-  },
-  {
-    "image": "../src/images/placeholder-75x75.png",
+    "image": "../src/images/registration.png",
     "name": "Guest Pre-approval Registration",
-    "body": "Culpa eu fugiat dolore elit dolor."
+    "body": "For maximum selection in choosing any of our luxury rental properties, complete our online guest profile to become a pre-approved guest. Register Now ."
+  },
+  {
+    "image": "../src/images/property-search.png",
+    "name": "Vacation Property Searches",
+    "body": "We search for premium rental properties based on your preferred region, lake or community, number of guests & budget. Searches are complimentary. Search Now."
+  },
+  {
+    "image": "../src/images/guest-concierge.png",
+    "name": "Guest Concierge",
+    "body": "Our concierge can assist with enhanced services such as private chefs, water sports lessons, childcare, yoga on the dock, hot tub rentals, special events & much more. Email our Concierge here !"
+  },
+  {
+    "image": "../src/images/travel-insurance.png",
+    "name": "Travel Insurance",
+    "body": "We offer Travel Medical and Trip Interruption Insurance options for our guests through TD Travel Insurance and Manulife Insurance . "
   }
 ]
