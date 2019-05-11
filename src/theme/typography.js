@@ -11,7 +11,7 @@ const typography = new Typography({
   bodyColor: palette.text.primary,
   bodyWeight: 400,
   boldWeight: 700,
-  headerWeight: 500,
+  headerWeight: 700,
   scaleRatio: 4,
 })
 
