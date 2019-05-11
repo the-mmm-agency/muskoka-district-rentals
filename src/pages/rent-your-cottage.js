@@ -3,33 +3,48 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
+import ContactForm from 'components/contactForm'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 import palette from 'theme/palette'
-import { rhythm } from 'theme/typography'
+import { rhythm, scale } from 'theme/typography'
 
 const Wrapper = styled.div`
-  padding: ${rhythm(1)} 20%;
+  padding: ${rhythm(4)} 15%;
+  h6 {
+    ${scale(1 / 4)};
+    margin-bottom: ${rhythm(1 / 3)};
+  }
+  span {
+    ${scale(1 / 12)};
+    color: ${palette.text.secondary};
+    font-weight: 700;
+    max-width: 20vw;
+  }
+  p {
+    color: ${palette.text.secondary};
+  }
 `
 
 const SectionWrapper = styled.div`
   display: flex;
   flex-basis: calc(100% / 3);
   margin-top: ${rhythm(4)};
+  margin-bottom: ${rhythm(2)};
 `
 
 const Section = styled.div`
   &:last-child {
     border-right: none;
   }
-  border-right: 1px solid ${palette.text.primary};
+  border-right: 1px solid #ccc;
   display: flex;
   flex-direction: column;
   margin-right: ${rhythm(1)};
 `
 
 const Image = styled(BackgroundImage)`
-  height: 400px;
+  height: 40vh;
   &::before,
   &::after {
     filter: brightness(0.4);
@@ -41,7 +56,7 @@ const RentYourCottage = () => {
     query {
       file(relativePath: { eq: "home.jpg" }) {
         childImageSharp {
-          fluid(quality: 80, maxHeight: 400) {
+          fluid(quality: 100, maxHeight: 1000) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -57,10 +72,10 @@ const RentYourCottage = () => {
       <Image fluid={data.file.childImageSharp.fluid} Tag="section" />
       <Wrapper>
         <h1>Rent Your cottage</h1>
-        <p>
+        <span>
           Looking to offset costs of your cottage or vacation property? MDR
           offers a safe turn-key, rental solution
-        </p>
+        </span>
         <SectionWrapper>
           <Section>
             <h6>Cottage Marketing</h6>
@@ -113,6 +128,7 @@ const RentYourCottage = () => {
           Aute do deserunt id irure voluptate aute id commodo incididunt officia
           anim.
         </p>
+        <ContactForm />
       </Wrapper>
     </Layout>
   )

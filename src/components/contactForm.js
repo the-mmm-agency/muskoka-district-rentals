@@ -7,6 +7,10 @@ import palette from 'theme/palette'
 import { rhythm, scale } from 'theme/typography'
 import transitions from 'theme/transitions'
 
+const Wrapper = styled.div`
+  margin-top: ${rhythm(2)};
+`
+
 const Subtitle = styled.span`
   ${scale(1 / 12)}
   color: ${palette.text.secondary};
@@ -64,7 +68,7 @@ const ContactForm = () => {
   const subject = useInput('')
   const message = useInput('')
   return (
-    <>
+    <Wrapper>
       <h2>Get in touch with us</h2>
       <Subtitle>
         If you have any question, Please don’t hesitate to send us a message
@@ -95,7 +99,7 @@ const ContactForm = () => {
         />
         <Submit type="submit">send message</Submit>
       </StyledForm>
-    </>
+    </Wrapper>
   )
 }
 
