@@ -42,15 +42,7 @@ const InfoWrapper = styled.div`
 `
 
 const Picture = styled(Img)`
-  min-height: calc(
-    80vh - ${rhythm(8)} - ${typography.baseLineHeight} *
-      ${scale(1).replace('font-size: ', '')}
-  );
-  max-height: calc(
-    80vh - ${rhythm(8)} - ${typography.baseLineHeight} *
-      ${scale(1).replace('font-size: ', '')}
-  );
-
+  min-height: 100%;
   width: 100%;
 `
 
