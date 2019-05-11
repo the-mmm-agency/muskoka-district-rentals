@@ -1,23 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
 
 import ContactForm from 'components/contactForm'
+import PageImage from 'components/pageImage'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 import { rhythm } from 'theme/typography'
 
 const Wrapper = styled.div`
-  padding: ${rhythm(1)} 20%;
-`
-
-const Image = styled(BackgroundImage)`
-  &::before,
-  &::after {
-    filter: brightness(0.4);
-  }
-  height: 400px;
+  padding: ${rhythm(4)} 15%;
 `
 
 const BuyOrSell = () => {
@@ -36,7 +28,7 @@ const BuyOrSell = () => {
   return (
     <Layout>
       <SEO title="Buy or Sell Cottages" />
-      <Image fluid={data.file.childImageSharp.fluid} Tag="section" />
+      <PageImage fluid={data.file.childImageSharp.fluid} Tag="section" />
       <Wrapper>
         <h1>PRIVATE FLEET</h1>
         <h6>

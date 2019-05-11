@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
 
 import ContactForm from 'components/contactForm'
+import PageImage from 'components/pageImage'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 import palette from 'theme/palette'
@@ -43,14 +43,6 @@ const Section = styled.div`
   margin-right: ${rhythm(1)};
 `
 
-const Image = styled(BackgroundImage)`
-  height: 40vh;
-  &::before,
-  &::after {
-    filter: brightness(0.4);
-  }
-`
-
 const RentYourCottage = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -69,7 +61,7 @@ const RentYourCottage = () => {
         title="Rent Your Cottage"
         keywords={[`gatsby`, `application`, `react`]}
       />
-      <Image fluid={data.file.childImageSharp.fluid} Tag="section" />
+      <PageImage fluid={data.file.childImageSharp.fluid} Tag="section" />
       <Wrapper>
         <h1>Rent Your cottage</h1>
         <span>

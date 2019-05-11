@@ -1,30 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
+
+import PageImage from 'components/pageImage'
 import CheckAvailability from 'components/checkAvailability'
 import Button from 'components/button'
 import Cottage from 'components/cottage'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 
-const H1 = styled.h1`
-  color: #fff;
-`
-
 const List = styled.li`
   margin: 150px 0;
 `
-
-const Image = styled(BackgroundImage)`
+const Image = styled(PageImage)`
+  h1 {
+    color: white;
+  }
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
-  &::before,
-  &::after {
-    filter: brightness(0.4);
-  }
 `
 
 const ButtonWrapper = styled.div`
@@ -43,7 +37,7 @@ const Cottages = () => {
     query {
       image: file(relativePath: { eq: "our-rentals.jpg" }) {
         childImageSharp {
-          fluid(quality: 100, maxHeight: 400) {
+          fluid(quality: 100, maxHeight: 1000) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -78,7 +72,7 @@ const Cottages = () => {
     <Layout>
       <SEO title="Our Rentals" />
       <Image fluid={data.image.childImageSharp.fluid} tag="section">
-        <H1>Our Rentals</H1>
+        <h1>Our Rentals</h1>
       </Image>
       <CheckAvailability />
       <List>

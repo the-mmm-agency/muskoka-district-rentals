@@ -2,23 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import BackgroundImage from 'gatsby-background-image'
 
 import ContactForm from 'components/contactForm'
+import PageImage from 'components/pageImage'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 import { scale, rhythm } from 'theme/typography'
 
 const Wrapper = styled.div`
   padding: ${rhythm(1)} 20%;
-`
-
-const Image = styled(BackgroundImage)`
-  height: 400px;
-  &::before,
-  &::after {
-    filter: brightness(0.8);
-  }
 `
 
 const Header = styled.h1`
@@ -64,7 +56,7 @@ const GuestServices = () => {
     query {
       header: file(relativePath: { eq: "guest-services.jpg" }) {
         childImageSharp {
-          fluid(quality: 80, maxHeight: 400) {
+          fluid(quality: 100, maxHeight: 1000) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -88,7 +80,7 @@ const GuestServices = () => {
   return (
     <Layout>
       <SEO title="Guest Services" />
-      <Image fluid={data.header.childImageSharp.fluid} Tag="section" />
+      <PageImage fluid={data.header.childImageSharp.fluid} Tag="section" />
       <Wrapper>
         <Header>Guest Services</Header>
         <SecondaryHeader>

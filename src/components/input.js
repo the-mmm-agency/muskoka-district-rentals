@@ -11,7 +11,7 @@ const Wrapper = styled.div`
       color: ${opacify(0.6, palette.text.primary)};
     }
     &:focus {
-      & ~ & span {
+      & ~ span {
         transform-origin: bottom left;
         transform: scaleX(1);
       }
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     }
     background-color: transparent;
     border: 1px solid transparent;
-    border-bottom-color: ${opacify(0.26, palette.text.primary)};
+    border-bottom-color: rgba(0, 0, 0, 0.08);
     color: ${palette.text.primary};
   }
   span {
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     left: 0;
     right: 0;
     height: 1px;
-    background-color: ${palette.text.primary};
+    background-color: #000;
     transform-origin: bottom right;
     transform: scaleX(0);
     transition: transform 0.5s ease;
