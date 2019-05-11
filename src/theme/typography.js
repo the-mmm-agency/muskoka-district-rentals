@@ -13,12 +13,6 @@ const typography = new Typography({
   boldWeight: 700,
   headerWeight: 500,
   scaleRatio: 4,
-  overrideStyles: () => ({
-    html: {
-      '-moz-osk-font-smoothing': 'grayscale',
-      '-webkit-font-smoothing': 'subpixel-anitaliased',
-    },
-  }),
 })
 
 if (process.env.NODE_ENV !== `production`) {
