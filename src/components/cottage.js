@@ -164,7 +164,7 @@ const Cottage = ({
           )}
         </li>
         <li>
-          Square Feet: <PrimaryText>{squareFeet}</PrimaryText>
+          Square Feet: <PrimaryText>{squareFeet} sqft</PrimaryText>
         </li>
         <li>
           Property: <PrimaryText>{property}</PrimaryText>
