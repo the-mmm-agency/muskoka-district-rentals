@@ -25,7 +25,7 @@ const StyledButton = styled.button`
   align-items: center;
   appearance: none;
   border-radius: ${switchProp('radius', {
-    default: '0px',
+    default: '2px',
     curved: '6px',
     rounded: '30px',
   })};
