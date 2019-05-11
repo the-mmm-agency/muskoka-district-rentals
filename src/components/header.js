@@ -12,7 +12,7 @@ const StyledButton = styled(Button)`
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 10px 30px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin: 24px;
 `
 

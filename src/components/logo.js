@@ -1,7 +1,9 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
+
+import Link from 'components/link'
 
 const Wrapper = styled(Link)`
   height: auto;

@@ -66,6 +66,7 @@ module.exports = {
         pathToConfigModule: `src/theme/typography`,
       },
     },
+    `gatsby-plugin-transition-link`,
     {
       resolve: `gatsby-plugin-eslint`,
       options: {
@@ -74,7 +75,7 @@ module.exports = {
         stages: ['develop'],
         options: {
           emitWarning: true,
-          failOnError: true,
+          failOnError: false,
           formatter: require('eslint-formatter-pretty'),
         },
       },

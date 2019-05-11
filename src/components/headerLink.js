@@ -13,7 +13,6 @@ const StyledLink = styled(Link)`
   font-weight: bold;
   font-style: bold;
   margin: auto;
-  font-size: 0.9rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 10px;
@@ -27,7 +26,7 @@ const StyledLink = styled(Link)`
   }
 `
 const HeaderLink = ({ to }) => (
-  <StyledLink to={to}>
+  <StyledLink to={to} fade duration={0.5}>
     <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
   </StyledLink>
 )

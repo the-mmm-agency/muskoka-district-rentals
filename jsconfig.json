@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "baseUrl": "src",
+    "paths": {
+      "*": ["*", "src/*"]
+    }
+  },
+  "typeAcquisition": {
+    "enable": true
+  },
+  "typingOptions": {
+    "enableAutoDiscovery": true
+  },
+  "compileOnSave": true,
+  "allowJS": true,
+  "include": ["src/**/*"]
+}

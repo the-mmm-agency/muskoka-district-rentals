@@ -1,7 +1,7 @@
-import { Link as GatsbyLink } from 'gatsby'
 import styled from 'styled-components'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const Link = styled(GatsbyLink)`
+const Link = styled(AniLink)`
   padding: 0;
   text-decoration: none;
   vertical-align: middle;
