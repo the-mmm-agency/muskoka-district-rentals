@@ -5,8 +5,6 @@ import styled from 'styled-components'
 import Button from 'components/button'
 import Logo from 'components/logo'
 import HeaderLink from 'components/headerLink'
-import { options as typography } from 'theme/typography'
-import transitions from 'theme/transitions'
 
 const StyledButton = styled(Button)`
   text-transform: uppercase;
@@ -22,7 +20,7 @@ const StyledHeader = styled.header`
   top: 0;
   z-index: 10;
   text-align: center;
-  background: #fff;
+  background: white;
   padding: 10px;
 `
 

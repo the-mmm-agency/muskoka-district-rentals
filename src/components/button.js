@@ -7,7 +7,7 @@ import { switchProp } from 'styled-tools'
 import palette from 'theme/palette'
 import shadows from 'theme/shadows'
 import { options as typography } from 'theme/typography'
-import transitions from 'theme/transitions'
+import transitions, { duration } from 'theme/transitions'
 
 const StyledButton = styled.button`
   &::-moz-focus-inner {
@@ -45,7 +45,7 @@ const StyledButton = styled.button`
   transition: ${transitions.create(
     ['border', 'background', 'box-shadow', 'transform'],
     {
-      duration: transitions.duration.short,
+      duration: duration.short,
     }
   )};
   user-select: none;
@@ -53,7 +53,7 @@ const StyledButton = styled.button`
     flat: css`
       background: ${props => palette[props.color]};
       border: none;
-      color: #fff;
+      color: white;
     `,
     outlined: css`
       background: transparent;
@@ -82,8 +82,8 @@ const Button = props => {
 }
 
 Button.propTypes = {
-  disabled: PropTypes.bool,
   color: PropTypes.oneOf(['primary', 'secondary']),
+  disabled: PropTypes.bool,
   font: PropTypes.oneOf(['sans-serif', 'serif']),
   radius: PropTypes.oneOf(['default', 'curved', 'rounded']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),

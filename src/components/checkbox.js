@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import palette from 'theme/palette'
-import transitions from 'theme/transitions'
+import transitions, { duration } from 'theme/transitions'
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
@@ -37,7 +38,7 @@ const StyledCheckbox = styled.div`
   border: 1px solid ${palette.primary};
   border-radius: 3px;
   transition: ${transitions.create(['background'], {
-    duration: transitions.duration.shortest,
+    duration: duration.shortest,
   })};
   ${Icon} {
     visibility: ${props => (props.checked ? 'visible' : 'hidden')};
@@ -59,5 +60,9 @@ const Checkbox = ({ checked, ...props }) => (
     </StyledCheckbox>
   </CheckboxContainer>
 )
+
+Checkbox.propTypes = {
+  checked: PropTypes.bool.isRequired,
+}
 
 export default Checkbox

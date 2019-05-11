@@ -1,0 +1,72 @@
+{
+  "globals": {
+    "__PATH_PREFIX__": "true"
+  },
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/standard",
+    "plugin:unicorn/recommended"
+  ],
+  "plugins": ["import", "prettier", "jsx-a11y", "standard", "unicorn"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "jsx-a11y/label-has-associated-control": "off",
+    "prettier/prettier": "error",
+    "react/sort-prop-types": "error",
+    "unicorn/filename-case": ["error", { "case": "camelCase" }],
+    "unicorn/prevent-abbreviations": "off"
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "detect"
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps",
+      { "property": "freeze", "object": "Object" },
+      { "property": "myFavoriteWrapper" }
+    ],
+    "linkComponents": ["Hyperlink", { "name": "Link", "linkAttribute": "to" }],
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["constants", "./src/constants"],
+          ["components", "./src/components"],
+          ["images", "./src/images"],
+          ["pages", "./src/pages"],
+          ["theme", "./src/theme"]
+        ],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "gatsby-browser.js",
+        "gatsby-config.js",
+        "src/pages/*.js",
+        "test/pages/*.js"
+      ],
+      "rules": {
+        "unicorn/filename-case": ["error", { "case": "kebabCase" }]
+      }
+    }
+  ]
+}

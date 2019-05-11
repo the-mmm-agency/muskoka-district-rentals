@@ -3,24 +3,29 @@
   "private": true,
   "description": "A booking pwa for Muskoka District Rentals built in GatsbyJS",
   "version": "0.0.1",
-  "author": "Brett Mandler <brett@themmmagency.com>",
+  "author": "Brett Mandler <bmandler@themmmagency.com>",
   "dependencies": {
-    "dayjs": "^1.8.13",
-    "gatsby": "^2.4.2",
-    "gatsby-background-image": "^0.5.3",
-    "gatsby-cli": "^2.5.12",
+    "dayjs": "^1.8.14",
+    "gatsby": "^2.4.3",
+    "gatsby-background-image": "^0.5.6",
+    "gatsby-cli": "^2.5.13",
     "gatsby-image": "^2.0.41",
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-json": "^2.1.11",
     "gatsby-transformer-sharp": "^2.1.19",
-    "intersection-observer": "^0.6.0",
-    "polished": "^3.2.0",
+    "intersection-observer": "^0.7.0",
+    "polished": "^3.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-anime": "^2.2.0",
     "react-day-picker": "^7.3.0",
     "react-dom": "^16.8.6",
+    "react-flip-move": "^3.0.3",
     "react-headroom": "^2.2.8",
     "react-helmet": "^5.2.1",
+    "react-pose": "^4.0.8",
+    "react-pose-text": "^3.1.0",
+    "react-prose": "^1.0.0-0",
     "react-star-ratings": "^2.3.0",
     "react-typography": "^0.16.19",
     "styled-components": "^4.2.0",
@@ -32,7 +37,7 @@
     "use-onclickoutside": "^0.3.1"
   },
   "devDependencies": {
-    "@percy/cypress": "^1.0.8",
+    "@percy/cypress": "^1.0.9",
     "@types/cypress": "^1.1.3",
     "@types/eslint": "^4.16.6",
     "@types/eslint-plugin-prettier": "^2.2.0",
@@ -51,7 +56,7 @@
     "@types/stylelint": "^9.10.0",
     "@types/typescript": "^2.0.0",
     "@types/typography": "^0.16.2",
-    "babel-jest": "^24.7.1",
+    "babel-jest": "^24.8.0",
     "babel-plugin-polished": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-gatsby": "^0.1.11",
@@ -59,13 +64,21 @@
     "cypress-testing-library": "^3.0.1",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
-    "eslint-config-react-app": "^4.0.0",
+    "eslint-config-standard": "^12.0.0",
     "eslint-formatter-pretty": "^2.1.1",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jest": "^22.5.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-unicorn": "^8.0.2",
     "gatsby-plugin-brotli": "^1.0.1",
     "gatsby-plugin-eslint": "^2.0.5",
     "gatsby-plugin-manifest": "^2.1.1",
@@ -73,23 +86,29 @@
     "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-root-import": "^2.0.5",
-    "gatsby-plugin-sharp": "^2.0.36",
+    "gatsby-plugin-sharp": "^2.0.37",
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-plugin-typography": "^2.2.13",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.7.1",
+    "jest": "^24.8.0",
     "jest-chain": "^1.1.2",
-    "jest-dom": "^3.1.4",
+    "jest-dom": "^3.2.2",
     "jest-extended": "^0.11.1",
     "jest-styled-components": "^6.3.1",
-    "jest-watch-typeahead": "^0.3.0",
+    "jest-watch-typeahead": "^0.3.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.17.0",
     "react-test-renderer": "^16.8.6",
     "source-map-support": "^0.5.12",
     "start-server-and-test": "^1.9.0",
     "stylelint": "^10.0.1",
-    "stylelint-config-styled-components": "^0.1.1"
+    "stylelint-config-prettier": "^5.1.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-formatter-pretty": "^1.0.3",
+    "stylelint-order": "^3.0.0",
+    "stylelint-prettier": "^1.0.7"
   },
   "keywords": [
     "gatsby"
@@ -103,7 +122,7 @@
     "format": "prettier --write src/**/*.js",
     "lint": "eslint src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
-    "lint:styles": "stylelint src/**/*.js",
+    "lint:styles": "stylelint src/**/*.js --custom-formatter=node_modules/stylelint-formatter-pretty",
     "lint:styles:fix": "npm run lint:styles -- --fix",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -118,67 +137,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brettm12345/muskoka-district-rentals"
+    "url": "https://github.com/the-mmm-agency/muskoka-district-rentals"
   },
   "bugs": {
-    "url": "https://github.com/brettm12345/muskoka-district-rentals/issues"
-  },
-  "babel": {
-    "plugins": [
-      "babel-plugin-polished"
-    ],
-    "presets": [
-      [
-        "babel-preset-gatsby",
-        {
-          "targets": {
-            "browsers": [
-              ">0.25%",
-              "not dead"
-            ]
-          }
-        }
-      ]
-    ]
-  },
-  "eslintConfig": {
-    "globals": {
-      "__PATH_PREFIX__": "true"
-    },
-    "extends": [
-      "react-app",
-      "prettier",
-      "prettier/react"
-    ],
-    "plugins": [
-      "prettier"
-    ],
-    "parserOptions": {
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "env": {
-      "es6": true,
-      "node": true
-    },
-    "rules": {
-      "prettier/prettier": "error"
-    }
-  },
-  "prettier": {
-    "endOfLine": "lf",
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5"
-  },
-  "stylelint": {
-    "extends": "stylelint-config-styled-components",
-    "rules": {
-      "at-rule-empty-line-before": null
-    }
+    "url": "https://github.com/the-mmm-agency/muskoka-district-rentals/issues"
   }
 }

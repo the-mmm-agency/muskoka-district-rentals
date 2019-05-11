@@ -4,6 +4,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import { scale, rhythm } from 'theme/typography'
+import OurTeam from 'components/ourTeam'
 import palette from 'theme/palette'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
@@ -87,6 +88,7 @@ const AboutUs = () => {
         <WelcomeMessage>about us</WelcomeMessage>
         <Header>Come escape the mundane</Header>
       </FirstSection>
+      <OurTeam />
     </Layout>
   )
 }

@@ -84,7 +84,7 @@ const Cottages = () => {
       <CheckAvailability />
       <List>
         {data.rentals.nodes.map((rental, index) => (
-          <Cottage {...rental} number={index} />
+          <Cottage key={rental.id} {...rental} number={index} />
         ))}
       </List>
       <ButtonWrapper>

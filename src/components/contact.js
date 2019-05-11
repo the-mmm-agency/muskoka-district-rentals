@@ -67,8 +67,8 @@ const Contact = () => {
       <p>
         Port Carling: 113 Medora St <strong>Port Carling</strong> ON Pob 1jo{' '}
         <br />
-        Fool's Bay: 1007 Mcdonald Rd <strong>MacTier</strong> ON PoC 1Ho Simcoe{' '}
-        <br />
+        Fool&apos;s Bay: 1007 Mcdonald Rd <strong>MacTier</strong> ON PoC 1Ho
+        Simcoe <br />
         County: 14-67 Fittons Rd <strong>E Orillia</strong> ON L3V 2J2 <br />
         Toronto: 1520-111 St Clair Av W <strong>Toronto</strong> ON M4V 1N5{' '}
         <br />

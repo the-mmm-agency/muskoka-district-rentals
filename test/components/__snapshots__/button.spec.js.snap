@@ -35,7 +35,7 @@ exports[`it matches the snapshot 1`] = `
   user-select: none;
   background: #212a38;
   border: none;
-  color: #fff;
+  color: white;
   font-size: 0.875rem;
   padding: 10px 16px;
 }

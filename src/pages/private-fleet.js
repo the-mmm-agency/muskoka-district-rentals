@@ -37,10 +37,10 @@ const BuyOrSell = () => {
       <SEO title="Buy or Sell Cottages" />
       <Image fluid={data.file.childImageSharp.fluid} Tag="section" />
       <Wrapper>
-        <h1>PRIVATEE FLEET</h1>
+        <h1>PRIVATE FLEET</h1>
         <h6>
-          Enroll in PRIVATE FLEET ©. It's Simple and Secure. A Simple and safe
-          way to offset the costs of boat ownership
+          Enroll in PRIVATE FLEET ©. It&apos;s Simple and Secure. A Simple and
+          safe way to offset the costs of boat ownership
         </h6>
         <ul>
           <li>Generates rental income when your boat is not in use</li>
@@ -48,13 +48,15 @@ const BuyOrSell = () => {
             Turnkey service from boater screening through return inspections
           </li>
           <li>
-            Full damage & liability coverage by Billy's Powerspoarts
-            Muskokafleet insurance
+            Full damage & liability coverage by Billy&apos;s Power Sports
+            Muskoka fleet insurance
           </li>
           <li>All renter boat captains are guaranteed BoatSmart certified</li>
           <li>Complete boat detailing and fuel costs paid by guests</li>
         </ul>
-        <h6>For more information orto enroll in PRIVATE FLEET © contact us!</h6>
+        <h6>
+          For more information or to enroll in PRIVATE FLEET © contact us!
+        </h6>
       </Wrapper>
     </Layout>
   )
