@@ -63,7 +63,6 @@ const Image = styled(Img)`
 
 const Properties = styled.ul`
   color: ${palette.text.secondary};
-  list-style: none;
   margin-left: 0;
 `
 

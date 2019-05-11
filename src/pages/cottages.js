@@ -13,7 +13,6 @@ const H1 = styled.h1`
 `
 
 const List = styled.li`
-  list-style: none;
   margin: 150px 0;
 `
 

@@ -77,7 +77,6 @@ const Team = styled.div`
 
 const StyledPose = styled(PoseGroup)`
   display: flex;
-  list-style: none;
   margin: 0;
   width: 75%;
 `

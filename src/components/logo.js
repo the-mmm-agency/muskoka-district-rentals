@@ -5,7 +5,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 
 const Wrapper = styled(Link)`
   height: auto;
-  min-width: 100px;
+  min-width: 70px;
 `
 
 const Logo = () => {

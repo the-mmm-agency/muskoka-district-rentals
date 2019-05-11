@@ -27,7 +27,6 @@ const Wrapper = styled(BackgroundImage)`
   ul {
     display: flex;
     flex-basis: calc(100% / 3);
-    list-style: none;
   }
 `
 
