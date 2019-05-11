@@ -31,16 +31,16 @@ export const isNumber = value => !isNaN(parseFloat(value))
 export default {
   easing,
   duration,
-  create: (props = ['all'], options = {}) => {
+  create: (properties = ['all'], options = {}) => {
     const {
       duration: durationOption = duration.standard,
       easing: easingOption = easing.easeInOut,
       delay = 0,
     } = options
-    return (Array.isArray(props) ? props : [props])
+    return (Array.isArray(properties) ? properties : [properties])
       .map(
-        animatedProp =>
-          `${animatedProp} ${
+        animatedProperty =>
+          `${animatedProperty} ${
             typeof durationOption === 'string'
               ? durationOption
               : formatMs(durationOption)

@@ -67,11 +67,13 @@ const Rentals = () => {
       <ul>
         {data.allRentalsJson.nodes.map(rental => (
           <Rental
+            key={rental.id}
             image={rental.image}
             name={rental.name}
             selected={rental.image === selected}
             startFrom={rental.startFrom}
             onMouseOver={() => setSelected(rental.image)}
+            onFocus={() => setSelected(rental.image)}
           />
         ))}
       </ul>

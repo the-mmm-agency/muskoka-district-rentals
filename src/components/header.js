@@ -20,7 +20,7 @@ const StyledHeader = styled.header`
   top: 0;
   z-index: 10;
   text-align: center;
-  background: #fff;
+  background: white;
   padding: 10px;
 `
 

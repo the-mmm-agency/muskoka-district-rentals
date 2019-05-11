@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import DayPicker from 'react-day-picker'
 
 import 'react-day-picker/lib/style.css'
@@ -42,6 +43,13 @@ const DatePicker = ({ open, from, to, handleDayClick }) => {
       onDayClick={handleDayClick}
     />
   )
+}
+
+DatePicker.propTypes = {
+  from: PropTypes.string.isRequired,
+  handleDayClick: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  to: PropTypes.string.isRequired,
 }
 
 export default DatePicker

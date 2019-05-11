@@ -10,8 +10,7 @@ import DatePicker from 'components/datePicker'
 import DownIcon from 'components/downIcon'
 import palette from 'theme/palette'
 import shadows from 'theme/shadows'
-import { rhythm } from 'theme/typography'
-import { options as typography } from 'theme/typography'
+import { options as typography, rhythm } from 'theme/typography'
 
 const CheckboxWrapper = styled.div`
   display: flex;
@@ -64,8 +63,8 @@ const Section = styled.div`
 `
 
 const SectionWrapper = styled.div`
-  border-right: ${props =>
-    props.noBorder ? 'none' : `1px solid ${palette.text.secondary}`};
+  border-right: ${properties =>
+    properties.noBorder ? 'none' : `1px solid ${palette.text.secondary}`};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -95,7 +94,7 @@ const CheckAvailability = () => {
   const [datePicker, setDatePicker] = useState(false)
   const [pets, setPets] = useState(false)
   const [smokers, setSmokers] = useState(false)
-  const datePickerRef = useRef(null)
+  const datePickerReference = useRef(null)
   const handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, dates)
     setDates(range)
@@ -105,7 +104,7 @@ const CheckAvailability = () => {
     setDatePicker(!datePicker)
   }
 
-  useOnClickOutside(datePickerRef, () => {
+  useOnClickOutside(datePickerReference, () => {
     setDatePicker(false)
   })
 
@@ -123,7 +122,7 @@ const CheckAvailability = () => {
           <DateInput value={dates.to} onClick={toggleDatePicker} />
         </SectionWrapper>
       </Section>
-      <DatePickerWrapper ref={datePickerRef}>
+      <DatePickerWrapper ref={datePickerReference}>
         <DatePicker
           from={dates.from}
           to={dates.to}

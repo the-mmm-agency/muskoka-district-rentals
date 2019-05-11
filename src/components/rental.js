@@ -1,19 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
 
+import transitions from 'theme/transitions'
 import { rhythm } from 'theme/typography'
 
 const ListItem = styled.li`
-  &:hover {
-    opacity: 1;
-  }
   color: #fff;
   display: flex;
   flex-direction: column;
-  opacity: ${props => (props.selected ? 1 : 0.5)};
   margin: ${rhythm(1 / 2)};
-  transition: opacity ease 0.3s;
 `
 
 const LineItem = styled.div`
@@ -23,15 +20,20 @@ const LineItem = styled.div`
 `
 
 const RentalImg = styled(Img)`
+  &:hover {
+    opacity: 1;
+  }
   width: 180px;
   height: 130px;
   position: relative;
   margin: auto;
+  opacity: 0.5;
+  transition: ${transitions.create('opacity')};
 `
 
-const Rental = ({ image, name, startFrom, onMouseOver, selected }) => {
+const Rental = ({ image, name, startFrom, onMouseOver }) => {
   return (
-    <ListItem onMouseOver={onMouseOver} selected={selected}>
+    <ListItem onMouseOver={onMouseOver} onFocus={onMouseOver}>
       <LineItem>
         Starting from $<strong>{startFrom}/night</strong>
       </LineItem>
@@ -39,6 +41,13 @@ const Rental = ({ image, name, startFrom, onMouseOver, selected }) => {
       <LineItem border>{name}</LineItem>
     </ListItem>
   )
+}
+
+Rental.propTypes = {
+  image: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  onMouseOver: PropTypes.func.isRequired,
+  startFrom: PropTypes.number.isRequired,
 }
 
 export default Rental

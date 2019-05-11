@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import StarRatings from 'react-star-ratings'
+import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
 import Number from 'components/number'
@@ -9,7 +10,7 @@ import palette from 'theme/palette'
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: ${props => (props.reverse ? 'row' : 'row-reverse')};
+  flex-direction: ${properties => (properties.reverse ? 'row' : 'row-reverse')};
   margin: 5rem ${rhythm(2)};
 `
 
@@ -178,5 +179,23 @@ const Cottage = ({
     <Image fluid={image.childImageSharp.fluid} />
   </Wrapper>
 )
+
+Cottage.propTypes = {
+  address: PropTypes.string.isRequired,
+  bathrooms: PropTypes.number.isRequired,
+  beds: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  petFriendly: PropTypes.bool.isRequired,
+  property: PropTypes.string.isRequired,
+  reviewAvg: PropTypes.number.isRequired,
+  reviewCount: PropTypes.number.isRequired,
+  sleeps: PropTypes.number.isRequired,
+  squareFeet: PropTypes.number.isRequired,
+  startFrom: PropTypes.number.isRequired,
+  status: PropTypes.oneOf(['available', 'unavailable']).isRequired,
+}
 
 export default Cottage

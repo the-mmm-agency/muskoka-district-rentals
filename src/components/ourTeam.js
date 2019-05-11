@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import { useStaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
@@ -8,20 +8,25 @@ import Img from 'gatsby-image'
 import MemberInfo from 'components/memberInfo'
 import RightIcon from 'components/rightIcon'
 import palette from 'theme/palette'
-import { rhythm } from 'theme/typography'
-import transitions from 'theme/transitions'
+import { rhythm, scale, options as typography } from 'theme/typography'
+import transitions, { easing, duration } from 'theme/transitions'
 
 const Wrapper = styled.section`
-  background: linear-gradient(180deg, ${props => props.color} 80%, white 20%);
+  background: linear-gradient(
+    180deg,
+    ${properties => properties.color} 80vh,
+    white 20vh
+  );
   color: white;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
+  position: relative;
   transition: ${(transitions.create('background'),
   {
-    duration: transitions.duration.enteringScreen,
-    easing: transitions.easing.easeInOut,
+    duration: duration.enteringScreen,
+    easing: easing.easeInOut,
   })};
   h2 {
     color: white;
@@ -37,9 +42,16 @@ const InfoWrapper = styled.div`
 `
 
 const Picture = styled(Img)`
-  object-fit: contain;
-  flex-grow: 1;
-  height: calc(80vh - ${rhythm(5)} - 4px);
+  min-height: calc(
+    80vh - ${rhythm(8)} - ${typography.baseLineHeight} *
+      ${scale(1).replace('font-size: ', '')}
+  );
+  max-height: calc(
+    80vh - ${rhythm(8)} - ${typography.baseLineHeight} *
+      ${scale(1).replace('font-size: ', '')}
+  );
+
+  width: 100%;
 `
 
 const NextButton = styled.div`
@@ -52,8 +64,8 @@ const NextButton = styled.div`
   display: flex;
   justify-content: center;
   transition: ${transitions.create('background-color', {
-    duration: transitions.duration.complex,
-    easing: transitions.easing.sharp,
+    duration: duration.complex,
+    easing: easing.sharp,
   })};
   width: 25%;
 `
@@ -101,8 +113,8 @@ const TeamMember = styled(BackgroundImage)`
   justify-content: center;
   text-align: center;
   transition: ${transitions.create('opacity', {
-    duration: transitions.duration.complex,
-    easing: transitions.easing.sharp,
+    duration: duration.complex,
+    easing: easing.sharp,
   })};
   opacity: 1;
   span {
@@ -114,7 +126,7 @@ const TeamMember = styled(BackgroundImage)`
   width: 100%;
 `
 
-const OurTeam = memo(() => {
+const OurTeam = () => {
   const [selected, setSelected] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
   const colors = ['#323e50', '#23547e', '#232b38', '#183b58']
@@ -128,7 +140,7 @@ const OurTeam = memo(() => {
           bio
           picture {
             childImageSharp {
-              fluid(maxWidth: 600) {
+              fluid(maxWidth: 4000) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -170,7 +182,10 @@ const OurTeam = memo(() => {
           selected={!transitioning}
         />
         <TeamWrapper>
-          <Picture fluid={team[selected].picture.childImageSharp.fluid} />
+          <Picture
+            fluid={team[selected].picture.childImageSharp.fluid}
+            objectFit="contain"
+          />
           <Team>
             <StyledPose selectedItemId={team[selected].id}>
               {members.map((member, index) => (
@@ -194,6 +209,6 @@ const OurTeam = memo(() => {
       </InfoWrapper>
     </Wrapper>
   )
-})
+}
 
 export default OurTeam
