@@ -3,7 +3,7 @@ import Typography from 'typography'
 import palette from 'theme/palette'
 
 const typography = new Typography({
-  baseFontSize: '14px',
+  baseFontSize: '16px',
   baseLineHeight: 1.8,
   headerFontFamily: ['Didot', 'serif'],
   bodyFontFamily: ['Raleway', 'sans-serif'],
