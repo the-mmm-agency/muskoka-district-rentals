@@ -8,7 +8,7 @@ import Img from 'gatsby-image'
 import MemberInfo from 'components/memberInfo'
 import RightIcon from 'components/rightIcon'
 import palette from 'theme/palette'
-import { rhythm, scale, options as typography } from 'theme/typography'
+import { rhythm, options } from 'theme/typography'
 import transitions, { easing, duration } from 'theme/transitions'
 
 const Wrapper = styled.section`
