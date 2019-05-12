@@ -85,9 +85,10 @@ const SecondaryText = styled.span`
 `
 
 const Image = styled(Img)`
-  min-width: 50%;
+  width: 50%;
   max-height: 30vw;
   flex-grow: 1;
+  flex-shrink: 1;
 `
 
 const Properties = styled.ul`
@@ -109,11 +110,11 @@ const Address = styled.span`
 `
 
 const StyledNumber = styled(Number)`
+  ${scale(1 / 2)};
   color: ${palette.text.primary};
   font-weight: bold;
   font-style: bold;
   margin: auto;
-  ${scale(1 / 2)};
 `
 
 const Cottage = ({
