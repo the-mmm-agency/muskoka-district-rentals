@@ -24,6 +24,26 @@ const StyledLink = styled(Link)`
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
+  span {
+    position: relative;
+    &:hover {
+      &::before {
+        transform: translate(-50%, 0) scaleX(1);
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: ${palette.text.primary};
+      transform-origin: center;
+      transform: translate(-50%, 0) scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
 `
 const HeaderLink = ({ to }) => (
   <StyledLink to={to} fade duration={0.5}>
