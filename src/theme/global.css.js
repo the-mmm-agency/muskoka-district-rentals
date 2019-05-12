@@ -26,7 +26,7 @@ export default createGlobalStyle`
         url(${fonts.RalewayMediumWoff2}) format('woff2'),
         url(${fonts.RalewayMediumWoff}) format('woff'),
         url(${fonts.RalewayMediumTTF}) format('truetype');
-      font-display: swap;
+      font-display: block;
     }
     @font-face {
       font-weight: 600;
@@ -38,7 +38,7 @@ export default createGlobalStyle`
         url(${fonts.RalewaySemiBoldWoff2}) format('woff2'),
         url(${fonts.RalewaySemiBoldWoff}) format('woff'),
         url(${fonts.RalewaySemiBoldTTF}) format('truetype');
-      font-display: swap;
+      font-display: block;
     }
     @font-face {
       font-weight: bold;
@@ -50,7 +50,7 @@ export default createGlobalStyle`
         url(${fonts.RalewayBoldWoff2}) format('woff2'),
         url(${fonts.RalewayBoldWoff}) format('woff'),
         url(${fonts.RalewayBoldTTF}) format('truetype');
-      font-display: swap;
+      font-display: block;
     }
     @font-face {
       font-weight: normal;
@@ -74,7 +74,7 @@ export default createGlobalStyle`
         url(${fonts.DidotBoldWoff2}) format('woff2'),
         url(${fonts.DidotBoldWoff}) format('woff'),
         url(${fonts.DidotBoldTTF}) format('truetype');
-      font-display: swap;
+      font-display: block;
   }
   ::selection {
     color: white;
