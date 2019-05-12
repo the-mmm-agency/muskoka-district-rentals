@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import * as fonts from '../fonts'
-
 function SEO({ description, lang, meta, keywords, title }) {
   const { site } = useStaticQuery(
     graphql`
@@ -72,39 +70,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             : []
         )
         .concat(meta)}
-    >
-      <link
-        rel="preload"
-        href={fonts.RalewayWoff2}
-        as="font"
-        type="font/woff2"
-      />
-      <link
-        rel="preload"
-        href={fonts.RalewayMediumWoff2}
-        as="font"
-        type="font/woff2"
-      />
-      <link
-        rel="preload"
-        href={fonts.RalewaySemiBoldWoff2}
-        as="font"
-        type="font/woff2"
-      />
-      <link
-        rel="preload"
-        href={fonts.RalewayBoldWoff2}
-        as="font"
-        type="font/woff2"
-      />
-      <link rel="preload" href={fonts.DidotWoff2} as="font" type="font/woff2" />
-      <link
-        rel="preload"
-        href={fonts.DidotBoldWoff2}
-        as="font"
-        type="font/woff2"
-      />
-    </Helmet>
+    />
   )
 }
 
