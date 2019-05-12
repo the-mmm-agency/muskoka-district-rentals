@@ -57,7 +57,7 @@ const StyledButton = styled.button`
     `,
     outlined: css`
       background: transparent;
-      border: 1px solid ${(props => rgba(palette[props.color]), 0.5)};
+      border: 1px solid ${props => rgba(palette[props.color], 0.5)};
       color: ${palette.text.primary};
     `,
     transparent: css`
@@ -83,7 +83,7 @@ const StyledButton = styled.button`
       font-style: bold;
     `,
   })};
-  ${/* sc-dec */ switchProp('size', {
+  ${switchProp('size', {
     small: css`
       font-size: 0.65rem;
       padding: 4px 8px;

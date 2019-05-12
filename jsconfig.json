@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "checkJs": true,
+    "checkJs": false,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "jsx": "react",

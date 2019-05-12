@@ -1,6 +1,7 @@
 const palette = {
   primary: '#212a38',
   secondary: '#3278b5',
+  alt: '#718198',
   background: {
     dark: '#eaecef',
     default: '#f1f1f1',

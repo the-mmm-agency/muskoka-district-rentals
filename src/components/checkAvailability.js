@@ -49,11 +49,11 @@ const Wrapper = styled.div`
 
 const DatePickerWrapper = styled.div`
   background-color: white;
-  box-shadow: ${shadows[6]};
   display: flex;
-  flex-wrap: nowrap;
+  padding: 0;
   position: absolute;
-  min-width: 60%;
+  min-width: 800px;
+  width: 75%;
 `
 
 const Section = styled.div`
