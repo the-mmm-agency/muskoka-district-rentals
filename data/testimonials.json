@@ -1,0 +1,11 @@
+[
+  {
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque  eueget ante venenatis euismod. Etiam in odio mattis, suscipit ex sit amet, toronil inoui bibenidum risus.",
+    "rating": 5,
+    "author": "Adam",
+    "property": {
+      "name": "Hemlock Lakehouse",
+      "location": "Toronto"
+    }
+  }
+]

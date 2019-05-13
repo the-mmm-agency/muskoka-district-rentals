@@ -9,6 +9,7 @@ import palette from 'theme/palette'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
 import Layout from 'components/layout'
+import Testimonial from 'components/testimonial'
 import SEO from 'components/seo'
 import CheckAvailability from 'components/checkAvailability'
 
@@ -162,6 +163,17 @@ const IndexPage = () => {
           }
         }
       }
+      testimonials: allTestimonialsJson {
+        nodes {
+          body
+          rating
+          author
+          property {
+            name
+            location
+          }
+        }
+      }
     }
   `)
 
@@ -205,6 +217,7 @@ const IndexPage = () => {
         </WelcomeContainer>
       </Hero>
       <Rentals />
+      <Testimonial {...data.testimonials.nodes[0]} />
       <Contact />
     </Layout>
   )

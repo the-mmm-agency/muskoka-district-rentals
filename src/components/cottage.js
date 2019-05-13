@@ -144,7 +144,7 @@ const Cottage = ({
       <Rating>
         <StarRatings
           rating={reviewAvg}
-          starRatedColor="#efa913"
+          starRatedColor={palette.starRated}
           numberOfStars={5}
           starSpacing="1px"
           starDimension="1rem"
