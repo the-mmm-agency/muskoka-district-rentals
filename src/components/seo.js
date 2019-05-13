@@ -4,29 +4,29 @@ import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 function SEO({ description, lang, meta, keywords, title }) {
-  const { site } = useStaticQuery(
+  const data = useStaticQuery(
     graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
+      {
+        allMagentoStore {
+          nodes {
+            default_title
+            default_description
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const { default_title, default_description } = data.allMagentoStore.nodes[0]
+  const metaDescription = description || default_description
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={default_title}
+      titleTemplate={`%s | ${default_title}`}
       meta={[
         {
           name: `description`,
@@ -47,18 +47,6 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           name: `twitter:card`,
           content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
         },
       ]
         .concat(

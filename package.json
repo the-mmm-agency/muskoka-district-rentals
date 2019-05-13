@@ -6,6 +6,7 @@
   "author": "Brett Mandler <bmandler@themmmagency.com>",
   "dependencies": {
     "dayjs": "^1.8.14",
+    "dotenv": "^8.0.0",
     "gatsby": "^2.4.3",
     "gatsby-background-image": "^0.5.6",
     "gatsby-cli": "^2.5.13",

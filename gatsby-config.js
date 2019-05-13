@@ -1,9 +1,8 @@
+require(`dotenv`).config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
-  siteMetadata: {
-    title: `Muskoka District Rentals`,
-    description: `A booking pwa for Muskoka District Rentals`,
-    author: `@brettm12345`,
-  },
   plugins: [
     {
       resolve: `gatsby-plugin-root-import`,
@@ -78,6 +77,12 @@ module.exports = {
           failOnError: false,
           formatter: require('eslint-formatter-pretty'),
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-magento2`,
+      options: {
+        graphqlEndpoint: `https://f531794b80.nxcli.net/graphql`,
       },
     },
   ],
