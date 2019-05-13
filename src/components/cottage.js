@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import StarRatings from 'react-star-ratings'
 import PropTypes from 'prop-types'
+import { ifProp } from 'styled-tools'
 import Img from 'gatsby-image'
 
 import Number from 'components/number'
@@ -12,9 +13,9 @@ import palette from 'theme/palette'
 const Wrapper = styled.div`
   background: ${palette.background.default};
   display: flex;
-  justify-content: ${props => (props.reverse ? 'flex-start' : 'flex-end')};
-  text-align: ${props => (props.reverse ? 'left' : 'right')};
-  flex-direction: ${props => (props.reverse ? 'row' : 'row-reverse')};
+  justify-content: ${ifProp('reverse', 'flex-start', 'flex-end')};
+  text-align: ${ifProp('reverse', 'left', 'right')};
+  flex-direction: ${ifProp('reverse', 'row', 'row-reverse')};
   margin: 5rem 0;
 `
 
