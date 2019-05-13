@@ -5,6 +5,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import { scale, rhythm } from 'theme/typography'
+import SwirlBackground from 'components/swirlBackground'
 import palette from 'theme/palette'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
@@ -217,7 +218,9 @@ const IndexPage = () => {
         </WelcomeContainer>
       </Hero>
       <Rentals />
-      <Testimonial {...data.testimonials.nodes[0]} />
+      <SwirlBackground>
+        <Testimonial {...data.testimonials.nodes[0]} />
+      </SwirlBackground>
       <Contact />
     </Layout>
   )

@@ -10,6 +10,8 @@ const Wrapper = styled.div`
   background-color: ${palette.background.light};
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  min-height: 60vh;
   align-items: center;
   justify-content: center;
   margin: auto;
