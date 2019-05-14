@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { rgba } from 'polished'
 
 import palette from 'theme/palette'
 import * as fonts from '../fonts'
@@ -83,5 +84,10 @@ export default createGlobalStyle`
     font-kerning: normal;
     font-variant-numeric: lining-nums;
     background-color: ${palette.background.default};
+  }
+  input, textarea {
+    &::placeholder {
+      color: ${rgba(palette.text.primary, 0.6)}
+    }
   }
 `

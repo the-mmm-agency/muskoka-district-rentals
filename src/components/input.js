@@ -1,15 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { opacify } from 'polished'
+import { rgba } from 'polished'
 
 import palette from 'theme/palette'
 
 const Wrapper = styled.div`
   position: relative;
   input {
-    &::placeholder {
-      color: ${opacify(0.6, palette.text.primary)};
-    }
     &:focus {
       & ~ span {
         transform-origin: bottom left;
@@ -19,7 +16,7 @@ const Wrapper = styled.div`
     }
     background-color: transparent;
     border: 1px solid transparent;
-    border-bottom-color: rgba(0, 0, 0, 0.08);
+    border-bottom-color: ${rgba(palette.text.primary, 0.18)};
     color: ${palette.text.primary};
   }
   span {
@@ -28,7 +25,8 @@ const Wrapper = styled.div`
     left: 0;
     right: 0;
     height: 1px;
-    background-color: #000;
+    background-color: ${palette.text.primary};
+    width: 12rem;
     transform-origin: bottom right;
     transform: scaleX(0);
     transition: transform 0.5s ease;
