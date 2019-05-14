@@ -25,7 +25,7 @@ const Logo = () => {
     }
   `)
   return (
-    <Wrapper fadeIn duration={0.5}>
+    <Wrapper fade duration={0.5}>
       <Img
         critical
         fadeIn
