@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome",
+      "url": "https://localhost:8000",
+      "runtimeExecutable": "/usr/bin/google-chrome-unstable",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chromium against localhost",
+      "url": "https://localhost:8000",
+      "webRoot": "${workspaceFolder}",
+      "runtimeExecutable": "/usr/bin/chromium-snapshot-bin",
+      "runtimeArgs": [
+        "--new-window",
+        "-user-data-dir=\"/${workspaceFolder}/DevProfile\"",
+        "--remote-debugging-port=9222",
+        "--disable-background-networking"
+      ]
+    }
+  ]
+}
