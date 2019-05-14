@@ -9,7 +9,6 @@ import SwirlBackground from 'components/swirlBackground'
 import palette from 'theme/palette'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
-import Layout from 'components/layout'
 import Testimonial from 'components/testimonial'
 import SEO from 'components/seo'
 import CheckAvailability from 'components/checkAvailability'
@@ -179,7 +178,7 @@ const IndexPage = () => {
   `)
 
   return (
-    <Layout>
+    <>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <FirstSection
         Tag="section"
@@ -222,7 +221,7 @@ const IndexPage = () => {
         <Testimonial {...data.testimonials.nodes[0]} />
       </SwirlBackground>
       <Contact />
-    </Layout>
+    </>
   )
 }
 

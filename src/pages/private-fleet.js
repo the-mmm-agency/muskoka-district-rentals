@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
-import Layout from 'components/layout'
 import SEO from 'components/seo'
 import { rhythm } from 'theme/typography'
 
@@ -26,7 +25,7 @@ const BuyOrSell = () => {
   `)
 
   return (
-    <Layout>
+    <>
       <SEO title="Buy or Sell Cottages" />
       <PageImage fluid={data.file.childImageSharp.fluid} Tag="section" />
       <Wrapper>
@@ -52,7 +51,7 @@ const BuyOrSell = () => {
         </h6>
         <ContactForm />
       </Wrapper>
-    </Layout>
+    </>
   )
 }
 

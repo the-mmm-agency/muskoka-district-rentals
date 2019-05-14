@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
-import Layout from 'components/layout'
 import SEO from 'components/seo'
 import { scale, rhythm } from 'theme/typography'
 
@@ -78,7 +77,7 @@ const GuestServices = () => {
   `)
 
   return (
-    <Layout>
+    <>
       <SEO title="Guest Services" />
       <PageImage fluid={data.header.childImageSharp.fluid} Tag="section" />
       <Wrapper>
@@ -99,7 +98,7 @@ const GuestServices = () => {
         ))}
         <ContactForm />
       </Wrapper>
-    </Layout>
+    </>
   )
 }
 

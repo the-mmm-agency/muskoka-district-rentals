@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import ContactForm from 'components/contactForm'
-import Layout from 'components/layout'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 import { rhythm, scale } from 'theme/typography'
@@ -34,7 +33,7 @@ const BuyOrSell = () => {
   `)
 
   return (
-    <Layout>
+    <>
       <SEO title="Buy or Sell Cottages" />
       <PageImage fluid={data.home.childImageSharp.fluid} Tag="section" />
       <Wrapper>
@@ -96,7 +95,7 @@ const BuyOrSell = () => {
         </p>
         <ContactForm />
       </Wrapper>
-    </Layout>
+    </>
   )
 }
 

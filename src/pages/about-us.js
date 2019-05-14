@@ -7,7 +7,6 @@ import { scale, rhythm } from 'theme/typography'
 import Contact from 'components/contact'
 import OurTeam from 'components/ourTeam'
 import palette from 'theme/palette'
-import Layout from 'components/layout'
 import SEO from 'components/seo'
 
 const Section = styled.section`
@@ -86,7 +85,7 @@ const AboutUs = () => {
   `)
 
   return (
-    <Layout>
+    <>
       <SEO title="About Us" keywords={[`gatsby`, `application`, `react`]} />
       <FirstSection
         Tag="section"
@@ -118,7 +117,7 @@ const AboutUs = () => {
       </Section>
       <OurTeam />
       <Contact />
-    </Layout>
+    </>
   )
 }
 

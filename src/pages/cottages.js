@@ -6,7 +6,6 @@ import PageImage from 'components/pageImage'
 import CheckAvailability from 'components/checkAvailability'
 import Button from 'components/button'
 import Cottage from 'components/cottage'
-import Layout from 'components/layout'
 import SEO from 'components/seo'
 
 const List = styled.li`
@@ -70,7 +69,7 @@ const Cottages = () => {
   `)
 
   return (
-    <Layout>
+    <>
       <SEO title="Our Rentals" />
       <Image fluid={data.image.childImageSharp.fluid} tag="section">
         <h1>Our Rentals</h1>
@@ -84,7 +83,7 @@ const Cottages = () => {
       <ButtonWrapper>
         <StyledButton font="serif">See More Rentals</StyledButton>
       </ButtonWrapper>
-    </Layout>
+    </>
   )
 }
 

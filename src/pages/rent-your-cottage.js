@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
-import Layout from 'components/layout'
 import SEO from 'components/seo'
 import palette from 'theme/palette'
 import { rhythm, scale } from 'theme/typography'
@@ -56,7 +55,7 @@ const RentYourCottage = () => {
     }
   `)
   return (
-    <Layout>
+    <>
       <SEO
         title="Rent Your Cottage"
         keywords={[`gatsby`, `application`, `react`]}
@@ -122,7 +121,7 @@ const RentYourCottage = () => {
         </p>
         <ContactForm />
       </Wrapper>
-    </Layout>
+    </>
   )
 }
 

@@ -66,7 +66,12 @@ module.exports = {
         pathToConfigModule: `src/theme/typography`,
       },
     },
-    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-transition-link`,
+      options: {
+        layout: require.resolve(`${__dirname}/src/components/layout.js`),
+      },
+    },
     {
       resolve: `gatsby-plugin-eslint`,
       options: {
