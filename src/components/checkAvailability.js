@@ -53,7 +53,8 @@ const DatePickerWrapper = styled.div`
   padding: 0;
   position: absolute;
   min-width: 800px;
-  width: 75%;
+  margin-top: calc(150px + ${rhythm(1 / 2)});
+  width: 100%;
 `
 
 const Section = styled.div`

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { darken, transparentize } from 'polished'
 import PropTypes from 'prop-types'
 import DayPicker from 'react-day-picker'
 
@@ -12,13 +13,20 @@ import shadows from 'theme/shadows'
 const StyledDayPicker = styled(DayPicker)`
   box-shadow: ${shadows[1]};
   background-color: white;
-  border: 1px solid #eee;
+  border: 1px solid #e4e5ec;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 4px;
   position: absolute;
   padding-bottom: ${rhythm(1 / 2)};
   z-index: 9000;
+  .DayPicker:not(.DayPicker--interactionDisabled)
+    .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+    background-color: ${transparentize(0.1, palette.primary)};
+  }
   .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    &:hover {
+      background-color: ${darken(0.2, palette.primary)};
+    }
     background-color: ${palette.alt};
     border-radius: 0px;
     color: white;
@@ -30,8 +38,7 @@ const StyledDayPicker = styled(DayPicker)`
   .DayPicker-Day {
     color: ${palette.text.primary};
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: 0.5rem 0.9rem;
+    padding: 0.5rem 1rem;
   }
   .DayPicker-Weekday {
     color: ${palette.text.secondary};
@@ -42,17 +49,21 @@ const StyledDayPicker = styled(DayPicker)`
   .DayPicker-Caption {
     text-align: center;
     font-weight: 500;
+    margin-bottom: ${rhythm(1)};
     color: ${palette.text.primary};
   }
   .DayPicker-Day--start {
-    border-top-left-radius: 6px !important;
-    border-bottom-left-radius: 6px !important;
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
     background-color: ${palette.primary} !important;
   }
   .DayPicker-Day--end {
-    border-top-right-radius: 6px !important;
-    border-bottom-right-radius: 6px !important;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
     background-color: ${palette.primary} !important;
+  }
+  .DayPicker-wraper {
+    padding-bottom: 0;
   }
 `
 

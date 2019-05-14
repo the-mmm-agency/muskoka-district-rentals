@@ -3,18 +3,11 @@
     "stylelint-config-recommended",
     "stylelint-config-standard",
     "stylelint-config-styled-components",
+    "stylelint-config-rational-order",
     "stylelint-prettier/recommended"
   ],
-  "plugins": ["stylelint-order", "stylelint-config-rational-order/plugin"],
+  "plugins": ["stylelint-order"],
   "rules": {
-    "declaration-empty-line-before": null,
-    "order/properties-order": [],
-    "plugin/rational-order": [
-      true,
-      {
-        "border-in-box-model": false,
-        "empty-line-between-groups": false
-      }
-    ]
+    "declaration-empty-line-before": null
   }
 }

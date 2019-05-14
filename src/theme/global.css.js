@@ -8,73 +8,55 @@ export default createGlobalStyle`
       font-weight: normal;
       font-family: 'Raleway';
       font-style: normal;
-      src: url(${fonts.RalewayEot});
       src: local('Raleway'), local('Raleway-Regular'),
-        url(${fonts.RalewayEot}?#iefix) format('embedded-opentype'),
         url(${fonts.RalewayWoff2}) format('woff2'),
-        url(${fonts.RalewayWoff}) format('woff'),
-        url(${fonts.RalewayTTF}) format('truetype');
-      font-display: swap;
+        url(${fonts.RalewayWoff}) format('woff');
+      font-display: auto;
     }
     @font-face {
       font-weight: 500;
       font-family: 'Raleway';
       font-style: normal;
-      src: url(${fonts.RalewayMediumEot});
       src: local('Raleway Medium'), local('Raleway-Medium'),
-        url(${fonts.RalewayMediumEot}?#iefix) format('embedded-opentype'),
         url(${fonts.RalewayMediumWoff2}) format('woff2'),
-        url(${fonts.RalewayMediumWoff}) format('woff'),
-        url(${fonts.RalewayMediumTTF}) format('truetype');
-      font-display: block;
+        url(${fonts.RalewayMediumWoff}) format('woff');
+      font-display: auto;
     }
     @font-face {
       font-weight: 600;
       font-family: 'Raleway';
       font-style: normal;
-      src: url(${fonts.RalewaySemiBoldEot});
       src: local('Raleway SemiBold'), local('Raleway-SemiBold'),
-        url(${fonts.RalewaySemiBoldEot}?#iefix) format('embedded-opentype'),
         url(${fonts.RalewaySemiBoldWoff2}) format('woff2'),
-        url(${fonts.RalewaySemiBoldWoff}) format('woff'),
-        url(${fonts.RalewaySemiBoldTTF}) format('truetype');
-      font-display: block;
+        url(${fonts.RalewaySemiBoldWoff}) format('woff');
+      font-display: auto;
     }
     @font-face {
       font-weight: bold;
       font-family: 'Raleway';
       font-style: normal;
-      src: url(${fonts.RalewayBoldEot});
       src: local('Raleway Bold'), local('Raleway-Bold'),
-        url(${fonts.RalewayBoldEot}?#iefix) format('embedded-opentype'),
         url(${fonts.RalewayBoldWoff2}) format('woff2'),
-        url(${fonts.RalewayBoldWoff}) format('woff'),
-        url(${fonts.RalewayBoldTTF}) format('truetype');
-      font-display: block;
+        url(${fonts.RalewayBoldWoff}) format('woff');
+      font-display: auto;
     }
     @font-face {
       font-weight: normal;
       font-family: 'Didot';
       font-style: normal;
-      src: url(${fonts.DidotEot});
       src: local('Raleway Bold'), local('Raleway-Bold'),
-        url(${fonts.DidotEot}?#iefix) format('embedded-opentype'),
         url(${fonts.DidotWoff2}) format('woff2'),
-        url(${fonts.DidotWoff}) format('woff'),
-        url(${fonts.DidotTTF}) format('truetype');
-      font-display: swap;
+        url(${fonts.DidotWoff}) format('woff');
+      font-display: auto;
   }
   @font-face {
       font-weight: bold;
       font-family: 'Didot';
       font-style: bold;
-      src: url(${fonts.DidotBoldEot});
       src: local('Raleway Bold'), local('Raleway-Bold'),
-        url(${fonts.DidotBoldEot}?#iefix) format('embedded-opentype'),
         url(${fonts.DidotBoldWoff2}) format('woff2'),
-        url(${fonts.DidotBoldWoff}) format('woff'),
-        url(${fonts.DidotBoldTTF}) format('truetype');
-      font-display: block;
+        url(${fonts.DidotBoldWoff}) format('woff');
+      font-display: auto;
   }
   ::selection {
     color: white;
