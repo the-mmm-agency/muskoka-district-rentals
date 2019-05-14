@@ -7,6 +7,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { scale, rhythm } from 'theme/typography'
 import SwirlBackground from 'components/swirlBackground'
 import palette from 'theme/palette'
+import ConciergeServices from 'components/conciergeServices'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
 import Testimonial from 'components/testimonial'
@@ -217,6 +218,7 @@ const IndexPage = () => {
         </WelcomeContainer>
       </Hero>
       <Rentals />
+      <ConciergeServices />
       <SwirlBackground>
         <Testimonial {...data.testimonials.nodes[0]} />
       </SwirlBackground>
