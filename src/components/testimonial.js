@@ -15,28 +15,27 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: auto;
-  padding: 8% 4%;
+  padding: 8%;
   margin: 10% auto;
   width: 75vw;
   text-align: center;
   h2 {
     ${scale(1)}
-    margin-bottom: ${rhythm(4)};
+    margin-bottom: ${rhythm(3)};
   }
 `
 
 const Body = styled.p`
-  ${scale(1 / 2)};
+  ${scale(1 / 3)};
   line-height: 1.4;
   color: ${palette.text.primary};
   margin-bottom: ${rhythm(7 / 4)};
   font-style: italic;
-  font-weight: 400;
   font-family: ${typography.headerFontFamily.join(',')};
 `
 
 const Title = styled.span`
-  ${scale(1 / 6)};
+  ${scale(1 / 8)};
   letter-spacing: 0.5em;
   font-weight: bold;
   font-style: bold;
@@ -45,8 +44,9 @@ const Title = styled.span`
 `
 
 const Author = styled.span`
-  ${scale(1 / 4)}
-  margin-top: ${rhythm(4)};
+  ${scale(1 / 8)};
+  font-weight: 500;
+  margin-top: ${rhythm(3)};
   margin-bottom: ${rhythm(1 / 2)};
   strong {
     color: ${palette.text.primary};
@@ -63,7 +63,7 @@ const Testimonial = ({ body, rating, author, property }) => (
       starRatedColor={palette.starRated}
       numberOfStars={5}
       starSpacing="1px"
-      starDimension="2rem"
+      starDimension="1.5rem"
       name="rating"
     />
     <Author>
