@@ -12,12 +12,6 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {
-          label: Template Key,
-          name: templateKey,
-          widget: hidden,
-          default: blog-post,
-        }
       - { name: image, label: Feature Image, widget: image }
       - { name: categories, label: Categories, widget: list }
       - { name: date, label: Date, widget: datetime }
