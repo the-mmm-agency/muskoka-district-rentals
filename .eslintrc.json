@@ -50,6 +50,7 @@
         "map": [
           ["constants", "./src/constants"],
           ["components", "./src/components"],
+          ["elements", "./src/elements"],
           ["images", "./src/images"],
           ["pages", "./src/pages"],
           ["theme", "./src/theme"]
@@ -63,6 +64,8 @@
       "files": [
         "gatsby-browser.js",
         "gatsby-config.js",
+        "gatsby-node.js",
+        "src/templates/*.js",
         "src/pages/*.js",
         "test/pages/*.js"
       ],

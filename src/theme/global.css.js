@@ -72,6 +72,21 @@ export default createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
+  a {
+    padding: 0;
+    text-decoration: none;
+    vertical-align: middle;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-focus-inner: {
+      borderstyle: none;
+    }
+  }
   ol, ul {
     list-style: none;
   }
@@ -85,7 +100,39 @@ export default createGlobalStyle`
     font-variant-numeric: lining-nums;
     background-color: ${palette.background.default};
   }
+  button {
+  &::-moz-focus-inner {
+    border-style: 'none';
+  }
+  &:hover {
+    @media (hover: none) {
+      background-color: transparent;
+    }
+    text-decoration: none;
+  }
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  appearance: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  }
   input, textarea {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: ${palette.text.primary};
+    outline: none;
+    resize: none;
+    &:focus {
+      outline: none;
+    }
     &::placeholder {
       color: ${rgba(palette.text.primary, 0.6)}
     }

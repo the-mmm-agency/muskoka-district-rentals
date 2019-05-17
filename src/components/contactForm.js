@@ -1,66 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useInput } from 'react-hanger'
 
+import Button from 'components/button'
+import Box from 'elements/box'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 import Input from 'components/input'
-import palette from 'theme/palette'
-import { rhythm, scale } from 'theme/typography'
-import transitions from 'theme/transitions'
-
-const Wrapper = styled.div`
-  margin-top: ${rhythm(2)};
-`
-
-const Subtitle = styled.span`
-  ${scale(1 / 12)}
-  color: ${palette.text.secondary};
-  font-weight: 700;
-`
-
-const Submit = styled.button`
-  @media (hover: none) {
-    background-color: transparent;
-  }
-  &:hover {
-    background: rgba(0, 0, 0, 0.08);
-  }
-  align-items: center;
-  appearance: none;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid ${palette.text.primary};
-  display: inline-flex;
-  outline: none;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
-  font-weight: 700;
-  transition: ${transitions.create('background')};
-  text-transform: uppercase;
-  text-decoration: none;
-  vertical-align: middle;
-`
-
-const StyledInput = styled(Input)`
-  margin-right: ${rhythm(1)};
-`
-
-const StyledForm = styled.form`
-  display: flex;
-  margin-top: ${rhythm(2)};
-  flex-wrap: wrap;
-`
-
-const Message = styled.textarea`
-  appearance: none;
-  background: transparent;
-  border: none;
-  outline: none;
-  margin-top: ${rhythm(1)};
-  resize: none;
-  height: 200px;
-  width: 100%;
-`
 
 const ContactForm = () => {
   const name = useInput('')
@@ -68,38 +13,49 @@ const ContactForm = () => {
   const subject = useInput('')
   const message = useInput('')
   return (
-    <Wrapper>
-      <h2>Get in touch with us</h2>
-      <Subtitle>
+    <Box mt={2}>
+      <Text as="h2" mb={3}>
+        Get in touch with us
+      </Text>
+      <Text color="text.secondary" variant="bold" fontSize={3} ml={1}>
         If you have any question, Please don’t hesitate to send us a message
-      </Subtitle>
-      <StyledForm>
-        <StyledInput
+      </Text>
+      <Flex as="form" mt={5} flexWrap="wrap">
+        <Input
           type="text"
+          mr={4}
           value={name.value}
           onChange={name.onChange}
           placeholder="Enter your name..."
         />
-        <StyledInput
+        <Input
           type="email"
+          mr={4}
           value={email.value}
           onChange={email.onChange}
           placeholder="Enter your email..."
         />
-        <StyledInput
+        <Input
           type="text"
+          mr={4}
           value={subject.value}
           onChange={subject.onChange}
           placeholder="Subject (optional)"
         />
-        <Message
+        <Box
+          as="textarea"
+          height="200px"
+          width="100%"
+          mt={4}
           value={message.value}
           onChange={message.onChange}
           placeholder="Here goes your message"
         />
-        <Submit type="submit">send message</Submit>
-      </StyledForm>
-    </Wrapper>
+        <Button variant="transparent" type="submit">
+          send message
+        </Button>
+      </Flex>
+    </Box>
   )
 }
 

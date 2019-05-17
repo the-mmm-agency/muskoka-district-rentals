@@ -21,14 +21,14 @@ const StyledHeader = styled.header`
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
   text-align: center;
   background: white;
   padding: 10px;
 `
 
 const Header = () => (
-  <Headroom>
+  <Headroom style={{ zIndex: 999 }}>
     <StyledHeader>
       <Logo />
       <HeaderLink to="/cottages" />
@@ -37,7 +37,7 @@ const Header = () => (
       <HeaderLink to="/rent-your-cottage" />
       <HeaderLink to="/buy-or-sell" />
       <HeaderLink to="/private-fleet" />
-      <StyledButton font="serif" size="large">
+      <StyledButton fontFamily="serif" size="large">
         Reserve Now
       </StyledButton>
     </StyledHeader>

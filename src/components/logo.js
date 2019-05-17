@@ -28,7 +28,6 @@ const Logo = () => {
     <Wrapper fade duration={0.5}>
       <Img
         critical
-        fadeIn
         alt="Muskoka District Rentals"
         fluid={data.logo.childImageSharp.fluid}
       />

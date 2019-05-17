@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: develop
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: blog
+    label: Blog
+    folder: content
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+          label: Template Key,
+          name: templateKey,
+          widget: hidden,
+          default: blog-post,
+        }
+      - { name: image, label: Feature Image, widget: image }
+      - { name: categories, label: Categories, widget: list }
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title, widget: string }
+      - { name: body, label: Body, widget: markdown }
+      - { name: tags, label: Tags, widget: list }

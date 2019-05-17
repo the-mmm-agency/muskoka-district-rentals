@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import StarRatings from 'react-star-ratings'
+import { graphql } from 'gatsby'
 
 import palette from 'theme/palette'
 import { rhythm, scale, options as typography } from 'theme/typography'
@@ -82,5 +83,17 @@ Testimonial.propTypes = {
   }).isRequired,
   rating: PropTypes.number.isRequired,
 }
+
+export const query = graphql`
+  fragment Testimonial on TestimonialsJson {
+    author
+    body
+    property {
+      name
+      location
+    }
+    rating
+  }
+`
 
 export default Testimonial

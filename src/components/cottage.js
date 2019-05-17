@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 import { ifProp } from 'styled-tools'
 import Img from 'gatsby-image'
 
+import Box from 'elements/box'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 import Number from 'components/number'
 import Button from 'components/button'
 import { scale, rhythm } from 'theme/typography'
@@ -19,8 +22,8 @@ const Wrapper = styled.div`
   margin: 5rem 0;
 `
 
-const Box = styled.div`
-  border: 1px solid #1e1e1e;
+const AddressWrapper = styled.div`
+  border: 1px solid ${palette.text.secondary};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,58 +34,8 @@ const Box = styled.div`
   max-height: 350px;
 `
 
-const Rating = styled.div`
-  margin: ${rhythm(1)} 0;
-  margin-top: 0;
-  span {
-    margin-left: 1px;
-    font-weight: 500;
-  }
-`
-
-const Info = styled.div`
-  h2 {
-    width: 100%;
-    ${scale(3 / 4)}
-  }
-  big {
-    ${scale(2 / 3)};
-    color: ${palette.text.primary};
-    font-weight: bold;
-    font-style: bold;
-    margin: 0 ${rhythm(1 / 4)};
-    min-width: 90px;
-    text-align: center;
-  }
-  span {
-    ${scale(1 / 10)};
-    font-weight: 600;
-    padding-top: 15px;
-  }
-  p {
-    margin-top: 20px;
-  }
-  display: flex;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-  justify-content: inherit;
-  padding: ${rhythm(2)};
-  padding-top: 0;
-  width: calc(100% / 3);
-`
-
 const ViewDetail = styled(Button)`
   margin-left: ${rhythm(-2 / 3)};
-`
-
-const PrimaryText = styled.span`
-  color: ${palette.text.primary};
-  font-style: bold;
-  font-weight: bold;
-`
-
-const SecondaryText = styled.span`
-  color: ${palette.secondary};
 `
 
 const Image = styled(Img)`
@@ -111,11 +64,10 @@ const Address = styled.span`
 `
 
 const StyledNumber = styled(Number)`
-  ${scale(1 / 2)};
-  color: ${palette.text.primary};
+  ${scale(1 / 4)};
+  color: ${palette.text.secondary};
   font-weight: bold;
   font-style: bold;
-  margin: auto;
 `
 
 const Cottage = ({
@@ -136,12 +88,19 @@ const Cottage = ({
   number,
 }) => (
   <Wrapper reverse={number % 2 === 0}>
-    <Box>
+    <AddressWrapper>
       <Address>{address}</Address>
       <StyledNumber>{number + 1}</StyledNumber>
-    </Box>
-    <Info>
-      <Rating>
+    </AddressWrapper>
+    <Flex
+      flexShrink={0}
+      flexWrap="wrap"
+      justifyContent="inherit"
+      p={2}
+      pt={0}
+      width="calc(100% / 3)"
+    >
+      <Box mb={3}>
         <StarRatings
           rating={reviewAvg}
           starRatedColor={palette.starRated}
@@ -150,45 +109,86 @@ const Cottage = ({
           starDimension="1rem"
           name="rating"
         />{' '}
-        <span>{reviewCount} reviews</span>
-      </Rating>
-      <h2>{name}</h2>
-      <span>Start from </span>
-      <big>{' $' + startFrom}</big>
-      <span>/Night</span>
-      <p>{description}</p>
+        <Text fontWeight="medium" ml="1px">
+          {reviewCount} reviews
+        </Text>
+      </Box>
+      <Text as="h2" fontSize={0} mb={4} width="100%">
+        {name}
+      </Text>
+      <Text fontWeight="semibold" fontSize="1.5rem" pt={2}>
+        Start from{' '}
+      </Text>
+      <Text
+        fontSize={1}
+        lineHeight={1.2}
+        ml={1}
+        color="text.primary"
+        fontWeight="bold"
+      >
+        {' $' + startFrom}
+      </Text>
+      <Text
+        color="text.primary"
+        fontWeight="semibold"
+        fontSize="1.3rem"
+        mt="auto"
+      >
+        /Night
+      </Text>
+      <Text as="p" color="text.primary" mt={4}>
+        {description}
+      </Text>
       <Properties>
         <li>
           Status:{' '}
           {status === 'Available' ? (
-            <SecondaryText>Available</SecondaryText>
+            <Text color="secondary">Available</Text>
           ) : (
             'Unavailable'
           )}
         </li>
         <li>
-          Square Feet: <PrimaryText>{squareFeet} sqft</PrimaryText>
+          Square Feet:{' '}
+          <Text color="text.primary" fontWeight="bold">
+            {squareFeet} sqft
+          </Text>
         </li>
         <li>
-          Property: <PrimaryText>{property}</PrimaryText>
+          Property:{' '}
+          <Text color="text.primary" fontWeight="bold">
+            {property}
+          </Text>
         </li>
         <li>
-          Sleeps: <PrimaryText>{sleeps}</PrimaryText>
+          Sleeps:{' '}
+          <Text color="text.primary" fontWeight="bold">
+            {sleeps}
+          </Text>
         </li>
         <li>
-          Beds: <PrimaryText>{beds}</PrimaryText>
+          Beds:{' '}
+          <Text color="text.primary" fontWeight="bold">
+            {beds}
+          </Text>
         </li>
         <li>
-          Bathrooms: <PrimaryText>{bathrooms}</PrimaryText>
+          Bathrooms:{' '}
+          <Text color="text.primary" fontWeight="bold">
+            {bathrooms}
+          </Text>
         </li>
         <li>
-          Pet Friendly: <PrimaryText>{petFriendly ? 'Yes' : 'No'}</PrimaryText>
+          Pet Friendly:{' '}
+          <Text color="text.primary" fontWeight="bold">
+            {petFriendly ? 'Yes' : 'No'}
+          </Text>
         </li>
       </Properties>
       <ViewDetail href="/" variant="transparent">
         View Details &nbsp;&rsaquo;
       </ViewDetail>
-    </Info>
+    </Flex>
     <Image fluid={image.childImageSharp.fluid} />
   </Wrapper>
 )

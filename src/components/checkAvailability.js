@@ -163,7 +163,7 @@ const CheckAvailability = () => {
               />
             </label>
           </CheckboxWrapper>
-          <StyledButton font="serif">check availability</StyledButton>
+          <StyledButton fontFamily="serif">check availability</StyledButton>
         </SectionWrapper>
       </Section>
     </Wrapper>

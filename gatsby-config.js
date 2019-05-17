@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Muskoka District Rentals`,
@@ -5,38 +9,29 @@ module.exports = {
     author: `@brettm12345`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-root-import`,
-      options: {
-        constants: `${__dirname}/src/constants`,
-        components: `${__dirname}/src/components`,
-        images: `${__dirname}/src/images`,
-        pages: `${__dirname}/src/pages`,
-        theme: `${__dirname}/src/theme`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'data',
-        path: `${__dirname}/data/`,
-      },
-    },
-    'gatsby-transformer-json',
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-transformer-json`,
     `gatsby-plugin-brotli`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-ramda`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: `gatsby-plugin-breadcrumb`,
       options: {
-        pure: true,
+        crumbLabel: `Home`,
+        crumbSeparator: ` > `,
+        crumbStyle: {
+          color: `#ccc`,
+        },
+        activeCrumbStyle: {
+          color: `#344051`,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaultQuality: 90,
       },
     },
     {
@@ -51,8 +46,51 @@ module.exports = {
         icon: `src/images/muskoka-icon.png`,
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-smartypants`,
+          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 2048,
+            },
+          },
+          `gatsby-remark-relative-images`,
+          `gatsby-remark-copy-linked-files`,
+        ],
+      },
+    },
+    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        pure: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/content`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: `${__dirname}/data/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {

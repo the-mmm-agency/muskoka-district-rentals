@@ -166,13 +166,7 @@ const IndexPage = () => {
       }
       testimonials: allTestimonialsJson {
         nodes {
-          body
-          rating
-          author
-          property {
-            name
-            location
-          }
+          ...Testimonial
         }
       }
     }

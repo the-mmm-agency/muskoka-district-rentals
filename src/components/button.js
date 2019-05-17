@@ -3,62 +3,42 @@ import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { rgba } from 'polished'
 import { switchProp } from 'styled-tools'
+import { fontFamily, themeGet, border } from 'styled-system'
 
 import palette from 'theme/palette'
-import shadows from 'theme/shadows'
-import { options as typography } from 'theme/typography'
 import transitions, { duration } from 'theme/transitions'
 
 const StyledButton = styled.button`
-  &::-moz-focus-inner {
-    border-style: 'none';
-  }
   &:hover {
     background: ${props => palette[props.color]};
     @media (hover: none) {
       background-color: transparent;
     }
-    box-shadow: ${shadows[2]};
+    box-shadow: ${themeGet('shadows.2')};
     text-decoration: none;
     transform: translateY(-3px);
   }
-  align-items: center;
-  appearance: none;
   border-radius: ${switchProp('radius', {
     default: '2px',
     curved: '6px',
     rounded: '30px',
   })};
-  cursor: pointer;
-  display: inline-flex;
-  font-weight: 500;
-  font-family: ${switchProp('font', {
-    sansSerif: typography.bodyFontFamily.join(','),
-    serif: typography.headerFontFamily.join(','),
-  })};
-  outline: none;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
-  text-decoration: none;
-  vertical-align: middle;
   transition: ${transitions.create(
     ['border', 'background', 'box-shadow', 'transform'],
     {
       duration: duration.short,
     }
   )};
-  user-select: none;
-  ${/* sc-dec */ switchProp('variant', {
+  ${switchProp('variant', {
     flat: css`
-      background: ${props => palette[props.color]};
+      background: ${themeGet('colors.text.primary')};
       border: none;
       color: white;
     `,
     outlined: css`
       background: transparent;
-      border: 1px solid ${props => rgba(palette[props.color], 0.5)};
-      color: ${palette.text.primary};
+      border: 1px solid ${props => rgba(props.theme.colors.text.primary, 0.5)};
+      color: ${themeGet('colors.text.primary')};
     `,
     transparent: css`
       &:hover {
@@ -69,10 +49,10 @@ const StyledButton = styled.button`
       background: transparent;
       box-shadow: none;
       border: none;
-      color: ${palette.text.primary};
+      color: ${themeGet('colors.text.primary')};
       font-weight: bold;
       font-style: bold;
-      letter-spacing: 0.1em;
+      letter-spacing: ${themeGet('letterSpacings.caps')};
       text-transform: uppercase;
       transition: ${transitions.create('background', {
         duration: duration.short,
@@ -97,6 +77,8 @@ const StyledButton = styled.button`
       padding: 16px 36px;
     `,
   })}
+  ${fontFamily}
+  ${border}
 `
 
 const Button = props => <StyledButton {...props} />
@@ -104,15 +86,15 @@ const Button = props => <StyledButton {...props} />
 Button.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary']),
   disabled: PropTypes.bool,
-  font: PropTypes.oneOf(['sans-serif', 'serif']),
   radius: PropTypes.oneOf(['default', 'curved', 'rounded']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   variant: PropTypes.oneOf(['flat', 'outlined']),
+  ...fontFamily.propTypes,
+  ...border.propTypes,
 }
 
 Button.defaultProps = {
   color: 'primary',
-  font: 'sans-serif',
   size: 'medium',
   radius: 'default',
   variant: 'flat',

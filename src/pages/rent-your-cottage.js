@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import Flex from 'elements/flex'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
@@ -23,13 +24,6 @@ const Wrapper = styled.div`
   p {
     color: ${palette.text.secondary};
   }
-`
-
-const SectionWrapper = styled.div`
-  display: flex;
-  flex-basis: calc(100% / 3);
-  margin-top: ${rhythm(4)};
-  margin-bottom: ${rhythm(2)};
 `
 
 const Section = styled.div`
@@ -67,7 +61,7 @@ const RentYourCottage = () => {
           Looking to offset costs of your cottage or vacation property? MDR
           offers a safe turn-key, rental solution
         </span>
-        <SectionWrapper>
+        <Flex flexBasis="calc(100% / 3)" mt={4} mb={2}>
           <Section>
             <h6>Cottage Marketing</h6>
             <p>
@@ -104,7 +98,7 @@ const RentYourCottage = () => {
               Anim consequat ea do nulla dolor ea dolor nulla id. Minim Lorem ea
             </p>
           </Section>
-        </SectionWrapper>
+        </Flex>
         <h6>Owner Feedback:</h6>
         <p>
           Et nostrud nostrud anim occaecat cupidatat irure anim dolor quis ut

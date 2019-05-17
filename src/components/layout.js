@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
-import GlobalStyle from 'theme/global.css.js'
+import GlobalStyle from 'theme/global.css'
+import theme from 'theme'
 import Header from 'components/header'
 import Footer from 'components/footer'
 
@@ -15,11 +16,15 @@ const Root = styled.div`
 const Layout = ({ children }) => (
   <>
     <GlobalStyle />
-    <Header />
-    <Root>
-      <main>{children}</main>
-      <Footer />
-    </Root>
+    <ThemeProvider theme={theme}>
+      <>
+        <Header />
+        <Root>
+          <main>{children}</main>
+          <Footer />
+        </Root>
+      </>
+    </ThemeProvider>
   </>
 )
 

@@ -10,12 +10,12 @@ const Wrapper = styled.li`
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
-  padding: ${rhythm(2 / 3)};
+  padding: ${rhythm(1 / 3)};
 `
 
 const StyledLink = styled(Link)`
   h4 {
-    ${scale(1 / 2)};
+    ${scale(1 / 4)};
     margin-left: ${rhythm(2)};
   }
   align-items: center;
@@ -25,8 +25,8 @@ const StyledLink = styled(Link)`
 `
 
 const Image = styled(Img)`
-  max-height: 150px;
-  width: 40%;
+  max-height: 120px;
+  width: 30%;
 `
 
 const ConciergeService = ({ name, link, image, setSelected }) => (

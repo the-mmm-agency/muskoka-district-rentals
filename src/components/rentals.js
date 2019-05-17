@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import Text from 'elements/text'
+import Flex from 'elements/flex'
 import Rental from 'components/rental'
-import { rhythm, scale } from 'theme/typography'
+import Link from 'components/link'
 
 const Wrapper = styled(BackgroundImage)`
   align-items: center;
@@ -18,64 +20,53 @@ const Wrapper = styled(BackgroundImage)`
   &::after {
     filter: brightness(0.5);
   }
-  h3 {
-    ${scale(1)}
-    color: white;
-    margin-bottom: ${rhythm(2)};
-  }
-  ul {
-    display: flex;
-    flex-basis: calc(100% / 3);
-  }
-`
-
-const ViewAllRentals = styled.a`
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 15px;
-  line-height: 100px;
 `
 
 const Rentals = () => {
-  const data = useStaticQuery(graphql`
+  const {
+    allRentalsJson: { nodes: rentals },
+  } = useStaticQuery(graphql`
     query {
       allRentalsJson {
         nodes {
-          id
-          name
-          image {
-            childImageSharp {
-              fluid(maxWidth: 9000) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          startFrom
+          ...Rental
         }
       }
     }
   `)
 
-  const [selected, setSelected] = useState(data.allRentalsJson.nodes[0].image)
+  const [selected, setSelected] = useState(0)
 
   return (
-    <Wrapper fadeIn fluid={selected.childImageSharp.fluid} Tag="section">
-      <h3>Our Rentals</h3>
-      <ul>
-        {data.allRentalsJson.nodes.map(rental => (
+    <Wrapper
+      fluid={rentals[selected].image.childImageSharp.fluid}
+      Tag="section"
+    >
+      <Text as="h3" fontSize={1} color="white" mb={3}>
+        Our Rentals
+      </Text>
+      <Flex as="ul" flexBasis="calc(100% / 3)">
+        {rentals.map((rental, index) => (
           <Rental
             key={rental.id}
-            image={rental.image}
-            name={rental.name}
-            selected={rental.image === selected}
-            startFrom={rental.startFrom}
-            onMouseOver={() => setSelected(rental.image)}
-            onFocus={() => setSelected(rental.image)}
+            selected={index == selected}
+            onMouseOver={() => setSelected(index)}
+            onFocus={() => setSelected(index)}
+            {...rental}
           />
         ))}
-      </ul>
-      <ViewAllRentals href="/cottages">View All Rentals</ViewAllRentals>
+      </Flex>
+      <Link
+        lineHeight="100px"
+        fontWeight="bold"
+        fontSize={3}
+        color="white"
+        width="100%"
+        textAlign="center"
+        to="/cottages"
+      >
+        View All Rentals
+      </Link>
     </Wrapper>
   )
 }

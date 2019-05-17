@@ -1,47 +1,66 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import { themeGet } from 'styled-system'
 
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 import transitions from 'theme/transitions'
-import { rhythm } from 'theme/typography'
 
-const ListItem = styled.li`
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  margin: ${rhythm(1 / 2)};
-`
-
-const LineItem = styled.div`
-  margin: 10px 0;
-  padding-bottom: 10px;
-  width: auto;
-`
-
-const RentalImg = styled(Img)`
+const Wrapper = styled(Flex)`
   &:hover {
     opacity: 1;
   }
-  width: 180px;
-  height: 130px;
-  position: relative;
-  margin: auto;
   opacity: 0.5;
   transition: ${transitions.create('opacity')};
 `
 
+const RentalImg = styled(Img)`
+  width: 210px;
+  height: 130px;
+  position: relative;
+  margin: ${themeGet('space.2')} 0;
+`
+
 const Rental = ({ image, name, startFrom, onMouseOver }) => {
   return (
-    <ListItem onMouseOver={onMouseOver} onFocus={onMouseOver}>
-      <LineItem>
-        Starting from $<strong>{startFrom}/night</strong>
-      </LineItem>
+    <Wrapper
+      display="flex"
+      color="white"
+      flexDirection="column"
+      m={3}
+      as="li"
+      textAlign="left"
+      onMouseOver={onMouseOver}
+      onFocus={onMouseOver}
+    >
+      <Text fontWeight="medium">
+        Starting from <strong>${startFrom}</strong>/Night
+      </Text>
       <RentalImg fluid={image.childImageSharp.fluid} />
-      <LineItem border>{name}</LineItem>
-    </ListItem>
+      <Text fontFamily="serif" variant="bold" fontSize="1.4rem">
+        {name}
+      </Text>
+    </Wrapper>
   )
 }
+
+export const query = graphql`
+  fragment Rental on RentalsJson {
+    id
+    name
+    image {
+      childImageSharp {
+        fluid(maxWidth: 9000) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    startFrom
+  }
+`
 
 Rental.propTypes = {
   image: PropTypes.object.isRequired,

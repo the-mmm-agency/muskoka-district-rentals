@@ -1,53 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
+import Box from 'elements/box'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
+import GuestService from 'components/guestService'
 import SEO from 'components/seo'
-import { scale, rhythm } from 'theme/typography'
-
-const Wrapper = styled.div`
-  padding: ${rhythm(1)} 20%;
-`
-
-const Header = styled.h1`
-  margin-top: 75px;
-  color: #000;
-  ${scale(0.8)}
-  margin-bottom: 10px;
-`
-
-const SecondaryHeader = styled.h6`
-  color: #000;
-  ${scale(0.05)}
-`
-
-const LineItem = styled.div`
-  display: flex;
-`
-
-const ItemWrapper = styled.div`
-  display: inline-block;
-  vertical-align: top;
-  &:nth-child(2) {
-    margin-left: 15px;
-  }
-`
-
-const ItemIcon = styled(Img)`
-  border-radius: 8px;
-`
-
-const ItemHeader = styled.h4`
-  margin-bottom: 10px;
-  color: #000;
-`
-
-const ItemBody = styled.p`
-  margin-bottom: 25px;
-`
 
 const GuestServices = () => {
   const data = useStaticQuery(graphql`
@@ -61,16 +21,7 @@ const GuestServices = () => {
       }
       guestServices: allGuestServicesJson {
         nodes {
-          id
-          name
-          body
-          image {
-            childImageSharp {
-              fixed(width: 75, height: 75) {
-                ...GatsbyImageSharpFixed_withWebp
-              }
-            }
-          }
+          ...GuestService
         }
       }
     }
@@ -80,24 +31,20 @@ const GuestServices = () => {
     <>
       <SEO title="Guest Services" />
       <PageImage fluid={data.header.childImageSharp.fluid} Tag="section" />
-      <Wrapper>
-        <Header>Guest Services</Header>
-        <SecondaryHeader>
-          Reserve your vacation rental with MDR.
-        </SecondaryHeader>
-        {data.guestServices.nodes.map(service => (
-          <LineItem key={service.id}>
-            <ItemWrapper>
-              <ItemIcon fixed={service.image.childImageSharp.fixed} />
-            </ItemWrapper>
-            <ItemWrapper>
-              <ItemHeader>{service.name}</ItemHeader>
-              <ItemBody>{service.body}</ItemBody>
-            </ItemWrapper>
-          </LineItem>
-        ))}
+      <Box py={5} px={6}>
+        <Text as="h1" mb={3}>
+          Guest Services
+        </Text>
+        <Text as="h3" fontSize="1.5rem" ml={1}>
+          Reserve your vacation with MDR.
+        </Text>
+        <Flex as="ul" flexDirection="column" mb={5}>
+          {data.guestServices.nodes.map(service => (
+            <GuestService key={service.id} {...service} />
+          ))}
+        </Flex>
         <ContactForm />
-      </Wrapper>
+      </Box>
     </>
   )
 }
