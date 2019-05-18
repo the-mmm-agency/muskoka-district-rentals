@@ -1,5 +1,5 @@
-import React from 'cms/preview-templates/react'
-import PropTypes from 'cms/preview-templates/prop-types'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { BlogPostTemplate } from '../../templates/blog-post'
 
 const BlogPostPreview = ({ entry, widgetFor }) => (

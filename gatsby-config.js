@@ -1,3 +1,5 @@
+const path = require('path')
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -15,6 +17,20 @@ module.exports = {
     `gatsby-plugin-ramda`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-root-import`,
+      options: {
+        cms: path.join(__dirname, 'src', 'cms'),
+        components: path.join(__dirname, 'src', 'components'),
+        constants: path.join(__dirname, 'src', 'constants'),
+        elements: path.join(__dirname, 'src', 'elements'),
+        fonts: path.join(__dirname, 'src', 'fonts'),
+        images: path.join(__dirname, 'src', 'images'),
+        pages: path.join(__dirname, 'src', 'pages'),
+        templates: path.join(__dirname, 'src', 'templates'),
+        theme: path.join(__dirname, 'src', 'theme'),
+      },
+    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -59,7 +75,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify-cms',
+      resolve: `gatsby-plugin-netlify-cms`,
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
