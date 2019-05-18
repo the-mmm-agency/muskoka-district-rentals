@@ -103,7 +103,6 @@
     "eslint-plugin-react-hooks": "^1.6.0",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-unicorn": "^8.0.2",
-    "gatsby-plugin-brotli": "^1.0.1",
     "gatsby-plugin-eslint": "^2.0.5",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-nprogress": "^2.0.10",

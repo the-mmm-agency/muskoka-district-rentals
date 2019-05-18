@@ -12,7 +12,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-transformer-json`,
-    `gatsby-plugin-brotli`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-ramda`,
     `gatsby-plugin-react-helmet`,
