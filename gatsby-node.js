@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const dayjs = require('dayjs')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
@@ -25,7 +26,6 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               date
               title
-              image
               categories
               tags
             }
@@ -42,37 +42,36 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges
 
     posts.forEach(edge => {
-      const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
         component: postPage,
         context: {
-          id,
+          slug: edge.node.fields.slug,
         },
       })
     })
 
     // Tag pages:
-    let tags = []
-    // Iterate through each post, putting all found tags into `tags`
+    let categories = []
+    // Iterate through each post, putting all found categories into `categories`
     posts.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
+      if (_.get(edge, `node.frontmatter.categories`)) {
+        categories = categories.concat(edge.node.frontmatter.categories)
       }
     })
-    // Eliminate duplicate tags
-    tags = _.uniq(tags)
+    // Eliminate duplicate categories
+    categories = _.uniq(categories)
 
-    // Make tag pages
-    tags.forEach(tag => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`
+    // Make category pages
+    categories.forEach(category => {
+      const categoryPath = `/categories/${_.kebabCase(category)}/`
 
       createPage({
-        path: tagPath,
-        component: path.resolve(`src/templates/tags.js`),
+        path: categoryPath,
+        component: path.resolve(`src/templates/category.js`),
         context: {
-          tag,
+          category,
         },
       })
     })
@@ -89,6 +88,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+    const date = dayjs(node.frontmatter.date)
+    createNodeField({
+      name: `date`,
+      node,
+      value: date.toISOString(),
     })
   }
 }

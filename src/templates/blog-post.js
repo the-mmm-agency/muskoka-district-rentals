@@ -1,14 +1,15 @@
 import React from 'react'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
+import Box from 'elements/box'
 import Flex from 'elements/flex'
 import Text from 'elements/text'
-import Layout from 'components/layout'
 import Link from 'components/link'
 import SEO from 'components/seo'
+import Breadcrumb from 'components/breadcrumb'
 
 const Hero = styled(Img)`
   min-height: 600px;
@@ -18,63 +19,126 @@ const Meta = styled(Flex)`
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 `
 
-const BlogPost = ({ location, data }) => {
+const BlogPost = ({ data }) => {
   const postNode = data.markdownRemark
-  const post = postNode.frontMatter
+  const post = postNode.frontmatter
   return (
-    <Layout>
-      <Hero fluid={post.childImageSharp.fluid} />
+    <>
+      <Hero fluid={post.image.childImageSharp.fluid} />
       <SEO title={post.title} description={postNode.excerpt} />
-      <Flex bg="background.light" px={1} py={3} width="80%" m="auto">
-        <Text as="h1">{post.title}</Text>
-        <Breadcrumb location={location} crumbLabel={post.title} />
-        <Meta px={2} mt={4}>
-          <Flex>
-            <Text color="text.primary" fontFamily="serif">
+      <Flex
+        alignItems="center"
+        bg="background.light"
+        p={5}
+        flexDirection="column"
+        width="80%"
+        m="auto"
+      >
+        <Text as="h1" textAlign="center" width="100%">
+          {post.title}
+        </Text>
+        <Breadcrumb
+          crumbs={[
+            { link: '/', title: 'Home' },
+            { link: '/blog', title: 'Blog' },
+            { link: postNode.slug, title: post.title },
+          ]}
+        />
+        <Meta
+          justifyContent="space-between"
+          py={4}
+          px={2}
+          mt={4}
+          mb={5}
+          width="100%"
+        >
+          <Flex flexDirection="column">
+            <Text
+              color="text.primary"
+              fontWeight="bold"
+              fontSize="1.3rem"
+              fontFamily="serif"
+            >
               Date
             </Text>
-            <Text color="text.secondary">{post.date}</Text>
+            <Text color="text.secondary" fontWeight="bold">
+              {post.date}
+            </Text>
           </Flex>
-          <Flex>
-            <Text color="text.primary" fontFamily="serif">
+          <Flex flexDirection="column">
+            <Text
+              color="text.primary"
+              fontWeight="bold"
+              fontSize="1.3rem"
+              fontFamily="serif"
+            >
               Category
             </Text>
-            {post.categories.map(category => (
-              <Link
-                key={category}
-                textTransform="capitalize"
-                to={`/categories/${category}`}
-              >
-                {category}
-              </Link>
-            ))}
+            <Box display="inline-block">
+              {post.categories.map((category, index) => (
+                <Link
+                  key={category}
+                  color="text.secondary"
+                  fontWeight="bold"
+                  textTransform="capitalize"
+                  to={`/categories/${category}`}
+                >
+                  {category}
+                  {index !== post.categories.length - 1 && <>,&nbsp;</>}
+                </Link>
+              ))}
+            </Box>
           </Flex>
-          <Flex>
-            <Text color="text.primary" fontFamily="serif">
+          <Flex flexDirection="column">
+            <Text
+              color="text.primary"
+              fontSize="1.3rem"
+              fontWeight="bold"
+              fontFamily="serif"
+            >
               Tags
             </Text>
-            {post.tags.map(tag => (
-              <Link key={tag} textTransform="capitalize" to={`/tags/${tag}`}>
-                {tag}
-              </Link>
-            ))}
+            <Box display="inline-block">
+              {post.tags.map((tag, index) => (
+                <Link
+                  key={tag}
+                  color="text.secondary"
+                  fontWeight="bold"
+                  textTransform="capitalize"
+                  to={`/tags/${tag}`}
+                >
+                  {tag}
+                  {index !== post.tags.length - 1 && <>,&nbsp;</>}
+                </Link>
+              ))}
+            </Box>
           </Flex>
         </Meta>
-        <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+        <Box width="100%" dangerouslySetInnerHTML={{ __html: postNode.html }} />
       </Flex>
-    </Layout>
+    </>
   )
 }
 
-export const pageQuery = graphql`
+BlogPost.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
+export const query = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
       frontmatter {
         title
-        image
-        date
+        image {
+          childImageSharp {
+            fluid(maxWidth: 4000) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        date(formatString: "MMMM DD, YYYY")
         categories
         tags
       }

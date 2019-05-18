@@ -13,7 +13,8 @@ const palette = {
   },
   text: {
     primary: '#344051',
-    secondary: '#cccccc',
+    secondary: '#666',
+    light: '#ccc',
   },
 }
 

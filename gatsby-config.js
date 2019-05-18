@@ -16,19 +16,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-breadcrumb`,
-      options: {
-        crumbLabel: `Home`,
-        crumbSeparator: ` > `,
-        crumbStyle: {
-          color: `#ccc`,
-        },
-        activeCrumbStyle: {
-          color: `#344051`,
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaultQuality: 90,
@@ -52,13 +39,21 @@ module.exports = {
         plugins: [
           `gatsby-remark-smartypants`,
           `gatsby-remark-autolink-headers`,
+          `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 2048,
+              quality: 90,
+              withWebp: true,
             },
           },
-          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              name: `assets`,
+            },
+          },
           `gatsby-remark-copy-linked-files`,
         ],
       },
@@ -81,7 +76,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/content`,
+        path: `${__dirname}/content/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `uploads`,
+        path: `${__dirname}/content/assets`,
       },
     },
     {

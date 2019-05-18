@@ -1,18 +1,18 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
+import Breadcrumb from 'components/breadcrumb'
 import Flex from 'elements/flex'
 import Text from 'elements/text'
 import Categories from 'components/categories'
 import PostCard from 'components/postCard'
 
-const Blog = ({ location }) => {
+const Blog = () => {
   const data = useStaticQuery(graphql`
     query BlogPage {
       posts: allMarkdownRemark(
         limit: 6
-        sort: { fields: [fields__date], order: DESC }
+        sort: { fields: [fields___date], order: DESC }
       ) {
         edges {
           node {
@@ -25,7 +25,7 @@ const Blog = ({ location }) => {
               date(formatString: "MMMM DD, YYYY")
               image {
                 childImageSharp {
-                  fluid(maxWidth: 300, quality: 100) {
+                  fluid(maxWidth: 300) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -37,17 +37,29 @@ const Blog = ({ location }) => {
     }
   `)
   return (
-    <Flex bg="colors.background.default" px={5} py={2}>
-      <Flex alignItems="center">
-        <Text as="h1" textAlign="center">
+    <Flex bg="colors.background.default" p={5} flexDirection="column">
+      <Flex alignItems="center" width="100%" flexDirection="column">
+        <Text as="h1" textAlign="center" mb={1}>
           The latest news
         </Text>
-        <Breadcrumb location={location} crumbLabel="Blog" />
+        <Breadcrumb
+          mb={4}
+          crumbs={[
+            {
+              link: '/',
+              title: 'Home',
+            },
+            {
+              link: '/blog',
+              title: 'Blog',
+            },
+          ]}
+        />
       </Flex>
       <Categories />
-      <Flex alignItems="center">
-        {data.posts.edges[0].map(postEdge => (
-          <PostCard key={postEdge.node.title} {...postEdge.node} />
+      <Flex alignItems="center" py={2} px={6}>
+        {data.posts.edges.map(edge => (
+          <PostCard key={edge.node.id} {...edge.node} />
         ))}
       </Flex>
     </Flex>

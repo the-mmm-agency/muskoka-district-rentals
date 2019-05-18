@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
-import { rgba } from 'polished'
+import { darken, rgba } from 'polished'
 
 import palette from 'theme/palette'
+import transitions from 'theme/transitions'
 import * as fonts from '../fonts'
 
 export default createGlobalStyle`
@@ -73,13 +74,19 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
   a {
+    &:hover {
+      color: ${darken(0.2, palette.secondary)};
+      text-decoration: underline;
+    }
     padding: 0;
+    color: ${palette.secondary};
     text-decoration: none;
     vertical-align: middle;
     border: 0;
     border-radius: 0;
     outline: none;
     cursor: pointer;
+    transition: ${transitions.create(['color', 'text-decoration'])};
     appearance: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
