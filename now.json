@@ -11,5 +11,5 @@
       "config": { "distDir": "public" }
     }
   ],
-  "routes": [{ "src": "/admin/.*", "dest": "/admin" }]
+  "routes": [{ "src": "/admin/(.*)", "dest": "/admin/$1" }]
 }
