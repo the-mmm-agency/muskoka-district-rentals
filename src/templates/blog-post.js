@@ -30,9 +30,14 @@ const BlogPost = ({ data }) => {
         alignItems="center"
         bg="background.light"
         p={5}
+        mt={-4}
         flexDirection="column"
         width="80%"
         m="auto"
+        style={{
+          position: 'relative',
+          top: '-50px',
+        }}
       >
         <Text as="h1" textAlign="center" width="100%">
           {post.title}
