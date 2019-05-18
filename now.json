@@ -11,5 +11,8 @@
       "config": { "distDir": "public" }
     }
   ],
-  "routes": [{ "src": "/cms.js", "dest": "/admin/cms.js" }]
+  "routes": [
+    { "src": "/cms.js", "dest": "/admin/cms.js" },
+    { "src": "/config.yml", "dest": "/admin/config.yml" }
+  ]
 }
