@@ -49,21 +49,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          fields {
-            slug
-            date
-          }
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            image {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
+          ...PostCard
         }
       }
     }

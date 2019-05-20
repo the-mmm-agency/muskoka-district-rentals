@@ -28,6 +28,10 @@
   "rules": {
     "jsx-a11y/label-has-associated-control": "off",
     "prettier/prettier": "error",
+    "react/prop-types": [
+      "error",
+      { "ignore": ["data", "children", "pageContext"] }
+    ],
     "react/prefer-stateless-function": "warn",
     "react/sort-prop-types": "error",
     "unicorn/filename-case": ["error", { "case": "camelCase" }],

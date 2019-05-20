@@ -16,21 +16,7 @@ const Blog = () => {
       ) {
         edges {
           node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              date(formatString: "MMMM DD, YYYY")
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 300) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
+            ...PostCard
           }
         }
       }

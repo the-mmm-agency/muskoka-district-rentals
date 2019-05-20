@@ -4,6 +4,9 @@ import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import PostCard from 'components/postCard'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 import { scale, rhythm } from 'theme/typography'
 import SwirlBackground from 'components/swirlBackground'
 import palette from 'theme/palette'
@@ -169,6 +172,16 @@ const IndexPage = () => {
           ...Testimonial
         }
       }
+      blogPosts: allMarkdownRemark(
+        limit: 3
+        sort: { fields: [fields___date], order: DESC }
+      ) {
+        edges {
+          node {
+            ...PostCard
+          }
+        }
+      }
     }
   `)
 
@@ -215,6 +228,18 @@ const IndexPage = () => {
       <ConciergeServices />
       <SwirlBackground>
         <Testimonial {...data.testimonials.nodes[0]} />
+        <Flex
+          flexDirection="column"
+          textAlign="center"
+          alignItems="center"
+          mb={6}
+        >
+          <Text variant="caps">explore</Text>
+          <Text as="h3">Latest from our blog</Text>
+          {data.blogPosts.edges.map(edge => (
+            <PostCard key={edge.node.id} {...edge.node} />
+          ))}
+        </Flex>
       </SwirlBackground>
       <Contact />
     </>

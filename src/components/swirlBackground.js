@@ -15,6 +15,7 @@ const Image = styled(BackgroundImage)`
   background-size: auto;
   background-repeat: repeat;
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   width: 100%;
 `

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import { themeGet } from 'styled-system'
 
 import Flex from 'elements/flex'
@@ -62,5 +63,25 @@ PostCard.propTypes = {
     image: PropTypes.object.isRequired,
   }).isRequired,
 }
+
+export const query = graphql`
+  fragment PostCard on MarkdownRemark {
+    id
+    fields {
+      slug
+    }
+    frontmatter {
+      title
+      date(formatString: "MMMM DD, YYYY")
+      image {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  }
+`
 
 export default PostCard
