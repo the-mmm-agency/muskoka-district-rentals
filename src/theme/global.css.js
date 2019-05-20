@@ -16,26 +16,6 @@ const styles = {
   '*': {
     boxSizing: 'border-box',
   },
-  a: {
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-    padding: '0',
-    color: 'secondary',
-    textDecoration: 'none',
-    verticalAlign: 'middle',
-    border: '0',
-    borderRadius: '0',
-    outline: 'none',
-    cursor: 'pointer',
-    transition: transitions.create(['color', 'text-decoration']),
-    appearance: 'none',
-    userSelect: 'none',
-    WebkitTapHighlightColor: 'transparent',
-    '-moz-focus-inner': {
-      borderstyle: 'none',
-    },
-  },
   html: {
     fontSize: 'base',
     boxSizing: 'border-box',
@@ -43,7 +23,6 @@ const styles = {
     MozOsxFontSmoothing: 'grayscale',
     WebkitFontSmoothing: 'antialiased',
   },
-
   '::selection': {
     color: 'white',
     backgroundColor: 'primary',
@@ -70,6 +49,26 @@ const styles = {
     cursor: 'pointer',
     appearance: 'none',
   },
+  a: {
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+    padding: '0',
+    color: 'secondary',
+    textDecoration: 'none',
+    verticalAlign: 'middle',
+    border: '0',
+    borderRadius: '0',
+    outline: 'none',
+    cursor: 'pointer',
+    transition: transitions.create(['color', 'text-decoration']),
+    appearance: 'none',
+    userSelect: 'none',
+    WebkitTapHighlightColor: 'transparent',
+    '-moz-focus-inner': {
+      borderstyle: 'none',
+    },
+  },
   'ol, ul': {
     listStyle: 'none',
   },
@@ -94,12 +93,33 @@ const styles = {
     '&:focus': {
       outline: 'none',
     },
-    p: {
-      color: 'text.paragraph',
+  },
+  p: {
+    color: 'text.paragraph',
+  },
+  blockquote: {
+    backgroundColor: 'background.default',
+    borderLeft: '.25em solid',
+    borderColor: 'secondary',
+    color: 'text.primary',
+    mt: '2',
+    pl: '2',
+    ml: '0',
+  },
+  '&::placeholder': {
+    color: 'text.primary',
+    opacity: '0.6',
+  },
+  thead: {
+    backgroundColor: 'background.dark',
+  },
+  'thead,tr': {
+    color: 'text.primary',
+  },
+  'th,td': {
+    '&:first-child': {
+      pl: 2,
     },
-    // '&::placeholder': {
-    //   color: '${rgba(palette.text.primary, 0.6)}',
-    // }
   },
   ...headers,
 }

@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import React from 'react'
 import PropTypes from 'prop-types'
 import StarRatings from 'react-star-ratings'
 import css from '@styled-system/css'
