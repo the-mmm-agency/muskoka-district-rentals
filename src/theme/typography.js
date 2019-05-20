@@ -3,7 +3,7 @@ import Typography from 'typography'
 import palette from 'theme/palette'
 
 const typography = new Typography({
-  baseFontSize: '18px',
+  baseFontSize: '16px',
   baseLineHeight: 1.8,
   headerFontFamily: ['Didot', 'serif'],
   bodyFontFamily: ['Raleway', 'sans-serif'],
@@ -20,4 +20,5 @@ if (process.env.NODE_ENV !== `production`) {
 }
 
 export const { scale, rhythm, options } = typography
+
 export default typography

@@ -23,6 +23,11 @@ import {
   textStyle,
 } from 'styled-system'
 
+const fontStyle = style({
+  prop: 'fontStyle',
+  cssProperty: 'fontStyle',
+})
+
 const textDecoration = style({
   prop: 'textDecoration',
   cssProperty: 'textDecoration',
@@ -36,6 +41,7 @@ const textTransform = style({
 export const box = compose(
   space,
   border,
+  fontStyle,
   boxShadow,
   background,
   width,
@@ -54,6 +60,7 @@ export const flexbox = compose(
 )
 
 export const typography = compose(
+  fontStyle,
   fontFamily,
   fontSize,
   fontWeight,

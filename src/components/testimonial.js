@@ -1,64 +1,51 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import StarRatings from 'react-star-ratings'
+import css from '@styled-system/css'
 import { graphql } from 'gatsby'
 
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 import palette from 'theme/palette'
-import { rhythm, scale, options as typography } from 'theme/typography'
-
-const Wrapper = styled.div`
-  background-color: ${palette.background.light};
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  min-height: 60vh;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  padding: 8%;
-  margin: 10% auto;
-  width: 75vw;
-  text-align: center;
-  h2 {
-    ${scale(1)}
-    margin-bottom: ${rhythm(3)};
-  }
-`
-
-const Body = styled.p`
-  ${scale(1 / 3)};
-  line-height: 1.4;
-  color: ${palette.text.primary};
-  margin-bottom: ${rhythm(7 / 4)};
-  font-style: italic;
-  font-family: ${typography.headerFontFamily.join(',')};
-`
-
-const Title = styled.span`
-  ${scale(1 / 8)};
-  letter-spacing: 0.5em;
-  font-weight: bold;
-  font-style: bold;
-  margin-bottom: ${rhythm(3 / 2)};
-  text-transform: uppercase;
-`
-
-const Author = styled.span`
-  ${scale(1 / 8)};
-  font-weight: 500;
-  margin-top: ${rhythm(3)};
-  margin-bottom: ${rhythm(1 / 2)};
-  strong {
-    color: ${palette.text.primary};
-  }
-`
 
 const Testimonial = ({ body, rating, author, property }) => (
-  <Wrapper>
-    <Title>Testimonial</Title>
-    <h2>What Guests Say</h2>
-    <Body>&quot;{body}&quot;</Body>
+  <Flex
+    flexDirection="column"
+    bg="background.light"
+    flexShrink={0}
+    minHeight="60vh"
+    alignItems="center"
+    justifyContent="center"
+    m="10% auto"
+    p="8%"
+    width="75vw"
+    textAlign="center"
+    background="background.light"
+  >
+    <Text
+      color="text.secondary"
+      textTransform="uppercase"
+      letterSpacing="0.5em"
+      fontWeight="bold"
+      mb={4}
+    >
+      Testimonial
+    </Text>
+    <Text as="h2" mb={5}>
+      What Guests Say
+    </Text>
+    <Text
+      as="p"
+      lineHeight="expanded"
+      fontSize={4}
+      color="text.alt"
+      fontFamily="serif"
+      fontStyle="italic"
+    >
+      &quot;{body}&quot;
+    </Text>
     <StarRatings
       rating={rating}
       starRatedColor={palette.starRated}
@@ -67,11 +54,20 @@ const Testimonial = ({ body, rating, author, property }) => (
       starDimension="1.5rem"
       name="rating"
     />
-    <Author>
+    <Text
+      css={css({
+        strong: {
+          color: 'text.primary',
+        },
+      })}
+      fontWeight="medium"
+      mt={5}
+      mb={0}
+    >
       <strong>{author} -</strong> Review for {property.name} from{' '}
       <strong>{property.location}</strong>
-    </Author>
-  </Wrapper>
+    </Text>
+  </Flex>
 )
 
 Testimonial.propTypes = {

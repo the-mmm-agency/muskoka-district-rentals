@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { rgba } from 'polished'
 
 import palette from 'theme/palette'
 import transitions from 'theme/transitions'
 
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
+const HiddenCheckbox = styled.input`
   border: 0;
   clip: rect(0, 0, 0, 0);
   clippath: inset(50%);
@@ -51,7 +51,7 @@ const CheckboxContainer = styled.div`
 
 const Checkbox = ({ checked, ...props }) => (
   <CheckboxContainer>
-    <HiddenCheckbox checked={checked} {...props} />
+    <HiddenCheckbox checked={checked} type="checkbox" {...props} />
     <StyledCheckbox checked={checked}>
       <Icon viewBox="0 0 24 24">
         <polyline points="20 6 9 17 4 12" />

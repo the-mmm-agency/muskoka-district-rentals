@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import { themeGet } from 'styled-system'
 
@@ -33,20 +33,21 @@ const PostCard = ({
 }) => (
   <Wrapper>
     <Img fluid={image.childImageSharp.fluid} />
-    <Flex height="40%" display="flex" flexDirection="column" p={3}>
-      <Text color="text.secondary" mb={1}>
+    <Flex
+      height="40%"
+      display="flex"
+      flexDirection="column"
+      px={4}
+      py={3}
+      textAlign="left"
+    >
+      <Text color="text.light" mb={1}>
         {date}
       </Text>
-      <Text
-        color="text.primary"
-        fontFamily="serif"
-        mb={4}
-        fontSize="1.3rem"
-        fontWeight="bold"
-      >
+      <Text mb={4} as="h6">
         {title}
       </Text>
-      <Continue to={slug} color="text.secondary" fontWeight="bold">
+      <Continue to={slug} color="text.light" fontWeight="bold">
         Continue &nbsp;&rsaquo;
       </Continue>
     </Flex>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { themeGet } from 'styled-system'
@@ -24,10 +24,10 @@ const GuestService = ({ image, body, name }) => (
       <Icon fixed={image.childImageSharp.fixed} />
     </Item>
     <Item ml={3}>
-      <Text as="h4" variant="bold" mb={1} fontSize="1.3rem">
+      <Text as="h4" variant="bold" mb={1} fontSize={5}>
         {name}
       </Text>
-      <Text as="p" fontWeight="medium" mb={3}>
+      <Text as="p" color="text.secondary" fontWeight="medium" mb={3}>
         {body}
       </Text>
     </Item>

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -232,10 +232,21 @@ const IndexPage = () => {
           flexDirection="column"
           textAlign="center"
           alignItems="center"
+          px={5}
           mb={6}
         >
-          <Text variant="caps">explore</Text>
-          <Text as="h3">Latest from our blog</Text>
+          <Text
+            letterSpacing="0.6em"
+            textTransform="uppercase"
+            fontWeight="bold"
+            mb={4}
+            color="text.secondary"
+          >
+            explore
+          </Text>
+          <Text as="h3" fontSize={0} mb={5}>
+            Latest from our blog
+          </Text>
           {data.blogPosts.edges.map(edge => (
             <PostCard key={edge.node.id} {...edge.node} />
           ))}

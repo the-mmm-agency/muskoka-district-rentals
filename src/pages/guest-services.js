@@ -32,10 +32,10 @@ const GuestServices = () => {
       <SEO title="Guest Services" />
       <PageImage fluid={data.header.childImageSharp.fluid} Tag="section" />
       <Box py={5} px={6}>
-        <Text as="h1" mb={3}>
+        <Text as="h1" mb={3} fontSize={2}>
           Guest Services
         </Text>
-        <Text as="h3" fontSize="1.5rem" ml={1}>
+        <Text as="h2" fontSize={5} ml={1}>
           Reserve your vacation with MDR.
         </Text>
         <Flex as="ul" flexDirection="column" mb={5}>

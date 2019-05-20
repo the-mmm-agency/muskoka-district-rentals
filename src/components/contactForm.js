@@ -13,11 +13,11 @@ const ContactForm = () => {
   const subject = useInput('')
   const message = useInput('')
   return (
-    <Box mt={2}>
-      <Text as="h2" mb={3}>
+    <Box mt={5}>
+      <Text as="h2" mb={3} fontSize={3}>
         Get in touch with us
       </Text>
-      <Text color="text.secondary" variant="bold" fontSize={3} ml={1}>
+      <Text color="text.secondary" variant="bold" ml={1}>
         If you have any question, Please don’t hesitate to send us a message
       </Text>
       <Flex as="form" mt={5} flexWrap="wrap">

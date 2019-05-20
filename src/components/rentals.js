@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -42,7 +42,7 @@ const Rentals = () => {
       fluid={rentals[selected].image.childImageSharp.fluid}
       Tag="section"
     >
-      <Text as="h3" fontSize={1} color="white" mb={3}>
+      <Text as="h3" fontSize={1} color="white" mb={5}>
         Our Rentals
       </Text>
       <Flex as="ul" flexBasis="calc(100% / 3)">
@@ -57,9 +57,9 @@ const Rentals = () => {
         ))}
       </Flex>
       <Link
+        mt={5}
         lineHeight="100px"
         fontWeight="bold"
-        fontSize={3}
         color="white"
         width="100%"
         textAlign="center"

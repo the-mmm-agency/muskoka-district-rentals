@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -40,7 +40,7 @@ const Rental = ({ image, name, startFrom, onMouseOver }) => {
         Starting from <strong>${startFrom}</strong>/Night
       </Text>
       <RentalImg fluid={image.childImageSharp.fluid} />
-      <Text fontFamily="serif" variant="bold" fontSize="1.4rem">
+      <Text fontFamily="serif" variant="bold" fontSize={5}>
         {name}
       </Text>
     </Wrapper>

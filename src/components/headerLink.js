@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { themeGet } from 'styled-system'
 
 import Link from 'components/link'
@@ -8,6 +8,7 @@ import transitions from 'theme/transitions'
 
 const StyledLink = styled(Link)`
   margin: auto;
+  text-decoration: none;
   text-transform: uppercase;
   padding: 10px;
   display: flex;
@@ -17,6 +18,7 @@ const StyledLink = styled(Link)`
   transition: ${transitions.create('background')};
   &:hover {
     background: rgba(0, 0, 0, 0.1);
+    text-decoration: none;
   }
   span {
     position: relative;

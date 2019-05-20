@@ -1,6 +1,6 @@
 import React from 'react'
 import Headroom from 'react-headroom'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import Button from 'components/button'
 import Logo from 'components/logo'

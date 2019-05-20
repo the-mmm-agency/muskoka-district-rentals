@@ -1,3 +1,4 @@
+import { css } from '@emotion/core'
 import DidotBoldWoff from './Didot/Didot-Bold.woff'
 import DidotBoldWoff2 from './Didot/Didot-Bold.woff2'
 import DidotWoff from './Didot/Didot.woff'
@@ -25,3 +26,60 @@ export {
   RalewayWoff,
   RalewayWoff2,
 }
+
+const fonts = css`
+  @font-face {
+    font-weight: normal;
+    font-family: 'Raleway';
+    font-style: normal;
+    src: local('Raleway'), local('Raleway-Regular'),
+      url(${RalewayWoff2}) format('woff2'), url(${RalewayWoff}) format('woff');
+    font-display: auto;
+  }
+  @font-face {
+    font-weight: 500;
+    font-family: 'Raleway';
+    font-style: normal;
+    src: local('Raleway Medium'), local('Raleway-Medium'),
+      url(${RalewayMediumWoff2}) format('woff2'),
+      url(${RalewayMediumWoff}) format('woff');
+    font-display: auto;
+  }
+  @font-face {
+    font-weight: 600;
+    font-family: 'Raleway';
+    font-style: normal;
+    src: local('Raleway SemiBold'), local('Raleway-SemiBold'),
+      url(${RalewaySemiBoldWoff2}) format('woff2'),
+      url(${RalewaySemiBoldWoff}) format('woff');
+    font-display: auto;
+  }
+  @font-face {
+    font-weight: bold;
+    font-family: 'Raleway';
+    font-style: normal;
+    src: local('Raleway Bold'), local('Raleway-Bold'),
+      url(${RalewayBoldWoff2}) format('woff2'),
+      url(${RalewayBoldWoff}) format('woff');
+    font-display: auto;
+  }
+  @font-face {
+    font-weight: normal;
+    font-family: 'Didot';
+    font-style: normal;
+    src: local('Raleway Bold'), local('Raleway-Bold'),
+      url(${DidotWoff2}) format('woff2'), url(${DidotWoff}) format('woff');
+    font-display: auto;
+  }
+  @font-face {
+    font-weight: bold;
+    font-family: 'Didot';
+    font-style: bold;
+    src: local('Raleway Bold'), local('Raleway-Bold'),
+      url(${DidotBoldWoff2}) format('woff2'),
+      url(${DidotBoldWoff}) format('woff');
+    font-display: auto;
+  }
+`
+
+export default fonts

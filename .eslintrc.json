@@ -14,7 +14,14 @@
     "prettier/standard",
     "plugin:unicorn/recommended"
   ],
-  "plugins": ["import", "prettier", "jsx-a11y", "standard", "unicorn"],
+  "plugins": [
+    "import",
+    "emotion",
+    "prettier",
+    "jsx-a11y",
+    "standard",
+    "unicorn"
+  ],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
@@ -26,6 +33,10 @@
     "node": true
   },
   "rules": {
+    "emotion/jsx-import": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/import-from-emotion": "error",
+    "emotion/styled-import": "error",
     "jsx-a11y/label-has-associated-control": "off",
     "prettier/prettier": "error",
     "react/prop-types": [
@@ -57,7 +68,8 @@
           ["elements", "./src/elements"],
           ["images", "./src/images"],
           ["pages", "./src/pages"],
-          ["theme", "./src/theme"]
+          ["theme", "./src/theme"],
+          ["util", "./src/util"]
         ],
         "extensions": [".js", ".jsx"]
       }

@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { ThemeProvider } from 'styled-components'
+import css from '@styled-system/css'
+import styled from '@emotion/styled'
+import { Global } from '@emotion/core'
+import { ThemeProvider } from 'emotion-theming'
 
-import GlobalStyle from 'theme/global.css'
+import globalStyles from 'theme/global.css'
+import fonts from '../fonts'
 import theme from 'theme'
 import Header from 'components/header'
 import Footer from 'components/footer'
@@ -14,18 +18,17 @@ const Root = styled.div`
 `
 
 const Layout = ({ children }) => (
-  <>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <>
-        <Header />
-        <Root>
-          <main>{children}</main>
-          <Footer />
-        </Root>
-      </>
-    </ThemeProvider>
-  </>
+  <ThemeProvider theme={theme}>
+    <Global styles={fonts} />
+    <Global styles={css(globalStyles)} />
+    <>
+      <Header />
+      <Root>
+        <main>{children}</main>
+        <Footer />
+      </Root>
+    </>
+  </ThemeProvider>
 )
 
 Layout.propTypes = {

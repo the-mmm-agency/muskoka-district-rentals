@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import StarRatings from 'react-star-ratings'
 import PropTypes from 'prop-types'
 import { ifProp } from 'styled-tools'
@@ -113,14 +113,14 @@ const Cottage = ({
           {reviewCount} reviews
         </Text>
       </Box>
-      <Text as="h2" fontSize={0} mb={4} width="100%">
+      <Text as="h2" fontSize={1} mb={4} width="100%">
         {name}
       </Text>
-      <Text fontWeight="semibold" fontSize="1.5rem" pt={2}>
+      <Text fontWeight="semibold" fontSize={5} pt={2}>
         Start from{' '}
       </Text>
       <Text
-        fontSize={1}
+        fontSize={3}
         lineHeight={1.2}
         ml={1}
         color="text.primary"
@@ -128,15 +128,10 @@ const Cottage = ({
       >
         {' $' + startFrom}
       </Text>
-      <Text
-        color="text.primary"
-        fontWeight="semibold"
-        fontSize="1.3rem"
-        mt="auto"
-      >
+      <Text color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
         /Night
       </Text>
-      <Text as="p" color="text.primary" mt={4}>
+      <Text as="p" mt={4}>
         {description}
       </Text>
       <Properties>
