@@ -22,6 +22,13 @@ const Wrapper = styled.div`
   margin: 5rem 0;
 `
 
+const Description = styled.div`
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  overflow: hidden;
+  max-height: 300px;
+`
+
 const AddressWrapper = styled.div`
   border: 1px solid ${palette.text.secondary};
   display: flex;
@@ -133,9 +140,7 @@ const Cottage = ({
         <Text color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
           /Night
         </Text>
-        <Text as="p" mt={4} maxHeight="200px" display="flex">
-          {description}
-        </Text>
+        <Description dangerouslySetInnerHTML={{ __html: description }} />
         <Properties>
           <li>
             Status:{' '}
