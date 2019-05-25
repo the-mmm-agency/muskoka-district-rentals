@@ -141,5 +141,33 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-source-apiserver`,
+      options: {
+        name: `properties`,
+        method: `get`,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.MYVR_KEY}`,
+        },
+        url: `https://api.myvr.com/v1/properties/?limit=1000`,
+        entityLevel: `results`,
+        verboseOutput: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-apiserver`,
+      options: {
+        name: `images`,
+        method: `get`,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.MYVR_KEY}`,
+        },
+        url: `https://api.myvr.com/v1/photos/?limit=1000`,
+        entityLevel: `results`,
+        verboseOutput: true,
+      },
+    },
   ],
 }

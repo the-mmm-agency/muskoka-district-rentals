@@ -1,7 +1,11 @@
 const _ = require('lodash')
 const dayjs = require('dayjs')
 const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
+const R = require('ramda')
+const {
+  createFilePath,
+  createRemoteFileNode,
+} = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
@@ -78,9 +82,45 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = async ({
+  node,
+  actions,
+  store,
+  cache,
+  createNodeId,
+  getNode,
+  getNodesByType,
+}) => {
+  const { createNodeField, createNode } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images
+
+  if (node.internal.type === `images`) {
+    let properties = getNodesByType(`properties`)
+    let propertyNode = R.find(
+      R.propEq('alternative_id', node.property.alternative_id),
+      properties
+    )
+    const imagePath = `https:${node.downloadUrl}`
+    let fileNode
+    try {
+      fileNode = await createRemoteFileNode({
+        url: imagePath,
+        parentNodeId: node.id,
+        store,
+        cache,
+        createNode,
+        createNodeId,
+      })
+    } catch (error) {
+      console.error(error)
+    }
+    if (fileNode) {
+      node.localFile = fileNode
+      if (propertyNode) {
+        propertyNode.image___NODE = fileNode.id
+      }
+    }
+  }
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })

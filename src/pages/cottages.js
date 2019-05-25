@@ -41,21 +41,18 @@ const Cottages = () => {
           }
         }
       }
-      rentals: allRentalsJson {
+      rentals: allProperties(limit: 5) {
         nodes {
           name
-          address
-          reviewAvg
-          reviewCount
-          startFrom
+          addressOne
+          baseNightlyRate
           description
-          status
-          squareFeet
-          property
-          sleeps
-          beds
+          active
+          size
+          accommodates
+          bedrooms
           bathrooms
-          petFriendly
+          suitablePets
           image {
             childImageSharp {
               fluid(maxWidth: 3000) {
@@ -77,7 +74,13 @@ const Cottages = () => {
       <CheckAvailability />
       <List>
         {data.rentals.nodes.map((rental, index) => (
-          <Cottage key={rental.id} {...rental} number={index} />
+          <Cottage
+            key={rental.id}
+            {...rental}
+            reviewAvg={4.5}
+            reviewCount={6}
+            number={index}
+          />
         ))}
       </List>
       <ButtonWrapper>

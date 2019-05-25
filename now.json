@@ -2,7 +2,8 @@
   "version": 2,
   "name": "muskoka-district-rentals",
   "env": {
-    "PERCY_TOKEN": "dfe5ce3c05064af2b51a0531c0a426bbee1538eba83a8d5678c00382afb5ceef"
+    "PERCY_TOKEN": "dfe5ce3c05064af2b51a0531c0a426bbee1538eba83a8d5678c00382afb5ceef",
+    "MYVR_KEY": "MYVR_KEY=LIVE_14875846ee1c2d1ba730e1d06b7c2c48"
   },
   "builds": [
     {

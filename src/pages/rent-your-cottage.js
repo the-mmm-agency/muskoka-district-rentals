@@ -14,7 +14,7 @@ const Section = styled.div`
   &:last-child {
     border-right: none;
   }
-  border-right: 1px solid #ccc;
+  border-right: 1px solid ${themeGet('color.text.light')};
   display: flex;
   flex-direction: column;
   padding: 0 ${themeGet('space.2')};
