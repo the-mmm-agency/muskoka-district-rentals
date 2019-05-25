@@ -147,7 +147,7 @@ module.exports = {
         method: `get`,
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.MYVR_KEY}`,
+          Authorization: `Bearer LIVE_14875846ee1c2d1ba730e1d06b7c2c48`,
         },
         url: `https://api.myvr.com/v1/properties/?limit=1000`,
         entityLevel: `results`,
@@ -161,7 +161,7 @@ module.exports = {
         method: `get`,
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.MYVR_KEY}`,
+          Authorization: `Bearer LIVE_14875846ee1c2d1ba730e1d06b7c2c48`,
         },
         url: `https://api.myvr.com/v1/photos/?limit=1000`,
         entityLevel: `results`,
