@@ -26,6 +26,7 @@ const Wrapper = styled.button`
   background-color: transparent;
   border: 0;
   margin: 0;
+  margin-left: auto;
   overflow: hidden;
   .hamburger-inner {
     display: block;

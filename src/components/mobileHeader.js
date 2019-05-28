@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
+import Fade from 'react-reveal/Fade'
 import { ifProp } from 'styled-tools'
 import PropTypes from 'prop-types'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import BackIcon from 'components/backIcon'
 import Logo from 'components/logo'
@@ -22,6 +24,11 @@ const StyledHeader = styled.header`
   transition: ${transitions.create('height', { duration: '0.175s' })};
 `
 
+const BackButton = styled(AniLink)`
+  margin-right: auto;
+  margin: auto 0;
+`
+
 const MobileHeader = ({ links }) => {
   const [active, setActive] = useState(false)
   const handleClick = () => {
@@ -33,16 +40,15 @@ const MobileHeader = ({ links }) => {
         {window.location.pathname === '/' ? (
           <Logo />
         ) : (
-          <BackIcon
-            mr="auto"
-            onClick={() => {
-              window.history.back()
-            }}
-          />
+          <BackButton fade to="/">
+            <BackIcon />
+          </BackButton>
         )}
         <Hamburger active={active} onClick={handleClick} ml="auto" />
       </div>
-      <HeaderMenu links={links} />
+      <Fade when={active}>
+        <HeaderMenu links={links} />
+      </Fade>
     </StyledHeader>
   )
 }
