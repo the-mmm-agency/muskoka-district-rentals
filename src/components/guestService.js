@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 import Text from 'elements/text'
-import Img from 'elements/img'
 import Flex from 'elements/flex'
 import Box from 'elements/box'
 
