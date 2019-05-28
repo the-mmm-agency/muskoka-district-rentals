@@ -14,13 +14,20 @@ const MenuLink = styled(Link)`
     color: ${themeGet('colors.text.primary')};
     text-decoration: none;
   }
+  height: '100%';
   width: 100%;
 `
 
 const HeaderMenu = ({ links }) => (
-  <div width="100%" display="flex" flexWrap="wrap">
+  <div width="100%" display="flex" flexWrap="wrap" height="100%">
     {links.map(to => (
-      <MenuLink key={to} to={to}>
+      <MenuLink
+        key={to}
+        to={to}
+        textTransform="capitalize"
+        fontSize={4}
+        fontFamily="serif"
+      >
         <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
       </MenuLink>
     ))}
