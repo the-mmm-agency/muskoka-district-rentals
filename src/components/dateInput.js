@@ -1,6 +1,7 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import styled from '@emotion/styled'
+import { themeGet } from 'styled-system'
 import PropTypes from 'prop-types'
 
 import DownIcon from 'components/downIcon'
@@ -13,7 +14,11 @@ const Wrapper = styled.span`
 `
 
 const Day = styled.h1`
+  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+    line-height: 1.4;
+  }
   height: 50px;
+  line-height: 1.85;
   color: #000;
   font-weight: 500;
   font-size: 3.3rem;

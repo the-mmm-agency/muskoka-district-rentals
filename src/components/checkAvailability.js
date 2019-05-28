@@ -48,6 +48,7 @@ const Wrapper = styled.div`
   flex-basis: 25%;
   justify-content: center;
   margin: auto;
+  margin-top: ${themeGet('space.3')};
 `
 
 const DatePickerWrapper = styled.div`
@@ -67,18 +68,22 @@ const Section = styled.div`
   @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
     &:last-child {
       background-color: ${palette.background.dark};
-      width: 25%;
     }
     width: 25%;
   }
-  &:last-child {
-    width: 50%;
+  @media screen and (max-width: ${themeGet('breakpoints.0', '200px')}) {
+    &:last-child {
+      width: 50%;
+    }
   }
   width: calc(100% / 3);
   padding: ${themeGet('space.1')};
 `
 
 const SectionWrapper = styled.div`
+  @media screen and (max-width: ${themeGet('breakpoints.0', '200px')}) {
+    width: 100%;
+  }
   @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
     border-right: ${props =>
       props.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1) `};
@@ -87,7 +92,6 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: ${themeGet('space.2')} ${themeGet('space.2')};
-  width: 100%;
   height: 100%;
 `
 
@@ -102,10 +106,13 @@ const Header = styled.span`
 `
 
 const Day = styled.h1`
+  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+    line-height: 1.4;
+  }
   height: 50px;
   font-weight: 500;
   font-size: 3.3rem;
-  line-height: 1.87;
+  line-height: 1.85;
   vertical-align: baseline;
 `
 

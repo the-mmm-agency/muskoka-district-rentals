@@ -65,7 +65,7 @@ const Cottages = () => {
         <h1>Our Rentals</h1>
       </Image>
       <CheckAvailability />
-      <Box py={6} mx={0}>
+      <Box py={[3, 6]} mx={0}>
         {data.rentals.nodes
           .filter(node => node.image !== null)
           .slice(0, page)
