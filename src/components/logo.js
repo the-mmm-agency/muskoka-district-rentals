@@ -1,15 +1,22 @@
 import React from 'react'
 import Img from 'gatsby-image'
+import { themeGet } from 'styled-system'
 import styled from '@emotion/styled'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Link from 'components/link'
 
 const Wrapper = styled(Link)`
-  min-width: 70px;
+  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+    min-width: 70px;
+  }
+  @media screen and (max-width: ${themeGet('breakpoints.0', '200px')}) {
+    margin-right: auto;
+  }
+  width: 40px;
+  margin-left: ${themeGet('space.1')};
   height: auto;
-  margin-left: 16px;
-  padding: 2px;
+  padding: 5px;
 `
 
 const Logo = props => {
@@ -29,6 +36,9 @@ const Logo = props => {
       <Img
         critical
         alt="Muskoka District Rentals"
+        imgStyle={{
+          objectFit: 'contain',
+        }}
         fluid={data.logo.childImageSharp.fluid}
       />
     </Wrapper>

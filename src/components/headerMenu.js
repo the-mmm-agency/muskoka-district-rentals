@@ -19,7 +19,10 @@ const MenuLink = styled(Link)`
 `
 
 const HeaderMenu = ({ links }) => (
-  <div width="100%" display="flex" flexWrap="wrap" height="100%">
+  <div width="100%" display="flex" flexWrap="wrap" minHeight="100%">
+    <MenuLink to="/" fontSize={4} fontFamily="serif">
+      <span>Home</span>
+    </MenuLink>
     {links.map(to => (
       <MenuLink
         key={to}
