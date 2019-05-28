@@ -17,7 +17,7 @@ const styles = {
     boxSizing: 'border-box',
   },
   html: {
-    fontSize: 'base',
+    fontSize: ['12px', '14px', 'base'],
     boxSizing: 'border-box',
     scrollBehavior: 'smooth',
     MozOsxFontSmoothing: 'grayscale',
