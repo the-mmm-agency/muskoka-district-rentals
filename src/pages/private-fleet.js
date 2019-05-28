@@ -1,6 +1,6 @@
-import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react'
 
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'

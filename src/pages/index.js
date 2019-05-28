@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import Img from 'gatsby-image'
+import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from '@emotion/styled'
+import React from 'react'
 
 import PostCard from 'components/postCard'
 import Flex from 'elements/flex'
 import Text from 'elements/text'
-import { scale, rhythm } from 'theme/typography'
+import { rhythm, scale } from 'theme/typography'
 import SwirlBackground from 'components/swirlBackground'
 import palette from 'theme/palette'
 import ConciergeServices from 'components/conciergeServices'
@@ -18,33 +18,33 @@ import SEO from 'components/seo'
 import CheckAvailability from 'components/checkAvailability'
 
 const Hero = styled.section`
-  align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  text-align: center;
   margin-bottom: 100px;
+  text-align: center;
 `
 
 const About = styled.span`
-  justify-self: flex-start;
-  color: ${palette.text.secondary};
   position: relative;
+  justify-self: flex-start;
   margin-top: 150px;
   margin-bottom: 50px;
+  color: ${palette.text.secondary};
   letter-spacing: 0.35em;
   text-transform: uppercase;
 `
 
 const Welcome = styled.div`
   display: flex;
-  text-align: left;
   flex-direction: column;
   justify-content: center;
-  padding: 10% 0 10% 10%;
-  height: 100%;
   width: 50%;
+  height: 100%;
+  padding: 10% 0 10% 10%;
+  text-align: left;
 `
 
 const WelcomeAboard = styled.h3`
@@ -55,13 +55,13 @@ const WelcomeAboard = styled.h3`
 `
 
 const WelcomeAboardBorder = styled.div`
-  border-top: 2px solid rgba(0, 0, 0, 1);
   width: 15%;
-  vertical-align: top;
-  text-align: left;
-  padding-top: 0;
   margin-top: 0;
   margin-bottom: 10px;
+  padding-top: 0;
+  text-align: left;
+  vertical-align: top;
+  border-top: 2px solid rgba(0, 0, 0, 1);
 `
 
 const WelcomeAboardCopy = styled.p`
@@ -74,33 +74,33 @@ const Author = styled.div`
 `
 
 const WelcomeImageContainer = styled.div`
-  background-color: ${palette.background.light};
-  padding: 8px;
-  height: 400px;
   width: 300px;
+  height: 400px;
+  padding: 8px;
+  background-color: ${palette.background.light};
 `
 const WelcomeImage = styled(Img)`
-  overflow: hidden;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 `
 
 const WelcomeContainer = styled.div`
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  display: flex;
-  flex-direction: row;
-  flex-basis: 50%;
   max-height: 40%;
-  overflow: hidden;
   padding: 10%;
+  overflow: hidden;
 `
 
 const FirstSection = styled(BackgroundImage)`
-  align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   text-align: center;
   &::before,
@@ -129,24 +129,24 @@ const WelcomeMessage = styled(Message)`
 `
 
 const Header = styled.h1`
-  color: white;
-  margin-bottom: ${rhythm(1.5)};
-  text-transform: uppercase;
   position: relative;
   z-index: 2;
+  margin-bottom: ${rhythm(1.5)};
+  color: white;
   font-weight: 400;
+  text-transform: uppercase;
 `
 
 const HeaderOverlay = styled.div`
   position: absolute;
-  margin: auto;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  margin: auto;
   background: rgba(0, 0, 0, 0.3);
 `
 

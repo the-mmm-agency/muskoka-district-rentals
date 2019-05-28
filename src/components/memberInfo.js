@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import { rhythm, options as typography, scale } from 'theme/typography'
 import SplitText from 'react-pose-text'
 
 import palette from 'theme/palette'
+import { rhythm, scale, options as typography } from 'theme/typography'
 
 const Name = styled.div`
-  padding-left: ${rhythm(4)};
-  margin-bottom: ${rhythm(1)};
   width: 100%;
+  margin-bottom: ${rhythm(1)};
+  padding-left: ${rhythm(4)};
   h6 {
     ${scale(2 / 3)}
     color: white;
@@ -24,9 +24,9 @@ const Name = styled.div`
   }
 `
 const Info = styled.div`
+  width: 50%;
   padding-left: 10%;
   overflow: hidden;
-  width: 50%;
 `
 const Bio = styled.div`
   ${scale(1 / 4)};

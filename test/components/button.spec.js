@@ -1,8 +1,11 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { matchers } from 'jest-emotion'
 
 import Button from 'components/button'
 import palette from 'theme/palette'
+
+expect.extend(matchers)
 
 test('it matches the snapshot', () => {
   const tree = renderer.create(<Button>Test Button</Button>).toJSON()

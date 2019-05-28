@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
 import { box } from 'theme/system'
 
-const Box = styled('div')(
+const Box = styled('div', { shouldForwardProp })(
   {
     boxSizing: 'border-box',
   },

@@ -5,9 +5,9 @@ import palette from 'theme/palette'
 
 const Icon = styled.svg`
   align-self: center;
-  fill: ${palette.text.primary};
-  height: 50px;
   width: 50px;
+  height: 50px;
+  fill: ${palette.text.primary};
 `
 const RightIcon = () => (
   <Icon viewBox="0 0 32 32" class="icon icon-chevron-right" aria-hidden="true">

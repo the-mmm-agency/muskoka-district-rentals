@@ -5,15 +5,16 @@ import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 
-import globalStyles from 'theme/global.css'
 import fonts from '../fonts'
-import theme from 'theme'
-import Header from 'components/header'
+
 import Footer from 'components/footer'
+import Header from 'components/header'
+import globalStyles from 'theme/global.css'
+import theme from 'theme'
 
 const Root = styled.div`
-  margin: 0 auto;
   max-width: 9609;
+  margin: 0 auto;
   padding-top: 0;
 `
 

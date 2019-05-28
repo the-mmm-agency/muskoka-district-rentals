@@ -7,7 +7,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Muskoka District Rentals`,
-    description: `A booking pwa for Muskoka District Rentals`,
+    description: `MDR offers turn-key cottage rental agency services for owners seeking a trusted partner to safely manage the cottage rental process on their behalf`,
     author: `@brettm12345`,
   },
   plugins: [
@@ -143,13 +143,13 @@ module.exports = {
     {
       resolve: `gatsby-source-apiserver`,
       options: {
-        name: `properties`,
+        name: `Images`,
         method: `get`,
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer LIVE_14875846ee1c2d1ba730e1d06b7c2c48`,
         },
-        url: `https://api.myvr.com/v1/properties/?limit=1000`,
+        url: `https://api.myvr.com/v1/photos/?limit=6000`,
         entityLevel: `results`,
         verboseOutput: true,
       },
@@ -157,13 +157,13 @@ module.exports = {
     {
       resolve: `gatsby-source-apiserver`,
       options: {
-        name: `images`,
+        name: `Properties`,
         method: `get`,
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer LIVE_14875846ee1c2d1ba730e1d06b7c2c48`,
         },
-        url: `https://api.myvr.com/v1/photos/?limit=1000`,
+        url: `https://api.myvr.com/v1/properties/?limit=50`,
         entityLevel: `results`,
         verboseOutput: true,
       },

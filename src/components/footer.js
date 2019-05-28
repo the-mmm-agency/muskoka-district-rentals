@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
-import links from 'constants/footerLinks'
-import FooterList from 'components/footerList'
 import { rhythm } from 'theme/typography'
+import FooterList from 'components/footerList'
+import links from 'constants/footerLinks'
 
 const Copyright = styled.span`
   align-self: center;
@@ -13,20 +13,20 @@ const Copyright = styled.span`
   opacity: 0.5;
 `
 const Divider = styled.div`
+  width: 100%;
+  height: 1px;
   margin: ${rhythm(2)} none;
   background-color: #fff;
   opacity: 0.2;
-  height: 1px;
-  width: 100%;
 `
 
 const Wrapper = styled.footer`
-  background-color: #212020;
-  color: #fff;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 5% 25%;
+  color: #fff;
+  background-color: #212020;
 `
 
 const LinkWrapper = styled.div`

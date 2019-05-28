@@ -1,5 +1,5 @@
-import React from 'react'
 import { useInput } from 'react-hanger'
+import React from 'react'
 
 import Button from 'components/button'
 import Box from 'elements/box'

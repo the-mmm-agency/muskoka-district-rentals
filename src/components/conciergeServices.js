@@ -3,8 +3,8 @@ import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import ConciergeService from 'components/conciergeService'
 import { rhythm, scale } from 'theme/typography'
+import ConciergeService from 'components/conciergeService'
 
 const Wrapper = styled.section`
   display: flex;
@@ -21,11 +21,11 @@ const List = styled.ul`
   ::-webkit-scrollbar-thumb {
     background-color: #0a252e;
   }
-  overflow-x: hidden;
-  overflow-y: scroll;
+  min-width: 600px;
   max-height: 500px;
   margin: none;
-  min-width: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 `
 
 const Image = styled(Img)`
@@ -33,8 +33,8 @@ const Image = styled(Img)`
 `
 
 const Content = styled.div`
-  padding: ${rhythm(3)};
   width: 50%;
+  padding: ${rhythm(3)};
   span {
     ${scale(1 / 8)};
     letter-spacing: 0.3em;

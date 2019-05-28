@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { rgba } from 'polished'
-import { themeGet, space } from 'styled-system'
+import { space, themeGet } from 'styled-system'
 
 const Wrapper = styled.div`
   position: relative;
   input {
     &:focus {
       & ~ span {
-        transform-origin: bottom left;
         transform: scaleX(1);
+        transform-origin: bottom left;
       }
     }
     border: 1px solid transparent;
@@ -18,14 +18,14 @@ const Wrapper = styled.div`
   }
   span {
     position: absolute;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    width: 12rem;
     height: 1px;
     background-color: ${themeGet('color.text.primary')};
-    width: 12rem;
-    transform-origin: bottom right;
     transform: scaleX(0);
+    transform-origin: bottom right;
     transition: transform 0.5s ease;
   }
   ${space}

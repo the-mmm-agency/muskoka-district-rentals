@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 
-import { rhythm, scale } from 'theme/typography'
 import Link from 'components/link'
+import { rhythm, scale } from 'theme/typography'
 
 const Wrapper = styled.li`
   &:hover {
@@ -18,15 +18,15 @@ const StyledLink = styled(Link)`
     ${scale(1 / 4)};
     margin-left: ${rhythm(2)};
   }
-  align-items: center;
-  background: transparent;
   display: inline-flex;
+  align-items: center;
   width: 100%;
+  background: transparent;
 `
 
 const Image = styled(Img)`
-  max-height: 120px;
   width: 30%;
+  max-height: 120px;
 `
 
 const ConciergeService = ({ name, link, image, setSelected }) => (

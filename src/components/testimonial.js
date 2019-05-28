@@ -1,13 +1,14 @@
 /** @jsx jsx */
+
 import { jsx } from '@emotion/core'
 import PropTypes from 'prop-types'
 import StarRatings from 'react-star-ratings'
 import css from '@styled-system/css'
 import { graphql } from 'gatsby'
 
-import Flex from 'elements/flex'
-import Text from 'elements/text'
 import palette from 'theme/palette'
+import Text from 'elements/text'
+import Flex from 'elements/flex'
 
 const Testimonial = ({ body, rating, author, property }) => (
   <Flex

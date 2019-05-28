@@ -28,6 +28,7 @@ const {
 
 const theme = {
   colors,
+  breakpoints: ['40em', '52em', '64em', '80em'],
   buttonRadii: {
     default: 2,
     curved: 6,
@@ -110,6 +111,7 @@ const theme = {
       letterSpacing: '0.2em',
     },
   },
+  transitions,
   shadows,
   space,
 }

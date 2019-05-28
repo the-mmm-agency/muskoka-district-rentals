@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import { prop } from 'styled-tools'
-import { fontFamily, themeGet, border, style, variant } from 'styled-system'
+import { border, style, themeGet, variant } from 'styled-system'
+
+import { typography } from 'theme/system'
 import transitions, { duration } from 'theme/transitions'
 
 const radius = style({
@@ -18,17 +19,18 @@ const buttonStyle = variant({
 
 const buttonSize = variant({
   key: 'buttonSizes',
+  prop: 'size',
 })
 
 const StyledButton = styled.button`
   &:hover {
-    background: ${themeGet(`colors.${prop('color')}`)};
+    text-decoration: none;
+    background: ${themeGet(`colors.primary`)};
+    box-shadow: ${themeGet('shadows.2')};
+    transform: translateY(-3px);
     @media (hover: none) {
       background-color: transparent;
     }
-    box-shadow: ${themeGet('shadows.2')};
-    text-decoration: none;
-    transform: translateY(-3px);
   }
   transition: ${transitions.create(
     ['border', 'background', 'box-shadow', 'transform'],
@@ -38,27 +40,25 @@ const StyledButton = styled.button`
   )};
   ${buttonStyle}
   ${buttonSize}
-  ${fontFamily}
   ${radius}
   ${border}
+  ${typography}
 `
 
 const Button = props => <StyledButton {...props} />
 
 Button.propTypes = {
-  color: PropTypes.oneOf(['primary', 'secondary']),
   disabled: PropTypes.bool,
   radius: PropTypes.oneOf(['default', 'curved', 'rounded']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   ...buttonStyle.propTypes,
   ...buttonSize.propTypes,
   ...radius.propTypes,
-  ...fontFamily.propTypes,
   ...border.propTypes,
+  ...typography.propTypes,
 }
 
 Button.defaultProps = {
-  color: 'primary',
   size: 'medium',
   radius: 'default',
   variant: 'flat',

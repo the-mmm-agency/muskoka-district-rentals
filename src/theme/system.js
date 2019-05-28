@@ -1,39 +1,39 @@
 import {
-  compose,
-  boxShadow,
+  alignItems,
+  alignSelf,
   background,
   border,
-  width,
+  boxShadow,
   color,
+  compose,
   flex,
-  alignSelf,
-  textAlign,
   flexBasis,
-  flexWrap,
   flexDirection,
-  alignItems,
-  justifyContent,
+  flexWrap,
   fontFamily,
   fontSize,
   fontWeight,
-  lineHeight,
+  justifyContent,
   letterSpacing,
+  lineHeight,
   space,
   style,
+  textAlign,
   textStyle,
+  width,
 } from 'styled-system'
 
-const fontStyle = style({
+export const fontStyle = style({
   prop: 'fontStyle',
   cssProperty: 'fontStyle',
 })
 
-const textDecoration = style({
+export const textDecoration = style({
   prop: 'textDecoration',
   cssProperty: 'textDecoration',
 })
 
-const textTransform = style({
+export const textTransform = style({
   prop: 'textTransform',
   cssProperty: 'textTransform',
 })

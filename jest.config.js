@@ -14,11 +14,9 @@ module.exports = {
     __PATH_PREFIX__: ``,
   },
   setupFilesAfterEnv: ['<rootDir>/test/__setup__/setupTests.js'],
+  snapshotSerializers: ['jest-emotion'],
   testRegex: '/test/.*?\\.(test|spec)\\.js$',
   testURL: `http://localhost`,
   setupFiles: [`<rootDir>/test/__setup__/loadershim.js`],
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
-  ],
+  watchPlugins: ['jest-watch-typeahead/filename'],
 }

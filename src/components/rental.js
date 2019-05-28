@@ -5,9 +5,9 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { themeGet } from 'styled-system'
 
-import Flex from 'elements/flex'
-import Text from 'elements/text'
 import transitions from 'theme/transitions'
+import Text from 'elements/text'
+import Flex from 'elements/flex'
 
 const Wrapper = styled(Flex)`
   &:hover {
@@ -18,9 +18,9 @@ const Wrapper = styled(Flex)`
 `
 
 const RentalImg = styled(Img)`
+  position: relative;
   width: 210px;
   height: 130px;
-  position: relative;
   margin: ${themeGet('space.2')} 0;
 `
 

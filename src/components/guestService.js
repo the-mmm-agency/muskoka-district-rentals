@@ -2,16 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import { themeGet } from 'styled-system'
 
-import Box from 'elements/box'
-import Flex from 'elements/flex'
 import Text from 'elements/text'
-
-const Icon = styled(Img)`
-  border-radius: ${themeGet('radii.3', '8px')};
-`
+import Img from 'elements/img'
+import Flex from 'elements/flex'
+import Box from 'elements/box'
 
 const Item = styled(Box)`
   display: inline-block;
@@ -21,7 +16,7 @@ const Item = styled(Box)`
 const GuestService = ({ image, body, name }) => (
   <Flex alignItems="center" as="li" mb={2}>
     <Item>
-      <Icon fixed={image.childImageSharp.fixed} />
+      <Img radius={3} fixed={image.childImageSharp.fixed} />
     </Item>
     <Item ml={3}>
       <Text as="h4" variant="bold" mb={1} fontSize={5}>

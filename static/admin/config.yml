@@ -1,6 +1,7 @@
 backend:
-  name: git-gateway
+  name: github
   branch: develop
+  repo: the-mmm-agency/muskoka-district-rentals
 
 media_folder: content/assets
 public_folder: assets

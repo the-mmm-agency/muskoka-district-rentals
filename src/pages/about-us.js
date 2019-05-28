@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from '@emotion/styled'
+import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import { useStaticQuery, graphql } from 'gatsby'
+import styled from '@emotion/styled'
+import React from 'react'
 
-import { scale, rhythm } from 'theme/typography'
+import { rhythm, scale } from 'theme/typography'
 import Contact from 'components/contact'
 import OurTeam from 'components/ourTeam'
 import palette from 'theme/palette'
@@ -19,10 +19,10 @@ const Section = styled.section`
 `
 
 const FirstSection = styled(BackgroundImage)`
-  align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
   max-height: 100vh;
   text-align: center;
@@ -42,9 +42,9 @@ const Message = styled.span`
 `
 
 const WelcomeMessage = styled(Message)`
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 600;
 `
 
 const Header = styled.h1`
@@ -60,14 +60,14 @@ const Header = styled.h1`
 
 const HeaderOverlay = styled.div`
   position: absolute;
-  margin: auto;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  margin: auto;
   background: rgba(0, 0, 0, 0.3);
 `
 

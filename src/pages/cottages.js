@@ -1,16 +1,15 @@
-import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import { useStaticQuery, graphql } from 'gatsby'
+import Fade from 'react-reveal/Fade'
+import React, { useState } from 'react'
 
+import Box from 'elements/box'
 import PageImage from 'components/pageImage'
 import CheckAvailability from 'components/checkAvailability'
 import Button from 'components/button'
 import Cottage from 'components/cottage'
 import SEO from 'components/seo'
 
-const List = styled.li`
-  margin: 150px 0;
-`
 const Image = styled(PageImage)`
   h1 {
     color: white;
@@ -20,18 +19,11 @@ const Image = styled(PageImage)`
   justify-content: center;
 `
 
-const ButtonWrapper = styled.div`
-  width: 100%;
-  text-align: center;
-  margin-bottom: 100px;
-`
-
-const StyledButton = styled(Button)`
-  text-transform: uppercase;
-  margin-bottom: 15px;
-`
-
 const Cottages = () => {
+  const [page, setPage] = useState(5)
+  const handleClick = () => {
+    setPage(page + 5)
+  }
   const data = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "our-rentals.jpg" }) {
@@ -41,18 +33,19 @@ const Cottages = () => {
           }
         }
       }
-      rentals: allProperties(limit: 5) {
+      rentals: allProperties {
         nodes {
-          name
-          addressOne
-          baseNightlyRate
-          description
           active
           size
           accommodates
           bedrooms
           bathrooms
           suitablePets
+          name
+          addressOne
+          lowestNightlyRate
+          description
+          type
           image {
             childImageSharp {
               fluid(maxWidth: 3000) {
@@ -65,6 +58,8 @@ const Cottages = () => {
     }
   `)
 
+  const rentals = data.rentals.nodes.slice(0, page)
+
   return (
     <>
       <SEO title="Our Rentals" />
@@ -72,20 +67,29 @@ const Cottages = () => {
         <h1>Our Rentals</h1>
       </Image>
       <CheckAvailability />
-      <List>
-        {data.rentals.nodes.map((rental, index) => (
-          <Cottage
-            key={rental.id}
-            {...rental}
-            reviewAvg={4.5}
-            reviewCount={6}
-            number={index}
-          />
+      <Box py={6} mx={0}>
+        {rentals.map((rental, index) => (
+          <Fade key={rental.id}>
+            <Cottage
+              key={rental.id}
+              {...rental}
+              reviewAvg={4.5}
+              reviewCount={6}
+              number={index}
+            />
+          </Fade>
         ))}
-      </List>
-      <ButtonWrapper>
-        <StyledButton font="serif">See More Rentals</StyledButton>
-      </ButtonWrapper>
+      </Box>
+      <Box width="100%" textAlign="center" mb={4}>
+        <Button
+          textTransform="uppercase"
+          mb={3}
+          font="serif"
+          onClick={handleClick}
+        >
+          See More Rentals
+        </Button>
+      </Box>
     </>
   )
 }

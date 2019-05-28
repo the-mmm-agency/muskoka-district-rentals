@@ -1,30 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import { ifProp } from 'styled-tools'
+import { themeGet } from 'styled-system'
 import { rgba } from 'polished'
 
-import palette from 'theme/palette'
 import transitions from 'theme/transitions'
 
 const HiddenCheckbox = styled.input`
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  clippath: inset(50%);
+  position: absolute;
+  width: 1px;
   height: 1px;
   margin: -1px;
-  overflow: hidden;
   padding: 0;
-  position: absolute;
+  overflow: hidden;
   white-space: nowrap;
-  width: 1px;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
 `
 
 const Icon = styled.svg`
+  margin-bottom: 2px;
+  transform: scale(0.8);
   fill: none;
   stroke: white;
   stroke-width: 4px;
-  margin-bottom: 2px;
-  transform: scale(0.8);
 `
 
 const StyledCheckbox = styled.div`
@@ -32,15 +33,15 @@ const StyledCheckbox = styled.div`
   width: 18px;
   height: 18px;
   margin-top: 0.5em;
-  background: ${props => (props.checked ? palette.primary : 'transparent')};
-  border: 1px solid ${palette.primary};
+  background: ${ifProp('checked', themeGet('colors.primary'), 'transparent')};
+  border: 1px solid ${themeGet('colors.primary')};
   border-radius: 2px;
   transition: ${transitions.create(['background', 'box-shadow'])};
   ${HiddenCheckbox}:hover + & {
-    box-shadow: 0 0 0 3px ${rgba(palette.primary, 0.2)};
+    box-shadow: 0 0 0 3px ${props => rgba(props.theme.colors.primary, 0.2)};
   }
   ${Icon} {
-    visibility: ${props => (props.checked ? 'visible' : 'hidden')};
+    visibility: ${ifProp('checked', 'visible', 'hidden')};
   }
 `
 

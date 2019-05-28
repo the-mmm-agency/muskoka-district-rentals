@@ -1,6 +1,7 @@
+const path = require('path')
+
 const _ = require('lodash')
 const dayjs = require('dayjs')
-const path = require('path')
 const R = require('ramda')
 const {
   createFilePath,
@@ -94,30 +95,28 @@ exports.onCreateNode = async ({
   const { createNodeField, createNode } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images
 
-  if (node.internal.type === `images`) {
-    let properties = getNodesByType(`properties`)
-    let propertyNode = R.find(
-      R.propEq('alternative_id', node.property.alternative_id),
-      properties
+  if (node.internal.type === `Properties`) {
+    const images = getNodesByType(`Images`)
+    const image = R.find(
+      R.pathEq(['property', 'alternative_id'], node.alternative_id),
+      images
     )
-    const imagePath = `https:${node.downloadUrl}`
     let fileNode
-    try {
-      fileNode = await createRemoteFileNode({
-        url: imagePath,
-        parentNodeId: node.id,
-        store,
-        cache,
-        createNode,
-        createNodeId,
-      })
-    } catch (error) {
-      console.error(error)
-    }
-    if (fileNode) {
-      node.localFile = fileNode
-      if (propertyNode) {
-        propertyNode.image___NODE = fileNode.id
+    if (image) {
+      try {
+        fileNode = await createRemoteFileNode({
+          url: `https:${image.downloadUrl}`,
+          parentNodeId: node.id,
+          store,
+          cache,
+          createNode,
+          createNodeId,
+        })
+      } catch (error) {
+        console.error(`Error creating image ${error}`)
+      }
+      if (fileNode) {
+        node.image___NODE = fileNode.id
       }
     }
   }

@@ -1,8 +1,11 @@
-import React, { useState, useRef } from 'react'
-import styled from '@emotion/styled'
-import { DateUtils } from 'react-day-picker'
 import useOnClickOutside from 'use-onclickoutside'
+import css from '@styled-system/css'
+import { DateUtils } from 'react-day-picker'
+import styled from '@emotion/styled'
+import React, { useRef, useState } from 'react'
 
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 import Button from 'components/button'
 import Checkbox from 'components/checkbox'
 import DateInput from 'components/dateInput'
@@ -10,86 +13,81 @@ import DatePicker from 'components/datePicker'
 import DownIcon from 'components/downIcon'
 import palette from 'theme/palette'
 import shadows from 'theme/shadows'
-import { options as typography, rhythm } from 'theme/typography'
+import { rhythm } from 'theme/typography'
 
-const CheckboxWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: ${rhythm(0.5)};
-`
-
-const CheckboxLabel = styled.span`
-  color: ${palette.secondary};
-  font-family: ${typography.headerFontFamily.join(',')};
-  margin-right: ${rhythm(1 / 4)};
-  vertical-align: baseline;
-`
+const CheckboxLabel = styled(Text)(
+  css({
+    mr: 3,
+    color: 'secondary',
+    fontFamily: 'serif',
+  })
+)
 
 const StyledButton = styled(Button)`
+  margin-bottom: 15px;
   font-weight: bold;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 15px;
 `
 
 const Wrapper = styled.div`
-  background: white;
-  box-shadow: ${shadows[25]};
+  position: absolute;
+  right: 0;
+  left: 0;
   display: flex;
   flex-basis: 25%;
-  position: absolute;
-  left: 0;
-  right: 0;
+  width: 60%;
+  min-width: 980px;
+  height: 150px;
   margin: auto;
   margin-top: -75px;
-  height: 150px;
-  min-width: 980px;
-  width: 60%;
+  background: white;
+  box-shadow: ${shadows[25]};
 `
 
 const DatePickerWrapper = styled.div`
-  background-color: white;
-  display: flex;
-  padding: 0;
   position: absolute;
+  display: flex;
+  width: 100%;
   min-width: 800px;
   margin-top: calc(150px + ${rhythm(1 / 2)});
-  width: 100%;
+  padding: 0;
+  background-color: white;
 `
 
 const Section = styled.div`
   &:last-child {
     background-color: ${palette.background.dark};
   }
-  padding: ${rhythm(1)};
   width: 25%;
+  padding: ${rhythm(1)};
 `
 
 const SectionWrapper = styled.div`
-  border-right: ${properties =>
-    properties.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1)`};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  border-right: ${properties =>
+    properties.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1) `};
 `
 
 const Header = styled.span`
+  width: 100%;
+  margin-bottom: 15px;
   color: ${palette.text.secondary};
   font-weight: 700;
   font-size: 0.875rem;
-  width: 100%;
-  text-transform: uppercase;
   text-align: left;
-  margin-bottom: 15px;
+  text-transform: uppercase;
 `
 
 const Day = styled.h1`
+  height: 50px;
   font-weight: 500;
   font-size: 3.3rem;
   vertical-align: baseline;
-  height: 50px;
 `
 
 const CheckAvailability = () => {
@@ -143,7 +141,7 @@ const CheckAvailability = () => {
       </Section>
       <Section>
         <SectionWrapper noBorder>
-          <CheckboxWrapper>
+          <Flex justifyContent="space-between" mb={1}>
             <label>
               <CheckboxLabel>Pets</CheckboxLabel>
               <Checkbox
@@ -162,7 +160,7 @@ const CheckAvailability = () => {
                 }}
               />
             </label>
-          </CheckboxWrapper>
+          </Flex>
           <StyledButton fontFamily="serif">check availability</StyledButton>
         </SectionWrapper>
       </Section>

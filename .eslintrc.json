@@ -33,10 +33,10 @@
     "node": true
   },
   "rules": {
-    "emotion/jsx-import": "error",
     "emotion/no-vanilla": "error",
     "emotion/import-from-emotion": "error",
     "emotion/styled-import": "error",
+    "no-console": ["warn", { "allow": ["error", "warn"] }],
     "jsx-a11y/label-has-associated-control": "off",
     "prettier/prettier": "error",
     "react/prop-types": [
@@ -45,6 +45,13 @@
     ],
     "react/prefer-stateless-function": "warn",
     "react/sort-prop-types": "error",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always"
+      }
+    ],
+
     "unicorn/filename-case": ["error", { "case": "camelCase" }],
     "unicorn/prevent-abbreviations": "off"
   },

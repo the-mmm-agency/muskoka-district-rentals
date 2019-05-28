@@ -6,25 +6,25 @@ import PropTypes from 'prop-types'
 import DownIcon from 'components/downIcon'
 
 const Wrapper = styled.span`
-  align-items: flex-end;
-  cursor: pointer;
-  justify-content: flex-start;
   display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  cursor: pointer;
 `
 
 const Day = styled.h1`
+  height: 50px;
+  color: #000;
   font-weight: 500;
   font-size: 3.3rem;
   vertical-align: baseline;
-  height: 50px;
-  color: #000;
 `
 
 const Month = styled.h3`
+  min-width: 60px;
   font-weight: 400;
   font-size: 1.3rem;
   vertical-align: baseline;
-  min-width: 60px;
 `
 
 const DateInput = ({ onClick, value }) => (

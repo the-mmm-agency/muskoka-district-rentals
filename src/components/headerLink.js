@@ -3,22 +3,22 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { themeGet } from 'styled-system'
 
-import Link from 'components/link'
 import transitions from 'theme/transitions'
+import Link from 'components/link'
 
 const StyledLink = styled(Link)`
-  margin: auto;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 10px;
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
   align-items: stretch;
+  margin: auto;
+  padding: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
   transition: ${transitions.create('background')};
   &:hover {
-    background: rgba(0, 0, 0, 0.1);
     text-decoration: none;
+    background: rgba(0, 0, 0, 0.1);
   }
   span {
     position: relative;
@@ -30,16 +30,16 @@ const StyledLink = styled(Link)`
       }
     }
     &::before {
-      content: '';
       position: absolute;
-      left: 50%;
       bottom: 0;
+      left: 50%;
       width: 100%;
       height: 2px;
       background-color: ${themeGet('colors.text.primary')};
-      transform-origin: center;
       transform: translate(-50%, 0) scaleX(0);
+      transform-origin: center;
       transition: transform 0.3s ease-in-out;
+      content: '';
     }
   }
 `

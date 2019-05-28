@@ -6,10 +6,10 @@ import { rhythm } from 'theme/typography'
 
 const Icon = styled.svg`
   align-self: center;
+  width: 30px;
+  height: 30px;
   margin-left: ${rhythm(1)};
   fill: ${palette.text.primary};
-  height: 30px;
-  width: 30px;
 `
 
 const DownIcon = () => (

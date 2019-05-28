@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
 import Img from 'gatsby-image'
+import styled from '@emotion/styled'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 import Box from 'elements/box'
 import Flex from 'elements/flex'

@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import Text from 'elements/text'
+
 const Number = ({ children, ...props }) => (
-  <span {...props}>{children < 10 ? `0${children}` : children}</span>
+  <Text {...props}>{children < 10 ? `0${children}` : children}</Text>
 )
 
 Number.propTypes = {

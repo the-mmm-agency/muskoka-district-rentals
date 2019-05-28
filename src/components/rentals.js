@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import BackgroundImage from 'gatsby-background-image'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import Text from 'elements/text'
 import Flex from 'elements/flex'
@@ -9,10 +9,10 @@ import Rental from 'components/rental'
 import Link from 'components/link'
 
 const Wrapper = styled(BackgroundImage)`
-  align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
   max-height: 100vh;
   text-align: center;

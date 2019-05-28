@@ -1,6 +1,7 @@
-import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react'
+import { themeGet } from 'styled-system'
 
 import Box from 'elements/box'
 import Flex from 'elements/flex'
@@ -8,17 +9,16 @@ import Text from 'elements/text'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
-import { themeGet } from 'styled-system'
 
 const Section = styled.div`
   &:last-child {
     border-right: none;
   }
-  border-right: 1px solid ${themeGet('color.text.light')};
   display: flex;
   flex-direction: column;
-  padding: 0 ${themeGet('space.2')};
   margin-right: ${themeGet('space.3')};
+  padding: 0 ${themeGet('space.2')};
+  border-right: 1px solid ${themeGet('color.text.light')};
   h6 {
     margin-bottom: ${themeGet('space.2')};
   }

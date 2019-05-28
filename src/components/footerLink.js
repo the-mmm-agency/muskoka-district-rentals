@@ -9,8 +9,8 @@ const StyledLink = styled(Link)`
     opacity: 1;
   }
   color: #fff;
-  opacity: 0.4;
   text-transform: capitalize;
+  opacity: 0.4;
   transition: opacity ease 0.3s;
 `
 

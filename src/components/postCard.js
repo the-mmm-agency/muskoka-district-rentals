@@ -5,20 +5,20 @@ import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import { themeGet } from 'styled-system'
 
-import Flex from 'elements/flex'
-import Text from 'elements/text'
 import Link from 'components/link'
+import Text from 'elements/text'
+import Flex from 'elements/flex'
 
 const Wrapper = styled(Flex)`
   &:hover {
     box-shadow: ${themeGet('shadows.25')};
   }
-  background-color: ${themeGet('colors.background.light')};
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  box-shadow: ${themeGet('shadows.1')};
   width: calc(100% / 3);
+  background-color: ${themeGet('colors.background.light')};
+  box-shadow: ${themeGet('shadows.1')};
+  cursor: pointer;
 `
 
 const Continue = styled(Link)`

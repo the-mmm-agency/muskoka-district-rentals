@@ -7,24 +7,24 @@ import Logo from 'components/logo'
 import HeaderLink from 'components/headerLink'
 
 const StyledButton = styled(Button)`
+  margin: 24px;
+  padding: 10px 30px;
   font-weight: bold;
+  font-size: 1rem;
   font-style: bold;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 10px 30px;
-  font-size: 1rem;
-  margin: 24px;
 `
 
 const StyledHeader = styled.header`
-  display: flex;
-  align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 10px;
   text-align: center;
   background: white;
-  padding: 10px;
 `
 
 const Header = () => (

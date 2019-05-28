@@ -1,38 +1,38 @@
 import React, { useMemo, useState } from 'react'
 import posed, { PoseGroup } from 'react-pose'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import { useNumber } from 'react-hanger'
 
+import transitions, { duration, easing } from 'theme/transitions'
 import MemberInfo from 'components/memberInfo'
-import RightIcon from 'components/rightIcon'
-import palette from 'theme/palette'
 import { rhythm } from 'theme/typography'
-import transitions, { easing, duration } from 'theme/transitions'
+import palette from 'theme/palette'
+import RightIcon from 'components/rightIcon'
 
 const Wrapper = styled.section`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  color: white;
   background: linear-gradient(
     180deg,
     ${properties => properties.color} 80vh,
     white 20vh
   );
-  color: white;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
   transition: ${(transitions.create('background'),
   {
     duration: duration.enteringScreen,
     easing: easing.easeInOut,
   })};
   h2 {
-    color: white;
-    padding-top: ${rhythm(4)};
     margin-bottom: ${rhythm(4)};
+    padding-top: ${rhythm(4)};
+    color: white;
     text-align: center;
     text-transform: uppercase;
   }
@@ -43,24 +43,24 @@ const InfoWrapper = styled.div`
 `
 
 const Picture = styled(Img)`
-  height: 60vh;
   width: 100%;
+  height: 60vh;
 `
 
 const NextButton = styled.div`
   &:hover {
     background-color: rgba(0, 0, 0, 0.24);
   }
+  display: flex;
   align-items: center;
+  justify-content: center;
+  width: 25%;
   background-color: ${palette.background.dark};
   cursor: pointer;
-  display: flex;
-  justify-content: center;
   transition: ${transitions.create('background-color', {
     duration: duration.complex,
     easing: easing.sharp,
   })};
-  width: 25%;
 `
 
 const TeamWrapper = styled.div`
@@ -71,14 +71,14 @@ const TeamWrapper = styled.div`
 
 const Team = styled.div`
   display: flex;
-  min-height: 20%;
   width: 100%;
+  min-height: 20%;
 `
 
 const StyledPose = styled(PoseGroup)`
   display: flex;
-  margin: 0;
   width: 75%;
+  margin: 0;
 `
 
 const PosedTeamMember = posed.li({
@@ -103,19 +103,19 @@ const TeamMember = styled(BackgroundImage)`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
   text-align: center;
+  opacity: 1;
   transition: ${transitions.create('opacity', {
     duration: duration.complex,
     easing: easing.sharp,
   })};
-  opacity: 1;
   span {
-    font-weight: 600;
     margin: auto;
+    font-weight: 600;
     text-transform: uppercase;
   }
-  height: 100%;
-  width: 100%;
 `
 
 const OurTeam = () => {

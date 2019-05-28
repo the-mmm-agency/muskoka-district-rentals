@@ -1,15 +1,15 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import Link from 'components/link'
 
 const Wrapper = styled(Link)`
-  height: auto;
-  padding: 2px;
-  margin-left: 16px;
   min-width: 70px;
+  height: auto;
+  margin-left: 16px;
+  padding: 2px;
 `
 
 const Logo = () => {
