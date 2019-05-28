@@ -29,7 +29,6 @@ const Info = styled.div`
   overflow: hidden;
 `
 const Bio = styled.div`
-  ${scale(1 / 4)};
   background-color: white;
   color: ${palette.text.primary};
   margin-left: ${rhythm(2)};

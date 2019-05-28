@@ -5,18 +5,12 @@ import React from 'react'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
-import { rhythm, scale } from 'theme/typography'
+import { rhythm } from 'theme/typography'
 
 const Wrapper = styled.div`
-  h1 {
-    ${scale(3 / 4)};
-    margin-bottom: ${rhythm(5)};
-  }
   h6 {
-    ${scale(1 / 4)};
     margin-bottom: ${rhythm(1 / 3)};
   }
-  padding: ${rhythm(4)} 15%;
 `
 
 const BuyOrSell = () => {
@@ -36,8 +30,10 @@ const BuyOrSell = () => {
     <>
       <SEO title="Buy or Sell Cottages" />
       <PageImage fluid={data.home.childImageSharp.fluid} Tag="section" />
-      <Wrapper>
-        <h1>Buying or selling a cottage property?</h1>
+      <Wrapper px={[3, 6]} py={5}>
+        <h1 fontSize={3} mb={5}>
+          Buying or selling a cottage property?
+        </h1>
         <h6>Discover the Difference</h6>
         <p>
           Est ut eu ullamco aute in. Minim anim aute aute incididunt sit non

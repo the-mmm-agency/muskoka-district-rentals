@@ -14,7 +14,6 @@ const Section = styled.section`
     ${scale(1)};
     margin-bottom: ${rhythm(2)};
   }
-  padding: 10% 20%;
   text-align: center;
 `
 
@@ -97,7 +96,7 @@ const AboutUs = () => {
         <WelcomeMessage>about us</WelcomeMessage>
         <Header>Come escape the mundane</Header>
       </FirstSection>
-      <Section>
+      <Section px={[3, 6]} py={[4, 5]}>
         <h2>History</h2>
         <p>
           Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo

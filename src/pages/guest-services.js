@@ -31,7 +31,7 @@ const GuestServices = () => {
     <>
       <SEO title="Guest Services" />
       <PageImage fluid={data.header.childImageSharp.fluid} Tag="section" />
-      <Box py={5} px={6}>
+      <Box py={[4, 5]} px={[3, 6]}>
         <Text as="h1" mb={3} fontSize={2}>
           Guest Services
         </Text>

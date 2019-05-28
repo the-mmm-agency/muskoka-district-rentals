@@ -43,7 +43,7 @@ const RentYourCottage = () => {
         keywords={[`gatsby`, `application`, `react`]}
       />
       <PageImage fluid={data.file.childImageSharp.fluid} Tag="section" />
-      <Box px={6} py={5}>
+      <Box px={[3, 6]} py={5}>
         <h1>Rent Your cottage</h1>
         <Text fontWeight="bold" maxWidth="20vw">
           Looking to offset costs of your cottage or vacation property? MDR
