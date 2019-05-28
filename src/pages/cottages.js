@@ -66,16 +66,19 @@ const Cottages = () => {
       </Image>
       <CheckAvailability />
       <Box py={6} mx={0}>
-        {data.rentals.nodes.slice(0, page).map((rental, index) => (
-          <Fade key={rental.id}>
-            <Cottage
-              {...rental}
-              reviewAvg={4.5}
-              reviewCount={6}
-              number={index}
-            />
-          </Fade>
-        ))}
+        {data.rentals.nodes
+          .filter(node => node.image !== null)
+          .slice(0, page)
+          .map((rental, index) => (
+            <Fade key={rental.id}>
+              <Cottage
+                {...rental}
+                reviewAvg={4.5}
+                reviewCount={6}
+                number={index}
+              />
+            </Fade>
+          ))}
       </Box>
       <Box width="100%" textAlign="center" mb={4}>
         <Button

@@ -1,5 +1,6 @@
 const path = require('path')
 
+const axios = require('axios')
 const _ = require('lodash')
 const dayjs = require('dayjs')
 const R = require('ramda')
@@ -8,6 +9,23 @@ const {
   createRemoteFileNode,
 } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+
+const fetchImage = async property => {
+  try {
+    const response = await axios.get('https://api.myvr.com/v1/photos?limit=1', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer LIVE_14875846ee1c2d1ba730e1d06b7c2c48`,
+      },
+      params: {
+        property: property,
+      },
+    })
+    return response.data.results[0]
+  } catch (error) {
+    return null
+  }
+}
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
@@ -90,19 +108,13 @@ exports.onCreateNode = async ({
   cache,
   createNodeId,
   getNode,
-  getNodesByType,
 }) => {
-  const { createNodeField, createNode } = actions
-  fmImagesToRelative(node) // convert image paths for gatsby images
+  const { createNodeField, createNode, deleteNode } = actions
 
   if (node.internal.type === `Properties`) {
-    const images = getNodesByType(`Images`)
-    const image = R.find(
-      R.pathEq(['property', 'alternative_id'], node.alternative_id),
-      images
-    )
+    const image = await fetchImage(node.alternative_id)
     let fileNode
-    if (image) {
+    if (image !== null) {
       try {
         fileNode = await createRemoteFileNode({
           url: `https:${image.downloadUrl}`,
@@ -114,14 +126,20 @@ exports.onCreateNode = async ({
         })
       } catch (error) {
         console.error(`Error creating image ${error}`)
+        deleteNode(node)
       }
       if (fileNode) {
         node.image___NODE = fileNode.id
+      } else {
+        deleteNode(node)
       }
+    } else {
+      deleteNode(node)
     }
   }
 
   if (node.internal.type === `MarkdownRemark`) {
+    fmImagesToRelative(node) // convert image paths for gatsby images
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,

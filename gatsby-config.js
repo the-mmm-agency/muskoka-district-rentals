@@ -143,27 +143,13 @@ module.exports = {
     {
       resolve: `gatsby-source-apiserver`,
       options: {
-        name: `Images`,
-        method: `get`,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer LIVE_14875846ee1c2d1ba730e1d06b7c2c48`,
-        },
-        url: `https://api.myvr.com/v1/photos/?limit=7000`,
-        entityLevel: `results`,
-        verboseOutput: true,
-      },
-    },
-    {
-      resolve: `gatsby-source-apiserver`,
-      options: {
         name: `Properties`,
         method: `get`,
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer LIVE_14875846ee1c2d1ba730e1d06b7c2c48`,
         },
-        url: `https://api.myvr.com/v1/properties/?limit=200`,
+        url: `https://api.myvr.com/v1/properties/?limit=200?active=true`,
         entityLevel: `results`,
         verboseOutput: true,
       },

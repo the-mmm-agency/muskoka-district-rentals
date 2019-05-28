@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useMedia } from 'use-media'
 import css from '@styled-system/css'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
@@ -8,6 +9,7 @@ import { ThemeProvider } from 'emotion-theming'
 import fonts from '../fonts'
 
 import Footer from 'components/footer'
+import MobileHeader from 'components/mobileHeader'
 import Header from 'components/header'
 import globalStyles from 'theme/global.css'
 import theme from 'theme'
@@ -27,19 +29,26 @@ const headerLinks = [
   '/private-fleet',
 ]
 
-const Layout = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <Global styles={fonts} />
-    <Global styles={css(globalStyles)} />
-    <>
-      <Header links={headerLinks} />
-      <Root>
-        <main>{children}</main>
-        <Footer />
-      </Root>
-    </>
-  </ThemeProvider>
-)
+const Layout = ({ children }) => {
+  const isSmall = useMedia({ maxWidth: 800 })
+  return (
+    <ThemeProvider theme={theme}>
+      <Global styles={fonts} />
+      <Global styles={css(globalStyles)} />
+      <>
+        {isSmall ? (
+          <MobileHeader links={headerLinks} />
+        ) : (
+          <Header links={headerLinks} />
+        )}
+        <Root>
+          <main>{children}</main>
+          <Footer />
+        </Root>
+      </>
+    </ThemeProvider>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

@@ -11,6 +11,7 @@ const StyledHeader = styled.header`
   top: 0;
   z-index: 1000;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 10px;
   text-align: center;
@@ -23,9 +24,11 @@ const MobileHeader = ({ links }) => {
   }
   return (
     <StyledHeader bg="white">
-      <Logo />
-      <Hamburger active={active} onClick={handleClick} />
-      <HeaderMenu links={links} isOpen={active} />
+      <div display="flex" width="100%">
+        <Logo mr="auto" />
+        <Hamburger active={active} onClick={handleClick} ml="auto" />
+      </div>
+      {active && <HeaderMenu links={links} />}
     </StyledHeader>
   )
 }

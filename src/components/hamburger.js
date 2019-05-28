@@ -19,6 +19,8 @@ const Wrapper = styled.button`
   transition-timing-function: linear;
 
   font: inherit;
+  position: relative;
+  width: 50px;
   color: inherit;
   text-transform: none;
   background-color: transparent;

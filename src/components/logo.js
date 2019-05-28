@@ -12,7 +12,7 @@ const Wrapper = styled(Link)`
   padding: 2px;
 `
 
-const Logo = () => {
+const Logo = props => {
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "muskoka-logo.png" }) {
@@ -25,7 +25,7 @@ const Logo = () => {
     }
   `)
   return (
-    <Wrapper fade duration={0.5}>
+    <Wrapper fade duration={0.5} {...props}>
       <Img
         critical
         alt="Muskoka District Rentals"
