@@ -1,9 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Headroom from 'react-headroom'
 import styled from '@emotion/styled'
 
 import Button from 'components/button'
 import Logo from 'components/logo'
+import Hamburger from 'components/hamburger'
 import HeaderLink from 'components/headerLink'
 
 const StyledButton = styled(Button)`
@@ -27,21 +29,22 @@ const StyledHeader = styled.header`
   background: white;
 `
 
-const Header = () => (
+const Header = ({ links }) => (
   <Headroom style={{ zIndex: 999 }}>
     <StyledHeader>
       <Logo />
-      <HeaderLink to="/cottages" />
-      <HeaderLink to="/guest-services" />
-      <HeaderLink to="/about-us" />
-      <HeaderLink to="/rent-your-cottage" />
-      <HeaderLink to="/buy-or-sell" />
-      <HeaderLink to="/private-fleet" />
+      {links.map(to => (
+        <HeaderLink to={to} key={to} />
+      ))}
       <StyledButton fontFamily="serif" size="large">
         Reserve Now
       </StyledButton>
     </StyledHeader>
   </Headroom>
 )
+
+Header.propTypes = {
+  links: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+}
 
 export default Header

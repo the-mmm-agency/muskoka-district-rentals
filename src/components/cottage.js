@@ -34,11 +34,11 @@ const Description = styled.div`
 
 const Image = styled(Img)(
   css({
+    alignSelf: 'flex-start',
     flexGrow: 1,
     flexShrink: 1,
     width: ['100%', '50%'],
     mb: 4,
-    maxHeight: ['50vw', null, '30vw'],
   })
 )
 
@@ -72,85 +72,89 @@ const Cottage = ({
   suitablePets,
   image,
   number,
-}) => {
-  return (
-    <Wrapper reverse={number % 2 === 0} mx={2} my={3}>
-      <AddressWrapper
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="space-between"
-        maxHeight="350px"
-        mt={0}
-        border="1px solid text.secondary"
-        p={4}
-        mx={5}
+}) => (
+  <Wrapper reverse={number % 2 === 0} mx={2} my={3}>
+    <AddressWrapper
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="space-between"
+      maxHeight="350px"
+      mt={0}
+      border="1px solid"
+      borderColor="text.secondary"
+      p={4}
+      mx={5}
+    >
+      <Address>{addressOne}</Address>
+      <Number color="text.secondary" fontWeight="bold" fontSize={4}>
+        {number + 1}
+      </Number>
+    </AddressWrapper>
+    <Flex
+      flexShrink={0}
+      flexWrap="wrap"
+      justifyContent="inherit"
+      p={2}
+      pt={0}
+      width={['100%', '50%', 'calc(100% / 3)']}
+    >
+      <Box mb={3}>
+        <StarRatings
+          rating={reviewAvg}
+          starRatedColor={palette.starRated}
+          numberOfStars={5}
+          starSpacing="1px"
+          starDimension="1rem"
+          name="rating"
+        />{' '}
+        <Text fontWeight="medium" ml="1px">
+          {reviewCount} reviews
+        </Text>
+      </Box>
+      <Text as="h2" fontSize={1} mb={4} lineHeight="expanded" width="100%">
+        {name}
+      </Text>
+      <Text fontWeight="semibold" fontSize={5} pt={2}>
+        Start from{' '}
+      </Text>
+      <Text
+        fontSize={3}
+        lineHeight={1.2}
+        ml={1}
+        color="text.primary"
+        fontWeight="bold"
       >
-        <Address>{addressOne}</Address>
-        <Number color="text.secondary" fontWeight="bold" fontSize={4}>
-          {number + 1}
-        </Number>
-      </AddressWrapper>
-      <Flex
-        flexShrink={0}
-        flexWrap="wrap"
-        justifyContent="inherit"
-        p={2}
-        pt={0}
-        width={['100%', '50%', 'calc(100% / 3)']}
-      >
-        <Box mb={3}>
-          <StarRatings
-            rating={reviewAvg}
-            starRatedColor={palette.starRated}
-            numberOfStars={5}
-            starSpacing="1px"
-            starDimension="1rem"
-            name="rating"
-          />{' '}
-          <Text fontWeight="medium" ml="1px">
-            {reviewCount} reviews
-          </Text>
-        </Box>
-        <Text as="h2" fontSize={1} mb={4} lineHeight="expanded" width="100%">
-          {name}
-        </Text>
-        <Text fontWeight="semibold" fontSize={5} pt={2}>
-          Start from{' '}
-        </Text>
-        <Text
-          fontSize={3}
-          lineHeight={1.2}
-          ml={1}
-          color="text.primary"
-          fontWeight="bold"
-        >
-          {' $' + lowestNightlyRate}
-        </Text>
-        <Text color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
-          /Night
-        </Text>
-        <Description
-          color="text.paragraph"
-          mt={4}
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
-        <CottageInfo
-          accommodates={accommodates}
-          bedrooms={bedrooms}
-          bathrooms={bathrooms}
-          suitablePets={suitablePets}
-          type={type}
-          size={size}
-          status={status}
-        />
-        <Button ml="-1rem" href="/" variant="transparent">
-          View Details &nbsp;&rsaquo;
-        </Button>
-      </Flex>
-      <Image fluid={image.childImageSharp.fluid} />
-    </Wrapper>
-  )
-}
+        {' $' + lowestNightlyRate}
+      </Text>
+      <Text color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
+        /Night
+      </Text>
+      <Description
+        color="text.paragraph"
+        mt={4}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
+      <CottageInfo
+        accommodates={accommodates}
+        bedrooms={bedrooms}
+        bathrooms={bathrooms}
+        suitablePets={suitablePets}
+        type={type}
+        size={size}
+        status={status}
+      />
+      <Button ml="-1rem" href="/" variant="transparent">
+        View Details &nbsp;&rsaquo;
+      </Button>
+    </Flex>
+    <Image
+      imgStyle={{
+        objectFit: 'contain',
+      }}
+      fluid={image.childImageSharp.fluid}
+    />
+  </Wrapper>
+)
 
 Cottage.propTypes = {
   accommodates: PropTypes.number.isRequired,

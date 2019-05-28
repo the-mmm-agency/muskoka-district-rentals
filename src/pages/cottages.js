@@ -58,8 +58,6 @@ const Cottages = () => {
     }
   `)
 
-  const rentals = data.rentals.nodes.slice(0, page)
-
   return (
     <>
       <SEO title="Our Rentals" />
@@ -68,10 +66,9 @@ const Cottages = () => {
       </Image>
       <CheckAvailability />
       <Box py={6} mx={0}>
-        {rentals.map((rental, index) => (
+        {data.rentals.nodes.slice(0, page).map((rental, index) => (
           <Fade key={rental.id}>
             <Cottage
-              key={rental.id}
               {...rental}
               reviewAvg={4.5}
               reviewCount={6}

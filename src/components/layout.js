@@ -8,7 +8,7 @@ import { ThemeProvider } from 'emotion-theming'
 import fonts from '../fonts'
 
 import Footer from 'components/footer'
-import Header from 'components/header'
+import Header from 'components/mobileHeader'
 import globalStyles from 'theme/global.css'
 import theme from 'theme'
 
@@ -18,12 +18,21 @@ const Root = styled.div`
   padding-top: 0;
 `
 
+const headerLinks = [
+  '/cottages',
+  '/guest-services',
+  '/about-us',
+  '/rent-your-cottage',
+  '/buy-or-sell',
+  '/private-fleet',
+]
+
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <Global styles={fonts} />
     <Global styles={css(globalStyles)} />
     <>
-      <Header />
+      <Header links={headerLinks} />
       <Root>
         <main>{children}</main>
         <Footer />
