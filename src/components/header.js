@@ -5,7 +5,6 @@ import styled from '@emotion/styled'
 
 import Button from 'components/button'
 import Logo from 'components/logo'
-import Hamburger from 'components/hamburger'
 import HeaderLink from 'components/headerLink'
 
 const StyledButton = styled(Button)`

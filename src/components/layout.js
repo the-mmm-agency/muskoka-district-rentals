@@ -8,7 +8,7 @@ import { ThemeProvider } from 'emotion-theming'
 import fonts from '../fonts'
 
 import Footer from 'components/footer'
-import Header from 'components/mobileHeader'
+import Header from 'components/header'
 import globalStyles from 'theme/global.css'
 import theme from 'theme'
 
