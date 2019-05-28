@@ -5,9 +5,9 @@ import { themeGet } from 'styled-system'
 import { css } from '@emotion/core'
 import { ifProp } from 'styled-tools'
 
-const layerWidth = 30
-const layerHeight = 4
-const layerSpacing = 6
+const layerWidth = 20
+const layerHeight = 3
+const layerSpacing = 3
 
 const Wrapper = styled.button`
   padding: 15px;
