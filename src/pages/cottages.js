@@ -80,16 +80,18 @@ const Cottages = () => {
             </Fade>
           ))}
       </Box>
-      <Box width="100%" textAlign="center" mb={4}>
-        <Button
-          textTransform="uppercase"
-          mb={3}
-          font="serif"
-          onClick={handleClick}
-        >
-          See More Rentals
-        </Button>
-      </Box>
+      {page < data.rentals.nodes.filter(node => node.image !== null).length && (
+        <Box width="100%" textAlign="center" mb={4}>
+          <Button
+            textTransform="uppercase"
+            mb={3}
+            font="serif"
+            onClick={handleClick}
+          >
+            See More Rentals
+          </Button>
+        </Box>
+      )}
     </>
   )
 }

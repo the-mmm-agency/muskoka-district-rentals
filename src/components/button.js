@@ -23,14 +23,14 @@ const buttonSize = variant({
 })
 
 const StyledButton = styled.button`
+  &:active {
+    background: ${themeGet('colors.primary')};
+  }
   &:hover {
     text-decoration: none;
-    background: ${themeGet(`colors.primary`)};
+    background: ${themeGet('colors.primary')};
     box-shadow: ${themeGet('shadows.2')};
     transform: translateY(-3px);
-    @media (hover: none) {
-      background-color: transparent;
-    }
   }
   transition: ${transitions.create(
     ['border', 'background', 'box-shadow', 'transform'],

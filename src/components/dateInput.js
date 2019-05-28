@@ -20,11 +20,10 @@ const Day = styled.h1`
   vertical-align: baseline;
 `
 
-const Month = styled.h3`
-  min-width: 60px;
+const Month = styled.h5`
   font-weight: 400;
-  font-size: 1.3rem;
   vertical-align: baseline;
+  white-space: nowrap;
 `
 
 const DateInput = ({ onClick, value }) => (

@@ -32,7 +32,6 @@ const StyledDayPicker = styled(DayPicker)`
     border-radius: 0;
   }
   .DayPicker-Months {
-    flex-wrap: nowrap;
     justify-content: space-evenly;
   }
   .DayPicker-Day {

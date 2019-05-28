@@ -2,6 +2,7 @@ import useOnClickOutside from 'use-onclickoutside'
 import css from '@styled-system/css'
 import { DateUtils } from 'react-day-picker'
 import styled from '@emotion/styled'
+import { themeGet } from 'styled-system'
 import React, { useRef, useState } from 'react'
 
 import Flex from 'elements/flex'
@@ -12,7 +13,6 @@ import DateInput from 'components/dateInput'
 import DatePicker from 'components/datePicker'
 import DownIcon from 'components/downIcon'
 import palette from 'theme/palette'
-import shadows from 'theme/shadows'
 import { rhythm } from 'theme/typography'
 
 const CheckboxLabel = styled(Text)(
@@ -31,46 +31,64 @@ const StyledButton = styled(Button)`
 `
 
 const Wrapper = styled.div`
-  position: absolute;
+  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+    background: ${themeGet('colors.background.light')};
+    width: 60%;
+    min-width: 980px;
+    margin-top: -75px;
+    flex-wrap: nowrap;
+    height: 150px;
+    box-shadow: ${themeGet('shadows.25')};
+    position: absolute;
+  }
   right: 0;
   left: 0;
+  flex-wrap: wrap;
   display: flex;
   flex-basis: 25%;
-  width: 60%;
-  min-width: 980px;
-  height: 150px;
+  justify-content: center;
   margin: auto;
-  margin-top: -75px;
-  background: white;
-  box-shadow: ${shadows[25]};
 `
 
 const DatePickerWrapper = styled.div`
+  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+    left: 0px;
+    width: 100vw;
+  }
   position: absolute;
   display: flex;
   width: 100%;
-  min-width: 800px;
   margin-top: calc(150px + ${rhythm(1 / 2)});
   padding: 0;
   background-color: white;
 `
 
 const Section = styled.div`
-  &:last-child {
-    background-color: ${palette.background.dark};
+  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+    &:last-child {
+      background-color: ${palette.background.dark};
+      width: 25%;
+    }
+    width: 25%;
   }
-  width: 25%;
-  padding: ${rhythm(1)};
+  &:last-child {
+    width: 50%;
+  }
+  width: calc(100% / 3);
+  padding: ${themeGet('space.1')};
 `
 
 const SectionWrapper = styled.div`
+  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+    border-right: ${props =>
+      props.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1) `};
+  }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: ${themeGet('space.2')} ${themeGet('space.2')};
   width: 100%;
   height: 100%;
-  border-right: ${properties =>
-    properties.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1) `};
 `
 
 const Header = styled.span`
@@ -87,6 +105,7 @@ const Day = styled.h1`
   height: 50px;
   font-weight: 500;
   font-size: 3.3rem;
+  line-height: 1.87;
   vertical-align: baseline;
 `
 
