@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
+import { useMedia } from 'use-media'
 import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -66,6 +67,7 @@ const ConciergeServices = () => {
       }
     }
   `)
+  const isLarge = useMedia({ minWidth: 800 })
   const [selected, setSelected] = useState(
     data.allConciergeServicesJson.nodes[0].image
   )
@@ -85,7 +87,7 @@ const ConciergeServices = () => {
           ))}
         </List>
       </Content>
-      <Image fluid={selected.childImageSharp.fluid} />
+      {isLarge && <Image fluid={selected.childImageSharp.fluid} />}
     </Wrapper>
   )
 }
