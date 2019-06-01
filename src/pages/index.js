@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
+import { useMedia } from 'use-media'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import React from 'react'
@@ -185,6 +186,7 @@ const IndexPage = () => {
     }
   `)
 
+  const isLarge = useMedia({ minWidth: 800 })
   return (
     <>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -203,9 +205,11 @@ const IndexPage = () => {
       <Hero>
         <About>about us</About>
         <WelcomeContainer>
-          <WelcomeImageContainer>
-            <WelcomeImage fluid={data.welcome.childImageSharp.fluid} />
-          </WelcomeImageContainer>
+          {isLarge && (
+            <WelcomeImageContainer>
+              <WelcomeImage fluid={data.welcome.childImageSharp.fluid} />
+            </WelcomeImageContainer>
+          )}
           <Welcome>
             <WelcomeAboard>
               <WelcomeAboardBorder />
