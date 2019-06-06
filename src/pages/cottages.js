@@ -33,26 +33,25 @@ const Cottages = () => {
           }
         }
       }
-      rentals: allProperties {
+      rentals: allWcProducts {
         nodes {
-          active
-          size
-          accommodates
-          bedrooms
-          bathrooms
-          suitablePets
+          attributes {
+            name
+            options
+          }
           name
-          addressOne
-          lowestNightlyRate
-          description
-          type
-          image {
-            childImageSharp {
-              fluid(maxWidth: 3000) {
-                ...GatsbyImageSharpFluid_withWebp
+          price
+          images {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 3000) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
               }
             }
           }
+          name
+          description
         }
       }
     }

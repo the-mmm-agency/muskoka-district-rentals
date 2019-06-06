@@ -57,20 +57,13 @@ const AddressWrapper = styled(Flex)`
 `
 
 const Cottage = ({
+  attributes,
   name,
-  reviewAvg,
-  addressOne,
-  reviewCount,
-  lowestNightlyRate,
+  price,
+  images,
   description,
-  status,
-  size,
-  type,
-  accommodates,
-  bedrooms,
-  bathrooms,
-  suitablePets,
-  image,
+  reviewAvg,
+  reviewCount,
   number,
 }) => (
   <Wrapper reverse={number % 2 === 0} mx={2} my={3}>
@@ -85,7 +78,12 @@ const Cottage = ({
       p={4}
       mx={5}
     >
-      <Address>{addressOne}</Address>
+      <Address>
+        {
+          attributes.filter(attribute => attribute.name === 'Address')[0]
+            .options[0]
+        }
+      </Address>
       <Number color="text.secondary" fontWeight="bold" fontSize={4}>
         {number + 1}
       </Number>
@@ -124,7 +122,7 @@ const Cottage = ({
         color="text.primary"
         fontWeight="bold"
       >
-        {' $' + lowestNightlyRate}
+        {' $' + price}
       </Text>
       <Text color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
         /Night
@@ -134,15 +132,7 @@ const Cottage = ({
         mt={4}
         dangerouslySetInnerHTML={{ __html: description }}
       />
-      <CottageInfo
-        accommodates={accommodates}
-        bedrooms={bedrooms}
-        bathrooms={bathrooms}
-        suitablePets={suitablePets}
-        type={type}
-        size={size}
-        status={status}
-      />
+      <CottageInfo attributes={attributes} />
       <Button ml="-1rem" href="/" variant="transparent">
         View Details &nbsp;&rsaquo;
       </Button>
@@ -151,7 +141,7 @@ const Cottage = ({
       imgStyle={{
         objectFit: 'contain',
       }}
-      fluid={image.childImageSharp.fluid}
+      fluid={images[0].localFile.childImageSharp.fluid}
     />
   </Wrapper>
 )

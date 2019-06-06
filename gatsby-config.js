@@ -141,17 +141,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-apiserver`,
+      resolve: '@pasdo501/gatsby-source-woocommerce',
       options: {
-        name: `Properties`,
-        method: `get`,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer LIVE_14875846ee1c2d1ba730e1d06b7c2c48`,
+        api: 'muskokadis.wpengine.com',
+        https: true,
+        api_keys: {
+          consumer_key: 'ck_8ce4613904f2c79a345f184ba572bb0e9f799838',
+          consumer_secret: 'cs_240b917e24c8f4818773b5f9234d4051cf7b353c',
         },
-        url: `https://api.myvr.com/v1/properties/?limit=200?active=true`,
-        entityLevel: `results`,
-        verboseOutput: true,
+        fields: ['products'],
+        api_version: 'wc/v2',
+        per_page: 100,
       },
     },
   ],

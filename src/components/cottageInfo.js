@@ -1,17 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Text from 'elements/text'
-
-const CottageInfo = ({
-  status,
-  size,
-  type,
-  accommodates,
-  bedrooms,
-  bathrooms,
-  suitablePets,
-}) => (
+const CottageInfo = ({ attributes }) => (
   <ul
     css={{
       li: {
@@ -24,50 +14,14 @@ const CottageInfo = ({
       width: '100%',
     }}
   >
-    <li>
-      Status:{' '}
-      {status === 'Available' ? (
-        <Text color="secondary">Available</Text>
-      ) : (
-        'Unavailable'
-      )}
-    </li>
-    <li>
-      Square Feet:{' '}
-      <Text color="text.primary" fontWeight="bold">
-        {size} sqft
-      </Text>
-    </li>
-    <li>
-      Property:{' '}
-      <Text color="text.primary" fontWeight="bold" textTransform="capitalize">
-        {type}
-      </Text>
-    </li>
-    <li>
-      Sleeps:{' '}
-      <Text color="text.primary" fontWeight="bold">
-        {accommodates}
-      </Text>
-    </li>
-    <li>
-      Beds:{' '}
-      <Text color="text.primary" fontWeight="bold">
-        {bedrooms}
-      </Text>
-    </li>
-    <li>
-      Bathrooms:{' '}
-      <Text color="text.primary" fontWeight="bold">
-        {bathrooms}
-      </Text>
-    </li>
-    <li>
-      Pet Friendly:{' '}
-      <Text color="text.primary" fontWeight="bold">
-        {suitablePets ? 'Yes' : 'No'}
-      </Text>
-    </li>
+    {attributes.map(attribute => (
+      <li key={attribute.name}>
+        <span color="text.primary" fontWeight="bold">
+          {attribute.name}:&nbsp;
+        </span>
+        <span>{attribute.options[0]}</span>
+      </li>
+    ))}
   </ul>
 )
 

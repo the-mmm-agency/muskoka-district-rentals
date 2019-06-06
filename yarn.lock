@@ -1472,6 +1472,14 @@
   resolved "https://registry.yarnpkg.com/@oclif/screen/-/screen-1.0.4.tgz#b740f68609dfae8aa71c3a6cab15d816407ba493"
   integrity sha512-60CHpq+eqnTxLZQ4PGHYNwUX572hgpMHGPtTWMjdTMsAvlm69lZV/4ly6O3sAYkomo4NggGcomrDpBe34rxUqw==
 
+"@pasdo501/gatsby-source-woocommerce@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@pasdo501/gatsby-source-woocommerce/-/gatsby-source-woocommerce-0.6.1.tgz#44ef6c3c9a8086810bfc201602363ebab91e16ce"
+  integrity sha512-ltwApaSJjhhGzpb4yDqWuCRVKt9pBj0ZnR/gL+tX2mnFRsdmyqwW8ebOTjuZTn4+VYtv7+K2YiQQa9cre2OEkg==
+  dependencies:
+    gatsby-source-filesystem "^2.0.27"
+    woocommerce-api "^1.4.2"
+
 "@percy/agent@~0":
   version "0.4.8"
   resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.4.8.tgz#b66bcfa7e6720772f76b91b1d7f8c7899f30538c"
@@ -4083,7 +4091,7 @@ bluebird@3.5.0:
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
   integrity sha1-eRQg1/VR7qKJdFOop3ZT+WYG1nw=
 
-bluebird@3.5.5, bluebird@^3.5.0, bluebird@^3.5.3:
+bluebird@3.5.5, bluebird@^3.4.6, bluebird@^3.5.0, bluebird@^3.5.3:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.5.tgz#a8d0afd73251effbbd5fe384a77d73003c17a71f"
   integrity sha512-5am6HnnfN+urzt4yfg7IgTbotDjIT/u8AJpEt0sIU9FtXfVeezXAPKswrG+xKUCOYAINpSdgZVDU6QFh+cuH3w==
@@ -8450,6 +8458,27 @@ gatsby-source-filesystem@^2.0.11, gatsby-source-filesystem@^2.0.36:
   version "2.0.37"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.37.tgz#f1de0ab81809ce4c1fdd8cdfb573b1fd25731a8e"
   integrity sha512-PKCpflGXyqOSqoMUNk++sEkBHEjqMGNlN4OZQ7qKH+Jkcp0dg/Ru4anyrz57veQKMO+UdHUV1pOJI6PnZY9YiA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    better-queue "^3.8.7"
+    bluebird "^3.5.0"
+    chokidar "2.1.2"
+    file-type "^10.2.0"
+    fs-extra "^5.0.0"
+    got "^7.1.0"
+    md5-file "^3.1.1"
+    mime "^2.2.0"
+    pretty-bytes "^4.0.2"
+    progress "^1.1.8"
+    read-chunk "^3.0.0"
+    slash "^1.0.0"
+    valid-url "^1.0.9"
+    xstate "^3.1.0"
+
+gatsby-source-filesystem@^2.0.27:
+  version "2.0.38"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.38.tgz#8f9c2b8c0f17d1f8c464c3488a14e15c62c6eca2"
+  integrity sha512-r7LNTSVtgFz0n4Ox0iDc8PkOSM8nja+ONkcvyFWSyV1KjnvQdcsxXbVZba0S+ngUp+R+wSFS/GGD2LqdV0mCVA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     better-queue "^3.8.7"
@@ -13570,6 +13599,11 @@ nwsapi@^2.0.7:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.1.4.tgz#e006a878db23636f8e8a67d33ca0e4edf61a842f"
   integrity sha512-iGfd9Y6SFdTNldEy2L0GUhcarIutFmk+MPWIn9dmj8NMIup03G08uUF2KGbbmv/Ux4RT0VZJoP/sVbWA6d/VIw==
 
+oauth-1.0a@^2.0.0:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/oauth-1.0a/-/oauth-1.0a-2.2.5.tgz#943ee55a5c0db5c21143ec27e2f56c6d0e2a5e54"
+  integrity sha512-7Y4Gs+2dPOjrlJDzEPdpuH46gzgYeVF7CKOOQNpWKz1nlbWn2rqKSt3oF0By6KxudbOQATEUY74SphuTN0grPg==
+
 oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
@@ -16813,7 +16847,7 @@ request-promise@^4.2.2:
     stealthy-require "^1.1.1"
     tough-cookie "^2.3.3"
 
-request@2.88.0, request@^2.65.0, request@^2.83.0, request@^2.87.0, request@^2.88.0:
+request@2.88.0, request@^2.65.0, request@^2.75.0, request@^2.83.0, request@^2.87.0, request@^2.88.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
@@ -20038,6 +20072,15 @@ with-open-file@^0.1.6:
     p-finally "^1.0.0"
     p-try "^2.1.0"
     pify "^4.0.1"
+
+woocommerce-api@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/woocommerce-api/-/woocommerce-api-1.4.2.tgz#fdf7b91e2a7e1108ea007c50e2a7b13d1275c40c"
+  integrity sha1-/fe5Hip+EQjqAHxQ4qexPRJ1xAw=
+  dependencies:
+    bluebird "^3.4.6"
+    oauth-1.0a "^2.0.0"
+    request "^2.75.0"
 
 wordwrap@~0.0.2:
   version "0.0.3"
