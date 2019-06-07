@@ -11,8 +11,8 @@ const CottageInfo = ({ attributes }) => {
     'Accommodates',
     'Size (sqft)',
   ]
-  const info = attributes.filter(
-    attribute => attributeNames.includes(attribute.name)
+  const info = attributes.filter(attribute =>
+    attributeNames.includes(attribute.name)
   )
   return (
     <ul
