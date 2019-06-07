@@ -61,6 +61,7 @@ const Cottage = ({
   attributes,
   name,
   price,
+  _links,
   images,
   description,
   reviewAvg,
@@ -134,8 +135,8 @@ const Cottage = ({
         dangerouslySetInnerHTML={{ __html: description }}
       />
       <CottageInfo attributes={attributes} />
-      <Button ml="-1rem" href="/" variant="transparent">
-        View Details &nbsp;&rsaquo;
+      <Button ml="-1rem" href={_links.self.href} variant="transparent">
+        Boook now &nbsp;&rsaquo;
       </Button>
     </Flex>
     <Image
@@ -154,6 +155,11 @@ export const query = graphql`
       options
     }
     price
+    _links {
+      self {
+        href
+      }
+    }
     images {
       localFile {
         childImageSharp {
