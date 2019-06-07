@@ -35,23 +35,7 @@ const Cottages = () => {
       }
       rentals: allWcProducts {
         nodes {
-          attributes {
-            name
-            options
-          }
-          name
-          price
-          images {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 3000) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-          name
-          description
+          ...Cottage
         }
       }
     }

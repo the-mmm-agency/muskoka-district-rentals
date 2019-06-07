@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import StarRatings from 'react-star-ratings'
+import { graphql } from 'gatsby'
 import css from '@styled-system/css'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
@@ -145,6 +146,27 @@ const Cottage = ({
     />
   </Wrapper>
 )
+
+export const query = graphql`
+  fragment Cottage on wcProducts {
+    attributes {
+      name
+      options
+    }
+    price
+    images {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+    name
+    description
+  }
+`
 
 Cottage.propTypes = {
   accommodates: PropTypes.number.isRequired,
