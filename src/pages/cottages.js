@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import Fade from 'react-reveal/Fade'
 import React, { useState } from 'react'
@@ -19,28 +19,11 @@ const Image = styled(PageImage)`
   justify-content: center;
 `
 
-const Cottages = () => {
+const Cottages = ({ data }) => {
   const [page, setPage] = useState(5)
   const handleClick = () => {
     setPage(page + 5)
   }
-  const data = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "our-rentals.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100, maxHeight: 1000) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      rentals: allWordpressWpMphbRoomType {
-        nodes {
-          ...Cottage
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <SEO title="Our Rentals" />
@@ -78,5 +61,22 @@ const Cottages = () => {
     </>
   )
 }
+
+export const query = graphql`
+  query {
+    image: file(relativePath: { eq: "our-rentals.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxHeight: 1000) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    rentals: allWordpressWpMphbRoomType {
+      nodes {
+        ...Cottage
+      }
+    }
+  }
+`
 
 export default Cottages

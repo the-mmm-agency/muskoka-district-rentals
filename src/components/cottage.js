@@ -199,21 +199,26 @@ export const query = graphql`
 `
 
 Cottage.propTypes = {
-  accommodates: PropTypes.number.isRequired,
-  addressOne: PropTypes.string.isRequired,
-  bathrooms: PropTypes.number.isRequired,
-  bedrooms: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
-  image: PropTypes.object.isRequired,
-  lowestNightlyRate: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
+  bed: PropTypes.string.isRequired,
+  capacity: PropTypes.number.isRequired,
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+  content: PropTypes.string.isRequired,
+  featured_media: PropTypes.object.isRequired,
+  lowestRate: PropTypes.number.isRequired,
   number: PropTypes.number.isRequired,
   reviewAvg: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,
   size: PropTypes.number.isRequired,
-  status: PropTypes.oneOf(['available', 'unavailable']).isRequired,
-  suitablePets: PropTypes.bool.isRequired,
-  type: PropTypes.string.isRequired,
+  suitability: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default Cottage

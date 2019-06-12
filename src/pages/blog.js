@@ -10,10 +10,7 @@ import PostCard from 'components/postCard'
 const Blog = () => {
   const data = useStaticQuery(graphql`
     query BlogPage {
-      posts: allMarkdownRemark(
-        limit: 6
-        sort: { fields: [fields___date], order: DESC }
-      ) {
+      posts: allWordpressPost(limit: 6, sort: { fields: date, order: DESC }) {
         edges {
           node {
             ...PostCard

@@ -173,9 +173,9 @@ const IndexPage = () => {
           ...Testimonial
         }
       }
-      blogPosts: allMarkdownRemark(
+      blogPosts: allWordpressPost(
         limit: 3
-        sort: { fields: [fields___date], order: DESC }
+        sort: { fields: date, order: DESC }
       ) {
         edges {
           node {

@@ -124,7 +124,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-transition-link`,
       options: {
-        layout: require.resolve(`${__dirname}/src/components/layout.js`),
+        layout: require.resolve(`./src/components/layout.js`),
       },
     },
     {
@@ -155,6 +155,9 @@ module.exports = {
         verboseOutput: false,
         concurrentRequests: 10,
         includedRoutes: [
+          '**/categories',
+          '**/tags',
+          '**/posts',
           '**/media',
           '**/mphb_booking',
           '**/mphb_room_attribute',

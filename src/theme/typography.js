@@ -5,7 +5,7 @@ import palette from 'theme/palette'
 const typography = new Typography({
   baseFontSize: '16px',
   baseLineHeight: 1.8,
-  headerFontFamily: ['Didot', 'serif'],
+  headerFontFamily: ['Didot', 'Playfair Display', 'serif'],
   bodyFontFamily: ['Raleway', 'sans-serif'],
   headerColor: palette.text.primary,
   bodyColor: palette.text.secondary,

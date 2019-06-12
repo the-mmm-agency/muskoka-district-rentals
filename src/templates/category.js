@@ -41,11 +41,10 @@ const Category = ({ data, pageContext }) => (
 )
 
 export const query = graphql`
-  query CategoryPage($category: String) {
-    posts: allMarkdownRemark(
-      limit: 1000
-      sort: { fields: [fields___date], order: DESC }
-      filter: { frontmatter: { categories: { in: [$category] } } }
+  query CategoryPage($slug: String) {
+    posts: allWordpressPost(
+      sort: { fields: date, order: DESC }
+      filter: { categories: { elemMatch: { slug: { eq: $slug } } } }
     ) {
       edges {
         node {

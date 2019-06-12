@@ -4,9 +4,6 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Box from 'elements/box'
-import Flex from 'elements/flex'
-import Text from 'elements/text'
 import Link from 'components/link'
 import SEO from 'components/seo'
 import Breadcrumb from 'components/breadcrumb'
@@ -15,41 +12,40 @@ const Hero = styled(Img)`
   min-height: 600px;
 `
 
-const Meta = styled(Flex)`
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-`
-
-const BlogPost = ({ data }) => {
-  const postNode = data.markdownRemark
-  const post = postNode.frontmatter
+const BlogPost = ({
+  data: { slug, title, categories, tags, content, date, featured_media },
+}) => {
   return (
     <>
-      <Hero fluid={post.image.childImageSharp.fluid} />
-      <SEO title={post.title} description={postNode.excerpt} />
-      <Flex
-        alignItems="center"
-        bg="background.light"
-        p={5}
-        mt={-4}
-        flexDirection="column"
-        width="80%"
-        m="auto"
-        style={{
+      <Hero fluid={featured_media.localFile.childImageSharp.fluid} />
+      <SEO title={title} description={content} />
+      <div
+        css={{
+          alignItems: 'center',
+          bg: 'background.light',
+          p: 5,
+          m: 'auto',
+          mt: -4,
+          display: 'flex',
+          flexDirection: 'column',
           position: 'relative',
           top: '-50px',
+          width: '80%',
         }}
       >
-        <Text as="h1" textAlign="center" width="100%">
-          {post.title}
-        </Text>
+        <h1 textAlign="center" width="100%">
+          {title}
+        </h1>
         <Breadcrumb
           crumbs={[
             { link: '/', title: 'Home' },
             { link: '/blog', title: 'Blog' },
-            { link: postNode.slug, title: post.title },
+            { link: slug, title: title },
           ]}
         />
-        <Meta
+        <div
+          display="flex"
+          borderBottom="1px solid rgba(0, 0, 0, 0.15)"
           justifyContent="space-between"
           py={4}
           px={2}
@@ -57,70 +53,70 @@ const BlogPost = ({ data }) => {
           mb={5}
           width="100%"
         >
-          <Flex flexDirection="column">
-            <Text
+          <div display="flex" flexDirection="column">
+            <span
               color="text.primary"
               fontWeight="bold"
               fontSize="1.3rem"
               fontFamily="serif"
             >
               Date
-            </Text>
-            <Text color="text.secondary" fontWeight="bold">
-              {post.date}
-            </Text>
-          </Flex>
-          <Flex flexDirection="column">
-            <Text
+            </span>
+            <span color="text.secondary" fontWeight="bold">
+              {date}
+            </span>
+          </div>
+          <div display="flex" flexDirection="column">
+            <span
               color="text.primary"
               fontWeight="bold"
               fontSize="1.3rem"
               fontFamily="serif"
             >
               Category
-            </Text>
-            <Box display="inline-block">
-              {post.categories.map((category, index) => (
+            </span>
+            <div display="inline-block">
+              {categories.map(({ slug, name }, index) => (
                 <Link
-                  key={category}
+                  key={slug}
                   color="text.secondary"
                   fontWeight="bold"
                   textTransform="capitalize"
-                  to={`/categories/${category}`}
+                  to={`/categories/${slug}`}
                 >
-                  {category}
-                  {index !== post.categories.length - 1 && <>,&nbsp;</>}
+                  {name}
+                  {index !== categories.length - 1 && <>,&nbsp;</>}
                 </Link>
               ))}
-            </Box>
-          </Flex>
-          <Flex flexDirection="column">
-            <Text
+            </div>
+          </div>
+          <div display="flex" flexDirection="column">
+            <span
               color="text.primary"
               fontSize="1.3rem"
               fontWeight="bold"
               fontFamily="serif"
             >
               Tags
-            </Text>
-            <Box display="inline-block">
-              {post.tags.map((tag, index) => (
+            </span>
+            <div display="inline-block">
+              {tags.map(({ slug, name }, index) => (
                 <Link
-                  key={tag}
+                  key={slug}
                   color="text.secondary"
                   fontWeight="bold"
                   textTransform="capitalize"
-                  to={`/tags/${tag}`}
+                  to={`/tags/${slug}`}
                 >
-                  {tag}
-                  {index !== post.tags.length - 1 && <>,&nbsp;</>}
+                  {name}
+                  {index !== tags.length - 1 && <>,&nbsp;</>}
                 </Link>
               ))}
-            </Box>
-          </Flex>
-        </Meta>
-        <Box width="100%" dangerouslySetInnerHTML={{ __html: postNode.html }} />
-      </Flex>
+            </div>
+          </div>
+        </div>
+        <div width="100%" dangerouslySetInnerHTML={{ __html: content }} />
+      </div>
     </>
   )
 }
@@ -129,27 +125,30 @@ BlogPost.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export const query = graphql`
-  query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      excerpt
-      frontmatter {
-        title
-        image {
+export const pageQuery = graphql`
+  query BlogPostByID($id: String!) {
+    wordpressPost(id: { eq: $id }) {
+      id
+      title
+      slug
+      content
+      date(formatString: "MMMM DD, YYYY")
+      featured_media {
+        localFile {
           childImageSharp {
             fluid(maxWidth: 4000) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        date(formatString: "MMMM DD, YYYY")
-        categories
-        tags
       }
-      fields {
+      categories {
+        name
         slug
-        date
+      }
+      tags {
+        name
+        slug
       }
     }
   }
