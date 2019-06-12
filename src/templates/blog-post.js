@@ -13,19 +13,29 @@ const Hero = styled(Img)`
 `
 
 const BlogPost = ({
-  data: { slug, title, categories, tags, content, date, featured_media },
+  data: {
+    wordpressPost: {
+      slug,
+      title,
+      categories,
+      tags,
+      content,
+      date,
+      featured_media,
+    },
+  },
 }) => {
   return (
     <>
       <Hero fluid={featured_media.localFile.childImageSharp.fluid} />
       <SEO title={title} description={content} />
       <div
+        m="auto"
+        mt={-4}
+        p={5}
+        bg="background.light"
         css={{
           alignItems: 'center',
-          bg: 'background.light',
-          p: 5,
-          m: 'auto',
-          mt: -4,
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
@@ -115,7 +125,7 @@ const BlogPost = ({
             </div>
           </div>
         </div>
-        <div width="100%" dangerouslySetInnerHTML={{ __html: content }} />
+        <div width="100%">{content}</div>
       </div>
     </>
   )
