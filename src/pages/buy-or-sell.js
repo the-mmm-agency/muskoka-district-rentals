@@ -21,16 +21,20 @@ const BuyOrSell = ({
       css={css({
         px: [3, 6],
         py: 5,
-        h6: {
-          px: 0,
-          mb: 2,
-        },
-        p: {
-          mb: 0,
-        },
       })}
     >
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div
+        css={css({
+          h6: {
+            px: 0,
+            mb: 2,
+          },
+          p: {
+            mb: 0,
+          },
+        })}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
       <ContactForm />
     </div>
   </>

@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby'
+import css from '@styled-system/css'
 import React from 'react'
 
 import ContactForm from 'components/contactForm'
@@ -6,19 +7,32 @@ import PageImage from 'components/pageImage'
 import GuestService from 'components/guestService'
 import SEO from 'components/seo'
 
-const GuestServices = ({ data }) => (
+const GuestServices = ({
+  data: {
+    page: { title, content, featured_media },
+    guestServices,
+  },
+}) => (
   <>
-    <SEO title="Guest Services" />
-    <PageImage fluid={data.header.childImageSharp.fluid} Tag="section" />
+    <SEO title={title} />
+    <PageImage
+      fluid={featured_media.localFile.childImageSharp.fluid}
+      Tag="section"
+    />
     <div py={[4, 5]} px={[3, 6]}>
-      <h1 mb={3} fontSize={2}>
-        Guest Services
-      </h1>
-      <h2 fontSize={5} ml={1}>
-        Reserve your vacation with MDR.
-      </h2>
+      <div
+        css={css({
+          h2: {
+            mb: 3,
+          },
+          h6: {
+            mb: 4,
+          },
+        })}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
       <ul display="flex" flexDirection="column" mb={5} ml={0}>
-        {data.guestServices.nodes.map(service => (
+        {guestServices.nodes.map(service => (
           <GuestService key={service.id} {...service} />
         ))}
       </ul>
@@ -29,10 +43,16 @@ const GuestServices = ({ data }) => (
 
 export const pageQuery = graphql`
   query {
-    header: file(relativePath: { eq: "guest-services.jpg" }) {
-      childImageSharp {
-        fluid(quality: 100, maxHeight: 1000) {
-          ...GatsbyImageSharpFluid_withWebp
+    page: wordpressPage(slug: { eq: "guest-services" }) {
+      title
+      content
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(quality: 100, maxHeight: 400) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
         }
       }
     }

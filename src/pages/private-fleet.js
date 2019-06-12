@@ -16,17 +16,15 @@ const PrivateFleet = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <div
-      px={6}
-      py={5}
-      css={{
-        ul: {
-          listStyle: 'gray',
-          marginLeft: '1.2rem',
-        },
-      }}
-    >
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div px={6} py={5}>
+      <div
+        css={{
+          ul: {
+            marginLeft: '1.2rem',
+          },
+        }}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
       <ContactForm />
     </div>
   </>

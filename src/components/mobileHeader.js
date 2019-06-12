@@ -37,7 +37,7 @@ const MobileHeader = ({ links }) => {
   return (
     <StyledHeader bg="white" active={active} p={1}>
       <div alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
-        {window.location.pathname === '/' ? (
+        {global.window.location.pathname === '/' ? (
           <Logo />
         ) : (
           <BackButton fade to="/">
