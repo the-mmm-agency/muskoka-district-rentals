@@ -2,8 +2,10 @@ import { css } from '@emotion/core'
 
 import DidotBoldWoff from './Didot/Didot-Bold.woff'
 import DidotBoldWoff2 from './Didot/Didot-Bold.woff2'
+import DidotBoldTTF from './Didot/Didot-Bold.ttf'
 import DidotWoff from './Didot/Didot.woff'
 import DidotWoff2 from './Didot/Didot.woff2'
+import DidotTTF from './Didot/Didot.ttf'
 import RalewayBoldWoff from './Raleway/Raleway-Bold.woff'
 import RalewayBoldWoff2 from './Raleway/Raleway-Bold.woff2'
 import RalewayMediumWoff from './Raleway/Raleway-Medium.woff'
@@ -69,7 +71,8 @@ const fonts = css`
     font-family: 'Didot';
     font-style: normal;
     src: local('Raleway Bold'), local('Raleway-Bold'),
-      url(${DidotWoff2}) format('woff2'), url(${DidotWoff}) format('woff');
+      url(${DidotWoff2}) format('woff2'), url(${DidotWoff}) format('woff'),
+      url(${DidotTTF}) format('ttf');
     font-display: auto;
   }
   @font-face {
@@ -78,7 +81,7 @@ const fonts = css`
     font-style: bold;
     src: local('Raleway Bold'), local('Raleway-Bold'),
       url(${DidotBoldWoff2}) format('woff2'),
-      url(${DidotBoldWoff}) format('woff');
+      url(${DidotBoldWoff}) format('woff'), url(${DidotBoldTTF}) format('ttf');
     font-display: auto;
   }
 `
