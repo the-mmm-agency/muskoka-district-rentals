@@ -77,7 +77,7 @@ const Section = styled.div`
     }
   }
   width: calc(100% / 3);
-  padding: ${themeGet('space.1')};
+  padding: ${themeGet('space.3')};
 `
 
 const SectionWrapper = styled.div`
