@@ -11,6 +11,9 @@ import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 
 const Section = styled.div`
+  &:first-child {
+    padding: 0;
+  }
   &:last-child {
     border-right: none;
   }
@@ -18,7 +21,7 @@ const Section = styled.div`
   flex-direction: column;
   margin-right: ${themeGet('space.3')};
   padding: 0 ${themeGet('space.2')};
-  border-right: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-right: 0.5px solid rgba(0, 0, 0, 0.3);
   h6 {
     margin-bottom: ${themeGet('space.2')};
   }
@@ -47,7 +50,7 @@ const RentYourCottage = () => {
         <h1 fontSize={2} mb={2}>
           Rent Your cottage
         </h1>
-        <Text
+        <span
           css={{
             display: 'flex',
             fontWeight: 'bold',
@@ -57,8 +60,8 @@ const RentYourCottage = () => {
         >
           Looking to offset costs of your cottage or vacation property? MDR
           offers a safe turn-key, rental solution
-        </Text>
-        <Flex flexBasis="calc(100% / 3)" mt={4} mb={2}>
+        </span>
+        <Flex flexBasis="calc(100% / 3)" mt={3} mb={2}>
           <Section>
             <h6>Cottage Marketing</h6>
             <p>
