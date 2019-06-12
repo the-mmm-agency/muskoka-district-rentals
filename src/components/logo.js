@@ -34,7 +34,6 @@ const Logo = props => {
   return (
     <Wrapper fade duration={0.5} {...props}>
       <Img
-        critical
         alt="Muskoka District Rentals"
         imgStyle={{
           objectFit: 'contain',

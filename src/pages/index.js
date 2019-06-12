@@ -42,9 +42,7 @@ const Welcome = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
   height: 100%;
-  padding: 10% 0 10% 10%;
   text-align: left;
 `
 
@@ -210,7 +208,7 @@ const IndexPage = () => {
               <WelcomeImage fluid={data.welcome.childImageSharp.fluid} />
             </WelcomeImageContainer>
           )}
-          <Welcome>
+          <Welcome width={['100%', null, '50%']} pl={[0, null, 5]}>
             <WelcomeAboard>
               <WelcomeAboardBorder />
               <span>Welcome Aboard!</span>

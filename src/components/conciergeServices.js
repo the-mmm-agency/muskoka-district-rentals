@@ -4,7 +4,6 @@ import { useMedia } from 'use-media'
 import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { rhythm, scale } from 'theme/typography'
 import ConciergeService from 'components/conciergeService'
 
 const Wrapper = styled.section`
@@ -33,21 +32,6 @@ const Image = styled(Img)`
   min-width: 50%;
 `
 
-const Content = styled.div`
-  width: 50%;
-  padding: ${rhythm(3)};
-  span {
-    ${scale(1 / 8)};
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-  }
-  h3 {
-    ${scale(7 / 8)};
-    margin-top: ${rhythm(1)};
-    margin-bottom: ${rhythm(2)};
-  }
-`
-
 const ConciergeServices = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -74,9 +58,17 @@ const ConciergeServices = () => {
 
   return (
     <Wrapper>
-      <Content>
-        <span>Experience Muskoka</span>
-        <h3>Concierge Services</h3>
+      <div width="50%" p={[4, null, 5]}>
+        <span
+          css={{
+            letterSpacing: 'headers',
+          }}
+          pl={2}
+          textTransform="uppercase"
+        >
+          Experience Muskoka
+        </span>
+        <h2 mt={3}>Concierge Services</h2>
         <List>
           {data.allConciergeServicesJson.nodes.map(service => (
             <ConciergeService
@@ -86,7 +78,7 @@ const ConciergeServices = () => {
             />
           ))}
         </List>
-      </Content>
+      </div>
       {isLarge && <Image fluid={selected.childImageSharp.fluid} />}
     </Wrapper>
   )

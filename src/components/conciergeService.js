@@ -4,20 +4,8 @@ import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 
 import Link from 'components/link'
-import { rhythm, scale } from 'theme/typography'
-
-const Wrapper = styled.li`
-  &:hover {
-    background: rgba(0, 0, 0, 0.1);
-  }
-  padding: ${rhythm(1 / 3)};
-`
 
 const StyledLink = styled(Link)`
-  h4 {
-    ${scale(1 / 4)};
-    margin-left: ${rhythm(2)};
-  }
   display: inline-flex;
   align-items: center;
   width: 100%;
@@ -30,15 +18,21 @@ const Image = styled(Img)`
 `
 
 const ConciergeService = ({ name, link, image, setSelected }) => (
-  <Wrapper
+  <li
+    css={{
+      '&:hover': {
+        background: 'rgba(0, 0, 0, 0.1)',
+      },
+    }}
+    p={2}
     onMouseOver={() => setSelected(image)}
     onFocus={() => setSelected(image)}
   >
     <StyledLink to={link} fade duration={0.5}>
       <Image fluid={image.childImageSharp.fluid} />
-      <h4>{name}</h4>
+      <h5 ml={4}>{name}</h5>
     </StyledLink>
-  </Wrapper>
+  </li>
 )
 
 ConciergeService.propTypes = {

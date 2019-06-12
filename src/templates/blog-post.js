@@ -24,112 +24,110 @@ const BlogPost = ({
       featured_media,
     },
   },
-}) => {
-  return (
-    <>
-      <Hero fluid={featured_media.localFile.childImageSharp.fluid} />
-      <SEO title={title} description={content} />
+}) => (
+  <>
+    <Hero fluid={featured_media.localFile.childImageSharp.fluid} />
+    <SEO title={title} description={content} />
+    <div
+      m="auto"
+      mt={-4}
+      p={5}
+      bg="background.light"
+      css={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        top: '-50px',
+        width: '80%',
+      }}
+    >
+      <h1 textAlign="center" width="100%">
+        {title}
+      </h1>
+      <Breadcrumb
+        crumbs={[
+          { link: '/', title: 'Home' },
+          { link: '/blog', title: 'Blog' },
+          { link: slug, title: title },
+        ]}
+      />
       <div
-        m="auto"
-        mt={-4}
-        p={5}
-        bg="background.light"
-        css={{
-          alignItems: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'relative',
-          top: '-50px',
-          width: '80%',
-        }}
+        display="flex"
+        borderBottom="1px solid rgba(0, 0, 0, 0.15)"
+        justifyContent="space-between"
+        py={4}
+        px={2}
+        mt={4}
+        mb={5}
+        width="100%"
       >
-        <h1 textAlign="center" width="100%">
-          {title}
-        </h1>
-        <Breadcrumb
-          crumbs={[
-            { link: '/', title: 'Home' },
-            { link: '/blog', title: 'Blog' },
-            { link: slug, title: title },
-          ]}
-        />
-        <div
-          display="flex"
-          borderBottom="1px solid rgba(0, 0, 0, 0.15)"
-          justifyContent="space-between"
-          py={4}
-          px={2}
-          mt={4}
-          mb={5}
-          width="100%"
-        >
-          <div display="flex" flexDirection="column">
-            <span
-              color="text.primary"
-              fontWeight="bold"
-              fontSize="1.3rem"
-              fontFamily="serif"
-            >
-              Date
-            </span>
-            <span color="text.secondary" fontWeight="bold">
-              {date}
-            </span>
-          </div>
-          <div display="flex" flexDirection="column">
-            <span
-              color="text.primary"
-              fontWeight="bold"
-              fontSize="1.3rem"
-              fontFamily="serif"
-            >
-              Category
-            </span>
-            <div display="inline-block">
-              {categories.map(({ slug, name }, index) => (
-                <Link
-                  key={slug}
-                  color="text.secondary"
-                  fontWeight="bold"
-                  textTransform="capitalize"
-                  to={`/categories/${slug}`}
-                >
-                  {name}
-                  {index !== categories.length - 1 && <>,&nbsp;</>}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div display="flex" flexDirection="column">
-            <span
-              color="text.primary"
-              fontSize="1.3rem"
-              fontWeight="bold"
-              fontFamily="serif"
-            >
-              Tags
-            </span>
-            <div display="inline-block">
-              {tags.map(({ slug, name }, index) => (
-                <Link
-                  key={slug}
-                  color="text.secondary"
-                  fontWeight="bold"
-                  textTransform="capitalize"
-                  to={`/tags/${slug}`}
-                >
-                  {name}
-                  {index !== tags.length - 1 && <>,&nbsp;</>}
-                </Link>
-              ))}
-            </div>
+        <div display="flex" flexDirection="column">
+          <span
+            color="text.primary"
+            fontWeight="bold"
+            fontSize="1.3rem"
+            fontFamily="serif"
+          >
+            Date
+          </span>
+          <span color="text.secondary" fontWeight="bold">
+            {date}
+          </span>
+        </div>
+        <div display="flex" flexDirection="column">
+          <span
+            color="text.primary"
+            fontWeight="bold"
+            fontSize="1.3rem"
+            fontFamily="serif"
+          >
+            Category
+          </span>
+          <div display="inline-block">
+            {categories.map(({ slug, name }, index) => (
+              <Link
+                key={slug}
+                color="text.secondary"
+                fontWeight="bold"
+                textTransform="capitalize"
+                to={`/categories/${slug}`}
+              >
+                {name}
+                {index !== categories.length - 1 && <>,&nbsp;</>}
+              </Link>
+            ))}
           </div>
         </div>
-        <div width="100%">{content}</div>
+        <div display="flex" flexDirection="column">
+          <span
+            color="text.primary"
+            fontSize="1.3rem"
+            fontWeight="bold"
+            fontFamily="serif"
+          >
+            Tags
+          </span>
+          <div display="inline-block">
+            {tags.map(({ slug, name }, index) => (
+              <Link
+                key={slug}
+                color="text.secondary"
+                fontWeight="bold"
+                textTransform="capitalize"
+                to={`/tags/${slug}`}
+              >
+                {name}
+                {index !== tags.length - 1 && <>,&nbsp;</>}
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-    </>
-  )
-}
+      <div width="100%">{content}</div>
+    </div>
+  </>
+)
 
 BlogPost.propTypes = {
   data: PropTypes.object.isRequired,

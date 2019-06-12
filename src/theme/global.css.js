@@ -1,3 +1,5 @@
+import css from '@styled-system/css'
+
 import transitions from 'theme/transitions'
 
 const headers = Object.assign(
@@ -12,7 +14,7 @@ const headers = Object.assign(
   }))
 )
 
-const styles = {
+const styles = css({
   '*': {
     boxSizing: 'border-box',
   },
@@ -122,6 +124,6 @@ const styles = {
     },
   },
   ...headers,
-}
+})
 
 export default styles

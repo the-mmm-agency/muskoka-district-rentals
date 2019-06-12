@@ -15,6 +15,14 @@ const StyledLink = styled(Link)`
   padding: 10px;
   text-transform: uppercase;
   text-decoration: none;
+  &:hover,
+  &.active {
+    span {
+      &::before {
+        transform: translate(-50%, 0) scaleX(1);
+      }
+    }
+  }
   transition: ${transitions.create('background')};
   &:hover {
     text-decoration: none;
@@ -24,11 +32,6 @@ const StyledLink = styled(Link)`
     position: relative;
     font-weight: inherit;
     font-style: inherit;
-    &:hover {
-      &::before {
-        transform: translate(-50%, 0) scaleX(1);
-      }
-    }
     &::before {
       position: absolute;
       bottom: 0;
@@ -47,6 +50,7 @@ const StyledLink = styled(Link)`
 const HeaderLink = ({ to }) => (
   <StyledLink
     to={to}
+    activeClassName="active"
     fade
     duration={0.5}
     color="text.primary"

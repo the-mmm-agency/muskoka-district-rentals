@@ -18,7 +18,7 @@ const Section = styled.div`
   flex-direction: column;
   margin-right: ${themeGet('space.3')};
   padding: 0 ${themeGet('space.2')};
-  border-right: 1px solid ${themeGet('color.text.light')};
+  border-right: 0.5px solid rgba(0, 0, 0, 0.1);
   h6 {
     margin-bottom: ${themeGet('space.2')};
   }
@@ -44,8 +44,17 @@ const RentYourCottage = () => {
       />
       <PageImage fluid={data.file.childImageSharp.fluid} Tag="section" />
       <Box px={[3, 6]} py={5}>
-        <h1>Rent Your cottage</h1>
-        <Text fontWeight="bold" maxWidth="20vw">
+        <h1 fontSize={2} mb={2}>
+          Rent Your cottage
+        </h1>
+        <Text
+          css={{
+            display: 'flex',
+            fontWeight: 'bold',
+            whiteSpace: 'normal',
+            maxWidth: '50%',
+          }}
+        >
           Looking to offset costs of your cottage or vacation property? MDR
           offers a safe turn-key, rental solution
         </Text>

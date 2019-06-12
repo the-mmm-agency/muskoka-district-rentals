@@ -1,32 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
-import Text from 'elements/text'
-import Flex from 'elements/flex'
-import Box from 'elements/box'
-
-const Item = styled(Box)`
-  display: inline-block;
-  vertical-align: top;
-`
-
 const GuestService = ({ image, body, name }) => (
-  <Flex alignItems="center" as="li" mb={2}>
-    <Item>
-      <Img radius={3} fixed={image.childImageSharp.fixed} />
-    </Item>
-    <Item ml={3}>
-      <Text as="h4" variant="bold" mb={1} fontSize={5}>
+  <li display="flex" mb={2}>
+    <div display="inline-block" verticalAlign="top">
+      <Img fixed={image.childImageSharp.fixed} />
+    </div>
+    <div display="inline-block" verticalAlign="top" ml={3}>
+      <h4 variant="bold" mb={1} fontSize={5}>
         {name}
-      </Text>
-      <Text as="p" color="text.secondary" fontWeight="medium" mb={3}>
+      </h4>
+      <p color="text.secondary" fontWeight="medium" mb={3}>
         {body}
-      </Text>
-    </Item>
-  </Flex>
+      </p>
+    </div>
+  </li>
 )
 
 export const query = graphql`
