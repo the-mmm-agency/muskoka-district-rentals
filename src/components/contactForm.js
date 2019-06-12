@@ -40,14 +40,15 @@ const ContactForm = () => {
           placeholder="Subject (optional)"
         />
         <textarea
-          height="200px"
+          rows={6}
           width="100%"
-          mt={2}
+          mt={4}
+          mb={4}
           value={message.value}
           onChange={message.onChange}
-          placeholder="Here goes your message"
+          placeholder="Your Message"
         />
-        <Button variant="transparent" type="submit">
+        <Button variant="transparent" ml="-1rem" type="submit">
           send message
         </Button>
       </form>

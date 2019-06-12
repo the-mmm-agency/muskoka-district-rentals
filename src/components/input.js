@@ -4,6 +4,8 @@ import { rgba } from 'polished'
 import { space, themeGet } from 'styled-system'
 
 const Wrapper = styled.div`
+  display: inline-flex;
+  flex-grow: 1;
   position: relative;
   input {
     &:focus {
@@ -15,6 +17,7 @@ const Wrapper = styled.div`
     border: 1px solid transparent;
     border-bottom-color: ${props =>
       rgba(props.theme.colors.text.primary, 0.18)};
+    width: 100%;
   }
   span {
     position: absolute;
@@ -27,6 +30,7 @@ const Wrapper = styled.div`
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.5s ease;
+    width: 100%;
   }
   ${space}
 `

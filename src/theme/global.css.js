@@ -92,6 +92,7 @@ const styles = css({
     outline: 'none',
     appearance: 'none',
     resize: 'none',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.18)',
     '&:focus': {
       outline: 'none',
     },
