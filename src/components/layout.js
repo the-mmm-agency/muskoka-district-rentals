@@ -30,16 +30,16 @@ const headerLinks = [
 ]
 
 const Layout = ({ children }) => {
-  const isSmall = useMedia({ maxWidth: 800 })
+  const isLarge = useMedia({ minWidth: 400 })
   return (
     <ThemeProvider theme={theme}>
       <Global styles={fonts} />
       <Global styles={css(globalStyles)} />
       <>
-        {isSmall ? (
-          <MobileHeader links={headerLinks} />
-        ) : (
+        {isLarge ? (
           <Header links={headerLinks} />
+        ) : (
+          <MobileHeader links={headerLinks} />
         )}
         <Root>
           <main>{children}</main>
