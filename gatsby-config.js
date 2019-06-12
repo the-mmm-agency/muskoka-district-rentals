@@ -158,6 +158,8 @@ module.exports = {
           '**/categories',
           '**/tags',
           '**/posts',
+          '**/guest_services',
+          '**/pages',
           '**/media',
           '**/mphb_booking',
           '**/mphb_room_attribute',

@@ -27,7 +27,7 @@ const GuestServices = ({ data }) => (
   </>
 )
 
-export const query = graphql`
+export const pageQuery = graphql`
   query {
     header: file(relativePath: { eq: "guest-services.jpg" }) {
       childImageSharp {
@@ -36,7 +36,7 @@ export const query = graphql`
         }
       }
     }
-    guestServices: allGuestServicesJson {
+    guestServices: allWordpressWpGuestServices {
       nodes {
         ...GuestService
       }

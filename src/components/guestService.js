@@ -3,41 +3,46 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
-const GuestService = ({ image, body, name }) => (
+const GuestService = ({ featured_media, content, title }) => (
   <li display="flex" mb={2}>
     <div display="inline-block" verticalAlign="top">
-      <Img fixed={image.childImageSharp.fixed} />
+      <Img fixed={featured_media.localFile.childImageSharp.fixed} />
     </div>
     <div display="inline-block" verticalAlign="top" ml={3}>
       <h4 variant="bold" mb={1} fontSize={5}>
-        {name}
+        {title}
       </h4>
-      <p color="text.secondary" fontWeight="medium" mb={3}>
-        {body}
-      </p>
+      <div
+        color="text.secondary"
+        fontWeight="medium"
+        mb={3}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   </li>
 )
 
 export const query = graphql`
-  fragment GuestService on GuestServicesJson {
-    image {
-      childImageSharp {
-        fixed(width: 60, height: 60) {
-          ...GatsbyImageSharpFixed_withWebp
+  fragment GuestService on wordpress__wp_guest_services {
+    featured_media {
+      localFile {
+        childImageSharp {
+          fixed(width: 60, height: 60) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
         }
       }
     }
-    body
-    name
+    content
+    title
     id
   }
 `
 
 GuestService.propTypes = {
-  body: PropTypes.string.isRequired,
-  image: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  featured_media: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default GuestService

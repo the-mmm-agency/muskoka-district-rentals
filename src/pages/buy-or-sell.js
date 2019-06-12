@@ -1,92 +1,53 @@
 import { graphql } from 'gatsby'
 import React from 'react'
+import css from '@styled-system/css'
 
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 
-const BuyOrSell = ({ data: { home } }) => (
+const BuyOrSell = ({
+  data: {
+    page: { title, featured_media, content },
+  },
+}) => (
   <>
-    <SEO title="Buy or Sell Cottages" />
-    <PageImage fluid={home.childImageSharp.fluid} Tag="section" />
+    <SEO title={title} />
+    <PageImage
+      fluid={featured_media.localFile.childImageSharp.fluid}
+      Tag="section"
+    />
     <div
-      css={{
+      css={css({
+        px: [3, 6],
+        py: 5,
         h6: {
+          px: 0,
           mb: 2,
         },
-      }}
-      px={[3, 6]}
-      py={5}
+        p: {
+          mb: 0,
+        },
+      })}
     >
-      <h1 fontSize={2} mb={6}>
-        Buying or selling a cottage property?
-      </h1>
-      <h6>Discover the Difference</h6>
-      <p>
-        Est ut eu ullamco aute in. Minim anim aute aute incididunt sit non
-        Lorem. Amet mollit nostrud ex sunt aliquip. Pariatur sint est ad
-        occaecat magna laborum cillum quis magna dolore Lorem consequat mollit
-        est. Irure anim aliquip ex ea culpa ut minim. Consectetur qui sunt eu do
-        ex. Dolor pariatur est labore pariatur dolor minim. Eiusmod nulla
-        occaecat eu reprehenderit deserunt in labore ea esse veniam ut ad quis.
-        Fugiat ad eiusmod laborum quis in voluptate aliquip dolor officia anim
-        non amet. Ex in anim occaecat aliquip.
-      </p>
-      <h6>Why buyers purchase from us:</h6>
-      <p>
-        Est ut eu ullamco aute in. Minim anim aute aute incididunt sit non
-        Lorem. Amet mollit nostrud ex sunt aliquip. Pariatur sint est ad
-        occaecat magna laborum cillum quis magna dolore Lorem consequat mollit
-        est. Irure anim aliquip ex ea culpa ut minim. Consectetur qui sunt eu do
-        ex. Dolor pariatur est labore pariatur dolor minim. Eiusmod nulla
-        occaecat eu reprehenderit deserunt in labore ea esse veniam ut ad quis.
-        Fugiat ad eiusmod laborum quis in voluptate aliquip dolor officia anim
-        non amet. Ex in anim occaecat aliquip.
-      </p>
-      <h6>Buyer Services</h6>
-      <p>
-        Est ut eu ullamco aute in. Minim anim aute aute incididunt sit non
-        Lorem. Amet mollit nostrud ex sunt aliquip. Pariatur sint est ad
-        occaecat magna laborum cillum quis magna dolore Lorem consequat mollit
-        est. Irure anim aliquip ex ea culpa ut minim. Consectetur qui sunt eu do
-        ex. Dolor pariatur est labore pariatur dolor minim. Eiusmod nulla
-        occaecat eu reprehenderit deserunt in labore ea esse veniam ut ad quis.
-        Fugiat ad eiusmod laborum quis in voluptate aliquip dolor officia anim
-        non amet. Ex in anim occaecat aliquip.
-      </p>
-      <h6>Why owners list with us:</h6>
-      <p>
-        Est ut eu ullamco aute in. Minim anim aute aute incididunt sit non
-        Lorem. Amet mollit nostrud ex sunt aliquip. Pariatur sint est ad
-        occaecat magna laborum cillum quis magna dolore Lorem consequat mollit
-        est. Irure anim aliquip ex ea culpa ut minim. Consectetur qui sunt eu do
-        ex. Dolor pariatur est labore pariatur dolor minim. Eiusmod nulla
-        occaecat eu reprehenderit deserunt in labore ea esse veniam ut ad quis.
-        Fugiat ad eiusmod laborum quis in voluptate aliquip dolor officia anim
-        non amet. Ex in anim occaecat aliquip.
-      </p>
-      <h6>Owner Services</h6>
-      <p>
-        Est ut eu ullamco aute in. Minim anim aute aute incididunt sit non
-        Lorem. Amet mollit nostrud ex sunt aliquip. Pariatur sint est ad
-        occaecat magna laborum cillum quis magna dolore Lorem consequat mollit
-        est. Irure anim aliquip ex ea culpa ut minim. Consectetur qui sunt eu do
-        ex. Dolor pariatur est labore pariatur dolor minim. Eiusmod nulla
-        occaecat eu reprehenderit deserunt in labore ea esse veniam ut ad quis.
-        Fugiat ad eiusmod laborum quis in voluptate aliquip dolor officia anim
-        non amet. Ex in anim occaecat aliquip.
-      </p>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </div>
   </>
 )
 
-export const query = graphql`
+export const pageQuery = graphql`
   query {
-    home: file(relativePath: { eq: "home.jpg" }) {
-      childImageSharp {
-        fluid(quality: 80, maxHeight: 400) {
-          ...GatsbyImageSharpFluid_withWebp
+    page: wordpressPage(slug: { eq: "buy-or-sell-cottages" }) {
+      title
+      content
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(quality: 100, maxHeight: 400) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
         }
       }
     }

@@ -62,7 +62,7 @@ const Cottages = ({ data }) => {
   )
 }
 
-export const query = graphql`
+export const pageQuery = graphql`
   query {
     image: file(relativePath: { eq: "our-rentals.jpg" }) {
       childImageSharp {
