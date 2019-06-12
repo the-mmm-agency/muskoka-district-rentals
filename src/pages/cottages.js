@@ -33,7 +33,7 @@ const Cottages = () => {
           }
         }
       }
-      rentals: allWcProducts {
+      rentals: allWordpressWpMphbRoomType {
         nodes {
           ...Cottage
         }

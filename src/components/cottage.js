@@ -58,12 +58,15 @@ const AddressWrapper = styled(Flex)`
 `
 
 const Cottage = ({
-  attributes,
-  name,
-  price,
-  _links,
-  images,
-  description,
+  capacity,
+  content,
+  title,
+  categories,
+  suitability,
+  featured_media,
+  bed,
+  lowestRate,
+  size,
   reviewAvg,
   reviewCount,
   number,
@@ -80,12 +83,7 @@ const Cottage = ({
       p={4}
       mx={5}
     >
-      <Address>
-        {
-          attributes.filter(attribute => attribute.name === 'Address')[0]
-            .options[0]
-        }
-      </Address>
+      <Address>Test</Address>
       <Number color="text.secondary" fontWeight="bold" fontSize={4}>
         {number + 1}
       </Number>
@@ -112,7 +110,7 @@ const Cottage = ({
         </Text>
       </Box>
       <Text as="h2" fontSize={1} mb={4} lineHeight="expanded" width="100%">
-        {name}
+        {title}
       </Text>
       <Text fontWeight="semibold" fontSize={5} pt={2}>
         Start from{' '}
@@ -124,7 +122,7 @@ const Cottage = ({
         color="text.primary"
         fontWeight="bold"
       >
-        {' $' + price}
+        {' $' + lowestRate}
       </Text>
       <Text color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
         /Night
@@ -132,10 +130,36 @@ const Cottage = ({
       <Description
         color="text.paragraph"
         mt={4}
-        dangerouslySetInnerHTML={{ __html: description }}
+        dangerouslySetInnerHTML={{ __html: content }}
       />
-      <CottageInfo attributes={attributes} />
-      <Button ml="-1rem" href={_links.self.href} variant="transparent">
+      <CottageInfo
+        attributes={[
+          {
+            name: 'Square Feet',
+            value: `${size} sqft`,
+          },
+          {
+            name: 'Property',
+            value: categories[0].name,
+          },
+          {
+            name: 'Sleeps',
+            value: capacity,
+          },
+          {
+            name: 'Beds',
+            value: bed,
+          },
+          {
+            name: 'Pet Friendly',
+            value:
+              suitability.filter(s => s.name === 'pets').length !== 0
+                ? 'Yes'
+                : 'No',
+          },
+        ]}
+      />
+      <Button ml="-1rem" variant="transparent">
         Boook now &nbsp;&rsaquo;
       </Button>
     </Flex>
@@ -143,24 +167,14 @@ const Cottage = ({
       imgStyle={{
         objectFit: 'contain',
       }}
-      fluid={images[0].localFile.childImageSharp.fluid}
+      fluid={featured_media.localFile.childImageSharp.fluid}
     />
   </Wrapper>
 )
 
 export const query = graphql`
-  fragment Cottage on wcProducts {
-    attributes {
-      name
-      options
-    }
-    price
-    _links {
-      self {
-        href
-      }
-    }
-    images {
+  fragment Cottage on wordpress__wp_mphb_room_type {
+    featured_media {
       localFile {
         childImageSharp {
           fluid(maxWidth: 3000) {
@@ -169,8 +183,18 @@ export const query = graphql`
         }
       }
     }
-    name
-    description
+    categories {
+      name
+    }
+    suitability {
+      name
+    }
+    bed
+    capacity
+    lowestRate
+    content
+    size
+    title
   }
 `
 

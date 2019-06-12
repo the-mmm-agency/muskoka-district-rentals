@@ -141,17 +141,75 @@ module.exports = {
       },
     },
     {
-      resolve: '@pasdo501/gatsby-source-woocommerce',
+      resolve: 'gatsby-source-wordpress',
       options: {
-        api: 'muskokadis.wpengine.com',
-        https: true,
-        api_keys: {
-          consumer_key: 'ck_8ce4613904f2c79a345f184ba572bb0e9f799838',
-          consumer_secret: 'cs_240b917e24c8f4818773b5f9234d4051cf7b353c',
+        baseUrl: 'https://muskokadis.wpengine.com',
+        protocol: 'https',
+        useACF: true,
+        acfOptionPageIds: [],
+        auth: {
+          jwt_user: 'muskokadis',
+          jwt_pass: '123',
+          jwt_base_path: '/jwt-auth/v1/token',
         },
-        fields: ['products'],
-        api_version: 'wc/v2',
-        per_page: 100,
+        verboseOutput: false,
+        concurrentRequests: 10,
+        includedRoutes: [
+          '**/media',
+          '**/mphb_booking',
+          '**/mphb_room_attribute',
+          '**/mphb_season',
+          '**/mphb_rate',
+          '**/mphb_room_service',
+          '**/mphb_payment',
+          '**/mphb_reserved_room',
+          '**/mphb_room_type_category',
+          '**/mphb_room_type_tag',
+          '**/mphb_room_type_facility',
+          '**/mphb_ra_suitability',
+          '**/mphb_room_type',
+        ],
+        normalizer: function({ entities }) {
+          const suitability = entities.filter(
+            e => e.__type === `wordpress__wp_mphb_ra_suitability`
+          )
+          const categories = entities.filter(
+            e => e.__type === `wordpress__wp_mphb_room_type_category`
+          )
+          const amenities = entities.filter(
+            e => e.__type === `wordpress__wp_mphb_room_type_facility`
+          )
+          const media = entities.filter(e => e.__type === `wordpress__wp_media`)
+          const rates = entities.filter(
+            e => e.__type === `wordpress__wp_mphb_rate`
+          )
+          return entities.map(e => {
+            if (e.__type === `wordpress__wp_mphb_room_type`) {
+              e.categories___NODE = e.mphb_room_type_category.map(
+                c => categories.find(gObj => c === gObj.wordpress_id).id
+              )
+              e.amenities___NODE = e.mphb_room_type_facility.map(
+                c => amenities.find(gObj => c === gObj.wordpress_id).id
+              )
+              e.suitability___NODE = e.mphb_ra_suitability.map(
+                c => suitability.find(gObj => c === gObj.wordpress_id).id
+              )
+              e.images___NODE = e.gallery
+                .split(',')
+                .map(
+                  c => media.find(gObj => c === gObj.wordpress_id.toString()).id
+                )
+              e.lowestRate = rates.find(
+                gObj => e.wordpress_id.toString() === gObj.mphb_room_type_id
+              ).mphb_season_prices[0].price.prices[0]
+              delete e.mphb_room_type_facility
+              delete e.mphb_room_type_category
+              delete e.mphb_ra_suitability
+              delete e.gallery
+            }
+            return e
+          })
+        },
       },
     },
   ],
