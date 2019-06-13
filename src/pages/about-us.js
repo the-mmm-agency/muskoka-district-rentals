@@ -73,7 +73,7 @@ const HeaderOverlay = styled.div`
 const AboutUs = () => {
   const data = useStaticQuery(graphql`
     query {
-      about: file(relativePath: { eq: "contact-us.jpg" }) {
+      about: file(relativePath: { eq: "home.jpg" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 4160) {
             ...GatsbyImageSharpFluid_withWebp
