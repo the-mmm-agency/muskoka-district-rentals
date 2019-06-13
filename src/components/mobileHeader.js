@@ -25,26 +25,21 @@ const StyledHeader = styled.header`
   transition: ${transitions.create('height', { duration: '0.175s' })};
 `
 
-const BackButton = styled(AniLink)`
-  margin-right: auto;
-  margin: auto 0;
-`
-
-const MobileHeader = ({ links, location }) => {
+const MobileHeader = ({ links }) => {
   const [active, setActive] = useState(false)
   const handleClick = () => {
     setActive(!active)
   }
-  const isHome = location && location.pathname === withPrefix('/')
+  const isHome = window.location && window.location.pathname === withPrefix('/')
   return (
     <StyledHeader bg="white" active={active} p={1}>
       <div alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
         {isHome ? (
           <Logo />
         ) : (
-          <BackButton fade to="/">
+          <AniLink mr="auto" my="auto" fade to="/">
             <BackIcon />
-          </BackButton>
+          </AniLink>
         )}
         <Hamburger active={active} onClick={handleClick} ml="auto" />
       </div>
