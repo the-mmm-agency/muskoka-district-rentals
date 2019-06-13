@@ -57,8 +57,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Muskoka District Rentals`,
-        short_name: `Muskoka`,
+        name: siteMetadata.title,
+        short_name: `mdr`,
         start_url: `/`,
         background_color: `#eaecef`,
         theme_color: `#eaecef`,
@@ -99,14 +99,12 @@ module.exports = {
         baseUrl: 'https://muskokadis.wpengine.com',
         protocol: 'https',
         useACF: true,
-        acfOptionPageIds: [],
         auth: {
           jwt_user: 'muskokadis',
           jwt_pass: '123',
           jwt_base_path: '/jwt-auth/v1/token',
         },
-        verboseOutput: false,
-        concurrentRequests: 10,
+        concurrentRequests: 30,
         includedRoutes: [
           '**/categories',
           '**/tags',
@@ -130,5 +128,6 @@ module.exports = {
         normalizer: normalizeWordpress,
       },
     },
+    `gatsby-plugin-netlify`,
   ],
 }
