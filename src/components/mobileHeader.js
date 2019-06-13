@@ -19,7 +19,7 @@ const StyledHeader = styled.header`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  height: ${ifProp('active', '30rem', '50px')};
+  height: ${ifProp('active', '30rem', '60px')};
   overflow: hidden;
   text-align: center;
   transition: ${transitions.create('height', { duration: '0.175s' })};

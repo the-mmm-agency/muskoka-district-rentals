@@ -7,13 +7,13 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Link from 'components/link'
 
 const Wrapper = styled(Link)`
-  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
-    min-width: 70px;
+  @media screen and (min-width: ${themeGet('breakpoints.2', '200px')}) {
+    min-width: 60px;
   }
-  @media screen and (max-width: ${themeGet('breakpoints.0', '200px')}) {
+  @media screen and (max-width: ${themeGet('breakpoints.2', '200px')}) {
     margin-right: auto;
   }
-  width: 40px;
+  width: 50px;
   margin-left: ${themeGet('space.1')};
   height: auto;
   padding: 5px;
