@@ -19,7 +19,7 @@ const StyledHeader = styled.header`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  height: ${ifProp('active', '50vh', '50px')};
+  height: ${ifProp('active', '30rem', '50px')};
   overflow: hidden;
   text-align: center;
   transition: ${transitions.create('height', { duration: '0.175s' })};
@@ -48,7 +48,7 @@ const MobileHeader = ({ links, location }) => {
         )}
         <Hamburger active={active} onClick={handleClick} ml="auto" />
       </div>
-      <Fade when={active}>
+      <Fade m="auto" when={active}>
         <HeaderMenu links={links} />
       </Fade>
     </StyledHeader>
