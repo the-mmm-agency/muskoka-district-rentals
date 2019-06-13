@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import SplitText from 'react-pose-text'
 
 import palette from 'theme/palette'
 import { rhythm, scale, options as typography } from 'theme/typography'
@@ -38,37 +37,19 @@ const Bio = styled.div`
   z-index: 1001;
 `
 
-const charPoses = {
-  exit: { opacity: 0 },
-  enter: { opacity: 1 },
-}
-
-const MemberInfo = ({ name, bio, title, selected }) => (
+const MemberInfo = ({ name, bio, title }) => (
   <Info>
     <Name>
-      <h6>
-        <SplitText charPoses={charPoses} pose={selected ? 'enter' : 'exit'}>
-          {name}
-        </SplitText>
-      </h6>
-      <span>
-        <SplitText charPoses={charPoses} pose={selected ? 'enter' : 'exit'}>
-          {title}
-        </SplitText>
-      </span>
+      <h6>{name}</h6>
+      <span>{title}</span>
     </Name>
-    <Bio>
-      <SplitText charPoses={charPoses} pose={selected ? 'enter' : 'exit'}>
-        {bio}
-      </SplitText>
-    </Bio>
+    <Bio>{bio}</Bio>
   </Info>
 )
 
 MemberInfo.propTypes = {
   bio: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  selected: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
 }
 

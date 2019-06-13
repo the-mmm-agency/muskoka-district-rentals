@@ -18,9 +18,7 @@ module.exports = {
   plugins: [
     `gatsby-transformer-json`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-ramda`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
@@ -35,6 +33,7 @@ module.exports = {
         theme: path.join(__dirname, 'src', 'theme'),
       },
     },
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -53,57 +52,12 @@ module.exports = {
         icon: `src/images/muskoka-icon.png`,
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-smartypants`,
-          `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`,
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 2048,
-              quality: 90,
-              withWebp: true,
-            },
-          },
-          {
-            resolve: `gatsby-remark-relative-images`,
-            options: {
-              name: `assets`,
-            },
-          },
-          `gatsby-remark-copy-linked-files`,
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/content/blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `uploads`,
-        path: `${__dirname}/content/assets`,
       },
     },
     {
