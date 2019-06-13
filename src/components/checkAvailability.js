@@ -31,7 +31,7 @@ const StyledButton = styled(Button)`
 `
 
 const Wrapper = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
     background: ${themeGet('colors.background.light')};
     width: 60%;
     min-width: 980px;
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
 `
 
 const DatePickerWrapper = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
     left: 0px;
     width: 100vw;
   }
@@ -65,13 +65,13 @@ const DatePickerWrapper = styled.div`
 `
 
 const Section = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
     &:last-child {
       background-color: ${palette.background.dark};
     }
     width: 25%;
   }
-  @media screen and (max-width: ${themeGet('breakpoints.0', '200px')}) {
+  @media screen and (max-width: ${themeGet('breakpoints.1', '200px')}) {
     &:last-child {
       width: 50%;
     }
@@ -81,10 +81,10 @@ const Section = styled.div`
 `
 
 const SectionWrapper = styled.div`
-  @media screen and (max-width: ${themeGet('breakpoints.0', '200px')}) {
+  @media screen and (max-width: ${themeGet('breakpoints.1', '200px')}) {
     width: 100%;
   }
-  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
     border-right: ${props =>
       props.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1) `};
   }
@@ -106,7 +106,7 @@ const Header = styled.span`
 `
 
 const Day = styled.h1`
-  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
     line-height: 1.4;
   }
   height: 50px;
