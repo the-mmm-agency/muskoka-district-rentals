@@ -75,8 +75,6 @@ const IndexPage = ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        minHeight: '100vh',
-        flexGrow: 1,
         mb: 6,
         textAlign: 'center',
       })}
@@ -84,7 +82,7 @@ const IndexPage = ({
       <span
         css={css({
           justifySelf: 'flex-start',
-          my: [3, 6],
+          my: [3, 5, 6],
           pt: 5,
           color: 'text.secondary',
           textTransform: 'uppercase',
@@ -112,9 +110,9 @@ const IndexPage = ({
           justifyContent="center"
           textAlign="left"
           width={['100%', null, null, '50%']}
-          pl={[1, 3, 4, 5]}
+          pl={[1, 2, 3, 5]}
         >
-          <div mb={3}>
+          <div mb={3} display="flex" flexDirection="column">
             <div
               css={css({
                 width: '70px',
@@ -156,7 +154,7 @@ const IndexPage = ({
       >
         <span
           css={css({
-            letterSpacing: '0.6em',
+            letterSpacing: '0.5em',
             textTransform: 'uppercase',
             fontWeight: 'bold',
             mb: 4,
@@ -165,9 +163,7 @@ const IndexPage = ({
         >
           explore
         </span>
-        <h3 fontSize={0} mb={5}>
-          Latest from our blog
-        </h3>
+        <h2 mb={5}>Latest from our blog</h2>
         {blogPosts.edges.map(edge => (
           <PostCard key={edge.node.id} {...edge.node} />
         ))}

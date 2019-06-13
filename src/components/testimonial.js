@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import StarRatings from 'react-star-ratings'
 import { graphql } from 'gatsby'
 
-import theme from 'theme'
+import palette from 'theme/palette'
 
 const Testimonial = ({ body, rating, author, property }) => (
   <div
@@ -16,7 +16,7 @@ const Testimonial = ({ body, rating, author, property }) => (
     justifyContent="center"
     m="10% auto"
     p="8%"
-    width="75vw"
+    width={['100%', null, '80%']}
     textAlign="center"
     background="background.light"
   >
@@ -31,7 +31,6 @@ const Testimonial = ({ body, rating, author, property }) => (
     </span>
     <h2 mb={5}>What Guests Say</h2>
     <p
-      as="p"
       lineHeight="expanded"
       fontSize={4}
       color="text.alt"
@@ -42,7 +41,7 @@ const Testimonial = ({ body, rating, author, property }) => (
     </p>
     <StarRatings
       rating={rating}
-      starRatedColor={theme.palette.starRated}
+      starRatedColor={palette.starRated}
       numberOfStars={5}
       starSpacing="1px"
       starDimension="1.5rem"
