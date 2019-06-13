@@ -1,5 +1,13 @@
 {
-  "plugins": ["babel-plugin-polished", "@styled-system/babel-plugin"],
+  "plugins": [
+    "babel-plugin-polished",
+    [
+      "@styled-system/babel-plugin",
+      {
+        "breakpoints": ["40em", "52em", "64em", "80em"]
+      }
+    ]
+  ],
   "presets": [
     [
       "babel-preset-gatsby",

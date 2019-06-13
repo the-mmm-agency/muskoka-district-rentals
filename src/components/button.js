@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import { border, style, themeGet, variant } from 'styled-system'
+import { border, style, variant } from 'styled-system'
+import css from '@styles-system/css'
+import themeGet from '@styled-system/theme-get'
+import propTypes from '@styled-system/prop-types'
 
 import { typography } from 'theme/system'
 import transitions, { duration } from 'theme/transitions'
@@ -22,28 +25,30 @@ const buttonSize = variant({
   prop: 'size',
 })
 
-const StyledButton = styled.button`
-  &:active {
-    background: ${themeGet('colors.primary')};
-  }
-  &:hover {
-    text-decoration: none;
-    background: ${themeGet('colors.primary')};
-    box-shadow: ${themeGet('shadows.2')};
-    transform: translateY(-3px);
-  }
-  transition: ${transitions.create(
-    ['border', 'background', 'box-shadow', 'transform'],
-    {
-      duration: duration.short,
-    }
-  )};
-  ${buttonStyle}
-  ${buttonSize}
-  ${radius}
-  ${border}
-  ${typography}
-`
+const StyledButton = styled.button(
+  buttonStyle,
+  buttonSize,
+  radius,
+  border,
+  typography,
+  css({
+    ':hover': {
+      textDecoration: 'none',
+      bg: 'primary',
+      boxShadow: 2,
+      transform: 'translateY(-3px)',
+    },
+    ':active': {
+      bg: 'primary',
+    },
+    transition: transitions.create(
+      ['border', 'background', 'box-shadow', 'transform'],
+      {
+        duration: duration.short,
+      }
+    ),
+  })
+)
 
 const Button = props => <StyledButton {...props} />
 
@@ -51,11 +56,11 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   radius: PropTypes.oneOf(['default', 'curved', 'rounded']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  ...buttonStyle.propTypes,
-  ...buttonSize.propTypes,
-  ...radius.propTypes,
-  ...border.propTypes,
-  ...typography.propTypes,
+  ...propTypes.radius,
+  ...propTypes.buttonSize,
+  ...propTypes.buttonStyle,
+  ...propTypes.border,
+  ...propTypes.typography,
 }
 
 Button.defaultProps = {
