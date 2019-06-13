@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import PropTypes from 'prop-types'
 import { border, style, variant } from 'styled-system'
 import css from '@styled-system/css'
 import propTypes from '@styled-system/prop-types'
@@ -52,9 +51,6 @@ const StyledButton = styled.button(
 const Button = props => <StyledButton {...props} />
 
 Button.propTypes = {
-  disabled: PropTypes.bool,
-  radius: PropTypes.oneOf(['default', 'curved', 'rounded']),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
   ...propTypes.radius,
   ...propTypes.buttonSize,
   ...propTypes.buttonStyle,

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { rgba } from 'polished'
-import { space, themeGet } from 'styled-system'
+import themeGet from '@styled-system/theme-get'
 
 const Wrapper = styled.div`
   display: inline-flex;
@@ -32,7 +32,6 @@ const Wrapper = styled.div`
     transition: transform 0.5s ease;
     width: 100%;
   }
-  ${space}
 `
 
 const Input = props => (
