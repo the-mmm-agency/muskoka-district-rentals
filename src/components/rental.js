@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import { themeGet } from 'styled-system'
 
 import transitions from 'theme/transitions'
-import Text from 'elements/text'
 import Flex from 'elements/flex'
 
 const Wrapper = styled(Flex)`
@@ -24,7 +23,7 @@ const RentalImg = styled(Img)`
   margin: ${themeGet('space.2')} 0;
 `
 
-const Rental = ({ image, name, startFrom, onMouseOver }) => {
+const Rental = ({ title, lowestRate, featured_media, onMouseOver }) => {
   return (
     <Wrapper
       display="flex"
@@ -36,37 +35,39 @@ const Rental = ({ image, name, startFrom, onMouseOver }) => {
       onMouseOver={onMouseOver}
       onFocus={onMouseOver}
     >
-      <Text fontWeight="medium">
-        Starting from <strong>${startFrom}</strong>/Night
-      </Text>
-      <RentalImg fluid={image.childImageSharp.fluid} />
-      <Text fontFamily="serif" variant="bold" fontSize={5}>
-        {name}
-      </Text>
+      <span fontWeight="medium">
+        Starting from <strong color="white">${lowestRate}</strong>/Night
+      </span>
+      <RentalImg fluid={featured_media.localFile.childImageSharp.fluid} />
+      <span fontFamily="serif" variant="bold" fontSize={5}>
+        {title}
+      </span>
     </Wrapper>
   )
 }
 
 export const query = graphql`
-  fragment Rental on RentalsJson {
+  fragment Rental on wordpress__wp_mphb_room_type {
     id
-    name
-    image {
-      childImageSharp {
-        fluid(maxWidth: 9000) {
-          ...GatsbyImageSharpFluid_withWebp
+    title
+    featured_media {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 9000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
     }
-    startFrom
+    lowestRate
   }
 `
 
 Rental.propTypes = {
-  image: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
+  featured_media: PropTypes.object.isRequired,
+  lowestRate: PropTypes.number.isRequired,
   onMouseOver: PropTypes.func.isRequired,
-  startFrom: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default Rental

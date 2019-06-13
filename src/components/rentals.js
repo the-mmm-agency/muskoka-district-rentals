@@ -24,10 +24,10 @@ const Wrapper = styled(BackgroundImage)`
 
 const Rentals = () => {
   const {
-    allRentalsJson: { nodes: rentals },
+    roomTypes: { nodes: rentals },
   } = useStaticQuery(graphql`
     query {
-      allRentalsJson {
+      roomTypes: allWordpressWpMphbRoomType {
         nodes {
           ...Rental
         }
@@ -39,7 +39,7 @@ const Rentals = () => {
 
   return (
     <Wrapper
-      fluid={rentals[selected].image.childImageSharp.fluid}
+      fluid={rentals[selected].featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     >
       <Text as="h3" fontSize={1} color="white" mb={5}>

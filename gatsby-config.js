@@ -104,7 +104,6 @@ module.exports = {
           jwt_pass: '123',
           jwt_base_path: '/jwt-auth/v1/token',
         },
-        concurrentRequests: 30,
         includedRoutes: [
           '**/categories',
           '**/tags',
