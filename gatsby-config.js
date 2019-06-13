@@ -10,62 +10,6 @@ require('dotenv').config({
 module.exports = {
   siteMetadata,
   plugins: [
-    `gatsby-transformer-json`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-emotion`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/theme/typography`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-transition-link`,
-      options: {
-        layout: require.resolve(`./src/components/layout.js`),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        defaultQuality: 90,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'data',
-        path: `${__dirname}/data/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        color: `#3278b5`,
-        showSpinner: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: siteMetadata.title,
-        short_name: `mdr`,
-        start_url: `/`,
-        background_color: `#eaecef`,
-        theme_color: `#eaecef`,
-        display: `standalone`,
-        icon: `src/images/muskoka-icon.png`,
-      },
-    },
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
@@ -91,6 +35,62 @@ module.exports = {
           failOnError: false,
           formatter: require('eslint-formatter-pretty'),
         },
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/theme/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-transition-link`,
+      options: {
+        layout: require.resolve(`./src/components/layout.js`),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#3278b5`,
+        showSpinner: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: siteMetadata.title,
+        short_name: `mdr`,
+        start_url: `/`,
+        background_color: `#eaecef`,
+        theme_color: `#eaecef`,
+        display: `standalone`,
+        icon: `src/images/muskoka-icon.png`,
+      },
+    },
+    `gatsby-transformer-json`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaultQuality: 90,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: `${__dirname}/data/`,
       },
     },
     {
@@ -127,6 +127,18 @@ module.exports = {
         normalizer: normalizeWordpress,
       },
     },
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        allPageHeaders: [
+          'Link: /Didot-Bold.woff2; rel=preload; as=font; type=font/woff2',
+          'Link: /Raleway-Regular.woff2; rel=preload; as=font; type=font/woff2',
+          'Link: /Raleway-Bold.woff2; rel=preload; as=font; type=font/woff2',
+          'Link: /Raleway-Medium.woff2; rel=preload; as=font; type=font/woff2',
+          'Link: /Raleway-SemiBold.woff2; rel=prefetch; as=font; type=font/woff2',
+          'Link: /Didot-Regular.woff2; rel=prefetch; as=font; type=font/woff2',
+        ],
+      },
+    },
   ],
 }
