@@ -14588,10 +14588,10 @@ raf@^3.3.0, raf@^3.4.0:
   dependencies:
     performance-now "^2.1.0"
 
-ramda-extension@^0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/ramda-extension/-/ramda-extension-0.7.2.tgz#dd84a112b39f57c8d2d3cd27192057e52934ef58"
-  integrity sha512-3fyZ+u/7IxkdKFlrVk34oKVtDlIxBc2ihius8BEDqsbBziL01P3+QbXncAgFAQPWgpv9dTgM8oRYwINvsnnorQ==
+ramda-extension@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/ramda-extension/-/ramda-extension-0.8.0.tgz#df4f271f439b73b1aec255a39eed6cac667ada6e"
+  integrity sha512-bi+JbYlCtAar5TLExV548KyAKc+TBjhtY7dwulj119VFMpdhI6ExyjXvqiFGHcpRG8cWC20ePoSh0DhZZO54Lw==
 
 ramda@0.24.1:
   version "0.24.1"

@@ -64,7 +64,7 @@
     "prettier": "^1.17.1",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
-    "ramda-extension": "^0.7.2",
+    "ramda-extension": "^0.8.0",
     "react": "^16.8.6",
     "react-day-picker": "^7.3.0",
     "react-dom": "^16.8.6",
