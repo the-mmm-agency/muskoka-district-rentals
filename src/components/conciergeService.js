@@ -1,23 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 import Link from 'components/link'
 
-const StyledLink = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  width: 100%;
-  background: transparent;
-`
-
-const Image = styled(Img)`
-  width: 30%;
-  max-height: 120px;
-`
-
-const ConciergeService = ({ name, link, image, setSelected }) => (
+const ConciergeService = ({ title, slug, featured_media, setSelected }) => (
   <li
     css={{
       '&:hover': {
@@ -25,21 +13,50 @@ const ConciergeService = ({ name, link, image, setSelected }) => (
       },
     }}
     p={2}
-    onMouseOver={() => setSelected(image)}
-    onFocus={() => setSelected(image)}
+    onMouseOver={() => setSelected(featured_media)}
+    onFocus={() => setSelected(featured_media)}
   >
-    <StyledLink to={link} fade duration={0.5}>
-      <Image fluid={image.childImageSharp.fluid} />
-      <h5 ml={4}>{name}</h5>
-    </StyledLink>
+    <Link
+      display="inline-flex"
+      alignItems="center"
+      width="100%"
+      bg="transparent"
+      to={slug}
+      fade
+      duration={0.5}
+    >
+      <Img
+        width="30%"
+        maxHeight="120px"
+        fluid={featured_media.localFile.childImageSharp.fluid}
+      />
+      <h5 ml={4}>{title}</h5>
+    </Link>
   </li>
 )
 
+export const query = graphql`
+  fragment ConciergeService on wordpress__wp_concierge_services {
+    featured_media {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+    slug
+    title
+    id
+  }
+`
+
 ConciergeService.propTypes = {
-  image: PropTypes.object.isRequired,
-  link: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  featured_media: PropTypes.object.isRequired,
   setSelected: PropTypes.func.isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default ConciergeService

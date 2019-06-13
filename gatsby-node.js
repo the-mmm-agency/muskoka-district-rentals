@@ -13,7 +13,7 @@ exports.createPages = ({ actions, graphql }) => {
   const postPage = path.resolve('src/templates/blog-post.js')
   return graphql(`
     {
-      allWordpressPost {
+      allWordpressWpBlogPosts {
         edges {
           node {
             id
@@ -30,7 +30,7 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const posts = result.data.allWordpressPost.edges
+      const posts = result.data.allWordpressWpBlogPosts.edges
 
       posts.forEach(edge => {
         createPage({

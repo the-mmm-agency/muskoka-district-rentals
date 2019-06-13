@@ -135,7 +135,7 @@ BlogPost.propTypes = {
 
 export const query = graphql`
   query BlogPostByID($id: String!) {
-    wordpressPost(id: { eq: $id }) {
+    wordpressWpBlogPosts(id: { eq: $id }) {
       id
       title
       slug

@@ -194,7 +194,10 @@ export const query = graphql`
         ...Testimonial
       }
     }
-    blogPosts: allWordpressPost(limit: 3, sort: { fields: date, order: DESC }) {
+    blogPosts: allWordpressWpBlogPosts(
+      limit: 3
+      sort: { fields: date, order: DESC }
+    ) {
       edges {
         node {
           ...PostCard

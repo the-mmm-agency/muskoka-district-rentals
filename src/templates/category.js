@@ -42,7 +42,7 @@ const Category = ({ data, pageContext }) => (
 
 export const query = graphql`
   query CategoryPage($slug: String) {
-    posts: allWordpressPost(
+    posts: allWordpressWpBlogPosts(
       sort: { fields: date, order: DESC }
       filter: { categories: { elemMatch: { slug: { eq: $slug } } } }
     ) {
