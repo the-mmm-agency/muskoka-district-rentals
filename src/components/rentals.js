@@ -1,26 +1,9 @@
 import React, { useState } from 'react'
-import styled from '@emotion/styled'
 import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Text from 'elements/text'
-import Flex from 'elements/flex'
 import Rental from 'components/rental'
 import Link from 'components/link'
-
-const Wrapper = styled(BackgroundImage)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  max-height: 100vh;
-  text-align: center;
-  &::before,
-  &::after {
-    filter: brightness(0.5);
-  }
-`
 
 const Rentals = () => {
   const {
@@ -38,14 +21,26 @@ const Rentals = () => {
   const [selected, setSelected] = useState(0)
 
   return (
-    <Wrapper
+    <BackgroundImage
+      css={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        maxHeight: '100vh',
+        textAlign: 'center',
+        '::before::after': {
+          filter: 'brightness(0.5)',
+        },
+      }}
       fluid={rentals[selected].featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     >
-      <Text as="h3" fontSize={1} color="white" mb={5}>
+      <h3 fontSize={1} color="white" mb={5}>
         Our Rentals
-      </Text>
-      <Flex as="ul" flexBasis="calc(100% / 3)">
+      </h3>
+      <ul display="flex" flexBasis="calc(100% / 3)">
         {rentals.map((rental, index) => (
           <Rental
             key={rental.id}
@@ -55,7 +50,7 @@ const Rentals = () => {
             {...rental}
           />
         ))}
-      </Flex>
+      </ul>
       <Link
         mt={5}
         lineHeight="100px"
@@ -67,7 +62,7 @@ const Rentals = () => {
       >
         View All Rentals
       </Link>
-    </Wrapper>
+    </BackgroundImage>
   )
 }
 

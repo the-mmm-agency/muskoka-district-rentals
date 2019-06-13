@@ -1,5 +1,4 @@
 import Img from 'gatsby-image'
-import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -8,25 +7,16 @@ import Link from 'components/link'
 import SEO from 'components/seo'
 import Breadcrumb from 'components/breadcrumb'
 
-const Hero = styled(Img)`
-  min-height: 600px;
-`
-
 const BlogPost = ({
   data: {
-    wordpressPost: {
-      slug,
-      title,
-      categories,
-      tags,
-      content,
-      date,
-      featured_media,
-    },
+    post: { slug, title, categories, tags, content, date, featured_media },
   },
 }) => (
   <>
-    <Hero fluid={featured_media.localFile.childImageSharp.fluid} />
+    <Img
+      minHeight="600px"
+      fluid={featured_media.localFile.childImageSharp.fluid}
+    />
     <SEO title={title} description={content} />
     <div
       m="auto"
@@ -135,7 +125,7 @@ BlogPost.propTypes = {
 
 export const query = graphql`
   query BlogPostByID($id: String!) {
-    wordpressWpBlogPosts(id: { eq: $id }) {
+    post: wordpressWpBlogPosts(id: { eq: $id }) {
       id
       title
       slug

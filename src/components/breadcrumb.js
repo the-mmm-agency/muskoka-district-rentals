@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Box from 'elements/box'
 import Link from 'components/link'
 
 const Breadcrumb = ({ crumbs, ...props }) => (
-  <Box display="inline-block" {...props}>
+  <div display="inline-block" {...props}>
     {crumbs.map((crumb, index) => (
       <Link
         key={crumb.link}
@@ -17,7 +16,7 @@ const Breadcrumb = ({ crumbs, ...props }) => (
         {index !== crumbs.length - 1 && <>&nbsp; &gt; &nbsp;</>}
       </Link>
     ))}
-  </Box>
+  </div>
 )
 
 Breadcrumb.propTypes = {

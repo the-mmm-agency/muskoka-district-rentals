@@ -13,6 +13,7 @@ const makeFontFaces = ({
   name,
   fontDisplay = 'auto',
   fileFormats = ['woff2', 'woff'],
+  fontFeatureSettings = 'lnum 1, kern 1',
 }) =>
   fontWeights.map(fontWeight =>
     fontFace({
@@ -21,6 +22,7 @@ const makeFontFaces = ({
       fontWeight,
       fileFormats,
       fontDisplay,
+      fontFeatureSettings,
     })
   )
 

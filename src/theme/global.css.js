@@ -24,6 +24,8 @@ const styles = css({
     scrollBehavior: 'smooth',
     MozOsxFontSmoothing: 'grayscale',
     WebkitFontSmoothing: 'antialiased',
+    fontKerning: 'normal',
+    fontVariantNumeric: 'lining-nums',
   },
   '::selection': {
     color: 'white',
@@ -79,10 +81,7 @@ const styles = css({
   },
   body: {
     margin: '0',
-    fontFeatureSettings: 'lnum 1, kern 1',
     fontFamily: 'sans',
-    fontKerning: 'normal',
-    fontVariantNumeric: 'lining-nums',
     backgroundColor: 'background.default',
   },
   'input, textarea': {

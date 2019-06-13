@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Flex from 'elements/flex'
 import Link from 'components/link'
 
 const Categories = () => {
@@ -19,7 +18,8 @@ const Categories = () => {
     }
   `)
   return (
-    <Flex
+    <div
+      display="flex"
       alignItems="center"
       mt={4}
       mb={3}
@@ -51,7 +51,7 @@ const Categories = () => {
           {category.name}
         </Link>
       ))}
-    </Flex>
+    </div>
   )
 }
 

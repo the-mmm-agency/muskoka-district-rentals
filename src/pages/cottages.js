@@ -1,23 +1,12 @@
 import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
 import Fade from 'react-reveal/Fade'
 import React, { useState } from 'react'
 
-import Box from 'elements/box'
 import PageImage from 'components/pageImage'
 import CheckAvailability from 'components/checkAvailability'
 import Button from 'components/button'
 import Cottage from 'components/cottage'
 import SEO from 'components/seo'
-
-const Image = styled(PageImage)`
-  h1 {
-    color: white;
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
 
 const Cottages = ({ data }) => {
   const [page, setPage] = useState(5)
@@ -27,11 +16,22 @@ const Cottages = ({ data }) => {
   return (
     <>
       <SEO title="Our Rentals" />
-      <Image fluid={data.image.childImageSharp.fluid} tag="section">
+      <PageImage
+        css={{
+          h1: {
+            color: 'white',
+          },
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        fluid={data.image.childImageSharp.fluid}
+        tag="section"
+      >
         <h1>Our Rentals</h1>
-      </Image>
+      </PageImage>
       <CheckAvailability />
-      <Box py={[3, 6]} mx={0}>
+      <div py={[3, 6]} mx={0}>
         {data.rentals.nodes
           .filter(node => node.image !== null)
           .slice(0, page)
@@ -45,18 +45,18 @@ const Cottages = ({ data }) => {
               />
             </Fade>
           ))}
-      </Box>
+      </div>
       {page < data.rentals.nodes.filter(node => node.image !== null).length && (
-        <Box width="100%" textAlign="center" mb={4}>
+        <div width="100%" textAlign="center" mb={4}>
           <Button
             textTransform="uppercase"
             mb={3}
-            font="serif"
+            fontFamily="serif"
             onClick={handleClick}
           >
             See More Rentals
           </Button>
-        </Box>
+        </div>
       )}
     </>
   )

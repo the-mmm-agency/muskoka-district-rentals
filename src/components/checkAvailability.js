@@ -5,8 +5,6 @@ import styled from '@emotion/styled'
 import { themeGet } from 'styled-system'
 import React, { useRef, useState } from 'react'
 
-import Flex from 'elements/flex'
-import Text from 'elements/text'
 import Button from 'components/button'
 import Checkbox from 'components/checkbox'
 import DateInput from 'components/dateInput'
@@ -15,7 +13,7 @@ import DownIcon from 'components/downIcon'
 import palette from 'theme/palette'
 import { rhythm } from 'theme/typography'
 
-const CheckboxLabel = styled(Text)(
+const CheckboxLabel = styled.span(
   css({
     mr: 3,
     color: 'secondary',
@@ -167,7 +165,7 @@ const CheckAvailability = () => {
       </Section>
       <Section>
         <SectionWrapper noBorder>
-          <Flex justifyContent="space-between" mb={1}>
+          <div display="flex" justifyContent="space-between" mb={1}>
             <label>
               <CheckboxLabel>Pets</CheckboxLabel>
               <Checkbox
@@ -186,7 +184,7 @@ const CheckAvailability = () => {
                 }}
               />
             </label>
-          </Flex>
+          </div>
           <StyledButton fontFamily="serif">check availability</StyledButton>
         </SectionWrapper>
       </Section>
