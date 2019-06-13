@@ -45,6 +45,7 @@
     "react-reveal": "^1.2.2",
     "react-star-ratings": "^2.3.0",
     "react-typography": "^0.16.19",
+    "react-use": "^9.4.1",
     "styled-system": "^4.2.2",
     "styled-tools": "^1.7.1",
     "typescript": "^3.4.5",

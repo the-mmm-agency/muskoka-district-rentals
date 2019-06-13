@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useLocation } from 'react-use'
 import { withPrefix } from 'gatsby'
 import styled from '@emotion/styled'
 import Fade from 'react-reveal/Fade'
@@ -30,7 +31,8 @@ const MobileHeader = ({ links }) => {
   const handleClick = () => {
     setActive(!active)
   }
-  const isHome = window && window.location.pathname === withPrefix('/')
+  const location = useLocation()
+  const isHome = location.state.pathName === withPrefix('/')
   return (
     <StyledHeader bg="white" active={active} p={1}>
       <div alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
