@@ -15,4 +15,13 @@ module.exports = {
     ['/our-rentals', '/guest-concierge', '/about', '/contact'],
     ['/faqs', '/blog', '/our-blog', '/press'],
   ],
+  manifest: {
+    name: `Muskoka District Rentals`,
+    short_name: `mdr`,
+    start_url: `/`,
+    background_color: `#eaecef`,
+    theme_color: `#eaecef`,
+    display: `standalone`,
+    icon: `src/images/muskoka-icon.png`,
+  },
 }

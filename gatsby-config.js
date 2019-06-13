@@ -10,6 +10,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata,
   plugins: [
+    // Build Plugins
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
@@ -34,8 +35,10 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
+
+    // Styling and site config
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -58,16 +61,10 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: siteMetadata.title,
-        short_name: `mdr`,
-        start_url: `/`,
-        background_color: `#eaecef`,
-        theme_color: `#eaecef`,
-        display: `standalone`,
-        icon: `src/images/muskoka-icon.png`,
-      },
+      options: siteMetadata.manifest,
     },
+
+    // Transformers
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     {
@@ -76,6 +73,8 @@ module.exports = {
         defaultQuality: 90,
       },
     },
+
+    // Sources
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -126,6 +125,8 @@ module.exports = {
         normalizer: normalizeWordpress,
       },
     },
+
+    // Deployment
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
