@@ -30,7 +30,9 @@ const MobileHeader = ({ links }) => {
   const handleClick = () => {
     setActive(!active)
   }
-  const isHome = window.location && window.location.pathname === withPrefix('/')
+  const isHome =
+    window.hasOwnProperty('location') &&
+    window.location.pathname === withPrefix('/')
   return (
     <StyledHeader bg="white" active={active} p={1}>
       <div alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
