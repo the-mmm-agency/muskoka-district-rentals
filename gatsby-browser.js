@@ -5,5 +5,3 @@ exports.onClientEntry = () => {
     console.log(`# IntersectionObserver is polyfilled!`)
   }
 }
-
-require("prismjs/themes/prism-tomorrow.css")
