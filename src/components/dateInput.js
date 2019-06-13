@@ -1,7 +1,7 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import styled from '@emotion/styled'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 import PropTypes from 'prop-types'
 
 import DownIcon from 'components/downIcon'

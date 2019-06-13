@@ -1,6 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 import styled from '@emotion/styled'
 import { graphql, useStaticQuery } from 'gatsby'
 

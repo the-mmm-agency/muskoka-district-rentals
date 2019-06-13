@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 
 import transitions from 'theme/transitions'
 import Link from 'components/link'

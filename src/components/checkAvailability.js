@@ -2,7 +2,7 @@ import useOnClickOutside from 'use-onclickoutside'
 import css from '@styled-system/css'
 import { DateUtils } from 'react-day-picker'
 import styled from '@emotion/styled'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 import React, { useRef, useState } from 'react'
 
 import Button from 'components/button'

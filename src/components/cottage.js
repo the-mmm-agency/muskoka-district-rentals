@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import css from '@styled-system/css'
 import PropTypes from 'prop-types'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 import { ifProp } from 'styled-tools'
 
 import Hidden from 'components/hidden'

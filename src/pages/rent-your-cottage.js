@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import React from 'react'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'

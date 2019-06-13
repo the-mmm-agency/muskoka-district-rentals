@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 
 const Icon = styled.svg`
   align-self: center;
