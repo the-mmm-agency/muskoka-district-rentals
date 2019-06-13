@@ -7,9 +7,11 @@ import Link from 'components/link'
 const Categories = () => {
   const data = useStaticQuery(graphql`
     query Categories {
-      allMarkdownRemark {
-        group(field: frontmatter___categories) {
-          fieldValue
+      allWordpressCategory {
+        node {
+          id
+          name
+          slug
         }
       }
     }
@@ -33,18 +35,18 @@ const Categories = () => {
       >
         All
       </Link>
-      {data.allMarkdownRemark.group.map(category => (
+      {data.allWordpressCategory.node.map(category => (
         <Link
           color="text.primary"
           fontWeight="bold"
-          key={category.fieldValue}
-          to={`/categories/${category.fieldValue}`}
+          key={category.id}
+          to={`/categories/${category.slug}`}
           textTransform="capitalize"
           fontFamily="serif"
           fontSize={2}
           mr={4}
         >
-          {category.fieldValue}
+          {category.name}
         </Link>
       ))}
     </Flex>
