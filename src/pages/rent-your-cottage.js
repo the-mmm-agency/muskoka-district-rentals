@@ -13,10 +13,10 @@ const Content = styled.div`
   div {
     display: flex;
     div {
-      &:first-child {
+      &:first-of-type {
         padding: 0;
       }
-      &:last-child {
+      &:last-of-type {
         border-right: none;
       }
       display: flex;

@@ -5,7 +5,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import { rhythm } from 'theme/typography'
 import FooterList from 'components/footerList'
-import links from 'constants/footerLinks'
 
 const Copyright = styled.span`
   align-self: center;
@@ -16,7 +15,6 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   margin: ${rhythm(2)} none;
-  background-color: #fff;
   opacity: 0.2;
 `
 
@@ -25,8 +23,6 @@ const Wrapper = styled.footer`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 5% 25%;
-  color: #fff;
-  background-color: #212020;
 `
 
 const LinkWrapper = styled.div`
@@ -38,27 +34,34 @@ const LinkWrapper = styled.div`
 `
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
+  const { logo, links } = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "logo-white.png" }) {
+      logo: file(relativePath: { eq: "logo-white.png" }) {
         childImageSharp {
           fixed(width: 100, height: 50) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
+      links: site {
+        siteMetadata {
+          footerLinks
+        }
+      }
     }
   `)
 
+  console.log(logo)
+
   return (
-    <Wrapper>
+    <Wrapper bg="footer" fg="white">
       <LinkWrapper>
-        {links.map(list => (
+        {links.siteMetadata.footerLinks.map(list => (
           <FooterList links={list} key={list[0]} />
         ))}
       </LinkWrapper>
-      <Divider />
-      <Img fixed={data.file.childImageSharp.fixed} />
+      <Divider bg="white" />
+      <Img fixed={logo.childImageSharp.fixed} />
       <Copyright>
         © {new Date().getFullYear()} Muskoka District Rentals
       </Copyright>

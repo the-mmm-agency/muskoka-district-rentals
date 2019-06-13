@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { withPrefix } from 'gatsby'
 import styled from '@emotion/styled'
 import Fade from 'react-reveal/Fade'
 import { ifProp } from 'styled-tools'
@@ -29,15 +30,16 @@ const BackButton = styled(AniLink)`
   margin: auto 0;
 `
 
-const MobileHeader = ({ links }) => {
+const MobileHeader = ({ links, location }) => {
   const [active, setActive] = useState(false)
   const handleClick = () => {
     setActive(!active)
   }
+  const isHome = location && location.pathname === withPrefix('/')
   return (
     <StyledHeader bg="white" active={active} p={1}>
       <div alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
-        {global.window.location.pathname === '/' ? (
+        {isHome ? (
           <Logo />
         ) : (
           <BackButton fade to="/">

@@ -120,7 +120,7 @@ const styles = css({
     color: 'text.primary',
   },
   'th,td': {
-    '&:first-child': {
+    '&:first-of-type': {
       pl: 2,
     },
   },
