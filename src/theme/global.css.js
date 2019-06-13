@@ -124,6 +124,9 @@ const styles = css({
       pl: 2,
     },
   },
+  strong: {
+    color: 'text.primary',
+  },
   ...headers,
 })
 

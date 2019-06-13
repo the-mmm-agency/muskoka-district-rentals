@@ -133,7 +133,7 @@ BlogPost.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export const pageQuery = graphql`
+export const query = graphql`
   query BlogPostByID($id: String!) {
     wordpressPost(id: { eq: $id }) {
       id

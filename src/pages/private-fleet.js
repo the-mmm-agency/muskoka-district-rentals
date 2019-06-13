@@ -30,7 +30,7 @@ const PrivateFleet = ({
   </>
 )
 
-export const pageQuery = graphql`
+export const query = graphql`
   query {
     page: wordpressPage(slug: { eq: "private-fleet" }) {
       title

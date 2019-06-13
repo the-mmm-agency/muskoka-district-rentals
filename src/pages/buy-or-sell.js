@@ -40,7 +40,7 @@ const BuyOrSell = ({
   </>
 )
 
-export const pageQuery = graphql`
+export const query = graphql`
   query {
     page: wordpressPage(slug: { eq: "buy-or-sell-cottages" }) {
       title

@@ -4,12 +4,11 @@ import { useMedia } from 'use-media'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 
-import fonts from '../fonts'
-
 import Footer from 'components/footer'
 import MobileHeader from 'components/mobileHeader'
 import Header from 'components/header'
 import globalStyles from 'theme/global.css'
+import fonts from 'fonts'
 import theme from 'theme'
 
 const headerLinks = [
@@ -22,7 +21,7 @@ const headerLinks = [
 ]
 
 const Layout = ({ children }) => {
-  const isLarge = useMedia({ minWidth: 600 })
+  const isLarge = useMedia({ minWidth: theme.breakpoints[2] })
   return (
     <ThemeProvider theme={theme}>
       <Global styles={fonts} />

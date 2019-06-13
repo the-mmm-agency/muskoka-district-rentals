@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
-import { useMedia } from 'use-media'
 import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
+import Hidden from 'components/hidden'
 import ConciergeService from 'components/conciergeService'
 
 const Wrapper = styled.section`
@@ -28,10 +28,6 @@ const List = styled.ul`
   overflow-y: scroll;
 `
 
-const Image = styled(Img)`
-  min-width: 50%;
-`
-
 const ConciergeServices = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -51,7 +47,6 @@ const ConciergeServices = () => {
       }
     }
   `)
-  const isLarge = useMedia({ minWidth: 800 })
   const [selected, setSelected] = useState(
     data.allConciergeServicesJson.nodes[0].image
   )
@@ -79,7 +74,9 @@ const ConciergeServices = () => {
           ))}
         </List>
       </div>
-      {isLarge && <Image fluid={selected.childImageSharp.fluid} />}
+      <Hidden down={2}>
+        <Img minWidth="50%" fluid={selected.childImageSharp.fluid} />
+      </Hidden>
     </Wrapper>
   )
 }

@@ -37,7 +37,7 @@ const Blog = ({ data: { posts } }) => {
   )
 }
 
-export const pageQuery = graphql`
+export const query = graphql`
   query BlogPage {
     posts: allWordpressPost(limit: 6, sort: { fields: date, order: DESC }) {
       edges {

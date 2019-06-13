@@ -75,6 +75,7 @@
           ["elements", "./src/elements"],
           ["images", "./src/images"],
           ["pages", "./src/pages"],
+          ["fonts", "./src/fonts"],
           ["theme", "./src/theme"],
           ["util", "./src/util"]
         ],

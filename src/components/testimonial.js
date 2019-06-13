@@ -1,17 +1,13 @@
-/** @jsx jsx */
-
-import { jsx } from '@emotion/core'
+import React from 'react'
 import PropTypes from 'prop-types'
 import StarRatings from 'react-star-ratings'
-import css from '@styled-system/css'
 import { graphql } from 'gatsby'
 
-import palette from 'theme/palette'
-import Text from 'elements/text'
-import Flex from 'elements/flex'
+import theme from 'theme'
 
 const Testimonial = ({ body, rating, author, property }) => (
-  <Flex
+  <div
+    display="flex"
     flexDirection="column"
     bg="background.light"
     flexShrink={0}
@@ -24,7 +20,7 @@ const Testimonial = ({ body, rating, author, property }) => (
     textAlign="center"
     background="background.light"
   >
-    <Text
+    <span
       color="text.secondary"
       textTransform="uppercase"
       letterSpacing="0.5em"
@@ -32,11 +28,9 @@ const Testimonial = ({ body, rating, author, property }) => (
       mb={4}
     >
       Testimonial
-    </Text>
-    <Text as="h2" mb={5}>
-      What Guests Say
-    </Text>
-    <Text
+    </span>
+    <h2 mb={5}>What Guests Say</h2>
+    <p
       as="p"
       lineHeight="expanded"
       fontSize={4}
@@ -45,29 +39,20 @@ const Testimonial = ({ body, rating, author, property }) => (
       fontStyle="italic"
     >
       &quot;{body}&quot;
-    </Text>
+    </p>
     <StarRatings
       rating={rating}
-      starRatedColor={palette.starRated}
+      starRatedColor={theme.palette.starRated}
       numberOfStars={5}
       starSpacing="1px"
       starDimension="1.5rem"
       name="rating"
     />
-    <Text
-      css={css({
-        strong: {
-          color: 'text.primary',
-        },
-      })}
-      fontWeight="medium"
-      mt={5}
-      mb={0}
-    >
+    <span fontWeight="medium" mt={5} mb={0}>
       <strong>{author} -</strong> Review for {property.name} from{' '}
       <strong>{property.location}</strong>
-    </Text>
-  </Flex>
+    </span>
+  </div>
 )
 
 Testimonial.propTypes = {
