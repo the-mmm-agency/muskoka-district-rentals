@@ -8,10 +8,12 @@ const Categories = () => {
   const data = useStaticQuery(graphql`
     query Categories {
       allWordpressCategory {
-        node {
-          id
-          name
-          slug
+        edges {
+          node {
+            id
+            name
+            slug
+          }
         }
       }
     }
@@ -35,7 +37,7 @@ const Categories = () => {
       >
         All
       </Link>
-      {data.allWordpressCategory.node.map(category => (
+      {data.allWordpressCategory.edges.map(category => (
         <Link
           color="text.primary"
           fontWeight="bold"

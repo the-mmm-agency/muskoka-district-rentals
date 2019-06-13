@@ -51,8 +51,6 @@ const Footer = () => {
     }
   `)
 
-  console.log(logo)
-
   return (
     <Wrapper bg="footer" fg="white">
       <LinkWrapper>
