@@ -41,7 +41,7 @@
     "prettier/prettier": "error",
     "react/prop-types": [
       "error",
-      { "ignore": ["data", "children", "pageContext", "location"] }
+      { "ignore": ["data", "children", "pageContext"] }
     ],
     "react/prefer-stateless-function": "warn",
     "react/sort-prop-types": "error",
@@ -72,12 +72,10 @@
         "map": [
           ["constants", "./src/constants"],
           ["components", "./src/components"],
-          ["elements", "./src/elements"],
           ["images", "./src/images"],
           ["pages", "./src/pages"],
-          ["fonts", "./src/fonts"],
-          ["theme", "./src/theme"],
-          ["util", "./src/util"]
+          ["templates", "./src/templates"],
+          ["theme", "./src/theme"]
         ],
         "extensions": [".js", ".jsx"]
       }
