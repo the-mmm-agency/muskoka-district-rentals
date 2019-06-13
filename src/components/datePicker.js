@@ -3,32 +3,30 @@ import styled from '@emotion/styled'
 import { darken, transparentize } from 'polished'
 import PropTypes from 'prop-types'
 import DayPicker from 'react-day-picker'
+import themeGet from '@styled-system/theme-get'
 
 import 'react-day-picker/lib/style.css'
-
-import palette from 'theme/palette'
-import { rhythm } from 'theme/typography'
-import shadows from 'theme/shadows'
 
 const StyledDayPicker = styled(DayPicker)`
   position: absolute;
   z-index: 9000;
   width: 100%;
-  padding-bottom: ${rhythm(1 / 2)};
+  padding-bottom: ${themeGet('space.1')};
   background-color: white;
   border: 1px solid #e4e5ec;
   border-radius: 4px;
-  box-shadow: ${shadows[1]};
+  box-shadow: ${themeGet('shadows.1')};
   .DayPicker:not(.DayPicker--interactionDisabled)
     .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-    background-color: ${transparentize(0.1, palette.primary)};
+    background-color: ${props =>
+      transparentize(0.1, props.theme.colors.primary)};
   }
   .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
     &:hover {
-      background-color: ${darken(0.2, palette.primary)};
+      background-color: ${props => darken(0.2, props.theme.colors.primary)};
     }
     color: white;
-    background-color: ${palette.alt};
+    background-color: ${themeGet('colors.primary')};
     border-radius: 0;
   }
   .DayPicker-Months {
@@ -36,32 +34,28 @@ const StyledDayPicker = styled(DayPicker)`
   }
   .DayPicker-Day {
     padding: 0.5rem 1rem;
-    color: ${palette.text.primary};
+    color: ${themeGet('colors.text.primary')};
     font-weight: 500;
   }
   .DayPicker-Weekday {
-    color: ${palette.text.secondary};
+    color: ${themeGet('colors.text.secondary')};
     font-weight: bold;
     font-style: bold;
     text-transform: uppercase;
   }
   .DayPicker-Caption {
-    margin-bottom: ${rhythm(1)};
-    color: ${palette.text.primary};
+    margin-bottom: ${themeGet('space.2')};
+    color: ${themeGet('colors.text.primary')};
     font-weight: 500;
     text-align: center;
   }
-  .DayPicker-Day--start {
-    background-color: ${palette.primary} !important;
+  .DayPicker-Day--start,
+  .DayPicker-Day--end {
+    background-color: ${themeGet('colors.primary')} !important;
     border-top-left-radius: 4px !important;
     border-bottom-left-radius: 4px !important;
   }
-  .DayPicker-Day--end {
-    background-color: ${palette.primary} !important;
-    border-top-right-radius: 4px !important;
-    border-bottom-right-radius: 4px !important;
-  }
-  .DayPicker-wraper {
+  .DayPicker-wrapper {
     padding-bottom: 0;
   }
 `

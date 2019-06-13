@@ -1,6 +1,6 @@
 import colors from 'theme/palette'
 import shadows from 'theme/shadows'
-import { options, rhythm } from 'theme/typography'
+import { options } from 'theme/typography'
 import transitions, { duration } from 'theme/transitions'
 
 const baseFontSize = 14
@@ -8,16 +8,6 @@ const baseFontSize = 14
 const fontSizes = [75, 60, 48, 36, 24, 18, 16].map(
   value => `${value / baseFontSize}rem`
 )
-
-const scale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => 2 ** n)
-
-const space = [
-  0,
-  ...scale.map(n => {
-    const x = rhythm(n / 12)
-    return x
-  }),
-]
 
 const {
   bodyFontFamily,
@@ -101,6 +91,21 @@ const theme = {
     header: headerLineHeight,
   },
   radii: [2, 4, 8, 30],
+  space: [
+    0,
+    '0.3rem',
+    '0.6rem',
+    '1.2rem',
+    '2.4rem',
+    '4.8rem',
+    '9.6rem',
+    '19.2rem',
+    '38.4rem',
+    '76.8rem',
+    '153.6rem',
+    '307.2rem',
+    '614.4rem',
+  ],
   textStyles: {
     bold: {
       fontWeight: 'bold',
@@ -113,7 +118,6 @@ const theme = {
   },
   transitions,
   shadows,
-  space,
 }
 
 export default theme

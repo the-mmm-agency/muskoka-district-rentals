@@ -1,20 +1,20 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
+import themeGet from '@styled-system/theme-get'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { rhythm } from 'theme/typography'
 import FooterList from 'components/footerList'
 
 const Copyright = styled.span`
   align-self: center;
-  margin-left: ${rhythm(1 / 2)};
+  margin-left: ${themeGet('space.1')};
   opacity: 0.5;
 `
 const Divider = styled.div`
   width: 100%;
   height: 1px;
-  margin: ${rhythm(2)} none;
+  margin: ${themeGet('space.2')} none;
   opacity: 0.2;
 `
 

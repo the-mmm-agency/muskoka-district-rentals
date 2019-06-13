@@ -11,7 +11,6 @@ import DateInput from 'components/dateInput'
 import DatePicker from 'components/datePicker'
 import DownIcon from 'components/downIcon'
 import palette from 'theme/palette'
-import { rhythm } from 'theme/typography'
 
 const CheckboxLabel = styled.span(
   css({
@@ -57,7 +56,7 @@ const DatePickerWrapper = styled.div`
   position: absolute;
   display: flex;
   width: 100%;
-  margin-top: calc(150px + ${rhythm(1 / 2)});
+  margin-top: calc(150px + ${themeGet('space.1')});
   padding: 0;
   background-color: white;
 `
