@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 const GuestService = ({ featured_media, content, title }) => (
-  <li display="flex" mb={3}>
+  <li display="flex" listStyle="none" mb={3}>
     <div display="inline-block" verticalAlign="top">
       <Img fixed={featured_media.localFile.childImageSharp.fixed} />
     </div>

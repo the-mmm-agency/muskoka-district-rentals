@@ -1,4 +1,4 @@
-const palette = {
+export default {
   primary: '#212a38',
   footer: '#212020',
   secondary: '#3278b5',
@@ -19,5 +19,3 @@ const palette = {
     light: '#ccc',
   },
 }
-
-export default palette

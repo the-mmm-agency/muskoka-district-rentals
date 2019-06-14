@@ -16,18 +16,7 @@ const Cottages = ({ data }) => {
   return (
     <>
       <SEO title="Our Rentals" />
-      <PageImage
-        css={{
-          h1: {
-            color: 'white',
-          },
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-        fluid={data.image.childImageSharp.fluid}
-        tag="section"
-      >
+      <PageImage fluid={data.image.childImageSharp.fluid} tag="section">
         <h1>Our Rentals</h1>
       </PageImage>
       <CheckAvailability />

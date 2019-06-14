@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
 import Img from 'gatsby-image'
 import css from '@styled-system/css'
 import React from 'react'
 
+import PageImage from 'components/pageImage'
 import PostCard from 'components/postCard'
 import SwirlBackground from 'components/swirlBackground'
 import ConciergeServices from 'components/conciergeServices'
@@ -19,26 +19,16 @@ const IndexPage = ({
 }) => (
   <>
     <SEO title="Home" />
-    <BackgroundImage
+    <PageImage
       Tag="section"
       fadeIn
       fluid={headerImg.childImageSharp.fluid}
       css={css({
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '600px',
-        textAlign: 'center',
-        '::before, ::after': {
-          filter: 'brightness(0.4)',
-        },
         span: {
           fontSize: 4,
         },
         'span,h1': {
           mb: 5,
-          color: 'white',
         },
       })}
     >
@@ -68,7 +58,7 @@ const IndexPage = ({
       >
         Come unwind with us
       </span>
-    </BackgroundImage>
+    </PageImage>
     <CheckAvailability />
     <section
       css={css({

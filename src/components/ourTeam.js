@@ -8,7 +8,6 @@ import { useNumber } from 'react-hanger'
 
 import transitions, { duration, easing } from 'theme/transitions'
 import MemberInfo from 'components/memberInfo'
-import { rhythm } from 'theme/typography'
 import palette from 'theme/palette'
 import RightIcon from 'components/rightIcon'
 
@@ -19,23 +18,7 @@ const Wrapper = styled.section`
   min-height: 100vh;
   overflow: hidden;
   color: white;
-  background: linear-gradient(
-    180deg,
-    ${properties => properties.color} 80vh,
-    white 20vh
-  );
-  transition: ${(transitions.create('background'),
-  {
-    duration: duration.enteringScreen,
-    easing: easing.easeInOut,
-  })};
-  h2 {
-    margin-bottom: ${rhythm(4)};
-    padding-top: ${rhythm(4)};
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-  }
+  background: linear-gradient(180deg, ${props => props.color} 80vh, white 20vh);
 `
 const InfoWrapper = styled.div`
   display: flex;
@@ -159,7 +142,15 @@ const OurTeam = () => {
   const team = data.team.nodes
   return (
     <Wrapper color={color}>
-      <h2>Our Team</h2>
+      <h2
+        mb={4}
+        pt={4}
+        color="white"
+        textAlign="center"
+        css={{ textTransform: 'uppercase' }}
+      >
+        Our Team
+      </h2>
       <InfoWrapper>
         <MemberInfo
           key={team[selected.value].id}

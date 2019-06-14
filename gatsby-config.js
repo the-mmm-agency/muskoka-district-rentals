@@ -18,6 +18,7 @@ module.exports = {
         constants: path.join(__dirname, 'src', 'constants'),
         images: path.join(__dirname, 'src', 'images'),
         pages: path.join(__dirname, 'src', 'pages'),
+        styles: path.join(__dirname, 'src', 'styles'),
         templates: path.join(__dirname, 'src', 'templates'),
         theme: path.join(__dirname, 'src', 'theme'),
       },
@@ -40,12 +41,6 @@ module.exports = {
     // Styling and site config
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/theme/typography`,
-      },
-    },
     {
       resolve: `gatsby-plugin-transition-link`,
       options: {

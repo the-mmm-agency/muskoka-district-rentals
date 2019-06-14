@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
+import PageImage from 'components/pageImage'
 import Rental from 'components/rental'
 import Link from 'components/link'
 
@@ -21,18 +21,10 @@ const Rentals = () => {
   const [selected, setSelected] = useState(0)
 
   return (
-    <BackgroundImage
+    <PageImage
       css={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
         minHeight: '100vh',
         maxHeight: '100vh',
-        textAlign: 'center',
-        '::before::after': {
-          filter: 'brightness(0.5)',
-        },
       }}
       fluid={rentals[selected].featured_media.localFile.childImageSharp.fluid}
       Tag="section"
@@ -40,7 +32,7 @@ const Rentals = () => {
       <h3 fontSize={1} color="white" mb={5}>
         Our Rentals
       </h3>
-      <ul display="flex" flexBasis="calc(100% / 3)">
+      <ul display="flex" flexBasis="calc(100% / 3)" listStyle="none">
         {rentals.map((rental, index) => (
           <Rental
             key={rental.id}
@@ -62,7 +54,7 @@ const Rentals = () => {
       >
         View All Rentals
       </Link>
-    </BackgroundImage>
+    </PageImage>
   )
 }
 

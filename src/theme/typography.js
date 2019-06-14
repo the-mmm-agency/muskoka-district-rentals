@@ -1,24 +1,39 @@
-import Typography from 'typography'
+const baseFontSize = 14
+const fontSizes = [75, 60, 48, 36, 24, 18, 16].map(
+  value => `${value / baseFontSize}rem`
+)
 
-import palette from 'theme/palette'
-
-const typography = new Typography({
-  baseFontSize: '16px',
-  baseLineHeight: 1.8,
-  headerFontFamily: ['Didot', 'Playfair Display', 'serif'],
-  bodyFontFamily: ['Raleway', 'sans-serif'],
-  headerColor: palette.text.primary,
-  bodyColor: palette.text.secondary,
-  bodyWeight: 500,
-  boldWeight: 700,
-  headerWeight: 700,
-  scaleRatio: 2.5,
-})
-
-if (process.env.NODE_ENV !== `production`) {
-  typography.injectStyles()
+export default {
+  fontSizes: { ...fontSizes, base: baseFontSize },
+  fonts: {
+    sans: 'Raleway, sans-serif',
+    serif: 'Didot, serif',
+  },
+  lineHeights: {
+    default: 2.14,
+    expanded: 1.4,
+    header: 1.2,
+  },
+  fontWeights: {
+    bold: 700,
+    medium: 500,
+    normal: 400,
+    semibold: 600,
+  },
+  letterSpacings: {
+    caps: '0.1em',
+    headers: '0.3em',
+    labels: '0.05em',
+    normal: 'normal',
+  },
+  textStyles: {
+    bold: {
+      fontWeight: 'bold',
+      fontStyle: 'bold',
+    },
+    caps: {
+      textTransform: 'uppercase',
+      letterSpacing: '0.2em',
+    },
+  },
 }
-
-export const { scale, rhythm, options } = typography
-
-export default typography

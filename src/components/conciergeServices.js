@@ -47,6 +47,7 @@ const ConciergeServices = () => {
             margin: 'none',
             overflowX: 'hidden',
             overflowY: 'scroll',
+            listStyle: 'none',
           }}
         >
           {conciergeServices.nodes.map(service => (

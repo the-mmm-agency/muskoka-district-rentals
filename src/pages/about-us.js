@@ -1,123 +1,72 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
-import styled from '@emotion/styled'
+import { graphql } from 'gatsby'
+import css from '@styled-system/css'
 import React from 'react'
 
-import { rhythm, scale } from 'theme/typography'
 import Contact from 'components/contact'
+import PageImage from 'components/pageImage'
 import OurTeam from 'components/ourTeam'
-import palette from 'theme/palette'
 import SEO from 'components/seo'
 
-const Section = styled.section`
-  h2 {
-    ${scale(1)};
-    margin-bottom: ${rhythm(2)};
-  }
-  text-align: center;
-`
+const AboutUs = ({ data: { image } }) => (
+  <>
+    <SEO title="About Us" keywords={[`gatsby`, `application`, `react`]} />
+    <PageImage Tag="section" fadeIn fluid={image.childImageSharp.fluid}>
+      <span
+        css={css({
+          textTransform: 'uppercase',
+          letterSpacing: '0.1em',
+          fontWeight: 600,
+          mb: 2,
+          zIndex: 2,
+          position: 'relative',
+        })}
+      >
+        about us
+      </span>
+      <h1
+        mb={1}
+        position="relative"
+        zIndex={2}
+        fontWeight={500}
+        maxWidth={500}
+        lineHeight="70px"
+      >
+        Come escape the mundane
+      </h1>
+    </PageImage>
+    <section px={[3, 6]} py={[4, 5]} textAlign="center">
+      <h2 fontSize={0} mb={2}>
+        History
+      </h2>
+      <p>
+        Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo maximus
+        blandit. Curabitur lacinia, eros sit amet max imus suscipit, magna
+        sapien venenatis eros, et gravida urna massa ut lectus. Quisque lacinia
+        lacinia viverra. Nullam nec est et lorem sodales ornare a in sapien. In
+        et urna maximus, consectetur ligula in, gravida erat. Nullam dignissim
+        hendr erit auctor. Sed varius, dolor vitae iaculis condimentum, massa
+        nisl cursus sapien, gravida ultrices nisi dolor non erat. pi llentesque
+        sodales sed nisl eget dignissim. Pellentesque habitant morbi tristique
+        senectus et netus et malesuada fames ac turpis egestas. Donec consequat
+        tortor vitae nisl bibendum, vel eleifend dui feugiat. Curabitur
+        pharetra, risus eget gravida lobortis, ipsum lorem pretium sem, sit amet
+        scelerisque dui neque et nisl. Sed vitae.
+      </p>
+    </section>
+    <OurTeam />
+    <Contact />
+  </>
+)
 
-const FirstSection = styled(BackgroundImage)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  max-height: 100vh;
-  text-align: center;
-  &::before,
-  &::after {
-    filter: brightness(0.5);
-  }
-`
-
-const Message = styled.span`
-  ${scale(0.3 / 3)}
-  color: white;
-  margin-bottom: ${rhythm(1.5)};
-  font-weight: 500;
-  position: relative;
-  z-index: 2;
-`
-
-const WelcomeMessage = styled(Message)`
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-`
-
-const Header = styled.h1`
-  ${scale(1)}
-  color: white;
-  margin-bottom: ${rhythm(1.5)};
-  position: relative;
-  z-index: 2;
-  font-weight: 500;
-  max-width: 500px;
-  line-height: 70px;
-`
-
-const HeaderOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  background: rgba(0, 0, 0, 0.3);
-`
-
-const AboutUs = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      about: file(relativePath: { eq: "home.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 4160) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+export const query = graphql`
+  query {
+    image: file(relativePath: { eq: "home.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 4160) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
-  `)
-
-  return (
-    <>
-      <SEO title="About Us" keywords={[`gatsby`, `application`, `react`]} />
-      <FirstSection
-        Tag="section"
-        fadeIn
-        fluid={data.about.childImageSharp.fluid}
-        backgroundColor={palette.primary}
-      >
-        <HeaderOverlay />
-        <WelcomeMessage>about us</WelcomeMessage>
-        <Header>Come escape the mundane</Header>
-      </FirstSection>
-      <Section px={[3, 6]} py={[4, 5]}>
-        <h2>History</h2>
-        <p>
-          Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo
-          maximus blandit. Curabitur lacinia, eros sit amet max imus suscipit,
-          magna sapien venenatis eros, et gravida urna massa ut lectus. Quisque
-          lacinia lacinia viverra. Nullam nec est et lorem sodales ornare a in
-          sapien. In et urna maximus, consectetur ligula in, gravida erat.
-          Nullam dignissim hendr erit auctor. Sed varius, dolor vitae iaculis
-          condimentum, massa nisl cursus sapien, gravida ultrices nisi dolor non
-          erat. pi llentesque sodales sed nisl eget dignissim. Pellentesque
-          habitant morbi tristique senectus et netus et malesuada fames ac
-          turpis egestas. Donec consequat tortor vitae nisl bibendum, vel
-          eleifend dui feugiat. Curabitur pharetra, risus eget gravida lobortis,
-          ipsum lorem pretium sem, sit amet scelerisque dui neque et nisl. Sed
-          vitae.
-        </p>
-      </Section>
-      <OurTeam />
-      <Contact />
-    </>
-  )
-}
-
+  }
+`
 export default AboutUs

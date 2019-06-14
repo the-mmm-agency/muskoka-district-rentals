@@ -10,16 +10,16 @@ import transitions, { duration } from 'theme/transitions'
 const radius = style({
   prop: 'radius',
   cssProperty: 'borderRadius',
-  key: 'buttonRadii',
+  key: 'buttons.radii',
   transformValue: n => n + 'px',
 })
 
 const buttonStyle = variant({
-  key: 'buttonVariants',
+  key: 'buttons.variants',
 })
 
 const buttonSize = variant({
-  key: 'buttonSizes',
+  key: 'buttons.sizes',
   prop: 'size',
 })
 

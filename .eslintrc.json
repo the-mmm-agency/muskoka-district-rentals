@@ -74,6 +74,7 @@
           ["components", "./src/components"],
           ["images", "./src/images"],
           ["pages", "./src/pages"],
+          ["styles", "./src/styles"],
           ["templates", "./src/templates"],
           ["theme", "./src/theme"]
         ],

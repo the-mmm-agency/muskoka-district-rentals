@@ -1,15 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useMedia } from 'use-media'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 
+import globalStyles from 'styles/global.css'
 import Footer from 'components/footer'
 import MobileHeader from 'components/mobileHeader'
 import Header from 'components/header'
-import globalStyles from 'theme/global.css'
-import fonts from 'theme/fonts.css'
+import normalize from 'styles/normalize.css'
+import fonts from 'styles/fonts.css'
 import theme from 'theme'
 
 const Layout = ({ children }) => {
@@ -29,6 +29,7 @@ const Layout = ({ children }) => {
   `)
   return (
     <ThemeProvider theme={theme}>
+      <Global styles={normalize} />
       <Global styles={fonts} />
       <Global styles={globalStyles} />
       <>
@@ -44,10 +45,6 @@ const Layout = ({ children }) => {
       </>
     </ThemeProvider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
