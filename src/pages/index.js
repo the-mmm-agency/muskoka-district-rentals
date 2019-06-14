@@ -70,23 +70,27 @@ const IndexPage = ({
         textAlign: 'center',
       })}
     >
-      <span
-        css={css({
-          justifySelf: 'flex-start',
-          my: [3, 5, 6],
-          pt: 5,
-          color: 'text.secondary',
-          textTransform: 'uppercase',
-          letterSpacing: '0.35em',
-        })}
-      >
-        about us
-      </span>
+      <Hidden down={1}>
+        <span
+          css={css({
+            justifySelf: 'flex-start',
+            mt: [3, 5, 6],
+            mb: [2, 4, 5],
+            pt: 5,
+            color: 'text.secondary',
+            textTransform: 'uppercase',
+            letterSpacing: '0.35em',
+          })}
+        >
+          about us
+        </span>
+      </Hidden>
       <div
         display="flex"
         flexBasis="50%"
         alignItems="center"
         justifyContent="center"
+        mt={[3, 0]}
         p={3}
       >
         <Hidden down={2}>

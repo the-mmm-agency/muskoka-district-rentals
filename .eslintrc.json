@@ -70,7 +70,6 @@
     "import/resolver": {
       "alias": {
         "map": [
-          ["constants", "./src/constants"],
           ["components", "./src/components"],
           ["images", "./src/images"],
           ["pages", "./src/pages"],

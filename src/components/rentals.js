@@ -27,10 +27,8 @@ const Rentals = () => {
   if (isLarge) {
     return (
       <PageImage
-        css={{
-          minHeight: '100vh',
-          maxHeight: '100vh',
-        }}
+        minHeight={700}
+        maxHeight={700}
         fluid={rentals[selected].featured_media.localFile.childImageSharp.fluid}
         Tag="section"
       >

@@ -15,7 +15,7 @@ import CottageInfo from 'components/cottageInfo'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  @media screen and (min-width: ${themeGet('breakpoints.0')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
     &:nth-child(even) {
       flex-direction: row-reverse;
       justify-content: flex-end;
@@ -80,7 +80,7 @@ const Cottage = ({
         justifyContent: 'inherit',
         p: 2,
         pt: 0,
-        width: ['100%', '50%', 'calc(100% / 3)'],
+        width: ['100%', '100%', '50%', 'calc(100% / 3)'],
       })}
     >
       <div mb={3}>
@@ -155,7 +155,7 @@ const Cottage = ({
         alignSelf: 'flex-start',
         flexGrow: 1,
         flexShrink: 1,
-        width: ['100%', '50%'],
+        width: ['100%', '100%', '50%'],
         mb: 4,
       })}
       imgStyle={{

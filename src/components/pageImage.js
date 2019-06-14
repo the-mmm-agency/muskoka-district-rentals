@@ -27,7 +27,7 @@ const PageImage = props => (
 export const query = graphql`
   fragment PageImage on File {
     childImageSharp {
-      fluid(maxHeight: 1000) {
+      fluid(maxWidth: 4096) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
