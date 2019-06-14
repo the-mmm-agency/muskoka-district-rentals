@@ -10,7 +10,6 @@ import Checkbox from 'components/checkbox'
 import DateInput from 'components/dateInput'
 import DatePicker from 'components/datePicker'
 import DownIcon from 'components/downIcon'
-import palette from 'theme/palette'
 
 const CheckboxLabel = styled.span(
   css({
@@ -64,7 +63,7 @@ const DatePickerWrapper = styled.div`
 const Section = styled.div`
   @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
     &:last-child {
-      background-color: ${palette.background.dark};
+      background-color: ${themeGet('colors.background.dark')};
     }
     width: 25%;
   }
@@ -95,7 +94,7 @@ const SectionWrapper = styled.div`
 const Header = styled.span`
   width: 100%;
   margin-bottom: 15px;
-  color: ${palette.text.secondary};
+  color: ${themeGet('colors.text.secondary')};
   font-weight: 700;
   font-size: 0.875rem;
   text-align: left;

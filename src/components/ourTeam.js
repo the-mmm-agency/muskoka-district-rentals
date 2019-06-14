@@ -8,7 +8,6 @@ import { useNumber } from 'react-hanger'
 
 import transitions, { duration, easing } from 'theme/transitions'
 import MemberInfo from 'components/memberInfo'
-import palette from 'theme/palette'
 import RightIcon from 'components/rightIcon'
 
 const Wrapper = styled.section`
@@ -38,7 +37,6 @@ const NextButton = styled.div`
   align-items: center;
   justify-content: center;
   width: 25%;
-  background-color: ${palette.background.dark};
   cursor: pointer;
   transition: ${transitions.create('background-color', {
     duration: duration.complex,
@@ -179,7 +177,7 @@ const OurTeam = () => {
                 </TeamMemberWrapper>
               ))}
             </StyledPose>
-            <NextButton onClick={handleClick}>
+            <NextButton bg="background.dark" onClick={handleClick}>
               <RightIcon />
             </NextButton>
           </Team>

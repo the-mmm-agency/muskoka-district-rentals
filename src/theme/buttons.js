@@ -1,4 +1,4 @@
-import colors from 'theme/palette'
+import colors from 'theme/colors'
 import transitions, { duration } from 'theme/transitions'
 
 export default {

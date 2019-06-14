@@ -1,26 +1,29 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import StarRatings from 'react-star-ratings'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import css from '@styled-system/css'
 import PropTypes from 'prop-types'
 import { themeGet } from '@styled-system/theme-get'
-import { ifProp } from 'styled-tools'
 
+import StarRating from 'components/starRating'
 import Hidden from 'components/hidden'
 import Number from 'components/number'
 import Button from 'components/button'
 import CottageInfo from 'components/cottageInfo'
-import palette from 'theme/palette'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
-    flex-direction: ${ifProp('reverse', 'row', 'row-reverse')};
-    justify-content: ${ifProp('reverse', 'flex-start', 'flex-end')};
-    text-align: ${ifProp('reverse', 'left', 'right')};
+  @media screen and (min-width: ${themeGet('breakpoints.0')}) {
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      text-align: right;
+    }
+    text-align: left;
+    justify-content: flex-start;
+    flex-direction: row;
   }
 `
 
@@ -81,14 +84,7 @@ const Cottage = ({
       })}
     >
       <div mb={3}>
-        <StarRatings
-          rating={reviewAvg}
-          starRatedColor={palette.starRated}
-          numberOfStars={5}
-          starSpacing="1px"
-          starDimension="1rem"
-          name="rating"
-        />{' '}
+        <StarRating rating={reviewAvg} starDimension="1rem" />{' '}
         <span fontWeight="medium" ml="1px">
           {reviewCount} reviews
         </span>

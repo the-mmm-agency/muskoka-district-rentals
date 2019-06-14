@@ -1,5 +1,5 @@
 import buttons from 'theme/buttons'
-import colors from 'theme/palette'
+import colors from 'theme/colors'
 import shadows from 'theme/shadows'
 import typography from 'theme/typography'
 import transitions from 'theme/transitions'

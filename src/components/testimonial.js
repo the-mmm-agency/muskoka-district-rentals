@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import StarRatings from 'react-star-ratings'
 import { graphql } from 'gatsby'
 
-import palette from 'theme/palette'
+import StarRating from 'components/starRating'
 
 const Testimonial = ({ body, rating, author, property }) => (
   <div
@@ -39,17 +38,10 @@ const Testimonial = ({ body, rating, author, property }) => (
     >
       &quot;{body}&quot;
     </p>
-    <StarRatings
-      rating={rating}
-      starRatedColor={palette.starRated}
-      numberOfStars={5}
-      starSpacing="1px"
-      starDimension="1.5rem"
-      name="rating"
-    />
+    <StarRating rating={rating} starDimension="1.5rem" />
     <span fontWeight="medium" mt={5} mb={0}>
-      <strong>{author} -</strong> Review for {property.name} from{' '}
-      <strong>{property.location}</strong>
+      <b>{author} -</b> Review for {property.name} from{' '}
+      <b>{property.location}</b>
     </span>
   </div>
 )
@@ -62,6 +54,7 @@ Testimonial.propTypes = {
     location: PropTypes.string.isRequired,
   }).isRequired,
   rating: PropTypes.number.isRequired,
+  theme: PropTypes.object.isRequired,
 }
 
 export const query = graphql`
