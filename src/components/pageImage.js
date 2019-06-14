@@ -6,6 +6,8 @@ import BackgroundImage from 'gatsby-background-image'
 const PageImage = props => (
   <BackgroundImage
     {...props}
+    Tag="section"
+    fadeIn
     css={css({
       '*': {
         color: 'white',

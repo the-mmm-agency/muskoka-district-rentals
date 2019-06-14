@@ -78,4 +78,39 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
+    .then(() => {
+      return graphql(`
+        {
+          allWordpressWpMphbRoomType {
+            edges {
+              node {
+                id
+                slug
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const cottageTemplate = path.resolve(`./src/templates/cottage.js`)
+      const cottages = result.data.allWordpressWpMphbRoomType.edges
+
+      // Create a Gatsby page for each WordPress Category
+      cottages.forEach(({ node: cot }) => {
+        createPage({
+          path: `/cottages/${cot.slug}/`,
+          component: cottageTemplate,
+          context: {
+            id: cot.id,
+            slug: cot.slug,
+          },
+        })
+      })
+    })
 }

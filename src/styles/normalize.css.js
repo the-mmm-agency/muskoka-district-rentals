@@ -120,15 +120,7 @@ const normalize = css({
     px: 3,
     py: 2,
   },
-  'th,td': {
-    ':first-of-type': {
-      pl: 0,
-    },
-    ':last-of-type': {
-      pr: 0,
-    },
-  },
-  thead: {
+  'thead,tr': {
     textAlign: 'left',
   },
   'h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dd,p,figure,pre,table,fieldset,blockquote,form,noscript,iframe,address': {

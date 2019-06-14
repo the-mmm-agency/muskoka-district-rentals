@@ -9,7 +9,7 @@ import { themeGet } from '@styled-system/theme-get'
 import StarRating from 'components/starRating'
 import Hidden from 'components/hidden'
 import Number from 'components/number'
-import Button from 'components/button'
+import Link from 'components/link'
 import CottageInfo from 'components/cottageInfo'
 
 const Wrapper = styled.div`
@@ -35,135 +35,138 @@ const Cottage = ({
   suitability,
   featured_media,
   bed,
+  slug,
   lowestRate,
   size,
   reviewAvg,
   reviewCount,
   number,
 }) => (
-  <Wrapper reverse={number % 2 === 0} mx={2} my={3}>
-    <Hidden down={2}>
+  <>
+    <Wrapper reverse={number % 2 === 0} mx={2} my={3}>
+      <Hidden down={2}>
+        <div
+          css={css({
+            alignItems: 'center',
+            border: '1px solid',
+            borderColor: 'text.secondary',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            maxHeight: '350px',
+            mt: 0,
+            mx: 5,
+            p: 4,
+          })}
+        >
+          <span
+            css={{
+              fontWeight: 'bold',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              writingMode: 'vertical-lr',
+            }}
+          >
+            Test
+          </span>
+          <Number color="text.secondary" fontWeight="bold" fontSize={4}>
+            {number + 1}
+          </Number>
+        </div>
+      </Hidden>
       <div
         css={css({
-          alignItems: 'center',
-          border: '1px solid',
-          borderColor: 'text.secondary',
           display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          maxHeight: '350px',
-          mt: 0,
-          mx: 5,
-          p: 4,
+          flexShrink: 0,
+          flexWrap: 'wrap',
+          justifyContent: 'inherit',
+          p: 2,
+          pt: 0,
+          width: ['100%', '100%', '50%', 'calc(100% / 3)'],
         })}
       >
+        <div mb={3}>
+          <StarRating rating={reviewAvg} starDimension="1rem" />{' '}
+          <span fontWeight="medium" ml="1px">
+            {reviewCount} reviews
+          </span>
+        </div>
+        <h2 fontSize={1} mb={4} lineHeight="expanded" width="100%">
+          {title}
+        </h2>
+        <span fontWeight="semibold" fontSize={5} pt={2}>
+          Start from{' '}
+        </span>
         <span
-          css={{
-            fontWeight: 'bold',
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
-            writingMode: 'vertical-lr',
-          }}
+          fontSize={3}
+          lineHeight={1.2}
+          ml={1}
+          color="text.primary"
+          fontWeight="bold"
         >
-          Test
+          {' $' + lowestRate}
         </span>
-        <Number color="text.secondary" fontWeight="bold" fontSize={4}>
-          {number + 1}
-        </Number>
-      </div>
-    </Hidden>
-    <div
-      css={css({
-        display: 'flex',
-        flexShrink: 0,
-        flexWrap: 'wrap',
-        justifyContent: 'inherit',
-        p: 2,
-        pt: 0,
-        width: ['100%', '100%', '50%', 'calc(100% / 3)'],
-      })}
-    >
-      <div mb={3}>
-        <StarRating rating={reviewAvg} starDimension="1rem" />{' '}
-        <span fontWeight="medium" ml="1px">
-          {reviewCount} reviews
+        <span color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
+          /Night
         </span>
+        <div
+          css={{
+            maxHeight: '19rem',
+            maxWidth: ['100%', '90%'],
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            wordWrap: 'normal',
+          }}
+          color="text.paragraph"
+          mt={4}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+        <CottageInfo
+          attributes={[
+            {
+              name: 'Square Feet',
+              value: `${size} sqft`,
+            },
+            {
+              name: 'Property',
+              value: categories[0].name,
+            },
+            {
+              name: 'Sleeps',
+              value: capacity,
+            },
+            {
+              name: 'Beds',
+              value: bed,
+            },
+            {
+              name: 'Pet Friendly',
+              value:
+                suitability.filter(s => s.name === 'pets').length !== 0
+                  ? 'Yes'
+                  : 'No',
+            },
+          ]}
+        />
+        <Link to={`/cottages/${slug}`} ml="-1rem" variant="transparent">
+          Book now &nbsp;&rsaquo;
+        </Link>
       </div>
-      <h2 fontSize={1} mb={4} lineHeight="expanded" width="100%">
-        {title}
-      </h2>
-      <span fontWeight="semibold" fontSize={5} pt={2}>
-        Start from{' '}
-      </span>
-      <span
-        fontSize={3}
-        lineHeight={1.2}
-        ml={1}
-        color="text.primary"
-        fontWeight="bold"
-      >
-        {' $' + lowestRate}
-      </span>
-      <span color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
-        /Night
-      </span>
-      <div
-        css={{
-          maxHeight: '19rem',
-          maxWidth: ['100%', '90%'],
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          wordWrap: 'normal',
+      <Img
+        css={css({
+          alignSelf: 'flex-start',
+          flexGrow: 1,
+          flexShrink: 1,
+          width: ['100%', '100%', '50%'],
+          mb: 4,
+        })}
+        imgStyle={{
+          objectFit: 'contain',
         }}
-        color="text.paragraph"
-        mt={4}
-        dangerouslySetInnerHTML={{ __html: content }}
+        fluid={featured_media.localFile.childImageSharp.fluid}
       />
-      <CottageInfo
-        attributes={[
-          {
-            name: 'Square Feet',
-            value: `${size} sqft`,
-          },
-          {
-            name: 'Property',
-            value: categories[0].name,
-          },
-          {
-            name: 'Sleeps',
-            value: capacity,
-          },
-          {
-            name: 'Beds',
-            value: bed,
-          },
-          {
-            name: 'Pet Friendly',
-            value:
-              suitability.filter(s => s.name === 'pets').length !== 0
-                ? 'Yes'
-                : 'No',
-          },
-        ]}
-      />
-      <Button ml="-1rem" variant="transparent">
-        Book now &nbsp;&rsaquo;
-      </Button>
-    </div>
-    <Img
-      css={css({
-        alignSelf: 'flex-start',
-        flexGrow: 1,
-        flexShrink: 1,
-        width: ['100%', '100%', '50%'],
-        mb: 4,
-      })}
-      imgStyle={{
-        objectFit: 'contain',
-      }}
-      fluid={featured_media.localFile.childImageSharp.fluid}
-    />
-  </Wrapper>
+    </Wrapper>
+  </>
 )
 
 export const query = graphql`
@@ -187,6 +190,7 @@ export const query = graphql`
     capacity
     lowestRate
     content
+    slug
     size
     title
   }
@@ -207,6 +211,7 @@ Cottage.propTypes = {
   reviewAvg: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,
   size: PropTypes.number.isRequired,
+  slug: PropTypes.string.isRequired,
   suitability: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

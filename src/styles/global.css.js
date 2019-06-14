@@ -41,7 +41,7 @@ const styles = css({
     transition: transitions.create(['color', 'text-decoration']),
   },
   blockquote: {
-    backgroundColor: 'background.default',
+    bg: 'background.default',
     borderLeft: '.25em solid',
     borderColor: 'secondary',
     color: 'text.primary',
@@ -50,7 +50,15 @@ const styles = css({
     ml: 0,
   },
   thead: {
-    backgroundColor: 'background.dark',
+    bg: 'rgba(0,0,0,0.08)',
+  },
+  'th,td': {
+    borderBottom: '1px solid rgba(0,0,0,0.2)',
+    p: 3,
+  },
+  table: {
+    borderCollapse: 'collapse',
+    textTransform: 'uppercase',
   },
   'thead,tr': {
     color: 'text.primary',
