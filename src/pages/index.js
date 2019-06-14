@@ -66,7 +66,7 @@ const IndexPage = ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        mb: 6,
+        mb: [3, 5, 6],
         textAlign: 'center',
       })}
     >

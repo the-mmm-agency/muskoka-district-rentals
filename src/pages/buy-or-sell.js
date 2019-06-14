@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import css from '@styled-system/css'
 
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
@@ -17,24 +16,8 @@ const BuyOrSell = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <div
-      css={css({
-        px: [3, 6],
-        py: 5,
-      })}
-    >
-      <div
-        css={css({
-          h6: {
-            px: 0,
-            mb: 2,
-          },
-          p: {
-            mb: 0,
-          },
-        })}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+    <div px={[3, 6]} py={5}>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </div>
   </>

@@ -10,11 +10,12 @@ const Testimonial = ({ body, rating, author, property }) => (
     flexDirection="column"
     bg="background.light"
     flexShrink={0}
-    minHeight="60vh"
     alignItems="center"
     justifyContent="center"
-    m="10% auto"
-    p="8%"
+    my="10%"
+    mx="auto"
+    px={3}
+    py={5}
     width={['100%', null, '80%']}
     textAlign="center"
     background="background.light"
@@ -22,16 +23,21 @@ const Testimonial = ({ body, rating, author, property }) => (
     <span
       color="text.secondary"
       textTransform="uppercase"
-      letterSpacing="0.5em"
+      css={{
+        letterSpacing: '0.7em',
+      }}
       fontWeight="bold"
+      fontSize={['80%', '100%']}
       mb={4}
     >
-      Testimonial
+      Testimonials
     </span>
-    <h2 mb={5}>What Guests Say</h2>
+    <h2 fontSize={[3, 2]} mb={[4, 5]}>
+      What Guests Say
+    </h2>
     <p
-      lineHeight="expanded"
-      fontSize={4}
+      lineHeight={1.4}
+      fontSize={[5, 4]}
       color="text.alt"
       fontFamily="serif"
       fontStyle="italic"
@@ -39,7 +45,7 @@ const Testimonial = ({ body, rating, author, property }) => (
       &quot;{body}&quot;
     </p>
     <StarRating rating={rating} starDimension="1.5rem" />
-    <span fontWeight="medium" mt={5} mb={0}>
+    <span fontWeight="medium" mt={[3, 5]} mb={0}>
       <b>{author} -</b> Review for {property.name} from{' '}
       <b>{property.location}</b>
     </span>

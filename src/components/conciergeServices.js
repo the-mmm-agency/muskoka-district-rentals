@@ -26,16 +26,18 @@ const ConciergeServices = () => {
       flexGrow={0}
     >
       <div width={['100%', null, null, '50%']} p={[4, null, 5]}>
-        <span
-          css={{
-            letterSpacing: 'headers',
-          }}
-          pl={2}
-          textTransform="uppercase"
-        >
-          Experience Muskoka
-        </span>
-        <h2 mt={3}>Concierge Services</h2>
+        <div textAlign={['center', 'left']}>
+          <span
+            css={{
+              letterSpacing: 'headers',
+            }}
+            pl={2}
+            textTransform="uppercase"
+          >
+            Experience Muskoka
+          </span>
+          <h2 mt={[2, 3]}>Concierge Services</h2>
+        </div>
         <ul
           css={{
             '::-webkit-scrollbar': {

@@ -32,15 +32,10 @@ const Contact = () => {
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: '100vh',
-        maxHeight: '100vh',
-        padding: '10% 20%',
+        py: [5, 6],
         textAlign: 'center',
         h2: {
-          mb: 6,
-        },
-        p: {
-          mb: 5,
+          mb: [5, 6],
         },
         span: {
           color: 'text.light',

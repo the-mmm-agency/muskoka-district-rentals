@@ -8,57 +8,59 @@ import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  & > p:first-of-type {
-    color: ${themeGet('colors.text.secondary')};
-    margin-bottom: 0;
-  }
-  div {
+  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
     display: flex;
+    flex-direction: column;
+    & > p:first-of-type {
+      color: ${themeGet('colors.text.secondary')};
+      margin-bottom: 0;
+    }
     div {
-      &:first-of-type {
-        padding: 0;
-      }
-      &:last-of-type {
+      display: flex;
+      div {
+        &:first-of-type {
+          padding: 0;
+        }
+        &:last-of-type {
+          p,
+          h6 {
+            padding-right: 0;
+          }
+          border-right: none;
+        }
+        display: flex;
+        flex-direction: column;
+        margin-right: ${themeGet('space.3')};
+        padding: 0 ${themeGet('space.2')};
+        border-right: 0.5px solid rgba(0, 0, 0, 0.3);
         p,
         h6 {
-          padding-right: 0;
+          padding-right: ${themeGet('space.4')};
         }
-        border-right: none;
+        p {
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          color: ${themeGet('colors.text.secondary')};
+        }
+        h6 {
+          margin-bottom: ${themeGet('space.2')};
+        }
       }
       display: flex;
-      flex-direction: column;
-      margin-right: ${themeGet('space.3')};
-      padding: 0 ${themeGet('space.2')};
-      border-right: 0.5px solid rgba(0, 0, 0, 0.3);
-      p,
-      h6 {
-        padding-right: ${themeGet('space.4')};
-      }
-      p {
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-        color: ${themeGet('colors.text.secondary')};
-      }
-      h6 {
-        margin-bottom: ${themeGet('space.2')};
-      }
+      flex-basis: calc(100% / 3);
+      margin-top: ${themeGet('space.3')};
+      margin-bottom: ${themeGet('space.2')};
     }
-    display: flex;
-    flex-basis: calc(100% / 3);
-    margin-top: ${themeGet('space.3')};
-    margin-bottom: ${themeGet('space.2')};
-  }
-  h6 {
-    margin-bottom: ${themeGet('space.2')};
-  }
-  span {
-    display: flex;
-    font-weight: bold;
-    white-space: normal;
-    max-width: 50%;
+    h6 {
+      margin-bottom: ${themeGet('space.2')};
+    }
+    span {
+      display: flex;
+      font-weight: bold;
+      white-space: normal;
+      max-width: 50%;
+    }
   }
 `
 
