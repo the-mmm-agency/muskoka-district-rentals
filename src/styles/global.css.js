@@ -17,7 +17,7 @@ const headers = Object.assign(
 
 const styles = css({
   html: {
-    fontSize: ['10px', '12px', '14px', 'base'],
+    fontSize: ['10px', '10px', '12px', 'base'],
     boxSizing: 'border-box',
     lineHeight: 'default',
   },

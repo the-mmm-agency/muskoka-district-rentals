@@ -81,6 +81,7 @@ const TeamMember = styled(BackgroundImage)`
   &:hover {
     opacity: 1;
   }
+  background-color: ${props => props.backgroundColor};
   display: flex;
   align-items: center;
   justify-content: center;
