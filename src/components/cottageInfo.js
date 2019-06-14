@@ -11,6 +11,7 @@ const CottageInfo = ({ attributes }) => (
       fontWeight: 'bold',
       marginTop: 4,
       marginLeft: 0,
+      listStyle: 'none',
       width: '100%',
     }}
   >

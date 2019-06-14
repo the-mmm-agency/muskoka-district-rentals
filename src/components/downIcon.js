@@ -8,7 +8,6 @@ const DownIcon = () => (
       width: 30,
       height: 30,
       ml: 1,
-      fill: 'text.primary',
     })}
     viewBox="0 0 32 32"
     aria-hidden="true"

@@ -41,7 +41,7 @@
     "prettier/prettier": "error",
     "react/prop-types": [
       "error",
-      { "ignore": ["data", "children", "pageContext", "theme"] }
+      { "ignore": ["data", "children", "pageContext", "theme", "location"] }
     ],
     "react/prefer-stateless-function": "warn",
     "react/sort-prop-types": "error",

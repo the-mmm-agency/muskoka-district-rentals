@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   @media screen and (min-width: ${themeGet('breakpoints.0')}) {
-    &:nth-child(odd) {
+    &:nth-child(even) {
       flex-direction: row-reverse;
       justify-content: flex-end;
       text-align: right;
@@ -109,8 +109,8 @@ const Cottage = ({
       </span>
       <div
         css={{
-          maxHeight: '200px',
-          maxWidth: '90%',
+          maxHeight: '19rem',
+          maxWidth: ['100%', '90%'],
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           wordWrap: 'normal',

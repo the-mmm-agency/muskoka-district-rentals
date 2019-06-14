@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-use'
-import { withPrefix } from 'gatsby'
 import styled from '@emotion/styled'
 import Fade from 'react-reveal/Fade'
 import { ifProp } from 'styled-tools'
 import PropTypes from 'prop-types'
+import { Location } from '@reach/router'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import BackIcon from 'components/backIcon'
@@ -20,7 +19,7 @@ const StyledHeader = styled.header`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  height: ${ifProp('active', '30rem', '60px')};
+  height: ${ifProp('active', '35rem', '60px')};
   overflow: hidden;
   text-align: center;
   transition: ${transitions.create('height', { duration: '0.175s' })};
@@ -31,18 +30,20 @@ const MobileHeader = ({ links }) => {
   const handleClick = () => {
     setActive(!active)
   }
-  const location = useLocation()
-  const isHome = location.pathName === withPrefix('/')
   return (
     <StyledHeader bg="white" active={active} p={1}>
       <div alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
-        {isHome ? (
-          <Logo />
-        ) : (
-          <AniLink mr="auto" my="auto" fade to="/">
-            <BackIcon />
-          </AniLink>
-        )}
+        <Location>
+          {props =>
+            props.location.pathname === '/' ? (
+              <Logo />
+            ) : (
+              <AniLink mr="auto" mt="auto" fade to="/">
+                <BackIcon />
+              </AniLink>
+            )
+          }
+        </Location>
         <Hamburger active={active} onClick={handleClick} ml="auto" />
       </div>
       <Fade m="auto" when={active}>
