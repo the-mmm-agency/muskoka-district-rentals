@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
 const PageImage = styled(BackgroundImage)`
@@ -15,6 +16,16 @@ const PageImage = styled(BackgroundImage)`
   justify-content: center;
   height: 600px;
   text-align: center;
+`
+
+export const query = graphql`
+  fragment PageImage on File {
+    childImageSharp {
+      fluid(maxWidth: 4160) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
 `
 
 export default PageImage

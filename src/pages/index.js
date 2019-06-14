@@ -166,11 +166,7 @@ const IndexPage = ({
 export const query = graphql`
   query {
     headerImg: file(relativePath: { eq: "home.jpg" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 4160) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+      ...PageImage
     }
     aboutImg: file(relativePath: { eq: "welcome.jpg" }) {
       childImageSharp {

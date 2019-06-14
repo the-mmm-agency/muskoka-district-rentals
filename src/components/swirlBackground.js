@@ -24,7 +24,7 @@ const SwirlBackground = ({ children, theme }) => {
     query {
       swirl: file(relativePath: { eq: "swirl.png" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 300) {
+          fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
