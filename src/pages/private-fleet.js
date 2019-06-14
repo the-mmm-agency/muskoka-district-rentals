@@ -16,7 +16,7 @@ const PrivateFleet = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <div px={6} py={5}>
+    <div px={[3, 4, 5, 6]} py={[0, 1, 2, 3]}>
       <div
         css={{
           ul: {

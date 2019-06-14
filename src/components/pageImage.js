@@ -16,6 +16,7 @@ const PageImage = props => (
       display: 'flex',
       flexDirection: 'column',
       height: [200, 300, 400, 500],
+      minHeight: 'fit-content',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
