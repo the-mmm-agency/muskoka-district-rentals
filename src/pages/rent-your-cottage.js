@@ -10,6 +10,10 @@ import SEO from 'components/seo'
 const Content = styled.div`
   display: flex;
   flex-direction: column;
+  & > p:first-of-type {
+    color: ${themeGet('colors.text.secondary')};
+    margin-bottom: 0;
+  }
   div {
     display: flex;
     div {
@@ -17,6 +21,10 @@ const Content = styled.div`
         padding: 0;
       }
       &:last-of-type {
+        p,
+        h6 {
+          padding-right: 0;
+        }
         border-right: none;
       }
       display: flex;
@@ -24,6 +32,16 @@ const Content = styled.div`
       margin-right: ${themeGet('space.3')};
       padding: 0 ${themeGet('space.2')};
       border-right: 0.5px solid rgba(0, 0, 0, 0.3);
+      p,
+      h6 {
+        padding-right: ${themeGet('space.4')};
+      }
+      p {
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+        color: ${themeGet('colors.text.secondary')};
+      }
       h6 {
         margin-bottom: ${themeGet('space.2')};
       }
@@ -55,7 +73,7 @@ const RentYourCottage = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <div px={[3, 6]} py={5}>
+    <div px={[3, 4, 5, 6]} py={5}>
       <Content dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </div>

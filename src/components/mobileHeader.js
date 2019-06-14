@@ -30,6 +30,9 @@ const MobileHeader = ({ links }) => {
   const handleClick = () => {
     setActive(!active)
   }
+  const closeMenu = () => {
+    setActive(false)
+  }
   return (
     <StyledHeader bg="white" active={active} p={1}>
       <div alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
@@ -47,7 +50,7 @@ const MobileHeader = ({ links }) => {
         <Hamburger active={active} onClick={handleClick} ml="auto" />
       </div>
       <Fade m="auto" when={active}>
-        <HeaderMenu links={links} />
+        <HeaderMenu handleClick={closeMenu} links={links} />
       </Fade>
     </StyledHeader>
   )

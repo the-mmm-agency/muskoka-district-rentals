@@ -1,27 +1,32 @@
-import styled from '@emotion/styled'
+import React from 'react'
+import css from '@styled-system/css'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
-const PageImage = styled(BackgroundImage)`
-  * {
-    color: white;
-  }
-  &::before,
-  &::after {
-    filter: brightness(0.4);
-  }
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 600px;
-  text-align: center;
-`
+const PageImage = props => (
+  <BackgroundImage
+    {...props}
+    css={css({
+      '*': {
+        color: 'white',
+      },
+      '::before, ::after': {
+        filter: 'brightness(0.4)',
+      },
+      display: 'flex',
+      flexDirection: 'column',
+      height: [200, 300, 400, 500],
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+    })}
+  />
+)
 
 export const query = graphql`
   fragment PageImage on File {
     childImageSharp {
-      fluid(maxWidth: 4160) {
+      fluid(maxHeight: 1000) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }

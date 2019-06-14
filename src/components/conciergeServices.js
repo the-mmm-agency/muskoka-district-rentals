@@ -19,8 +19,13 @@ const ConciergeServices = () => {
     conciergeServices.nodes[0].featured_media
   )
   return (
-    <section display="flex" height="800px">
-      <div width="50%" p={[4, null, 5]}>
+    <section
+      display="flex"
+      minHeight={[500, 600, 700, 800]}
+      maxHeight={[500, 600, 700, 800]}
+      flexGrow={0}
+    >
+      <div width={['100%', null, null, '50%']} p={[4, null, 5]}>
         <span
           css={{
             letterSpacing: 'headers',
@@ -42,9 +47,9 @@ const ConciergeServices = () => {
             '::-webkit-scrollbar-thumb': {
               backgroundColor: '#0a252e',
             },
-            minWidth: '600px',
             maxHeight: '500px',
             margin: 'none',
+            width: '100%',
             overflowX: 'hidden',
             overflowY: 'scroll',
             listStyle: 'none',
@@ -59,8 +64,13 @@ const ConciergeServices = () => {
           ))}
         </ul>
       </div>
-      <Hidden down={2}>
-        <Img minWidth="50%" fluid={selected.localFile.childImageSharp.fluid} />
+      <Hidden down={3}>
+        <Img
+          minWidth="50%"
+          minHeight="100%"
+          maxHeight="100%"
+          fluid={selected.localFile.childImageSharp.fluid}
+        />
       </Hidden>
     </section>
   )

@@ -1,14 +1,13 @@
 import { graphql } from 'gatsby'
-import Fade from 'react-reveal/Fade'
 import React, { useState } from 'react'
 
 import PageImage from 'components/pageImage'
+import CottageList from 'components/cottageList'
 import CheckAvailability from 'components/checkAvailability'
 import Button from 'components/button'
-import Cottage from 'components/cottage'
 import SEO from 'components/seo'
 
-const Cottages = ({ data }) => {
+const Cottages = ({ data: { image, cottages } }) => {
   const [page, setPage] = useState(5)
   const handleClick = () => {
     setPage(page + 5)
@@ -16,26 +15,14 @@ const Cottages = ({ data }) => {
   return (
     <>
       <SEO title="Our Rentals" />
-      <PageImage fluid={data.image.childImageSharp.fluid} tag="section">
+      <PageImage fluid={image.childImageSharp.fluid} tag="section">
         <h1>Our Rentals</h1>
       </PageImage>
       <CheckAvailability />
       <div py={[3, 6]} mx={0}>
-        {data.rentals.nodes
-          .filter(node => node.image !== null)
-          .slice(0, page)
-          .map((rental, index) => (
-            <Fade key={rental.id}>
-              <Cottage
-                {...rental}
-                reviewAvg={4.5}
-                reviewCount={6}
-                number={index}
-              />
-            </Fade>
-          ))}
+        <CottageList cottages={cottages.nodes.slice(0, page)} />
       </div>
-      {page < data.rentals.nodes.filter(node => node.image !== null).length && (
+      {page < cottages.nodes.length && (
         <div width="100%" textAlign="center" mb={4}>
           <Button
             textTransform="uppercase"
@@ -60,7 +47,7 @@ export const query = graphql`
         }
       }
     }
-    rentals: allWordpressWpMphbRoomType {
+    cottages: allWordpressWpMphbRoomType {
       nodes {
         ...Cottage
       }

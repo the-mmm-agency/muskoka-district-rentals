@@ -16,7 +16,7 @@ const PostCard = ({ slug, featured_media, date, title }) => (
       backgroundColor: 'background.light',
       boxShadow: 1,
       cursor: 'pointer',
-      width: 'calc(100% / 3)',
+      width: ['50%', 'calc(100% / 3)'],
     })}
   >
     <Img fluid={featured_media.localFile.childImageSharp.fluid} />

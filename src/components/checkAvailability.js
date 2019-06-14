@@ -2,7 +2,7 @@ import useOnClickOutside from 'use-onclickoutside'
 import css from '@styled-system/css'
 import { DateUtils } from 'react-day-picker'
 import styled from '@emotion/styled'
-import { themeGet } from '@styled-system/theme-get'
+import themeGet from '@styled-system/theme-get'
 import React, { useRef, useState } from 'react'
 
 import Button from 'components/button'
@@ -27,7 +27,7 @@ const StyledButton = styled(Button)`
 `
 
 const Wrapper = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
     background: ${themeGet('colors.background.light')};
     width: 60%;
     min-width: 980px;
@@ -36,6 +36,7 @@ const Wrapper = styled.div`
     height: 150px;
     box-shadow: ${themeGet('shadows.25')};
     position: absolute;
+    border-color: transparent;
   }
   right: 0;
   left: 0;
@@ -44,11 +45,13 @@ const Wrapper = styled.div`
   flex-basis: 25%;
   justify-content: center;
   margin: auto;
+  border-bottom: 0.5px solid;
+  border-color: ${themeGet('colors.text.secondary')};
   margin-top: ${themeGet('space.3')};
 `
 
 const DatePickerWrapper = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
     left: 0px;
     width: 100vw;
   }
@@ -61,13 +64,13 @@ const DatePickerWrapper = styled.div`
 `
 
 const Section = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
     &:last-child {
       background-color: ${themeGet('colors.background.dark')};
     }
     width: 25%;
   }
-  @media screen and (max-width: ${themeGet('breakpoints.1', '200px')}) {
+  @media screen and (max-width: ${themeGet('breakpoints.1')}) {
     &:last-child {
       width: 50%;
     }
@@ -77,10 +80,10 @@ const Section = styled.div`
 `
 
 const SectionWrapper = styled.div`
-  @media screen and (max-width: ${themeGet('breakpoints.1', '200px')}) {
+  @media screen and (max-width: ${themeGet('breakpoints.1')}) {
     width: 100%;
   }
-  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
+  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
     border-right: ${props =>
       props.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1) `};
   }
@@ -93,7 +96,7 @@ const SectionWrapper = styled.div`
 
 const Header = styled.span`
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: ${themeGet('space.1')};
   color: ${themeGet('colors.text.secondary')};
   font-weight: 700;
   font-size: 0.875rem;

@@ -18,15 +18,16 @@ const MenuLink = styled(Link)`
   width: 100%;
 `
 
-const HeaderMenu = ({ links }) => (
+const HeaderMenu = ({ links, handleClick }) => (
   <div width="100%" display="flex" flexWrap="wrap" minHeight="100%">
-    <MenuLink to="/" fontSize={4} fontFamily="serif">
+    <MenuLink to="/" onClick={handleClick} fontSize={4} fontFamily="serif">
       <span>Home</span>
     </MenuLink>
     {links.map(to => (
       <MenuLink
         key={to}
         to={to}
+        onClick={handleClick}
         textTransform="capitalize"
         fontSize={4}
         fontFamily="serif"
@@ -38,6 +39,7 @@ const HeaderMenu = ({ links }) => (
 )
 
 HeaderMenu.propTypes = {
+  handleClick: PropTypes.func.isRequired,
   links: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 }
 

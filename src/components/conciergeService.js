@@ -26,11 +26,16 @@ const ConciergeService = ({ title, slug, featured_media, setSelected }) => (
       duration={0.5}
     >
       <Img
-        width="30%"
-        maxHeight="120px"
+        width="12.5rem"
+        minWidth="12.5rem"
+        maxWidth="12.5rem"
+        minHeight="8rem"
+        maxHeight="8rem"
         fluid={featured_media.localFile.childImageSharp.fluid}
       />
-      <h5 ml={4}>{title}</h5>
+      <h6 fontSize={4} ml={4}>
+        {title}
+      </h6>
     </Link>
   </li>
 )
