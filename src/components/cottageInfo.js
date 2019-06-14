@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import css from '@styled-system/css'
 
 const CottageInfo = ({ attributes }) => (
   <ul
-    css={{
+    css={css({
       li: {
         color: 'text.light',
         marginBottom: 1,
@@ -13,7 +14,7 @@ const CottageInfo = ({ attributes }) => (
       marginLeft: 0,
       listStyle: 'none',
       width: '100%',
-    }}
+    })}
   >
     {attributes.map(attribute => (
       <li key={attribute.name}>
