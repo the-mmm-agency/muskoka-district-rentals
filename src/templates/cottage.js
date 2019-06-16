@@ -6,6 +6,7 @@ import { Carousel } from 'react-responsive-carousel'
 import { graphql } from 'gatsby'
 
 import PageImage from 'components/pageImage'
+import Button from 'components/button'
 import AvailabilityCalendar from 'components/availabilityCalendar'
 import CheckAvailability from 'components/checkAvailability'
 import Breadcrumb from 'components/breadcrumb'
@@ -156,6 +157,13 @@ const Cottage = ({ data: { cottage } }) => (
           </tr>
         ))}
       </table>
+      <a
+        href={`http://muskokadis.wpengine.com/search-results/?&mphb_room_type_id=${cottage.wordpress_id}&mphb_check_in_date=2019-07-26&mphb_check_out_date=2019-07-27&mphb_adults=14&mphb_children=0`}
+      >
+        <Button m="auto" size="large" textTransform="uppercase" my={4}>
+          Book Now
+        </Button>
+      </a>
     </section>
   </div>
 )
@@ -165,6 +173,7 @@ export const query = graphql`
     cottage: wordpressWpMphbRoomType(id: { eq: $id }) {
       ...Amenities
       title
+      wordpress_id
       content
       size
       acf {
