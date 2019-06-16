@@ -17,8 +17,8 @@ const headers = Object.assign(
 
 const styles = css({
   html: {
-    fontSize: ['10px', '10px', '12px', 'base'],
     boxSizing: 'border-box',
+    fontSize: ['10px', '10px', '12px', 'base'],
     lineHeight: 'default',
   },
   body: {
@@ -42,9 +42,9 @@ const styles = css({
   },
   blockquote: {
     bg: 'background.default',
-    borderLeft: '.25em solid',
-    borderColor: 'secondary',
     color: 'text.primary',
+    borderColor: 'secondary',
+    borderLeft: '.25em solid',
     mt: 2,
     pl: 2,
     ml: 0,

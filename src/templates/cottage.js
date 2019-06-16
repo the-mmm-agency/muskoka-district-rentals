@@ -1,6 +1,8 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import css from '@styled-system/css'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { Carousel } from 'react-responsive-carousel'
 import { graphql } from 'gatsby'
 
 import PageImage from 'components/pageImage'
@@ -18,6 +20,8 @@ const Cottage = ({ data: { cottage } }) => (
     >
       <h1>{cottage.title}</h1>
       <Breadcrumb
+        activeColor="white"
+        color="white"
         crumbs={[
           { link: '/', title: 'Home' },
           { link: '/cottages', title: 'Our Rentals' },
@@ -25,23 +29,44 @@ const Cottage = ({ data: { cottage } }) => (
         ]}
       />
     </PageImage>
-    <CheckAvailability />
     <section
-      bg="background.dark"
+      bg="#eeeeee"
       display="flex"
+      mt="-75px"
+      px={5}
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      minHeight="100vh"
     >
-      <Img
+      <CheckAvailability />
+      <div
+        bg="white"
+        p={3}
+        my={5}
+        minWidth="100%"
         css={{
-          margin: 'auto',
-          marginTop: 300,
-          width: '80%',
+          boxShadow:
+            '0px 8px 11px -5px rgba(0,0,0,0.05),0px 17px 26px 2px rgba(0,0,0,0.05),0px 6px 32px 5px rgba(0,0,0,0.05)',
         }}
-        fluid={cottage.featured_media.localFile.childImageSharp.fluid}
-      />
+      >
+        <Carousel
+          css={{
+            minHeight: 800,
+            minWidth: '100%',
+          }}
+          dynamicHeight
+          showThumbs={false}
+          axis="horizontal"
+        >
+          {cottage.images.map(image => (
+            <Img
+              key={image.localFile.id}
+              fadeIn={false}
+              fluid={image.localFile.childImageSharp.fluid}
+            />
+          ))}
+        </Carousel>
+      </div>
       <span css={{ textTransform: 'uppercase' }} fontWeight="bold">
         Start From{' '}
         <span fontSize={3} color="text.primary">
@@ -62,7 +87,7 @@ const Cottage = ({ data: { cottage } }) => (
         })}
       >
         <li>
-          Sleeps: <b>{cottage.acf.accomodates}</b>
+          Sleeps: <b>{cottage.acf.accommodates}</b>
         </li>
         <li>
           Square Feet: <b>{cottage.size} SQFT</b>
@@ -78,9 +103,9 @@ const Cottage = ({ data: { cottage } }) => (
         </li>
       </ul>
     </section>
-    <section px={6}>
+    <section px={6} bg="white" minWidth="100vw" mr="-5rem" py={4}>
       <h2 my={5}>Overview</h2>
-      <div dangerouslySetInnerHTML={{ __html: cottage.content }} />
+      <div my={5} dangerouslySetInnerHTML={{ __html: cottage.content }} />
       <Amenities amenities={cottage.amenities} />
       <h3 my={4}>Rates and Availability</h3>
       <AvailabilityCalendar css={{ width: '80%' }} rates={cottage.rates} />
@@ -111,7 +136,7 @@ const Cottage = ({ data: { cottage } }) => (
           </tr>
         ))}
       </table>
-      <p textAlign="center" width="60%" m="auto" mb={4}>
+      <p textAlign="center" width="60%" m="auto" mb={6}>
         House Rules Include:
         <br />
         <br />
@@ -143,11 +168,19 @@ export const query = graphql`
       content
       size
       acf {
-        accomodates
+        accommodates
         bathrooms
         beds {
           room_type
-          icon
+          icon {
+            localFile {
+              childImageSharp {
+                fixed(width: 100, height: 100) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
         }
       }
       services {
@@ -176,6 +209,16 @@ export const query = graphql`
       }
       houseRules
       lowestRate
+      images {
+        localFile {
+          id
+          childImageSharp {
+            fluid(maxWidth: 4096, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
       featured_media {
         localFile {
           ...PageImage

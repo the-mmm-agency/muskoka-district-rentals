@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import { matchers } from 'jest-emotion'
 
 import Button from 'components/button'
-import palette from 'theme/palette'
+import colors from 'theme/colors'
 
 expect.extend(matchers)
 
@@ -20,7 +20,7 @@ test('it applies styles according to passed props', () => {
       </Button>
     )
     .toJSON()
-  expect(tree).toHaveStyleRule('background', palette.secondary)
+  expect(tree).toHaveStyleRule('background', colors.secondary)
   expect(tree).toHaveStyleRule('font-family', 'Playfair Display')
   expect(tree).toHaveStyleRule('font-size', '0.65rem')
   expect(tree).toHaveStyleRule('border-radius', '6px')

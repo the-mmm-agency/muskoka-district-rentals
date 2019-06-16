@@ -72,6 +72,7 @@
         "map": [
           ["components", "./src/components"],
           ["images", "./src/images"],
+          ["icons", "./src/icons"],
           ["pages", "./src/pages"],
           ["styles", "./src/styles"],
           ["templates", "./src/templates"],

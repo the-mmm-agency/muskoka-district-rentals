@@ -1,23 +1,13 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
 import React from 'react'
+import themeGet from '@styled-system/theme-get'
+
+import { ReactComponent as Check } from 'icons/check-circle.svg'
 
 const distinct = (value, index, self) => self.indexOf(value) === index
 
 const Amenities = ({ amenities }) => {
-  const { icon } = useStaticQuery(graphql`
-    query {
-      icon: file(relativePath: { eq: "check.png" }) {
-        childImageSharp {
-          fixed(width: 40, height: 40) {
-            ...GatsbyImageSharpFixed_withWebp
-          }
-        }
-      }
-    }
-  `)
-
   const categories = amenities
     .map(amenity => amenity.parent_element.name)
     .filter(distinct)
@@ -49,11 +39,15 @@ const Amenities = ({ amenities }) => {
                 mr="1rem"
                 key={amenity.name}
               >
-                <Img
-                  css={{ width: '1rem', height: '1rem' }}
-                  fixed={icon.childImageSharp.fixed}
+                <Check
+                  css={{
+                    stroke: themeGet('colors.text.primary'),
+                    width: '1em',
+                    height: '1em',
+                    marginTop: '-0.25em',
+                  }}
                 />
-                <span ml={2} fontWeight="bold" whiteSpace="nowrap">
+                <span ml={1} fontWeight="bold" whiteSpace="nowrap">
                   {amenity.name}
                 </span>
               </div>

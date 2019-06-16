@@ -9,6 +9,7 @@
   "plugins": ["stylelint-order"],
   "rules": {
     "declaration-empty-line-before": null,
-    "function-name-case": null
+    "function-name-case": null,
+    "property-no-unknown": null
   }
 }

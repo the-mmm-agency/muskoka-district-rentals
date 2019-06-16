@@ -11,18 +11,19 @@ const Wrapper = styled.span`
   align-items: flex-end;
   justify-content: flex-start;
   cursor: pointer;
+  padding-right: 1rem;
 `
 
-const Day = styled.h1`
+const Day = styled.h4`
   @media screen and (min-width: ${themeGet('breakpoints.0', '200px')}) {
     line-height: 1.4;
   }
   height: 50px;
   line-height: 1.85;
-  color: #000;
   font-weight: 500;
   font-size: 3.3rem;
   vertical-align: baseline;
+  margin-right: auto;
 `
 
 const Month = styled.h5`

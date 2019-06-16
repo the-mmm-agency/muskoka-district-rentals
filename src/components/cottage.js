@@ -7,9 +7,10 @@ import PropTypes from 'prop-types'
 import { themeGet } from '@styled-system/theme-get'
 
 import StarRating from 'components/starRating'
+import { ReactComponent as CaretRight } from 'icons/caret-right.svg'
 import Hidden from 'components/hidden'
 import Number from 'components/number'
-import Link from 'components/link'
+import Button from 'components/button'
 import CottageInfo from 'components/cottageInfo'
 
 const Wrapper = styled.div`
@@ -148,9 +149,10 @@ const Cottage = ({
             },
           ]}
         />
-        <Link to={`/cottages/${slug}`} ml="-1rem" variant="transparent">
-          Book now &nbsp;&rsaquo;
-        </Link>
+        <Button href={`/cottages/${slug}`} ml="-1rem" variant="text">
+          See Rental &nbsp;
+          <CaretRight ml="-0.3em" mt="-0.1em" width="1.2em" height="1.2em" />
+        </Button>
       </div>
       <Img
         css={css({

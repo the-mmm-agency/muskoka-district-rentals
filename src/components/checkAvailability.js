@@ -1,12 +1,17 @@
 import useOnClickOutside from 'use-onclickoutside'
+import Reveal from 'react-reveal/Reveal'
 import css from '@styled-system/css'
+import { useInput } from 'react-hanger'
+import dayjs from 'dayjs'
 import { DateUtils } from 'react-day-picker'
 import styled from '@emotion/styled'
 import themeGet from '@styled-system/theme-get'
 import React, { useRef, useState } from 'react'
 
 import Button from 'components/button'
+import Number from 'components/number'
 import Checkbox from 'components/checkbox'
+import { ReactComponent as Schedule } from 'icons/schedule.svg'
 import DateInput from 'components/dateInput'
 import DatePicker from 'components/datePicker'
 import DownIcon from 'components/downIcon'
@@ -29,17 +34,13 @@ const StyledButton = styled(Button)`
 const Wrapper = styled.div`
   @media screen and (min-width: ${themeGet('breakpoints.1')}) {
     background: ${themeGet('colors.background.light')};
-    width: 60%;
-    min-width: 980px;
-    margin-top: -75px;
     flex-wrap: nowrap;
-    height: 150px;
+    height: 200px;
     box-shadow: ${themeGet('shadows.25')};
-    position: absolute;
+    margin-bottom: ${themeGet('space.5')};
+    position: relative;
     border-color: transparent;
   }
-  right: 0;
-  left: 0;
   flex-wrap: wrap;
   display: flex;
   flex-basis: 25%;
@@ -47,6 +48,7 @@ const Wrapper = styled.div`
   margin: auto;
   border-bottom: 0.5px solid;
   border-color: ${themeGet('colors.text.secondary')};
+  width: 100%;
   margin-top: ${themeGet('space.3')};
 `
 
@@ -110,17 +112,34 @@ const Day = styled.h1`
   }
   height: 50px;
   font-weight: 500;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
   font-size: 3.3rem;
   line-height: 1.85;
   vertical-align: baseline;
+  margin-right: auto;
 `
 
 const CheckAvailability = () => {
-  const [dates, setDates] = useState({ from: undefined, to: undefined })
+  const [dates, setDates] = useState({
+    from: dayjs().toDate(),
+    to: dayjs()
+      .add(1, 'month')
+      .toDate(),
+  })
+  const [guestsActive, setGuests] = useState(false)
+  const guests = useInput(3)
   const [datePicker, setDatePicker] = useState(false)
   const [pets, setPets] = useState(false)
   const [smokers, setSmokers] = useState(false)
   const datePickerReference = useRef(null)
+  const handleGuestsBlur = () => {
+    setGuests(false)
+  }
+  const handleGuestsClick = () => {
+    setGuests(true)
+  }
   const handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, dates)
     setDates(range)
@@ -148,20 +167,49 @@ const CheckAvailability = () => {
           <DateInput value={dates.to} onClick={toggleDatePicker} />
         </SectionWrapper>
       </Section>
-      <DatePickerWrapper ref={datePickerReference}>
-        <DatePicker
-          from={dates.from}
-          to={dates.to}
-          handleDayClick={handleDayClick}
-          open={datePicker}
-        />
+      <DatePickerWrapper css={{ zIndex: 9999 }} ref={datePickerReference}>
+        <Reveal
+          appear
+          effect="fadeInUp"
+          ssrReveal
+          duration={500}
+          when={datePicker}
+        >
+          <DatePicker
+            from={dates.from}
+            to={dates.to}
+            handleDayClick={handleDayClick}
+            open
+          />
+        </Reveal>
       </DatePickerWrapper>
       <Section>
         <SectionWrapper noBorder>
           <Header>guests</Header>
-          <Day>
-            03 <DownIcon />
-          </Day>
+          {guestsActive ? (
+            <input
+              type="number"
+              value={guests.value}
+              onBlur={handleGuestsBlur}
+              onChange={guests.onChange}
+            />
+          ) : (
+            <div display="inline-flex">
+              <Number
+                mr="auto"
+                Tag="h3"
+                css={{
+                  height: 50,
+                  lineHeight: 1.85,
+                  fontWeight: 500,
+                }}
+                onClick={handleGuestsClick}
+              >
+                {guests.value}
+              </Number>{' '}
+              <DownIcon />
+            </div>
+          )}
         </SectionWrapper>
       </Section>
       <Section>
@@ -186,7 +234,9 @@ const CheckAvailability = () => {
               />
             </label>
           </div>
-          <StyledButton fontFamily="serif">check availability</StyledButton>
+          <StyledButton fontFamily="serif">
+            check availability <Schedule />
+          </StyledButton>
         </SectionWrapper>
       </Section>
     </Wrapper>

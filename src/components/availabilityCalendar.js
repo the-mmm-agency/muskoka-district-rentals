@@ -4,7 +4,7 @@ import { ModifiersUtils } from 'react-day-picker'
 import PropTypes from 'prop-types'
 import dayjs from 'dayjs'
 
-import Calendar from 'components/calendar'
+import Calendar from 'styles/calendar.css'
 
 const getSeasonPrices = rates => rates.flatMap(rate => rate.seasonPrices)
 const getSeasons = seasonPrices =>

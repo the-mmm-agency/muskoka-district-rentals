@@ -17,23 +17,23 @@ import {
   letterSpacing,
   lineHeight,
   space,
-  style,
+  system,
   textAlign,
   textStyle,
   width,
 } from 'styled-system'
 
-export const fontStyle = style({
+export const fontStyle = system({
   prop: 'fontStyle',
   cssProperty: 'fontStyle',
 })
 
-export const textDecoration = style({
+export const textDecoration = system({
   prop: 'textDecoration',
   cssProperty: 'textDecoration',
 })
 
-export const textTransform = style({
+export const textTransform = system({
   prop: 'textTransform',
   cssProperty: 'textTransform',
 })

@@ -18,8 +18,8 @@ const Cottages = ({ data: { image, cottages } }) => {
       <PageImage fluid={image.childImageSharp.fluid} tag="section">
         <h1>Our Rentals</h1>
       </PageImage>
-      <CheckAvailability />
-      <div py={[3, 6]} mx={0}>
+      <div px={[2, 5]} py={[3, 6]} mt="-250px">
+        <CheckAvailability />
         <CottageList cottages={cottages.nodes.slice(0, page)} />
       </div>
       {page < cottages.nodes.length && (

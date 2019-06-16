@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 import Link from 'components/link'
 
-const Breadcrumb = ({ crumbs, ...props }) => (
+const Breadcrumb = ({ crumbs, activeColor, color, ...props }) => (
   <div display="inline-block" {...props}>
     {crumbs.map((crumb, index) => (
       <Link
         key={crumb.link}
         to={crumb.link}
-        color={index === crumbs.length - 1 ? 'text.primary' : 'text.secondary'}
+        color={index === crumbs.length - 1 ? activeColor : color}
         fontWeight="bold"
       >
         {crumb.title}
@@ -19,7 +19,14 @@ const Breadcrumb = ({ crumbs, ...props }) => (
   </div>
 )
 
+Breadcrumb.defaultProps = {
+  activeColor: 'text.primary',
+  color: 'text.secondary',
+}
+
 Breadcrumb.propTypes = {
+  activeColor: PropTypes.string,
+  color: PropTypes.string,
   crumbs: PropTypes.arrayOf(
     PropTypes.shape({
       link: PropTypes.string.isRequired,

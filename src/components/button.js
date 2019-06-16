@@ -4,6 +4,7 @@ import { border, style, variant } from 'styled-system'
 import css from '@styled-system/css'
 import propTypes from '@styled-system/prop-types'
 
+import Link from 'components/link'
 import { typography } from 'theme/system'
 import transitions, { duration } from 'theme/transitions'
 
@@ -32,23 +33,31 @@ const StyledButton = styled.button(
   css({
     ':hover': {
       textDecoration: 'none',
-      bg: 'primary',
-      boxShadow: 2,
-      transform: 'translateY(-3px)',
     },
     ':active': {
       bg: 'primary',
     },
-    transition: transitions.create(
-      ['border', 'background', 'box-shadow', 'transform'],
-      {
-        duration: duration.short,
-      }
-    ),
+    svg: {
+      verticalAlign: 'baseline',
+    },
   })
 )
-
-const Button = props => <StyledButton {...props} />
+const Button = ({ children, href, linkProps, ...props }) =>
+  href ? (
+    <Link
+      css={{
+        ':hover': {
+          textDecoration: 'none',
+        },
+      }}
+      to={href}
+      {...linkProps}
+    >
+      <StyledButton {...props}>{children}</StyledButton>
+    </Link>
+  ) : (
+    <StyledButton {...props}>{children}</StyledButton>
+  )
 
 Button.propTypes = {
   ...propTypes.radius,

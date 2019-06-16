@@ -15,6 +15,7 @@ module.exports = {
       resolve: `gatsby-plugin-root-import`,
       options: {
         components: path.join(__dirname, 'src', 'components'),
+        icons: path.join(__dirname, 'src', 'icons'),
         images: path.join(__dirname, 'src', 'images'),
         pages: path.join(__dirname, 'src', 'pages'),
         styles: path.join(__dirname, 'src', 'styles'),
@@ -65,6 +66,13 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaultQuality: 100,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        prettier: true, // use prettier to format JS code output (default)
+        svgo: false, // use svgo to optimize SVGs (default)
       },
     },
 
