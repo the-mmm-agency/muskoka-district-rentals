@@ -8,10 +8,9 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
   })
 }
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
-  const postPage = path.resolve('src/templates/blog-post.js')
-  return graphql(`
+  const blogPostResult = await graphql(`
     {
       allWordpressWpBlogPosts {
         edges {
@@ -24,93 +23,63 @@ exports.createPages = ({ actions, graphql }) => {
       }
     }
   `)
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
-      }
-
-      const posts = result.data.allWordpressWpBlogPosts.edges
-
-      posts.forEach(edge => {
-        createPage({
-          path: edge.node.slug,
-          component: postPage,
-          context: {
-            id: edge.node.id,
-          },
-        })
-      })
+  const posts = blogPostResult.data.allWordpressWpBlogPosts.edges
+  posts.forEach(edge => {
+    createPage({
+      path: edge.node.slug,
+      component: path.resolve('src/templates/blog-post.js'),
+      context: {
+        id: edge.node.id,
+      },
     })
-    .then(() => {
-      return graphql(`
-        {
-          allWordpressCategory(filter: { count: { gt: 0 } }) {
-            edges {
-              node {
-                id
-                name
-                slug
-              }
-            }
+  })
+
+  const categoryResult = await graphql(`
+    {
+      allWordpressCategory(filter: { count: { gt: 0 } }) {
+        edges {
+          node {
+            id
+            name
+            slug
           }
         }
-      `)
-    })
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
       }
-
-      const categoriesTemplate = path.resolve(`./src/templates/category.js`)
-      const categories = result.data.allWordpressCategory.edges
-
-      // Create a Gatsby page for each WordPress Category
-      categories.forEach(({ node: cat }) => {
-        createPage({
-          path: `/categories/${cat.slug}/`,
-          component: categoriesTemplate,
-          context: {
-            name: cat.name,
-            slug: cat.slug,
-          },
-        })
-      })
+    }
+  `)
+  const categories = categoryResult.data.allWordpressCategory.edges
+  categories.forEach(({ node: cat }) => {
+    createPage({
+      path: `/categories/${cat.slug}/`,
+      component: path.resolve(`./src/templates/category.js`),
+      context: {
+        name: cat.name,
+        slug: cat.slug,
+      },
     })
-    .then(() => {
-      return graphql(`
-        {
-          allWordpressWpMphbRoomType {
-            edges {
-              node {
-                id
-                slug
-              }
-            }
+  })
+
+  const cottagesResult = await graphql(`
+    {
+      allWordpressWpMphbRoomType {
+        edges {
+          node {
+            id
+            slug
           }
         }
-      `)
-    })
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
       }
-
-      const cottageTemplate = path.resolve(`./src/templates/cottage.js`)
-      const cottages = result.data.allWordpressWpMphbRoomType.edges
-
-      // Create a Gatsby page for each WordPress Category
-      cottages.forEach(({ node: cot }) => {
-        createPage({
-          path: `/cottages/${cot.slug}/`,
-          component: cottageTemplate,
-          context: {
-            id: cot.id,
-            slug: cot.slug,
-          },
-        })
-      })
+    }
+  `)
+  const cottages = cottagesResult.data.allWordpressWpMphbRoomType.edges
+  cottages.forEach(({ node: cot }) => {
+    createPage({
+      path: `/cottages/${cot.slug}/`,
+      component: path.resolve(`./src/templates/cottage.js`),
+      context: {
+        id: cot.id,
+        slug: cot.slug,
+      },
     })
+  })
 }
