@@ -16,9 +16,6 @@ const styles = css`
       md: {
         fontSize: 14,
       },
-      lg: {
-        fontSize: 16,
-      },
     })}
   }
   body {
