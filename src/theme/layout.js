@@ -1,5 +1,5 @@
 const layout = {
-  breakpoints: ['40em', '52em', '64em', '80em'],
+  breakpoints: [0, '40em', '52em', '64em', '80em'],
   space: [
     0,
     '0.3rem',
@@ -17,5 +17,11 @@ const layout = {
   ],
   radii: [2, 4, 8, 30],
 }
+
+layout.breakpoints.xs = layout.breakpoints[0]
+layout.breakpoints.sm = layout.breakpoints[1]
+layout.breakpoints.md = layout.breakpoints[2]
+layout.breakpoints.lg = layout.breakpoints[3]
+layout.breakpoints.xl = layout.breakpoints[4]
 
 export default layout

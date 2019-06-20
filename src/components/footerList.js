@@ -5,7 +5,7 @@ import FooterLink from 'components/footerLink'
 
 const FooterList = ({ links }) => {
   return (
-    <ul listStyle="none">
+    <ul css={{ listStyle: 'none' }}>
       {links.map(link => (
         <FooterLink to={link} key={link} />
       ))}

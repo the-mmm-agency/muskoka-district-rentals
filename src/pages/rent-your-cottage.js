@@ -1,19 +1,20 @@
 import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
+import styled from '@xstyled/emotion'
 import React from 'react'
-import { themeGet } from '@styled-system/theme-get'
 
+import Box from 'components/box'
 import ContactForm from 'components/contactForm'
+import { up } from 'theme/media'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 
 const Content = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
+  ${up('sm')} {
     display: flex;
     flex-direction: column;
     & > p:first-of-type {
-      color: ${themeGet('colors.text.secondary')};
-      margin-bottom: 0;
+      color: textSecondary;
+      margin-bottom: 2;
     }
     div {
       display: flex;
@@ -30,30 +31,30 @@ const Content = styled.div`
         }
         display: flex;
         flex-direction: column;
-        margin-right: ${themeGet('space.3')};
-        padding: 0 ${themeGet('space.2')};
+        margin-right: 3;
+        padding: 0 2;
         border-right: 0.5px solid rgba(0, 0, 0, 0.3);
         p,
         h6 {
-          padding-right: ${themeGet('space.4')};
+          padding-right: 4;
         }
         p {
           &:last-of-type {
             margin-bottom: 0;
           }
-          color: ${themeGet('colors.text.secondary')};
+          color: textSecondary;
         }
         h6 {
-          margin-bottom: ${themeGet('space.2')};
+          margin-bottom: 2;
         }
       }
       display: flex;
       flex-basis: calc(100% / 3);
-      margin-top: ${themeGet('space.3')};
-      margin-bottom: ${themeGet('space.2')};
+      margin-top: 3;
+      margin-bottom: 2;
     }
     h6 {
-      margin-bottom: ${themeGet('space.2')};
+      margin-bottom: 2;
     }
     span {
       display: flex;
@@ -75,10 +76,10 @@ const RentYourCottage = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <div px={[3, 4, 5, 6]} py={5}>
+    <Box px={[3, 4, 5, 6]} py={5}>
       <Content dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
-    </div>
+    </Box>
   </>
 )
 

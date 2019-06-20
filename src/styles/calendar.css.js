@@ -1,17 +1,17 @@
-import styled from '@emotion/styled'
+import styled, { css } from '@xstyled/emotion'
+import { th } from '@xstyled/system'
 import { darken, transparentize } from 'polished'
 import DayPicker from 'react-day-picker'
-import themeGet from '@styled-system/theme-get'
 import 'react-day-picker/lib/style.css'
 
 const Calendar = styled(DayPicker)`
-  margin: ${themeGet('space.2')};
-  padding: ${themeGet('space.4')};
+  margin: 2;
+  padding: 4;
   background-color: white;
   width: 100%;
   border: 1px solid #e4e5ec;
   border-radius: 5px;
-  box-shadow: ${themeGet('shadows.1')};
+  box-shadow: 1;
   .DayPicker-NavButton--next,
   .DayPicker-NavButton--prev {
     width: 2em;
@@ -28,13 +28,13 @@ const Calendar = styled(DayPicker)`
     outline: none;
   }
   .DayPicker-Caption {
-    color: ${themeGet('colors.text.primary')};
+    color: textPrimary;
     font-weight: 600 !important;
     text-align: center;
   }
   .DayPicker-Day {
     padding: 0.5rem 1rem;
-    color: ${themeGet('colors.text.paragraph')};
+    color: textParagraph;
     font-weight: 600;
     outline: none;
   }
@@ -63,21 +63,26 @@ const Calendar = styled(DayPicker)`
   }
   .DayPicker:not(.DayPicker--interactionDisabled)
     .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-    background-color: ${props =>
-      transparentize(0.1, props.theme.colors.primary)};
+    ${props =>
+      css`
+        background-color: ${transparentize(0.1, th.color('primary')(props))};
+      `};
   }
   .DayPicker:not(.DayPicker--interactionDisabled).DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--start):not(.DayPicker-Day--end):hover {
-    background-color: ${props => darken(0.2, props.theme.colors.primary)};
+    ${props =>
+      css`
+        background-color: ${darken(0.2, th.color('primary')(props))};
+      `};
   }
   .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-    background-color: ${themeGet('colors.alt')};
-    border-radius: 0;
+    background-color: alt;
+    border-radius: 0px;
   }
   .DayPicker-Months {
     justify-content: space-evenly;
   }
   .DayPicker-Weekday {
-    color: ${themeGet('colors.text.secondary')};
+    color: textSecondary;
     font-weight: bold;
     font-style: bold;
     text-transform: uppercase;
@@ -85,7 +90,7 @@ const Calendar = styled(DayPicker)`
   .DayPicker-Day--start,
   .DayPicker-Day--end {
     &:not(.DayPicker-Day--outside) {
-      background-color: ${themeGet('colors.primary')} !important;
+      background-color: primary !important;
       border-radius: 0;
     }
   }

@@ -1,21 +1,22 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 
+import Box from 'components/box'
 import Breadcrumb from 'components/breadcrumb'
 import Categories from 'components/categories'
 import PostCard from 'components/postCard'
 
 const Category = ({ data, pageContext }) => (
-  <div
+  <Box
     display="flex"
-    bg="colors.background.default"
+    bg="colors.backgroundDefault"
     p={5}
     flexDirection="column"
   >
-    <div display="flex" alignItems="center" width="100%" flexDirection="column">
-      <h1 textAlign="center" textTransform="capitalize" mb={1}>
+    <Box display="flex" alignItems="center" width="100%" flexDirection="column">
+      <Box as="h1" textAlign="center" textTransform="capitalize" mb={1}>
         {pageContext.category}
-      </h1>
+      </Box>
       <Breadcrumb
         mb={4}
         crumbs={[
@@ -33,14 +34,14 @@ const Category = ({ data, pageContext }) => (
           },
         ]}
       />
-    </div>
+    </Box>
     <Categories />
-    <div display="flex" alignItems="center" py={2} px={6}>
+    <Box display="flex" alignItems="center" py={2} px={6}>
       {data.posts.edges.map(edge => (
         <PostCard key={edge.node.id} {...edge.node} />
       ))}
-    </div>
-  </div>
+    </Box>
+  </Box>
 )
 
 export const query = graphql`

@@ -1,14 +1,14 @@
 import React from 'react'
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 
 const DownIcon = () => (
   <svg
-    css={css({
-      alignSelf: 'center',
-      width: 30,
-      height: 30,
-      ml: 1,
-    })}
+    css={css`
+      align-self: center;
+      width: 30;
+      height: 30;
+      margin-left: 1;
+    `}
     viewBox="0 0 32 32"
     aria-hidden="true"
   >

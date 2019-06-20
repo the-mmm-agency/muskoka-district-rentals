@@ -6,7 +6,7 @@ const RightIcon = () => (
       width: 50,
       height: 50,
       alignSelf: 'center',
-      fill: props => props.theme.colors.text.primary,
+      fill: props => props.theme.colors.textPrimary,
     }}
     alignSelf="center"
     viewBox="0 0 32 32"

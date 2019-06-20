@@ -1,26 +1,14 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import { css } from '@xstyled/emotion'
 import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
-const Image = styled(BackgroundImage)`
-  &::before,
-  &::after {
-    background-repeat: repeat;
-    background-size: auto;
-  }
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  background-repeat: repeat;
-  background-position: top left;
-  background-size: auto;
-`
-
-// eslint-disable-next-line react/prop-types
-const SwirlBackground = ({ children, theme }) => {
-  const { swirl } = useStaticQuery(graphql`
+const SwirlBackground = ({ children, ...props }) => {
+  const {
+    swirl: {
+      childImageSharp: { fluid },
+    },
+  } = useStaticQuery(graphql`
     query {
       swirl: file(relativePath: { eq: "swirl.png" }) {
         childImageSharp {
@@ -32,9 +20,27 @@ const SwirlBackground = ({ children, theme }) => {
     }
   `)
   return (
-    <Image fluid={swirl.childImageSharp.fluid} tag="section">
+    <BackgroundImage
+      css={css`
+        &::before,
+        &::after {
+          background-repeat: repeat;
+          background-size: auto;
+        }
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        background-repeat: repeat;
+        background-position: top left;
+        background-size: auto;
+      `}
+      fluid={fluid}
+      tag="section"
+      {...props}
+    >
       {children}
-    </Image>
+    </BackgroundImage>
   )
 }
 

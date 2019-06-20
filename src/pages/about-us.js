@@ -1,7 +1,8 @@
 import { graphql } from 'gatsby'
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 import React from 'react'
 
+import Box from 'components/box'
 import Contact from 'components/contact'
 import PageImage from 'components/pageImage'
 import OurTeam from 'components/ourTeam'
@@ -12,18 +13,19 @@ const AboutUs = ({ data: { image } }) => (
     <SEO title="About Us" keywords={[`gatsby`, `application`, `react`]} />
     <PageImage Tag="section" fadeIn fluid={image.childImageSharp.fluid}>
       <span
-        css={css({
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
-          fontWeight: 600,
-          mb: 2,
-          zIndex: 2,
-          position: 'relative',
-        })}
+        css={css`
+          letter-spacing: 0.1em;
+          margin-bottom: 2;
+          font-weight: 600;
+          position: relative;
+          z-index: 2;
+          text-transform: uppercase;
+        `}
       >
         about us
       </span>
-      <h1
+      <Box
+        as="h1"
         mb={1}
         position="relative"
         zIndex={2}
@@ -32,12 +34,12 @@ const AboutUs = ({ data: { image } }) => (
         lineHeight="70px"
       >
         Come escape the mundane
-      </h1>
+      </Box>
     </PageImage>
-    <section px={[3, 6]} py={[4, 5]} textAlign="center">
-      <h2 fontSize={0} mb={2}>
+    <Box as="section" px={[3, 6]} py={[4, 5]} textAlign="center">
+      <Box as="h2" fontSize={0} mb={2}>
         History
-      </h2>
+      </Box>
       <p>
         Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo maximus
         blandit. Curabitur lacinia, eros sit amet max imus suscipit, magna
@@ -52,7 +54,7 @@ const AboutUs = ({ data: { image } }) => (
         pharetra, risus eget gravida lobortis, ipsum lorem pretium sem, sit amet
         scelerisque dui neque et nisl. Sed vitae.
       </p>
-    </section>
+    </Box>
     <OurTeam />
     <Contact />
   </>

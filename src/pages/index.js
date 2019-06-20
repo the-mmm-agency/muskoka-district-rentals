@@ -1,8 +1,9 @@
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 import React from 'react'
 
+import Box from 'components/box'
 import PageImage from 'components/pageImage'
 import PostCard from 'components/postCard'
 import SwirlBackground from 'components/swirlBackground'
@@ -23,142 +24,143 @@ const IndexPage = ({
       Tag="section"
       fadeIn
       fluid={headerImg.childImageSharp.fluid}
-      css={css({
-        minHeight: '40rem',
-        span: {
-          fontSize: 4,
-        },
-        'span,h1': {
-          mb: 5,
-        },
-      })}
+      css={css`
+        min-height: 40rem;
+        span {
+          font-size: 4;
+        }
+        h1,
+        span {
+          margin-bottom: 5;
+        }
+      `}
     >
       <span
-        css={{
-          fontWeight: 'bold',
-          letterSpacing: '0.18em',
-          textTransform: 'uppercase',
-        }}
+        css={css`
+          font-weight: bold;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+        `}
       >
         welcome to
       </span>
       <h1
-        mb={5}
-        css={{
-          fontWeight: 'normal',
-          textTransform: 'uppercase',
-        }}
+        css={css`
+          margin-bottom: 5;
+          font-weight: normal;
+          text-transform: uppercase;
+        `}
       >
         muskoka district
       </h1>
       <span
-        css={{
-          letterSpacing: '0.06em',
-          fontWeight: '600',
-        }}
+        css={css`
+          letter-spacing: 0.06em;
+          font-weight: 600;
+        `}
       >
         Come unwind with us
       </span>
     </PageImage>
-    <CheckAvailability />
-    <section
-      css={css({
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        mb: [3, 5, 6],
-        textAlign: 'center',
-      })}
+    <Box
+      as="section"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      mt={{ xs: 0, md: '-100px' }}
+      px={5}
+      mb={[3, 5, 6]}
+      textAlign="center"
     >
-      <Hidden down={1}>
-        <span
-          css={css({
-            justifySelf: 'flex-start',
-            mt: [3, 5, 6],
-            mb: [2, 4, 5],
-            pt: 5,
-            color: 'text.secondary',
-            textTransform: 'uppercase',
-            letterSpacing: '0.35em',
-          })}
+      <CheckAvailability />
+      <Hidden down="sm">
+        <Box
+          as="span"
+          mt={[3, 5, 6]}
+          mb={[2, 4, 5]}
+          color="textSecondary"
+          textTransform="uppercase"
+          letterSpacing="0.35em"
         >
           about us
-        </span>
+        </Box>
       </Hidden>
-      <div
+      <Box
         display="flex"
         flexBasis="50%"
         alignItems="center"
         justifyContent="center"
-        mt={[3, 0]}
+        mt={{ xs: 3, sm: 0 }}
         p={3}
       >
-        <Hidden down={2}>
-          <div p={3} bg="background.light">
+        <Hidden down="md">
+          <Box p={3} bg="backgroundLight">
             <Img fixed={aboutImg.childImageSharp.fixed} />
-          </div>
+          </Box>
         </Hidden>
-        <div
+        <Box
           alignSelf="flex-start"
           display="flex"
           flexDirection="column"
           justifyContent="center"
           textAlign="left"
-          width={['100%', null, null, '50%']}
-          pl={[1, 2, 3, 5]}
+          width={{ xs: '100%', lg: '50%' }}
+          pl={{ xs: 1, sm: 2, md: 3, lg: 5 }}
         >
-          <div mb={3} display="flex" flexDirection="column">
+          <Box mb={3} display="flex" flexDirection="column">
             <div
-              css={css({
-                width: '70px',
-                verticalAlign: 'top',
-                borderTop: '2.5px solid black',
-                mb: 4,
-              })}
+              css={css`
+                width: 70px;
+                vertical-align: top;
+                border-top: 2.5px solid black;
+                margin-bottom: 4;
+              `}
             />
             <h2>
               Welcome <br /> Aboard!
             </h2>
-          </div>
-          <p width="80%" mb={5}>
+          </Box>
+          <Box as="p" width="80%" mb={5}>
             Nisi laborum dolore minim qui laborum. Ut incididunt qui ex amet
             aute cupidatat. Ullamco ex nostrud non aliqua eu adipisicing
             proident fugiat non pariatur do aliqua enim. Velit cupidatat id
             veniam labore voluptate ex nulla ut sit anim. Elit mollit est est ex
             ad ut id do ut ea ex.
-          </p>
+          </Box>
           <span>
             <strong>Ross Halloran -</strong> Founder Muskoka District Rentals
           </span>
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
     <Rentals />
     <ConciergeServices />
     <SwirlBackground>
       <Testimonial {...testimonials.nodes[0]} />
       <div
-        css={css({
-          display: 'flex',
-          flexDirection: 'column',
-          textAlign: 'center',
-          alignItems: 'center',
-          px: 5,
-          mb: 6,
-        })}
+        css={css`
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          px: 5;
+          mb: 6;
+        `}
       >
         <span
-          css={css({
-            letterSpacing: '0.5em',
-            textTransform: 'uppercase',
-            fontWeight: 'bold',
-            mb: 4,
-            color: 'text.secondary',
-          })}
+          css={css`
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 4;
+            color: textSecondary;
+          `}
         >
           explore
         </span>
-        <h2 mb={5}>Latest from our blog</h2>
+        <Box as="h2" mb={5}>
+          Latest from our blog
+        </Box>
         {blogPosts.edges.map(edge => (
           <PostCard key={edge.node.id} {...edge.node} />
         ))}

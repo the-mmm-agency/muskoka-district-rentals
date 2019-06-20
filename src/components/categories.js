@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
+import Box from 'components/box'
 import Link from 'components/link'
 
 const Categories = () => {
@@ -18,7 +19,7 @@ const Categories = () => {
     }
   `)
   return (
-    <div
+    <Box
       display="flex"
       alignItems="center"
       mt={4}
@@ -28,7 +29,7 @@ const Categories = () => {
     >
       <Link
         to="/blog"
-        color="text.primary"
+        color="textPrimary"
         fontWeight="bold"
         textTransform="capitalize"
         fontFamily="serif"
@@ -39,7 +40,7 @@ const Categories = () => {
       </Link>
       {data.allWordpressCategory.edges.map(category => (
         <Link
-          color="text.primary"
+          color="textPrimary"
           fontWeight="bold"
           key={category.id}
           to={`/categories/${category.slug}`}
@@ -51,7 +52,7 @@ const Categories = () => {
           {category.name}
         </Link>
       ))}
-    </div>
+    </Box>
   )
 }
 

@@ -2,52 +2,54 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 
+import Box from 'components/box'
+import Flex from 'components/flex'
 import Link from 'components/link'
 
 const PostCard = ({ slug, featured_media, date, title }) => (
-  <div
-    css={css({
-      '&:hover': {
-        boxShadow: 25,
-      },
-      flexDirection: 'column',
-      backgroundColor: 'background.light',
-      boxShadow: 1,
-      cursor: 'pointer',
-      width: ['50%', 'calc(100% / 3)'],
-    })}
+  <Flex
+    backgroundColor="backgroundLight"
+    boxShadow={1}
+    width={{ xs: '50%', sm: 'calc(100% / 3)' }}
+    css={css`
+      &:hover {
+        box-shadow: 25;
+      }
+      flex-direction: column;
+      cursor: pointer;
+    `}
   >
     <Img fluid={featured_media.localFile.childImageSharp.fluid} />
-    <div
-      css={css({
-        height: '40%',
-        display: 'flex',
-        flexDirection: 'column',
-        px: 4,
-        py: 3,
-        textAlign: 'left',
-      })}
+    <Flex
+      css={css`
+        height: 40%;
+        flex-direction: column;
+        padding: 3 4;
+        text-align: left;
+      `}
     >
-      <span color="text.light" mb={1}>
+      <Box as="span" color="textLight" mb={1}>
         {date}
-      </span>
-      <h6 mb={4}>{title}</h6>
+      </Box>
+      <Box as="h6" mb={4}>
+        {title}
+      </Box>
       <Link
         to={slug}
-        css={css({
-          '&:hover': {
-            color: 'text.primary',
-          },
-          color: 'text.light',
-          fontWeight: 'bold',
-        })}
+        css={css`
+          &:hover {
+            color: textPrimary;
+          }
+          color: textLight;
+          font-weight: bold;
+        `}
       >
         Continue &nbsp;&rsaquo;
       </Link>
-    </div>
-  </div>
+    </Flex>
+  </Flex>
 )
 
 PostCard.propTypes = {

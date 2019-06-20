@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 
+import Box from 'components/box'
 import PageImage from 'components/pageImage'
 import CottageList from 'components/cottageList'
 import CheckAvailability from 'components/checkAvailability'
@@ -18,12 +19,12 @@ const Cottages = ({ data: { image, cottages } }) => {
       <PageImage fluid={image.childImageSharp.fluid} tag="section">
         <h1>Our Rentals</h1>
       </PageImage>
-      <div px={[2, 5]} py={[3, 6]} mt="-250px">
+      <Box px={[2, 5]} py={[3, 6]} mt="-250px">
         <CheckAvailability />
         <CottageList cottages={cottages.nodes.slice(0, page)} />
-      </div>
+      </Box>
       {page < cottages.nodes.length && (
-        <div width="100%" textAlign="center" mb={4}>
+        <Box width="100%" textAlign="center" mb={4}>
           <Button
             textTransform="uppercase"
             mb={3}
@@ -32,7 +33,7 @@ const Cottages = ({ data: { image, cottages } }) => {
           >
             See More Rentals
           </Button>
-        </div>
+        </Box>
       )}
     </>
   )

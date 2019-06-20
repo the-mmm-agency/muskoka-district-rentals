@@ -1,24 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Box from 'components/box'
+
 const MemberInfo = ({ name, bio, title }) => (
-  <div width="50%" pl={3} overflow="hidden">
-    <div mb={1} pl={4} width="100%">
-      <h6 color="white" fontFamily="sans" fontWeight="normal">
+  <Box width="50%" pl={3} overflow="hidden">
+    <Box mb={1} pl={4} width="100%">
+      <Box as="h6" color="white" fontFamily="sans" fontWeight="normal">
         {name}
-      </h6>
-      <span
+      </Box>
+      <Box
+        as="span"
         fontSize={5}
         color="white"
         fontWeight="bold"
         textTransform="uppercase"
       >
         {title}
-      </span>
-    </div>
-    <div
+      </Box>
+    </Box>
+    <Box
       bg="white"
-      color="text.primary"
+      color="textPrimary"
       ml={2}
       maxWidth="100%"
       minHeight="80vh"
@@ -26,8 +29,8 @@ const MemberInfo = ({ name, bio, title }) => (
       zIndex={1001}
     >
       {bio}
-    </div>
-  </div>
+    </Box>
+  </Box>
 )
 
 MemberInfo.propTypes = {

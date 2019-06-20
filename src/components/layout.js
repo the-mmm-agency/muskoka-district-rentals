@@ -1,19 +1,17 @@
 import React from 'react'
 import { useMedia } from 'use-media'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
+import { graphql, useStaticQuery } from 'gatsby'
 
-import globalStyles from 'styles/global.css'
+import theme from 'theme'
+import GlobalStyles from 'components/globalStyles'
+import Box from 'components/box'
 import Footer from 'components/footer'
 import MobileHeader from 'components/mobileHeader'
 import Header from 'components/header'
-import normalize from 'styles/normalize.css'
-import fonts from 'styles/fonts.css'
-import theme from 'theme'
 
 const Layout = ({ children }) => {
-  const isLarge = useMedia({ minWidth: theme.breakpoints[2] })
+  const isLarge = useMedia({ minWidth: theme.breakpoints.md })
   const {
     site: {
       siteMetadata: { headerLinks },
@@ -29,19 +27,17 @@ const Layout = ({ children }) => {
   `)
   return (
     <ThemeProvider theme={theme}>
-      <Global styles={normalize} />
-      <Global styles={fonts} />
-      <Global styles={globalStyles} />
+      <GlobalStyles />
       <>
         {isLarge ? (
           <Header links={headerLinks} />
         ) : (
           <MobileHeader links={headerLinks} />
         )}
-        <div maxWidth="100vw" m="0 auto" pt={0}>
+        <Box maxWidth="100vw" m="0 auto" pt={0}>
           <main>{children}</main>
           <Footer />
-        </div>
+        </Box>
       </>
     </ThemeProvider>
   )

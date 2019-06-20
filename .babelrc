@@ -1,13 +1,5 @@
 {
-  "plugins": [
-    "babel-plugin-polished",
-    [
-      "@styled-system/babel-plugin",
-      {
-        "breakpoints": ["40em", "52em", "64em", "80em"]
-      }
-    ]
-  ],
+  "plugins": ["polished"],
   "presets": [
     [
       "babel-preset-gatsby",
@@ -17,6 +9,6 @@
         }
       }
     ],
-    "@emotion/babel-preset-css-prop"
+    "@xstyled/babel-preset-emotion-css-prop"
   ]
 }

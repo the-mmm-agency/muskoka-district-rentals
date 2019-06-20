@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import themeGet from '@styled-system/theme-get'
 
+import Box from 'components/box'
 import { ReactComponent as Check } from 'icons/check-circle.svg'
 
 const distinct = (value, index, self) => self.indexOf(value) === index
@@ -21,15 +21,15 @@ const Amenities = ({ amenities }) => {
 
   return (
     <>
-      <h3>Amenities</h3>
+      <Box as="h3">Amenities</Box>
       {list.map(({ category, amenities }) => (
-        <div key={category}>
-          <h5 textAlign="left" my={4}>
+        <Box key={category}>
+          <Box as="h5" textAlign="left" my={4}>
             {category}:
-          </h5>
-          <div display="flex" flexWrap="wrap">
+          </Box>
+          <Box display="flex" flexWrap="wrap">
             {amenities.map(amenity => (
-              <div
+              <Box
                 display="inline-flex"
                 flexGrow={0}
                 flexShrink={0}
@@ -41,19 +41,19 @@ const Amenities = ({ amenities }) => {
               >
                 <Check
                   css={{
-                    stroke: themeGet('colors.text.primary'),
+                    stroke: 'textPrimary',
                     width: '1em',
                     height: '1em',
                     marginTop: '-0.25em',
                   }}
                 />
-                <span ml={1} fontWeight="bold" whiteSpace="nowrap">
+                <Box as="span" ml={1} fontWeight="bold" whiteSpace="nowrap">
                   {amenity.name}
-                </span>
-              </div>
+                </Box>
+              </Box>
             ))}
-          </div>
-        </div>
+          </Box>
+        </Box>
       ))}
     </>
   )

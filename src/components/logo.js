@@ -1,20 +1,20 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import { themeGet } from '@styled-system/theme-get'
-import styled from '@emotion/styled'
+import styled, { css } from '@xstyled/emotion'
 import { graphql, useStaticQuery } from 'gatsby'
 
+import { up, down } from 'theme/media'
 import Link from 'components/link'
 
 const Wrapper = styled(Link)`
-  @media screen and (min-width: ${themeGet('breakpoints.2', '200px')}) {
+  ${up('md')} {
     min-width: 60px;
   }
-  @media screen and (max-width: ${themeGet('breakpoints.2', '200px')}) {
+  ${down('md')} {
     margin-right: auto;
   }
   width: 50px;
-  margin-left: ${themeGet('space.1')};
+  margin-left: 1;
   height: auto;
   padding: 5px;
 `

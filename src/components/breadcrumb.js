@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Box from 'components/box'
 import Link from 'components/link'
 
 const Breadcrumb = ({ crumbs, activeColor, color, ...props }) => (
-  <div display="inline-block" {...props}>
+  <Box display="inline-block" {...props}>
     {crumbs.map((crumb, index) => (
       <Link
         key={crumb.link}
@@ -16,12 +17,12 @@ const Breadcrumb = ({ crumbs, activeColor, color, ...props }) => (
         {index !== crumbs.length - 1 && <>&nbsp; &gt; &nbsp;</>}
       </Link>
     ))}
-  </div>
+  </Box>
 )
 
 Breadcrumb.defaultProps = {
-  activeColor: 'text.primary',
-  color: 'text.secondary',
+  activeColor: 'textPrimary',
+  color: 'textSecondary',
 }
 
 Breadcrumb.propTypes = {

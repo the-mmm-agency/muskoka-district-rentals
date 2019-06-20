@@ -1,9 +1,6 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import styled, { css } from '@xstyled/emotion'
 import PropTypes from 'prop-types'
-import { themeGet } from '@styled-system/theme-get'
-import { css } from '@emotion/core'
-import { ifProp } from 'styled-tools'
 
 const layerWidth = 20
 const layerHeight = 3
@@ -37,7 +34,7 @@ const Wrapper = styled.button`
     &,
     &::before,
     &::after {
-      background-color: ${themeGet('colors.text.primary')};
+      background-color: textPrimary;
       height: ${layerHeight}px;
       border-radius: 20px;
       position: absolute;
@@ -68,8 +65,8 @@ const Wrapper = styled.button`
       width: ${layerWidth / 2}px;
     }
   }
-  ${ifProp(
-    'active',
+  ${props =>
+    props.active &&
     css`
     .hamburger-inner {
         transition-delay: 0s;
@@ -97,8 +94,7 @@ const Wrapper = styled.button`
                       top 0.05s 0.125s linear,
                       transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
-  `
-  )}
+        `}
 `
 
 const Hamburger = props => (

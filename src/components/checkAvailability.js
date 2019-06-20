@@ -1,124 +1,95 @@
 import useOnClickOutside from 'use-onclickoutside'
 import Reveal from 'react-reveal/Reveal'
-import css from '@styled-system/css'
+import { th } from '@xstyled/system'
+import styled, { css } from '@xstyled/emotion'
 import { useInput } from 'react-hanger'
 import dayjs from 'dayjs'
 import { DateUtils } from 'react-day-picker'
-import styled from '@emotion/styled'
-import themeGet from '@styled-system/theme-get'
 import React, { useRef, useState } from 'react'
 
 import Button from 'components/button'
+import Box from 'components/box'
 import Number from 'components/number'
 import Checkbox from 'components/checkbox'
 import { ReactComponent as Schedule } from 'icons/schedule.svg'
 import DateInput from 'components/dateInput'
 import DatePicker from 'components/datePicker'
+import { up, down, between } from 'theme/media'
 import DownIcon from 'components/downIcon'
 
-const CheckboxLabel = styled.span(
-  css({
-    mr: 3,
-    color: 'secondary',
-    fontFamily: 'serif',
-  })
-)
-
-const StyledButton = styled(Button)`
-  margin-bottom: 15px;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+const CheckboxLabel = styled.span`
+  margin-right: 3;
+  color: secondary;
+  font-family: serif;
 `
 
-const Wrapper = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
-    background: ${themeGet('colors.background.light')};
-    flex-wrap: nowrap;
-    height: 200px;
-    box-shadow: ${themeGet('shadows.25')};
-    margin-bottom: ${themeGet('space.5')};
-    position: relative;
-    border-color: transparent;
-  }
-  flex-wrap: wrap;
-  display: flex;
-  flex-basis: 25%;
-  justify-content: center;
-  margin: auto;
-  border-bottom: 0.5px solid;
-  border-color: ${themeGet('colors.text.secondary')};
-  width: 100%;
-  margin-top: ${themeGet('space.3')};
-`
-
-const DatePickerWrapper = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
-    left: 0px;
-    width: 100vw;
-  }
-  position: absolute;
-  display: flex;
-  width: 100%;
-  margin-top: calc(150px + ${themeGet('space.1')});
-  padding: 0;
-  background-color: white;
-`
-
-const Section = styled.div`
-  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
+const Section = styled(Box)`
+  ${between('xs', 'sm')} {
     &:last-child {
-      background-color: ${themeGet('colors.background.dark')};
-    }
-    width: 25%;
-  }
-  @media screen and (max-width: ${themeGet('breakpoints.1')}) {
-    &:last-child {
+      background-color: transparent;
       width: 50%;
     }
   }
-  width: calc(100% / 3);
-  padding: ${themeGet('space.3')};
+  ${between('sm', 'md')} {
+    width: calc(100% / 3);
+  }
+  ${up('md')} {
+    &:last-child {
+      width: 25%;
+    }
+    width: 25%;
+  }
+  padding: 3;
 `
 
-const SectionWrapper = styled.div`
-  @media screen and (max-width: ${themeGet('breakpoints.1')}) {
-    width: 100%;
+const SectionWrapper = styled(Box)`
+  ${down('sm')} {
+    ${p =>
+      p.noBorder
+        ? css`
+            border-right: none;
+          `
+        : css`
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+          `}
   }
-  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
-    border-right: ${props =>
-      props.noBorder ? 'none' : `1px solid rgba(0, 0, 0, .1) `};
-  }
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: ${themeGet('space.2')} ${themeGet('space.2')};
+  margin: 2;
   height: 100%;
 `
 
 const Header = styled.span`
   width: 100%;
-  margin-bottom: ${themeGet('space.1')};
-  color: ${themeGet('colors.text.secondary')};
+  margin-bottom: 2;
+  color: textSecondary;
   font-weight: 700;
   font-size: 0.875rem;
   text-align: left;
   text-transform: uppercase;
 `
 
-const Day = styled.h1`
-  @media screen and (min-width: ${themeGet('breakpoints.1', '200px')}) {
-    line-height: 1.4;
+const Wrapper = styled(Box)`
+  ${up('sm')} {
+    position: relative;
+    flex-wrap: nowrap;
+    height: 200px;
+    margin-bottom: 5;
+    background: white;
+    border-color: transparent;
+    box-shadow: 25;
   }
-  height: 50px;
-  font-weight: 500;
+  flex-wrap: wrap;
+  flex-basis: 25%;
+  justify-content: center;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  font-size: 3.3rem;
-  line-height: 1.85;
-  vertical-align: baseline;
-  margin-right: auto;
+  margin: auto;
+  border-bottom: 0.5px solid;
+  border-color: textSecondary;
+  width: 100%;
+  margin-top: 3;
 `
 
 const CheckAvailability = () => {
@@ -167,7 +138,22 @@ const CheckAvailability = () => {
           <DateInput value={dates.to} onClick={toggleDatePicker} />
         </SectionWrapper>
       </Section>
-      <DatePickerWrapper css={{ zIndex: 9999 }} ref={datePickerReference}>
+      <Box
+        css={css`
+          ${up('sm')} {
+            left: 0;
+            width: 100vw;
+          }
+          position: absolute;
+          display: flex;
+          width: 100%;
+          margin-top: calc(150px + ${th.space(1)});
+          padding: 0;
+          background-color: white;
+          z-index: 9999;
+        `}
+        ref={datePickerReference}
+      >
         <Reveal
           appear
           effect="fadeInUp"
@@ -182,7 +168,7 @@ const CheckAvailability = () => {
             open
           />
         </Reveal>
-      </DatePickerWrapper>
+      </Box>
       <Section>
         <SectionWrapper noBorder>
           <Header>guests</Header>
@@ -194,27 +180,32 @@ const CheckAvailability = () => {
               onChange={guests.onChange}
             />
           ) : (
-            <div display="inline-flex">
+            <Box display="inline-flex">
               <Number
-                mr="auto"
                 Tag="h3"
-                css={{
-                  height: 50,
-                  lineHeight: 1.85,
-                  fontWeight: 500,
-                }}
+                css={css`
+                  ${up('sm')} {
+                    line-height: 1.4;
+                  }
+                  height: 50px;
+                  line-height: 1.85;
+                  font-weight: 500;
+                  font-size: 3.3rem;
+                  vertical-align: baseline;
+                  margin-right: auto;
+                `}
                 onClick={handleGuestsClick}
               >
                 {guests.value}
               </Number>{' '}
               <DownIcon />
-            </div>
+            </Box>
           )}
         </SectionWrapper>
       </Section>
       <Section>
         <SectionWrapper noBorder>
-          <div display="flex" justifyContent="space-between" mb={1}>
+          <Box display="flex" justifyContent="space-between" mb={1}>
             <label>
               <CheckboxLabel>Pets</CheckboxLabel>
               <Checkbox
@@ -233,10 +224,18 @@ const CheckAvailability = () => {
                 }}
               />
             </label>
-          </div>
-          <StyledButton fontFamily="serif">
+          </Box>
+          <Button
+            css={css`
+              margin-bottom: 2;
+              font-weight: bold;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              font-family: serif;
+            `}
+          >
             check availability <Schedule />
-          </StyledButton>
+          </Button>
         </SectionWrapper>
       </Section>
     </Wrapper>

@@ -1,25 +1,25 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import styled from '@xstyled/emotion'
 import PropTypes from 'prop-types'
-import { themeGet } from '@styled-system/theme-get'
 
+import Box from 'components/box'
 import Link from 'components/link'
 
 const MenuLink = styled(Link)`
-  color: ${themeGet('colors.text.primary')};
+  color: textPrimary;
   &:active {
     background-color: rgba(0, 0, 0, 0.24);
   }
   &:hover {
-    color: ${themeGet('colors.text.primary')};
+    color: textPrimary;
     text-decoration: none;
   }
-  height: '100%';
+  height: 100%;
   width: 100%;
 `
 
 const HeaderMenu = ({ links, handleClick }) => (
-  <div width="100%" display="flex" flexWrap="wrap" minHeight="100%">
+  <Box width="100%" display="flex" flexWrap="wrap" minHeight="100%">
     <MenuLink to="/" onClick={handleClick} fontSize={4} fontFamily="serif">
       <span>Home</span>
     </MenuLink>
@@ -35,7 +35,7 @@ const HeaderMenu = ({ links, handleClick }) => (
         <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
       </MenuLink>
     ))}
-  </div>
+  </Box>
 )
 
 HeaderMenu.propTypes = {

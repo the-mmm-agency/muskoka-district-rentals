@@ -1,44 +1,46 @@
 import React from 'react'
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-import transitions from 'theme/transitions'
+import Box from 'components/box'
+import { transition } from 'theme/transitions'
 
 const Rental = ({ title, lowestRate, featured_media, onMouseOver }) => (
-  <li
-    css={css({
-      ':hover': {
-        opacity: 1,
-      },
-      display: 'flex',
-      color: 'white',
-      flexDirection: 'column',
-      m: 3,
-      textAlign: 'left',
-      opacity: 0.5,
-      transition: transitions.create('opacity'),
-    })}
+  <Box
+    as="li"
+    css={css`
+      &:hover {
+        opacity: 1;
+      }
+      display: flex;
+      color: white;
+      flex-direction: column;
+      margin: 3;
+      text-align: left;
+      opacity: 0.5;
+      ${transition('opacity')};
+    `}
     onMouseOver={onMouseOver}
     onFocus={onMouseOver}
   >
-    <span fontWeight="medium">
+    <Box as="span" fontWeight="medium">
       Starting from <strong color="white">${lowestRate}</strong>/Night
-    </span>
+    </Box>
     <Img
-      css={css({
-        my: 2,
-        width: 210,
-        height: 130,
-        position: 'relative',
-      })}
+      css={css`
+        my: 2;
+        width: 210px;
+        height: 130px;
+        position: relative;
+      `}
       fluid={featured_media.localFile.childImageSharp.fluid}
     />
-    <span fontFamily="serif" variant="bold" fontSize={5}>
+    <Box as="span" fontFamily="serif" variant="bold" fontSize={5}>
       {title}
-    </span>
-  </li>
+    </Box>
+  </Box>
 )
 
 export const query = graphql`

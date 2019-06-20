@@ -1,132 +1,170 @@
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 
-const normalize = css({
-  '*': {
-    boxSizing: 'border-box',
-  },
-  '*, *::before, *::after': {
-    boxSizing: 'inherit',
-  },
-  html: {
-    boxSizing: 'border-box',
-    fontKerning: 'normal',
-    fontVariantNumeric: 'lining-nums',
-    mozOsxFontSmoothing: 'grayscale',
-    scrollBehavior: 'smooth',
-    webkitFontSmoothing: 'antialiased',
-  },
-  body: {
-    fontFamily: 'sans',
-    backgroundColor: 'background.default',
-    m: 0,
-  },
-  'button, input, optgroup, select, textarea': {
-    font: 'inherit',
-  },
-  '::placeholder': {
-    color: 'text.primary',
-    opacity: '0.6',
-    font: 'inherit',
-  },
-  a: {
-    '-moz-focus-inner': {
-      borderstyle: 'none',
-    },
-    padding: '0',
-    verticalAlign: 'middle',
-    backgroundColor: 'transparent',
-    border: '0',
-    borderRadius: '0',
-    outline: 'none',
-    cursor: 'pointer',
-    appearance: 'none',
-    userSelect: 'none',
-    webkitTapHighlightColor: 'transparent',
-  },
-  'article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary': {
-    display: 'block',
-  },
-  'b,strong': {
-    color: 'text.primary',
-    fontWeight: 'bolder',
-  },
-  'blockquote *:last-of-type, li *:last-of-type, p *:last-of-type': {
-    mb: 0,
-  },
-  button: {
-    '&::-moz-focus-inner': {
-      borderStyle: 'none',
-    },
-    '&:hover': {
-      '@media (hover: none)': {
-        backgroundColor: 'transparent',
-      },
-      textDecoration: 'none',
-    },
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: '0',
-    padding: '0',
-    fontWeight: '500',
-    textDecoration: 'none',
-    verticalAlign: 'middle',
-    outline: 'none',
-    cursor: 'pointer',
-    appearance: 'none',
-  },
-  h1: {
-    my: '0.67em',
-  },
-  img: {
-    borderStyle: 'none',
-  },
-  'input, textarea': {
-    '&:focus': {
-      outline: 'none',
-    },
-    color: 'primary',
-    background: 'transparent',
-    border: 'none',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.18)',
-    outline: 'none',
-    appearance: 'none',
-    resize: 'none',
-  },
-  li: {
-    mb: 2,
-  },
-  'li > ol, li > ul': {
-    mb: 2,
-    ml: 3,
-    mt: 2,
-  },
-  'ol, ul': {
-    ml: 3,
-  },
-  'ol,li,ul': {
-    pl: 0,
-  },
-  small: {
-    fontSize: '80%',
-  },
-  'svg:not(:root)': {
-    overflow: 'hidden',
-  },
-  th: {
-    textAlign: 'left',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-    fontFeatureSettings: 'tnum',
-    px: 3,
-    py: 2,
-  },
-  'thead,tr': {
-    textAlign: 'left',
-  },
-  'h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dd,p,figure,pre,table,fieldset,blockquote,form,noscript,iframe,address': {
-    m: 0,
-    mb: '1.8rem',
-  },
-})
-
+const normalize = css`
+  * {
+    box-sizing: border-box;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font-kerning: normal;
+    font-variant-numeric: lining-nums;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: sans;
+    background-color: backgroundDefault;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl,
+  dd,
+  p,
+  figure,
+  pre,
+  table,
+  fieldset,
+  blockquote,
+  form,
+  noscript,
+  iframe,
+  address {
+    margin-top: 0;
+    margin-bottom: 1.8rem;
+  }
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font: inherit;
+  }
+  &::placeholder {
+    color: textPrimary;
+    font: inherit;
+    opacity: 0.6;
+  }
+  a {
+    padding: none;
+    vertical-align: middle;
+    background-color: transparent;
+    border: none;
+    border-radius: none;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  main,
+  menu,
+  nav,
+  section,
+  summary {
+    display: block;
+  }
+  b,
+  strong {
+    color: textPrimary;
+    font-weight: bolder;
+  }
+  blockquote *:last-of-type,
+  li *:last-of-type,
+  p *:last-of-type {
+    margin-bottom: 0;
+  }
+  button {
+    &::-moz-focus-inner {
+      border-style: none;
+    }
+    &:hover {
+      @media (hover: none) {
+        background-color: transparent;
+      }
+      text-decoration: none;
+    }
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: none;
+    font-weight: 500;
+    text-decoration: none;
+    vertical-align: middle;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+  }
+  img {
+    border-style: none;
+  }
+  input,
+  textarea {
+    &:focus {
+      outline: none;
+    }
+    color: primary;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(black, 0.18);
+    outline: none;
+    appearance: none;
+    resize: none;
+  }
+  li {
+    margin-bottom: 2;
+  }
+  ol,
+  ul {
+    margin-left: 3;
+  }
+  ol,
+  li,
+  ul {
+    padding-left: 0;
+  }
+  li > ol,
+  li > ul {
+    margin-top: 2;
+    margin-bottom: 2;
+    margin-left: 3;
+  }
+  small {
+    font-size: 80%;
+  }
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  th {
+    padding: 2 3;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    font-feature-settings: 'tnum';
+  }
+  thead,
+  tr {
+    text-align: left;
+  }
+`
 export default normalize

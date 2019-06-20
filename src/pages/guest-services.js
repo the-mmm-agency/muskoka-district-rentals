@@ -1,7 +1,8 @@
 import { graphql } from 'gatsby'
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 import React from 'react'
 
+import Box from 'components/box'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
 import GuestService from 'components/guestService'
@@ -19,25 +20,25 @@ const GuestServices = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <div py={[4, 5]} px={[3, 6]}>
+    <Box py={[4, 5]} px={[3, 5]}>
       <div
-        css={css({
-          h2: {
-            mb: 3,
-          },
-          h6: {
-            mb: 4,
-          },
-        })}
+        css={css`
+          h2 {
+            margin-bottom: 3;
+          }
+          h6 {
+            margin-bottom: 4;
+          }
+        `}
         dangerouslySetInnerHTML={{ __html: content }}
       />
-      <ul display="flex" flexDirection="column" mb={5} ml={0}>
+      <Box as="ul" display="flex" flexDirection="column" mb={5} ml={0}>
         {guestServices.nodes.map(service => (
           <GuestService key={service.id} {...service} />
         ))}
-      </ul>
+      </Box>
       <ContactForm />
-    </div>
+    </Box>
   </>
 )
 

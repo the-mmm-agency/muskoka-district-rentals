@@ -1,28 +1,32 @@
 import React from 'react'
-import css from '@styled-system/css'
+import styled from '@xstyled/emotion'
+import { height } from '@xstyled/system'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
+const StyledImage = styled(BackgroundImage)`
+  * {
+    color: white;
+  }
+  &::before,
+  &::after {
+    filter: brightness(0.4);
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: fit-content;
+  text-align: center;
+  ${height}
+`
+
 const PageImage = props => (
-  <BackgroundImage
+  <StyledImage
+    height={{ xs: 200, sm: 300, md: 400, lg: 500 }}
     {...props}
     Tag="section"
     fadeIn
-    css={css({
-      '*': {
-        color: 'white',
-      },
-      '::before, ::after': {
-        filter: 'brightness(0.4)',
-      },
-      display: 'flex',
-      flexDirection: 'column',
-      height: [200, 300, 400, 500],
-      minHeight: 'fit-content',
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
-    })}
   />
 )
 

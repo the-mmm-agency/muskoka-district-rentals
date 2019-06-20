@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@xstyled/emotion'
 import { fontFace } from 'polished'
 
 const weights = {

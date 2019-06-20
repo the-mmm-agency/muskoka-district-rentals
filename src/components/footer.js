@@ -1,36 +1,17 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import Img from 'gatsby-image'
-import themeGet from '@styled-system/theme-get'
 import { graphql, useStaticQuery } from 'gatsby'
+import styled, { css } from '@xstyled/emotion'
 
 import FooterList from 'components/footerList'
 
-const Copyright = styled.span`
-  align-self: center;
-  margin-left: ${themeGet('space.1')};
-  opacity: 0.5;
-`
-const Divider = styled.div`
-  width: 100%;
-  height: 1px;
-  margin: ${themeGet('space.2')} none;
-  opacity: 0.2;
-`
-
-const Wrapper = styled.footer`
+const StyledFooter = styled.footer`
+  background-color: footer;
+  color: white;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 5% 25%;
-`
-
-const LinkWrapper = styled.div`
-  display: flex;
-  flex-basis: 25%;
-  align-items: center;
-  justify-content: center;
-  min-width: 100%;
 `
 
 const Footer = () => {
@@ -38,7 +19,7 @@ const Footer = () => {
     query {
       logo: file(relativePath: { eq: "logo-white.png" }) {
         childImageSharp {
-          fixed(width: 100, height: 50) {
+          fixed(width: 230, height: 60) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -52,18 +33,40 @@ const Footer = () => {
   `)
 
   return (
-    <Wrapper bg="footer" fg="white">
-      <LinkWrapper>
+    <StyledFooter>
+      <div
+        css={css`
+          display: flex;
+          flex-basis: 25%;
+          align-items: center;
+          justify-content: center;
+          min-width: 100%;
+        `}
+      >
         {links.siteMetadata.footerLinks.map(list => (
           <FooterList links={list} key={list[0]} />
         ))}
-      </LinkWrapper>
-      <Divider bg="white" />
+      </div>
+      <div
+        css={css`
+          width: 100%;
+          height: 1px;
+          margin: 2 0;
+          opacity: 0.2;
+          background-color: white;
+        `}
+      />
       <Img fixed={logo.childImageSharp.fixed} />
-      <Copyright>
+      <span
+        css={css`
+          align-self: center;
+          margin-left: 1;
+          opacity: 0.5;
+        `}
+      >
         © {new Date().getFullYear()} Muskoka District Rentals
-      </Copyright>
-    </Wrapper>
+      </span>
+    </StyledFooter>
   )
 }
 

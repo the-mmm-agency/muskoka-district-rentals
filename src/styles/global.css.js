@@ -1,69 +1,110 @@
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 
-import transitions from 'theme/transitions'
+import { breakpoints } from 'theme/media'
 
-const headers = Object.assign(
-  {},
-  ...['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].map((tag, index) => ({
-    [tag]: {
-      color: 'text.primary',
-      fontSize: index,
-      lineHeight: 'header',
-      fontFamily: 'serif',
-      fontWeight: 'bold',
-    },
-  }))
-)
-
-const styles = css({
-  html: {
-    boxSizing: 'border-box',
-    fontSize: ['10px', '10px', '12px', 'base'],
-    lineHeight: 'default',
-  },
-  body: {
-    color: 'text.secondary',
-  },
-  'p,blockquote': {
-    color: 'text.paragraph',
-    fontWeight: 500,
-  },
-  '::selection': {
-    color: 'white',
-    backgroundColor: 'primary',
-  },
-  a: {
-    ':hover': {
-      textDecoration: 'underline',
-    },
-    color: 'secondary',
-    textDecoration: 'none',
-    transition: transitions.create(['color', 'text-decoration']),
-  },
-  blockquote: {
-    bg: 'background.default',
-    color: 'text.primary',
-    borderColor: 'secondary',
-    borderLeft: '.25em solid',
-    mt: 2,
-    pl: 2,
-    ml: 0,
-  },
-  thead: {
-    bg: 'rgba(0,0,0,0.08)',
-  },
-  'th,td': {
-    borderBottom: '1px solid rgba(0,0,0,0.2)',
-    p: 3,
-  },
-  table: {
-    borderCollapse: 'collapse',
-    textTransform: 'uppercase',
-  },
-  'thead,tr': {
-    color: 'text.primary',
-  },
-  ...headers,
-})
+const styles = css`
+  html {
+    box-sizing: border-box;
+    line-height: default;
+    ${breakpoints({
+      xs: {
+        fontSize: 10,
+      },
+      sm: {
+        fontSize: 12,
+      },
+      md: {
+        fontSize: 14,
+      },
+      lg: {
+        fontSize: 16,
+      },
+    })}
+  }
+  body {
+    color: textSecondary;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: textPrimary;
+    font-weight: bold;
+    font-family: serif;
+    line-height: 1.2;
+    margin-top: 0;
+  }
+  h1 {
+    font-size: 0;
+  }
+  h2 {
+    font-size: 1;
+  }
+  h3 {
+    font-size: 2;
+  }
+  h4 {
+    font-size: 3;
+  }
+  h5 {
+    font-size: 4;
+  }
+  h6 {
+    font-size: 5;
+  }
+  p,
+  blockquote {
+    color: textParagraph;
+    font-weight: 500;
+  }
+  ::selection {
+    color: white;
+    background-color: primary;
+  }
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+    color: secondary;
+    text-decoration: none;
+  }
+  blockquote {
+    margin-top: 2;
+    margin-left: 0;
+    padding-left: 2;
+    color: textPrimary;
+    background-color: backgroundDefault;
+    border-color: secondary;
+    border-left: 0.25em solid;
+  }
+  thead {
+    background: rgba(0, 0, 0, 0.03);
+    font-weight: bold;
+  }
+  th {
+    font-weight: bold;
+  }
+  thead,
+  tr {
+    color: textPrimary;
+    padding: 2 3;
+  }
+  th,
+  td {
+    color: textPrimary;
+    font-size: 0.8rem;
+  }
+  td {
+    padding: 3;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+  }
+  table {
+    text-transform: uppercase;
+    border-collapse: collapse;
+  }
+`
 
 export default styles

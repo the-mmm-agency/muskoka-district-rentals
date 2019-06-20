@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import ContactForm from 'components/contactForm'
+import Box from 'components/box'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 
@@ -16,10 +17,10 @@ const BuyOrSell = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <div px={[3, 6]} py={5}>
+    <Box px={[3, 6]} py={5}>
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
-    </div>
+    </Box>
   </>
 )
 

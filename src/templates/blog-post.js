@@ -1,8 +1,10 @@
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import { css } from '@xstyled/emotion'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import Box from 'components/box'
 import Link from 'components/link'
 import SEO from 'components/seo'
 import Breadcrumb from 'components/breadcrumb'
@@ -18,23 +20,23 @@ const BlogPost = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
     />
     <SEO title={title} description={content} />
-    <div
-      m="auto"
-      mt={-4}
-      p={5}
-      bg="background.light"
-      css={{
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        top: '-50px',
-        width: '80%',
-      }}
+    <Box
+      css={css`
+        align-items: center;
+        background: backgroundLight;
+        display: flex;
+        padding: 5;
+        margin: auto;
+        margin-top: -4;
+        flex-direction: column;
+        position: relative;
+        top: -50px;
+        width: 80%;
+      `}
     >
-      <h1 textAlign="center" width="100%">
+      <Box as="h1" textAlign="center" width="100%">
         {title}
-      </h1>
+      </Box>
       <Breadcrumb
         crumbs={[
           { link: '/', title: 'Home' },
@@ -42,7 +44,7 @@ const BlogPost = ({
           { link: slug, title: title },
         ]}
       />
-      <div
+      <Box
         display="flex"
         borderBottom="1px solid rgba(0, 0, 0, 0.15)"
         justifyContent="space-between"
@@ -52,33 +54,35 @@ const BlogPost = ({
         mb={5}
         width="100%"
       >
-        <div display="flex" flexDirection="column">
-          <span
-            color="text.primary"
+        <Box display="flex" flexDirection="column">
+          <Box
+            as="span"
+            color="textPrimary"
             fontWeight="bold"
             fontSize="1.3rem"
             fontFamily="serif"
           >
             Date
-          </span>
-          <span color="text.secondary" fontWeight="bold">
+          </Box>
+          <Box as="span" color="textSecondary" fontWeight="bold">
             {date}
-          </span>
-        </div>
-        <div display="flex" flexDirection="column">
-          <span
-            color="text.primary"
+          </Box>
+        </Box>
+        <Box display="flex" flexDirection="column">
+          <Box
+            as="span"
+            color="textPrimary"
             fontWeight="bold"
             fontSize="1.3rem"
             fontFamily="serif"
           >
             Category
-          </span>
-          <div display="inline-block">
+          </Box>
+          <Box display="inline-block">
             {categories.map(({ slug, name }, index) => (
               <Link
                 key={slug}
-                color="text.secondary"
+                color="textSecondary"
                 fontWeight="bold"
                 textTransform="capitalize"
                 to={`/categories/${slug}`}
@@ -87,22 +91,23 @@ const BlogPost = ({
                 {index !== categories.length - 1 && <>,&nbsp;</>}
               </Link>
             ))}
-          </div>
-        </div>
-        <div display="flex" flexDirection="column">
-          <span
-            color="text.primary"
+          </Box>
+        </Box>
+        <Box display="flex" flexDirection="column">
+          <Box
+            as="span"
+            color="textPrimary"
             fontSize="1.3rem"
             fontWeight="bold"
             fontFamily="serif"
           >
             Tags
-          </span>
-          <div display="inline-block">
+          </Box>
+          <Box display="inline-block">
             {tags.map(({ slug, name }, index) => (
               <Link
                 key={slug}
-                color="text.secondary"
+                color="textSecondary"
                 fontWeight="bold"
                 textTransform="capitalize"
                 to={`/tags/${slug}`}
@@ -111,11 +116,11 @@ const BlogPost = ({
                 {index !== tags.length - 1 && <>,&nbsp;</>}
               </Link>
             ))}
-          </div>
-        </div>
-      </div>
-      <div width="100%">{content}</div>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+      <Box width="100%">{content}</Box>
+    </Box>
   </>
 )
 

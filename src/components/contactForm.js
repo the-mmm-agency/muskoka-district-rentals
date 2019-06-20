@@ -1,6 +1,7 @@
 import { useInput } from 'react-hanger'
 import React from 'react'
 
+import Box from 'components/box'
 import Button from 'components/button'
 import Input from 'components/input'
 
@@ -10,14 +11,14 @@ const ContactForm = () => {
   const subject = useInput('')
   const message = useInput('')
   return (
-    <div mt={5}>
-      <h2 mb={3} fontSize={[3, 2]}>
+    <Box mt={5}>
+      <Box as="h2" mb={3} fontSize={[3, 2]}>
         Get in touch with us
-      </h2>
-      <span color="text.secondary" variant="bold" ml={1}>
+      </Box>
+      <Box as="span" color="textSecondary" variant="bold" ml={1}>
         If you have any question, Please don’t hesitate to send us a message
-      </span>
-      <form display="flex" mt={[3, 5]} flexWrap="wrap">
+      </Box>
+      <Box as="form" display="flex" mt={[3, 5]} flexWrap="wrap">
         <Input
           type="text"
           mr={2}
@@ -39,7 +40,8 @@ const ContactForm = () => {
           onChange={subject.onChange}
           placeholder="Subject (optional)"
         />
-        <textarea
+        <Box
+          as="textarea"
           rows={6}
           width="100%"
           mt={4}
@@ -51,8 +53,8 @@ const ContactForm = () => {
         <Button variant="transparent" ml="-1rem" type="submit">
           send message
         </Button>
-      </form>
-    </div>
+      </Box>
+    </Box>
   )
 }
 

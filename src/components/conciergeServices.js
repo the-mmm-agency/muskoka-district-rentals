@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
+import { css } from '@xstyled/emotion'
 
 import Hidden from 'components/hidden'
+import Box from 'components/box'
+import Flex from 'components/flex'
 import ConciergeService from 'components/conciergeService'
 
 const ConciergeServices = () => {
@@ -19,43 +22,44 @@ const ConciergeServices = () => {
     conciergeServices.nodes[0].featured_media
   )
   return (
-    <section
-      display="flex"
-      minHeight={[500, 600, 700, 800]}
-      maxHeight={[500, 600, 700, 800]}
+    <Flex
+      as="section"
+      minHeight={{ xs: 500, sm: 600, md: 700, lg: 800 }}
+      maxHeight={{ xs: 500, sm: 600, md: 700, lg: 800 }}
       flexGrow={0}
     >
-      <div width={['100%', null, null, '50%']} p={[4, null, 5]}>
-        <div textAlign={['center', 'left']}>
-          <span
-            css={{
-              letterSpacing: 'headers',
-            }}
+      <Box width={{ xs: '100%', lg: '50%' }} p={{ xs: 4, md: 5 }}>
+        <Box textAlign={{ xs: 'center', sm: 'left' }}>
+          <Box
+            as="span"
+            letterSpacing="headers"
             pl={2}
             textTransform="uppercase"
           >
             Experience Muskoka
-          </span>
-          <h2 mt={[2, 3]}>Concierge Services</h2>
-        </div>
+          </Box>
+          <Box as="h2" mt={{ xs: 2, sm: 3 }}>
+            Concierge Services
+          </Box>{' '}
+        </Box>
         <ul
-          css={{
-            '::-webkit-scrollbar': {
-              width: '6px',
-            },
-            '::-webkit-scrollbar-track': {
-              backgroundColor: '#e9e9e9',
-            },
-            '::-webkit-scrollbar-thumb': {
-              backgroundColor: '#0a252e',
-            },
-            maxHeight: '500px',
-            margin: 'none',
-            width: '100%',
-            overflowX: 'hidden',
-            overflowY: 'scroll',
-            listStyle: 'none',
-          }}
+          css={css`
+            ::-webkit-scrollbar {
+              width: 6px;
+            }
+            ::-webkit-scrollbar-track {
+              background-color: #e9e9e9;
+            }
+            ::-webkit-scrollbar-thumb {
+              background-color: #0a252e;
+            }
+            max-height: 500px;
+            margin: none;
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            list-style: none;
+          `}
         >
           {conciergeServices.nodes.map(service => (
             <ConciergeService
@@ -65,16 +69,18 @@ const ConciergeServices = () => {
             />
           ))}
         </ul>
-      </div>
-      <Hidden down={3}>
+      </Box>
+      <Hidden down="lg">
         <Img
-          minWidth="50%"
-          minHeight="100%"
-          maxHeight="100%"
+          css={css`
+            min-width: 50%;
+            min-height: 100%;
+            max-height: 100%;
+          `}
           fluid={selected.localFile.childImageSharp.fluid}
         />
       </Hidden>
-    </section>
+    </Flex>
   )
 }
 

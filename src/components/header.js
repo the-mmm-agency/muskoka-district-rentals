@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Headroom from 'react-headroom'
-import styled from '@emotion/styled'
+import styled from '@xstyled/emotion'
 
 import Button from 'components/button'
 import Logo from 'components/logo'

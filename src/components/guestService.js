@@ -3,23 +3,25 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
+import Box from 'components/box'
+
 const GuestService = ({ featured_media, content, title }) => (
-  <li display="flex" listStyle="none" mb={3}>
-    <div display="inline-block" verticalAlign="top">
+  <Box as="li" display="flex" listStyle="none" mb={3}>
+    <Box display="inline-block" verticalAlign="top">
       <Img fixed={featured_media.localFile.childImageSharp.fixed} />
-    </div>
-    <div display="inline-block" verticalAlign="top" ml={3}>
-      <h4 variant="bold" mb={1} fontSize={5}>
+    </Box>
+    <Box display="inline-block" verticalAlign="top" ml={3}>
+      <Box as="h4" variant="bold" mb={1} fontSize={5}>
         {title}
-      </h4>
-      <div
-        color="text.secondary"
+      </Box>
+      <Box
+        color="textSecondary"
         fontWeight="medium"
         mb={3}
         dangerouslySetInnerHTML={{ __html: content }}
       />
-    </div>
-  </li>
+    </Box>
+  </Box>
 )
 
 export const query = graphql`

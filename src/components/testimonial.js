@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
+import Box from 'components/box'
 import StarRating from 'components/starRating'
 
 const Testimonial = ({ body, rating, author, property }) => (
-  <div
+  <Box
     display="flex"
     flexDirection="column"
-    bg="background.light"
+    backgroundColor="backgroundLight"
     flexShrink={0}
     alignItems="center"
     justifyContent="center"
@@ -18,38 +19,37 @@ const Testimonial = ({ body, rating, author, property }) => (
     py={5}
     width={['100%', null, '80%']}
     textAlign="center"
-    background="background.light"
   >
-    <span
-      color="text.secondary"
+    <Box
+      as="span"
+      color="textSecondary"
       textTransform="uppercase"
-      css={{
-        letterSpacing: '0.7em',
-      }}
+      letterSpacing="0.7em"
       fontWeight="bold"
       fontSize={['80%', '100%']}
       mb={4}
     >
       Testimonials
-    </span>
-    <h2 fontSize={[3, 2]} mb={[4, 5]}>
+    </Box>
+    <Box as="h2" fontSize={[3, 2]} mb={[4, 5]}>
       What Guests Say
-    </h2>
-    <p
+    </Box>
+    <Box
+      as="p"
       lineHeight={1.4}
       fontSize={[5, 4]}
-      color="text.alt"
+      color="textAlt"
       fontFamily="serif"
       fontStyle="italic"
     >
       &quot;{body}&quot;
-    </p>
+    </Box>
     <StarRating rating={rating} starDimension="1.5rem" />
-    <span fontWeight="medium" mt={[3, 5]} mb={0}>
+    <Box as="span" fontWeight="medium" mt={[3, 5]} mb={0}>
       <b>{author} -</b> Review for {property.name} from{' '}
       <b>{property.location}</b>
-    </span>
-  </div>
+    </Box>
+  </Box>
 )
 
 Testimonial.propTypes = {

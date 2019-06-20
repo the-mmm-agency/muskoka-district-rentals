@@ -1,4 +1,4 @@
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@xstyled/emotion'
 
 export const spin = keyframes`
   0% {
@@ -18,7 +18,6 @@ export const vibrate = keyframes`
   }
 `
 
-
 export const blinkS = keyframes`
   50% {
     opacity: 0;
@@ -30,15 +29,6 @@ export const blink = keyframes`
   50%,
   100% {
     visibility: hidden;
-  }
-`
-
-export const spin = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
   }
 `
 

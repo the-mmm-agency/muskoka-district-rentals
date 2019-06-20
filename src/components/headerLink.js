@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
-import { themeGet } from '@styled-system/theme-get'
+import styled from '@xstyled/emotion'
 
-import transitions from 'theme/transitions'
+import { transition } from 'theme/transitions'
 import Link from 'components/link'
 
 const StyledLink = styled(Link)`
+  color: textPrimary;
+  font-weight: bold;
+  letter-spacing: labels;
+  font-family: serif;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,7 +26,7 @@ const StyledLink = styled(Link)`
       }
     }
   }
-  transition: ${transitions.create('background')};
+  ${transition('background')};
   &:hover {
     text-decoration: none;
     background: rgba(0, 0, 0, 0.1);
@@ -38,26 +41,17 @@ const StyledLink = styled(Link)`
       left: 50%;
       width: 100%;
       height: 2px;
-      background-color: ${themeGet('colors.text.primary')};
+      background-color: textPrimary;
       transform: translate(-50%, 0) scaleX(0);
       transform-origin: center;
-      transition: transform 0.3s ease-in-out;
       content: '';
+      ${transition('transform')};
     }
   }
 `
 
-const HeaderLink = ({ to }) => (
-  <StyledLink
-    to={to}
-    activeClassName="active"
-    fade
-    duration={0.5}
-    color="text.primary"
-    fontWeight="bold"
-    letterSpacing="labels"
-    fontFamily="serif"
-  >
+const HeaderLink = ({ to, ...props }) => (
+  <StyledLink {...props} to={to} activeClassName="active" fade duration={0.5}>
     <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
   </StyledLink>
 )

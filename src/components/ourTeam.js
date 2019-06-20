@@ -2,11 +2,11 @@ import React, { useMemo, useState } from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import styled from '@emotion/styled'
+import styled, { css } from '@xstyled/emotion'
 import Img from 'gatsby-image'
 import { useNumber } from 'react-hanger'
 
-import transitions, { duration, easing } from 'theme/transitions'
+import { transition } from 'theme/transitions'
 import MemberInfo from 'components/memberInfo'
 import RightIcon from 'components/rightIcon'
 
@@ -17,7 +17,9 @@ const Wrapper = styled.section`
   min-height: 100vh;
   overflow: hidden;
   color: white;
-  background: linear-gradient(180deg, ${props => props.color} 80vh, white 20vh);
+  ${props => css`
+    background: linear-gradient(180deg, ${props.color} 80vh, white 20vh);
+  `}
 `
 const InfoWrapper = styled.div`
   display: flex;
@@ -38,9 +40,9 @@ const NextButton = styled.div`
   justify-content: center;
   width: 25%;
   cursor: pointer;
-  transition: ${transitions.create('background-color', {
-    duration: duration.complex,
-    easing: easing.sharp,
+  ${transition('background-color', {
+    duration: 'complex',
+    easing: 'sharp',
   })};
 `
 
@@ -89,10 +91,7 @@ const TeamMember = styled(BackgroundImage)`
   height: 100%;
   text-align: center;
   opacity: 1;
-  transition: ${transitions.create('opacity', {
-    duration: duration.complex,
-    easing: easing.sharp,
-  })};
+  ${transition('opacity', { duration: 'complex', easing: 'sharp' })}
   span {
     margin: auto;
     font-weight: 600;
@@ -178,7 +177,7 @@ const OurTeam = () => {
                 </TeamMemberWrapper>
               ))}
             </StyledPose>
-            <NextButton bg="background.dark" onClick={handleClick}>
+            <NextButton bg="backgroundDark" onClick={handleClick}>
               <RightIcon />
             </NextButton>
           </Team>

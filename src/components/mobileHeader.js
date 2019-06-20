@@ -1,28 +1,33 @@
 import React, { useState } from 'react'
-import styled from '@emotion/styled'
 import Fade from 'react-reveal/Fade'
-import { ifProp } from 'styled-tools'
 import PropTypes from 'prop-types'
 import { Location } from '@reach/router'
+import styled from '@xstyled/emotion'
+import { css } from '@emotion/core'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
+import Box from 'components/box'
 import BackIcon from 'components/backIcon'
 import Logo from 'components/logo'
 import Hamburger from 'components/hamburger'
 import HeaderMenu from 'components/headerMenu'
-import transitions from 'theme/transitions'
+import { transition } from 'theme/transitions'
 
-const StyledHeader = styled.header`
+const Header = styled.header`
+  ${props => css`
+    height: ${props.active ? '100%' : '60px'};
+  `}
+  background: white;
+  padding: 1;
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  height: ${ifProp('active', '35rem', '60px')};
   overflow: hidden;
   text-align: center;
-  transition: ${transitions.create('height', { duration: '0.175s' })};
+  ${transition('height', { duration: 'shorter' })};
 `
 
 const MobileHeader = ({ links }) => {
@@ -34,8 +39,8 @@ const MobileHeader = ({ links }) => {
     setActive(false)
   }
   return (
-    <StyledHeader bg="white" active={active} p={1}>
-      <div alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
+    <Header active={active}>
+      <Box alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
         <Location>
           {props =>
             props.location.pathname === '/' ? (
@@ -48,11 +53,11 @@ const MobileHeader = ({ links }) => {
           }
         </Location>
         <Hamburger active={active} onClick={handleClick} ml="auto" />
-      </div>
+      </Box>
       <Fade m="auto" when={active}>
         <HeaderMenu handleClick={closeMenu} links={links} />
       </Fade>
-    </StyledHeader>
+    </Header>
   )
 }
 

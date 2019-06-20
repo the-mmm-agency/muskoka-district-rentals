@@ -37,10 +37,16 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        instances: ['@xstyled/emotion'],
+      },
+    },
+    `gatsby-plugin-ramda`,
 
     // Styling and site config
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-transition-link`,
       options: {

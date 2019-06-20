@@ -1,7 +1,7 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import styled, { css } from '@xstyled/emotion'
 import { rgba } from 'polished'
-import themeGet from '@styled-system/theme-get'
+import { th } from '@xstyled/system'
 
 const Wrapper = styled.div`
   display: inline-flex;
@@ -15,8 +15,9 @@ const Wrapper = styled.div`
       }
     }
     border: 1px solid transparent;
-    border-bottom-color: ${props =>
-      rgba(props.theme.colors.text.primary, 0.18)};
+    ${props => css`
+      border-bottom-color: ${rgba(th.color('textPrimary')(props), 0.18)};
+    `}
     width: 100%;
   }
   span {
@@ -26,7 +27,7 @@ const Wrapper = styled.div`
     left: 0;
     width: 12rem;
     height: 1px;
-    background-color: ${themeGet('color.text.primary')};
+    background-color: textPrimary;
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.5s ease;

@@ -1,32 +1,18 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import css from '@styled-system/css'
+import { css } from '@xstyled/emotion'
 import PropTypes from 'prop-types'
-import { themeGet } from '@styled-system/theme-get'
 
+import Box from 'components/box'
+import Flex from 'components/flex'
 import StarRating from 'components/starRating'
+import { up, down } from 'theme/media'
 import { ReactComponent as CaretRight } from 'icons/caret-right.svg'
 import Hidden from 'components/hidden'
 import Number from 'components/number'
 import Button from 'components/button'
 import CottageInfo from 'components/cottageInfo'
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-  @media screen and (min-width: ${themeGet('breakpoints.1')}) {
-    &:nth-child(even) {
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      text-align: right;
-    }
-    text-align: left;
-    justify-content: flex-start;
-    flex-direction: row;
-  }
-`
 
 const Cottage = ({
   capacity,
@@ -43,132 +29,161 @@ const Cottage = ({
   reviewCount,
   number,
 }) => (
-  <>
-    <Wrapper reverse={number % 2 === 0} mx={2} my={3}>
-      <Hidden down={2}>
-        <div
-          css={css({
-            alignItems: 'center',
-            border: '1px solid',
-            borderColor: 'text.secondary',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            maxHeight: '350px',
-            mt: 0,
-            mx: 5,
-            p: 4,
-          })}
-        >
-          <span
-            css={{
-              fontWeight: 'bold',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              writingMode: 'vertical-lr',
-            }}
-          >
-            Test
-          </span>
-          <Number color="text.secondary" fontWeight="bold" fontSize={4}>
-            {number + 1}
-          </Number>
-        </div>
-      </Hidden>
-      <div
-        css={css({
-          display: 'flex',
-          flexShrink: 0,
-          flexWrap: 'wrap',
-          justifyContent: 'inherit',
-          p: 2,
-          pt: 0,
-          width: ['100%', '100%', '50%', 'calc(100% / 3)'],
-        })}
+  <Flex
+    css={css`
+      ${down('sm')} {
+        flex-direction: column-reverse;
+      }
+      ${up('md')} {
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+          justify-content: flex-end;
+          text-align: right;
+        }
+      }
+      justify-content: flex-start;
+      flex-direction: row;
+      text-align: left;
+    `}
+    mx={2}
+    my={3}
+  >
+    <Hidden down={2}>
+      <Flex
+        maxHeight={350}
+        justifyContent="space-between"
+        alignItems="center"
+        flexDirection="column"
+        border="1px solid"
+        borderColor="textSecondary"
+        mt={0}
+        mx={5}
+        p={4}
       >
-        <div mb={3}>
-          <StarRating rating={reviewAvg} starDimension="1rem" />{' '}
-          <span fontWeight="medium" ml="1px">
-            {reviewCount} reviews
-          </span>
-        </div>
-        <h2 fontSize={1} mb={4} lineHeight="expanded" width="100%">
-          {title}
-        </h2>
-        <span fontWeight="semibold" fontSize={5} pt={2}>
-          Start from{' '}
-        </span>
-        <span
-          fontSize={3}
-          lineHeight={1.2}
-          ml={1}
-          color="text.primary"
-          fontWeight="bold"
+        <Box
+          as="span"
+          css={css`
+            font-weight: bold;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            writing-mode: vertical-lr;
+          `}
         >
-          {' $' + lowestRate}
-        </span>
-        <span color="text.primary" fontWeight="semibold" fontSize={5} mt="auto">
-          /Night
-        </span>
-        <div
-          css={{
-            maxHeight: '19rem',
-            maxWidth: ['100%', '90%'],
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            wordWrap: 'normal',
-          }}
-          color="text.paragraph"
-          mt={4}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-        <CottageInfo
-          attributes={[
-            {
-              name: 'Square Feet',
-              value: `${size} sqft`,
-            },
-            {
-              name: 'Property',
-              value: categories[0].name,
-            },
-            {
-              name: 'Sleeps',
-              value: capacity,
-            },
-            {
-              name: 'Beds',
-              value: bed,
-            },
-            {
-              name: 'Pet Friendly',
-              value:
-                suitability.filter(s => s.name === 'pets').length !== 0
-                  ? 'Yes'
-                  : 'No',
-            },
-          ]}
-        />
-        <Button href={`/cottages/${slug}`} ml="-1rem" variant="text">
-          See Rental &nbsp;
-          <CaretRight ml="-0.3em" mt="-0.1em" width="1.2em" height="1.2em" />
-        </Button>
-      </div>
-      <Img
-        css={css({
-          alignSelf: 'flex-start',
-          flexGrow: 1,
-          flexShrink: 1,
-          width: ['100%', '100%', '50%'],
-          mb: 4,
-        })}
-        imgStyle={{
-          objectFit: 'contain',
-        }}
-        fluid={featured_media.localFile.childImageSharp.fluid}
+          Test
+        </Box>
+        <Number color="textSecondary" fontWeight="bold" fontSize={4}>
+          {number + 1}
+        </Number>
+      </Flex>
+    </Hidden>
+    <Flex
+      flexShrink={0}
+      flexWrap="wrap"
+      justifyContent="inherit"
+      pt={0}
+      width={{ sm: '100%', md: '50%', lg: 'calc(100% / 3)' }}
+      p={2}
+    >
+      <Box mb={3}>
+        <StarRating rating={reviewAvg} starDimension="1rem" />{' '}
+        <Box as="span" fontWeight="medium" ml="1px">
+          {reviewCount} reviews
+        </Box>
+      </Box>
+      <Box as="h2" fontSize={1} mb={4} lineHeight="expanded" width="100%">
+        {title}
+      </Box>
+      <Box as="span" fontWeight="semibold" fontSize={5} pt={2}>
+        Start from{' '}
+      </Box>
+      <Box
+        as="span"
+        fontSize={3}
+        lineHeight={1.2}
+        ml={1}
+        color="textPrimary"
+        fontWeight="bold"
+      >
+        {' $' + lowestRate}
+      </Box>
+      <Box
+        as="span"
+        color="textPrimary"
+        fontWeight="semibold"
+        fontSize={5}
+        mt="auto"
+      >
+        /Night
+      </Box>
+      <Box
+        maxWidth={{ xs: '100%', sm: '90%' }}
+        color="textParagraph"
+        css={css`
+          max-height: 19rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-wrap: normal;
+          margin-top: 4;
+        `}
+        dangerouslySetInnerHTML={{ __html: content }}
       />
-    </Wrapper>
-  </>
+      <CottageInfo
+        attributes={[
+          {
+            name: 'Square Feet',
+            value: `${size} sqft`,
+          },
+          {
+            name: 'Property',
+            value: categories[0].name,
+          },
+          {
+            name: 'Sleeps',
+            value: capacity,
+          },
+          {
+            name: 'Beds',
+            value: bed,
+          },
+          {
+            name: 'Pet Friendly',
+            value:
+              suitability.filter(s => s.name === 'pets').length !== 0
+                ? 'Yes'
+                : 'No',
+          },
+        ]}
+      />
+      <Button href={`/cottages/${slug}`} variant="transparent" mr="-1em">
+        See Rental &nbsp;
+        <CaretRight
+          css={css`
+            margin-left: -0.3em;
+            margin-top: -0.1em;
+            width: 1.2em;
+            height: 1.2em;
+          `}
+        />
+      </Button>
+    </Flex>
+    <Img
+      css={css`
+        align-self: flex-start;
+        align-items: flex-start;
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 100%;
+        margin-bottom: 4;
+        ${up('sm')} {
+          width: 40%;
+        }
+      `}
+      imgStyle={{
+        objectFit: 'contain',
+      }}
+      fluid={featured_media.localFile.childImageSharp.fluid}
+    />
+  </Flex>
 )
 
 export const query = graphql`
