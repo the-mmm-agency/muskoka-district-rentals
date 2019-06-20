@@ -20,7 +20,7 @@ const GuestServices = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Box py={[4, 5]} px={[3, 5]}>
+    <Box py={{ xs: 4, sm: 5 }} px={{ xs: 3, sm: 5 }}>
       <div
         css={css`
           h2 {

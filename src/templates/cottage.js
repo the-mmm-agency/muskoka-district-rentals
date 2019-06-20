@@ -71,22 +71,23 @@ const Cottage = ({ data: { cottage } }) => (
           ))}
         </Carousel>
       </Box>
-      <Box as="span" css={{ textTransform: 'uppercase' }} fontWeight="bold">
+      <Box as="span" textTransform="uppercase" fontWeight="bold">
         Start From{' '}
-        <Box fontSize={3} color="textPrimary">
+        <Box as="span" fontSize={3} color="textPrimary">
           ${cottage.lowestRate}
         </Box>
-        <Box color="textPrimary">/night</Box>
+        <Box as="span" color="textPrimary">
+          /night
+        </Box>
       </Box>
-      <Box
-        as="ul"
-        m="auto"
-        fontWeight="bold"
-        listStyle="none"
+      <ul
         css={css`
           li {
             margin-bottom: 0;
           }
+          margin: auto;
+          list-style: none;
+          font-weight: bold;
           margin-bottom: 5;
           text-transform: uppercase;
         `}
@@ -106,7 +107,7 @@ const Cottage = ({ data: { cottage } }) => (
         <li>
           Bathrooms: <b>{cottage.acf.bathrooms}</b>
         </li>
-      </Box>
+      </ul>
     </Box>
     <Box as="section" px={6} bg="white" minWidth="100vw" mr="-5rem" py={4}>
       <Box as="h2" my={5}>
@@ -117,7 +118,12 @@ const Cottage = ({ data: { cottage } }) => (
       <Box as="h3" my={4}>
         Rates and Availability
       </Box>
-      <AvailabilityCalendar css={{ width: '80%' }} rates={cottage.rates} />
+      <AvailabilityCalendar
+        css={css`
+          width: 80%;
+        `}
+        rates={cottage.rates}
+      />
       <Box as="table" m="auto" mt={4} mb={6} width="80%">
         <thead>
           <tr>

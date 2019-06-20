@@ -1,4 +1,4 @@
-export default {
+const colors = {
   primary: '#212a38',
   footer: '#212020',
   secondary: '#3278b5',
@@ -15,3 +15,5 @@ export default {
   textParagraph: '#666',
   textLight: '#ccc',
 }
+
+export default colors

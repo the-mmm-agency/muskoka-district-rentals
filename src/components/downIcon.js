@@ -5,8 +5,8 @@ const DownIcon = () => (
   <svg
     css={css`
       align-self: center;
-      width: 30;
-      height: 30;
+      width: 30px;
+      height: 30px;
       margin-left: 1;
     `}
     viewBox="0 0 32 32"

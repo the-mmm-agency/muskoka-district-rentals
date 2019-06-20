@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from '@xstyled/emotion'
 
 import Calendar from 'styles/calendar.css'
 
 const DatePicker = ({ from, to, handleDayClick }) => (
   <Calendar
-    css={{
-      position: 'absolute',
-      zIndex: 9000,
-    }}
+    css={css`
+      position: absolute;
+      z-index: 9000;
+    `}
     numberOfMonths={2}
     selectedDays={[from, { from, to }]}
     modifiers={{ start: from, end: to }}

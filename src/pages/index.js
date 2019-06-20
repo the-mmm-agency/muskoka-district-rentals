@@ -4,6 +4,7 @@ import { css } from '@xstyled/emotion'
 import React from 'react'
 
 import Box from 'components/box'
+import Flex from 'components/flex'
 import PageImage from 'components/pageImage'
 import PostCard from 'components/postCard'
 import SwirlBackground from 'components/swirlBackground'
@@ -69,15 +70,15 @@ const IndexPage = ({
       alignItems="center"
       mt={{ xs: 0, md: '-100px' }}
       px={5}
-      mb={[3, 5, 6]}
+      mb={{ xs: 3, md: 5, lg: 6 }}
       textAlign="center"
     >
       <CheckAvailability />
       <Hidden down="sm">
         <Box
           as="span"
-          mt={[3, 5, 6]}
-          mb={[2, 4, 5]}
+          mt={{ xs: 3, sm: 5, md: 6 }}
+          mb={{ xs: 2, sm: 4, md: 5 }}
           color="textSecondary"
           textTransform="uppercase"
           letterSpacing="0.35em"
@@ -137,15 +138,12 @@ const IndexPage = ({
     <ConciergeServices />
     <SwirlBackground>
       <Testimonial {...testimonials.nodes[0]} />
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          align-items: center;
-          px: 5;
-          mb: 6;
-        `}
+      <Flex
+        textAlign="center"
+        flexDirection="column"
+        alignItems="center"
+        px={5}
+        mb={6}
       >
         <span
           css={css`
@@ -164,7 +162,7 @@ const IndexPage = ({
         {blogPosts.edges.map(edge => (
           <PostCard key={edge.node.id} {...edge.node} />
         ))}
-      </div>
+      </Flex>
     </SwirlBackground>
     <Contact />
   </>

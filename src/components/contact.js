@@ -24,9 +24,9 @@ const Image = styled(BackgroundImage)`
     }
   }
   span {
-    color: 'textLight';
+    color: textLight;
   }
-  display: 'flex';
+  display: flex;
   flex-basis: 100%;
   flex-direction: column;
   flex-wrap: wrap;

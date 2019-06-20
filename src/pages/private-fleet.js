@@ -17,7 +17,10 @@ const PrivateFleet = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Box px={[3, 4, 5, 6]} py={[0, 1, 2, 3]}>
+    <Box
+      px={{ xs: 3, sm: 4, md: 5, lg: 6 }}
+      py={{ xs: 0, sm: 1, md: 2, lg: 3 }}
+    >
       <Box
         css={{
           ul: {

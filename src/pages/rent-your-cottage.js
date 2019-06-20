@@ -76,7 +76,7 @@ const RentYourCottage = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Box px={[3, 4, 5, 6]} py={5}>
+    <Box px={{ xs: 3, sm: 4, md: 5, lg: 6 }} py={5}>
       <Content dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </Box>

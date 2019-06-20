@@ -8,8 +8,7 @@ import Box from 'components/box'
 import { transition } from 'theme/transitions'
 
 const Rental = ({ title, lowestRate, featured_media, onMouseOver }) => (
-  <Box
-    as="li"
+  <li
     css={css`
       &:hover {
         opacity: 1;
@@ -40,7 +39,7 @@ const Rental = ({ title, lowestRate, featured_media, onMouseOver }) => (
     <Box as="span" fontFamily="serif" variant="bold" fontSize={5}>
       {title}
     </Box>
-  </Box>
+  </li>
 )
 
 export const query = graphql`

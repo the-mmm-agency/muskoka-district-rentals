@@ -1,22 +1,18 @@
 import { css } from '@xstyled/emotion'
 
-import { breakpoints } from 'theme/media'
+import { down } from 'theme/media'
 
 const styles = css`
   html {
     box-sizing: border-box;
+    font-size: 14px;
+    ${down('sm')} {
+      font-size: 10px;
+    }
+    ${down('md')} {
+      font-size: 12px;
+    }
     line-height: default;
-    ${breakpoints({
-      xs: {
-        fontSize: 10,
-      },
-      sm: {
-        fontSize: 12,
-      },
-      md: {
-        fontSize: 14,
-      },
-    })}
   }
   body {
     color: textSecondary;
@@ -27,11 +23,11 @@ const styles = css`
   h4,
   h5,
   h6 {
+    margin-top: 0;
     color: textPrimary;
     font-weight: bold;
     font-family: serif;
     line-height: 1.2;
-    margin-top: 0;
   }
   h1 {
     font-size: 0;
@@ -77,16 +73,16 @@ const styles = css`
     border-left: 0.25em solid;
   }
   thead {
-    background: rgba(0, 0, 0, 0.03);
     font-weight: bold;
+    background: rgba(0, 0, 0, 0.03);
   }
   th {
     font-weight: bold;
   }
   thead,
   tr {
-    color: textPrimary;
     padding: 2 3;
+    color: textPrimary;
   }
   th,
   td {
@@ -95,8 +91,8 @@ const styles = css`
   }
   td {
     padding: 3;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
   table {
     text-transform: uppercase;

@@ -17,7 +17,7 @@ const BuyOrSell = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Box px={[3, 6]} py={5}>
+    <Box px={{ xs: 3, sm: 6 }} py={5}>
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </Box>

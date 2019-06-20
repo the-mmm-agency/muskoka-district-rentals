@@ -7,7 +7,7 @@ const CottageInfo = ({ attributes }) => (
     css={css`
       li {
         margin-bottom: 1;
-        color: 'textLight';
+        color: textLight;
       }
       width: 100%;
       margin-top: 4;

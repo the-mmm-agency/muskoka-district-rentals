@@ -17,7 +17,7 @@ const Testimonial = ({ body, rating, author, property }) => (
     mx="auto"
     px={3}
     py={5}
-    width={['100%', null, '80%']}
+    width={{ xs: '100%', md: '80%' }}
     textAlign="center"
   >
     <Box
@@ -26,18 +26,18 @@ const Testimonial = ({ body, rating, author, property }) => (
       textTransform="uppercase"
       letterSpacing="0.7em"
       fontWeight="bold"
-      fontSize={['80%', '100%']}
+      fontSize={{ xs: '80%', sm: '100%' }}
       mb={4}
     >
       Testimonials
     </Box>
-    <Box as="h2" fontSize={[3, 2]} mb={[4, 5]}>
+    <Box as="h2" fontSize={{ xs: 3, sm: 2 }} mb={{ xs: 4, sm: 5 }}>
       What Guests Say
     </Box>
     <Box
       as="p"
       lineHeight={1.4}
-      fontSize={[5, 4]}
+      fontSize={{ xs: 5, sm: 4 }}
       color="textAlt"
       fontFamily="serif"
       fontStyle="italic"
@@ -45,7 +45,7 @@ const Testimonial = ({ body, rating, author, property }) => (
       &quot;{body}&quot;
     </Box>
     <StarRating rating={rating} starDimension="1.5rem" />
-    <Box as="span" fontWeight="medium" mt={[3, 5]} mb={0}>
+    <Box as="span" fontWeight="medium" mt={{ xs: 3, sm: 5 }} mb={0}>
       <b>{author} -</b> Review for {property.name} from{' '}
       <b>{property.location}</b>
     </Box>

@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import { css } from '@xstyled/emotion'
 import React from 'react'
 
 import Box from 'components/box'
@@ -40,12 +41,12 @@ const Amenities = ({ amenities }) => {
                 key={amenity.name}
               >
                 <Check
-                  css={{
-                    stroke: 'textPrimary',
-                    width: '1em',
-                    height: '1em',
-                    marginTop: '-0.25em',
-                  }}
+                  css={css`
+                    stroke: textPrimary;
+                    width: 1em;
+                    height: 1em;
+                    margin-top: -0.25em;
+                  `}
                 />
                 <Box as="span" ml={1} fontWeight="bold" whiteSpace="nowrap">
                   {amenity.name}

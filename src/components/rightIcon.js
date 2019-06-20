@@ -1,13 +1,14 @@
 import React from 'react'
+import css from '@xstyled/emotion'
 
 const RightIcon = () => (
   <svg
-    css={{
-      width: 50,
-      height: 50,
-      alignSelf: 'center',
-      fill: props => props.theme.colors.textPrimary,
-    }}
+    css={css`
+      width: 50;
+      height: 50;
+      align-self: center;
+      fill: textPrimary;
+    `}
     alignSelf="center"
     viewBox="0 0 32 32"
     aria-hidden="true"
