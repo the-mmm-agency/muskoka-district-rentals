@@ -100,6 +100,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         baseUrl: `https://muskokadis.wpengine.com`,
+        concurrentRequests: 15,
         protocol: `https`,
         useACF: true,
         auth: {

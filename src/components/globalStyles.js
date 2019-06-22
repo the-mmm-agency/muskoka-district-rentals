@@ -10,7 +10,7 @@ const GlobalStyles = props => (
   <>
     <Global styles={normalize(props)} />
     <Global styles={globalStyle(props)} />
-    <Global styles={fonts(props)} />
+    <Global styles={fonts} />
   </>
 )
 
