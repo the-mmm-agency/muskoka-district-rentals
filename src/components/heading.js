@@ -1,6 +1,8 @@
-import Box from 'components/box'
+import styled from '@emotion/styled'
 
-const Heading = Box
+import Text from 'components/text'
+
+const Heading = styled(Text)
 
 Heading.defaultProps = {
   as: 'h2',
