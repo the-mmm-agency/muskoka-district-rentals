@@ -1,6 +1,5 @@
 import useOnClickOutside from 'use-onclickoutside'
 import Reveal from 'react-reveal/Reveal'
-import { th } from '@xstyled/system'
 import styled, { css } from '@xstyled/emotion'
 import { useInput } from 'react-hanger'
 import dayjs from 'dayjs'
@@ -14,7 +13,7 @@ import Checkbox from 'components/checkbox'
 import { ReactComponent as Schedule } from 'icons/schedule.svg'
 import DateInput from 'components/dateInput'
 import DatePicker from 'components/datePicker'
-import { up, down, between } from 'theme/media'
+import { up } from 'theme/media'
 import DownIcon from 'components/downIcon'
 
 const CheckboxLabel = styled.span`
@@ -24,35 +23,15 @@ const CheckboxLabel = styled.span`
 `
 
 const Section = styled(Box)`
-  ${between('xs', 'sm')} {
-    &:last-child {
-      background-color: transparent;
-      width: 50%;
-    }
-  }
-  ${between('sm', 'md')} {
-    width: calc(100% / 3);
-  }
   ${up('md')} {
-    &:last-child {
-      width: 25%;
-    }
     width: 25%;
   }
+  width: calc(100% / 3);
   padding: 3;
 `
 
 const SectionWrapper = styled(Box)`
-  ${down('sm')} {
-    ${p =>
-      p.noBorder
-        ? css`
-            border-right: none;
-          `
-        : css`
-            border-right: 1px solid rgba(0, 0, 0, 0.1);
-          `}
-  }
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -80,6 +59,18 @@ const Wrapper = styled(Box)`
     background: white;
     border-color: transparent;
     box-shadow: 25;
+  }
+  &:last-of-type {
+    ${up('sm')} {
+      div {
+        background-color: backgroundDark;
+      }
+    }
+  }
+  &:nth-last-of-type(2) {
+    div {
+      border: none;
+    }
   }
   flex-wrap: wrap;
   flex-basis: 25%;
@@ -147,7 +138,7 @@ const CheckAvailability = () => {
           position: absolute;
           display: flex;
           width: 100%;
-          margin-top: calc(150px + ${th.space(1)});
+          margin-top: calc(150px + 0.3rem);
           padding: 0;
           background-color: white;
           z-index: 9999;
@@ -170,7 +161,7 @@ const CheckAvailability = () => {
         </Reveal>
       </Box>
       <Section>
-        <SectionWrapper noBorder>
+        <SectionWrapper>
           <Header>guests</Header>
           {guestsActive ? (
             <input
@@ -203,8 +194,11 @@ const CheckAvailability = () => {
           )}
         </SectionWrapper>
       </Section>
-      <Section>
-        <SectionWrapper noBorder>
+      <Section
+        backgroundColor={{ xs: 'transparent', md: 'backgroundDark' }}
+        width={{ xs: 0.5 }}
+      >
+        <SectionWrapper>
           <Box display="flex" justifyContent="space-between" mb={1}>
             <label>
               <CheckboxLabel>Pets</CheckboxLabel>
@@ -225,16 +219,13 @@ const CheckAvailability = () => {
               />
             </label>
           </Box>
-          <Button
-            css={css`
-              margin-bottom: 2;
-              font-weight: bold;
-              letter-spacing: 0.1em;
-              text-transform: uppercase;
-              font-family: serif;
-            `}
-          >
-            check availability <Schedule />
+          <Button mb={2} variant="serif">
+            check availability{' '}
+            <Schedule
+              css={css`
+                fill: white;
+              `}
+            />
           </Button>
         </SectionWrapper>
       </Section>

@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@xstyled/emotion'
-import { th } from '@xstyled/system'
-import { ifProp } from 'styled-tools'
-import { rgba } from 'polished'
+import styled, { css } from '@xstyled/emotion'
 
+import { controlFocus } from 'theme/control'
 import { transition } from 'theme/transitions'
 
 const HiddenCheckbox = styled.input`
@@ -29,19 +27,30 @@ const Icon = styled.svg`
 `
 
 const StyledCheckbox = styled.div`
+  ${props =>
+    props.checked
+      ? css`
+          background: color('primary');
+          svg {
+            visibility: visible;
+          }
+        `
+      : css`
+          background: transparent;
+          svg {
+            visibility: hidden;
+          }
+        `}
   display: inline-block;
   width: 18px;
   height: 18px;
   margin-top: 0.5em;
-  background: ${ifProp('checked', th.color('primary'), 'transparent')};
-  border: 1px solid ${th.color('primary')};
+  border: 1px solid;
+  border-color: primary;
   border-radius: 2px;
   ${transition(['background', 'box-shadow'])};
   input:hover + & {
-    box-shadow: 0 0 0 3px ${props => rgba(th.color('primary')(props), 0.2)};
-  }
-  svg {
-    visibility: ${ifProp('checked', 'visible', 'hidden')};
+    ${props => controlFocus('primary')(props)}
   }
 `
 

@@ -8121,6 +8121,14 @@ gatsby-plugin-manifest@^2.1.1:
     semver "^5.6.0"
     sharp "^0.22.1"
 
+gatsby-plugin-netlify-cache@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify-cache/-/gatsby-plugin-netlify-cache-1.2.0.tgz#e68db9c5bd4ae103b4589f9be2a3cb9958750788"
+  integrity sha512-unt4mAVpC0JzwZSo8KQV4P/trDHkr3PeTWDF5Hijw9jGfNQIWXbcj9nYljAVg7HCich6E6b27Q+zuf53InwpDQ==
+  dependencies:
+    babel-runtime "^6.26.0"
+    fs-extra "^7.0.0"
+
 gatsby-plugin-netlify@^2.0.17:
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.0.17.tgz#05954942041f55d1e37af2c064bbcdb61d143821"
@@ -14611,6 +14619,11 @@ raf@^3.3.0, raf@^3.4.0:
   dependencies:
     performance-now "^2.1.0"
 
+rambda@^2.11.1:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/rambda/-/rambda-2.11.1.tgz#9e2c5afd6d4d0c9ee2d5eb5b31e96ef4f337b947"
+  integrity sha512-zo4X/mOHz8Sg2f+8sm9BLiwpK2DeNVKwPD+X+VgkAwag+REXVhP2STAuWKbQqejJVynBhkPaODDsnOvmWXTXdA==
+
 ramda@0.24.1:
   version "0.24.1"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
@@ -17054,6 +17067,11 @@ style-value-types@^3.0.6, style-value-types@^3.1.4:
   integrity sha512-jHxRZWQpx6imY+QIveHTZwGOJWJqX3Cmt6Yk1zCGeQjk4noEsX+lfvFJUmRPpZL3VTrfGrHtjVWTcvcHx/OFhQ==
   dependencies:
     hey-listen "^1.0.8"
+
+styled-ax@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/styled-ax/-/styled-ax-1.1.1.tgz#891bc75ab4c633db34a8d3fe96b90587954bb374"
+  integrity sha1-iRvHWrTGM9s0qNP+lrkFh5VLs3Q=
 
 styled-system@^5.0.6:
   version "5.0.6"

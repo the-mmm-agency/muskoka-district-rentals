@@ -3,10 +3,12 @@ import posed, { PoseGroup } from 'react-pose'
 import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import styled, { css } from '@xstyled/emotion'
+import { backgroundColor } from '@xstyled/system'
 import Img from 'gatsby-image'
 import { useNumber } from 'react-hanger'
 
 import { transition } from 'theme/transitions'
+import Heading from 'components/heading'
 import MemberInfo from 'components/memberInfo'
 import RightIcon from 'components/rightIcon'
 
@@ -83,14 +85,14 @@ const TeamMember = styled(BackgroundImage)`
   &:hover {
     opacity: 1;
   }
-  background-color: ${props => props.backgroundColor};
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   text-align: center;
-  opacity: 1;
+  opacity: 0.5;
+  ${backgroundColor};
   ${transition('opacity', { duration: 'complex', easing: 'sharp' })}
   span {
     margin: auto;
@@ -140,15 +142,15 @@ const OurTeam = () => {
   const team = data.team.nodes
   return (
     <Wrapper color={color}>
-      <h2
+      <Heading
         mb={4}
         pt={4}
         color="white"
         textAlign="center"
-        css={{ textTransform: 'uppercase' }}
+        textTransform="uppercase"
       >
         Our Team
-      </h2>
+      </Heading>
       <InfoWrapper>
         <MemberInfo
           key={team[selected.value].id}

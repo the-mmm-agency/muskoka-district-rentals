@@ -22,21 +22,6 @@ const radii = variant({
   },
 })
 
-const transparent = css`
-  &:hover {
-    background: rgba(0, 0, 0, 0.1);
-    box-shadow: none;
-    transform: none;
-  }
-  background: transparent;
-  box-shadow: none;
-  border: none;
-  color: textPrimary;
-  font-weight: bold;
-  letter-spacing: caps;
-  text-transform: uppercase;
-  ${transition('background', { duration: 'short' })};
-`
 const sizes = variant({
   default: 'md',
   prop: 'size',
@@ -75,28 +60,43 @@ const variants = variant({
       color: white;
       background-color: primary;
     `,
-    transparent,
-    text: css`
-      margin-left: -1rem;
-      ${props => transparent(props)}
+    serif: css`
+      &:hover {
+        color: white;
+        box-shadow: 2;
+        transform: translateY(-3px);
+        svg {
+          fill: white;
+        }
+      }
+      ${transition(['border', 'background', 'box-shadow', 'transform'], {
+        duration: 'short',
+      })};
+      color: white;
+      text-transform: uppercase;
+      font-family: serif;
+      background-color: primary;
+    `,
+    transparent: css`
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: none;
+        transform: none;
+      }
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      color: textPrimary;
+      font-weight: bold;
+      letter-spacing: caps;
+      text-transform: uppercase;
+      ${transition('background', { duration: 'short' })};
     `,
   },
 })
 
-const StyledButton = styled.button(
-  radii,
-  system,
-  variants,
-  sizes,
-  css`
-    &:hover {
-      text-decoration: none;
-    }
-    svg {
-      vertical-align: baseline;
-    }
-  `
-)
+const StyledButton = styled.button(radii, system, variants, sizes)
+
 const Button = ({ children, href, linkProps, ...props }) =>
   href ? (
     <Link

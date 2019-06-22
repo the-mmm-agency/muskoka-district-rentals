@@ -10,6 +10,7 @@
   "rules": {
     "declaration-empty-line-before": null,
     "function-name-case": null,
-    "property-no-unknown": null
+    "property-no-unknown": null,
+    "font-family-no-missing-generic-family-keyword": null
   }
 }

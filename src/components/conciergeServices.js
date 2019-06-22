@@ -5,6 +5,8 @@ import { css } from '@xstyled/emotion'
 
 import Hidden from 'components/hidden'
 import Box from 'components/box'
+import Text from 'components/text'
+import Heading from 'components/heading'
 import Flex from 'components/flex'
 import ConciergeService from 'components/conciergeService'
 
@@ -30,17 +32,10 @@ const ConciergeServices = () => {
     >
       <Box width={{ xs: '100%', lg: '50%' }} p={{ xs: 4, md: 5 }}>
         <Box textAlign={{ xs: 'center', sm: 'left' }}>
-          <Box
-            as="span"
-            letterSpacing="headers"
-            pl={2}
-            textTransform="uppercase"
-          >
+          <Text letterSpacing="headers" pl={2} textTransform="uppercase">
             Experience Muskoka
-          </Box>
-          <Box as="h2" mt={{ xs: 2, sm: 3 }}>
-            Concierge Services
-          </Box>{' '}
+          </Text>
+          <Heading mt={{ xs: 2, sm: 3 }}>Concierge Services</Heading>{' '}
         </Box>
         <ul
           css={css`

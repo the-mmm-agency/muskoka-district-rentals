@@ -19,7 +19,6 @@ const Amenities = ({ amenities }) => {
       amenity => amenity.parent_element.name === category
     ),
   }))
-
   return (
     <>
       <Box as="h3">Amenities</Box>

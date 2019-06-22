@@ -1,3 +1,5 @@
+import { css } from '@xstyled/emotion'
+
 const baseFontSize = 14
 const fontSizes = [75, 60, 48, 36, 24, 18, 16].map(
   value => `${value / baseFontSize}rem`
@@ -21,19 +23,28 @@ export default {
     semibold: 600,
   },
   letterSpacings: {
-    caps: '0.1em',
-    headers: '0.3em',
+    caps: '0.2em',
+    headers: '0.35em',
     labels: '0.05em',
+    buttons: '0.1em',
+    expanded: '0.5em',
     normal: 'normal',
   },
   textStyles: {
-    bold: {
-      fontWeight: 'bold',
-      fontStyle: 'bold',
-    },
-    caps: {
-      textTransform: 'uppercase',
-      letterSpacing: '0.2em',
-    },
+    default: css`
+      color: textSecondary;
+      font-weight: normal;
+    `,
+    expanded: css`
+      color: textSecondary;
+      font-weight: bold;
+      font-family: sans;
+      letter-spacing: expanded;
+      text-transform: uppercase;
+    `,
+    caps: css`
+      letter-spacing: caps;
+      text-transform: uppercase;
+    `,
   },
 }

@@ -2,8 +2,8 @@ import { graphql } from 'gatsby'
 import styled from '@xstyled/emotion'
 import React from 'react'
 
-import Box from 'components/box'
 import ContactForm from 'components/contactForm'
+import Flex from 'components/flex'
 import { up } from 'theme/media'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
@@ -71,15 +71,15 @@ const RentYourCottage = ({
   },
 }) => (
   <>
-    <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title={title} keywords={['gatsby', 'application', 'react']} />
     <PageImage
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Box px={{ xs: 3, sm: 4, md: 5, lg: 6 }} py={5}>
+    <Flex flexDirection="column" px={{ xs: 3, sm: 4, md: 5, lg: 6 }} py={5}>
       <Content dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
-    </Box>
+    </Flex>
   </>
 )
 

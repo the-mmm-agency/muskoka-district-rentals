@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 
 import Box from 'components/box'
+import Flex from 'components/flex'
 import PageImage from 'components/pageImage'
 import CottageList from 'components/cottageList'
 import CheckAvailability from 'components/checkAvailability'
@@ -19,10 +20,15 @@ const Cottages = ({ data: { image, cottages } }) => {
       <PageImage fluid={image.childImageSharp.fluid} tag="section">
         <h1>Our Rentals</h1>
       </PageImage>
-      <Box px={{ xs: 2, sm: 5 }} py={{ xs: 3, sm: 6 }} mt="-250px">
+      <Flex
+        flexDirection="column"
+        px={{ xs: 2, sm: 5 }}
+        py={{ xs: 3, sm: 6 }}
+        mt="-250px"
+      >
         <CheckAvailability />
         <CottageList cottages={cottages.nodes.slice(0, page)} />
-      </Box>
+      </Flex>
       {page < cottages.nodes.length && (
         <Box width="100%" textAlign="center" mb={4}>
           <Button

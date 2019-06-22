@@ -36,15 +36,22 @@
     "emotion/no-vanilla": "error",
     "emotion/import-from-emotion": "error",
     "emotion/styled-import": "error",
+
     "no-console": ["warn", { "allow": ["error", "warn"] }],
+
     "jsx-a11y/label-has-associated-control": "off",
+
+    "quotes": ["error", "single"],
+
     "prettier/prettier": "error",
+
     "react/prop-types": [
       "error",
       { "ignore": ["data", "children", "pageContext", "theme", "location"] }
     ],
     "react/prefer-stateless-function": "warn",
     "react/sort-prop-types": "error",
+
     "import/order": [
       "error",
       {
@@ -88,12 +95,24 @@
         "gatsby-browser.js",
         "gatsby-config.js",
         "gatsby-node.js",
+        "gatsby-ssr.js",
         "src/templates/*.js",
         "src/pages/*.js",
         "test/pages/*.js"
       ],
       "rules": {
         "unicorn/filename-case": ["error", { "case": "kebabCase" }]
+      }
+    },
+    {
+      "files": [
+        "gatsby-browser.js",
+        "gatsby-config.js",
+        "gatsby-node.js",
+        "gatsby-ssr.js"
+      ],
+      "rules": {
+        "quotes": ["error", "backtick"]
       }
     }
   ]

@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import Box from 'components/box'
+import Flex from 'components/flex'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
@@ -17,9 +18,10 @@ const PrivateFleet = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Box
+    <Flex
       px={{ xs: 3, sm: 4, md: 5, lg: 6 }}
       py={{ xs: 0, sm: 1, md: 2, lg: 3 }}
+      flexDirection="column"
     >
       <Box
         css={{
@@ -30,7 +32,7 @@ const PrivateFleet = ({
         dangerouslySetInnerHTML={{ __html: content }}
       />
       <ContactForm />
-    </Box>
+    </Flex>
   </>
 )
 

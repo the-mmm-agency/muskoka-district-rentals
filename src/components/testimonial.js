@@ -2,11 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Box from 'components/box'
+import Flex from 'components/flex'
+import Heading from 'components/heading'
+import Text from 'components/text'
 import StarRating from 'components/starRating'
 
 const Testimonial = ({ body, rating, author, property }) => (
-  <Box
+  <Flex
     display="flex"
     flexDirection="column"
     backgroundColor="backgroundLight"
@@ -20,8 +22,7 @@ const Testimonial = ({ body, rating, author, property }) => (
     width={{ xs: '100%', md: '80%' }}
     textAlign="center"
   >
-    <Box
-      as="span"
+    <Text
       color="textSecondary"
       textTransform="uppercase"
       letterSpacing="0.7em"
@@ -30,11 +31,11 @@ const Testimonial = ({ body, rating, author, property }) => (
       mb={4}
     >
       Testimonials
-    </Box>
-    <Box as="h2" fontSize={{ xs: 3, sm: 2 }} mb={{ xs: 4, sm: 5 }}>
+    </Text>
+    <Heading fontSize={{ xs: 3, sm: 2 }} mb={{ xs: 4, sm: 5 }}>
       What Guests Say
-    </Box>
-    <Box
+    </Heading>
+    <Text
       as="p"
       lineHeight={1.4}
       fontSize={{ xs: 5, sm: 4 }}
@@ -43,13 +44,13 @@ const Testimonial = ({ body, rating, author, property }) => (
       fontStyle="italic"
     >
       &quot;{body}&quot;
-    </Box>
+    </Text>
     <StarRating rating={rating} starDimension="1.5rem" />
-    <Box as="span" fontWeight="medium" mt={{ xs: 3, sm: 5 }} mb={0}>
+    <Text fontWeight="medium" mt={{ xs: 3, sm: 5 }} mb={0}>
       <b>{author} -</b> Review for {property.name} from{' '}
       <b>{property.location}</b>
-    </Box>
-  </Box>
+    </Text>
+  </Flex>
 )
 
 Testimonial.propTypes = {

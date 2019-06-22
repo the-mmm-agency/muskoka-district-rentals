@@ -204,15 +204,6 @@ export const query = graphql`
         bathrooms
         beds {
           room_type
-          icon {
-            localFile {
-              childImageSharp {
-                fixed(width: 100, height: 100) {
-                  ...GatsbyImageSharpFixed_withWebp
-                }
-              }
-            }
-          }
         }
       }
       services {

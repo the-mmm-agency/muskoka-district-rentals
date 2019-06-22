@@ -104,6 +104,9 @@ const normalize = css`
       }
       text-decoration: none;
     }
+    svg {
+      vertical-align: baseline;
+    }
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -112,6 +115,7 @@ const normalize = css`
     font-weight: 500;
     text-decoration: none;
     vertical-align: middle;
+    border: none;
     outline: none;
     cursor: pointer;
     appearance: none;

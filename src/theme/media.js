@@ -1,4 +1,4 @@
-import { curry, pipe, prop } from 'ramda'
+import { curry, pipe, prop } from 'rambda'
 
 import layout from 'theme/layout'
 

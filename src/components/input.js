@@ -1,7 +1,9 @@
 import React from 'react'
-import styled, { css } from '@xstyled/emotion'
-import { rgba } from 'polished'
-import { th } from '@xstyled/system'
+import styled from '@xstyled/emotion'
+import { transparentize } from 'polished'
+
+import { color } from 'theme/ax'
+import { transition } from 'theme/transitions'
 
 const Wrapper = styled.div`
   display: inline-flex;
@@ -15,9 +17,9 @@ const Wrapper = styled.div`
       }
     }
     border: 1px solid transparent;
-    ${props => css`
-      border-bottom-color: ${rgba(th.color('textPrimary')(props), 0.18)};
-    `}
+    border-bottom-color: ${color('textPrimary')(color =>
+      transparentize(0.18, color)
+    )};
     width: 100%;
   }
   span {
@@ -30,8 +32,8 @@ const Wrapper = styled.div`
     background-color: textPrimary;
     transform: scaleX(0);
     transform-origin: bottom right;
-    transition: transform 0.5s ease;
     width: 100%;
+    ${transition('transform')};
   }
 `
 

@@ -1,6 +1,23 @@
 import { css } from '@emotion/core'
+import { curry, ifElse, includes, prop, identity, has } from 'rambda'
+
+const hasOrReturn = curry((path, property) =>
+  ifElse(has(property, path), prop(property, path), identity(property))
+)
 
 const transitions = {
+  safeAttributes: [
+    'color',
+    'border-style',
+    'border-color',
+    'visibility',
+    'background',
+    'background-color',
+    'text-decoration',
+    'box-shadow',
+    'transform',
+    'opacity',
+  ],
   easing: {
     easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
     easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
@@ -18,15 +35,30 @@ const transitions = {
   },
 }
 
-export const transition = (value, options) => {
-  const { duration, easing } = Object.assign(
+const getEasing = hasOrReturn(transitions.easing)
+const getDuration = hasOrReturn(transitions.duration)
+
+export const transition = (value = transition.safeAttributes, options) => {
+  const property = Array.isArray(value) ? value.join(',') : value
+  const config = Object.assign(
     { easing: 'easeInOut', duration: 'standard' },
     options
   )
 
+  const { duration, easing } = {
+    duration: getDuration(config.duration),
+    easing: getEasing(config.easing),
+  }
+
+  if (!includes(transition.safeAttributes, value)) {
+    console.warn('Using', value, 'for transform property is unsafe')
+    console.warn('Please use one of', transition.safeAttributes)
+  }
+
   return css`
-    transition: ${Array.isArray(value) ? value.join(',') : value}
-      ${transitions.duration[duration]}ms ${transitions.easing[easing]};
+    transition-property: ${property};
+    transition-duration: ${duration}ms;
+    transition-timing-function: ${easing};
     @media screen and (prefers-reduced-motion: reduce) {
       transition: none;
     }

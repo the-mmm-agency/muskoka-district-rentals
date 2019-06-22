@@ -63,9 +63,8 @@ const IndexPage = ({
         Come unwind with us
       </span>
     </PageImage>
-    <Box
+    <Flex
       as="section"
-      display="flex"
       flexDirection="column"
       alignItems="center"
       mt={{ xs: 0, md: '-100px' }}
@@ -99,9 +98,8 @@ const IndexPage = ({
             <Img fixed={aboutImg.childImageSharp.fixed} />
           </Box>
         </Hidden>
-        <Box
+        <Flex
           alignSelf="flex-start"
-          display="flex"
           flexDirection="column"
           justifyContent="center"
           textAlign="left"
@@ -129,21 +127,23 @@ const IndexPage = ({
             ad ut id do ut ea ex.
           </Box>
           <span>
-            <strong>Ross Halloran -</strong> Founder Muskoka District Rentals
+            <b>Ross Halloran -</b> Founder Muskoka District Rentals
           </span>
-        </Box>
+        </Flex>
       </Box>
-    </Box>
+    </Flex>
     <Rentals />
     <ConciergeServices />
     <SwirlBackground>
       <Testimonial {...testimonials.nodes[0]} />
       <Flex
-        textAlign="center"
-        flexDirection="column"
-        alignItems="center"
-        px={5}
-        mb={6}
+        css={css`
+          text-align: center;
+          flex-direction: column;
+          align-items: center;
+          padding: 0 5;
+          margin-bottom: 5;
+        `}
       >
         <span
           css={css`

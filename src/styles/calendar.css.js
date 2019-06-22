@@ -1,6 +1,4 @@
-import styled, { css } from '@xstyled/emotion'
-import { th } from '@xstyled/system'
-import { darken, transparentize } from 'polished'
+import styled from '@xstyled/emotion'
 import DayPicker from 'react-day-picker'
 import 'react-day-picker/lib/style.css'
 
@@ -63,16 +61,12 @@ const Calendar = styled(DayPicker)`
   }
   .DayPicker:not(.DayPicker--interactionDisabled)
     .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-    ${props =>
-      css`
-        background-color: ${transparentize(0.1, th.color('primary')(props))};
-      `};
+    background-color: primary;
+    opacity: 0.1;
   }
   .DayPicker:not(.DayPicker--interactionDisabled).DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--start):not(.DayPicker-Day--end):hover {
-    ${props =>
-      css`
-        background-color: ${darken(0.2, th.color('primary')(props))};
-      `};
+    background-color: primary;
+    filter: darken(0.2);
   }
   .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
     background-color: alt;

@@ -15,6 +15,7 @@ import Button from 'components/button'
 import CottageInfo from 'components/cottageInfo'
 
 const Cottage = ({
+  address,
   capacity,
   content,
   title,
@@ -56,6 +57,7 @@ const Cottage = ({
         flexDirection="column"
         border="1px solid"
         borderColor="textSecondary"
+        col={0.2}
         mt={0}
         mx={5}
         p={4}
@@ -69,7 +71,7 @@ const Cottage = ({
             writing-mode: vertical-lr;
           `}
         >
-          Test
+          {address.address}
         </Box>
         <Number color="textSecondary" fontWeight="bold" fontSize={4}>
           {number + 1}
@@ -203,6 +205,9 @@ export const query = graphql`
     suitability {
       name
     }
+    address {
+      address
+    }
     bed
     capacity
     lowestRate
@@ -214,6 +219,9 @@ export const query = graphql`
 `
 
 Cottage.propTypes = {
+  address: PropTypes.shape({
+    address: PropTypes.string.isRequired,
+  }).isRequired,
   bed: PropTypes.string.isRequired,
   capacity: PropTypes.number.isRequired,
   categories: PropTypes.arrayOf(

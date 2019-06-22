@@ -27,8 +27,8 @@ const makeFontFaces = ({
   )
 
 const fonts = css`
-  ${makeFontFaces({ name: 'Raleway' })}
-  ${makeFontFaces({ name: 'Didot', fontWeights: [400, 700] })}
+  ${makeFontFaces({ name: 'Raleway' })};
+  ${makeFontFaces({ name: 'Didot', fontWeights: [400, 700] })};
 `
 
 export default fonts

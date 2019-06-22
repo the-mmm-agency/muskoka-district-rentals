@@ -35,13 +35,17 @@ const StyledLink = styled(Link)`
     position: relative;
     font-weight: inherit;
     font-style: inherit;
+    &:hover {
+      color: secondary;
+    }
+    ${transition('color')}
     &::before {
       position: absolute;
       bottom: 0;
       left: 50%;
       width: 100%;
       height: 2px;
-      background-color: textPrimary;
+      background-color: secondary;
       transform: translate(-50%, 0) scaleX(0);
       transform-origin: center;
       content: '';

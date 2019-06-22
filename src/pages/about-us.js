@@ -5,12 +5,11 @@ import React from 'react'
 import Box from 'components/box'
 import Contact from 'components/contact'
 import PageImage from 'components/pageImage'
-import OurTeam from 'components/ourTeam'
 import SEO from 'components/seo'
 
 const AboutUs = ({ data: { image } }) => (
   <>
-    <SEO title="About Us" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="About Us" keywords={['gatsby', 'application', 'react']} />
     <PageImage Tag="section" fadeIn fluid={image.childImageSharp.fluid}>
       <span
         css={css`
@@ -55,7 +54,6 @@ const AboutUs = ({ data: { image } }) => (
         scelerisque dui neque et nisl. Sed vitae.
       </p>
     </Box>
-    <OurTeam />
     <Contact />
   </>
 )

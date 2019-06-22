@@ -1,4 +1,4 @@
-const R = require('ramda')
+const R = require('rambda')
 
 const getType = R.curry((entities, type) =>
   R.filter(R.propEq('__type', type), entities)
@@ -6,19 +6,15 @@ const getType = R.curry((entities, type) =>
 
 const normalizeWordpress = ({ entities }) => {
   const getEntities = getType(entities)
-  const suitability = getEntities(`wordpress__wp_mphb_ra_suitability`)
-  const categories = getEntities(`wordpress__wp_mphb_room_type_category`)
-  const amenities = getEntities(`wordpress__wp_mphb_room_type_facility`)
-  const media = getEntities(`wordpress__wp_media`)
-  const rates = getEntities(`wordpress__wp_mphb_rate`)
-  const seasons = getEntities(`wordpress__wp_mphb_season`)
-  const services = getEntities(`wordpress__wp_mphb_room_service`)
+  const suitability = getEntities('wordpress__wp_mphb_ra_suitability')
+  const categories = getEntities('wordpress__wp_mphb_room_type_category')
+  const amenities = getEntities('wordpress__wp_mphb_room_type_facility')
+  const media = getEntities('wordpress__wp_media')
+  const rates = getEntities('wordpress__wp_mphb_rate')
+  const seasons = getEntities('wordpress__wp_mphb_season')
+  const services = getEntities('wordpress__wp_mphb_room_service')
   return entities.map(e => {
-    if (e.__type === `wordpress__wp_mphb_room_type`) {
-      e.acf.beds = e.acf.beds.map(bed => ({
-        ...bed,
-        icon___NODE: media.find(gObj => bed.icon === gObj.wordpress_id).id,
-      }))
+    if (e.__type === 'wordpress__wp_mphb_room_type') {
       e.categories___NODE = e.mphb_room_type_category.map(
         c => categories.find(gObj => c === gObj.wordpress_id).id
       )

@@ -1,30 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@xstyled/emotion'
+import styled from '@xstyled/emotion'
 
-const CottageInfo = ({ attributes }) => (
-  <ul
-    css={css`
-      li {
-        margin-bottom: 1;
+const List = styled.ul`
+  width: 100%;
+  margin-top: 4;
+  margin-left: 0;
+  list-style: none;
+  li {
+    margin-bottom: 1;
+    span {
+      &:first-of-type {
         color: textLight;
       }
-      width: 100%;
-      margin-top: 4;
-      margin-left: 0;
+      &:last-of-type {
+        color: textPrimary;
+      }
       font-weight: bold;
-      list-style: none;
-    `}
-  >
+    }
+  }
+`
+
+const CottageInfo = ({ attributes }) => (
+  <List>
     {attributes.map(attribute => (
       <li key={attribute.name}>
-        <span color="textPrimary" fontWeight="bold">
-          {attribute.name}:&nbsp;
-        </span>
+        <span>{attribute.name}:&nbsp;</span>
         <span>{attribute.value}</span>
       </li>
     ))}
-  </ul>
+  </List>
 )
 
 CottageInfo.propTypes = {
