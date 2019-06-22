@@ -224,6 +224,8 @@ const CheckAvailability = () => {
             <Schedule
               css={css`
                 fill: white;
+                height: 1em;
+                width: 1em;
               `}
             />
           </Button>
