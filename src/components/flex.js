@@ -1,4 +1,4 @@
-import styled from '@xstyled/emotion'
+import styled from '@emotion/styled'
 
 import Box from 'components/box'
 

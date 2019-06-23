@@ -1,8 +1,8 @@
-import styled from '@emotion/styled'
+import React from 'react'
 
-import Text from 'components/text'
+import Box from 'components/box'
 
-const Heading = styled(Text)
+const Heading = props => <Box {...props}>{props.children}</Box>
 
 Heading.defaultProps = {
   as: 'h2',

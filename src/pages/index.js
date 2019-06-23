@@ -5,6 +5,7 @@ import React from 'react'
 
 import Box from 'components/box'
 import Flex from 'components/flex'
+import Heading from 'components/heading'
 import PageImage from 'components/pageImage'
 import PostCard from 'components/postCard'
 import SwirlBackground from 'components/swirlBackground'
@@ -156,9 +157,7 @@ const IndexPage = ({
         >
           explore
         </span>
-        <Box as="h2" mb={5}>
-          Latest from our blog
-        </Box>
+        <Heading mb={5}>Latest from our blog</Heading>
         {blogPosts.edges.map(edge => (
           <PostCard key={edge.node.id} {...edge.node} />
         ))}

@@ -7,6 +7,7 @@ import { graphql } from 'gatsby'
 
 import Box from 'components/box'
 import PageImage from 'components/pageImage'
+import Heading from 'components/heading'
 import Button from 'components/button'
 import AvailabilityCalendar from 'components/availabilityCalendar'
 import CheckAvailability from 'components/checkAvailability'
@@ -115,9 +116,9 @@ const Cottage = ({ data: { cottage } }) => (
       </Box>
       <Box my={5} dangerouslySetInnerHTML={{ __html: cottage.content }} />
       <Amenities amenities={cottage.amenities} />
-      <Box as="h3" my={4}>
+      <Heading as="h3" my={4}>
         Rates and Availability
-      </Box>
+      </Heading>
       <AvailabilityCalendar
         css={css`
           width: 80%;
