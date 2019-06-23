@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { css } from '@xstyled/emotion'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import CottageList from 'components/cottageList'
@@ -35,8 +36,10 @@ const Rentals = () => {
       </Hidden>
       <Hidden down="md">
         <PageImage
-          minHeight={700}
-          maxHeight={700}
+          css={css`
+            min-height: 700px;
+            max-height: 700px;
+          `}
           fluid={
             rentals[selected].featured_media.localFile.childImageSharp.fluid
           }

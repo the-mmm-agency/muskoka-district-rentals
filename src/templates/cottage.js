@@ -132,6 +132,8 @@ export const query = graphql`
       title
       content
       size
+      houseRules
+      lowestRate
       acf {
         accommodates
         bathrooms
@@ -139,8 +141,6 @@ export const query = graphql`
       categories {
         name
       }
-      houseRules
-      lowestRate
       featured_media {
         localFile {
           ...PageImage
