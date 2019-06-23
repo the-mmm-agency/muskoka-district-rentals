@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import ContactForm from 'components/contactForm'
-import Flex from 'components/flex'
+import PageContent from 'components/pageContent'
 import Layout from 'components/layout'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
@@ -18,10 +18,10 @@ const BuyOrSell = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Flex flexDirection="column" px={{ xs: 3, sm: 6 }} py={5}>
+    <PageContent>
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
-    </Flex>
+    </PageContent>
   </Layout>
 )
 
