@@ -74,6 +74,9 @@ const buttons = {
       background: transparent;
       border: none;
       box-shadow: none;
+      svg {
+        fill: textPrimary;
+      }
       ${transition('background', { duration: 'short' })};
     `,
   },

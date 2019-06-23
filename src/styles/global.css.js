@@ -22,7 +22,7 @@ const styles = css`
       margin-left: 0.5em;
       margin-right: 0.5em;
       margin-bottom: 0.3em;
-      fill: white;
+      fill: currentColor;
       height: 1.3em;
       width: 1.3em;
     }
