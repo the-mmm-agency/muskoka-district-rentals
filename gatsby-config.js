@@ -130,6 +130,7 @@ module.exports = {
     },
 
     // Deployment
+    `gatsby-plugin-preload-link-crossorigin`,
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
