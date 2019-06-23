@@ -3,6 +3,7 @@ import React from 'react'
 
 import ContactForm from 'components/contactForm'
 import Flex from 'components/flex'
+import Layout from 'components/layout'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 
@@ -11,7 +12,7 @@ const BuyOrSell = ({
     page: { title, featured_media, content },
   },
 }) => (
-  <>
+  <Layout>
     <SEO title={title} />
     <PageImage
       fluid={featured_media.localFile.childImageSharp.fluid}
@@ -21,7 +22,7 @@ const BuyOrSell = ({
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </Flex>
-  </>
+  </Layout>
 )
 
 export const query = graphql`

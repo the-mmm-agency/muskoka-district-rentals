@@ -4,11 +4,12 @@ import React from 'react'
 
 import Box from 'components/box'
 import Contact from 'components/contact'
+import Layout from 'components/layout'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 
 const AboutUs = ({ data: { image } }) => (
-  <>
+  <Layout>
     <SEO title="About Us" keywords={['gatsby', 'application', 'react']} />
     <PageImage Tag="section" fadeIn fluid={image.childImageSharp.fluid}>
       <span
@@ -55,7 +56,7 @@ const AboutUs = ({ data: { image } }) => (
       </p>
     </Box>
     <Contact />
-  </>
+  </Layout>
 )
 
 export const query = graphql`

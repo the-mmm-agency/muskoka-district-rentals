@@ -6,6 +6,7 @@ import PageImage from 'components/pageImage'
 import PageContent from 'components/pageContent'
 import CottageList from 'components/cottageList'
 import CheckAvailability from 'components/checkAvailability'
+import Layout from 'components/layout'
 import Button from 'components/button'
 import SEO from 'components/seo'
 
@@ -15,7 +16,7 @@ const Cottages = ({ data: { image, cottages } }) => {
     setPage(page + 5)
   }
   return (
-    <>
+    <Layout>
       <SEO title="Our Rentals" />
       <PageImage fluid={image.childImageSharp.fluid} tag="section">
         <h1>Our Rentals</h1>
@@ -38,7 +39,7 @@ const Cottages = ({ data: { image, cottages } }) => {
           </Button>
         </Box>
       )}
-    </>
+    </Layout>
   )
 }
 

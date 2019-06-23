@@ -4,12 +4,13 @@ import React from 'react'
 
 import Box from 'components/box'
 import Heading from 'components/heading'
+import Layout from 'components/layout'
 import Breadcrumb from 'components/breadcrumb'
 import Categories from 'components/categories'
 import PostCard from 'components/postCard'
 
-const Blog = ({ data: { posts } }) => {
-  return (
+const Blog = ({ data: { posts } }) => (
+  <Layout>
     <Box
       css={css`
         div {
@@ -46,8 +47,8 @@ const Blog = ({ data: { posts } }) => {
         ))}
       </Box>
     </Box>
-  )
-}
+  </Layout>
+)
 
 export const query = graphql`
   query BlogPage {

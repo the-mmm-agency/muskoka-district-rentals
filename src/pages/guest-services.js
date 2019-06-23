@@ -6,6 +6,7 @@ import Flex from 'components/flex'
 import ContactForm from 'components/contactForm'
 import PageContent from 'components/pageContent'
 import PageImage from 'components/pageImage'
+import Layout from 'components/layout'
 import GuestService from 'components/guestService'
 import SEO from 'components/seo'
 
@@ -15,7 +16,7 @@ const GuestServices = ({
     guestServices,
   },
 }) => (
-  <>
+  <Layout>
     <SEO title={title} />
     <PageImage
       fluid={featured_media.localFile.childImageSharp.fluid}
@@ -40,7 +41,7 @@ const GuestServices = ({
       </Flex>
       <ContactForm />
     </PageContent>
-  </>
+  </Layout>
 )
 
 export const query = graphql`

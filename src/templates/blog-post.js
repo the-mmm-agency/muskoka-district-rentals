@@ -6,6 +6,7 @@ import React from 'react'
 
 import Link from 'components/link'
 import SEO from 'components/seo'
+import Layout from 'components/layout'
 import Breadcrumb from 'components/breadcrumb'
 
 const Post = styled.div`
@@ -73,7 +74,7 @@ const BlogPost = ({
     post: { slug, title, categories, tags, content, date, featured_media },
   },
 }) => (
-  <>
+  <Layout>
     <Img
       minHeight="600px"
       fluid={featured_media.localFile.childImageSharp.fluid}
@@ -108,7 +109,7 @@ const BlogPost = ({
       </PostHeader>
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </Post>
-  </>
+  </Layout>
 )
 
 BlogPost.propTypes = {

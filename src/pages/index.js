@@ -15,6 +15,7 @@ import ConciergeServices from 'components/conciergeServices'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
 import Testimonial from 'components/testimonial'
+import Layout from 'components/layout'
 import SEO from 'components/seo'
 import Hidden from 'components/hidden'
 import CheckAvailability from 'components/checkAvailability'
@@ -22,7 +23,7 @@ import CheckAvailability from 'components/checkAvailability'
 const IndexPage = ({
   data: { testimonials, blogPosts, headerImg, aboutImg },
 }) => (
-  <>
+  <Layout>
     <SEO title="Home" />
     <PageImage
       Tag="section"
@@ -141,7 +142,7 @@ const IndexPage = ({
       </Flex>
     </SwirlBackground>
     <Contact />
-  </>
+  </Layout>
 )
 
 export const query = graphql`

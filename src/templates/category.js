@@ -4,60 +4,63 @@ import React from 'react'
 
 import Breadcrumb from 'components/breadcrumb'
 import Categories from 'components/categories'
+import Layout from 'components/layout'
 import PostCard from 'components/postCard'
 
 const Category = ({ data, pageContext }) => (
-  <div
-    css={css`
-      display: flex;
-      background-color: backgroundDefault;
-      padding: 5;
-      flex-direction: column;
-      div {
-        display: flex;
-        align-items: center;
-        &:last-child {
-          padding: 2 6;
-        }
-      }
-    `}
-  >
+  <Layout>
     <div
       css={css`
-        width: 100%;
-        h1 {
-          text-align: center;
-          text-transform: capitalize;
-          margin-bottom: 1;
+        display: flex;
+        background-color: backgroundDefault;
+        padding: 5;
+        flex-direction: column;
+        div {
+          display: flex;
+          align-items: center;
+          &:last-child {
+            padding: 2 6;
+          }
         }
       `}
     >
-      <h1>{pageContext.category}</h1>
-      <Breadcrumb
-        mb={4}
-        crumbs={[
-          {
-            link: '/',
-            title: 'Home',
-          },
-          {
-            link: '/blog',
-            title: 'Blog',
-          },
-          {
-            link: `/categories/${pageContext.category}`,
-            title: pageContext.category,
-          },
-        ]}
-      />
+      <div
+        css={css`
+          width: 100%;
+          h1 {
+            text-align: center;
+            text-transform: capitalize;
+            margin-bottom: 1;
+          }
+        `}
+      >
+        <h1>{pageContext.category}</h1>
+        <Breadcrumb
+          mb={4}
+          crumbs={[
+            {
+              link: '/',
+              title: 'Home',
+            },
+            {
+              link: '/blog',
+              title: 'Blog',
+            },
+            {
+              link: `/categories/${pageContext.category}`,
+              title: pageContext.category,
+            },
+          ]}
+        />
+      </div>
+      <Categories />
+      <div>
+        {data.posts.edges.map(edge => (
+          <PostCard key={edge.node.id} {...edge.node} />
+        ))}
+      </div>
     </div>
-    <Categories />
-    <div>
-      {data.posts.edges.map(edge => (
-        <PostCard key={edge.node.id} {...edge.node} />
-      ))}
-    </div>
-  </div>
+  </Layout>
 )
 
 export const query = graphql`

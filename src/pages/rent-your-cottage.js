@@ -4,6 +4,7 @@ import React from 'react'
 
 import PageContent from 'components/pageContent'
 import ContactForm from 'components/contactForm'
+import Layout from 'components/layout'
 import { up } from 'theme/media'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
@@ -70,7 +71,7 @@ const RentYourCottage = ({
     page: { title, content, featured_media },
   },
 }) => (
-  <>
+  <Layout>
     <SEO title={title} keywords={['gatsby', 'application', 'react']} />
     <PageImage
       fluid={featured_media.localFile.childImageSharp.fluid}
@@ -80,7 +81,7 @@ const RentYourCottage = ({
       <Content dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </PageContent>
-  </>
+  </Layout>
 )
 
 export const query = graphql`

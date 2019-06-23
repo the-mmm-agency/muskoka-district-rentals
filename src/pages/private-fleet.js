@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import PageContent from 'components/pageContent'
+import Layout from 'components/layout'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
@@ -11,7 +12,7 @@ const PrivateFleet = ({
     page: { title, content, featured_media },
   },
 }) => (
-  <>
+  <Layout>
     <SEO title={title} />
     <PageImage
       fluid={featured_media.localFile.childImageSharp.fluid}
@@ -21,7 +22,7 @@ const PrivateFleet = ({
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </PageContent>
-  </>
+  </Layout>
 )
 
 export const query = graphql`
