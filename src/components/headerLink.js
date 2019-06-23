@@ -55,7 +55,7 @@ const StyledLink = styled(Link)`
 `
 
 const HeaderLink = ({ to, ...props }) => (
-  <StyledLink {...props} to={to} activeClassName="active" fade duration={0.5}>
+  <StyledLink {...props} to={to} activeClassName="active">
     <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
   </StyledLink>
 )

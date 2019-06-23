@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Location } from '@reach/router'
 import styled from '@xstyled/emotion'
 import { css } from '@emotion/core'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import { Link } from 'gatsby'
 
 import Box from 'components/box'
 import BackIcon from 'components/backIcon'
@@ -46,9 +46,9 @@ const MobileHeader = ({ links }) => {
             pathname === '/' ? (
               <Logo />
             ) : (
-              <AniLink css={{ display: 'inline-flex' }} fade to="/">
+              <Link css={{ display: 'inline-flex' }} to="/">
                 <BackIcon />
-              </AniLink>
+              </Link>
             )
           }
         </Location>
