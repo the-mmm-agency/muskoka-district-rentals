@@ -3,6 +3,7 @@ import { css } from '@xstyled/emotion'
 import React from 'react'
 
 import Box from 'components/box'
+import Heading from 'components/heading'
 import Breadcrumb from 'components/breadcrumb'
 import Categories from 'components/categories'
 import PostCard from 'components/postCard'
@@ -21,9 +22,9 @@ const Blog = ({ data: { posts } }) => {
       `}
     >
       <Box alignItems="center" width="100%" flexDirection="column">
-        <Box as="h1" textAlign="center" mb={1}>
+        <Heading as="h1" textAlign="center" mb={1}>
           The latest news
-        </Box>
+        </Heading>
         <Breadcrumb
           mb={4}
           crumbs={[

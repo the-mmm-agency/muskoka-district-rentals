@@ -35,7 +35,9 @@ const ConciergeServices = () => {
           <Text letterSpacing="headers" pl={2} textTransform="uppercase">
             Experience Muskoka
           </Text>
-          <Heading mt={{ xs: 2, sm: 3 }}>Concierge Services</Heading>{' '}
+          <Heading mt={2} mb={5}>
+            Concierge Services
+          </Heading>{' '}
         </Box>
         <ul
           css={css`

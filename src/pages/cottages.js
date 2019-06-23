@@ -2,7 +2,6 @@ import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 
 import Box from 'components/box'
-import Flex from 'components/flex'
 import PageImage from 'components/pageImage'
 import PageContent from 'components/pageContent'
 import CottageList from 'components/cottageList'
@@ -23,10 +22,10 @@ const Cottages = ({ data: { image, cottages } }) => {
       </PageImage>
       <PageContent checkAvailability>
         <CheckAvailability />
-        <Box mt={3}>
-          <CottageList cottages={cottages.nodes.slice(0, page)} />
-        </Box>
       </PageContent>
+      <Box mt={3}>
+        <CottageList cottages={cottages.nodes.slice(0, page)} />
+      </Box>
       {page < cottages.nodes.length && (
         <Box width="100%" textAlign="center" mb={4}>
           <Button

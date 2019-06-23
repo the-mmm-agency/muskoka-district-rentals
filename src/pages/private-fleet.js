@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 
-import Box from 'components/box'
 import PageContent from 'components/pageContent'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
@@ -19,14 +18,7 @@ const PrivateFleet = ({
       Tag="section"
     />
     <PageContent>
-      <Box
-        css={{
-          ul: {
-            marginLeft: '1.2rem',
-          },
-        }}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </PageContent>
   </>

@@ -7,15 +7,18 @@ import { up } from 'theme/media'
 
 const PageContent = ({ children, checkAvailability, ...props }) => (
   <Flex
-    css={
-      checkAvailability
+    css={css`
+      ul {
+        margin-left: 1.2em;
+      }
+      ${checkAvailability
         ? css`
             ${up('md')} {
               margin-top: -100px;
             }
           `
-        : null
-    }
+        : null}
+    `}
     as="section"
     px={{ xs: 3, sm: 4, md: 5, lg: 6 }}
     py={{ xs: 0, sm: 1, md: 2, lg: 3 }}

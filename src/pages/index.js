@@ -82,7 +82,7 @@ const IndexPage = ({
         p={3}
       >
         <Hidden down="md">
-          <Box p={3} bg="backgroundLight">
+          <Box p={2} backgroundColor="backgroundLight" mr={5}>
             <Img fixed={aboutImg.childImageSharp.fixed} />
           </Box>
         </Hidden>

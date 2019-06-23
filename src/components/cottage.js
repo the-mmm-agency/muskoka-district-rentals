@@ -6,6 +6,8 @@ import PropTypes from 'prop-types'
 
 import Box from 'components/box'
 import Flex from 'components/flex'
+import Heading from 'components/heading'
+import Text from 'components/text'
 import StarRating from 'components/starRating'
 import { up, down } from 'theme/media'
 import { ReactComponent as CaretRight } from 'icons/caret-right.svg'
@@ -57,10 +59,10 @@ const Cottage = ({
         flexDirection="column"
         border="1px solid"
         borderColor="textSecondary"
-        col={0.2}
+        col={0.06}
         mt={0}
         mx={5}
-        p={4}
+        p={3}
       >
         <Box
           as="span"
@@ -71,9 +73,15 @@ const Cottage = ({
             writing-mode: vertical-lr;
           `}
         >
-          {address.address}
+          {address.address.replace('Canada', '').replace(/Ontario.*/, 'ON')}
         </Box>
-        <Number color="textSecondary" fontWeight="bold" fontSize={4}>
+        <Number
+          css={css`
+            color: textSecondary;
+            font-weight: bold;
+            font-size: 4;
+          `}
+        >
           {number + 1}
         </Number>
       </Flex>
@@ -81,9 +89,9 @@ const Cottage = ({
     <Flex
       flexShrink={0}
       flexWrap="wrap"
+      col={{ sm: 1, md: 0.5, lg: 0.4 }}
       justifyContent="inherit"
       pt={0}
-      width={{ sm: '100%', md: '50%', lg: 'calc(100% / 3)' }}
       p={2}
     >
       <Box mb={3}>
@@ -92,13 +100,13 @@ const Cottage = ({
           {reviewCount} reviews
         </Box>
       </Box>
-      <Box as="h2" fontSize={1} mb={4} lineHeight="expanded" width="100%">
+      <Heading fontSize={1} mb={4} lineHeight="expanded" width="100%">
         {title}
-      </Box>
-      <Box as="span" fontWeight="semibold" fontSize={5} pt={2}>
+      </Heading>
+      <Text fontWeight="semibold" fontSize={5} pt={2}>
         Start from{' '}
-      </Box>
-      <Box
+      </Text>
+      <Text
         as="span"
         fontSize={3}
         lineHeight={1.2}
@@ -107,8 +115,8 @@ const Cottage = ({
         fontWeight="bold"
       >
         {' $' + lowestRate}
-      </Box>
-      <Box
+      </Text>
+      <Text
         as="span"
         color="textPrimary"
         fontWeight="semibold"
@@ -116,7 +124,7 @@ const Cottage = ({
         mt="auto"
       >
         /Night
-      </Box>
+      </Text>
       <Box
         maxWidth={{ xs: '100%', sm: '90%' }}
         color="textParagraph"
@@ -156,16 +164,9 @@ const Cottage = ({
           },
         ]}
       />
-      <Button href={`/cottages/${slug}`} variant="transparent" mr="-1em">
+      <Button href={`/cottages/${slug}`} variant="transparent">
         See Rental &nbsp;
-        <CaretRight
-          css={css`
-            margin-left: -0.3em;
-            margin-top: -0.1em;
-            width: 1.2em;
-            height: 1.2em;
-          `}
-        />
+        <CaretRight />
       </Button>
     </Flex>
     <Img

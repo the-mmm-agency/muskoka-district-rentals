@@ -36,6 +36,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-altair-graphql`,
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-emotion`,
