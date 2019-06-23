@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from '@xstyled/emotion'
+import styled, { css } from '@xstyled/emotion'
+import { system } from '@xstyled/system'
 import { transparentize } from 'polished'
 
 import { color } from 'theme/ax'
@@ -16,10 +17,10 @@ const Wrapper = styled.div`
         transform-origin: bottom left;
       }
     }
-    border: 1px solid transparent;
-    border-bottom-color: ${color('textPrimary')(color =>
-      transparentize(0.18, color)
-    )};
+    border-bottom: 1px solid;
+    ${props => css`
+      border-bottom-color: ${transparentize(0.82, color('textPrimary')(props))};
+    `}
     width: 100%;
   }
   span {
@@ -35,6 +36,7 @@ const Wrapper = styled.div`
     width: 100%;
     ${transition('transform')};
   }
+  ${system}
 `
 
 const Input = props => (

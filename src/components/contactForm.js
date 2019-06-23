@@ -20,19 +20,19 @@ const ContactForm = () => {
         <Input
           type="text"
           name="name"
-          mr={2}
+          mr={3}
           placeholder="Enter your name..."
         />
         <Input
           type="email"
           name="email"
-          mr={2}
+          mr={3}
           placeholder="Enter your email..."
         />
         <Input
           type="text"
           name="subject"
-          mr={2}
+          mr={3}
           placeholder="Subject (optional)"
         />
         <Box

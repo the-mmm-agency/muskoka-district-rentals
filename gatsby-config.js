@@ -36,7 +36,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-altair-graphql`,
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-emotion`,
@@ -64,6 +63,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: siteMetadata.manifest,
     },
+    `gatsby-plugin-fastclick`,
 
     // Transformers
     `gatsby-transformer-json`,
