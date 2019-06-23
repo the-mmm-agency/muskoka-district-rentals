@@ -34,7 +34,7 @@ const Cottage = ({
 }) => (
   <Flex
     css={css`
-      ${down('sm')} {
+      ${down('md')} {
         flex-direction: column-reverse;
       }
       ${up('md')} {
@@ -51,7 +51,7 @@ const Cottage = ({
     mx={2}
     my={3}
   >
-    <Hidden down={2}>
+    <Hidden down="lg">
       <Flex
         maxHeight={350}
         justifyContent="space-between"
@@ -107,7 +107,6 @@ const Cottage = ({
         Start from{' '}
       </Text>
       <Text
-        as="span"
         fontSize={3}
         lineHeight={1.2}
         ml={1}
@@ -116,13 +115,7 @@ const Cottage = ({
       >
         {' $' + lowestRate}
       </Text>
-      <Text
-        as="span"
-        color="textPrimary"
-        fontWeight="semibold"
-        fontSize={5}
-        mt="auto"
-      >
+      <Text color="textPrimary" fontWeight="semibold" fontSize={5} mt="auto">
         /Night
       </Text>
       <Box
@@ -177,7 +170,7 @@ const Cottage = ({
         flex-shrink: 1;
         width: 100%;
         margin-bottom: 4;
-        ${up('sm')} {
+        ${up('md')} {
           width: 40%;
         }
       `}

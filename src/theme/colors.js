@@ -1,4 +1,15 @@
 const colors = {
+  modes: {
+    dark: {
+      backgroundLight: '#344051',
+      backgroundDefault: '#273142',
+      backgroundDark: '#212A38',
+      textPrimary: '#ffffff',
+      textSecondary: '#b6b6b6',
+      textParagraph: '#ffffff',
+      textLight: '#cccccc',
+    },
+  },
   primary: '#212a38',
   footer: '#212020',
   secondary: '#3278b5',

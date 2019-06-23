@@ -2,54 +2,58 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import { css } from '@xstyled/emotion'
+import styled from '@xstyled/emotion'
 
-import Box from 'components/box'
 import Flex from 'components/flex'
 import Link from 'components/link'
+import { transition } from 'theme/transitions'
+
+const Wrapper = styled(Flex)`
+  &:hover {
+    box-shadow: 25;
+    transform: translateY(-3px);
+    div a {
+      color: textPrimary;
+    }
+  }
+  flex-direction: column;
+  box-shadow: 1;
+  cursor: pointer;
+  background-color: backgroundLight;
+  ${transition(['transform', 'box-shadow'])};
+  div {
+    display: flex;
+    height: 40%;
+    flex-direction: column;
+    padding: 3 4;
+    text-align: left;
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+      font-weight: bold;
+      ${transition('color')};
+    }
+    a,
+    span {
+      color: textLight;
+      margin-bottom: 1;
+    }
+    h6 {
+      margin-bottom: 5;
+    }
+  }
+`
 
 const PostCard = ({ slug, featured_media, date, title }) => (
-  <Flex
-    backgroundColor="backgroundLight"
-    boxShadow={1}
-    width={{ xs: '50%', sm: 'calc(100% / 3)' }}
-    css={css`
-      &:hover {
-        box-shadow: 25;
-      }
-      flex-direction: column;
-      cursor: pointer;
-    `}
-  >
+  <Wrapper width={{ xs: '50%', sm: 'calc(100% / 3)' }}>
     <Img fluid={featured_media.localFile.childImageSharp.fluid} />
-    <Flex
-      css={css`
-        height: 40%;
-        flex-direction: column;
-        padding: 3 4;
-        text-align: left;
-      `}
-    >
-      <Box as="span" color="textLight" mb={1}>
-        {date}
-      </Box>
-      <Box as="h6" mb={4}>
-        {title}
-      </Box>
-      <Link
-        to={slug}
-        css={css`
-          &:hover {
-            color: textPrimary;
-          }
-          color: textLight;
-          font-weight: bold;
-        `}
-      >
-        Continue &nbsp;&rsaquo;
-      </Link>
-    </Flex>
-  </Flex>
+    <div>
+      <span>{date}</span>
+      <h6>{title}</h6>
+      <Link to={slug}>Continue &nbsp;&#10230;</Link>
+    </div>
+  </Wrapper>
 )
 
 PostCard.propTypes = {

@@ -33,7 +33,7 @@ const IndexPage = ({
         span {
           &:first-of-type {
             font-weight: bold;
-            letter-spacing: caps;
+            letter-spacing: 0.35em;
             text-transform: uppercase;
           }
           &:last-of-type {

@@ -84,6 +84,7 @@ const Cottage = ({ data: { cottage } }) => (
       css={css`
         background-color: backgroundLight;
         align-items: center;
+        padding: 4 2;
         table {
           margin-top: 4;
           margin-bottom: 5;
