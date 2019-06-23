@@ -96,9 +96,9 @@ const Cottage = ({
     >
       <Box mb={3}>
         <StarRating rating={reviewAvg} starDimension="1rem" />{' '}
-        <Box as="span" fontWeight="medium" ml="1px">
+        <Text fontWeight="medium" ml="1px">
           {reviewCount} reviews
-        </Box>
+        </Text>
       </Box>
       <Heading fontSize={1} mb={4} lineHeight="expanded" width="100%">
         {title}

@@ -73,6 +73,12 @@ const styles = css`
     color: secondary;
     text-decoration: none;
   }
+  hr {
+    width: 100%;
+    background-color: backgroundDark;
+    border: none;
+    height: 1px;
+  }
   blockquote {
     margin-top: 2;
     margin-left: 0;

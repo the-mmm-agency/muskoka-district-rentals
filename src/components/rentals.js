@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { css } from '@xstyled/emotion'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import CottageList from 'components/cottageList'
+import PropertyCard from 'components/propertyCard'
 import Box from 'components/box'
 import Hidden from 'components/hidden'
 import PageImage from 'components/pageImage'
@@ -16,7 +16,7 @@ const Rentals = () => {
     query {
       roomTypes: allWordpressWpMphbRoomType {
         nodes {
-          ...Cottage
+          ...PropertyCard
         }
       }
     }
@@ -31,7 +31,9 @@ const Rentals = () => {
           <Box as="h3" my={5} textAlign="center">
             Our Rentals
           </Box>
-          <CottageList cottages={rentals} />
+          <Box px={5}>
+            <PropertyCard {...rentals[0]} />
+          </Box>
         </Box>
       </Hidden>
       <Hidden down="md">
