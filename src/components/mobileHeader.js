@@ -15,7 +15,7 @@ import { transition } from 'theme/transitions'
 
 const Header = styled.header`
   ${props => css`
-    height: ${props.active ? '100%' : '60px'};
+    height: ${props.active ? '35rem' : '60px'};
   `}
   background: white;
   padding: 1;
@@ -42,11 +42,11 @@ const MobileHeader = ({ links }) => {
     <Header active={active}>
       <Box alignSelf="flex-start" display="flex" minHeight="50px" width="100%">
         <Location>
-          {props =>
-            props.location.pathname === '/' ? (
+          {({ location: { pathname } }) =>
+            pathname === '/' ? (
               <Logo />
             ) : (
-              <AniLink mr="auto" mt="auto" fade to="/">
+              <AniLink css={{ display: 'inline-flex' }} fade to="/">
                 <BackIcon />
               </AniLink>
             )

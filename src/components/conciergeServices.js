@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
+import Fade from 'react-reveal/Fade'
 import { css } from '@xstyled/emotion'
 
 import Hidden from 'components/hidden'
@@ -68,14 +69,11 @@ const ConciergeServices = () => {
         </ul>
       </Box>
       <Hidden down="lg">
-        <Img
-          css={css`
-            min-width: 50%;
-            min-height: 100%;
-            max-height: 100%;
-          `}
-          fluid={selected.localFile.childImageSharp.fluid}
-        />
+        <Box col={0.5} minHeight="100%">
+          <Fade spy={selected} mountOnEnter>
+            <Img fluid={selected.localFile.childImageSharp.fluid} />
+          </Fade>
+        </Box>
       </Hidden>
     </Flex>
   )

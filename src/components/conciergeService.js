@@ -4,14 +4,16 @@ import { css } from '@xstyled/emotion'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
+import { transition } from 'theme/transitions'
 import Link from 'components/link'
 
 const ConciergeService = ({ title, slug, featured_media, setSelected }) => (
   <li
     css={css`
       &:hover {
-        background: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.1);
       }
+      ${transition('background-color')}
     `}
     p={2}
     onMouseOver={() => setSelected(featured_media)}

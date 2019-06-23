@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@xstyled/emotion'
 import PropTypes from 'prop-types'
 
-import Box from 'components/box'
+import Flex from 'components/flex'
 import Link from 'components/link'
 
 const MenuLink = styled(Link)`
@@ -19,7 +19,7 @@ const MenuLink = styled(Link)`
 `
 
 const HeaderMenu = ({ links, handleClick }) => (
-  <Box width="100%" display="flex" flexWrap="wrap" minHeight="100%">
+  <Flex as="nav" width="100%" flexWrap="wrap" minHeight="100%">
     <MenuLink to="/" onClick={handleClick} fontSize={4} fontFamily="serif">
       <span>Home</span>
     </MenuLink>
@@ -35,7 +35,7 @@ const HeaderMenu = ({ links, handleClick }) => (
         <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
       </MenuLink>
     ))}
-  </Box>
+  </Flex>
 )
 
 HeaderMenu.propTypes = {

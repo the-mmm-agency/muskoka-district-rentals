@@ -18,7 +18,6 @@ const Wrapper = styled(Flex)`
   }
   flex-direction: column;
   box-shadow: 1;
-  cursor: pointer;
   background-color: backgroundLight;
   ${transition(['transform', 'box-shadow'])};
   div {
@@ -51,7 +50,7 @@ const PostCard = ({ slug, featured_media, date, title }) => (
     <div>
       <span>{date}</span>
       <h6>{title}</h6>
-      <Link to={slug}>Continue &nbsp;&#10230;</Link>
+      <Link to={`/blog/${slug}`}>Continue &nbsp;&#10230;</Link>
     </div>
   </Wrapper>
 )

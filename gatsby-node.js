@@ -16,7 +16,6 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `)
-    console.log(result)
     return result.data[type].edges
   }
 

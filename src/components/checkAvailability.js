@@ -13,7 +13,7 @@ import Checkbox from 'components/checkbox'
 import { ReactComponent as Schedule } from 'icons/schedule.svg'
 import DateInput from 'components/dateInput'
 import DatePicker from 'components/datePicker'
-import { up } from 'theme/media'
+import { up, down } from 'theme/media'
 import DownIcon from 'components/downIcon'
 
 const CheckboxLabel = styled.span`
@@ -26,12 +26,22 @@ const Section = styled(Box)`
   ${up('md')} {
     width: 25%;
   }
+  ${down('md')} {
+    &:last-of-type {
+      width: auto;
+    }
+  }
   width: calc(100% / 3);
   padding: 3;
 `
 
 const SectionWrapper = styled(Box)`
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  ${up('md')} {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    &:nth-last-of-type(2) > div > div {
+      border: none;
+    }
+  }
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -65,9 +75,6 @@ const Wrapper = styled(Box)`
         background-color: backgroundDark;
       }
     }
-  }
-  &:nth-last-of-type(2) > div > div {
-    border: none;
   }
   flex-wrap: wrap;
   flex-basis: 25%;
