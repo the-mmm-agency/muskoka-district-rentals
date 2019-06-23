@@ -81,7 +81,7 @@ const StyledCheckbox = styled.div`
   border-width: 1px;
   border-style: solid;
   ${transition(['background', 'box-shadow'])};
-  ${colorStyle}
+  ${props => colorStyle(props)}
   ${sizes}
   input:checked + & {
     border-color: transparent;

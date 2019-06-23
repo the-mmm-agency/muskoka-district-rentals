@@ -26,6 +26,21 @@ const Section = styled(Box)`
   ${up('md')} {
     width: 25%;
   }
+  &:nth-last-of-type(2),
+  &:last-of-type {
+    ${up('sm')} {
+      div {
+        border-right: none;
+      }
+    }
+  }
+  &:last-of-type {
+    ${up('sm')} {
+      div {
+        background-color: backgroundDark;
+      }
+    }
+  }
   ${down('md')} {
     &:last-of-type {
       width: auto;
@@ -38,9 +53,6 @@ const Section = styled(Box)`
 const SectionWrapper = styled(Box)`
   ${up('md')} {
     border-right: 1px solid rgba(0, 0, 0, 0.1);
-    &:nth-last-of-type(2) > div > div {
-      border: none;
-    }
   }
   width: 100%;
   display: flex;
@@ -68,13 +80,6 @@ const Wrapper = styled(Box)`
     background: white;
     border-color: transparent;
     box-shadow: 25;
-  }
-  &:last-of-type {
-    ${up('sm')} {
-      div {
-        background-color: backgroundDark;
-      }
-    }
   }
   flex-wrap: wrap;
   flex-basis: 25%;
