@@ -4,6 +4,7 @@ import React from 'react'
 
 import Flex from 'components/flex'
 import ContactForm from 'components/contactForm'
+import PageContent from 'components/pageContent'
 import PageImage from 'components/pageImage'
 import GuestService from 'components/guestService'
 import SEO from 'components/seo'
@@ -20,11 +21,11 @@ const GuestServices = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Flex flexDirection="column" py={{ xs: 4, sm: 5 }} px={{ xs: 3, sm: 5 }}>
+    <PageContent>
       <div
         css={css`
           h2 {
-            margin-bottom: 3;
+            margin-bottom: 2;
           }
           h6 {
             margin-bottom: 4;
@@ -32,13 +33,13 @@ const GuestServices = ({
         `}
         dangerouslySetInnerHTML={{ __html: content }}
       />
-      <Flex as="ul" flexDirection="column" mb={5} ml={0}>
+      <Flex as="ul" flexDirection="column" ml={0}>
         {guestServices.nodes.map(service => (
           <GuestService key={service.id} {...service} />
         ))}
       </Flex>
       <ContactForm />
-    </Flex>
+    </PageContent>
   </>
 )
 

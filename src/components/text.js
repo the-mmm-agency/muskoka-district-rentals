@@ -1,11 +1,12 @@
-import React from 'react'
+import styled from '@emotion/styled'
+import { system, variant } from '@xstyled/system'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import Box from 'components/box'
+const textStyles = variant({
+  default: 'default',
+  key: 'textStyles',
+})
 
-const Text = props => <Box {...props}>{props.children}</Box>
-
-Text.defaultProps = {
-  as: 'span',
-}
+const Text = styled('span', { shouldForwardProp })(system, textStyles)
 
 export default Text

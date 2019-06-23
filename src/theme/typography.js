@@ -31,10 +31,7 @@ export default {
     normal: 'normal',
   },
   textStyles: {
-    default: css`
-      color: textSecondary;
-      font-weight: normal;
-    `,
+    default: css``,
     expanded: css`
       color: textSecondary;
       font-weight: bold;

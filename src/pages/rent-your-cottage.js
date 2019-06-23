@@ -2,8 +2,8 @@ import { graphql } from 'gatsby'
 import styled from '@xstyled/emotion'
 import React from 'react'
 
+import PageContent from 'components/pageContent'
 import ContactForm from 'components/contactForm'
-import Flex from 'components/flex'
 import { up } from 'theme/media'
 import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
@@ -76,10 +76,10 @@ const RentYourCottage = ({
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"
     />
-    <Flex flexDirection="column" px={{ xs: 3, sm: 4, md: 5, lg: 6 }} py={5}>
+    <PageContent>
       <Content dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
-    </Flex>
+    </PageContent>
   </>
 )
 

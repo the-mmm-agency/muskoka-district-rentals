@@ -4,6 +4,9 @@ import { css } from '@xstyled/emotion'
 import React from 'react'
 
 import Box from 'components/box'
+import Flex from 'components/flex'
+import Heading from 'components/heading'
+import Text from 'components/text'
 import { ReactComponent as Check } from 'icons/check-circle.svg'
 
 const distinct = (value, index, self) => self.indexOf(value) === index
@@ -20,16 +23,15 @@ const Amenities = ({ amenities }) => {
     ),
   }))
   return (
-    <>
-      <Box as="h3">Amenities</Box>
+    <Flex flexDirection="column" alignItems="flex-start">
       {list.map(({ category, amenities }) => (
         <Box key={category}>
-          <Box as="h5" textAlign="left" my={4}>
+          <Heading as="h5" textAlign="left" my={4}>
             {category}:
-          </Box>
-          <Box display="flex" flexWrap="wrap">
+          </Heading>
+          <Flex flexWrap="wrap">
             {amenities.map(amenity => (
-              <Box
+              <Flex
                 display="inline-flex"
                 flexGrow={0}
                 flexShrink={0}
@@ -44,18 +46,18 @@ const Amenities = ({ amenities }) => {
                     stroke: textPrimary;
                     width: 1em;
                     height: 1em;
-                    margin-top: -0.25em;
+                    margin-bottom: 0.25em;
                   `}
                 />
-                <Box as="span" ml={1} fontWeight="bold" whiteSpace="nowrap">
+                <Text ml={1} fontWeight="bold" whiteSpace="nowrap">
                   {amenity.name}
-                </Box>
-              </Box>
+                </Text>
+              </Flex>
             ))}
-          </Box>
+          </Flex>
         </Box>
       ))}
-    </>
+    </Flex>
   )
 }
 

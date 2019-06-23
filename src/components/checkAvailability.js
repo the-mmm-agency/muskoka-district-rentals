@@ -17,7 +17,7 @@ import { up } from 'theme/media'
 import DownIcon from 'components/downIcon'
 
 const CheckboxLabel = styled.span`
-  margin-right: 3;
+  margin-right: 2;
   color: secondary;
   font-family: serif;
 `
@@ -55,7 +55,6 @@ const Wrapper = styled(Box)`
     position: relative;
     flex-wrap: nowrap;
     height: 200px;
-    margin-bottom: 5;
     background: white;
     border-color: transparent;
     box-shadow: 25;
@@ -67,10 +66,8 @@ const Wrapper = styled(Box)`
       }
     }
   }
-  &:nth-last-of-type(2) {
-    div {
-      border: none;
-    }
+  &:nth-last-of-type(2) > div > div {
+    border: none;
   }
   flex-wrap: wrap;
   flex-basis: 25%;
@@ -220,14 +217,7 @@ const CheckAvailability = () => {
             </label>
           </Box>
           <Button mb={2} variant="serif">
-            check availability{' '}
-            <Schedule
-              css={css`
-                fill: white;
-                height: 1em;
-                width: 1em;
-              `}
-            />
+            check availability <Schedule />
           </Button>
         </SectionWrapper>
       </Section>

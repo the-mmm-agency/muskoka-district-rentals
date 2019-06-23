@@ -1,11 +1,12 @@
-import React from 'react'
+import styled from '@emotion/styled'
+import { system, variant } from '@xstyled/system'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import Box from 'components/box'
+const textStyles = variant({
+  default: 'default',
+  key: 'textStyles',
+})
 
-const Heading = props => <Box {...props}>{props.children}</Box>
-
-Heading.defaultProps = {
-  as: 'h2',
-}
+const Heading = styled('h2', { shouldForwardProp })(system, textStyles)
 
 export default Heading

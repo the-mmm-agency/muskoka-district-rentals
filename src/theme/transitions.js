@@ -1,9 +1,7 @@
 import { css } from '@emotion/core'
-import { curry, ifElse, includes, prop, identity, has } from 'rambda'
+import { curry, propOr, includes } from 'ramda'
 
-const hasOrReturn = curry((path, property) =>
-  ifElse(has(property, path), prop(property, path), identity(property))
-)
+const hasOrReturn = curry((path, property) => propOr(property, property, path))
 
 const transitions = {
   safeAttributes: [

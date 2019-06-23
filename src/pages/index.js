@@ -5,8 +5,10 @@ import React from 'react'
 
 import Box from 'components/box'
 import Flex from 'components/flex'
+import Text from 'components/text'
 import Heading from 'components/heading'
 import PageImage from 'components/pageImage'
+import PageContent from 'components/pageContent'
 import PostCard from 'components/postCard'
 import SwirlBackground from 'components/swirlBackground'
 import ConciergeServices from 'components/conciergeServices'
@@ -29,7 +31,20 @@ const IndexPage = ({
       css={css`
         min-height: 40rem;
         span {
+          &:first-of-type {
+            font-weight: bold;
+            letter-spacing: caps;
+            text-transform: uppercase;
+          }
+          &:last-of-type {
+            letter-spacing: labels;
+            font-weight: 600;
+          }
           font-size: 4;
+        }
+        h1 {
+          font-weight: normal;
+          text-transform: uppercase;
         }
         h1,
         span {
@@ -37,46 +52,19 @@ const IndexPage = ({
         }
       `}
     >
-      <span
-        css={css`
-          font-weight: bold;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-        `}
-      >
-        welcome to
-      </span>
-      <h1
-        css={css`
-          margin-bottom: 5;
-          font-weight: normal;
-          text-transform: uppercase;
-        `}
-      >
-        muskoka district
-      </h1>
-      <span
-        css={css`
-          letter-spacing: 0.06em;
-          font-weight: 600;
-        `}
-      >
-        Come unwind with us
-      </span>
+      <span>welcome to</span>
+      <h1>muskoka district</h1>
+      <span>Come unwind with us</span>
     </PageImage>
-    <Flex
-      as="section"
-      flexDirection="column"
+    <PageContent
       alignItems="center"
+      checkAvailability
       mt={{ xs: 0, md: '-100px' }}
-      px={5}
-      mb={{ xs: 3, md: 5, lg: 6 }}
       textAlign="center"
     >
       <CheckAvailability />
       <Hidden down="sm">
-        <Box
-          as="span"
+        <Text
           mt={{ xs: 3, sm: 5, md: 6 }}
           mb={{ xs: 2, sm: 4, md: 5 }}
           color="textSecondary"
@@ -84,10 +72,9 @@ const IndexPage = ({
           letterSpacing="0.35em"
         >
           about us
-        </Box>
+        </Text>
       </Hidden>
-      <Box
-        display="flex"
+      <Flex
         flexBasis="50%"
         alignItems="center"
         justifyContent="center"
@@ -120,19 +107,19 @@ const IndexPage = ({
               Welcome <br /> Aboard!
             </h2>
           </Box>
-          <Box as="p" width="80%" mb={5}>
+          <Text as="p" width="80%" mb={5}>
             Nisi laborum dolore minim qui laborum. Ut incididunt qui ex amet
             aute cupidatat. Ullamco ex nostrud non aliqua eu adipisicing
             proident fugiat non pariatur do aliqua enim. Velit cupidatat id
             veniam labore voluptate ex nulla ut sit anim. Elit mollit est est ex
             ad ut id do ut ea ex.
-          </Box>
+          </Text>
           <span>
             <b>Ross Halloran -</b> Founder Muskoka District Rentals
           </span>
         </Flex>
-      </Box>
-    </Flex>
+      </Flex>
+    </PageContent>
     <Rentals />
     <ConciergeServices />
     <SwirlBackground>
@@ -146,17 +133,7 @@ const IndexPage = ({
           margin-bottom: 5;
         `}
       >
-        <span
-          css={css`
-            letter-spacing: 0.5em;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 4;
-            color: textSecondary;
-          `}
-        >
-          explore
-        </span>
+        <Text variant="expanded">explore</Text>
         <Heading mb={5}>Latest from our blog</Heading>
         {blogPosts.edges.map(edge => (
           <PostCard key={edge.node.id} {...edge.node} />

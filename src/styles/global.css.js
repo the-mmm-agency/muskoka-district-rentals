@@ -17,6 +17,16 @@ const styles = css`
   body {
     color: textSecondary;
   }
+  button {
+    svg {
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      margin-bottom: 0.3em;
+      fill: white;
+      height: 1.3em;
+      width: 1.3em;
+    }
+  }
   h1,
   h2,
   h3,
@@ -93,6 +103,13 @@ const styles = css`
     padding: 3;
     font-weight: 500;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    svg {
+      width: 1.3em;
+      height: 1.3em;
+      margin-left: 1em;
+      margin-right: 1em;
+      margin-bottom: calc(-1 * 0.3em);
+    }
   }
   table {
     text-transform: uppercase;

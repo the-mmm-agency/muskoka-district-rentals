@@ -21,7 +21,11 @@ const layout = {
     '307.2rem',
     '614.4rem',
   ],
-  radii: [2, 4, 8, 30],
+  radii: {
+    sm: '.2rem',
+    md: '.25rem',
+    lg: '.3rem',
+  },
 }
 
 export default layout

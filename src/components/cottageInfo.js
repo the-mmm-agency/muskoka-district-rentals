@@ -11,7 +11,7 @@ const List = styled.ul`
     margin-bottom: 1;
     span {
       &:first-of-type {
-        color: textLight;
+        color: textSecondary;
       }
       &:last-of-type {
         color: textPrimary;
@@ -21,8 +21,8 @@ const List = styled.ul`
   }
 `
 
-const CottageInfo = ({ attributes }) => (
-  <List>
+const CottageInfo = ({ attributes, ...props }) => (
+  <List {...props}>
     {attributes.map(attribute => (
       <li key={attribute.name}>
         <span>{attribute.name}:&nbsp;</span>

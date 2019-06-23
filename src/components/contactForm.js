@@ -2,24 +2,21 @@ import React from 'react'
 
 import Box from 'components/box'
 import Button from 'components/button'
+import Text from 'components/text'
+import Flex from 'components/flex'
 import Input from 'components/input'
+import Heading from 'components/heading'
 
 const ContactForm = () => {
   return (
     <Box mt={5}>
-      <Box as="h2" mb={3} fontSize={[3, 2]}>
+      <Heading mb={3} fontSize={{ xs: 3, md: 2 }}>
         Get in touch with us
-      </Box>
-      <Box as="span" color="textSecondary" variant="bold" ml={1}>
+      </Heading>
+      <Text color="textSecondary" variant="bold" ml={1}>
         If you have any question, Please don’t hesitate to send us a message
-      </Box>
-      <Box
-        as="form"
-        display="flex"
-        mt={[3, 5]}
-        flexWrap="wrap"
-        data-netlify="true"
-      >
+      </Text>
+      <Flex as="form" mt={{ xs: 3, sm: 5 }} flexWrap="wrap" data-netlify="true">
         <Input
           type="text"
           name="name"
@@ -50,7 +47,7 @@ const ContactForm = () => {
         <Button variant="transparent" ml="-1rem" type="submit">
           send message
         </Button>
-      </Box>
+      </Flex>
     </Box>
   )
 }
