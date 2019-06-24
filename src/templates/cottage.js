@@ -22,7 +22,12 @@ import Amenities from 'components/amenities'
 const Cottage = ({ data: { cottage } }) => (
   <Layout>
     <Box textAlign="center">
-      <PageImage fluid={cottage.featured_media.localFile.childImageSharp.fluid}>
+      <PageImage
+        css={css`
+          min-height: 40rem;
+        `}
+        fluid={cottage.featured_media.localFile.childImageSharp.fluid}
+      >
         <h1>{cottage.title}</h1>
         <Breadcrumb
           activeColor="white"

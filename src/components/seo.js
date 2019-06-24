@@ -60,6 +60,11 @@ function SEO({ description, lang, meta, keywords, title }) {
           name: 'twitter:description',
           content: metaDescription,
         },
+        {
+          name: 'viewport',
+          content:
+            'width=device-width,initial-scale=1,max-scale=1,user-scalable=no',
+        },
       ]
         .concat(
           keywords.length > 0

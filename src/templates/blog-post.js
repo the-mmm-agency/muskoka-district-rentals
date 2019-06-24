@@ -11,7 +11,7 @@ import Breadcrumb from 'components/breadcrumb'
 
 const Post = styled.div`
   align-items: center;
-  background: backgroundLight;
+  background-color: backgroundLight;
   display: flex;
   padding: 5;
   margin: auto;
@@ -24,26 +24,20 @@ const Post = styled.div`
     text-align: center;
     width: 100%;
   }
-  div:last-of-type {
-    width: 100%;
-  }
 `
 
 const PostHeader = styled.div`
   div {
     display: flex;
+    flex-direction: column;
     span {
       &:first-of-type {
         color: textPrimary;
         font-size: 1.2rem;
         font-family: serif;
       }
-      &:last-of-type {
-        color: textSecondary;
-      }
       font-weight: bold;
     }
-    flex-direction: column;
     div:last-of-type {
       display: inline-block;
       a {
@@ -107,7 +101,10 @@ const BlogPost = ({
           </div>
         </div>
       </PostHeader>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div
+        css={{ width: '100%' }}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </Post>
   </Layout>
 )

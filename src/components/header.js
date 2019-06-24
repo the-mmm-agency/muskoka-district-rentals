@@ -1,11 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import posed from 'react-pose'
 import Headroom from 'react-headroom'
 import styled from '@xstyled/emotion'
 
 import Button from 'components/button'
+import Hidden from 'components/hidden'
 import Logo from 'components/logo'
 import HeaderLink from 'components/headerLink'
+
+const AnimatedContainer = posed.div({
+  enter: {
+    y: 0,
+    transition: {
+      ease: 'easeInOut',
+    },
+  },
+  exit: {
+    y: '-100%',
+    transition: {
+      ease: 'easeInOut',
+    },
+  },
+})
 
 const StyledButton = styled(Button)`
   margin: 24px;
@@ -29,17 +46,21 @@ const StyledHeader = styled.header`
 `
 
 const Header = ({ links }) => (
-  <Headroom style={{ zIndex: 999 }}>
-    <StyledHeader>
-      <Logo />
-      {links.map(to => (
-        <HeaderLink to={to} key={to} />
-      ))}
-      <StyledButton fontFamily="serif" size="large">
-        Reserve Now
-      </StyledButton>
-    </StyledHeader>
-  </Headroom>
+  <AnimatedContainer>
+    <Headroom style={{ zIndex: 999 }}>
+      <StyledHeader>
+        <Logo />
+        {links.map(to => (
+          <HeaderLink to={to} key={to} />
+        ))}
+        <Hidden down="xl">
+          <StyledButton fontFamily="serif" size="large">
+            Reserve Now
+          </StyledButton>
+        </Hidden>
+      </StyledHeader>
+    </Headroom>
+  </AnimatedContainer>
 )
 
 Header.propTypes = {

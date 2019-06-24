@@ -8,13 +8,43 @@ import React, { useRef, useState } from 'react'
 
 import Button from 'components/button'
 import Box from 'components/box'
+import Flex from 'components/flex'
 import Number from 'components/number'
 import Checkbox from 'components/checkbox'
 import { ReactComponent as Schedule } from 'icons/schedule.svg'
 import DateInput from 'components/dateInput'
 import DatePicker from 'components/datePicker'
-import { up, down } from 'theme/media'
+import { up } from 'theme/media'
 import DownIcon from 'components/downIcon'
+
+const Wrapper = styled(Flex)`
+  ${up('md')} {
+    flex-wrap: nowrap;
+    height: 200px;
+    background-color: backgroundLight;
+    border-color: transparent;
+    box-shadow: 25;
+  }
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  border-bottom: 0.5px solid;
+  border-color: textSecondary;
+  width: 100%;
+  margin-top: 3;
+  z-index: 100;
+`
+
+const SectionWrapper = styled(Flex)`
+  ${up('md')} {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2;
+  height: 100%;
+`
 
 const CheckboxLabel = styled.span`
   margin-right: 2;
@@ -22,44 +52,16 @@ const CheckboxLabel = styled.span`
   font-family: serif;
 `
 
-const Section = styled(Box)`
+const Section = styled(Flex)`
   ${up('md')} {
-    width: 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
   }
-  &:nth-last-of-type(2),
-  &:last-of-type {
-    ${up('sm')} {
-      div {
-        border-right: none;
-      }
-    }
-  }
-  &:last-of-type {
-    ${up('sm')} {
-      div {
-        background-color: backgroundDark;
-      }
-    }
-  }
-  ${down('md')} {
-    &:last-of-type {
-      width: auto;
-    }
-  }
-  width: calc(100% / 3);
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(100% / 3);
+  max-width: calc(100% / 3);
   padding: 3;
-`
-
-const SectionWrapper = styled(Box)`
-  ${up('md')} {
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 2;
-  height: 100%;
 `
 
 const Header = styled.span`
@@ -70,26 +72,6 @@ const Header = styled.span`
   font-size: 0.875rem;
   text-align: left;
   text-transform: uppercase;
-`
-
-const Wrapper = styled(Box)`
-  ${up('sm')} {
-    position: relative;
-    flex-wrap: nowrap;
-    height: 200px;
-    background: white;
-    border-color: transparent;
-    box-shadow: 25;
-  }
-  flex-wrap: wrap;
-  flex-basis: 25%;
-  justify-content: center;
-  display: flex;
-  margin: auto;
-  border-bottom: 0.5px solid;
-  border-color: textSecondary;
-  width: 100%;
-  margin-top: 3;
 `
 
 const CheckAvailability = () => {
@@ -138,28 +120,28 @@ const CheckAvailability = () => {
           <DateInput value={dates.to} onClick={toggleDatePicker} />
         </SectionWrapper>
       </Section>
-      <Box
-        css={css`
-          ${up('sm')} {
-            left: 0;
-            width: 100vw;
-          }
-          position: absolute;
-          display: flex;
-          width: 100%;
-          margin-top: calc(150px + 0.3rem);
-          padding: 0;
-          background-color: white;
-          z-index: 9999;
-        `}
-        ref={datePickerReference}
+      <Reveal
+        appear
+        effect="fadeInUp"
+        ssrReveal
+        duration={500}
+        when={datePicker}
       >
-        <Reveal
-          appear
-          effect="fadeInUp"
-          ssrReveal
-          duration={500}
-          when={datePicker}
+        <Box
+          css={css`
+            ${up('sm')} {
+              left: 0;
+              width: 100vw;
+            }
+            position: absolute;
+            display: flex;
+            width: 100%;
+            margin-top: calc(150px + 0.3rem);
+            padding: 0;
+            background-color: white;
+            z-index: 9999;
+          `}
+          ref={datePickerReference}
         >
           <DatePicker
             from={dates.from}
@@ -167,10 +149,10 @@ const CheckAvailability = () => {
             handleDayClick={handleDayClick}
             open
           />
-        </Reveal>
-      </Box>
+        </Box>
+      </Reveal>
       <Section>
-        <SectionWrapper>
+        <SectionWrapper borderRight="transparent !important">
           <Header>guests</Header>
           {guestsActive ? (
             <input
@@ -204,10 +186,11 @@ const CheckAvailability = () => {
         </SectionWrapper>
       </Section>
       <Section
+        col={{ xs: 1, md: 1 / 4 }}
         backgroundColor={{ xs: 'transparent', md: 'backgroundDark' }}
-        width={{ xs: 0.5 }}
+        minWidth={{ xs: '20rem', sm: 0 }}
       >
-        <SectionWrapper>
+        <SectionWrapper borderRight="transparent !important">
           <Box display="flex" justifyContent="space-between" mb={1}>
             <label>
               <CheckboxLabel>Pets</CheckboxLabel>

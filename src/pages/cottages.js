@@ -24,9 +24,7 @@ const Cottages = ({ data: { image, cottages } }) => {
       <PageContent checkAvailability>
         <CheckAvailability />
       </PageContent>
-      <Box mt={3}>
-        <CottageList cottages={cottages.nodes.slice(0, page)} />
-      </Box>
+      <CottageList cottages={cottages.nodes.slice(0, page)} />
       {page < cottages.nodes.length && (
         <Box width="100%" textAlign="center" mb={4}>
           <Button
