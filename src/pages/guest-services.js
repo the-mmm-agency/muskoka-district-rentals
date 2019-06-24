@@ -34,7 +34,7 @@ const GuestServices = ({
         `}
         dangerouslySetInnerHTML={{ __html: content }}
       />
-      <Flex as="ul" flexDirection="column" ml={0}>
+      <Flex as="ul" flexDirection="column" marginLeft="0px">
         {guestServices.nodes.map(service => (
           <GuestService key={service.id} {...service} />
         ))}

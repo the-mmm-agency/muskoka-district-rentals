@@ -13,9 +13,9 @@ const ConciergeService = ({ title, slug, featured_media, setSelected }) => (
       &:hover {
         background-color: rgba(0, 0, 0, 0.1);
       }
+      padding: 2;
       ${transition('background-color')}
     `}
-    p={2}
     onMouseOver={() => setSelected(featured_media)}
     onFocus={() => setSelected(featured_media)}
   >

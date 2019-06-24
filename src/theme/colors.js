@@ -20,11 +20,11 @@ const colors = {
   backgroundDark: '#eaecef',
   backgroundDefault: '#f1f1f1',
   backgroundLight: '#ffffff',
-  textPrimary: '#344051',
+  textPrimary: '#000000',
   textAlt: '#333',
-  textSecondary: '#999',
-  textParagraph: '#666',
-  textLight: '#ccc',
+  textSecondary: '#344051',
+  textParagraph: '#555',
+  textLight: '#666',
 }
 
 export default colors

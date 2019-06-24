@@ -6,6 +6,7 @@ import { css } from '@xstyled/emotion'
 
 import Hidden from 'components/hidden'
 import Box from 'components/box'
+import { up } from 'theme/media'
 import Text from 'components/text'
 import Heading from 'components/heading'
 import Flex from 'components/flex'
@@ -42,6 +43,9 @@ const ConciergeServices = () => {
         </Box>
         <ul
           css={css`
+            ${up('md')} {
+              height: 500px;
+            }
             ::-webkit-scrollbar {
               width: 6px;
             }
@@ -51,12 +55,13 @@ const ConciergeServices = () => {
             ::-webkit-scrollbar-thumb {
               background-color: #0a252e;
             }
-            max-height: 500px;
+            height: 300px;
             margin: none;
             width: 100%;
             overflow-x: hidden;
             overflow-y: scroll;
             list-style: none;
+            -webkit-touch-scrolling: overflow;
           `}
         >
           {conciergeServices.nodes.map(service => (

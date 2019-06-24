@@ -13,13 +13,13 @@ const AnimatedContainer = posed.div({
   enter: {
     y: 0,
     transition: {
-      ease: 'easeInOut',
+      ease: [0.4, 0, 0.6, 1],
     },
   },
   exit: {
     y: '-100%',
     transition: {
-      ease: 'easeInOut',
+      ease: [0.4, 0, 0.2, 1],
     },
   },
 })

@@ -13,6 +13,15 @@ const Content = styled.div`
   ${up('sm')} {
     display: flex;
     flex-direction: column;
+    h6 {
+      margin-bottom: 2;
+    }
+    span {
+      display: flex;
+      font-weight: bold;
+      white-space: normal;
+      max-width: 50%;
+    }
     & > p:first-of-type {
       color: textSecondary;
       margin-bottom: 2;
@@ -43,7 +52,6 @@ const Content = styled.div`
           &:last-of-type {
             margin-bottom: 0;
           }
-          color: textSecondary;
         }
         h6 {
           margin-bottom: 2;
@@ -53,15 +61,6 @@ const Content = styled.div`
       flex-basis: calc(100% / 3);
       margin-top: 3;
       margin-bottom: 2;
-    }
-    h6 {
-      margin-bottom: 2;
-    }
-    span {
-      display: flex;
-      font-weight: bold;
-      white-space: normal;
-      max-width: 50%;
     }
   }
 `
