@@ -136,6 +136,7 @@ const CheckAvailability = () => {
             position: absolute;
             display: flex;
             width: 100%;
+            left: 0px;
             margin-top: calc(150px + 0.3rem);
             padding: 0;
             background-color: white;

@@ -30,7 +30,7 @@ const IndexPage = ({
       fadeIn
       fluid={headerImg.childImageSharp.fluid}
       css={css`
-        min-height: 40rem;
+        min-height: 35rem;
         span {
           &:first-of-type {
             font-weight: bold;

@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
       <Hidden down="md">
         <Header links={headerLinks} />
       </Hidden>
-      <Box maxWidth="100vw" m="0 auto" pt={0}>
+      <Box maxWidth="100vw" overflowX="hidden" m="0 auto" pt={0}>
         <main>{children}</main>
         <Footer />
       </Box>
