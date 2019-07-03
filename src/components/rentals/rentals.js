@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import PropertyCard from 'components/propertyCard'
 import Box from 'components/box'
 import Hidden from 'components/hidden'
+import Flex from 'components/flex'
 import PageImage from 'components/pageImage'
 import Rental from 'components/rental'
 import Link from 'components/link'
@@ -31,9 +32,16 @@ const Rentals = () => {
           <Box as="h3" my={5} textAlign="center">
             Our Rentals
           </Box>
-          <Box px={5}>
-            <PropertyCard {...rentals[0]} />
-          </Box>
+          <Flex
+            px={5}
+            css={css`
+              overflow-x: scroll;
+            `}
+          >
+            {rentals.map(rental => (
+              <PropertyCard {...rental} key={rental.id} />
+            ))}
+          </Flex>
         </Box>
       </Hidden>
       <Hidden down="md">

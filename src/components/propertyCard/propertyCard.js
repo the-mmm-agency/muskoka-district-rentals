@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import styled from '@xstyled/emotion'
+import styled, { css } from '@xstyled/emotion'
 
 import Flex from 'components/flex'
 import CottageInfo from 'components/cottageInfo'
@@ -21,6 +21,7 @@ const Wrapper = styled(Flex)`
     }
   }
   flex-direction: column;
+  display: inline-flex;
   box-shadow: 1;
   cursor: pointer;
   background-color: backgroundLight;
@@ -64,7 +65,14 @@ const PropertyCard = ({
   reviewAvg,
   title,
 }) => (
-  <Link to={`/cottages/${slug}`}>
+  <Link
+    to={`/cottages/${slug}`}
+    css={css`
+      min-width: 100%;
+      display: inline-flex;
+      margin: 3;
+    `}
+  >
     <Wrapper width={{ xs: '100%', sm: 'calc(100% / 3)' }}>
       <Img fluid={featured_media.localFile.childImageSharp.fluid} />
       <Flex flexDirection="column">
