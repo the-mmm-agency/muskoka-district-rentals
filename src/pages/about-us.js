@@ -36,7 +36,12 @@ const AboutUs = ({ data: { image } }) => (
         Come escape the mundane
       </Box>
     </PageImage>
-    <Box as="section" px={[3, 6]} py={[4, 5]} textAlign="center">
+    <Box
+      as="section"
+      px={{ xs: 3, sm: 6 }}
+      py={{ xs: 4, sm: 5 }}
+      textAlign="center"
+    >
       <Box as="h2" fontSize={0} mb={2}>
         History
       </Box>

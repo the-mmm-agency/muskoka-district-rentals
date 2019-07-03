@@ -81,6 +81,7 @@
           ["images", "./src/images"],
           ["icons", "./src/icons"],
           ["pages", "./src/pages"],
+          ["hooks", "./src/hooks"],
           ["styles", "./src/styles"],
           ["templates", "./src/templates"],
           ["theme", "./src/theme"]

@@ -17,6 +17,7 @@ module.exports = {
         components: path.join(__dirname, `src`, `components`),
         icons: path.join(__dirname, `src`, `icons`),
         images: path.join(__dirname, `src`, `images`),
+        hooks: path.join(__dirname, `src`, `hooks`),
         pages: path.join(__dirname, `src`, `pages`),
         styles: path.join(__dirname, `src`, `styles`),
         templates: path.join(__dirname, `src`, `templates`),
@@ -43,6 +44,8 @@ module.exports = {
         instances: [`@xstyled/emotion`],
       },
     },
+    `gatsby-plugin-polished`,
+    `gatsby-plugin-remove-console`,
 
     // Styling and site config
     `gatsby-plugin-react-helmet`,

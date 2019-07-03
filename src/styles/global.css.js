@@ -1,6 +1,6 @@
 import { css } from '@xstyled/emotion'
 
-import { down } from 'theme/media'
+import { up, down } from 'theme/media'
 
 const styles = css`
   html {
@@ -66,6 +66,11 @@ const styles = css`
     color: white;
     background-color: primary;
   }
+  iframe {
+    ${up('md')} {
+      width: 60%;
+    }
+  }
   a {
     &:hover {
       text-decoration: underline;
@@ -120,6 +125,28 @@ const styles = css`
   table {
     text-transform: uppercase;
     border-collapse: collapse;
+  }
+  .ReactModal__Content--after-open {
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    padding: 0 !important;
+    outline: none;
+  }
+  .ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+  .ReactModal__Overlay--after-open {
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    display: flex;
+    opacity: 1;
+    z-index: 9999;
   }
 `
 

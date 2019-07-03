@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import PageContent from 'components/pageContent'
+import Contact from 'components/contact'
 import Layout from 'components/layout'
 import ContactForm from 'components/contactForm'
 import PageImage from 'components/pageImage'
@@ -22,6 +23,7 @@ const PrivateFleet = ({
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <ContactForm />
     </PageContent>
+    <Contact />
   </Layout>
 )
 
