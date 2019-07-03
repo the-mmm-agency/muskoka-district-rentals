@@ -113,6 +113,7 @@ const normalize = css`
     margin: 0;
     padding: none;
     font-weight: 500;
+    overflow: hidden;
     text-decoration: none;
     vertical-align: middle;
     border: none;

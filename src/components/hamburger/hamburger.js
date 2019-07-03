@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import { Button, Inner } from './hamburger.css'
 
-const Hamburger = ({ active }) => (
-  <Button ariaLabel="Menu" ariaControls="navigation">
+const Hamburger = ({ active, ...props }) => (
+  <Button ariaLabel="Menu" ariaControls="navigation" {...props}>
     <span>
       <Inner active={active} />
     </span>
