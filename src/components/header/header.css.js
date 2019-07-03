@@ -16,6 +16,24 @@ export const Container = posed.header({
   },
 })
 
+export const Nav = styled.nav`
+  flex: 1 0;
+  display: flex;
+  flex-wrap: wrap;
+  & > span,
+  hr {
+    margin: 0 4;
+  }
+  & > span {
+    font-size: 0.7rem;
+    color: textLight;
+    a {
+      margin-right: 4;
+      color: textLight;
+    }
+  }
+`
+
 export const StyledHeader = styled(Container)`
   box-shadow: 1;
   position: sticky;

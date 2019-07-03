@@ -8,7 +8,7 @@ import Link from 'components/link'
 
 const Wrapper = styled(Link)`
   ${up('md')} {
-    min-width: 60px;
+    min-width: 100px;
   }
   ${down('md')} {
     margin-right: auto;
