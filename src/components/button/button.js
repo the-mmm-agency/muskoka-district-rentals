@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@emotion/styled'
 import { system, variant } from '@xstyled/system'
-import styled, { css } from '@xstyled/emotion'
+import { css } from '@xstyled/emotion'
 
 import Link from 'components/link'
 import { transition } from 'theme/transitions'
@@ -31,11 +32,15 @@ const sizes = variant({
       font-size: 0.65rem;
     `,
     md: css`
-      padding: 10px 16px;
+      padding: 2 3;
       font-size: 0.875rem;
     `,
     lg: css`
       padding: 16px 36px;
+      font-size: 1rem;
+    `,
+    wide: css`
+      padding: 10px 30px;
       font-size: 1rem;
     `,
   },
@@ -54,7 +59,7 @@ const variants = variant({
           fill: white;
         }
       }
-      ${transition(['border', 'background', 'box-shadow', 'transform'], {
+      ${transition(['box-shadow', 'transform'], {
         duration: 'short',
       })};
       color: white;
@@ -69,13 +74,15 @@ const variants = variant({
           fill: white;
         }
       }
-      ${transition(['border', 'background', 'box-shadow', 'transform'], {
+      ${transition(['box-shadow', 'transform'], {
         duration: 'short',
       })};
       color: white;
       text-transform: uppercase;
       font-family: serif;
       background-color: primary;
+      letter-spacing: 0.1em;
+      font-weight: bold;
     `,
     transparent: css`
       &:hover {

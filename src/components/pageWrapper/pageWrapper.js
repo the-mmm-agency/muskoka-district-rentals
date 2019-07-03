@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import posed, { PoseGroup } from 'react-pose'
 
 const RoutesContainer = posed.div({
@@ -18,10 +19,15 @@ const RoutesContainer = posed.div({
   },
 })
 
-const PageTransitions = ({ children, location }) => (
+const PageWrapper = ({ element, props: { location } }) => (
   <PoseGroup>
-    <RoutesContainer key={location.pathname}>{children}</RoutesContainer>
+    <RoutesContainer key={location.pathname}>{element}</RoutesContainer>
   </PoseGroup>
 )
 
-export default PageTransitions
+PageWrapper.propTypes = {
+  element: PropTypes.element.isRequired,
+  props: PropTypes.shape({ location: PropTypes.object.isRequired }).isRequired,
+}
+
+export default PageWrapper

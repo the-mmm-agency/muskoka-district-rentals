@@ -7,7 +7,7 @@ import Hidden from 'components/hidden'
 import MobileHeader from 'components/mobileHeader'
 import Header from 'components/header'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...props }) => {
   const {
     site: {
       siteMetadata: { headerLinks },
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
       <Hidden down="md">
         <Header links={headerLinks} />
       </Hidden>
-      <Box maxWidth="100vw" overflowX="hidden" m="0 auto" pt={0}>
+      <Box maxWidth="100vw" overflowX="hidden" m="0 auto" pt={0} {...props}>
         <main>{children}</main>
         <Footer />
       </Box>

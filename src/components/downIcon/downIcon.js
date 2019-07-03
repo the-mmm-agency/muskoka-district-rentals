@@ -5,9 +5,12 @@ const DownIcon = () => (
   <svg
     css={css`
       align-self: center;
-      width: 30px;
-      height: 30px;
+      width: 2rem;
+      height: 2rem;
+      flex-shrink: 0;
       margin-left: 1;
+      margin-top: auto;
+      margin-bottom: 0;
     `}
     viewBox="0 0 32 32"
     aria-hidden="true"

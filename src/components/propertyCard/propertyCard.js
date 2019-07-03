@@ -2,58 +2,12 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import styled, { css } from '@xstyled/emotion'
 
-import Flex from 'components/flex'
+import Card, { CardContent } from 'components/card'
 import CottageInfo from 'components/cottageInfo'
 import StarRating from 'components/starRating'
 import Link from 'components/link'
 import Text from 'components/text'
-import { transition } from 'theme/transitions'
-
-const Wrapper = styled(Flex)`
-  &:hover {
-    box-shadow: 25;
-    transform: translateY(-3px);
-    text-decoration: none;
-    div a {
-      color: textPrimary;
-    }
-  }
-  flex-direction: column;
-  display: inline-flex;
-  box-shadow: 1;
-  cursor: pointer;
-  background-color: backgroundLight;
-  text-decoration: none;
-  ${transition(['transform', 'box-shadow'])};
-  & > div {
-    .star-ratings {
-      margin-bottom: 2;
-    }
-    display: flex;
-    height: 40%;
-    flex-direction: column;
-    padding: 3 4;
-    text-align: left;
-    ul {
-      margin-top: 0;
-    }
-    a {
-      &:hover {
-        text-decoration: none;
-      }
-      font-weight: bold;
-      ${transition('color')};
-    }
-    span {
-      color: textLight;
-    }
-    h6 {
-      margin-bottom: 0;
-    }
-  }
-`
 
 const PropertyCard = ({
   slug,
@@ -65,54 +19,47 @@ const PropertyCard = ({
   reviewAvg,
   title,
 }) => (
-  <Link
-    to={`/cottages/${slug}`}
-    css={css`
-      min-width: 100%;
-      display: inline-flex;
-      margin: 3;
-    `}
-  >
-    <Wrapper width={{ xs: '100%', sm: 'calc(100% / 3)' }}>
-      <Img fluid={featured_media.localFile.childImageSharp.fluid} />
-      <Flex flexDirection="column">
-        <h6>{title}</h6>
-        <StarRating
-          css={{ padding: 0 }}
-          rating={reviewAvg}
-          starDimension="1rem"
-        />
-        <CottageInfo
-          attributes={[
-            {
-              name: 'Property',
-              value: categories[0].name,
-            },
-            {
-              name: 'Sleeps',
-              value: capacity,
-            },
-            {
-              name: 'Beds',
-              value: bed,
-            },
-          ]}
-        />
-        <hr />
-        <span css={{ display: 'inline-flex' }}>
-          <b>Details</b>
-          <Text ml="auto">
-            Starting at <b>${lowestRate}/</b>Night
-          </Text>
-        </span>
-      </Flex>
-    </Wrapper>
-  </Link>
+  <Card>
+    <Img fluid={featured_media.localFile.childImageSharp.fluid} />
+    <CardContent>
+      <h6 dangerouslySetInnerHTML={{ __html: title }} />
+      <StarRating
+        padding={0}
+        marginBottom={1}
+        css={{ padding: 0 }}
+        rating={reviewAvg}
+        starDimension="1rem"
+      />
+      <CottageInfo
+        attributes={[
+          {
+            name: 'Property',
+            value: categories[0].name,
+          },
+          {
+            name: 'Sleeps',
+            value: capacity,
+          },
+          {
+            name: 'Beds',
+            value: bed,
+          },
+        ]}
+      />
+      <hr />
+      <span css={{ display: 'inline-flex' }}>
+        <Link to={`/cottages/${slug}`}>Details</Link>
+        <Text ml="auto">
+          Starting at <b>${lowestRate}/</b>Night
+        </Text>
+      </span>
+    </CardContent>
+  </Card>
 )
 
 PropertyCard.propTypes = {
   bed: PropTypes.string.isRequired,
-  capacity: PropTypes.number.isRequired,
+  capacity: PropTypes.string.isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -140,6 +87,7 @@ export const query = graphql`
     categories {
       name
     }
+    id
     bed
     capacity
     lowestRate

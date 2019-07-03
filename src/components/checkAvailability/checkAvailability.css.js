@@ -1,7 +1,8 @@
-import styled from '@xstyled/emotion'
+import styled, { css } from '@xstyled/emotion'
 
 import Flex from 'components/flex'
-import { up } from 'theme/media'
+import Number from 'components/number'
+import { up, down } from 'theme/media'
 
 export const Wrapper = styled(Flex)`
   ${up('md')} {
@@ -9,6 +10,8 @@ export const Wrapper = styled(Flex)`
     background-color: backgroundLight;
     border-color: transparent;
     box-shadow: 25;
+    margin-top: 3;
+    padding-left: 3;
   }
   flex-wrap: wrap;
   justify-content: center;
@@ -16,8 +19,7 @@ export const Wrapper = styled(Flex)`
   border-bottom: 0.5px solid;
   border-color: textSecondary;
   width: 100%;
-  margin-top: 3;
-  z-index: 100;
+  z-index: availability;
 `
 
 export const SectionWrapper = styled(Flex)`
@@ -26,12 +28,15 @@ export const SectionWrapper = styled(Flex)`
   }
   width: 100%;
   flex-direction: column;
+  flex-shrink: 0;
   justify-content: space-between;
-  margin: 2;
   height: 100%;
 `
 
 export const Section = styled(Flex)`
+  ${down('sm')} {
+    padding: 3 2;
+  }
   ${up('md')} {
     flex: 0 0 25%;
     max-width: 25%;
@@ -40,7 +45,7 @@ export const Section = styled(Flex)`
   flex-shrink: 0;
   flex-basis: calc(100% / 3);
   max-width: calc(100% / 3);
-  padding: 3;
+  padding: 4 3;
 `
 
 export const CheckboxLabel = styled.span`
@@ -52,9 +57,46 @@ export const CheckboxLabel = styled.span`
 export const Header = styled.span`
   width: 100%;
   margin-bottom: 2;
-  color: textSecondary;
+  color: textLight;
   font-weight: 700;
   font-size: 0.875rem;
   text-align: left;
   text-transform: uppercase;
+`
+
+export const InputWrapper = styled.button`
+  background: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+  cursor: pointer;
+  &:not(:last-of-type) {
+    padding-right: 1;
+  }
+`
+
+export const Month = styled.h5`
+  font-weight: 400;
+  color: textSecondary;
+  vertical-align: baseline;
+  white-space: nowrap;
+  margin: 0;
+`
+
+export const number = css`
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 3;
+  margin: 0;
+  vertical-align: baseline;
+  margin-right: auto;
+`
+
+export const Day = styled.h4`
+  ${number}
+`
+
+export const Guests = styled(Number)`
+  ${number}
 `

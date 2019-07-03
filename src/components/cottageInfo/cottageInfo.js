@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import { List, Item } from './cottageInfo.css'
 
-const CottageInfo = ({ attributes }) => (
-  <List>
+const CottageInfo = ({ attributes, ...props }) => (
+  <List {...props}>
     {attributes.map(attribute => (
       <Item key={attribute.name}>
         <span>{attribute.name}:&nbsp;</span>

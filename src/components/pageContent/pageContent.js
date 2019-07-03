@@ -21,8 +21,8 @@ const PageContent = ({ children, checkAvailability, ...props }) => (
         : null}
     `}
     as="section"
-    px={{ xs: 3, sm: 4, md: 5, lg: 6 }}
-    py={{ xs: 2, sm: 3, md: 4, lg: 5 }}
+    px={{ xs: 3, sm: 4, md: 4, xl: 5 }}
+    py={{ xs: 2, sm: 3, md: 4, xl: 5 }}
     mb={{ xs: 2, md: 3, lg: 5 }}
     flexDirection="column"
     {...props}

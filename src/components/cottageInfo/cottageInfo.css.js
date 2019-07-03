@@ -10,7 +10,12 @@ export const List = styled.ul`
 export const Item = styled.li`
   margin-bottom: 1;
   font-weight: bold;
-  span:last-of-type {
-    color: textPrimary;
+  span {
+    &:first-of-type {
+      color: textLight;
+    }
+    &:last-of-type {
+      color: textPrimary;
+    }
   }
 `

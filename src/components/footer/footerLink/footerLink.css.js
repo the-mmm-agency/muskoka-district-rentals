@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import styled from '@xstyled/emotion'
 
 import Link from 'components/link'
@@ -14,14 +12,5 @@ const StyledLink = styled(Link)`
   opacity: 0.4;
   ${transition('opacity')};
 `
-const FooterLink = ({ to }) => (
-  <li>
-    <StyledLink to={to}>{to.replace('/', '').replace('-', ' ')}</StyledLink>
-  </li>
-)
 
-FooterLink.propTypes = {
-  to: PropTypes.string.isRequired,
-}
-
-export default FooterLink
+export default StyledLink

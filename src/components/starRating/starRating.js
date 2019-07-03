@@ -1,9 +1,13 @@
 import React from 'react'
 import { withTheme } from 'emotion-theming'
+import styled from '@emotion/styled'
+import { system } from '@xstyled/system'
 import StarRatings from 'react-star-ratings'
 
+const SystemStarRating = styled(StarRatings)(system)
+
 const StarRating = ({ theme, ...props }) => (
-  <StarRatings
+  <SystemStarRating
     {...props}
     starRatedColor={theme.colors.starRated}
     numberOfStars={5}

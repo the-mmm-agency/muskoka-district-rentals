@@ -7,15 +7,16 @@ import Link from 'components/link'
 const Breadcrumb = ({ crumbs, activeColor, color, ...props }) => (
   <Box display="inline-block" {...props}>
     {crumbs.map((crumb, index) => (
-      <Link
-        key={crumb.link}
-        to={crumb.link}
-        color={index === crumbs.length - 1 ? activeColor : color}
-        fontWeight="bold"
-      >
-        {crumb.title}
+      <>
+        <Link
+          key={crumb.link}
+          to={crumb.link}
+          color={index === crumbs.length - 1 ? activeColor : color}
+          fontWeight="bold"
+          dangerouslySetInnerHTML={{ __html: crumb.title }}
+        />
         {index !== crumbs.length - 1 && <>&nbsp; &gt; &nbsp;</>}
-      </Link>
+      </>
     ))}
   </Box>
 )

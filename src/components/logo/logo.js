@@ -32,7 +32,7 @@ const Logo = props => {
     }
   `)
   return (
-    <Wrapper fade duration={0.5} {...props}>
+    <Wrapper to="/" {...props}>
       <Img
         alt="Muskoka District Rentals"
         imgStyle={{

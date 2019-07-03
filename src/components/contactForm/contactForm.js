@@ -10,13 +10,18 @@ import Heading from 'components/heading'
 const ContactForm = () => {
   return (
     <Box mt={5}>
-      <Heading mb={3} fontSize={{ xs: 3, md: 2 }}>
-        Get in touch with us
-      </Heading>
-      <Text color="textSecondary" variant="bold" ml={1}>
-        If you have any question, Please don’t hesitate to send us a message
+      <Heading mb={3}>Get in touch with us</Heading>
+      <Text color="textLight" fontWeight="bold" ml={1}>
+        If you have any questions, Please don’t hesitate to send us a message
       </Text>
-      <Flex as="form" mt={{ xs: 3, sm: 5 }} flexWrap="wrap" data-netlify="true">
+      <Flex
+        as="form"
+        mt={{ xs: 3, sm: 5 }}
+        flexWrap="wrap"
+        action="mailto:hello@muskokadistrictrentals.com"
+        method="get"
+        enctype="text/plain"
+      >
         <Input
           type="text"
           name="name"

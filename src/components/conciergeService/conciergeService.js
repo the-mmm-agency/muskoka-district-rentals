@@ -7,7 +7,7 @@ import { graphql } from 'gatsby'
 import { transition } from 'theme/transitions'
 import Link from 'components/link'
 
-const ConciergeService = ({ title, slug, featured_media, setSelected }) => (
+const ConciergeService = ({ title, featured_media, setSelected }) => (
   <li
     css={css`
       &:hover {
@@ -26,9 +26,7 @@ const ConciergeService = ({ title, slug, featured_media, setSelected }) => (
         background: transparent;
         width: 100%;
       `}
-      to={slug}
-      fade
-      duration={0.5}
+      to="/guest-services"
     >
       <Img
         css={css`
@@ -72,7 +70,6 @@ export const query = graphql`
 ConciergeService.propTypes = {
   featured_media: PropTypes.object.isRequired,
   setSelected: PropTypes.func.isRequired,
-  slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 }
 

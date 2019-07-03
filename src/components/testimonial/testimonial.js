@@ -61,7 +61,6 @@ Testimonial.propTypes = {
     location: PropTypes.string.isRequired,
   }).isRequired,
   rating: PropTypes.number.isRequired,
-  theme: PropTypes.object.isRequired,
 }
 
 export const query = graphql`

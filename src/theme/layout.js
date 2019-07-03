@@ -26,6 +26,12 @@ const layout = {
     md: '.25rem',
     lg: '.3rem',
   },
+  zIndices: {
+    availability: 1000,
+    header: 1100,
+    drawer: 1200,
+    modal: 1300,
+  },
 }
 
 export default layout

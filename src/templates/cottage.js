@@ -4,10 +4,10 @@ import { css } from '@xstyled/emotion'
 import dayjs from 'dayjs'
 import { graphql } from 'gatsby'
 
-import Box from 'components/box'
 import useAvailabilityContext from 'hooks/useAvailabilityContext'
 import CottageCarousel from 'components/cottageCarousel'
 import PageImage from 'components/pageImage'
+import Flex from 'components/flex'
 import Rates from 'components/rates'
 import Beds from 'components/beds'
 import PageContent from 'components/pageContent'
@@ -20,31 +20,43 @@ import CheckAvailability from 'components/checkAvailability'
 import Layout from 'components/layout'
 import Breadcrumb from 'components/breadcrumb'
 import Amenities from 'components/amenities'
+import { up } from 'theme/media'
 
 const Cottage = ({ data: { cottage } }) => {
   const { guests, from, to } = useAvailabilityContext()
   return (
-    <Layout>
-      <Box textAlign="center">
-        <PageImage
+    <Layout
+      css={css`
+        text-align: center;
+      `}
+    >
+      <PageImage
+        css={css`
+          min-height: 45rem;
+        `}
+        fluid={cottage.featured_media.localFile.childImageSharp.fluid}
+      >
+        <h1 dangerouslySetInnerHTML={{ __html: cottage.title }} />
+        <Breadcrumb
+          activeColor="white"
+          color="white"
+          crumbs={[
+            { link: '/', title: 'Home' },
+            { link: '/cottages', title: 'Our Rentals' },
+            { link: cottage.slug, title: cottage.title },
+          ]}
+        />
+      </PageImage>
+      <PageContent checkAvailability mb={2}>
+        <CheckAvailability
           css={css`
-            min-height: 40rem;
+            ${up('md')} {
+              position: sticky;
+              top: 10%;
+            }
           `}
-          fluid={cottage.featured_media.localFile.childImageSharp.fluid}
-        >
-          <h1 dangerouslySetInnerHTML={{ __html: cottage.title }} />
-          <Breadcrumb
-            activeColor="white"
-            color="white"
-            crumbs={[
-              { link: '/', title: 'Home' },
-              { link: '/cottages', title: 'Our Rentals' },
-              { link: cottage.slug, title: cottage.title },
-            ]}
-          />
-        </PageImage>
-        <PageContent checkAvailability mb={2} fontSize={5}>
-          <CheckAvailability />
+        />
+        <Flex flexDirection="column" mb={2} fontSize={5}>
           <CottageCarousel images={cottage.images} />
           <Text textTransform="uppercase" fontWeight="bold">
             Start From{' '}
@@ -56,9 +68,9 @@ const Cottage = ({ data: { cottage } }) => {
           <CottageInfo
             css={css`
               margin-top: 2;
-              li {
+              & > li {
                 margin-bottom: 0;
-                span {
+                & > span {
                   font-size: 4;
                   line-height: 0.6;
                   text-transform: uppercase;
@@ -88,13 +100,12 @@ const Cottage = ({ data: { cottage } }) => {
               },
             ]}
           />
-        </PageContent>
-        <PageContent
-          backgroundColor="white"
-          alignItems="center"
+        </Flex>
+        <Flex
           css={css`
             background-color: backgroundLight;
             align-items: center;
+            flex-direction: column;
             padding: 4 2;
             table {
               margin-top: 4;
@@ -135,8 +146,8 @@ const Cottage = ({ data: { cottage } }) => {
               Book Now
             </Button>
           </a>
-        </PageContent>
-      </Box>
+        </Flex>
+      </PageContent>
     </Layout>
   )
 }
@@ -152,6 +163,7 @@ export const query = graphql`
       title
       content
       size
+      slug
       houseRules
       lowestRate
       wordpress_id

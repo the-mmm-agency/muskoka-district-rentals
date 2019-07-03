@@ -18,7 +18,6 @@ const AboutUs = ({ data: { image } }) => (
           margin-bottom: 2;
           font-weight: 600;
           position: relative;
-          z-index: 2;
           text-transform: uppercase;
         `}
       >

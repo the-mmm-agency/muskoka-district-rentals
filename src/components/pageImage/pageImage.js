@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@xstyled/emotion'
+import styled from '@emotion/styled'
 import { height } from '@xstyled/system'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'

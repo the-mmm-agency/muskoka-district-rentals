@@ -1,24 +1,10 @@
 import React from 'react'
-import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
-import styled, { css } from '@xstyled/emotion'
 
-import FooterList from 'components/footerList'
+import FooterList from './footerList'
+import { Copyright, Logo, StyledFooter, Hr } from './footer.css'
 
-const StyledFooter = styled.footer`
-  background-color: footer;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 5% 25%;
-`
-
-const Logo = styled(Img)`
-  width: 230px;
-  height: 60px;
-  margin: 2;
-`
+import Flex from 'components/flex'
 
 const Footer = () => {
   const { logo, links } = useStaticQuery(graphql`
@@ -40,38 +26,21 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      <div
-        css={css`
-          display: flex;
-          flex-basis: 25%;
-          align-items: center;
-          justify-content: center;
-          min-width: 100%;
-        `}
+      <Flex
+        col={1 / 4}
+        alignItems="center"
+        justifyContent="center"
+        minWidth="100%"
       >
         {links.siteMetadata.footerLinks.map(list => (
           <FooterList links={list} key={list[0]} />
         ))}
-      </div>
-      <div
-        css={css`
-          width: 100%;
-          height: 1px;
-          margin: 2 0;
-          opacity: 0.2;
-          background-color: white;
-        `}
-      />
+      </Flex>
+      <Hr />
       <Logo fixed={logo.childImageSharp.fixed} />
-      <span
-        css={css`
-          align-self: center;
-          margin-left: 1;
-          opacity: 0.5;
-        `}
-      >
+      <Copyright>
         © {new Date().getFullYear()} Muskoka District Rentals
-      </span>
+      </Copyright>
     </StyledFooter>
   )
 }

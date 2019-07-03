@@ -2,8 +2,6 @@ import PropTypes from 'prop-types'
 import { useMedia } from 'use-media'
 import { withTheme } from '@xstyled/emotion'
 
-import theme from 'theme'
-
 const makeMedia = ({ up, down, between, theme }) => {
   if (up) {
     return useMedia({ minWidth: theme.breakpoints[up] })
@@ -22,8 +20,9 @@ const Hidden = ({ children, ...props }) => {
 }
 
 Hidden.propTypes = {
-  between: PropTypes.arrayOf(PropTypes.oneOf(theme.breakpoints)),
-  down: PropTypes.oneOf(theme.breakpoints),
-  up: PropTypes.oneOf(theme.breakpoints),
+  between: PropTypes.string,
+  down: PropTypes.string,
+  up: PropTypes.string,
 }
+
 export default withTheme(Hidden)

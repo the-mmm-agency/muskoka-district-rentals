@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { curry, propOr, includes } from 'ramda'
+import { curry, propOr } from 'ramda'
 
 const hasOrReturn = curry((path, property) => propOr(property, property, path))
 
@@ -36,7 +36,7 @@ const transitions = {
 const getEasing = hasOrReturn(transitions.easing)
 const getDuration = hasOrReturn(transitions.duration)
 
-export const transition = (value = transition.safeAttributes, options) => {
+export const transition = (value = transitions.safeAttributes, options) => {
   const property = Array.isArray(value) ? value.join(',') : value
   const config = Object.assign(
     { easing: 'easeInOut', duration: 'standard' },
@@ -46,11 +46,6 @@ export const transition = (value = transition.safeAttributes, options) => {
   const { duration, easing } = {
     duration: getDuration(config.duration),
     easing: getEasing(config.easing),
-  }
-
-  if (!includes(transition.safeAttributes, value)) {
-    console.warn('Using', value, 'for transform property is unsafe')
-    console.warn('Please use one of', transition.safeAttributes)
   }
 
   return css`

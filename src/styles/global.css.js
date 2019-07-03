@@ -18,6 +18,7 @@ const styles = css`
     color: textSecondary;
   }
   button {
+    white-space: nowrap;
     svg {
       margin-left: 0.5em;
       margin-right: 0.5em;
@@ -79,10 +80,15 @@ const styles = css`
     text-decoration: none;
   }
   hr {
+    display: block;
+    margin-top: 1;
+    margin-bottom: 1;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 0.5px;
+    border-color: backgroundDefault;
     width: 100%;
-    background-color: backgroundDark;
-    border: none;
-    height: 1px;
   }
   blockquote {
     margin-top: 2;
@@ -126,6 +132,9 @@ const styles = css`
     text-transform: uppercase;
     border-collapse: collapse;
   }
+  .mdc-menu-surface {
+    z-index: modal;
+  }
   .ReactModal__Content--after-open {
     height: fit-content;
     width: fit-content;
@@ -146,7 +155,7 @@ const styles = css`
     background-color: rgba(0, 0, 0, 0.5) !important;
     display: flex;
     opacity: 1;
-    z-index: 9999;
+    z-index: modal;
   }
 `
 

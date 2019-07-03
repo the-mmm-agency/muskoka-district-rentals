@@ -2,57 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import styled from '@xstyled/emotion'
 
-import Flex from 'components/flex'
+import Card, { CardContent } from 'components/card'
+import Heading from 'components/heading'
 import Link from 'components/link'
-import { transition } from 'theme/transitions'
-
-const Wrapper = styled(Flex)`
-  &:hover {
-    box-shadow: 25;
-    transform: translateY(-3px);
-    div a {
-      color: textPrimary;
-    }
-  }
-  flex-direction: column;
-  box-shadow: 1;
-  background-color: backgroundLight;
-  ${transition(['transform', 'box-shadow'])};
-  div {
-    display: flex;
-    height: 40%;
-    flex-direction: column;
-    padding: 3 4;
-    text-align: left;
-    a {
-      &:hover {
-        text-decoration: none;
-      }
-      font-weight: bold;
-      ${transition('color')};
-    }
-    a,
-    span {
-      color: textLight;
-      margin-bottom: 1;
-    }
-    h6 {
-      margin-bottom: 5;
-    }
-  }
-`
 
 const PostCard = ({ slug, featured_media, date, title }) => (
-  <Wrapper width={{ xs: '50%', sm: 'calc(100% / 3)' }}>
+  <Card>
     <Img fluid={featured_media.localFile.childImageSharp.fluid} />
-    <div>
+    <CardContent>
       <span>{date}</span>
-      <h6>{title}</h6>
+      <Heading as="h6" mb={5}>
+        {title}
+      </Heading>
       <Link to={`/blog/${slug}`}>Continue &nbsp;&#10230;</Link>
-    </div>
-  </Wrapper>
+    </CardContent>
+  </Card>
 )
 
 PostCard.propTypes = {

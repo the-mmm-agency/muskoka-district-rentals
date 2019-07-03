@@ -74,8 +74,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-svgr`,
       options: {
-        prettier: true, // use prettier to format JS code output (default)
-        svgo: false, // use svgo to optimize SVGs (default)
+        prettier: true,
+        svgo: false,
       },
     },
 

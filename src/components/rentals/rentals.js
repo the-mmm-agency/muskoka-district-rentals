@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { css } from '@xstyled/emotion'
 import { graphql, useStaticQuery } from 'gatsby'
 
+import Rental from './rental'
+
 import PropertyCard from 'components/propertyCard'
 import Box from 'components/box'
 import Hidden from 'components/hidden'
 import Flex from 'components/flex'
 import PageImage from 'components/pageImage'
-import Rental from 'components/rental'
 import Link from 'components/link'
 
 const Rentals = () => {
@@ -27,7 +28,7 @@ const Rentals = () => {
 
   return (
     <>
-      <Hidden up="sm">
+      <Hidden up="md">
         <Box py={3} mx={0} bg="backgroundDark">
           <Box as="h3" my={5} textAlign="center">
             Our Rentals
@@ -39,7 +40,12 @@ const Rentals = () => {
             `}
           >
             {rentals.map(rental => (
-              <PropertyCard {...rental} key={rental.id} />
+              <PropertyCard
+                {...rental}
+                reviewCount={5}
+                reviewAvg={4.5}
+                key={rental.id}
+              />
             ))}
           </Flex>
         </Box>
@@ -75,12 +81,14 @@ const Rentals = () => {
             ))}
           </Box>
           <Link
-            mt={5}
-            lineHeight="100px"
-            fontWeight="bold"
-            color="white"
-            width="100%"
-            textAlign="center"
+            css={css`
+              line-height: 100px;
+              font-weight: bold;
+              color: white;
+              width: 100%;
+              text-align: center;
+              margin-top: 5;
+            `}
             to="/cottages"
           >
             View All Rentals
