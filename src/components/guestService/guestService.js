@@ -12,11 +12,15 @@ const GuestService = ({ featured_media, content, title }) => (
     css={css`
       margin-bottom: 3;
       list-style: none;
-      div {
+      white-space: nowrap;
+      & > div {
         display: inline-block;
         vertical-align: top;
         &:last-of-type {
           margin-left: 3;
+          p {
+            white-space: normal;
+          }
         }
       }
     `}
