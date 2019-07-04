@@ -89,7 +89,7 @@ const CheckAvailability = props => {
               onChange={handleSmokers}
             />
           </Flex>
-          <Button px={2} py={3} variant="serif">
+          <Button px={2} py={3} variant="serif" href="/cottages">
             check availability
           </Button>
         </SectionWrapper>
