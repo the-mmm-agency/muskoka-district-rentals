@@ -43,7 +43,7 @@ const Calendar = styled(DayPicker)`
     left: 1em;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTcsMTFIOS40MWwzLjMtMy4yOWExLDEsMCwxLDAtMS40Mi0xLjQybC01LDVhMSwxLDAsMCwwLS4yMS4zMywxLDEsMCwwLDAsMCwuNzYsMSwxLDAsMCwwLC4yMS4zM2w1LDVhMSwxLDAsMCwwLDEuNDIsMCwxLDEsMCwwLDAsMC0xLjQyTDkuNDEsMTNIMTdhMSwxLDAsMCwwLDAtMloiLz48L3N2Zz4=);
   }
-  .DayPicker-Day--selected {
+  .DayPicker-Day--selected:not(.DayPicker-Day--disabled) {
     color: white !important;
   }
   .DayPicker-Day--start,

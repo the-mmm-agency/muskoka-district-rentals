@@ -121,7 +121,7 @@ module.exports = {
           `**/mphb_rate`,
           `**/mphb_room_service`,
           `**/mphb_payment`,
-          `**/mphb_reserved_room`,
+          `**/mphb_room`,
           `**/mphb_room_type_category`,
           `**/mphb_room_type_tag`,
           `**/mphb_room_type_facility`,

@@ -10,7 +10,7 @@ const getSeasonPrices = rates => rates.flatMap(rate => rate.seasonPrices)
 const getSeasons = seasonPrices =>
   seasonPrices.flatMap(seasonPrice => seasonPrice.season)
 
-const AvailabilityCalendar = ({ rates }) => {
+const AvailabilityCalendar = ({ bookings, rates }) => {
   const seasonPrices = getSeasonPrices(rates)
   const seasons = getSeasons(seasonPrices)
   const inRange = day =>
@@ -42,6 +42,15 @@ const AvailabilityCalendar = ({ rates }) => {
     )
   const isFirstOfMonth = day => day.getDate() === 1
   const isLastOfMonth = day => day.getDate() === dayjs(day).daysInMonth()
+  const isBooked = day =>
+    bookings
+      .map(({ mphb_check_in_date, mphb_check_out_date }) =>
+        ModifiersUtils.dayMatchesModifier(day, {
+          from: new Date(mphb_check_in_date),
+          to: new Date(mphb_check_out_date),
+        })
+      )
+      .every(result => result)
   return (
     <Calendar
       modifiers={{
@@ -50,6 +59,7 @@ const AvailabilityCalendar = ({ rates }) => {
         end: isEnd,
         lastOfMonth: isLastOfMonth,
         firstOfMonth: isFirstOfMonth,
+        disabled: isBooked,
       }}
       numberOfMonths={2}
       interactionDisabled
@@ -58,6 +68,12 @@ const AvailabilityCalendar = ({ rates }) => {
 }
 
 AvailabilityCalendar.propTypes = {
+  bookings: PropTypes.arrayOf(
+    PropTypes.shape({
+      mphb_check_in_date: PropTypes.string.isRequired,
+      mphb_check_out_date: PropTypes.string.isRequired,
+    })
+  ),
   rates: PropTypes.arrayOf(
     PropTypes.shape({
       rates: PropTypes.shape({
@@ -73,6 +89,10 @@ AvailabilityCalendar.propTypes = {
 
 export const query = graphql`
   fragment Calendar on wordpress__wp_mphb_room_type {
+    bookings {
+      mphb_check_in_date
+      mphb_check_out_date
+    }
     rates {
       seasonPrices {
         season {

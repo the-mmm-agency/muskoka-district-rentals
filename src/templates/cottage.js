@@ -52,7 +52,7 @@ const Cottage = ({ data: { cottage } }) => {
           css={css`
             ${up('md')} {
               position: sticky;
-              top: 10%;
+              top: 10rem;
             }
           `}
         />
@@ -124,7 +124,10 @@ const Cottage = ({ data: { cottage } }) => {
           <h3>Amenities</h3>
           <Amenities amenities={cottage.amenities} />
           <h3>Rates and Availability</h3>
-          <AvailabilityCalendar rates={cottage.rates} />
+          <AvailabilityCalendar
+            rates={cottage.rates}
+            bookings={cottage.bookings}
+          />
           <Rates rates={cottage.rates[0]} />
           <p>
             House Rules Include:
@@ -156,6 +159,7 @@ export const query = graphql`
   query CottageById($id: String!) {
     cottage: wordpressWpMphbRoomType(id: { eq: $id }) {
       ...Amenities
+      ...Calendar
       ...Carousel
       ...Beds
       ...Rates
