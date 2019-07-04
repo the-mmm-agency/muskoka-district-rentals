@@ -155,7 +155,7 @@ const Cottage = ({
           {
             name: 'Pet Friendly',
             value:
-              suitability.filter(s => s.name === 'pets').length !== 0
+              suitability.filter(s => s.name === 'Pets').length !== 0
                 ? 'Yes'
                 : 'No',
           },

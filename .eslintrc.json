@@ -84,7 +84,8 @@
           ["hooks", "./src/hooks"],
           ["styles", "./src/styles"],
           ["templates", "./src/templates"],
-          ["theme", "./src/theme"]
+          ["theme", "./src/theme"],
+          ["util", "./src/util"]
         ],
         "extensions": [".js", ".jsx"]
       }

@@ -22,6 +22,7 @@ module.exports = {
         styles: path.join(__dirname, `src`, `styles`),
         templates: path.join(__dirname, `src`, `templates`),
         theme: path.join(__dirname, `src`, `theme`),
+        util: path.join(__dirname, `src`, `util`),
       },
     },
     {
