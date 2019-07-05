@@ -31,12 +31,12 @@ const BottomBar = () => (
     <Link to="/cottages">
       <Cottages />
     </Link>
-    <Link to="/contact">
-      <Contact />
-    </Link>
     <a href="tel:1800-615-2537">
       <Call />
     </a>
+    <Link to="/contact">
+      <Contact />
+    </Link>
   </Flex>
 )
 
