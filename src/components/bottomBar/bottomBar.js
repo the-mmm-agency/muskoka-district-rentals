@@ -1,5 +1,4 @@
 import React from 'react'
-import posed from 'react-pose'
 import { Link } from 'gatsby'
 
 import Flex from 'components/flex'
@@ -19,6 +18,7 @@ const BottomBar = () => (
     alignItems="center"
     backgroundColor="white"
     position="fixed"
+    zIndex="header"
     bottom={0}
     boxShadow={2}
     width="100vw"
