@@ -1,7 +1,7 @@
 import styled from '@xstyled/emotion'
 
 import Flex from 'components/flex'
-import { between, down } from 'theme/media'
+import { down } from 'theme/media'
 import { transition } from 'theme/transitions'
 
 export const CardContent = styled(Flex)`
@@ -36,9 +36,14 @@ const Card = styled(Flex)`
   box-shadow: 1;
   background-color: backgroundLight;
   margin: 3;
+  flex-shrink: 0;
+  flex-grow: 0;
   min-width: calc(100% / 3);
-  ${between('sm', 'md')} {
+  ${down('lg')} {
     min-width: 50%;
+  }
+  ${down('md')} {
+    min-width: 75%;
   }
   ${down('sm')} {
     min-width: 100%;

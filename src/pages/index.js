@@ -76,17 +76,21 @@ const IndexPage = ({
         </Text>
       </Hidden>
       <Flex
-        flexBasis="50%"
+        flexBasis={{ xs: '100%', lg: '50%' }}
+        flexDirection={{ xs: 'column', lg: 'row' }}
         alignItems="center"
         justifyContent="center"
         mt={{ xs: 3, sm: 0 }}
         p={3}
       >
-        <Hidden down="md">
-          <Box p={2} backgroundColor="backgroundLight" mr={5}>
-            <Img fixed={aboutImg.childImageSharp.fixed} />
-          </Box>
-        </Hidden>
+        <Box
+          width={{ xs: '100%', lg: '40%' }}
+          mb={{ xs: 4, lg: 0 }}
+          mx={{ xs: 'auto', lg: 3 }}
+          mr={5}
+        >
+          <Img fluid={aboutImg.childImageSharp.fluid} />
+        </Box>
         <Flex
           alignSelf="flex-start"
           flexDirection="column"
@@ -109,14 +113,29 @@ const IndexPage = ({
             </h2>
           </Box>
           <Text as="p" width="80%" mb={5}>
-            Nisi laborum dolore minim qui laborum. Ut incididunt qui ex amet
-            aute cupidatat. Ullamco ex nostrud non aliqua eu adipisicing
-            proident fugiat non pariatur do aliqua enim. Velit cupidatat id
-            veniam labore voluptate ex nulla ut sit anim. Elit mollit est est ex
-            ad ut id do ut ea ex.
+            Muskoka District Rentals provides rental agent services for owners
+            who seek a trusted partner to safely manage the entire process. We
+            also offer premium rental experiences for guests. Let us take away
+            the stress of renting your cottage. As a full service, boutique
+            luxury rental agency, our focus is on protecting your valuable real
+            estate assets while helping you safely mitigate the costs of
+            ownership. Our team will take care of all aspects of the rental
+            process for you, from guest screening through to post check out
+            inspections. We have professional property maintenance crews and
+            cleaners to attend to any needs that arise. We offer a full linen
+            services and all laundry is done offsite. As the most trusted rental
+            agency in cottage country we operate with full transparency and you
+            will always know exactly what was charged to your guests.
           </Text>
           <span>
             <b>Ross Halloran -</b> Founder Muskoka District Rentals
+            <br />
+            <b>Email:</b>&nbsp;
+            <a href="mailto:hello@muskokadistrictrentals.com">
+              hello@muskokadistrictrentals.com
+            </a>
+            <br />
+            <b>Phone:</b>&nbsp;<a href="tel:1800-615-2537">1800-615-2537</a>
           </span>
         </Flex>
       </Flex>
@@ -150,10 +169,10 @@ export const query = graphql`
     headerImg: file(relativePath: { eq: "home.jpg" }) {
       ...PageImage
     }
-    aboutImg: file(relativePath: { eq: "welcome.jpg" }) {
+    aboutImg: file(relativePath: { eq: "welcome.png" }) {
       childImageSharp {
-        fixed(width: 400, height: 500) {
-          ...GatsbyImageSharpFixed_withWebp
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

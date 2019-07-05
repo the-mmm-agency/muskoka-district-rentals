@@ -1,10 +1,19 @@
 [
   {
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque  eueget ante venenatis euismod. Etiam in odio mattis, suscipit ex sit amet, toronil inoui bibenidum risus.",
+    "body": " A wonderful week at the lake! Maryrose & Ross are incredible hosts who made our trip memorable",
     "rating": 5,
     "author": "Adam",
     "property": {
-      "name": "Hemlock Lakehouse",
+      "name": "Walker's Point Beauty",
+      "location": "Detroit"
+    }
+  },
+  {
+    "body": "Excellent, Excellent!! Cherry island is paradise! We were a big group and all the bedrooms and ensuites, and seating areas, and patio furniture, and beach, and bar stools (ETC, ETC, ETC) made that place so great and livable. So grateful for the MDR Team making it all happen. The space is spectacular and the customer service is just as good! All good things!",
+    "rating": 5,
+    "author": "Ruth",
+    "property": {
+      "name": "Walker's Point Beauty",
       "location": "Toronto"
     }
   }
