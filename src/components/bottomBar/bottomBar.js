@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Flex from 'components/flex'
 import { ReactComponent as Home } from 'icons/home.svg'
 import { ReactComponent as Cottages } from 'icons/list-ul.svg'
-import { ReactComponent as Contact } from 'icons/at.svg'
+import { ReactComponent as Contact } from 'icons/envelope.svg'
 import { ReactComponent as Call } from 'icons/phone.svg'
 
 const BottomBar = () => (
