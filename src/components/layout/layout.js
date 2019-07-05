@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Box from 'components/box'
+import BottomBar from 'components/bottomBar'
 import Footer from 'components/footer'
 import Hidden from 'components/hidden'
 import MobileHeader from 'components/mobileHeader'
@@ -31,6 +32,9 @@ const Layout = ({ children, ...props }) => {
       </Hidden>
       <Box maxWidth="100vw" overflowX="hidden" m="0 auto" pt={0} {...props}>
         <main>{children}</main>
+        <Hidden up="md">
+          <BottomBar />
+        </Hidden>
         <Footer />
       </Box>
     </>
