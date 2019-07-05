@@ -8,9 +8,6 @@ import { up } from 'theme/media'
 const PageContent = ({ children, checkAvailability, ...props }) => (
   <Flex
     css={css`
-      ul {
-        margin-left: 1.2em;
-      }
       ${checkAvailability
         ? css`
             ${up('md')} {

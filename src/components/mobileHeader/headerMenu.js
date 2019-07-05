@@ -6,7 +6,7 @@ import { MenuLink } from './mobileHeader.css'
 import Flex from 'components/flex'
 
 const HeaderMenu = ({ links, handleClick }) => (
-  <Flex as="nav" width="100%" flexWrap="wrap" minHeight="100%">
+  <Flex as="nav" width="100%" flexWrap="wrap" maxHeight="100%">
     <MenuLink to="/" onClick={handleClick}>
       Home
     </MenuLink>
