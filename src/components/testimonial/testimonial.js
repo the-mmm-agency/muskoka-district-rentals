@@ -16,10 +16,10 @@ const Testimonial = ({ body, rating, author, property }) => (
     alignItems="center"
     justifyContent="center"
     my="10%"
-    mx="auto"
+    mx={4}
     px={3}
     py={5}
-    width={{ xs: '100%', md: '80%' }}
+    minWidth={{ xs: '100%', md: '80%' }}
     textAlign="center"
   >
     <Text

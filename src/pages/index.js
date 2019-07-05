@@ -143,7 +143,15 @@ const IndexPage = ({
     <Rentals />
     <ConciergeServices />
     <SwirlBackground>
-      <Testimonial {...testimonials.nodes[0]} />
+      <Flex
+        css={css`
+          overflow-x: scroll;
+        `}
+      >
+        {testimonials.nodes.map(t => (
+          <Testimonial {...t} key={t.author} />
+        ))}
+      </Flex>
       <Flex
         css={css`
           text-align: center;
