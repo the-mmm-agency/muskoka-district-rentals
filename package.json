@@ -159,7 +159,7 @@
     "@types/react-headroom": "^2.2.1",
     "@types/react-helmet": "^5.0.8",
     "@types/slash": "^2.0.0",
-    "@types/styled-system": "^4.2.1",
+    "@types/styled-system": "^5.0.0",
     "@types/typescript": "^2.0.0",
     "@types/webpack": "^4.4.33"
   },
