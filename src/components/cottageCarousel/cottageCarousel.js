@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from '@xstyled/emotion'
 import { graphql } from 'gatsby'
 import { Carousel } from 'react-responsive-carousel'
 import PropTypes from 'prop-types'
@@ -6,9 +7,15 @@ import Img from 'gatsby-image'
 
 import Box from 'components/box'
 
+const StyledCarousel = styled(Carousel)`
+  .carousel.carousel-slider .control-arrow {
+    opacity: 1;
+  }
+`
+
 const CottageCarousel = ({ images }) => (
   <Box backgroundColor="white" p={3} my={5} minWidth="100%" boxShadow={18}>
-    <Carousel dynamicHeight showThumbs={false} showIndicators={false}>
+    <StyledCarousel dynamicHeight showThumbs={false} showIndicators={false}>
       {images.map(image => (
         <Img
           key={image.localFile.id}
@@ -16,7 +23,7 @@ const CottageCarousel = ({ images }) => (
           fluid={image.localFile.childImageSharp.fluid}
         />
       ))}
-    </Carousel>
+    </StyledCarousel>
   </Box>
 )
 
