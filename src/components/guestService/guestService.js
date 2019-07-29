@@ -20,6 +20,7 @@ const GuestService = ({ featured_media, content, title }) => (
           margin-left: 3;
           p {
             white-space: normal;
+            margin-right: 4rem;
           }
         }
       }
