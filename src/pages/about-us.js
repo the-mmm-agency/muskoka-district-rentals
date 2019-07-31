@@ -10,8 +10,8 @@ import SEO from 'components/seo'
 
 const AboutUs = ({ data: { image } }) => (
   <Layout>
-    <SEO title="About Us" keywords={['gatsby', 'application', 'react']} />
-    <PageImage Tag="section" fadeIn fluid={image.childImageSharp.fluid}>
+    <SEO title="About Us" />
+    <PageImage fluid={image.childImageSharp.fluid}>
       <span
         css={css`
           letter-spacing: 0.1em;

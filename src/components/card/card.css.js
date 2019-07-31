@@ -1,4 +1,6 @@
 import styled from '@xstyled/emotion'
+import emStyled from '@emotion/styled'
+import { system } from '@xstyled/system'
 
 import Flex from 'components/flex'
 import { down } from 'theme/media'
@@ -31,6 +33,10 @@ export const CardContent = styled(Flex)`
 `
 
 const Card = styled(Flex)`
+  .gatsby-image-wrapper {
+    min-height: 60%;
+    min-width: 100%;
+  }
   display: inline-flex;
   flex-direction: column;
   box-shadow: 1;
@@ -62,4 +68,8 @@ const Card = styled(Flex)`
   }
 `
 
-export default Card
+const SystemCard = emStyled(Card)`
+  ${system}
+`
+
+export default SystemCard

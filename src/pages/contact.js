@@ -10,7 +10,7 @@ import SEO from 'components/seo'
 
 const Contact = ({ data: { image } }) => (
   <Layout>
-    <SEO title="Contact Us" keywords={['gatsby', 'application', 'react']} />
+    <SEO title="Contact Us" />
     <PageImage Tag="section" fluid={image.childImageSharp.fluid} />
     <PageContent>
       <ContactForm />

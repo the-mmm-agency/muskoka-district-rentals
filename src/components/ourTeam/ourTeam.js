@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import styled, { css } from '@xstyled/emotion'
+import styled from '@xstyled/emotion'
 import { backgroundColor } from '@xstyled/system'
 import Img from 'gatsby-image'
 import { useNumber } from 'react-hanger'
@@ -19,9 +19,6 @@ const Wrapper = styled.section`
   min-height: 100vh;
   overflow: hidden;
   color: white;
-  ${props => css`
-    background: linear-gradient(180deg, ${props.color} 80vh, white 20vh);
-  `}
 `
 const InfoWrapper = styled.div`
   display: flex;
@@ -104,7 +101,6 @@ const TeamMember = styled(BackgroundImage)`
 const OurTeam = () => {
   const [transitioning, setTransitioning] = useState(false)
   const selected = useNumber(0, { lowerLimit: 0, upperLimit: 2, loop: true })
-  const colors = ['#323e50', '#23547e', '#232b38', '#183b58']
   const data = useStaticQuery(graphql`
     query {
       team: allTeamJson {
@@ -131,7 +127,6 @@ const OurTeam = () => {
       setTransitioning(false)
     }, 500)
   }
-  const color = useMemo(() => colors[selected.value], [colors, selected])
   const members = useMemo(
     () =>
       data.team.nodes
@@ -141,7 +136,7 @@ const OurTeam = () => {
   )
   const team = data.team.nodes
   return (
-    <Wrapper color={color}>
+    <Wrapper>
       <Heading
         mb={4}
         pt={4}
@@ -171,7 +166,6 @@ const OurTeam = () => {
                   <TeamMember
                     key={member.id}
                     fluid={member.picture.childImageSharp.fluid}
-                    backgroundColor={colors[index]}
                     tag="li"
                   >
                     <span>{member.name}</span>

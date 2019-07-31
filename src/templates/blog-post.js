@@ -89,16 +89,14 @@ const BlogPost = ({
           <span>{date}</span>
         </div>
         <div>
-          <span>Category</span>
+          <span>Categories</span>
           <div>
-            <Links links={categories} path="categories" />
+            {categories && <Links links={categories} path="categories" />}
           </div>
         </div>
         <div>
           <span>Tags</span>
-          <div>
-            <Links links={tags} path="tags" />
-          </div>
+          <div>{tags && <Links links={tags} path="tags" />}</div>
         </div>
       </PostHeader>
       <div

@@ -13,7 +13,7 @@ const RentYourCottage = ({
   },
 }) => (
   <Layout>
-    <SEO title={title} keywords={['gatsby', 'application', 'react']} />
+    <SEO title={title} />
     <PageImage
       fluid={featured_media.localFile.childImageSharp.fluid}
       Tag="section"

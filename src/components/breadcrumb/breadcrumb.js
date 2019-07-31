@@ -23,7 +23,7 @@ const Breadcrumb = ({ crumbs, activeColor, color, ...props }) => (
 
 Breadcrumb.defaultProps = {
   activeColor: 'textPrimary',
-  color: 'textSecondary',
+  color: 'textLight',
 }
 
 Breadcrumb.propTypes = {

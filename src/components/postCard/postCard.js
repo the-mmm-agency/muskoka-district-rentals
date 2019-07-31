@@ -7,12 +7,12 @@ import Card, { CardContent } from 'components/card'
 import Heading from 'components/heading'
 import Link from 'components/link'
 
-const PostCard = ({ slug, featured_media, date, title }) => (
-  <Card>
+const PostCard = ({ slug, featured_media, date, title, ...props }) => (
+  <Card {...props}>
     <Img fluid={featured_media.localFile.childImageSharp.fluid} />
     <CardContent>
       <span>{date}</span>
-      <Heading as="h6" mb={5}>
+      <Heading as="h6" mb="auto">
         {title}
       </Heading>
       <Link to={`/blog/${slug}`}>Continue &nbsp;&#10230;</Link>

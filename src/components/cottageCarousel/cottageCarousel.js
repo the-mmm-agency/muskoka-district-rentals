@@ -10,6 +10,7 @@ import Box from 'components/box'
 const StyledCarousel = styled(Carousel)`
   .carousel.carousel-slider .control-arrow {
     opacity: 1;
+    background: rgba(0, 0, 0, 0.1);
   }
 `
 

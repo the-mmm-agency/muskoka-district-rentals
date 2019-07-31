@@ -7,7 +7,7 @@ export const StyledFooter = styled.footer`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 1 5;
+  padding: 5;
 `
 
 export const Hr = styled.hr`
