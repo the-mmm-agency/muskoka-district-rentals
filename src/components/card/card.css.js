@@ -26,7 +26,7 @@ export const CardContent = styled(Flex)`
     margin: 2 0;
   }
   h6 {
-    margin-bottom: 0;
+    margin-bottom: auto;
   }
 `
 
@@ -39,14 +39,18 @@ const Card = styled(Flex)`
   flex-shrink: 0;
   flex-grow: 0;
   min-width: calc(100% / 3);
+  max-width: calc(100% / 3);
   ${down('lg')} {
     min-width: 50%;
+    max-width: 50%;
   }
   ${down('md')} {
     min-width: 75%;
+    max-width: 75%;
   }
   ${down('sm')} {
     min-width: 100%;
+    max-width: 100%;
   }
   ${transition(['transform', 'box-shadow'])};
   &:hover {

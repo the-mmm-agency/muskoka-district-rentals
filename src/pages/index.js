@@ -88,6 +88,7 @@ const IndexPage = ({
           mb={{ xs: 4, lg: 0 }}
           mx={{ xs: 'auto', lg: 3 }}
           mr={5}
+          minHeight={5}
         >
           <Img fluid={aboutImg.childImageSharp.fluid} />
         </Box>
@@ -163,9 +164,15 @@ const IndexPage = ({
       >
         <Text variant="expanded">explore</Text>
         <Heading mb={5}>Latest from our blog</Heading>
-        {blogPosts.edges.map(edge => (
-          <PostCard key={edge.node.id} {...edge.node} />
-        ))}
+        <Flex
+          css={css`
+            overflow-x: scroll;
+          `}
+        >
+          {blogPosts.edges.map(edge => (
+            <PostCard key={edge.node.id} {...edge.node} />
+          ))}
+        </Flex>
       </Flex>
     </SwirlBackground>
     <Contact />
