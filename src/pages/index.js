@@ -113,7 +113,7 @@ const IndexPage = ({
               Welcome <br /> Aboard!
             </h2>
           </Box>
-          <Text as="p" width="80%" mb={5}>
+          <Text as="p" width={{ md: 1, lg: 0.8 }} mb={5}>
             Muskoka District Rentals provides rental agent services for owners
             who seek a trusted partner to safely manage the entire process. We
             also offer premium rental experiences for guests. Let us take away
