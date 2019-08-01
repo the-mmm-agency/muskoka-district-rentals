@@ -66,4 +66,4 @@ const Card = styled(Flex)`
   }
 `
 
-export default SystemCard
+export default Card
