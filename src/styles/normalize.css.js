@@ -60,7 +60,7 @@ const normalize = css`
   }
   a {
     padding: none;
-    vertical-align: middle;
+    vertical-align: baseline;
     background-color: transparent;
     border: none;
     border-radius: none;
