@@ -1,6 +1,4 @@
 import styled from '@xstyled/emotion'
-import emStyled from '@emotion/styled'
-import { system } from '@xstyled/system'
 
 import Flex from 'components/flex'
 import { down } from 'theme/media'
@@ -66,10 +64,6 @@ const Card = styled(Flex)`
       color: textPrimary;
     }
   }
-`
-
-const SystemCard = emStyled(Card)`
-  ${system}
 `
 
 export default SystemCard
