@@ -1,106 +1,24 @@
 import React, { useMemo, useState } from 'react'
-import posed, { PoseGroup } from 'react-pose'
+import { css } from '@emotion/core'
 import { graphql, useStaticQuery } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
-import styled from '@xstyled/emotion'
-import { backgroundColor } from '@xstyled/system'
-import Img from 'gatsby-image'
 import { useNumber } from 'react-hanger'
+import { ChevronRight } from 'styled-icons/evil/ChevronRight'
 
-import { transition } from 'theme/transitions'
+import {
+  Picture,
+  NextButton,
+  PosedTeamMember,
+  TeamMember,
+  StyledPoseGroup,
+  ImgContainer,
+} from './ourTeam.css'
+import MemberInfo from './memberInfo'
+
+import Flex from 'components/flex'
 import Heading from 'components/heading'
-import MemberInfo from 'components/memberInfo'
-import RightIcon from 'components/rightIcon'
-
-const Wrapper = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: hidden;
-  color: white;
-`
-const InfoWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
-
-const Picture = styled(Img)`
-  width: 100%;
-  height: 60vh;
-`
-
-const NextButton = styled.div`
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.24);
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25%;
-  cursor: pointer;
-  ${transition('background-color', {
-    duration: 'complex',
-    easing: 'sharp',
-  })};
-`
-
-const TeamWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-`
-
-const Team = styled.div`
-  display: flex;
-  width: 100%;
-  min-height: 20%;
-`
-
-const StyledPose = styled(PoseGroup)`
-  display: flex;
-  width: 75%;
-  margin: 0;
-`
-
-const PosedTeamMember = posed.li({
-  enter: { opacity: 1, x: 0 },
-  exit: {
-    x: ({ selectedItemId, id }) => (id === selectedItemId ? 100 : -100),
-  },
-})
-
-const TeamMemberWrapper = styled(PosedTeamMember)`
-  width: calc(100% / 3);
-`
-
-const TeamMember = styled(BackgroundImage)`
-  &::before,
-  &::after {
-    filter: grayscale(50%);
-  }
-  &:hover {
-    opacity: 1;
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  opacity: 0.5;
-  ${backgroundColor};
-  ${transition('opacity', { duration: 'complex', easing: 'sharp' })}
-  span {
-    margin: auto;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-`
 
 const OurTeam = () => {
-  const [transitioning, setTransitioning] = useState(false)
-  const selected = useNumber(0, { lowerLimit: 0, upperLimit: 2, loop: true })
+  const [pose, setPose] = useState('enter')
   const data = useStaticQuery(graphql`
     query {
       team: allTeamJson {
@@ -120,49 +38,81 @@ const OurTeam = () => {
       }
     }
   `)
+  const selected = useNumber(0, {
+    lowerLimit: 0,
+    upperLimit: data.team.nodes.length - 1,
+    loop: true,
+  })
   const handleClick = () => {
-    setTransitioning(true)
+    setPose('exit')
+    selected.increase()
     setTimeout(() => {
-      selected.increase()
-      setTransitioning(false)
-    }, 500)
+      setPose('enter')
+    }, 450)
   }
   const members = useMemo(
     () =>
       data.team.nodes
-        .slice(selected.value + 1, 3)
+        .slice(selected.value, data.team.nodes.length)
         .concat(data.team.nodes.slice(0, selected.value)),
     [data.team.nodes, selected]
   )
   const team = data.team.nodes
+  const current = team[selected.value]
+  const colors = ['#1A2021', '#22293A']
   return (
-    <Wrapper>
+    <Flex
+      as="section"
+      position="relative"
+      flexDirection="column"
+      minHeight="100vh"
+      overflow="hidden"
+      color="white"
+      backgroundColor="white"
+      css={css`
+        &::before {
+          content: '';
+          position: absolute;
+          height: calc(60vh + 24.3rem);
+          min-width: 100%;
+          background-color: ${colors[selected.value]};
+          z-index: 0;
+        }
+      `}
+    >
       <Heading
-        mb={4}
-        pt={4}
+        my={6}
+        letterSpacing="caps"
         color="white"
         textAlign="center"
         textTransform="uppercase"
+        zIndex={1}
       >
         Our Team
       </Heading>
-      <InfoWrapper>
+      <Flex
+        flexWrap="wrap"
+        px={{ xl: 6, lg: 5, md: 4, sm: 3, xs: 2 }}
+        justifyContent="flex-end"
+      >
         <MemberInfo
-          key={team[selected.value].id}
-          name={team[selected.value].name}
-          bio={team[selected.value].bio}
-          title={team[selected.value].title}
-          selected={!transitioning}
+          name={current.name}
+          bio={current.bio}
+          title={current.title}
+          pose={pose}
         />
-        <TeamWrapper>
-          <Picture
-            fluid={team[selected.value].picture.childImageSharp.fluid}
-            objectFit="contain"
-          />
-          <Team>
-            <StyledPose selectedItemId={team[selected.value].id}>
-              {members.map((member, index) => (
-                <TeamMemberWrapper key={member.id} id={member.id}>
+        <Flex flexDirection="column" width={0.5}>
+          <ImgContainer pose={pose}>
+            <Picture
+              fluid={current.picture.childImageSharp.fluid}
+              objectFit="contain"
+              pose={pose}
+            />
+          </ImgContainer>
+          <Flex width={1} minHeight={0.2}>
+            <StyledPoseGroup selectedItemId={current.id} pose={pose}>
+              {members.map(member => (
+                <PosedTeamMember key={member.id} id={member.id}>
                   <TeamMember
                     key={member.id}
                     fluid={member.picture.childImageSharp.fluid}
@@ -170,16 +120,16 @@ const OurTeam = () => {
                   >
                     <span>{member.name}</span>
                   </TeamMember>
-                </TeamMemberWrapper>
+                </PosedTeamMember>
               ))}
-            </StyledPose>
-            <NextButton bg="backgroundDark" onClick={handleClick}>
-              <RightIcon />
+            </StyledPoseGroup>
+            <NextButton bg="backgroundDefault" onClick={handleClick}>
+              <ChevronRight />
             </NextButton>
-          </Team>
-        </TeamWrapper>
-      </InfoWrapper>
-    </Wrapper>
+          </Flex>
+        </Flex>
+      </Flex>
+    </Flex>
   )
 }
 

@@ -1,3 +1,4 @@
-const format = to => to.replace('/', '').replace('-', ' ')
+const format = to =>
+  to === '/' ? 'home' : to.replace('/', '').replace(/-/g, ' ')
 
 export default format

@@ -11,9 +11,9 @@
     "/private-fleet"
   ],
   "footerLinks": [
-    ["/about-us", "/blog", "/guest-services"],
-    ["/cottages", "/buy-or-sell", "/home"],
-    ["/private-fleet", "/contact", "/rent-your-cottage"]
+    ["/", "/blog", "/buy-or-sell"],
+    ["/about-us", "/cottages", "/rent-your-cottage"],
+    ["/contact", "/guest-services", "/private-fleet"]
   ],
   "manifest": {
     "name": "Muskoka District Rentals",

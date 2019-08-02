@@ -2,12 +2,12 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { css } from '@xstyled/emotion'
 import React from 'react'
+import { BadgeCheck as Check } from 'styled-icons/boxicons-regular/BadgeCheck'
 
 import Box from 'components/box'
 import Flex from 'components/flex'
 import Heading from 'components/heading'
 import Text from 'components/text'
-import { ReactComponent as Check } from 'icons/check-circle.svg'
 
 const distinct = (value, index, self) => self.indexOf(value) === index
 

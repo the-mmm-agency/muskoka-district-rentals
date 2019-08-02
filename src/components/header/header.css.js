@@ -24,6 +24,9 @@ export const Nav = styled.nav`
   hr {
     margin: 0 4;
   }
+  & > div {
+    margin: auto;
+  }
   & > span {
     font-size: 0.7rem;
     color: textLight;

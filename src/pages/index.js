@@ -67,8 +67,7 @@ const IndexPage = ({
       <CheckAvailability />
       <Hidden down="sm">
         <Text
-          mt={{ xs: 3, sm: 5, md: 6 }}
-          mb={{ xs: 2, sm: 4, md: 5 }}
+          my={{ xs: 2, sm: 4, md: 5 }}
           color="textSecondary"
           textTransform="uppercase"
           letterSpacing="0.35em"
@@ -114,7 +113,7 @@ const IndexPage = ({
               Welcome <br /> Aboard!
             </h2>
           </Box>
-          <Text as="p" width={{ md: 1, lg: 0.8 }} mb={5}>
+          <Text as="p" mb={5}>
             Muskoka District Rentals provides rental agent services for owners
             who seek a trusted partner to safely manage the entire process. We
             also offer premium rental experiences for guests. Let us take away

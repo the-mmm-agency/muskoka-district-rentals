@@ -18,7 +18,7 @@ const Testimonial = ({ body, rating, author, property }) => (
     my="10%"
     mx={4}
     px={3}
-    py={5}
+    py={{ xs: 3, sm: 5 }}
     minWidth={{ xs: '100%', md: '80%' }}
     textAlign="center"
   >
@@ -38,7 +38,7 @@ const Testimonial = ({ body, rating, author, property }) => (
     <Text
       as="p"
       lineHeight={1.4}
-      fontSize={{ xs: 5, sm: 4 }}
+      fontSize={{ xs: 6, sm: 4 }}
       color="textAlt"
       fontFamily="serif"
       fontStyle="italic"

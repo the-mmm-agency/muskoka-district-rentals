@@ -62,6 +62,7 @@ const ConciergeServices = () => {
             }
             height: 300px;
             margin: none;
+            padding-bottom: 5;
             width: 100%;
             overflow-x: hidden;
             overflow-y: scroll;

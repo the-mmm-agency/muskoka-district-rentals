@@ -27,8 +27,10 @@ export const SectionWrapper = styled(Flex)`
     border-right: 1px solid rgba(0, 0, 0, 0.1);
   }
   width: 100%;
+  &:last-child {
+    min-width: fit-content;
+  }
   flex-direction: column;
-  flex-shrink: 0;
   justify-content: space-between;
   height: 100%;
 `
@@ -67,16 +69,28 @@ export const Header = styled.span`
 export const InputWrapper = styled.button`
   background: inherit;
   display: inline-flex;
-  flex-shrink: 0;
   align-items: flex-end;
   justify-content: flex-start;
   cursor: pointer;
+  svg {
+    ${down('sm')} {
+      width: 2em;
+      height: 2em;
+      margin-bottom: -0.5em;
+    }
+    width: 4em;
+    height: 4em;
+    margin-bottom: -1em;
+  }
   &:not(:last-of-type) {
     padding-right: 1;
   }
 `
 
 export const Month = styled.h5`
+  ${down('sm')} {
+    font-size: 6;
+  }
   font-weight: 400;
   color: textSecondary;
   vertical-align: baseline;
@@ -85,6 +99,9 @@ export const Month = styled.h5`
 `
 
 export const number = css`
+  ${down('sm')} {
+    font-size: 4;
+  }
   cursor: pointer;
   font-weight: 500;
   font-size: 3;

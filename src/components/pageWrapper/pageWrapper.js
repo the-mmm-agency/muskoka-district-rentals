@@ -4,9 +4,9 @@ import posed, { PoseGroup } from 'react-pose'
 
 const RoutesContainer = posed.div({
   enter: {
+    delay: 400,
+    beforeChildren: 200,
     opacity: 1,
-    delay: 500,
-    beforeChildren: 300,
     transition: {
       ease: [0.4, 0, 1, 1],
     },

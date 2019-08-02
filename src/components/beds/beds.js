@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
-import { ReactComponent as Bed } from 'icons/bed.svg'
+import { Bed } from 'styled-icons/boxicons-regular/Bed'
 
 const Beds = ({ beds }) => (
   <table>

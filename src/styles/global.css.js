@@ -3,6 +3,13 @@ import { css } from '@xstyled/emotion'
 import { up, down } from 'theme/media'
 
 const styles = css`
+  *,
+  *::before,
+  *::after {
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none !important;
+    }
+  }
   html {
     box-sizing: border-box;
     font-size: 14px;
@@ -13,6 +20,7 @@ const styles = css`
       font-size: 12px;
     }
     line-height: default;
+    scroll-behavior: smooth;
   }
   body {
     color: textSecondary;

@@ -1,30 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { HomeAlt as Home } from 'styled-icons/boxicons-regular/HomeAlt'
+import { FormatListBulleted as Cottages } from 'styled-icons/material/FormatListBulleted'
+import { Envelope as Contact } from 'styled-icons/boxicons-regular/Envelope'
+import { PhoneCall as Call } from 'styled-icons/boxicons-regular/PhoneCall'
 
-import Flex from 'components/flex'
-import { ReactComponent as Home } from 'icons/home.svg'
-import { ReactComponent as Cottages } from 'icons/list-ul.svg'
-import { ReactComponent as Contact } from 'icons/envelope.svg'
-import { ReactComponent as Call } from 'icons/phone.svg'
+import AppBar from './bottomBar.css'
 
 const BottomBar = () => (
-  <Flex
-    css={{
-      svg: {
-        width: 32,
-        marginTop: 4,
-      },
-    }}
-    alignItems="center"
-    backgroundColor="white"
-    position="fixed"
-    zIndex="header"
-    bottom={0}
-    boxShadow={2}
-    width="100vw"
-    height={56}
-    justifyContent="space-evenly"
-  >
+  <AppBar>
     <Link to="/">
       <Home />
     </Link>
@@ -37,7 +21,7 @@ const BottomBar = () => (
     <Link to="/contact">
       <Contact />
     </Link>
-  </Flex>
+  </AppBar>
 )
 
 export default BottomBar

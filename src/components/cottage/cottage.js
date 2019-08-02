@@ -2,15 +2,15 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import { css } from '@xstyled/emotion'
+import { ChevronRight } from 'styled-icons/evil/ChevronRight'
 import PropTypes from 'prop-types'
 
+import { up, down } from 'theme/media'
 import Box from 'components/box'
 import Flex from 'components/flex'
 import Heading from 'components/heading'
 import Text from 'components/text'
 import StarRating from 'components/starRating'
-import { up, down } from 'theme/media'
-import { ReactComponent as CaretRight } from 'icons/caret-right.svg'
 import Hidden from 'components/hidden'
 import Number from 'components/number'
 import Button from 'components/button'
@@ -161,9 +161,9 @@ const Cottage = ({
           },
         ]}
       />
-      <Button href={`/cottages/${slug}`} variant="transparent">
+      <Button to={`/cottages/${slug}`} variant="transparent">
         See Rental &nbsp;
-        <CaretRight />
+        <ChevronRight />
       </Button>
     </Flex>
     <Img

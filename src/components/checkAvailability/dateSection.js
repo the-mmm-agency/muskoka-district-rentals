@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { css } from '@xstyled/emotion'
 import dayjs from 'dayjs'
 import PropTypes from 'prop-types'
+import { ChevronDown } from 'styled-icons/evil/ChevronDown'
 
 import {
   Day,
@@ -14,7 +15,6 @@ import {
 
 import Calendar from 'styles/calendar.css'
 import Modal from 'components/modal'
-import DownIcon from 'components/downIcon'
 
 const DateSection = ({ value, onChange, title }) => {
   const [open, setOpen] = useState(false)
@@ -25,7 +25,7 @@ const DateSection = ({ value, onChange, title }) => {
         <InputWrapper onClick={() => setOpen(true)}>
           <Month>{dayjs(value).format('MMM')}&nbsp;/&nbsp;</Month>
           <Day>{dayjs(value).format('DD')}</Day>
-          <DownIcon />
+          <ChevronDown />
         </InputWrapper>
         <Modal isOpen={open} onRequestClose={() => setOpen(false)}>
           <Calendar

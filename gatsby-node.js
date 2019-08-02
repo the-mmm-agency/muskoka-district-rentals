@@ -1,8 +1,8 @@
-const path = require(`path`)
+const path = require('path')
 
 exports.onCreateWebpackConfig = ({ _, actions }) => {
   actions.setWebpackConfig({
-    devtool: `eval-source-map`,
+    devtool: 'eval-source-map',
   })
 }
 
@@ -42,8 +42,8 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   }
 
-  generatePages(`allWordpressWpBlogPosts`, `posts`, `blog-post.js`)
-  generatePages(`allWordpressCategory`, `categories`, `category.js`)
-  generatePages(`allWordpressTag`, `tags`, `category.js`)
-  generatePages(`allWordpressWpMphbRoomType`, `cottages`, `cottage.js`)
+  generatePages('allWordpressWpBlogPosts', 'posts', 'blog-post.js')
+  generatePages('allWordpressCategory', 'categories', 'category.js')
+  generatePages('allWordpressTag', 'tags', 'category.js')
+  generatePages('allWordpressWpMphbRoomType', 'cottages', 'cottage.js')
 }

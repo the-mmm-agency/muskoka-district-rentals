@@ -8,6 +8,7 @@ import '@material/react-menu-surface/dist/menu-surface.css'
 import '@material/react-menu/dist/menu.css'
 import { range } from 'ramda'
 import React, { useState } from 'react'
+import { ChevronDown } from 'styled-icons/evil/ChevronDown'
 
 import {
   InputWrapper,
@@ -23,7 +24,6 @@ import LabelCheck from './labelCheck'
 import Button from 'components/button'
 import Flex from 'components/flex'
 import useAvailabilityContext from 'hooks/useAvailabilityContext'
-import DownIcon from 'components/downIcon'
 
 const CheckAvailability = props => {
   const {
@@ -57,7 +57,7 @@ const CheckAvailability = props => {
             onClick={openGuestsMenu}
           >
             <Guests Tag="h4">{guests}</Guests>
-            <DownIcon />
+            <ChevronDown />
             <Menu
               open={guestsActive}
               anchorElement={menuAnchor}
@@ -92,9 +92,12 @@ const CheckAvailability = props => {
           <Button
             linkProps={{
               m: 'auto',
+              width: 1,
+              mt: '3px',
             }}
+            width={1}
             variant="serif"
-            href="/cottages"
+            to="/cottages"
           >
             check availability
           </Button>

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@xstyled/emotion'
+import Ripples from 'react-ripples'
 
 import { transition } from 'theme/transitions'
 import Link from 'components/link'
@@ -12,7 +13,6 @@ const StyledLink = styled(Link)`
   font-family: serif;
   display: flex;
   flex-direction: row;
-  align-items: center;
   align-items: stretch;
   margin: auto;
   padding: 10px;
@@ -55,9 +55,11 @@ const StyledLink = styled(Link)`
 `
 
 const HeaderLink = ({ to, ...props }) => (
-  <StyledLink {...props} to={to} activeClassName="active">
-    <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
-  </StyledLink>
+  <Ripples>
+    <StyledLink {...props} to={to} activeClassName="active">
+      <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
+    </StyledLink>
+  </Ripples>
 )
 
 HeaderLink.propTypes = {
