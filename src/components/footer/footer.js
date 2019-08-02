@@ -67,16 +67,10 @@ const Footer = () => {
           </Copyright>
         </Info>
         <SocialIcons>
-          <a>
-            <Vimeo />
-          </a>
-          <a>
+          <a href="https://www.youtube.com/channel/UC4-N2Z720dir5HcOxu2hsqA">
             <Youtube />
           </a>
-          <a>
-            <Twitter />
-          </a>
-          <a>
+          <a href="https://www.facebook.com/muskokadistrictrentals/">
             <Facebook />
           </a>
         </SocialIcons>
