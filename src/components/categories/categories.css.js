@@ -1,6 +1,7 @@
 import styled from '@xstyled/emotion'
 
 import Link from 'components/link'
+import { down } from 'theme/media'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,6 +11,9 @@ export const Wrapper = styled.div`
   justify-content: center;
   overflow-x: scroll;
   & > div {
+    ${down('sm')} {
+      width: 100vw;
+    }
     width: initial;
   }
 `
