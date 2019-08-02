@@ -53,8 +53,8 @@ const Card = styled(Flex)`
     max-width: 75%;
   }
   ${down('sm')} {
-    min-width: 100%;
-    max-width: 100%;
+    min-width: 85%;
+    max-width: 85%;
   }
   ${transition(['transform', 'box-shadow'])};
   &:hover {

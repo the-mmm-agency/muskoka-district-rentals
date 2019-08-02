@@ -34,7 +34,7 @@ const Rentals = () => {
     <>
       <Hidden up="md">
         <Box py={3} mx={0} bg="backgroundDark">
-          <Heading as="h3" my={5} textAlign="center">
+          <Heading as="h3" my={{ sm: 3, md: 4, lg: 5 }} textAlign="center">
             {heading}
           </Heading>
           <HorizontalScroll>
