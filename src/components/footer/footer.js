@@ -11,6 +11,7 @@ import {
   Copyright,
   Logo,
   StyledFooter,
+  Info,
   Hr,
   SocialIcons,
   SignUp,
@@ -42,6 +43,7 @@ const Footer = () => {
       <Flex
         col={1 / 4}
         alignItems="center"
+        flexWrap="wrap"
         justifyContent="center"
         minWidth="100%"
       >
@@ -57,24 +59,28 @@ const Footer = () => {
         </SignUp>
       </Flex>
       <Hr />
-      <Logo fixed={logo.childImageSharp.fixed} />
-      <Copyright>
-        © {new Date().getFullYear()} Muskoka District Rentals
-      </Copyright>
-      <SocialIcons>
-        <a>
-          <Vimeo />
-        </a>
-        <a>
-          <Youtube />
-        </a>
-        <a>
-          <Twitter />
-        </a>
-        <a>
-          <Facebook />
-        </a>
-      </SocialIcons>
+      <Flex width={1}>
+        <Info>
+          <Logo fixed={logo.childImageSharp.fixed} />
+          <Copyright>
+            © {new Date().getFullYear()} Muskoka District Rentals
+          </Copyright>
+        </Info>
+        <SocialIcons>
+          <a>
+            <Vimeo />
+          </a>
+          <a>
+            <Youtube />
+          </a>
+          <a>
+            <Twitter />
+          </a>
+          <a>
+            <Facebook />
+          </a>
+        </SocialIcons>
+      </Flex>
     </StyledFooter>
   )
 }

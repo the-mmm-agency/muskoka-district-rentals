@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import { Wrapper, Category } from './categories.css'
 
+import HorizontalScroll from 'components/horizontalScroll'
+
 const Categories = () => {
   const {
     allWordpressCategory: { nodes: categories },
@@ -19,12 +21,14 @@ const Categories = () => {
   `)
   return (
     <Wrapper>
-      <Category to="/blog">All</Category>
-      {categories.map(category => (
-        <Category key={category.id} to={`/categories/${category.slug}`}>
-          {category.name}
-        </Category>
-      ))}
+      <HorizontalScroll>
+        <Category to="/blog">All</Category>
+        {categories.map(category => (
+          <Category key={category.id} to={`/categories/${category.slug}`}>
+            {category.name}
+          </Category>
+        ))}
+      </HorizontalScroll>
     </Wrapper>
   )
 }

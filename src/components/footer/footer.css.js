@@ -2,6 +2,7 @@ import styled from '@xstyled/emotion'
 import Img from 'gatsby-image'
 
 import { transition } from 'theme/transitions'
+import { down } from 'theme/media'
 
 export const StyledFooter = styled.footer`
   background-color: footer;
@@ -10,11 +11,16 @@ export const StyledFooter = styled.footer`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 5;
+  ${down('sm')} {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `
 
 export const Hr = styled.hr`
   border-color: rgba(255, 255, 255, 0.2);
   margin-bottom: 4;
+  margin-top: 4;
 `
 
 export const Copyright = styled.span`
@@ -25,9 +31,17 @@ export const Copyright = styled.span`
 `
 
 export const Logo = styled(Img)`
-  width: 230px;
-  height: 60px;
+  width: 160px;
+  height: 42px;
   margin: 2;
+`
+
+export const Info = styled.div`
+  ${down('sm')} {
+    flex-direction: column;
+  }
+  display: flex;
+  margin-right: auto;
 `
 
 export const SignUp = styled.div`
@@ -36,7 +50,12 @@ export const SignUp = styled.div`
   opacity: 0.5;
   margin-left: 4;
   margin-bottom: auto;
+  ${down('sm')} {
+    width: calc(100% / 2);
+  }
+
   & > span {
+    white-space: nowrap;
     svg {
       width: 1.5em;
       position: relative;
@@ -67,6 +86,6 @@ export const SocialIcons = styled.div`
     ${transition('opacity')};
   }
   display: flex;
-  margin-top: 1em;
   margin-left: auto;
+  margin-top: 1em;
 `

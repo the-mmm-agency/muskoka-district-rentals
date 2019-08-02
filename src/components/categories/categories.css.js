@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   margin-bottom: 4;
   justify-content: center;
   min-width: 100%;
+  overflow-x: scroll;
 `
 
 export const Category = styled(Link)`
@@ -16,6 +17,7 @@ export const Category = styled(Link)`
   margin-right: 4;
   font-weight: bold;
   text-transform: capitalize;
+  white-space: nowrap;
   font-family: serif;
   color: textPrimary;
 `
