@@ -6,7 +6,7 @@ import { transition } from 'theme/transitions'
 
 export const CardContent = styled(Flex)`
   display: flex;
-  height: 40%;
+  flex: 1 0 40%;
   flex-direction: column;
   padding: 3 4;
   text-align: left;
@@ -32,10 +32,10 @@ export const CardContent = styled(Flex)`
 
 const Card = styled(Flex)`
   .gatsby-image-wrapper {
-    min-height: 60%;
-    min-width: 100%;
+    flex: 1 2 60%;
+    display: flex;
   }
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   box-shadow: 1;
   background-color: backgroundLight;

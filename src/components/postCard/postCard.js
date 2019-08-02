@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 import Card, { CardContent } from 'components/card'
+import Text from 'components/text'
 import Heading from 'components/heading'
 import Link from 'components/link'
 
@@ -11,7 +12,7 @@ const PostCard = ({ slug, featured_media, date, title, ...props }) => (
   <Card {...props}>
     <Img fluid={featured_media.localFile.childImageSharp.fluid} />
     <CardContent>
-      <span>{date}</span>
+      <Text mb={0}>{date}</Text>
       <Heading as="h6" mb="auto">
         {title}
       </Heading>

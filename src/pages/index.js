@@ -11,6 +11,7 @@ import PageImage from 'components/pageImage'
 import PageContent from 'components/pageContent'
 import PostCard from 'components/postCard'
 import SwirlBackground from 'components/swirlBackground'
+import HorizontalScroll from 'components/horizontalScroll'
 import ConciergeServices from 'components/conciergeServices'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
@@ -144,15 +145,11 @@ const IndexPage = ({
     <Rentals />
     <ConciergeServices />
     <SwirlBackground>
-      <Flex
-        css={css`
-          overflow-x: scroll;
-        `}
-      >
+      <HorizontalScroll>
         {testimonials.nodes.map(t => (
           <Testimonial {...t} key={t.author} />
         ))}
-      </Flex>
+      </HorizontalScroll>
       <Flex
         css={css`
           text-align: center;
@@ -164,15 +161,11 @@ const IndexPage = ({
       >
         <Text variant="expanded">explore</Text>
         <Heading mb={5}>Latest from our blog</Heading>
-        <Flex
-          css={css`
-            overflow-x: scroll;
-          `}
-        >
+        <HorizontalScroll>
           {blogPosts.edges.map(edge => (
             <PostCard key={edge.node.id} {...edge.node} />
           ))}
-        </Flex>
+        </HorizontalScroll>
       </Flex>
     </SwirlBackground>
     <Contact />

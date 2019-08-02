@@ -42,7 +42,7 @@ const Blog = ({
         {posts.map(
           post =>
             post.featured_media && (
-              <PostCard key={post.id} {...post} minWidth="100%" />
+              <PostCard key={post.id} {...post} css={{ minWidth: '100%' }} />
             )
         )}
       </Grid>

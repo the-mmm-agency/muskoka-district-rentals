@@ -4,16 +4,16 @@ import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
 import Link from 'components/link'
+import Flex from 'components/flex'
 import Text from 'components/text'
 import { transition } from 'theme/transitions'
 
 const Rental = ({ title, lowestRate, featured_media, onMouseOver, slug }) => (
-  <li
+  <Flex
     css={css`
       &:hover {
         opacity: 1;
       }
-      display: flex;
       color: white;
       flex-direction: column;
       margin: 3;
@@ -44,7 +44,7 @@ const Rental = ({ title, lowestRate, featured_media, onMouseOver, slug }) => (
         fontSize={5}
       />
     </Link>
-  </li>
+  </Flex>
 )
 
 Rental.propTypes = {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { css } from '@xstyled/emotion'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Box from 'components/box'
@@ -30,7 +31,15 @@ const Layout = ({ children, ...props }) => {
       <Hidden down="md">
         <Header links={headerLinks} />
       </Hidden>
-      <Box maxWidth="100vw" overflowX="hidden" m="0 auto" pt={0} {...props}>
+      <Box
+        css={css`
+          max-width: 100vw;
+          overflow-x: hidden;
+          margin: 0 auto;
+          padding-top: 0;
+        `}
+        {...props}
+      >
         <main>{children}</main>
         <Hidden up="md">
           <BottomBar />

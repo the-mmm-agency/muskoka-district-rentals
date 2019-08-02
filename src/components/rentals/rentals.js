@@ -8,6 +8,8 @@ import PropertyCard from 'components/propertyCard'
 import Box from 'components/box'
 import Hidden from 'components/hidden'
 import Flex from 'components/flex'
+import HorizontalScroll from 'components/horizontalScroll'
+import Heading from 'components/heading'
 import PageImage from 'components/pageImage'
 import Link from 'components/link'
 
@@ -26,19 +28,16 @@ const Rentals = () => {
 
   const [selected, setSelected] = useState(0)
 
+  const heading = 'Our Rentals'
+
   return (
     <>
       <Hidden up="md">
         <Box py={3} mx={0} bg="backgroundDark">
-          <Box as="h3" my={5} textAlign="center">
-            Our Rentals
-          </Box>
-          <Flex
-            px={5}
-            css={css`
-              overflow-x: scroll;
-            `}
-          >
+          <Heading as="h3" my={5} textAlign="center">
+            {heading}
+          </Heading>
+          <HorizontalScroll>
             {rentals.map(rental => (
               <PropertyCard
                 {...rental}
@@ -47,7 +46,7 @@ const Rentals = () => {
                 key={rental.id}
               />
             ))}
-          </Flex>
+          </HorizontalScroll>
         </Box>
       </Hidden>
       <Hidden down="md">
@@ -61,15 +60,10 @@ const Rentals = () => {
           }
           Tag="section"
         >
-          <Box as="h3" fontSize={1} color="white" mb={5}>
-            Our Rentals
-          </Box>
-          <Box
-            as="ul"
-            display="flex"
-            flexBasis="calc(100% / 3)"
-            listStyle="none"
-          >
+          <Heading as="h3" fontSize={1} color="white" mb={5}>
+            {heading}
+          </Heading>
+          <Flex flexBasis="calc(100% / 3)" listStyle="none">
             {rentals.map((rental, index) => (
               <Rental
                 key={rental.id}
@@ -79,7 +73,7 @@ const Rentals = () => {
                 {...rental}
               />
             ))}
-          </Box>
+          </Flex>
           <Link
             css={css`
               line-height: 100px;
