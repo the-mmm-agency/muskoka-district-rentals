@@ -53,6 +53,17 @@ const OurTeam = () => {
       setPose('enter')
     }, 450)
   }
+  const handleMemberClick = index => {
+    setPose('exit')
+    if (selected.value > index) {
+      selected.decrease(selected.value - index)
+    } else {
+      selected.increase(selected.value + index)
+    }
+    setTimeout(() => {
+      setPose('enter')
+    }, 450)
+  }
   const members = useMemo(
     () =>
       data.team.nodes
@@ -142,11 +153,12 @@ const OurTeam = () => {
               </ImgContainer>
               <Flex width={1} minHeight={0.2}>
                 <StyledPoseGroup selectedItemId={current.id} pose={pose}>
-                  {members.map(member => (
+                  {members.map((member, index) => (
                     <PosedTeamMember key={member.id} id={member.id}>
                       <TeamMember
                         key={member.id}
                         fluid={member.picture.childImageSharp.fluid}
+                        onClick={() => handleMemberClick(index)}
                         tag="li"
                       >
                         <span>{member.name}</span>
