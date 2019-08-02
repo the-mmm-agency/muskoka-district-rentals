@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react'
 import { css } from '@emotion/core'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useNumber } from 'react-hanger'
+import Img from 'gatsby-image'
 import { ChevronRight } from 'styled-icons/evil/ChevronRight'
 
 import {
@@ -15,7 +16,9 @@ import {
 import MemberInfo from './memberInfo'
 
 import Flex from 'components/flex'
+import Text from 'components/text'
 import Heading from 'components/heading'
+import Hidden from 'components/hidden'
 
 const OurTeam = () => {
   const [pose, setPose] = useState('enter')
@@ -61,75 +64,105 @@ const OurTeam = () => {
   const current = team[selected.value]
   const colors = ['#1A2021', '#22293A']
   return (
-    <Flex
-      as="section"
-      position="relative"
-      flexDirection="column"
-      minHeight="100vh"
-      overflow="hidden"
-      color="white"
-      backgroundColor="white"
-      css={css`
-        &::before {
-          content: '';
-          position: absolute;
-          height: calc(60vh + 24.3rem);
-          min-width: 100%;
-          background-color: ${colors[selected.value]};
-          z-index: 0;
-        }
-      `}
-    >
-      <Heading
-        my={6}
-        letterSpacing="caps"
-        color="white"
-        textAlign="center"
-        textTransform="uppercase"
-        zIndex={1}
-      >
-        Our Team
-      </Heading>
-      <Flex
-        flexWrap="wrap"
-        px={{ xl: 6, lg: 5, md: 4, sm: 3, xs: 2 }}
-        justifyContent="flex-end"
-      >
-        <MemberInfo
-          name={current.name}
-          bio={current.bio}
-          title={current.title}
-          pose={pose}
-        />
-        <Flex flexDirection="column" width={0.5}>
-          <ImgContainer pose={pose}>
-            <Picture
-              fluid={current.picture.childImageSharp.fluid}
-              objectFit="contain"
+    <>
+      <Hidden up="sm">
+        <Heading
+          my={3}
+          letterSpacing="caps"
+          textAlign="center"
+          textTransform="uppercase"
+        >
+          Our Team
+        </Heading>
+        <Flex flexDirection="column">
+          {team.map(member => (
+            <Flex key={member.id} flexDirection="column">
+              <Img fluid={member.picture.childImageSharp.fluid} />
+              <Flex flexDirection="column" p={3}>
+                <Heading as="h5" mb={0}>
+                  {member.name}
+                </Heading>
+                <Text fontSize={6} mb={3} fontWeight="bold">
+                  {member.title}
+                </Text>
+                <p>{member.bio}</p>
+              </Flex>
+            </Flex>
+          ))}
+        </Flex>
+      </Hidden>
+      <Hidden down="sm">
+        <Flex
+          as="section"
+          position="relative"
+          flexDirection="column"
+          minHeight="100vh"
+          overflow="hidden"
+          color="white"
+          backgroundColor="white"
+          css={css`
+            &::before {
+              content: '';
+              position: absolute;
+              height: calc(60vh + 24.3rem);
+              min-width: 100%;
+              background-color: ${colors[selected.value]};
+              z-index: 0;
+            }
+          `}
+        >
+          <Heading
+            my={6}
+            letterSpacing="caps"
+            color="white"
+            textAlign="center"
+            textTransform="uppercase"
+            zIndex={1}
+          >
+            Our Team
+          </Heading>
+          <Flex
+            flexWrap="wrap"
+            px={{ xl: 6, lg: 5, md: 4, sm: 3, xs: 2 }}
+            justifyContent="flex-end"
+          >
+            <MemberInfo
+              name={current.name}
+              bio={current.bio}
+              title={current.title}
               pose={pose}
             />
-          </ImgContainer>
-          <Flex width={1} minHeight={0.2}>
-            <StyledPoseGroup selectedItemId={current.id} pose={pose}>
-              {members.map(member => (
-                <PosedTeamMember key={member.id} id={member.id}>
-                  <TeamMember
-                    key={member.id}
-                    fluid={member.picture.childImageSharp.fluid}
-                    tag="li"
-                  >
-                    <span>{member.name}</span>
-                  </TeamMember>
-                </PosedTeamMember>
-              ))}
-            </StyledPoseGroup>
-            <NextButton bg="backgroundDefault" onClick={handleClick}>
-              <ChevronRight />
-            </NextButton>
+            <Flex flexDirection="column" width={0.5}>
+              <ImgContainer pose={pose}>
+                <Picture
+                  fluid={current.picture.childImageSharp.fluid}
+                  objectFit="contain"
+                  pose={pose}
+                />
+              </ImgContainer>
+              <Flex width={1} minHeight={0.2}>
+                <StyledPoseGroup selectedItemId={current.id} pose={pose}>
+                  {members.map(member => (
+                    <PosedTeamMember key={member.id} id={member.id}>
+                      <TeamMember
+                        key={member.id}
+                        fluid={member.picture.childImageSharp.fluid}
+                        tag="li"
+                      >
+                        <span>{member.name}</span>
+                      </TeamMember>
+                    </PosedTeamMember>
+                  ))}
+                </StyledPoseGroup>
+                <NextButton bg="backgroundDefault" onClick={handleClick}>
+                  <ChevronRight />
+                </NextButton>
+              </Flex>
+            </Flex>
           </Flex>
         </Flex>
-      </Flex>
-    </Flex>
+      </Hidden>
+    </>
   )
 }
 
