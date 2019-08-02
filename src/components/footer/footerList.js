@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import FooterLink from './footerLink/footerLink'
 
 const FooterList = ({ links }) => (
-  <ul css={{ listStyle: 'none', width: '25%' }}>
+  <ul css={{ listStyle: 'none', width: '20%' }}>
     {links.map(link => (
       <FooterLink to={link} key={link} />
     ))}

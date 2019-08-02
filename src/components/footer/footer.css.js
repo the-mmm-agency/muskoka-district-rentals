@@ -50,6 +50,10 @@ export const SignUp = styled.div`
   opacity: 0.5;
   margin-left: 4;
   margin-bottom: auto;
+  width: 25%;
+  ${down('md')} {
+    width: 40%;
+  }
   ${down('sm')} {
     width: calc(100% / 2);
   }
