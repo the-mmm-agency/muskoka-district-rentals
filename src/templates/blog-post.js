@@ -7,6 +7,7 @@ import React from 'react'
 import Link from 'components/link'
 import SEO from 'components/seo'
 import Layout from 'components/layout'
+import Heading from 'components/heading'
 import Breadcrumb from 'components/breadcrumb'
 
 const Post = styled.div`
@@ -75,7 +76,9 @@ const BlogPost = ({
     />
     <SEO title={title} description={content} />
     <Post>
-      <h1>{title}</h1>
+      <Heading as="h1" fontSize={{ xs: 4, md: 3, lg: 2 }}>
+        {title}
+      </Heading>
       <Breadcrumb
         crumbs={[
           { link: '/', title: 'Home' },
