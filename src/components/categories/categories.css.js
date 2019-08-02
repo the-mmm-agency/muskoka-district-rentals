@@ -8,8 +8,10 @@ export const Wrapper = styled.div`
   margin-top: 5;
   margin-bottom: 4;
   justify-content: center;
-  min-width: 100%;
   overflow-x: scroll;
+  & > div {
+    width: initial;
+  }
 `
 
 export const Category = styled(Link)`
