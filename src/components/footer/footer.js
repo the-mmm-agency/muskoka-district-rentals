@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Send } from 'styled-icons/boxicons-regular/Send'
 import { Youtube } from 'styled-icons/boxicons-logos/Youtube'
+import { Instagram } from 'styled-icons/boxicons-logos/Instagram'
 import { Facebook } from 'styled-icons/boxicons-logos/Facebook'
 
 import FooterList from './footerList'
@@ -67,6 +68,9 @@ const Footer = () => {
         <SocialIcons>
           <a href="https://www.youtube.com/channel/UC4-N2Z720dir5HcOxu2hsqA">
             <Youtube />
+          </a>
+          <a href="https://instagram.com/muskokadistrictrentals">
+            <Instagram />
           </a>
           <a href="https://www.facebook.com/muskokadistrictrentals/">
             <Facebook />
