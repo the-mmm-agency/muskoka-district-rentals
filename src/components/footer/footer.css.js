@@ -10,7 +10,7 @@ export const StyledFooter = styled.footer`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 5;
+  padding: 5 6;
   ${down('sm')} {
     padding-left: 0;
     padding-right: 0;
