@@ -1,9 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Send } from 'styled-icons/boxicons-regular/Send'
-import { Vimeo } from 'styled-icons/boxicons-logos/Vimeo'
 import { Youtube } from 'styled-icons/boxicons-logos/Youtube'
-import { Twitter } from 'styled-icons/boxicons-logos/Twitter'
 import { Facebook } from 'styled-icons/boxicons-logos/Facebook'
 
 import FooterList from './footerList'

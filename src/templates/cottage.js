@@ -20,7 +20,7 @@ import CheckAvailability from 'components/checkAvailability'
 import Layout from 'components/layout'
 import Breadcrumb from 'components/breadcrumb'
 import Amenities from 'components/amenities'
-import { up } from 'theme/media'
+import { up, down } from 'theme/media'
 
 const Cottage = ({ data: { cottage } }) => {
   const { guests, from, to } = useAvailabilityContext()
@@ -108,6 +108,12 @@ const Cottage = ({ data: { cottage } }) => {
             flex-direction: column;
             padding: 4 2;
             table {
+              ${down('sm')} {
+                width: 100%;
+              }
+              ${down('md')} {
+                width: 90%;
+              }
               margin-top: 4;
               margin-bottom: 5;
               width: 80%;
