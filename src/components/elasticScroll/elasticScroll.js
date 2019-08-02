@@ -7,6 +7,7 @@ const ElasticScroll = ({ children, ...props }) => {
   useEffect(() => {
     const instance = elasticScroll({
       targets: targetRef.current,
+      appleDevicesOnly: false,
       ...props,
     })
 

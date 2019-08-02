@@ -1,1 +1,1 @@
-export { default } from './horizontalScroll.css'
+export { default } from './horizontalScroll'
