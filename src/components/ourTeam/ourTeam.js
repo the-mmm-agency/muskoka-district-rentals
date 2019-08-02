@@ -65,7 +65,7 @@ const OurTeam = () => {
   const colors = ['#1A2021', '#22293A']
   return (
     <>
-      <Hidden up="sm">
+      <Hidden up="md">
         <Heading
           my={3}
           letterSpacing="caps"
@@ -91,7 +91,7 @@ const OurTeam = () => {
           ))}
         </Flex>
       </Hidden>
-      <Hidden down="sm">
+      <Hidden down="md">
         <Flex
           as="section"
           position="relative"

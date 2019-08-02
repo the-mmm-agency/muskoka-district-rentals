@@ -66,7 +66,7 @@ const AboutUs = ({ data: { image, testimonials } }) => (
     </Box>
     <OurTeam />
     <Contact />
-    <SwirlBackground>
+    <SwirlBackground css={{ minHeight: 0 }}>
       <HorizontalScroll>
         {testimonials.nodes.map(t => (
           <Testimonial {...t} key={t.author} />
