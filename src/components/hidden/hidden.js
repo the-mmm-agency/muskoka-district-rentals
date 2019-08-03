@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
-import { useMedia } from 'use-media'
+import { useMediaLayout } from 'use-media'
 import { withTheme } from '@xstyled/emotion'
 
 const makeMedia = ({ up, down, between, theme }) => {
   if (up) {
-    return useMedia({ minWidth: theme.breakpoints[up] })
+    return useMediaLayout({ minWidth: theme.breakpoints[up] })
   } else if (down) {
-    return useMedia({ maxWidth: theme.breakpoints[down] })
+    return useMediaLayout({ maxWidth: theme.breakpoints[down] })
   }
-  return useMedia({
+  return useMediaLayout({
     minWidth: theme.breakpoints[between[0]],
     maxWidth: theme.breakpoints[between[1]],
   })

@@ -166,7 +166,10 @@ const OurTeam = () => {
                     </PosedTeamMember>
                   ))}
                 </StyledPoseGroup>
-                <NextButton bg="backgroundDefault" onClick={handleClick}>
+                <NextButton
+                  bg="backgroundDefault"
+                  onClick={() => handleClick()}
+                >
                   <ChevronRight />
                 </NextButton>
               </Flex>

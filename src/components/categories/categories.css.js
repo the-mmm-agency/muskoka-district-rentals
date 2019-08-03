@@ -10,7 +10,12 @@ export const Wrapper = styled.div`
   margin-bottom: 4;
   justify-content: center;
   overflow-x: scroll;
-  & > div {
+  div[data-elastic-wrapper='true'] {
+    &::before {
+      content: '';
+      min-width: 30px;
+      min-height: 100%;
+    }
     ${down('sm')} {
       width: 100vw;
     }

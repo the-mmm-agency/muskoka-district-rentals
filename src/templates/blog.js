@@ -15,11 +15,12 @@ const PostGrid = styled(Grid)`
   ${down('sm')} {
     display: flex;
     flex-direction: column;
-    padding-right: 4;
+    align-items: center;
   }
   ${down('md')} {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1.2rem;
+    padding-right: 2;
   }
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 2.4rem;
@@ -38,6 +39,7 @@ const Blog = ({
       py={5}
       px={{ sm: 2, md: 3, lg: 4, xl: 5 }}
       backgroundColor="backgroundDefault"
+      justifyContent="center"
     >
       <Flex alignItems="center" width="100%" flexDirection="column">
         <Heading as="h1" textAlign="center" mb={1} fontSize={2}>
