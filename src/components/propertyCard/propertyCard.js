@@ -10,13 +10,13 @@ import Link from 'components/link'
 import Text from 'components/text'
 
 const PropertyCard = ({
-  slug,
-  bed,
-  capacity,
-  categories,
+  beds,
   featured_media,
-  lowestRate,
+  guests,
+  listing_type,
+  night_price,
   reviewAvg,
+  slug,
   title,
 }) => (
   <Card>
@@ -34,15 +34,15 @@ const PropertyCard = ({
         attributes={[
           {
             name: 'Property',
-            value: categories[0].name,
+            value: listing_type.name,
           },
           {
             name: 'Sleeps',
-            value: capacity,
+            value: guests,
           },
           {
             name: 'Beds',
-            value: bed,
+            value: beds,
           },
         ]}
       />
@@ -50,7 +50,7 @@ const PropertyCard = ({
       <span css={{ display: 'inline-flex' }}>
         <Link to={`/cottages/${slug}`}>Details</Link>
         <Text ml="auto">
-          Starting at <b>${lowestRate}/</b>Night
+          Starting at <b>${night_price}/</b>Night
         </Text>
       </span>
     </CardContent>
@@ -58,15 +58,13 @@ const PropertyCard = ({
 )
 
 PropertyCard.propTypes = {
-  bed: PropTypes.string.isRequired,
-  capacity: PropTypes.string.isRequired,
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+  beds: PropTypes.string.isRequired,
   featured_media: PropTypes.object.isRequired,
-  lowestRate: PropTypes.number.isRequired,
+  guests: PropTypes.string.isRequired,
+  listing_type: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  night_price: PropTypes.number.isRequired,
   reviewAvg: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
@@ -74,7 +72,16 @@ PropertyCard.propTypes = {
 }
 
 export const query = graphql`
-  fragment PropertyCard on wordpress__wp_mphb_room_type {
+  fragment PropertyCard on wordpress__wp_listing {
+    id
+    beds
+    night_price
+    guests
+    slug
+    title
+    listing_type {
+      name
+    }
     featured_media {
       localFile {
         childImageSharp {
@@ -84,15 +91,6 @@ export const query = graphql`
         }
       }
     }
-    categories {
-      name
-    }
-    id
-    bed
-    capacity
-    lowestRate
-    slug
-    title
   }
 `
 

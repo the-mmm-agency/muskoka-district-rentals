@@ -14,10 +14,10 @@ const StyledCarousel = styled(Carousel)`
   }
 `
 
-const CottageCarousel = ({ images }) => (
+const CottageCarousel = ({ gallery }) => (
   <Box backgroundColor="white" p={3} my={5} minWidth="100%" boxShadow={18}>
     <StyledCarousel dynamicHeight showThumbs={false} showIndicators={false}>
-      {images.map(image => (
+      {gallery.map(image => (
         <Img
           key={image.localFile.id}
           fadeIn={false}
@@ -29,8 +29,8 @@ const CottageCarousel = ({ images }) => (
 )
 
 export const query = graphql`
-  fragment Carousel on wordpress__wp_mphb_room_type {
-    images {
+  fragment Carousel on wordpress__wp_listing {
+    gallery {
       localFile {
         id
         childImageSharp {
@@ -44,7 +44,7 @@ export const query = graphql`
 `
 
 CottageCarousel.propTypes = {
-  images: PropTypes.arrayOf(
+  gallery: PropTypes.arrayOf(
     PropTypes.shape({
       localFile: PropTypes.shape({
         id: PropTypes.string.isRequired,

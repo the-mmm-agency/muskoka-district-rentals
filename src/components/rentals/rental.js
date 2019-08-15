@@ -8,7 +8,7 @@ import Flex from 'components/flex'
 import Text from 'components/text'
 import { transition } from 'theme/transitions'
 
-const Rental = ({ title, lowestRate, featured_media, onMouseOver, slug }) => (
+const Rental = ({ title, night_price, featured_media, onMouseOver, slug }) => (
   <Flex
     css={css`
       &:hover {
@@ -26,7 +26,7 @@ const Rental = ({ title, lowestRate, featured_media, onMouseOver, slug }) => (
   >
     <Link to={`/cottages/${slug}`}>
       <Text fontWeight="medium">
-        Starting from <strong color="white">${lowestRate}</strong>/Night
+        Starting from <strong color="white">${night_price}</strong>/Night
       </Text>
       <Img
         css={css`
@@ -49,7 +49,7 @@ const Rental = ({ title, lowestRate, featured_media, onMouseOver, slug }) => (
 
 Rental.propTypes = {
   featured_media: PropTypes.object.isRequired,
-  lowestRate: PropTypes.number.isRequired,
+  night_price: PropTypes.string.isRequired,
   onMouseOver: PropTypes.func.isRequired,
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

@@ -9,25 +9,29 @@ import Flex from 'components/flex'
 import Heading from 'components/heading'
 import Text from 'components/text'
 
-const distinct = (value, index, self) => self.indexOf(value) === index
-
 const Amenities = ({ amenities }) => {
-  const categories = amenities
-    .map(amenity => amenity.parent_element.name)
-    .filter(distinct)
+  const categories = amenities.filter(
+    amenity => amenity.parent_element === null
+  )
 
   const list = categories.map(category => ({
     category,
     amenities: amenities.filter(
-      amenity => amenity.parent_element.name === category
+      amenity =>
+        amenity.parent_element !== null &&
+        amenity.parent_element.name === category.name
     ),
   }))
   return (
-    <Flex flexDirection="column" alignItems="flex-start">
+    <Flex
+      flexDirection="column"
+      alignItems="flex-start"
+      ml={{ xs: 2, md: 4, lg: 5 }}
+    >
       {list.map(({ category, amenities }) => (
         <Box key={category}>
           <Heading as="h5" textAlign="left" my={4}>
-            {category}:
+            <div dangerouslySetInnerHTML={{ __html: category.name }} />
           </Heading>
           <Flex flexWrap="wrap">
             {amenities.map(amenity => (
@@ -73,7 +77,7 @@ Amenities.propTypes = {
 }
 
 export const query = graphql`
-  fragment Amenities on wordpress__wp_mphb_room_type {
+  fragment Amenities on wordpress__wp_listing {
     amenities {
       name
       parent_element {

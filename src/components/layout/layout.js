@@ -25,11 +25,11 @@ const Layout = ({ children, ...props }) => {
   `)
   return (
     <>
-      <Hidden up="md">
-        <MobileHeader links={headerLinks} />
-      </Hidden>
       <Hidden down="md">
         <Header links={headerLinks} />
+      </Hidden>
+      <Hidden up="md">
+        <MobileHeader links={headerLinks} />
       </Hidden>
       <Box
         css={css`

@@ -18,19 +18,19 @@ import CottageInfo from 'components/cottageInfo'
 
 const Cottage = ({
   address,
-  capacity,
+  beds,
   content,
-  title,
-  categories,
-  suitability,
   featured_media,
-  bed,
-  slug,
-  lowestRate,
-  size,
+  guests,
+  night_price,
+  number,
+  pets,
+  listing_type,
   reviewAvg,
   reviewCount,
-  number,
+  size,
+  slug,
+  title,
 }) => (
   <Flex
     css={css`
@@ -73,7 +73,7 @@ const Cottage = ({
             writing-mode: vertical-lr;
           `}
         >
-          {address.address.replace('Canada', '').replace(/Ontario.*/, 'ON')}
+          {address.replace('Canada', '').replace(/Ontario.*/, 'ON')}
         </Box>
         <Number
           css={css`
@@ -117,7 +117,7 @@ const Cottage = ({
         color="textPrimary"
         fontWeight="bold"
       >
-        {' $' + lowestRate}
+        {' $' + night_price}
       </Text>
       <Text color="textPrimary" fontWeight="semibold" fontSize={5} mt="auto">
         /Night
@@ -142,22 +142,19 @@ const Cottage = ({
           },
           {
             name: 'Property',
-            value: categories[0].name,
+            value: listing_type.name,
           },
           {
             name: 'Sleeps',
-            value: capacity,
+            value: guests,
           },
           {
             name: 'Beds',
-            value: bed,
+            value: beds,
           },
           {
             name: 'Pet Friendly',
-            value:
-              suitability.filter(s => s.name === 'Pets').length !== 0
-                ? 'Yes'
-                : 'No',
+            value: pets === 1 ? 'Yes' : 'No',
           },
         ]}
       />
@@ -187,7 +184,10 @@ const Cottage = ({
 )
 
 export const query = graphql`
-  fragment Cottage on wordpress__wp_mphb_room_type {
+  fragment Cottage on wordpress__wp_listing {
+    address
+    beds
+    content
     featured_media {
       localFile {
         childImageSharp {
@@ -197,49 +197,34 @@ export const query = graphql`
         }
       }
     }
-    categories {
+    guests
+    night_price
+    pets
+    listing_type {
       name
     }
-    suitability {
-      name
-    }
-    address {
-      address
-    }
-    bed
-    capacity
-    lowestRate
-    content
-    slug
     size
+    slug
     title
   }
 `
 
 Cottage.propTypes = {
-  address: PropTypes.shape({
-    address: PropTypes.string.isRequired,
-  }).isRequired,
-  bed: PropTypes.string.isRequired,
-  capacity: PropTypes.number.isRequired,
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+  address: PropTypes.string.isRequired,
+  beds: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   featured_media: PropTypes.object.isRequired,
-  lowestRate: PropTypes.number.isRequired,
+  guests: PropTypes.string.isRequired,
+  listing_type: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  night_price: PropTypes.string.isRequired,
   number: PropTypes.number.isRequired,
+  pets: PropTypes.oneOf([0, 1]).isRequired,
   reviewAvg: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,
-  size: PropTypes.number.isRequired,
+  size: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
-  suitability: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
   title: PropTypes.string.isRequired,
 }
 

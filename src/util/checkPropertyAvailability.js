@@ -1,8 +1,4 @@
-import { eachDay, isWithinRange, getDay } from 'date-fns'
-
-const getSeasonPrices = rates => rates.flatMap(rate => rate.seasonPrices)
-const getSeasons = seasonPrices =>
-  seasonPrices.flatMap(seasonPrice => seasonPrice.season)
+import { eachDay, isWithinRange } from 'date-fns'
 
 const checkPropertyAvailability = (
   property,
@@ -12,44 +8,18 @@ const checkPropertyAvailability = (
   pets,
   smokers
 ) => {
-  const seasonPrices = getSeasonPrices(property.rates)
-  const seasons = getSeasons(seasonPrices)
   const range = eachDay(startDate, endDate)
-
-  const enoughSpace = property.capacity >= guests
-
-  const isSuitable = name =>
-    property.suitability.filter(s => s.name === name).length !== 0
-
-  const hasPets = pets ? isSuitable('pets') : true
-
-  const hasSmokers = smokers ? isSuitable('smokers') : true
-
-  const inRange = seasons
-    .map(season => {
-      const inSeason = date =>
-        isWithinRange(date, season.startDate, season.endDate)
-      const withinSeason = inSeason(startDate) && inSeason(endDate)
-      const validDays = range
-        .map(date => season.days.includes(getDay(date)))
-        .every(result => result)
-      return withinSeason && validDays
-    })
-    .includes(true)
-
-  const isBooked = property.bookings
-    .map(booking => {
+  const enoughSpace = property.guests >= guests
+  const hasPets = pets ? property.pets === 1 : true
+  const hasSmokers = smokers ? property.smoke === 1 : true
+  const isBooked = property.reservations
+    .map(reservation => {
       const isBooked = date =>
-        isWithinRange(
-          date,
-          booking.mphb_check_in_date,
-          booking.mphb_check_out_date
-        )
+        isWithinRange(date, reservation.checkin_date, reservation.checkout_date)
       return range.map(isBooked).includes(true)
     })
     .includes(true)
-
-  return inRange && !isBooked && hasPets && hasSmokers && enoughSpace
+  return !isBooked && hasPets && hasSmokers && enoughSpace
 }
 
 export default checkPropertyAvailability

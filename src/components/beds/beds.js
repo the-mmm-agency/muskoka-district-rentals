@@ -3,52 +3,53 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Bed } from 'styled-icons/boxicons-regular/Bed'
 
-const Beds = ({ beds }) => (
+const Beds = ({ accomodation }) => (
   <table>
     <thead>
       <tr>
         <th>Room Type</th>
         <th>Bed Type</th>
-        <th>Mattress Type</th>
-        <th>Mattress Size</th>
+        <th>Accommodates</th>
       </tr>
     </thead>
     <tbody>
-      {beds.map(({ room_type, bed_type, mattress_type, mattress_size }) => (
-        <tr key={room_type}>
-          <td>
-            <Bed />
-            {room_type}
-          </td>
-          <td>{bed_type}</td>
-          <td>{mattress_type}</td>
-          <td>{mattress_size}</td>
-        </tr>
-      ))}
+      {accomodation.map(
+        ({
+          acc_bedroom_name: room_type,
+          acc_bedroom_type: bed_type,
+          acc_guests: guests,
+          acc_no_of_beds: beds,
+        }) => (
+          <tr key={room_type}>
+            <td>
+              <Bed />
+              {room_type}
+            </td>
+            <td>{bed_type}</td>
+            <td>{guests}</td>
+          </tr>
+        )
+      )}
     </tbody>
   </table>
 )
 
 Beds.propTypes = {
-  beds: PropTypes.arrayOf(
+  accomodation: PropTypes.arrayOf(
     PropTypes.shape({
-      room_type: PropTypes.string.isRequired,
-      bed_type: PropTypes.string.isRequired,
-      mattress_type: PropTypes.string.isRequired,
-      mattress_size: PropTypes.string.isRequired,
+      acc_bedroom_name: PropTypes.string.isRequired,
+      acc_bedroom_type: PropTypes.string.isRequired,
+      acc_guests: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
 }
 
 export const query = graphql`
-  fragment Beds on wordpress__wp_mphb_room_type {
-    acf {
-      beds {
-        room_type
-        bed_type
-        mattress_size
-        mattress_type
-      }
+  fragment Beds on wordpress__wp_listing {
+    accomodation {
+      acc_bedroom_name
+      acc_bedroom_type
+      acc_guests
     }
   }
 `

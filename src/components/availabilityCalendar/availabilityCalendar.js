@@ -6,57 +6,23 @@ import dayjs from 'dayjs'
 
 import Calendar from 'styles/calendar.css'
 
-const getSeasonPrices = rates => rates.flatMap(rate => rate.seasonPrices)
-const getSeasons = seasonPrices =>
-  seasonPrices.flatMap(seasonPrice => seasonPrice.season)
-
-const AvailabilityCalendar = ({ bookings, rates }) => {
-  const seasonPrices = getSeasonPrices(rates)
-  const seasons = getSeasons(seasonPrices)
-  const inRange = day =>
-    seasons
-      .map(
-        ({ days, startDate, endDate }) =>
-          ModifiersUtils.dayMatchesModifier(day, { daysOfWeek: days }) &&
-          ModifiersUtils.dayMatchesModifier(day, {
-            from: new Date(startDate),
-            to: new Date(endDate),
-          })
-      )
-      .includes(true)
-
-  const isStart = day =>
-    inRange(day) &&
-    !inRange(
-      dayjs(day)
-        .subtract(1, 'day')
-        .toDate()
-    )
-
-  const isEnd = day =>
-    inRange(day) &&
-    !inRange(
-      dayjs(day)
-        .add(1, 'day')
-        .toDate()
-    )
+const AvailabilityCalendar = ({ reservations }) => {
   const isFirstOfMonth = day => day.getDate() === 1
   const isLastOfMonth = day => day.getDate() === dayjs(day).daysInMonth()
+  const isSelected = day => dayjs(day).isAfter(dayjs())
   const isBooked = day =>
-    bookings
-      .map(({ mphb_check_in_date, mphb_check_out_date }) =>
+    reservations
+      .map(({ checkin_date, checkout_date }) =>
         ModifiersUtils.dayMatchesModifier(day, {
-          from: new Date(mphb_check_in_date),
-          to: new Date(mphb_check_out_date),
+          from: new Date(checkin_date),
+          to: new Date(checkout_date),
         })
       )
       .every(result => result)
   return (
     <Calendar
       modifiers={{
-        selected: inRange,
-        start: isStart,
-        end: isEnd,
+        selected: isSelected,
         lastOfMonth: isLastOfMonth,
         firstOfMonth: isFirstOfMonth,
         disabled: isBooked,
@@ -68,39 +34,19 @@ const AvailabilityCalendar = ({ bookings, rates }) => {
 }
 
 AvailabilityCalendar.propTypes = {
-  bookings: PropTypes.arrayOf(
+  reservations: PropTypes.arrayOf(
     PropTypes.shape({
-      mphb_check_in_date: PropTypes.string.isRequired,
-      mphb_check_out_date: PropTypes.string.isRequired,
+      checkin_date: PropTypes.string.isRequired,
+      checkout_date: PropTypes.string.isRequired,
     })
   ),
-  rates: PropTypes.arrayOf(
-    PropTypes.shape({
-      rates: PropTypes.shape({
-        season: PropTypes.shape({
-          days: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-          startDate: PropTypes.string.isRequired,
-          to: PropTypes.string.isRequired,
-        }),
-      }).isRequired,
-    }).isRequired
-  ).isRequired,
 }
 
 export const query = graphql`
-  fragment Calendar on wordpress__wp_mphb_room_type {
-    bookings {
-      mphb_check_in_date
-      mphb_check_out_date
-    }
-    rates {
-      seasonPrices {
-        season {
-          days
-          startDate
-          endDate
-        }
-      }
+  fragment Calendar on wordpress__wp_listing {
+    reservations {
+      checkin_date
+      checkout_date
     }
   }
 `
