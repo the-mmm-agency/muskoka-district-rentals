@@ -42,8 +42,8 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   }
 
-  generatePages('allWordpressWpBlogPosts', 'blog', 'blog-post.js')
-  generatePages('allWordpressCategory', 'categories', 'category.js')
-  generatePages('allWordpressTag', 'tags', 'category.js')
-  generatePages('allWordpressWpListing', 'cottages', 'cottage.js')
+  generatePages('allWordpressWpBlogPost', 'blog', 'blog-post.js')
+  // generatePages('allWordpressWpCategory', 'categories', 'category.js')
+  // generatePages('allWordpressWpPostTag', 'tags', 'category.js')
+  generatePages('allWordpressWpProperty', 'cottages', 'cottage.js')
 }

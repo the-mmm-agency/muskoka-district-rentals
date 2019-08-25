@@ -22,24 +22,24 @@ export const Button = styled.button`
 const activeStyle = props =>
   props.active &&
   css`
+    background-color: transparent !important;
     transition-delay: 0s;
     transition-timing-function: ease-out;
-    background-color: transparent !important;
     &::before,
     &::after {
       width: ${layerWidth}px;
     }
     &::before {
-      left: ${layerWidth * -2}px;
       top: ${layerWidth * -2}px;
+      left: ${layerWidth * -2}px;
       transform: translate3d(${layerWidth * 2}px, ${layerWidth * 2}px, 0)
         rotate(45deg);
       transition: left 0.125s ease-out, top 0.05s 0.125s linear,
         transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     &::after {
-      right: ${layerWidth * -2}px;
       top: ${layerWidth * -2}px;
+      right: ${layerWidth * -2}px;
       transform: translate3d(${layerWidth * -2}px, ${layerWidth * 2}px, 0)
         rotate(-45deg);
       transition: right 0.125s ease-out, top 0.05s 0.125s linear,

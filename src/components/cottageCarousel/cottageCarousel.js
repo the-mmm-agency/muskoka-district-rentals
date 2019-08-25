@@ -29,7 +29,7 @@ const CottageCarousel = ({ gallery }) => (
 )
 
 export const query = graphql`
-  fragment Carousel on wordpress__wp_listing {
+  fragment Carousel on wordpress__wp_property {
     gallery {
       localFile {
         id

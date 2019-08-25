@@ -8,15 +8,15 @@ import Flex from 'components/flex'
 import Text from 'components/text'
 import { transition } from 'theme/transitions'
 
-const Rental = ({ title, night_price, featured_media, onMouseOver, slug }) => (
+const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
   <Flex
     css={css`
       &:hover {
         opacity: 1;
       }
-      color: white;
       flex-direction: column;
       margin: 3;
+      color: white;
       text-align: left;
       opacity: 0.5;
       ${transition('opacity')};
@@ -26,14 +26,14 @@ const Rental = ({ title, night_price, featured_media, onMouseOver, slug }) => (
   >
     <Link to={`/cottages/${slug}`}>
       <Text fontWeight="medium">
-        Starting from <strong color="white">${night_price}</strong>/Night
+        Starting from <strong color="white">${price}</strong>/Night
       </Text>
       <Img
         css={css`
-          margin: 2 0;
+          position: relative;
           width: 210px;
           height: 130px;
-          position: relative;
+          margin: 2 0;
         `}
         fluid={featured_media.localFile.childImageSharp.fluid}
       />
@@ -49,8 +49,8 @@ const Rental = ({ title, night_price, featured_media, onMouseOver, slug }) => (
 
 Rental.propTypes = {
   featured_media: PropTypes.object.isRequired,
-  night_price: PropTypes.string.isRequired,
   onMouseOver: PropTypes.func.isRequired,
+  price: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 }

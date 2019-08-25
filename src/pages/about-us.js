@@ -20,10 +20,10 @@ const AboutUs = ({ data: { image, testimonials } }) => (
     <PageImage fluid={image.childImageSharp.fluid}>
       <span
         css={css`
-          letter-spacing: 0.1em;
+          position: relative;
           margin-bottom: 2;
           font-weight: 600;
-          position: relative;
+          letter-spacing: 0.1em;
           text-transform: uppercase;
         `}
       >

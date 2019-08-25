@@ -29,7 +29,7 @@ PostCard.propTypes = {
 }
 
 export const query = graphql`
-  fragment PostCard on wordpress__wp_blog_posts {
+  fragment PostCard on wordpress__wp_blog_post {
     featured_media {
       localFile {
         childImageSharp {

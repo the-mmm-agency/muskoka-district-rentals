@@ -49,8 +49,8 @@ export const TeamMember = styled(BackgroundImage)`
   opacity: 0.5;
   ${transition('opacity', { duration: 'complex', easing: 'sharp' })}
   span {
-    font-weight: bold;
     margin-top: 50%;
+    font-weight: bold;
     text-transform: uppercase;
   }
 `
@@ -65,8 +65,8 @@ export const NextButton = styled.button`
   width: 25%;
   cursor: pointer;
   svg {
-    height: 60px;
     width: 60px;
+    height: 60px;
     stroke-width: 1px;
   }
   ${transition('background-color', {

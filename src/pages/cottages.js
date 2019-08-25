@@ -57,10 +57,9 @@ export const query = graphql`
         }
       }
     }
-    cottages: allWordpressWpListing {
+    cottages: allWordpressWpProperty {
       nodes {
         ...Cottage
-        smoke
         ...Calendar
       }
     }

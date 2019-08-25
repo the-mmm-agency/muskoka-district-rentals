@@ -1,4 +1,4 @@
-import { eachDay, isWithinRange } from 'date-fns'
+import { isWithinRange } from 'date-fns'
 
 const checkPropertyAvailability = (
   property,
@@ -8,16 +8,14 @@ const checkPropertyAvailability = (
   pets,
   smokers
 ) => {
-  const range = eachDay(startDate, endDate)
   const enoughSpace = property.guests >= guests
-  const hasPets = pets ? property.pets === 1 : true
-  const hasSmokers = smokers ? property.smoke === 1 : true
-  const isBooked = property.reservations
-    .map(reservation => {
-      const isBooked = date =>
-        isWithinRange(date, reservation.checkin_date, reservation.checkout_date)
-      return range.map(isBooked).includes(true)
-    })
+  const checkSuitability = value => property.suitability.indexOf(value) !== 1
+  const hasPets = pets ? checkSuitability('Pets') : true
+  const hasSmokers = smokers ? checkSuitability('Smoking') : true
+  const isBooked = property.bookedDates
+    .map(date =>
+      isWithinRange(new Date(date).toISOString(), startDate, endDate)
+    )
     .includes(true)
   return !isBooked && hasPets && hasSmokers && enoughSpace
 }

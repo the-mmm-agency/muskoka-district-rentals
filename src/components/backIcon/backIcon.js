@@ -4,9 +4,9 @@ import { css } from '@xstyled/emotion'
 const BackIcon = props => (
   <svg
     css={css`
+      align-self: center;
       width: 30;
       height: 30;
-      align-self: center;
     `}
     viewBox="0 0 24 24"
     {...props}

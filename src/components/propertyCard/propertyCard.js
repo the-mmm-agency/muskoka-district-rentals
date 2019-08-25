@@ -10,11 +10,11 @@ import Link from 'components/link'
 import Text from 'components/text'
 
 const PropertyCard = ({
-  beds,
+  bedrooms,
   featured_media,
   guests,
-  listing_type,
-  night_price,
+  category,
+  price,
   reviewAvg,
   slug,
   title,
@@ -34,7 +34,7 @@ const PropertyCard = ({
         attributes={[
           {
             name: 'Property',
-            value: listing_type.name,
+            value: category.name,
           },
           {
             name: 'Sleeps',
@@ -42,7 +42,7 @@ const PropertyCard = ({
           },
           {
             name: 'Beds',
-            value: beds,
+            value: bedrooms,
           },
         ]}
       />
@@ -50,7 +50,7 @@ const PropertyCard = ({
       <span css={{ display: 'inline-flex' }}>
         <Link to={`/cottages/${slug}`}>Details</Link>
         <Text ml="auto">
-          Starting at <b>${night_price}/</b>Night
+          Starting at <b>${price}/</b>Night
         </Text>
       </span>
     </CardContent>
@@ -58,13 +58,13 @@ const PropertyCard = ({
 )
 
 PropertyCard.propTypes = {
-  beds: PropTypes.string.isRequired,
-  featured_media: PropTypes.object.isRequired,
-  guests: PropTypes.string.isRequired,
-  listing_type: PropTypes.shape({
+  bedrooms: PropTypes.string.isRequired,
+  category: PropTypes.shape({
     name: PropTypes.string.isRequired,
   }).isRequired,
-  night_price: PropTypes.number.isRequired,
+  featured_media: PropTypes.object.isRequired,
+  guests: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   reviewAvg: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
@@ -72,14 +72,14 @@ PropertyCard.propTypes = {
 }
 
 export const query = graphql`
-  fragment PropertyCard on wordpress__wp_listing {
+  fragment PropertyCard on wordpress__wp_property {
     id
-    beds
-    night_price
+    bedrooms
+    price
     guests
     slug
     title
-    listing_type {
+    category {
       name
     }
     featured_media {

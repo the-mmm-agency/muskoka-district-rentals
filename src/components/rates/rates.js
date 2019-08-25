@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-const Rates = ({ night_price, priceWeek, priceMonthly }) => (
+const Rates = ({ price, pricePerWeek, pricePerMonth }) => (
   <table>
     <thead>
       <tr>
@@ -13,25 +13,25 @@ const Rates = ({ night_price, priceWeek, priceMonthly }) => (
     </thead>
     <tbody>
       <tr>
-        <td>{night_price}</td>
-        <td>{priceWeek}</td>
-        <td>{priceMonthly}</td>
+        <td>{price}</td>
+        <td>{pricePerWeek}</td>
+        <td>{pricePerMonth}</td>
       </tr>
     </tbody>
   </table>
 )
 
 Rates.propTypes = {
-  night_price: PropTypes.string.isRequired,
-  priceMonthly: PropTypes.string.isRequired,
-  priceWeek: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  pricePerMonth: PropTypes.string.isRequired,
+  pricePerWeek: PropTypes.string.isRequired,
 }
 
 export const query = graphql`
-  fragment Rates on wordpress__wp_listing {
-    priceWeek
-    priceMonthly
-    night_price
+  fragment Rates on wordpress__wp_property {
+    pricePerWeek
+    pricePerMonth
+    price
   }
 `
 

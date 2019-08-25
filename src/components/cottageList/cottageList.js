@@ -2,8 +2,8 @@ import React from 'react'
 
 import Cottage from 'components/cottage'
 
-const CottageList = ({ cottages }) => {
-  return cottages.map((cottage, index) => (
+const CottageList = ({ cottages }) =>
+  cottages.map((cottage, index) => (
     <Cottage
       key={cottage.id}
       {...cottage}
@@ -12,6 +12,5 @@ const CottageList = ({ cottages }) => {
       number={index}
     />
   ))
-}
 
 export default CottageList

@@ -28,12 +28,12 @@ const styles = css`
   button {
     white-space: nowrap;
     svg {
-      margin-left: 0.5em;
+      width: 1.3em;
+      height: 1.3em;
       margin-right: 0.5em;
       margin-bottom: 0.3em;
+      margin-left: 0.5em;
       fill: currentColor;
-      height: 1.3em;
-      width: 1.3em;
     }
   }
   h1,
@@ -89,14 +89,14 @@ const styles = css`
   }
   hr {
     display: block;
+    width: 100%;
     margin-top: 1;
+    margin-right: auto;
     margin-bottom: 1;
     margin-left: auto;
-    margin-right: auto;
+    border-color: backgroundDefault;
     border-style: inset;
     border-width: 0.5px;
-    border-color: backgroundDefault;
-    width: 100%;
   }
   blockquote {
     margin-top: 2;
@@ -131,9 +131,9 @@ const styles = css`
     svg {
       width: 1.3em;
       height: 1.3em;
-      margin-left: 1em;
       margin-right: 1em;
       margin-bottom: calc(-1 * 0.3em);
+      margin-left: 1em;
     }
   }
   table {
@@ -144,8 +144,8 @@ const styles = css`
     z-index: modal;
   }
   .ReactModal__Content--after-open {
-    height: fit-content;
     width: fit-content;
+    height: fit-content;
     margin: auto;
     padding: 0 !important;
     outline: none;
@@ -158,12 +158,12 @@ const styles = css`
     opacity: 0;
   }
   .ReactModal__Overlay--after-open {
+    z-index: modal;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5) !important;
-    display: flex;
     opacity: 1;
-    z-index: modal;
   }
 `
 

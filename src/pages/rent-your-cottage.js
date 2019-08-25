@@ -27,7 +27,7 @@ const RentYourCottage = ({
 
 export const query = graphql`
   query {
-    page: wordpressPage(slug: { eq: "rent-your-cottage" }) {
+    page: wordpressWpPageContent(slug: { eq: "rent-your-cottage" }) {
       title
       content
       featured_media {

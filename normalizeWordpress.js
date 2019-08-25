@@ -1,7 +1,7 @@
 const R = require('ramda')
 
 const getType = R.curry((entities, type) =>
-  R.filter(R.propEq('__type', type), entities)
+  R.filter(R.propEq('__type', `wordpress__wp_${type}`), entities)
 )
 
 const mapIdsToEntities = R.curry((entities, ids) =>
@@ -15,32 +15,23 @@ const mapIdsToEntities = R.curry((entities, ids) =>
   )
 )
 
+const mapTypeToEntities = R.curry((entities, type, ids) =>
+  mapIdsToEntities(getType(entities, type), ids)
+)
+
 module.exports = ({ entities }) => {
-  const getEntities = getType(entities)
-  const media = getEntities('wordpress__wp_media')
-  const listingTypes = getEntities('wordpress__wp_listing_type')
-  const amenities = getEntities('wordpress__wp_amenities')
-  const reservations = getEntities('wordpress__wp_homey_reservation')
+  const mapType = mapTypeToEntities(entities)
   return entities.map(e => {
-    if (e.__type === 'wordpress__wp_listing') {
-      try {
-        e.gallery___NODE = mapIdsToEntities(media, e.gallery)
-        e.amenities___NODE = mapIdsToEntities(amenities, e.amenities)
-        e.listing_type___NODE = mapIdsToEntities(
-          listingTypes,
-          e.listing_type
-        )[0]
-        e.reservations___NODE = [reservations[0].id, reservations[1].id]
-        // e.reservations___NODE = R.map(
-        //   R.prop('id'),
-        //   R.filter(
-        //     R.propEq('listing_id', e.wordpress_id.toString()),
-        //     reservations
-        //   )
-        // )
-      } catch (error) {
-        console.error('Error adding the property', error)
-      }
+    if (e.__type === 'wordpress__wp_blog_post') {
+      e.category___NODE = mapType('category', e.category)[0]
+    }
+    if (e.__type === 'wordpress__wp_property') {
+      e.gallery___NODE = mapType('media', e.property_images)
+      e.amenities___NODE = mapType('property_features', e.property_features)
+      e.category___NODE = mapType('property_category', e.property_category)[0]
+      delete e.property_images
+      delete e.property_features
+      delete e.property_category
     }
     return e
   })

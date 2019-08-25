@@ -7,7 +7,7 @@ import { graphql } from 'gatsby'
 import { transition } from 'theme/transitions'
 import Link from 'components/link'
 
-const ConciergeService = ({ title, featured_media, setSelected }) => (
+const ConciergeService = ({ service, image, setSelected }) => (
   <li
     css={css`
       &:hover {
@@ -16,15 +16,15 @@ const ConciergeService = ({ title, featured_media, setSelected }) => (
       padding: 2;
       ${transition('background-color')}
     `}
-    onMouseOver={() => setSelected(featured_media)}
-    onFocus={() => setSelected(featured_media)}
+    onMouseOver={() => setSelected(image)}
+    onFocus={() => setSelected(image)}
   >
     <Link
       css={css`
         display: inline-flex;
         align-items: center;
-        background: transparent;
         width: 100%;
+        background: transparent;
       `}
       to="/guest-services"
     >
@@ -36,23 +36,23 @@ const ConciergeService = ({ title, featured_media, setSelected }) => (
           min-height: 8rem;
           max-height: 8rem;
         `}
-        fluid={featured_media.localFile.childImageSharp.fluid}
+        fluid={image.localFile.childImageSharp.fluid}
       />
       <h6
         css={css`
-          font-size: 4;
           margin-left: 4;
+          font-size: 4;
         `}
       >
-        {title}
+        {service}
       </h6>
     </Link>
   </li>
 )
 
 export const query = graphql`
-  fragment ConciergeService on wordpress__wp_concierge_services {
-    featured_media {
+  fragment ConciergeService on wordpress__wp_page_contentAcfConcierge_services {
+    image {
       localFile {
         childImageSharp {
           fluid(maxWidth: 2000) {
@@ -61,16 +61,14 @@ export const query = graphql`
         }
       }
     }
-    slug
-    title
-    id
+    service
   }
 `
 
 ConciergeService.propTypes = {
-  featured_media: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
+  service: PropTypes.string.isRequired,
   setSelected: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
 }
 
 export default ConciergeService

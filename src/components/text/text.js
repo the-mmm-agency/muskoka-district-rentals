@@ -7,6 +7,9 @@ const textStyles = variant({
   key: 'textStyles',
 })
 
-const Text = styled('span', { shouldForwardProp })(system, textStyles)
+const Text = styled('span', { shouldForwardProp: shouldForwardProp })(
+  system,
+  textStyles
+)
 
 export default Text

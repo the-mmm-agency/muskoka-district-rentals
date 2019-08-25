@@ -66,7 +66,7 @@ const Links = ({ links, path }) =>
 
 const BlogPost = ({
   data: {
-    post: { slug, title, categories, tags, content, date, featured_media },
+    post: { slug, title, category, content, date, featured_media },
   },
 }) => (
   <Layout>
@@ -94,13 +94,13 @@ const BlogPost = ({
         <div>
           <span>Categories</span>
           <div>
-            {categories && <Links links={categories} path="categories" />}
+            {category && <Links links={[category]} path="categories" />}
           </div>
         </div>
-        <div>
+        {/* <div>
           <span>Tags</span>
           <div>{tags && <Links links={tags} path="tags" />}</div>
-        </div>
+        </div> */}
       </PostHeader>
       <div
         css={{ width: '100%' }}
@@ -116,7 +116,7 @@ BlogPost.propTypes = {
 
 export const query = graphql`
   query BlogPostByID($id: String!) {
-    post: wordpressWpBlogPosts(id: { eq: $id }) {
+    post: wordpressWpBlogPost(id: { eq: $id }) {
       id
       title
       slug
@@ -131,11 +131,7 @@ export const query = graphql`
           }
         }
       }
-      categories {
-        name
-        slug
-      }
-      tags {
+      category {
         name
         slug
       }

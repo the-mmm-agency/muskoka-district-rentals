@@ -102,12 +102,12 @@ export const number = css`
   ${down('sm')} {
     font-size: 4;
   }
-  cursor: pointer;
+  margin: 0;
+  margin-right: auto;
   font-weight: 500;
   font-size: 3;
-  margin: 0;
   vertical-align: baseline;
-  margin-right: auto;
+  cursor: pointer;
 `
 
 export const Day = styled.h4`

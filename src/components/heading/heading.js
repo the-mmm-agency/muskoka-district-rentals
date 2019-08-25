@@ -7,6 +7,9 @@ const textStyles = variant({
   key: 'textStyles',
 })
 
-const Heading = styled('h2', { shouldForwardProp })(system, textStyles)
+const Heading = styled('h2', { shouldForwardProp: shouldForwardProp })(
+  system,
+  textStyles
+)
 
 export default Heading

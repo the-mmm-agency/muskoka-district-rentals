@@ -29,7 +29,7 @@ const PrivateFleet = ({
 
 export const query = graphql`
   query {
-    page: wordpressPage(slug: { eq: "private-fleet" }) {
+    page: wordpressWpPageContent(slug: { eq: "private-fleet" }) {
       title
       content
       featured_media {

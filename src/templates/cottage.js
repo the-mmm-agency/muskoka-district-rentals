@@ -7,7 +7,6 @@ import CottageCarousel from 'components/cottageCarousel'
 import PageImage from 'components/pageImage'
 import Flex from 'components/flex'
 import Rates from 'components/rates'
-import Beds from 'components/beds'
 import PageContent from 'components/pageContent'
 import Text from 'components/text'
 import CottageInfo from 'components/cottageInfo'
@@ -47,7 +46,7 @@ const Cottage = ({ data: { cottage } }) => (
         <Text textTransform="uppercase" fontWeight="bold">
           Start From{' '}
           <Text fontSize={3} color="textPrimary">
-            ${cottage.night_price}
+            ${cottage.price}
           </Text>
           <Text color="textPrimary">/night</Text>
         </Text>
@@ -74,25 +73,25 @@ const Cottage = ({ data: { cottage } }) => (
             },
             {
               name: 'Property',
-              value: cottage.listing_type.name,
+              value: cottage.category.name,
             },
             {
               name: 'Beds',
-              value: cottage.beds,
+              value: cottage.bedrooms,
             },
             {
               name: 'Bathrooms',
-              value: cottage.baths,
+              value: cottage.bathrooms,
             },
           ]}
         />
       </Flex>
       <Flex
         css={css`
-          background-color: backgroundLight;
-          align-items: center;
           flex-direction: column;
+          align-items: center;
           padding: 4 2;
+          background-color: backgroundLight;
           table {
             ${down('sm')} {
               width: 100%;
@@ -100,9 +99,9 @@ const Cottage = ({ data: { cottage } }) => (
             ${down('md')} {
               width: 90%;
             }
+            width: 80%;
             margin-top: 4;
             margin-bottom: 5;
-            width: 80%;
           }
           h3 {
             margin: 4 0;
@@ -111,22 +110,20 @@ const Cottage = ({ data: { cottage } }) => (
       >
         <h2>Overview</h2>
         <div dangerouslySetInnerHTML={{ __html: cottage.content }} />
-        <h3>Beds By Room</h3>
-        <Beds accomodation={cottage.accomodation} />
         <h3>Amenities</h3>
         <Amenities amenities={cottage.amenities} />
         <h3>Rates and Availability</h3>
-        <AvailabilityCalendar reservations={cottage.reservations} />
+        <AvailabilityCalendar bookedDates={cottage.bookedDates} />
         <Rates
-          night_price={cottage.night_price}
-          priceWeek={cottage.priceWeek}
-          priceMonthly={cottage.priceMonthly}
+          price={cottage.price}
+          pricePerWeek={cottage.pricePerWeek}
+          pricePerMonth={cottage.pricePerMonth}
         />
         <p>
           House Rules Include:
           <br />
           <br />
-          <div dangerouslySetInnerHTML={{ __html: cottage.additional_rules }} />
+          <div dangerouslySetInnerHTML={{ __html: cottage.houseRules }} />
         </p>
         <a href={`http://mdr3.wpengine.com/listing/${cottage.slug}`}>
           <Button variant="serif" my={4}>
@@ -140,22 +137,22 @@ const Cottage = ({ data: { cottage } }) => (
 
 export const query = graphql`
   query CottageById($id: String!) {
-    cottage: wordpressWpListing(id: { eq: $id }) {
+    cottage: wordpressWpProperty(id: { eq: $id }) {
       ...Amenities
       ...Calendar
       ...Carousel
-      ...Beds
       ...Rates
       title
       content
       size
       slug
-      additional_rules
-      night_price
+      houseRules
+      price
+      bedrooms
       wordpress_id
-      baths
+      bathrooms
       guests
-      listing_type {
+      category {
         name
       }
       featured_media {

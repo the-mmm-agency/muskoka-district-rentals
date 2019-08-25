@@ -7,7 +7,7 @@ const Blog = ({ data }) => <BlogTemplate data={data} title="The latest news" />
 
 export const query = graphql`
   query BlogPage {
-    allWordpressWpBlogPosts(sort: { fields: date, order: DESC }) {
+    allWordpressWpBlogPost(sort: { fields: date, order: DESC }) {
       nodes {
         ...PostCard
       }

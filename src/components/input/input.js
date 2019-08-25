@@ -16,10 +16,10 @@ const Wrapper = styled.div`
         transform-origin: bottom left;
       }
     }
+    width: 100%;
     border-bottom: 1px solid;
     border-bottom-color: ${props =>
       transparentize(0.82, th.color('textPrimary')(props))};
-    width: 100%;
   }
   span {
     position: absolute;

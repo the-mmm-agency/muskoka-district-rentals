@@ -13,18 +13,22 @@ import Flex from 'components/flex'
 import ConciergeService from 'components/conciergeService'
 
 const ConciergeServices = () => {
-  const { conciergeServices } = useStaticQuery(graphql`
+  const {
+    wordpressWpPageContent: {
+      acf: { concierge_services: conciergeServices },
+    },
+  } = useStaticQuery(graphql`
     query {
-      conciergeServices: allWordpressWpConciergeServices {
-        nodes {
-          ...ConciergeService
+      wordpressWpPageContent(slug: { eq: "concierge-services" }) {
+        acf {
+          concierge_services {
+            ...ConciergeService
+          }
         }
       }
     }
   `)
-  const [selected, setSelected] = useState(
-    conciergeServices.nodes[0].featured_media
-  )
+  const [selected, setSelected] = useState(conciergeServices[0].image)
   return (
     <Flex
       as="section"
@@ -60,21 +64,21 @@ const ConciergeServices = () => {
             ::-webkit-scrollbar-thumb {
               background-color: #0a252e;
             }
+            width: 100%;
             height: 300px;
             margin: none;
             padding-bottom: 5;
-            width: 100%;
             overflow-x: hidden;
             overflow-y: scroll;
             list-style: none;
             -webkit-touch-scrolling: overflow;
           `}
         >
-          {conciergeServices.nodes.map(service => (
+          {conciergeServices.map(conciergeService => (
             <ConciergeService
-              key={service.id}
+              key={conciergeService.service}
               setSelected={setSelected}
-              {...service}
+              {...conciergeService}
             />
           ))}
         </ul>

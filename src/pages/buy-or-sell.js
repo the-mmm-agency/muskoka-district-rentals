@@ -27,7 +27,7 @@ const BuyOrSell = ({
 
 export const query = graphql`
   query {
-    page: wordpressPage(slug: { eq: "buy-or-sell-cottages" }) {
+    page: wordpressWpPageContent(slug: { eq: "buy-or-sell-cottages" }) {
       title
       content
       featured_media {

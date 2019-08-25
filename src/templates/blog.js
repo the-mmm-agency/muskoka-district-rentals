@@ -28,7 +28,7 @@ const PostGrid = styled(Grid)`
 
 const Blog = ({
   data: {
-    allWordpressWpBlogPosts: { nodes: posts },
+    allWordpressWpBlogPost: { nodes: posts },
   },
   crumbs,
   title,

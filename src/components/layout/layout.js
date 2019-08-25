@@ -34,9 +34,9 @@ const Layout = ({ children, ...props }) => {
       <Box
         css={css`
           max-width: 100vw;
-          overflow-x: hidden;
           margin: 0 auto;
           padding-top: 0;
+          overflow-x: hidden;
         `}
         {...props}
       >

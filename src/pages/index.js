@@ -39,8 +39,8 @@ const IndexPage = ({
             text-transform: uppercase;
           }
           &:last-of-type {
-            letter-spacing: labels;
             font-weight: 600;
+            letter-spacing: labels;
           }
           font-size: 4;
         }
@@ -104,9 +104,9 @@ const IndexPage = ({
             <div
               css={css`
                 width: 70px;
+                margin-bottom: 4;
                 vertical-align: top;
                 border-top: 2.5px solid black;
-                margin-bottom: 4;
               `}
             />
             <h2>
@@ -151,11 +151,11 @@ const IndexPage = ({
       </HorizontalScroll>
       <Flex
         css={css`
-          text-align: center;
           flex-direction: column;
           align-items: center;
-          padding: 0 5;
           margin-bottom: 5;
+          padding: 0 5;
+          text-align: center;
         `}
       >
         <Text variant="expanded">explore</Text>
@@ -188,7 +188,7 @@ export const query = graphql`
         ...Testimonial
       }
     }
-    blogPosts: allWordpressWpBlogPosts(
+    blogPosts: allWordpressWpBlogPost(
       limit: 3
       sort: { fields: date, order: DESC }
     ) {

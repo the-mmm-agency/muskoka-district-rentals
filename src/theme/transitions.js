@@ -49,9 +49,9 @@ export const transition = (value = transitions.safeAttributes, options) => {
   }
 
   return css`
-    transition-property: ${property};
-    transition-duration: ${duration}ms;
     transition-timing-function: ${easing};
+    transition-duration: ${duration}ms;
+    transition-property: ${property};
     @media screen and (prefers-reduced-motion: reduce) {
       transition: none;
     }

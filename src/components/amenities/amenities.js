@@ -47,10 +47,10 @@ const Amenities = ({ amenities }) => {
               >
                 <Check
                   css={css`
-                    stroke: textPrimary;
                     width: 1em;
                     height: 1em;
                     margin-bottom: 0.25em;
+                    stroke: textPrimary;
                   `}
                 />
                 <Text ml={1} fontWeight="bold" whiteSpace="nowrap">
@@ -77,7 +77,7 @@ Amenities.propTypes = {
 }
 
 export const query = graphql`
-  fragment Amenities on wordpress__wp_listing {
+  fragment Amenities on wordpress__wp_property {
     amenities {
       name
       parent_element {

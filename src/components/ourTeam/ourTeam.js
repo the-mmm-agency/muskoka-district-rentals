@@ -113,12 +113,12 @@ const OurTeam = () => {
           backgroundColor="white"
           css={css`
             &::before {
-              content: '';
               position: absolute;
-              height: calc(60vh + 24.3rem);
-              min-width: 100%;
-              background-color: ${colors[selected.value]};
               z-index: 0;
+              min-width: 100%;
+              height: calc(60vh + 24.3rem);
+              background-color: ${colors[selected.value]};
+              content: '';
             }
           `}
         >

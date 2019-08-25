@@ -18,14 +18,14 @@ import CottageInfo from 'components/cottageInfo'
 
 const Cottage = ({
   address,
-  beds,
+  bedrooms,
   content,
   featured_media,
   guests,
-  night_price,
+  price,
   number,
-  pets,
-  listing_type,
+  suitability,
+  category,
   reviewAvg,
   reviewCount,
   size,
@@ -44,8 +44,8 @@ const Cottage = ({
           text-align: right;
         }
       }
-      justify-content: flex-start;
       flex-direction: row;
+      justify-content: flex-start;
       text-align: left;
     `}
     mx={2}
@@ -117,7 +117,7 @@ const Cottage = ({
         color="textPrimary"
         fontWeight="bold"
       >
-        {' $' + night_price}
+        {' $' + price}
       </Text>
       <Text color="textPrimary" fontWeight="semibold" fontSize={5} mt="auto">
         /Night
@@ -127,10 +127,10 @@ const Cottage = ({
         color="textParagraph"
         css={css`
           max-height: 19rem;
+          margin-top: 4;
           overflow: hidden;
           text-overflow: ellipsis;
           word-wrap: normal;
-          margin-top: 4;
         `}
         dangerouslySetInnerHTML={{ __html: content }}
       />
@@ -142,19 +142,19 @@ const Cottage = ({
           },
           {
             name: 'Property',
-            value: listing_type.name,
+            value: category.name,
           },
           {
             name: 'Sleeps',
             value: guests,
           },
           {
-            name: 'Beds',
-            value: beds,
+            name: 'Bedrooms',
+            value: bedrooms,
           },
           {
             name: 'Pet Friendly',
-            value: pets === 1 ? 'Yes' : 'No',
+            value: suitability.includes('Pets') ? 'Yes' : 'No',
           },
         ]}
       />
@@ -165,10 +165,10 @@ const Cottage = ({
     </Flex>
     <Img
       css={css`
-        align-self: flex-start;
-        align-items: flex-start;
         flex-grow: 1;
         flex-shrink: 1;
+        align-items: flex-start;
+        align-self: flex-start;
         width: 100%;
         margin-bottom: 4;
         ${up('md')} {
@@ -184,9 +184,9 @@ const Cottage = ({
 )
 
 export const query = graphql`
-  fragment Cottage on wordpress__wp_listing {
+  fragment Cottage on wordpress__wp_property {
     address
-    beds
+    bedrooms
     content
     featured_media {
       localFile {
@@ -198,12 +198,12 @@ export const query = graphql`
       }
     }
     guests
-    night_price
-    pets
-    listing_type {
+    price
+    category {
       name
     }
     size
+    suitability
     slug
     title
   }
@@ -211,20 +211,20 @@ export const query = graphql`
 
 Cottage.propTypes = {
   address: PropTypes.string.isRequired,
-  beds: PropTypes.string.isRequired,
+  bedrooms: PropTypes.string.isRequired,
+  category: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
   content: PropTypes.string.isRequired,
   featured_media: PropTypes.object.isRequired,
   guests: PropTypes.string.isRequired,
-  listing_type: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }).isRequired,
-  night_price: PropTypes.string.isRequired,
   number: PropTypes.number.isRequired,
-  pets: PropTypes.oneOf([0, 1]).isRequired,
+  price: PropTypes.string.isRequired,
   reviewAvg: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,
   size: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
+  suitability: PropTypes.arrayOf(PropTypes.string).isRequired,
   title: PropTypes.string.isRequired,
 }
 

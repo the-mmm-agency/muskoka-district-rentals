@@ -18,7 +18,7 @@ const Rentals = () => {
     roomTypes: { nodes: rentals },
   } = useStaticQuery(graphql`
     query {
-      roomTypes: allWordpressWpListing {
+      roomTypes: allWordpressWpProperty {
         nodes {
           ...PropertyCard
         }
@@ -76,12 +76,12 @@ const Rentals = () => {
           </Flex>
           <Link
             css={css`
-              line-height: 100px;
-              font-weight: bold;
-              color: white;
               width: 100%;
-              text-align: center;
               margin-top: 5;
+              color: white;
+              font-weight: bold;
+              line-height: 100px;
+              text-align: center;
             `}
             to="/cottages"
           >

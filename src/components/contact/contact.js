@@ -43,7 +43,7 @@ const Contact = () => {
     post: { content, featured_media },
   } = useStaticQuery(graphql`
     query {
-      post: wordpressPost(slug: { eq: "contact-info" }) {
+      post: wordpressWpPageContent(slug: { eq: "contact-info" }) {
         content
         featured_media {
           localFile {

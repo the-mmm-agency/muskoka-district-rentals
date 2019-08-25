@@ -112,8 +112,8 @@ const normalize = css`
     justify-content: center;
     margin: 0;
     padding: none;
-    font-weight: 500;
     overflow: hidden;
+    font-weight: 500;
     text-decoration: none;
     vertical-align: middle;
     border: none;

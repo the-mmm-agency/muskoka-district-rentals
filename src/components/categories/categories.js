@@ -7,10 +7,10 @@ import HorizontalScroll from 'components/horizontalScroll'
 
 const Categories = () => {
   const {
-    allWordpressCategory: { nodes: categories },
+    allWordpressWpCategory: { nodes: categories },
   } = useStaticQuery(graphql`
     query Categories {
-      allWordpressCategory {
+      allWordpressWpCategory {
         nodes {
           id
           name
