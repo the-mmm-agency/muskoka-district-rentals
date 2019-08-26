@@ -22,6 +22,7 @@ const colors = {
   backgroundLight: '#ffffff',
   textPrimary: '#000000',
   textAlt: '#333',
+  textDisabled: '#DCE0E0',
   textSecondary: '#344051',
   textParagraph: '#555',
   textLight: '#666',

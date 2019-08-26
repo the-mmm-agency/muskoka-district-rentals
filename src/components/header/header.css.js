@@ -1,20 +1,4 @@
-import posed from 'react-pose'
 import styled from '@xstyled/emotion'
-
-export const Container = posed.header({
-  enter: {
-    y: 0,
-    transition: {
-      ease: [0.4, 0, 0.6, 1],
-    },
-  },
-  exit: {
-    y: '-100%',
-    transition: {
-      ease: [0.4, 0, 0.2, 1],
-    },
-  },
-})
 
 export const Nav = styled.nav`
   flex: 1 0;
@@ -37,7 +21,7 @@ export const Nav = styled.nav`
   }
 `
 
-export const StyledHeader = styled(Container)`
+export const StyledHeader = styled.header`
   box-shadow: 1;
   position: sticky;
   width: 100%;

@@ -30,9 +30,14 @@ const Calendar = styled(DayPicker)`
     font-weight: 600 !important;
     text-align: center;
   }
+  .DayPicker-Day--disabled {
+    color: textDisabled;
+  }
+  .DayPicker-Day:not(.DayPicker-Day--disabled) {
+    color: textParagraph;
+  }
   .DayPicker-Day {
     padding: 0.5rem 1rem;
-    color: textParagraph;
     font-weight: 600;
     outline: none;
   }

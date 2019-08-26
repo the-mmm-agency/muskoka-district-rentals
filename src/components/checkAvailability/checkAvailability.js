@@ -6,6 +6,7 @@ import Menu, {
 import '@material/react-list/dist/list.css'
 import '@material/react-menu-surface/dist/menu-surface.css'
 import '@material/react-menu/dist/menu.css'
+import { DateUtils } from 'react-day-picker'
 import { range } from 'ramda'
 import React, { useState } from 'react'
 import { ChevronDown } from 'styled-icons/evil/ChevronDown'
@@ -21,6 +22,8 @@ import {
 import DateSection from './dateSection'
 import LabelCheck from './labelCheck'
 
+import Calendar from 'styles/calendar.css'
+import Modal from 'components/modal'
 import Button from 'components/button'
 import Flex from 'components/flex'
 import useAvailabilityContext from 'hooks/useAvailabilityContext'
@@ -38,8 +41,35 @@ const CheckAvailability = props => {
     guests,
     handleGuests,
   } = useAvailabilityContext()
+  const [open, setOpen] = useState(false)
+  const [localRange, setLocalRange] = useState({
+    from: null,
+    to: null,
+  })
   const [guestsActive, setGuests] = useState(false)
   const [menuAnchor, setMenuAnchor] = useState(null)
+  const handleDayClick = day => {
+    const range = DateUtils.addDayToRange(day, localRange)
+    setLocalRange(range)
+    if (range.to) {
+      handleFrom(range.from)
+      handleTo(range.to)
+      setOpen(false)
+    }
+  }
+  const handleToClick = () => {
+    setLocalRange({
+      to: null,
+    })
+    setOpen(true)
+  }
+  const handleFromClick = () => {
+    setLocalRange({
+      from: null,
+      to: null,
+    })
+    setOpen(true)
+  }
   const openGuestsMenu = event => {
     setMenuAnchor(event.currentTarget)
     setGuests(true)
@@ -47,8 +77,12 @@ const CheckAvailability = props => {
 
   return (
     <Wrapper {...props}>
-      <DateSection title="check-in" value={from} onChange={handleFrom} />
-      <DateSection title="check-out" value={to} onChange={handleTo} />
+      <DateSection
+        title="check-in"
+        value={from}
+        handleClick={handleFromClick}
+      />
+      <DateSection title="check-out" value={to} handleClick={handleToClick} />
       <Section col={{ xs: 1 / 4, sm: 1 / 4 }}>
         <SectionWrapper borderRight="transparent !important">
           <Header>guests</Header>
@@ -103,6 +137,21 @@ const CheckAvailability = props => {
           </Button>
         </SectionWrapper>
       </Section>
+      <Modal isOpen={open} onRequestClose={() => setOpen(false)}>
+        <Calendar
+          css={{
+            margin: 0,
+          }}
+          numberOfMonths={2}
+          disabledDays={{ before: localRange.from }}
+          selectedDays={[localRange.from, { ...localRange }]}
+          modifiers={{
+            start: localRange.from,
+            end: localRange.to,
+          }}
+          onDayClick={handleDayClick}
+        />
+      </Modal>
     </Wrapper>
   )
 }

@@ -79,11 +79,11 @@ const variants = variant({
         duration: 'short',
       })};
       color: white;
-      text-transform: uppercase;
-      font-family: serif;
-      background-color: primary;
-      letter-spacing: 0.1em;
       font-weight: bold;
+      font-family: serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background-color: primary;
     `,
     transparent: css`
       &:hover {
@@ -91,13 +91,13 @@ const variants = variant({
         box-shadow: none;
         transform: none;
       }
-      background: transparent;
-      box-shadow: none;
-      border: none;
       color: textPrimary;
       font-weight: bold;
       letter-spacing: caps;
       text-transform: uppercase;
+      background: transparent;
+      border: none;
+      box-shadow: none;
       ${transition('background', { duration: 'short' })};
     `,
   },

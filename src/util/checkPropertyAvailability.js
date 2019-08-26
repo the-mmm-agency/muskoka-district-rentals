@@ -1,4 +1,6 @@
-import { isWithinRange } from 'date-fns'
+import { eachDay } from 'date-fns'
+
+import { isBooked as checkIfBooked } from 'util/bookedDates'
 
 const checkPropertyAvailability = (
   property,
@@ -12,10 +14,8 @@ const checkPropertyAvailability = (
   const checkSuitability = value => property.suitability.indexOf(value) !== 1
   const hasPets = pets ? checkSuitability('Pets') : true
   const hasSmokers = smokers ? checkSuitability('Smoking') : true
-  const isBooked = property.bookedDates
-    .map(date =>
-      isWithinRange(new Date(date).toISOString(), startDate, endDate)
-    )
+  const isBooked = eachDay(startDate, endDate)
+    .map(date => checkIfBooked(property.bookedDates, date))
     .includes(true)
   return !isBooked && hasPets && hasSmokers && enoughSpace
 }

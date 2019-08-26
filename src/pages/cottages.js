@@ -59,6 +59,7 @@ export const query = graphql`
     }
     cottages: allWordpressWpProperty {
       nodes {
+        id
         ...Cottage
         ...Calendar
       }
