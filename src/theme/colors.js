@@ -1,3 +1,5 @@
+import { transparentize } from 'polished'
+
 const colors = {
   modes: {
     dark: {
@@ -17,6 +19,7 @@ const colors = {
   starRated: '#efa913',
   white: '#ffffff',
   black: '#000000',
+  backgroundPrimary: transparentize(0.2, '#212a38'),
   backgroundDark: '#eaecef',
   backgroundDefault: '#f1f1f1',
   backgroundLight: '#ffffff',

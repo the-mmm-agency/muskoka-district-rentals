@@ -58,9 +58,7 @@ const Calendar = styled(DayPicker)`
     border-bottom-left-radius: 10% !important;
   }
 
-  .DayPicker-Day--end,
-  .DayPicker-Day--selected:last-of-type,
-  .DayPicker-Day--selected.DayPicker-Day--lastOfMonth {
+  .DayPicker-Day--end {
     border-top-right-radius: 10% !important;
     border-bottom-right-radius: 10% !important;
   }
@@ -74,7 +72,7 @@ const Calendar = styled(DayPicker)`
     filter: darken(0.2);
   }
   .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-    background-color: alt;
+    background-color: backgroundPrimary;
     border-radius: 0px;
   }
   .DayPicker-Months {

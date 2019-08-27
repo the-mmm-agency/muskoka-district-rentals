@@ -2,6 +2,11 @@ import React from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { css } from '@xstyled/emotion'
 import { graphql } from 'gatsby'
+import { Bed } from 'styled-icons/boxicons-regular/Bed'
+import { Home } from 'styled-icons/boxicons-regular/Home'
+import { PersonOutline } from 'styled-icons/material/PersonOutline'
+import { Ruler } from 'styled-icons/boxicons-regular/Ruler'
+import { Bath } from 'styled-icons/boxicons-regular/Bath'
 
 import CottageCarousel from 'components/cottageCarousel'
 import PageImage from 'components/pageImage'
@@ -9,7 +14,6 @@ import Flex from 'components/flex'
 import Rates from 'components/rates'
 import PageContent from 'components/pageContent'
 import Text from 'components/text'
-import CottageInfo from 'components/cottageInfo'
 import Button from 'components/button'
 import AvailabilityCalendar from 'components/availabilityCalendar'
 import Layout from 'components/layout'
@@ -40,51 +44,61 @@ const Cottage = ({ data: { cottage } }) => (
         ]}
       />
     </PageImage>
+    <Flex
+      backgroundColor="backgroundDark"
+      css={css`
+        align-items: flex-end;
+        & > span {
+          display: inline-flex;
+          flex: 1 1 auto;
+          font-weight: 600;
+          flex-wrap: nowrap;
+          max-width: fit-content;
+          margin-right: 5;
+          font-size: 1;
+        }
+        & > svg {
+          width: 2em;
+          height: 2em;
+          margin-top: 1em;
+          margin-right: 0.4rem;
+          color: textPrimary;
+        }
+      `}
+      px={4}
+      pt={3}
+      pb={4}
+    >
+      <Home />
+      <Text>{cottage.category.name}</Text>
+      <PersonOutline />
+      <Text>{cottage.guests}&nbsp;Guests</Text>
+      <Bed />
+      <Text>{cottage.beds}&nbsp;Beds</Text>
+      <Ruler />
+      <Text>{cottage.size}&nbsp;SqFt</Text>
+      <Bath />
+      <Text>{cottage.bathrooms}&nbsp;Bathrooms</Text>
+      <Text
+        fontWeight="bold"
+        fontSize="1.1em !important"
+        justifyContent="center"
+        mt="auto"
+        ml="auto"
+        lineHeight="1em"
+      >
+        Start From
+        <Text fontSize={3} pl={2} color="textPrimary">
+          ${cottage.price}
+        </Text>
+        <Text color="textPrimary" px={1}>
+          /Night
+        </Text>
+      </Text>
+    </Flex>
     <PageContent mb={2}>
       <Flex flexDirection="column" mb={2} fontSize={5}>
         <CottageCarousel gallery={cottage.gallery} />
-        <Text textTransform="uppercase" fontWeight="bold">
-          Start From{' '}
-          <Text fontSize={3} color="textPrimary">
-            ${cottage.price}
-          </Text>
-          <Text color="textPrimary">/night</Text>
-        </Text>
-        <CottageInfo
-          css={css`
-            margin-top: 2;
-            & > li {
-              margin-bottom: 0;
-              & > span {
-                font-size: 4;
-                line-height: 0.6;
-                text-transform: uppercase;
-              }
-            }
-          `}
-          attributes={[
-            {
-              name: 'Sleeps',
-              value: cottage.guests,
-            },
-            {
-              name: 'Square Feet',
-              value: cottage.size,
-            },
-            {
-              name: 'Property',
-              value: cottage.category.name,
-            },
-            {
-              name: 'Beds',
-              value: cottage.bedrooms,
-            },
-            {
-              name: 'Bathrooms',
-              value: cottage.bathrooms,
-            },
-          ]}
-        />
       </Flex>
       <Flex
         css={css`
@@ -125,7 +139,7 @@ const Cottage = ({ data: { cottage } }) => (
           <br />
           <div dangerouslySetInnerHTML={{ __html: cottage.houseRules }} />
         </p>
-        <a href={`http://mdr3.wpengine.com/listing/${cottage.slug}`}>
+        <a href={`http://mdr5.wpengine.com/property/${cottage.slug}`}>
           <Button variant="serif" my={4}>
             Book Now
           </Button>

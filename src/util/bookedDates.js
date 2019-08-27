@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { curry, map } from 'ramda'
+import { map } from 'ramda'
 import utcPlugin from 'dayjs-plugin-utc'
 
 dayjs.extend(utcPlugin)
