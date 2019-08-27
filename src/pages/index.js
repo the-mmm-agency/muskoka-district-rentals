@@ -33,20 +33,14 @@ const IndexPage = ({
       css={css`
         min-height: 35rem;
         span {
-          &:first-of-type {
-            font-weight: bold;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-          }
-          &:last-of-type {
-            font-weight: 600;
-            letter-spacing: labels;
-          }
+          font-weight: bold;
+          letter-spacing: 0.35em;
+          text-transform: uppercase;
           font-size: 4;
         }
         h1 {
           font-weight: normal;
-          text-transform: uppercase;
+          text-transform: capitalize;
         }
         h1,
         span {
@@ -55,8 +49,7 @@ const IndexPage = ({
       `}
     >
       <span>welcome to</span>
-      <h1>muskoka district</h1>
-      <span>Come unwind with us</span>
+      <h1>muskoka district rentals</h1>
     </PageImage>
     <PageContent
       alignItems="center"
