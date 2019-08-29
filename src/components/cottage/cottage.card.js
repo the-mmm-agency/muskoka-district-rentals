@@ -21,34 +21,34 @@ const CottageCard = ({
   title,
 }) => (
   <Card>
-    <Img fluid={featured_media.localFile.childImageSharp.fluid} />
-    <CardContent>
-      <h6 dangerouslySetInnerHTML={{ __html: title }} />
-      <StarRating
-        padding={0}
-        marginBottom={1}
-        css={{ padding: 0 }}
-        rating={reviewAvg}
-        starDimension="1rem"
-      />
-      <CottageInfo category={category} guests={guests} bedrooms={bedrooms} />
-      <hr />
-      <span css={{ display: 'inline-flex' }}>
-        <a
-          href={`https://mdr5.wpengine.com/properties/${slug}`}
-          css={css`
-            &:hover {
-              text-decoration: none;
-            }
-          `}
-        >
+    <a
+      href={`https://mdr5.wpengine.com/properties/${slug}`}
+      css={css`
+        &:hover {
+          text-decoration: none;
+        }
+      `}
+    >
+      <Img fluid={featured_media.localFile.childImageSharp.fluid} />
+      <CardContent>
+        <h6 dangerouslySetInnerHTML={{ __html: title }} />
+        <StarRating
+          padding={0}
+          marginBottom={1}
+          css={{ padding: 0 }}
+          rating={reviewAvg}
+          starDimension="1rem"
+        />
+        <CottageInfo category={category} guests={guests} bedrooms={bedrooms} />
+        <hr />
+        <span css={{ display: 'inline-flex' }}>
           Details
-        </a>
-        <Text ml="auto">
-          Starting at <b>${price}/</b>Night
-        </Text>
-      </span>
-    </CardContent>
+          <Text ml="auto">
+            Starting at <b>${price}/</b>Night
+          </Text>
+        </span>
+      </CardContent>
+    </a>
   </Card>
 )
 
