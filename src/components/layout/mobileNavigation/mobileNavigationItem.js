@@ -1,19 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Ripples from 'react-ripples'
 
-const MobileNavigationItem = ({ href, to, icon }) => (
-  <Ripples>
-    {to ? (
-      <Link activeClassName="active" to={to}>
-        {icon}
-      </Link>
-    ) : (
-      <a href={href}>{icon}</a>
-    )}
-  </Ripples>
-)
+const MobileNavigationItem = ({ href, to, icon }) =>
+  to ? (
+    <Link activeClassName="active" to={to}>
+      {icon}
+    </Link>
+  ) : (
+    <a href={href}>{icon}</a>
+  )
 
 MobileNavigationItem.propTypes = {
   href: PropTypes.string,

@@ -18,7 +18,9 @@ const Header = ({ links }) => (
         <a href="mailto:hello@muskokadistrictrentals.com">
           hello@muskokadistrictrentals.com
         </a>
+        <a href="https://mdr5.wpengine.com/profile/">Profile</a>
       </span>
+
       <hr />
       {links.map(to => (
         <HeaderLink to={to} key={to} />

@@ -9,13 +9,20 @@ const activeStyle = props => css`
   height: ${props.active ? '35rem' : '60px'};
 `
 
-export const MenuLink = styled(Link)`
-  font-family: serif;
-  font-size: 4;
-  text-transform: capitalize;
-  color: textPrimary;
-  height: 100%;
+const link = css`
   width: 100%;
+  height: 100%;
+  color: textPrimary;
+  font-size: 4;
+  font-family: serif;
+  text-transform: capitalize;
+`
+
+export const GatsbyLink = styled(Link)`
+  ${link}
+`
+export const ExternalLink = styled.a`
+  ${link}
 `
 
 export const Header = styled(StyledHeader)`

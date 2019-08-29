@@ -1,7 +1,14 @@
-import styled from '@xstyled/emotion'
+import styled, { css } from '@xstyled/emotion'
 
 import Flex from 'elements/flex'
 import { transition } from 'theme/transitions'
+
+const active = css`
+  color: textPrimary;
+  svg {
+    transform: scale(1.2);
+  }
+`
 
 const AppBar = styled(Flex)`
   align-items: center;
@@ -13,19 +20,16 @@ const AppBar = styled(Flex)`
   width: 100vw;
   height: 56px;
   justify-content: space-evenly;
-  .active {
-    color: textPrimary;
-    ${transition('color')};
-    svg {
-      ${transition('transform')};
-      transform: scale(1.1);
-    }
-  }
-  svg {
-    width: 32px;
-  }
   a {
-    color: textSecondary;
+    color: textLight;
+    svg {
+      width: 32px;
+      ${transition('transform')};
+    }
+    ${transition('color')};
+    &.active {
+      ${active}
+    }
   }
 `
 

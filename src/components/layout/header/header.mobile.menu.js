@@ -1,20 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { MenuLink } from './header.mobile.css'
+import { GatsbyLink, ExternalLink } from './header.mobile.css'
 
 import Flex from 'elements/flex'
 
 const HeaderMenu = ({ links, handleClick }) => (
   <Flex as="nav" width="100%" flexWrap="wrap" maxHeight="100%">
-    <MenuLink to="/" onClick={handleClick}>
+    <GatsbyLink to="/" onClick={handleClick}>
       Home
-    </MenuLink>
+    </GatsbyLink>
     {links.map(to => (
-      <MenuLink key={to} to={to} onClick={handleClick}>
+      <GatsbyLink key={to} to={to} onClick={handleClick}>
         {to.replace('/', '').replace(/-/g, ' ')}
-      </MenuLink>
+      </GatsbyLink>
     ))}
+    <ExternalLink href="https://mdr5.wpengine.com/profile/">
+      Profile
+    </ExternalLink>
   </Flex>
 )
 

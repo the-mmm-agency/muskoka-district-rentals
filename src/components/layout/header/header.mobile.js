@@ -27,8 +27,8 @@ const MobileHeader = ({ links }) => {
             pathname === '/' ? (
               <Logo />
             ) : (
-              <Link css={{ display: 'inline-flex' }} to="/">
-                <BackIcon />
+              <Link css={{ color: 'inherit', display: 'inline-flex' }} to="/">
+                <BackIcon size="50px" />
               </Link>
             )
           }
