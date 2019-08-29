@@ -15,8 +15,8 @@ const HeaderMenu = ({ links, handleClick }) => (
         {to.replace('/', '').replace(/-/g, ' ')}
       </GatsbyLink>
     ))}
-    <ExternalLink href="https://mdr5.wpengine.com/profile/">
-      Profile
+    <ExternalLink href="https://mdr5.wpengine.com/login/">
+      Login/Register
     </ExternalLink>
   </Flex>
 )
