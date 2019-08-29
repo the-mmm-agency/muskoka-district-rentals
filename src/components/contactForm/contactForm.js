@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Box from 'components/box'
-import Button from 'components/button'
-import Text from 'components/text'
-import Flex from 'components/flex'
-import Input from 'components/input'
-import Heading from 'components/heading'
+import Box from 'elements/box'
+import Button from 'elements/button'
+import Text from 'elements/text'
+import Flex from 'elements/flex'
+import Input from 'elements/input'
+import Heading from 'elements/heading'
 
 const ContactForm = () => {
   return (

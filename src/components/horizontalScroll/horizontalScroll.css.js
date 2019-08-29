@@ -1,6 +1,7 @@
 import styled from '@xstyled/emotion'
 
-import Flex from 'components/flex'
+import Flex from 'elements/flex'
+import scrollbars from 'styles/scrollbars.css'
 
 const HorizontalScrollInner = styled(Flex)`
   width: 100vw;
@@ -16,6 +17,8 @@ const HorizontalScrollInner = styled(Flex)`
     scroll-snap-points-x: repeat(100%);
     overflow-x: scroll;
     overflow-y: hidden;
+    width: 100vw;
+    ${scrollbars};
   }
 `
 

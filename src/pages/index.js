@@ -3,12 +3,11 @@ import Img from 'gatsby-image'
 import { css } from '@xstyled/emotion'
 import React from 'react'
 
-import Box from 'components/box'
-import Flex from 'components/flex'
-import Text from 'components/text'
-import Heading from 'components/heading'
+import Box from 'elements/box'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
+import Heading from 'elements/heading'
 import PageImage from 'components/pageImage'
-import PageContent from 'components/pageContent'
 import PostCard from 'components/postCard'
 import SwirlBackground from 'components/swirlBackground'
 import HorizontalScroll from 'components/horizontalScroll'
@@ -16,15 +15,15 @@ import ConciergeServices from 'components/conciergeServices'
 import Contact from 'components/contact'
 import Rentals from 'components/rentals'
 import Testimonial from 'components/testimonial'
-import Layout from 'components/layout'
 import SEO from 'components/seo'
 import Hidden from 'components/hidden'
 import CheckAvailability from 'components/checkAvailability'
+import { up } from 'theme/media'
 
 const IndexPage = ({
   data: { testimonials, blogPosts, headerImg, aboutImg },
 }) => (
-  <Layout>
+  <>
     <SEO title="Home" />
     <PageImage
       Tag="section"
@@ -34,9 +33,9 @@ const IndexPage = ({
         min-height: 35rem;
         span {
           font-weight: bold;
+          font-size: 4;
           letter-spacing: 0.35em;
           text-transform: uppercase;
-          font-size: 4;
         }
         h1 {
           font-weight: normal;
@@ -51,11 +50,21 @@ const IndexPage = ({
       <span>welcome to</span>
       <h1>muskoka district rentals</h1>
     </PageImage>
-    <PageContent
+    <Flex
       alignItems="center"
-      checkAvailability
+      as="section"
+      px={{ xs: 3, sm: 4, md: 4, xl: 5 }}
+      py={{ xs: 2, sm: 3, md: 4, xl: 5 }}
+      mb={{ xs: 2, md: 3, lg: 5 }}
       mt={{ xs: 0, md: '-100px' }}
+      flexDirection="column"
       textAlign="center"
+      css={css`
+        ${up('md')} {
+          margin-top: -150px;
+          padding-top: 3;
+        }
+      `}
     >
       <CheckAvailability />
       <Hidden down="sm">
@@ -133,7 +142,7 @@ const IndexPage = ({
           </span>
         </Flex>
       </Flex>
-    </PageContent>
+    </Flex>
     <Rentals />
     <ConciergeServices />
     <SwirlBackground>
@@ -161,7 +170,7 @@ const IndexPage = ({
       </Flex>
     </SwirlBackground>
     <Contact />
-  </Layout>
+  </>
 )
 
 export const query = graphql`

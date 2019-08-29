@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { map } from 'ramda'
+import { map, range } from 'ramda'
 import utcPlugin from 'dayjs-plugin-utc'
 
 dayjs.extend(utcPlugin)
@@ -16,7 +16,7 @@ const dateToLocal = date =>
 export const getBookedDates = map(dateToLocal)
 
 export const isBooked = (bookedDates, day) => {
-  const booked = getBookedDates(bookedDates)
+  const booked = map(dateToLocal, bookedDates)
   return booked
     .map(
       bookedDate =>
@@ -26,9 +26,10 @@ export const isBooked = (bookedDates, day) => {
     .includes(true)
 }
 
-export const isStart = (bookedDates, day) =>
-  isBooked(bookedDates, day) &&
-  !isBooked(bookedDates, dayjs(day).subtract(1, 'day'))
-
-export const isEnd = (bookedDates, day) =>
-  isBooked(bookedDates, day) && !isBooked(bookedDates, dayjs(day).add(1, 'day'))
+export const isBookedInRange = (bookedDates, dates) => {
+  const start = dayjs(dates[0])
+  const end = dayjs(dates[1])
+  return range(0, start.diff(end, 'day'))
+    .map(day => isBooked(bookedDates, start.add(day, 'day')))
+    .includes(true)
+}

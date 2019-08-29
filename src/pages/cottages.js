@@ -1,38 +1,55 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
+import { css } from '@emotion/core'
 
-import Box from 'components/box'
+import Box from 'elements/box'
+import Flex from 'elements/flex'
 import PageImage from 'components/pageImage'
-import PageContent from 'components/pageContent'
-import useAvailabilityContext from 'hooks/useAvailabilityContext'
-import CottageList from 'components/cottageList'
-import checkPropertyAvailability from 'util/checkPropertyAvailability'
+import { Cottage } from 'components/cottage'
+import useAvailability from 'hooks/useAvailabilityContext'
 import CheckAvailability from 'components/checkAvailability'
-import Layout from 'components/layout'
-import Button from 'components/button'
+import Button from 'elements/button'
 import SEO from 'components/seo'
+import { up } from 'theme/media'
 
 const Cottages = ({ data: { image, cottages } }) => {
-  const { from, to, pets, smokers, guests } = useAvailabilityContext()
   const [page, setPage] = useState(5)
   const handleClick = () => {
     setPage(page + 5)
   }
-  const filteredList = cottages.nodes.filter(cottage =>
-    checkPropertyAvailability(cottage, from, to, guests, pets, smokers)
-  )
-
+  const { filterProperties } = useAvailability()
+  const availableProperties = filterProperties(cottages.nodes)
   return (
-    <Layout>
+    <>
       <SEO title="Our Rentals" />
       <PageImage fluid={image.childImageSharp.fluid} tag="section">
         <h1>Our Rentals</h1>
       </PageImage>
-      <PageContent checkAvailability>
+      <Flex
+        as="section"
+        px={{ xs: 3, sm: 4, md: 4, xl: 5 }}
+        py={{ xs: 2, sm: 3, md: 4, xl: 5 }}
+        mb={{ xs: 2, md: 3, lg: 5 }}
+        flexDirection="column"
+        css={css`
+          ${up('md')} {
+            margin-top: -150px;
+            padding-top: 3;
+          }
+        `}
+      >
         <CheckAvailability />
-      </PageContent>
-      <CottageList cottages={filteredList.slice(0, page)} />
-      {page < filteredList.length && (
+      </Flex>
+      {availableProperties.slice(0, page).map((cottage, index) => (
+        <Cottage
+          key={cottage.id}
+          {...cottage}
+          reviewAvg={4.5}
+          reviewCount={6}
+          number={index}
+        />
+      ))}
+      {page < availableProperties.length && (
         <Box width="100%" textAlign="center" mb={4}>
           <Button
             textTransform="uppercase"
@@ -44,7 +61,7 @@ const Cottages = ({ data: { image, cottages } }) => {
           </Button>
         </Box>
       )}
-    </Layout>
+    </>
   )
 }
 
@@ -61,7 +78,7 @@ export const query = graphql`
       nodes {
         id
         ...Cottage
-        ...Calendar
+        bookedDates
       }
     }
   }

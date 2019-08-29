@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { CheckboxLabel } from './checkAvailability.css'
 
-import Checkbox from 'components/checkbox'
+import Checkbox from 'elements/checkbox'
 
 const LabelCheck = ({ label, checked, onChange }) => (
   <label>

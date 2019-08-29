@@ -3,9 +3,8 @@ import { css } from '@xstyled/emotion'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
-import Link from 'components/link'
-import Flex from 'components/flex'
-import Text from 'components/text'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 import { transition } from 'theme/transitions'
 
 const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
@@ -24,7 +23,14 @@ const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
     onMouseOver={onMouseOver}
     onFocus={onMouseOver}
   >
-    <Link to={`/cottages/${slug}`}>
+    <a
+      css={css`
+        &:hover {
+          text-decoration: none;
+        }
+      `}
+      href={`https://mdr5.wpengine.com/properties/${slug}`}
+    >
       <Text fontWeight="medium">
         Starting from <strong color="white">${price}</strong>/Night
       </Text>
@@ -43,7 +49,7 @@ const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
         fontWeight="bold"
         fontSize={5}
       />
-    </Link>
+    </a>
   </Flex>
 )
 

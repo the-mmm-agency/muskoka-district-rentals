@@ -4,14 +4,14 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import Rental from './rental'
 
-import PropertyCard from 'components/propertyCard'
-import Box from 'components/box'
+import { CottageCard } from 'components/cottage'
+import Box from 'elements/box'
 import Hidden from 'components/hidden'
-import Flex from 'components/flex'
+import Flex from 'elements/flex'
 import HorizontalScroll from 'components/horizontalScroll'
-import Heading from 'components/heading'
+import Heading from 'elements/heading'
 import PageImage from 'components/pageImage'
-import Link from 'components/link'
+import Link from 'elements/link'
 
 const Rentals = () => {
   const {
@@ -20,7 +20,7 @@ const Rentals = () => {
     query {
       roomTypes: allWordpressWpProperty {
         nodes {
-          ...PropertyCard
+          ...CottageCard
         }
       }
     }
@@ -39,7 +39,7 @@ const Rentals = () => {
           </Heading>
           <HorizontalScroll>
             {rentals.map(rental => (
-              <PropertyCard
+              <CottageCard
                 {...rental}
                 reviewCount={5}
                 reviewAvg={4.5}
@@ -64,15 +64,20 @@ const Rentals = () => {
             {heading}
           </Heading>
           <Flex flexBasis="calc(100% / 3)" listStyle="none">
-            {rentals.map((rental, index) => (
-              <Rental
-                key={rental.id}
-                selected={index == selected}
-                onMouseOver={() => setSelected(index)}
-                onFocus={() => setSelected(index)}
-                {...rental}
-              />
-            ))}
+            {rentals.map(
+              ({ id, price, featured_media, slug, title }, index) => (
+                <Rental
+                  key={id}
+                  selected={index == selected}
+                  onMouseOver={() => setSelected(index)}
+                  onFocus={() => setSelected(index)}
+                  featured_media={featured_media}
+                  price={price}
+                  slug={slug}
+                  title={title}
+                />
+              )
+            )}
           </Flex>
           <Link
             css={css`

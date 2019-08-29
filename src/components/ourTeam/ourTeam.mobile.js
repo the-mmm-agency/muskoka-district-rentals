@@ -3,9 +3,9 @@ import Img from 'gatsby-image'
 
 import { teamPropTypes } from './ourTeam'
 
-import Flex from 'components/flex'
-import Text from 'components/text'
-import Heading from 'components/heading'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
+import Heading from 'elements/heading'
 
 const OurTeam = ({ team }) => (
   <Flex as="section" flexDirection="column">

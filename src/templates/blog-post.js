@@ -4,10 +4,9 @@ import styled from '@xstyled/emotion'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Link from 'components/link'
+import Link from 'elements/link'
 import SEO from 'components/seo'
-import Layout from 'components/layout'
-import Heading from 'components/heading'
+import Heading from 'elements/heading'
 import Breadcrumb from 'components/breadcrumb'
 
 const Post = styled.div`
@@ -69,7 +68,7 @@ const BlogPost = ({
     post: { slug, title, category, content, date, featured_media },
   },
 }) => (
-  <Layout>
+  <>
     <Img
       minHeight="600px"
       fluid={featured_media.localFile.childImageSharp.fluid}
@@ -107,7 +106,7 @@ const BlogPost = ({
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </Post>
-  </Layout>
+  </>
 )
 
 BlogPost.propTypes = {

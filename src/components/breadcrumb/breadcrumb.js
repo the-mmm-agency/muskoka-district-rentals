@@ -1,19 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Box from 'components/box'
-import Link from 'components/link'
+import Box from 'elements/box'
+import Link from 'elements/link'
 
 const Breadcrumb = ({ crumbs, activeColor, color, ...props }) => (
   <Box display="inline-block" {...props}>
-    {crumbs.map((crumb, index) => (
+    {crumbs.map(({ link, title }, index) => (
       <>
         <Link
-          key={crumb.link}
-          to={crumb.link}
+          key={link}
+          to={title}
           color={index === crumbs.length - 1 ? activeColor : color}
           fontWeight="bold"
-          dangerouslySetInnerHTML={{ __html: crumb.title }}
+          dangerouslySetInnerHTML={{ __html: title }}
         />
         {index !== crumbs.length - 1 && <>&nbsp; &gt; &nbsp;</>}
       </>

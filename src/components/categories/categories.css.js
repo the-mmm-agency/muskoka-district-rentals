@@ -1,6 +1,6 @@
 import styled from '@xstyled/emotion'
 
-import Link from 'components/link'
+import Link from 'elements/link'
 import { down } from 'theme/media'
 
 export const Wrapper = styled.div`

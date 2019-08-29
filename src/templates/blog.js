@@ -2,10 +2,9 @@ import React from 'react'
 import styled from '@xstyled/emotion'
 import PropTypes from 'prop-types'
 
-import Heading from 'components/heading'
-import Flex from 'components/flex'
-import Grid from 'components/grid'
-import Layout from 'components/layout'
+import Heading from 'elements/heading'
+import Flex from 'elements/flex'
+import Grid from 'elements/grid'
 import Breadcrumb from 'components/breadcrumb'
 import Categories from 'components/categories'
 import PostCard from 'components/postCard'
@@ -33,7 +32,7 @@ const Blog = ({
   crumbs,
   title,
 }) => (
-  <Layout>
+  <>
     <Flex
       flexDirection="column"
       py={5}
@@ -74,7 +73,7 @@ const Blog = ({
         )}
       </PostGrid>
     </Flex>
-  </Layout>
+  </>
 )
 
 Blog.propTypes = {

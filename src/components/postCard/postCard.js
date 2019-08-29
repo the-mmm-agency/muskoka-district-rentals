@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
-import Card, { CardContent } from 'components/card'
-import Text from 'components/text'
-import Heading from 'components/heading'
-import Link from 'components/link'
+import Card, { CardContent } from 'elements/card'
+import Text from 'elements/text'
+import Heading from 'elements/heading'
+import Link from 'elements/link'
 
 const PostCard = ({ slug, featured_media, date, title, ...props }) => (
   <Card {...props}>

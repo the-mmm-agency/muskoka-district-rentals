@@ -1,6 +1,6 @@
 import styled, { css } from '@xstyled/emotion'
 
-import Flex from 'components/flex'
+import Flex from 'elements/flex'
 import Number from 'components/number'
 import { up, down } from 'theme/media'
 

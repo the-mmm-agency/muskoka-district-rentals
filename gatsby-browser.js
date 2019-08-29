@@ -1,5 +1,5 @@
-import RootWrapper from './src/components/rootWrapper'
-import PageWrapper from './src/components/pageWrapper'
+import RootWrapper from './wrap-root'
+import PageWrapper from './src/components/layout'
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)

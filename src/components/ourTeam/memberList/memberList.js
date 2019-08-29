@@ -6,8 +6,8 @@ import { ChevronRight } from 'styled-icons/evil/ChevronRight'
 
 import { NextButton, TeamMember } from './memberList.css'
 
-import Flex from 'components/flex'
-import Text from 'components/text'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 
 const MemberList = ({ selected, team }) => {
   const members = useMemo(

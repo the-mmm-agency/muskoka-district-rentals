@@ -5,19 +5,19 @@ import { css } from '@xstyled/emotion'
 import { ChevronRight } from 'styled-icons/evil/ChevronRight'
 import PropTypes from 'prop-types'
 
+import CottageInfo from './cottage.info'
+import Rating from './cottage.rating'
+
 import { up, down } from 'theme/media'
-import Box from 'components/box'
-import Flex from 'components/flex'
-import Heading from 'components/heading'
-import Text from 'components/text'
-import StarRating from 'components/starRating'
+import Box from 'elements/box'
+import Flex from 'elements/flex'
+import Heading from 'elements/heading'
+import Text from 'elements/text'
 import Hidden from 'components/hidden'
 import Number from 'components/number'
-import Button from 'components/button'
-import CottageInfo from 'components/cottageInfo'
+import Button from 'elements/button'
 
 const Cottage = ({
-  address,
   bedrooms,
   content,
   featured_media,
@@ -64,17 +64,6 @@ const Cottage = ({
         mx={5}
         p={3}
       >
-        <Box
-          as="span"
-          css={css`
-            font-weight: bold;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            writing-mode: vertical-lr;
-          `}
-        >
-          {address.replace('Canada', '').replace(/Ontario.*/, 'ON')}
-        </Box>
         <Number
           css={css`
             color: textSecondary;
@@ -95,7 +84,7 @@ const Cottage = ({
       p={2}
     >
       <Box mb={3}>
-        <StarRating rating={reviewAvg} starDimension="1rem" />{' '}
+        <Rating rating={reviewAvg} starDimension="1rem" />{' '}
         <Text fontWeight="medium" ml="1px">
           {reviewCount} reviews
         </Text>
@@ -128,40 +117,33 @@ const Cottage = ({
         css={css`
           max-height: 19rem;
           margin-top: 4;
-          overflow: hidden;
+          overflow-x: hidden;
+          overflow-y: hidden;
           text-overflow: ellipsis;
           word-wrap: normal;
         `}
         dangerouslySetInnerHTML={{ __html: content }}
       />
       <CottageInfo
-        attributes={[
-          {
-            name: 'Square Feet',
-            value: `${size} sqft`,
-          },
-          {
-            name: 'Property',
-            value: category.name,
-          },
-          {
-            name: 'Sleeps',
-            value: guests,
-          },
-          {
-            name: 'Bedrooms',
-            value: bedrooms,
-          },
-          {
-            name: 'Pet Friendly',
-            value: suitability.includes('Pets') ? 'Yes' : 'No',
-          },
-        ]}
+        size={size}
+        category={category}
+        guests={guests}
+        bedrooms={bedrooms}
+        suitability={suitability}
       />
-      <Button to={`/cottages/${slug}`} variant="transparent">
-        See Rental &nbsp;
-        <ChevronRight />
-      </Button>
+      <a
+        href={`https://mdr5.wpengine.com/properties/${slug}`}
+        css={css`
+          &:hover {
+            text-decoration: none;
+          }
+        `}
+      >
+        <Button variant="transparent">
+          See Rental &nbsp;
+          <ChevronRight />
+        </Button>
+      </a>
     </Flex>
     <Img
       css={css`
@@ -185,8 +167,7 @@ const Cottage = ({
 
 export const query = graphql`
   fragment Cottage on wordpress__wp_property {
-    address
-    bedrooms
+    id
     content
     featured_media {
       localFile {
@@ -197,20 +178,14 @@ export const query = graphql`
         }
       }
     }
-    guests
     price
-    category {
-      name
-    }
-    size
-    suitability
     slug
     title
+    ...CottageInfo
   }
 `
 
 Cottage.propTypes = {
-  address: PropTypes.string.isRequired,
   bedrooms: PropTypes.string.isRequired,
   category: PropTypes.shape({
     name: PropTypes.string.isRequired,

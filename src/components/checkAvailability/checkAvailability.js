@@ -6,9 +6,11 @@ import Menu, {
 import '@material/react-list/dist/list.css'
 import '@material/react-menu-surface/dist/menu-surface.css'
 import '@material/react-menu/dist/menu.css'
+import { withTheme } from '@xstyled/emotion'
 import { DateUtils } from 'react-day-picker'
 import { range } from 'ramda'
 import React, { useState } from 'react'
+import { useMediaLayout } from 'use-media'
 import { ChevronDown } from 'styled-icons/evil/ChevronDown'
 
 import {
@@ -24,11 +26,11 @@ import LabelCheck from './labelCheck'
 
 import Calendar from 'styles/calendar.css'
 import Modal from 'components/modal'
-import Button from 'components/button'
-import Flex from 'components/flex'
-import useAvailabilityContext from 'hooks/useAvailabilityContext'
+import Button from 'elements/button'
+import Flex from 'elements/flex'
+import useAvailability from 'hooks/useAvailabilityContext'
 
-const CheckAvailability = props => {
+const CheckAvailability = ({ theme, ...props }) => {
   const {
     from,
     to,
@@ -40,7 +42,7 @@ const CheckAvailability = props => {
     handleSmokers,
     guests,
     handleGuests,
-  } = useAvailabilityContext()
+  } = useAvailability()
   const [open, setOpen] = useState(false)
   const [localRange, setLocalRange] = useState({
     from: null,
@@ -48,6 +50,8 @@ const CheckAvailability = props => {
   })
   const [guestsActive, setGuests] = useState(false)
   const [menuAnchor, setMenuAnchor] = useState(null)
+
+  const matches = useMediaLayout(theme.breakpoints.sm)
   const handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, localRange)
     setLocalRange(range)
@@ -142,7 +146,7 @@ const CheckAvailability = props => {
           css={{
             margin: 0,
           }}
-          numberOfMonths={2}
+          numberOfMonths={matches ? 2 : 1}
           disabledDays={{ before: localRange.from }}
           selectedDays={[localRange.from, { ...localRange }]}
           modifiers={{
@@ -156,4 +160,4 @@ const CheckAvailability = props => {
   )
 }
 
-export default CheckAvailability
+export default withTheme(CheckAvailability)

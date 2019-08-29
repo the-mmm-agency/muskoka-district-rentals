@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import createUseContext from 'constate'
 
+import { isBookedInRange } from 'util/bookedDates'
+
 const handleDay = func => day => {
   func(day)
 }
@@ -22,6 +24,15 @@ const useAvailability = () => {
 
   const [guests, handleGuests] = useState(1)
 
+  const filterProperties = properties =>
+    properties.filter(
+      ({ guests: accommodates, suitability, bookedDates }) =>
+        accommodates >= guests &&
+        (!pets || suitability.includes('Pets')) &&
+        (!smokers || suitability.includes('Smoking')) &&
+        !isBookedInRange(bookedDates, [from, to])
+    )
+
   return {
     from,
     to,
@@ -33,6 +44,7 @@ const useAvailability = () => {
     handleSmokers,
     guests,
     handleGuests,
+    filterProperties,
   }
 }
 

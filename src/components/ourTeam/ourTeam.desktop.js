@@ -8,8 +8,8 @@ import { teamPropTypes } from './ourTeam'
 import MemberInfo from './memberInfo'
 import MemberList from './memberList'
 
-import Flex from 'components/flex'
-import Heading from 'components/heading'
+import Flex from 'elements/flex'
+import Heading from 'elements/heading'
 
 const OurTeam = ({ team }) => {
   const selected = useNumber(0, {

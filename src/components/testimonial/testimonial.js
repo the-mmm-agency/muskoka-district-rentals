@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Flex from 'components/flex'
-import Heading from 'components/heading'
-import Text from 'components/text'
-import StarRating from 'components/starRating'
+import Flex from 'elements/flex'
+import Heading from 'elements/heading'
+import Text from 'elements/text'
+import StarRating from 'components/cottage/cottage.rating'
 
 const Testimonial = ({ body, rating, author, property }) => (
   <Flex

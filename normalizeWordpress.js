@@ -26,11 +26,7 @@ module.exports = ({ entities }) => {
       e.category___NODE = mapType('category', e.category)[0]
     }
     if (e.__type === 'wordpress__wp_property') {
-      e.gallery___NODE = mapType('media', e.property_images)
-      e.amenities___NODE = mapType('property_features', e.property_features)
       e.category___NODE = mapType('property_category', e.property_category)[0]
-      delete e.property_images
-      delete e.property_features
       delete e.property_category
     }
     return e

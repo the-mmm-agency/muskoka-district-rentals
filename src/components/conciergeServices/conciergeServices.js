@@ -4,13 +4,15 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Fade from 'react-reveal/Fade'
 import { css } from '@xstyled/emotion'
 
+import ConciergeService from './conciergeService'
+
 import Hidden from 'components/hidden'
-import Box from 'components/box'
+import Box from 'elements/box'
 import { up } from 'theme/media'
-import Text from 'components/text'
-import Heading from 'components/heading'
-import Flex from 'components/flex'
-import ConciergeService from 'components/conciergeService'
+import Text from 'elements/text'
+import Heading from 'elements/heading'
+import Flex from 'elements/flex'
+import scrollbars from 'styles/scrollbars.css'
 
 const ConciergeServices = () => {
   const {
@@ -55,15 +57,7 @@ const ConciergeServices = () => {
             ${up('md')} {
               height: 500px;
             }
-            ::-webkit-scrollbar {
-              width: 6px;
-            }
-            ::-webkit-scrollbar-track {
-              background-color: #e9e9e9;
-            }
-            ::-webkit-scrollbar-thumb {
-              background-color: #0a252e;
-            }
+            ${scrollbars}
             width: 100%;
             height: 300px;
             margin: none;

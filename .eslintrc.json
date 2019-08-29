@@ -78,15 +78,14 @@
       "alias": {
         "map": [
           ["components", "./src/components"],
+          ["elements", "./src/elements"],
           ["images", "./src/images"],
-          ["icons", "./src/icons"],
           ["pages", "./src/pages"],
           ["hooks", "./src/hooks"],
           ["styles", "./src/styles"],
           ["templates", "./src/templates"],
           ["theme", "./src/theme"],
-          ["util", "./src/util"],
-          ["unicons", "./node_modules/@iconscout/react-unicons/icons"]
+          ["util", "./src/util"]
         ],
         "extensions": [".js", ".jsx"]
       }
@@ -99,6 +98,7 @@
         "gatsby-config.js",
         "gatsby-node.js",
         "gatsby-ssr.js",
+        "wrap-root.js",
         "src/templates/*.js",
         "src/pages/*.js",
         "test/pages/*.js"
@@ -106,14 +106,6 @@
       "rules": {
         "unicorn/filename-case": ["error", { "case": "kebabCase" }]
       }
-    },
-    {
-      "files": [
-        "gatsby-browser.js",
-        "gatsby-config.js",
-        "gatsby-node.js",
-        "gatsby-ssr.js"
-      ]
     }
   ]
 }

@@ -2,11 +2,10 @@ import { graphql } from 'gatsby'
 import { css } from '@xstyled/emotion'
 import React from 'react'
 
-import Box from 'components/box'
+import Box from 'elements/box'
 import Contact from 'components/contact'
-import Layout from 'components/layout'
-import Heading from 'components/heading'
-import Text from 'components/text'
+import Heading from 'elements/heading'
+import Text from 'elements/text'
 import PageImage from 'components/pageImage'
 import SwirlBackground from 'components/swirlBackground'
 import HorizontalScroll from 'components/horizontalScroll'
@@ -15,7 +14,7 @@ import OurTeam from 'components/ourTeam'
 import SEO from 'components/seo'
 
 const AboutUs = ({ data: { image, testimonials } }) => (
-  <Layout>
+  <>
     <SEO title="About Us" />
     <PageImage fluid={image.childImageSharp.fluid}>
       <span
@@ -66,7 +65,7 @@ const AboutUs = ({ data: { image, testimonials } }) => (
         ))}
       </HorizontalScroll>
     </SwirlBackground>
-  </Layout>
+  </>
 )
 
 export const query = graphql`

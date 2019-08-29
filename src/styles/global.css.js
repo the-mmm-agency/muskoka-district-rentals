@@ -1,6 +1,10 @@
 import { css } from '@xstyled/emotion'
+import { range } from 'ramda'
 
 import { up, down } from 'theme/media'
+import scrollbars from 'styles/scrollbars.css'
+
+const headings = range(1, 6).map(x => `h${x}`)
 
 const styles = css`
   *,
@@ -21,6 +25,7 @@ const styles = css`
     }
     line-height: default;
     scroll-behavior: smooth;
+    ${scrollbars}
   }
   body {
     color: textSecondary;
@@ -36,36 +41,18 @@ const styles = css`
       fill: currentColor;
     }
   }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  ${headings.join(',')} {
     margin-top: 0;
     color: textPrimary;
     font-weight: bold;
     font-family: serif;
     line-height: 1.2;
   }
-  h1 {
-    font-size: 0;
-  }
-  h2 {
-    font-size: 1;
-  }
-  h3 {
-    font-size: 2;
-  }
-  h4 {
-    font-size: 3;
-  }
-  h5 {
-    font-size: 4;
-  }
-  h6 {
-    font-size: 5;
-  }
+  ${headings.map(
+    (x, i) => `
+    h${x}: ${i};
+  `
+  )}
   p,
   blockquote {
     color: textParagraph;
