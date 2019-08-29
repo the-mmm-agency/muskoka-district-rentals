@@ -13,8 +13,6 @@ import Box from 'elements/box'
 import Flex from 'elements/flex'
 import Heading from 'elements/heading'
 import Text from 'elements/text'
-import Hidden from 'components/hidden'
-import Number from 'components/number'
 import Button from 'elements/button'
 
 const Cottage = ({
@@ -48,37 +46,13 @@ const Cottage = ({
       justify-content: flex-start;
       text-align: left;
     `}
-    mx={2}
     my={3}
   >
-    <Hidden down="lg">
-      <Flex
-        maxHeight={350}
-        justifyContent="space-between"
-        alignItems="center"
-        flexDirection="column"
-        border="1px solid"
-        borderColor="textSecondary"
-        col={0.06}
-        mt={0}
-        mx={5}
-        p={3}
-      >
-        <Number
-          css={css`
-            color: textSecondary;
-            font-weight: bold;
-            font-size: 4;
-          `}
-        >
-          {number + 1}
-        </Number>
-      </Flex>
-    </Hidden>
     <Flex
       flexShrink={0}
       flexWrap="wrap"
-      col={{ sm: 1, md: 0.5, lg: 0.4 }}
+      col={{ xs: 1, lg: 0.5 }}
+      ml={4}
       justifyContent="inherit"
       pt={0}
       p={2}
@@ -153,7 +127,7 @@ const Cottage = ({
         align-self: flex-start;
         width: 100%;
         margin-bottom: 4;
-        ${up('md')} {
+        ${up('lg')} {
           width: 40%;
         }
       `}

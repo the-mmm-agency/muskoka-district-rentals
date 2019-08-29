@@ -7,7 +7,7 @@ const BuyOrSell = ({ data: { page } }) => <PageContent contact page={page} />
 
 export const query = graphql`
   query {
-    page: wordpressWpPageContent(slug: { eq: "buy-or-sell" }) {
+    page: wordpressWpPageContent(slug: { eq: "buy-or-sell-cottages" }) {
       ...Page
     }
   }
