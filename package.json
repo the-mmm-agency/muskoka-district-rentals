@@ -185,7 +185,7 @@
     "react-test-renderer": "^16.8.6",
     "source-map-support": "^0.5.12",
     "start-server-and-test": "^1.9.0",
-    "stylelint": "^10.0.1",
+    "stylelint": "^11.0.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^18.3.0",
