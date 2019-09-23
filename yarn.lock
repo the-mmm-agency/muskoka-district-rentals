@@ -8589,6 +8589,13 @@ gatsby-page-utils@^0.0.5:
     micromatch "^3.1.10"
     slash "^1.0.0"
 
+gatsby-plugin-drift@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-drift/-/gatsby-plugin-drift-1.0.0.tgz#2c26ac9f588908c888d3782f694d3e23cd06950f"
+  integrity sha512-rEyN8En+BK/SgSLb2mNrVTwMAQtnAJv5f0X444X8ikJJ8byAJFGOyHlbuK0rVl/QvMgcw9E65cW3PhY6wrVCuA==
+  dependencies:
+    babel-runtime "^6.26.0"
+
 gatsby-plugin-emotion@^4.0.7:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.1.2.tgz#2ef3a303dea712efda85201501752ba126af2d03"
