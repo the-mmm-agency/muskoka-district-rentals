@@ -115,12 +115,6 @@ module.exports = {
     },
 
     // Deployment
-    {
-      resolve: 'gatsby-plugin-drift',
-      options: {
-        appId: '46w3n56cw9as',
-      },
-    },
     'gatsby-plugin-preload-link-crossorigin',
     {
       resolve: 'gatsby-plugin-netlify',
