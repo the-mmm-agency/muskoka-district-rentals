@@ -101,7 +101,7 @@
     "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-nprogress": "^2.0.10",
-    "gatsby-plugin-offline": "^2.1.0",
+    "gatsby-plugin-offline": "^3.0.0",
     "gatsby-plugin-polished": "^1.0.4",
     "gatsby-plugin-preload-link-crossorigin": "^1.0.2",
     "gatsby-plugin-ramda": "^1.0.0",
