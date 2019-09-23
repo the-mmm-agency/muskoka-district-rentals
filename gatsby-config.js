@@ -97,7 +97,7 @@ module.exports = {
         protocol: 'https',
         auth: {
           jwt_user: 'mdr5',
-          jwt_pass: '123',
+          jwt_pass: 'asteroid76',
           jwt_base_path: '/jwt-auth/v1/token',
         },
         includedRoutes: [
