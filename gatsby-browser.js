@@ -9,12 +9,5 @@ export const onClientEntry = () => {
   }
 }
 
-export const onInitialClientRender = () => {
-  if (process.env.NODE_ENV === 'production' && window.drift) {
-    window.drift.SNIPPET_VERSION = '0.3.1'
-    window.drift.load('46w3n56cw9as')
-  }
-}
-
 export const wrapPageElement = PageWrapper
 export const wrapRootElement = RootWrapper
