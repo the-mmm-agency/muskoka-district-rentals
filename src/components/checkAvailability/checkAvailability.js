@@ -37,9 +37,9 @@ const CheckAvailability = ({ theme, ...props }) => {
     handleFrom,
     handleTo,
     pets,
-    smokers,
+    children,
     handlePets,
-    handleSmokers,
+    handleChildren,
     guests,
     handleGuests,
   } = useAvailability()
@@ -122,9 +122,9 @@ const CheckAvailability = ({ theme, ...props }) => {
           <Flex justifyContent="space-between" mb={3}>
             <LabelCheck label="Pets" checked={pets} onChange={handlePets} />
             <LabelCheck
-              label="Smokers"
-              checked={smokers}
-              onChange={handleSmokers}
+              label="Children"
+              checked={children}
+              onChange={handleChildren}
             />
           </Flex>
           <Button

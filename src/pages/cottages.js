@@ -40,6 +40,23 @@ const Cottages = ({ data: { image, cottages } }) => {
       >
         <CheckAvailability />
       </Flex>
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        height="6rem"
+        mb={{ xs: 0, md: 6 }}
+      >
+        <Button
+          css={css`
+            font-size: 1.5rem;
+          `}
+          mx="auto"
+          fontFamily="serif"
+          href="https://mdr5.wpengine.com/"
+        >
+          Advanced Search
+        </Button>
+      </Flex>
       {availableProperties.slice(0, page).map((cottage, index) => (
         <Cottage
           key={cottage.id}

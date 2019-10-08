@@ -18,9 +18,9 @@ const useAvailability = () => {
   const handleTo = handleDay(setTo)
 
   const [pets, setPets] = useState(false)
-  const [smokers, setSmokers] = useState(false)
+  const [children, setChildren] = useState(false)
   const handlePets = handleCheck(setPets)
-  const handleSmokers = handleCheck(setSmokers)
+  const handleChildren = handleCheck(setChildren)
 
   const [guests, handleGuests] = useState(1)
 
@@ -29,7 +29,7 @@ const useAvailability = () => {
       ({ guests: accommodates, suitability, bookedDates }) =>
         accommodates >= guests &&
         (!pets || suitability.includes('Pets')) &&
-        (!smokers || suitability.includes('Smoking')) &&
+        (!children || suitability.includes('Children')) &&
         !isBookedInRange(bookedDates, [from, to])
     )
 
@@ -39,9 +39,9 @@ const useAvailability = () => {
     handleFrom,
     handleTo,
     pets,
-    smokers,
+    children,
     handlePets,
-    handleSmokers,
+    handleChildren,
     guests,
     handleGuests,
     filterProperties,
