@@ -103,6 +103,7 @@ module.exports = {
         includedRoutes: [
           '**/blog_post',
           '**/category',
+          '**/lake',
           '**/post_tag',
           '**/media',
           '**/property',

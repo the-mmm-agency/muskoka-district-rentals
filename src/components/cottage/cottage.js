@@ -21,7 +21,6 @@ const Cottage = ({
   featured_media,
   guests,
   price,
-  number,
   suitability,
   category,
   reviewAvg,
@@ -143,6 +142,7 @@ export const query = graphql`
   fragment Cottage on wordpress__wp_property {
     id
     content
+    suitability
     featured_media {
       localFile {
         childImageSharp {

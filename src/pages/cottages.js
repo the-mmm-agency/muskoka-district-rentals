@@ -1,6 +1,14 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 import { css } from '@emotion/core'
+import Menu, {
+  MenuList,
+  MenuListItem,
+  MenuListItemText,
+} from '@material/react-menu'
+import '@material/react-list/dist/list.css'
+import '@material/react-menu-surface/dist/menu-surface.css'
+import '@material/react-menu/dist/menu.css'
 
 import Box from 'elements/box'
 import Flex from 'elements/flex'
@@ -12,13 +20,20 @@ import Button from 'elements/button'
 import SEO from 'components/seo'
 import { up } from 'theme/media'
 
-const Cottages = ({ data: { image, cottages } }) => {
+const Cottages = ({ data: { image, cottages, ...data } }) => {
+  const lakes = [{ name: 'All Lakes', wordpress_id: 0 }, ...data.lakes.nodes]
   const [page, setPage] = useState(5)
+  const [lakeOpen, setLakeOpen] = useState(false)
+  const [lakeAnchor, setLakeAnchor] = useState(null)
+  const [lake, setLake] = useState(lakes[0])
   const handleClick = () => {
     setPage(page + 5)
   }
   const { filterProperties } = useAvailability()
-  const availableProperties = filterProperties(cottages.nodes)
+  const availableProperties = filterProperties(cottages.nodes).filter(
+    property =>
+      lake.wordpress_id === 0 || property.lake.includes(lake.wordpress_id)
+  )
   return (
     <>
       <SEO title="Our Rentals" />
@@ -41,21 +56,38 @@ const Cottages = ({ data: { image, cottages } }) => {
         <CheckAvailability />
       </Flex>
       <Flex
-        alignItems="center"
+        flexDirection="column"
+        alignItems="flex-end"
         justifyContent="center"
         height="6rem"
         mb={{ xs: 0, md: 6 }}
       >
         <Button
-          css={css`
-            font-size: 1.5rem;
-          `}
-          mx="auto"
-          fontFamily="serif"
-          href="https://mdr5.wpengine.com/"
+          variant="transparent"
+          size="lg"
+          mr={2}
+          onClick={event => {
+            setLakeAnchor(event.currentTarget)
+            setLakeOpen(true)
+          }}
+          fontSize={2}
         >
-          Advanced Search
+          {lake.name} ▼
         </Button>
+        <Menu
+          open={lakeOpen}
+          anchorElement={lakeAnchor}
+          onClose={() => setLakeOpen(false)}
+          onSelected={index => setLake(lakes[index])}
+        >
+          <MenuList>
+            {lakes.map(({ name, wordpress_id: id }) => (
+              <MenuListItem key={id}>
+                <MenuListItemText primaryText={name} />
+              </MenuListItem>
+            ))}
+          </MenuList>
+        </Menu>
       </Flex>
       {availableProperties.slice(0, page).map((cottage, index) => (
         <Cottage
@@ -91,9 +123,16 @@ export const query = graphql`
         }
       }
     }
+    lakes: allWordpressWpLake {
+      nodes {
+        wordpress_id
+        name
+      }
+    }
     cottages: allWordpressWpProperty {
       nodes {
         id
+        lake
         ...Cottage
         bookedDates
       }

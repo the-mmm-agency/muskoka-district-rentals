@@ -22,10 +22,8 @@ const mapTypeToEntities = R.curry((entities, type, ids) =>
 module.exports = ({ entities }) => {
   const mapType = mapTypeToEntities(entities)
   return entities.map(e => {
-    if (e.__type === 'wordpress__wp_blog_post') {
-      e.category___NODE = mapType('category', e.category)[0]
-    }
     if (e.__type === 'wordpress__wp_property') {
+      e.suitability = e.suitability === '' ? [] : e.suitability
       e.category___NODE = mapType('property_category', e.property_category)[0]
       delete e.property_category
     }
