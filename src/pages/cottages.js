@@ -87,6 +87,7 @@ const Cottages = ({ data: { image, cottages, ...data } }) => {
         <Button
           variant="serif"
           m="auto"
+          as="a"
           href="https://mdr5.wpengine.com/advanced-search/"
         >
           Advanced Search
