@@ -18,7 +18,10 @@ const Rentals = () => {
     roomTypes: { nodes: rentals },
   } = useStaticQuery(graphql`
     query {
-      roomTypes: allWordpressWpProperty(limit: 3) {
+      roomTypes: allWordpressWpProperty(
+        filter: { featured: { eq: "1" } }
+        sort: { fields: order, order: ASC }
+      ) {
         nodes {
           ...CottageCard
         }
