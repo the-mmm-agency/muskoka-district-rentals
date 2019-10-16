@@ -1,6 +1,15 @@
 import { graphql } from 'gatsby'
+import React from 'react'
 
-export { default } from './category'
+import BlogTemplate from 'templates/blog'
+
+const Tag = ({ data, pageContext: { name, slug } }) => (
+  <BlogTemplate
+    data={data}
+    title={name}
+    crumbs={[{ title: name, link: slug }]}
+  />
+)
 
 export const query = graphql`
   query TagPage($id: String!) {
@@ -14,3 +23,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Tag
