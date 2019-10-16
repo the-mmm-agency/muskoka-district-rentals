@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { system, variant } from '@xstyled/system'
 import { css } from '@xstyled/emotion'
-import Ripples from 'react-ripples'
 
 import Link from 'elements/link'
 import { transition } from 'theme/transitions'
@@ -105,25 +104,22 @@ const variants = variant({
 
 const StyledButton = styled.button(radii, system, variants, sizes)
 
-const Button = ({ children, to, linkProps, ...props }) => (
-  <Ripples>
-    {to ? (
-      <Link
-        css={css`
-          &:hover {
-            text-decoration: none;
-          }
-        `}
-        to={to}
-        {...linkProps}
-      >
-        <StyledButton {...props}>{children}</StyledButton>
-      </Link>
-    ) : (
+const Button = ({ children, to, linkProps, ...props }) =>
+  to ? (
+    <Link
+      css={css`
+        &:hover {
+          text-decoration: none;
+        }
+      `}
+      to={to}
+      {...linkProps}
+    >
       <StyledButton {...props}>{children}</StyledButton>
-    )}
-  </Ripples>
-)
+    </Link>
+  ) : (
+    <StyledButton {...props}>{children}</StyledButton>
+  )
 
 Button.propTypes = {
   linkProps: PropTypes.shape(Link.propTypes),

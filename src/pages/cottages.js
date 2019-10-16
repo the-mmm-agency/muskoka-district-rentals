@@ -55,16 +55,10 @@ const Cottages = ({ data: { image, cottages, ...data } }) => {
       >
         <CheckAvailability />
       </Flex>
-      <Flex
-        flexDirection="column"
-        alignItems="flex-end"
-        justifyContent="center"
-        height="6rem"
-        mb={{ xs: 0, md: 6 }}
-      >
+      <Flex>
         <Button
           variant="transparent"
-          size="lg"
+          ml="auto"
           mr={2}
           onClick={event => {
             setLakeAnchor(event.currentTarget)
@@ -88,6 +82,15 @@ const Cottages = ({ data: { image, cottages, ...data } }) => {
             ))}
           </MenuList>
         </Menu>
+      </Flex>
+      <Flex height="6rem" mb={{ xs: 0, md: 6 }}>
+        <Button
+          variant="serif"
+          m="auto"
+          href="https://mdr5.wpengine.com/advanced-search/"
+        >
+          Advanced Search
+        </Button>
       </Flex>
       {availableProperties.slice(0, page).map((cottage, index) => (
         <Cottage
