@@ -10,7 +10,7 @@ const mapIdsToEntities = R.curry((entities, ids) =>
       R.pipe(
         R.find(R.propEq('wordpress_id', id)),
         R.prop('id')
-      )(entities),
+      )(Array.isArray(entities) ? entities : []),
     ids
   )
 )
@@ -26,6 +26,11 @@ module.exports = ({ entities }) => {
       e.suitability = e.suitability === '' ? [] : e.suitability
       e.category___NODE = mapType('property_category', e.property_category)[0]
       delete e.property_category
+    }
+    if (e.__type === 'wordpress__wp_blog_post') {
+      e.category___NODE = mapType('category', e.category)[0]
+      e.tags___NODE = mapType('post_tag', e.post_tag)
+      delete e.post_tag
     }
     return e
   })

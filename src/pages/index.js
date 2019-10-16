@@ -7,6 +7,7 @@ import Box from 'elements/box'
 import Flex from 'elements/flex'
 import Text from 'elements/text'
 import Heading from 'elements/heading'
+import Button from 'elements/button'
 import PageImage from 'components/pageImage'
 import PostCard from 'components/postCard'
 import SwirlBackground from 'components/swirlBackground'
@@ -167,6 +168,9 @@ const IndexPage = ({
             <PostCard key={edge.node.id} {...edge.node} />
           ))}
         </HorizontalScroll>
+        <Button to="/blog" variant="serif" mt={3} mx="auto">
+          Read More
+        </Button>
       </Flex>
     </SwirlBackground>
     <Contact />
