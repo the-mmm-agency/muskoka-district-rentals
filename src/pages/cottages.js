@@ -133,7 +133,7 @@ export const query = graphql`
         name
       }
     }
-    cottages: allWordpressWpProperty {
+    cottages: allWordpressWpProperty(sort: { fields: order, order: ASC }) {
       nodes {
         id
         lake
