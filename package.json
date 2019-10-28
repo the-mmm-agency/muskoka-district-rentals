@@ -129,7 +129,7 @@
     "react-hanger": "^2.0.0",
     "react-headroom": "^2.2.8",
     "react-helmet": "^5.2.1",
-    "react-instantsearch-dom": "^5.7.0",
+    "react-instantsearch-dom": "^6.0.0",
     "react-modal": "^3.8.2",
     "react-pose": "^4.0.9",
     "react-reveal": "^1.2.2",
