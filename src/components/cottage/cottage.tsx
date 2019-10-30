@@ -1,19 +1,20 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
-import { css } from '@xstyled/emotion'
-import { ChevronRight } from 'styled-icons/evil/ChevronRight'
-import PropTypes from 'prop-types'
-
-import CottageInfo from './cottage.info'
-import Rating from './cottage.rating'
-
-import { up, down } from 'theme/media'
+import ProductionLink from 'components/productionLink/index'
 import Box from 'elements/box'
+import Button from 'elements/button'
 import Flex from 'elements/flex'
 import Heading from 'elements/heading'
 import Text from 'elements/text'
-import Button from 'elements/button'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { ChevronRight } from 'styled-icons/evil/ChevronRight'
+import { down, up } from 'theme/media'
+
+import { css } from '@xstyled/emotion'
+
+import CottageInfo from './cottage.info'
+import Rating from './cottage.rating'
 
 const Cottage = ({
   bedrooms,
@@ -104,8 +105,8 @@ const Cottage = ({
         bedrooms={bedrooms}
         suitability={suitability}
       />
-      <a
-        href={`https://mdr5.wpengine.com/properties/${slug}`}
+      <ProductionLink
+        href={`/properties/${slug}`}
         css={css`
           &:hover {
             text-decoration: none;
@@ -116,7 +117,7 @@ const Cottage = ({
           See Rental &nbsp;
           <ChevronRight />
         </Button>
-      </a>
+      </ProductionLink>
     </Flex>
     <Img
       css={css`

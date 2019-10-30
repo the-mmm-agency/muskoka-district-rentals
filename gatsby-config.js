@@ -25,19 +25,20 @@ module.exports = {
         util: path.join(__dirname, 'src', 'util'),
       },
     },
-    {
-      resolve: 'gatsby-plugin-eslint',
-      options: {
-        test: /\.js$|\.jsx$/,
-        exclude: /(node_modules|.cache|.history|public)/,
-        stages: ['develop'],
-        options: {
-          emitWarning: true,
-          failOnError: false,
-          formatter: require('eslint-formatter-pretty'),
-        },
-      },
-    },
+    'gatsby-plugin-typescript',
+    // {
+    //   resolve: 'gatsby-plugin-eslint',
+    //   options: {
+    //     test: /\.js$|\.jsx$/,
+    //     exclude: /(node_modules|.cache|.history|public)/,
+    //     stages: ['develop'],
+    //     options: {
+    //       emitWarning: true,
+    //       failOnError: false,
+    //       formatter: require('eslint-formatter-pretty'),
+    //     },
+    //   },
+    // },
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-emotion',
@@ -97,7 +98,7 @@ module.exports = {
         protocol: 'https',
         auth: {
           jwt_user: 'mdr5',
-          jwt_pass: 'asteroid76',
+          jwt_pass: 'Asteroid76!',
           jwt_base_path: '/jwt-auth/v1/token',
         },
         includedRoutes: [

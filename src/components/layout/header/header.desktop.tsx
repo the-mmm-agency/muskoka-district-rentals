@@ -1,12 +1,12 @@
-import React from 'react'
+import Hidden from 'components/hidden'
+import ProductionLink from 'components/productionLink/index'
+import Button from 'elements/button'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import { StyledHeader, Nav } from './header.desktop.css'
+import { Nav, StyledHeader } from './header.desktop.css'
 import HeaderLink from './header.link'
 import Logo from './header.logo'
-
-import Button from 'elements/button'
-import Hidden from 'components/hidden'
 
 const Header = ({ links }) => (
   <StyledHeader>
@@ -18,7 +18,7 @@ const Header = ({ links }) => (
         <a href="mailto:hello@muskokadistrictrentals.com">
           hello@muskokadistrictrentals.com
         </a>
-        <a href="https://mdr5.wpengine.com/login/">Login/Register</a>
+        <ProductionLink href="/login">Login/Register</ProductionLink>
       </span>
 
       <hr />

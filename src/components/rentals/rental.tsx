@@ -1,11 +1,12 @@
-import React from 'react'
-import { css } from '@xstyled/emotion'
-import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
-
+import ProductionLink from 'components/productionLink/index'
 import Flex from 'elements/flex'
 import Text from 'elements/text'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { transition } from 'theme/transitions'
+
+import { css } from '@xstyled/emotion'
 
 const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
   <Flex
@@ -23,13 +24,13 @@ const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
     onMouseOver={onMouseOver}
     onFocus={onMouseOver}
   >
-    <a
+    <ProductionLink
       css={css`
         &:hover {
           text-decoration: none;
         }
       `}
-      href={`https://mdr5.wpengine.com/properties/${slug}`}
+      to={`/properties/${slug}`}
     >
       <Text fontWeight="medium">
         Starting from <strong color="white">${price}</strong>/Night
@@ -49,7 +50,7 @@ const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
         fontWeight="bold"
         fontSize={5}
       />
-    </a>
+    </ProductionLink>
   </Flex>
 )
 

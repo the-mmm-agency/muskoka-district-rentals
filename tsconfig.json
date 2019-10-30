@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "checkJs": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["dom", "es2017"],
+    "module": "commonjs",
+    "noEmit": true,
+    "plugins": [
+      { "transform": "ts-optchain/transform" },
+      { "name": "typescript-styled-plugin" }
+    ],
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+        "components/*": ["src/components/*"],
+        "elements/*": ["src/elements/*"],
+        "images/*": ["src/images/*"],
+        "hooks/*": ["src/hooks/*"],
+        "pages/*": ["src/pages/*"],
+        "styles/*": ["src/styles/*"],
+        "templates/*": ["src/templates/*"],
+        "theme/*": ["src/theme/*"],
+        "util/*": ["src/util/*"]
+    },
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "esnext",
+    "types": ["node"],
+    "typeRoots": ["./src/@types", "./node_modules/@types"]
+  },
+  "include": ["./src/**/*"]
+}

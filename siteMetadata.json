@@ -1,4 +1,5 @@
 {
+  "productionUrl": "https://mdr5.wpengine.com",
   "title": "Muskoka District Rentals",
   "description": "MDR offers turn-key cottage rental agency services for owners seeking a trusted partner to safely manage the cottage rental process on their behalf",
   "author": "@brettm12345",
@@ -11,9 +12,21 @@
     "/private-fleet"
   ],
   "footerLinks": [
-    ["/", "/blog", "/buy-or-sell"],
-    ["/about-us", "/cottages", "/rent-your-cottage"],
-    ["/contact", "/guest-services", "/private-fleet"]
+    [
+      "/",
+      "/blog",
+      "/buy-or-sell"
+    ],
+    [
+      "/about-us",
+      "/cottages",
+      "/rent-your-cottage"
+    ],
+    [
+      "/contact",
+      "/guest-services",
+      "/private-fleet"
+    ]
   ],
   "manifest": {
     "name": "Muskoka District Rentals",

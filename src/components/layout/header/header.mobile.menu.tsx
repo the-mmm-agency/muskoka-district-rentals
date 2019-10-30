@@ -1,9 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-import { GatsbyLink, ExternalLink } from './header.mobile.css'
-
+import ProductionLink from 'components/productionLink/index'
 import Flex from 'elements/flex'
+import PropTypes from 'prop-types'
+import React from 'react'
+
+import {
+  ExternalLink,
+  GatsbyLink
+} from './header.mobile.css'
 
 const HeaderMenu = ({ links, handleClick }) => (
   <Flex as="nav" width="100%" flexWrap="wrap" maxHeight="100%">
@@ -15,9 +18,7 @@ const HeaderMenu = ({ links, handleClick }) => (
         {to.replace('/', '').replace(/-/g, ' ')}
       </GatsbyLink>
     ))}
-    <ExternalLink href="https://mdr5.wpengine.com/login/">
-      Login/Register
-    </ExternalLink>
+    <ProductionLink to="/login">Login/Register</ProductionLink>
   </Flex>
 )
 

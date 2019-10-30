@@ -1,14 +1,15 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
-import PropTypes from 'prop-types'
-import { css } from '@xstyled/emotion'
-
-import StarRating from './cottage.rating'
-import CottageInfo from './cottage.info'
-
+import ProductionLink from 'components/productionLink'
 import Card, { CardContent } from 'elements/card'
 import Text from 'elements/text'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
+import React from 'react'
+
+import { css } from '@xstyled/emotion'
+
+import CottageInfo from './cottage.info'
+import StarRating from './cottage.rating'
 
 const CottageCard = ({
   bedrooms,
@@ -21,8 +22,8 @@ const CottageCard = ({
   title,
 }) => (
   <Card>
-    <a
-      href={`https://mdr5.wpengine.com/properties/${slug}`}
+    <ProductionLink
+      to={`properties/${slug}`}
       css={css`
         &:hover {
           text-decoration: none;
@@ -48,7 +49,7 @@ const CottageCard = ({
           </Text>
         </span>
       </CardContent>
-    </a>
+    </ProductionLink>
   </Card>
 )
 
