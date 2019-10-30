@@ -1,5 +1,5 @@
 import ProductionLink from 'components/productionLink/index'
-import Box from 'elements/box'
+
 import Button from 'elements/button'
 import Flex from 'elements/flex'
 import Heading from 'elements/heading'
@@ -15,6 +15,7 @@ import { css } from '@xstyled/emotion'
 
 import CottageInfo from './cottage.info'
 import Rating from './cottage.rating'
+import Box from 'elements/box'
 
 const Cottage = ({
   bedrooms,
@@ -106,7 +107,7 @@ const Cottage = ({
         suitability={suitability}
       />
       <ProductionLink
-        href={`/properties/${slug}`}
+        to={`/properties/${slug}`}
         css={css`
           &:hover {
             text-decoration: none;
