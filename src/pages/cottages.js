@@ -1,4 +1,3 @@
-import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 import { css } from '@emotion/core'
 import Menu, {
@@ -9,15 +8,16 @@ import Menu, {
 import '@material/react-list/dist/list.css'
 import '@material/react-menu-surface/dist/menu-surface.css'
 import '@material/react-menu/dist/menu.css'
-
-import Box from 'elements/box'
-import Flex from 'elements/flex'
+import { useStaticQuery, graphql } from 'gatsby'
 import PageImage from 'components/pageImage'
 import { Cottage } from 'components/cottage'
-import useAvailability from 'hooks/useAvailabilityContext'
 import CheckAvailability from 'components/checkAvailability'
-import Button from 'elements/button'
 import SEO from 'components/seo'
+
+import Button from 'elements/button'
+import useAvailability from 'hooks/useAvailabilityContext'
+import Flex from 'elements/flex'
+import Box from 'elements/box'
 import { up } from 'theme/media'
 
 const Cottages = ({ data: { image, cottages, ...data } }) => {
@@ -25,6 +25,19 @@ const Cottages = ({ data: { image, cottages, ...data } }) => {
   const [page, setPage] = useState(5)
   const [lakeOpen, setLakeOpen] = useState(false)
   const [lakeAnchor, setLakeAnchor] = useState(null)
+  const {
+    site: {
+      siteMetadata: { productionUrl },
+    },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          productionUrl
+        }
+      }
+    }
+  `)
   const [lake, setLake] = useState(lakes[0])
   const handleClick = () => {
     setPage(page + 5)
@@ -88,7 +101,7 @@ const Cottages = ({ data: { image, cottages, ...data } }) => {
           variant="serif"
           m="auto"
           as="a"
-          href="https://mdr5.wpengine.com/advanced-search/"
+          href={`${productionUrl}/advanced-search/`}
         >
           Advanced Search
         </Button>
