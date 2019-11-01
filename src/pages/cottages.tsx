@@ -1,43 +1,41 @@
+import '@material/react-list/dist/list.css'
+import '@material/react-menu-surface/dist/menu-surface.css'
+import '@material/react-menu/dist/menu.css'
+
+import CheckAvailability from 'components/checkAvailability'
+import { Cottage } from 'components/cottage'
+import PageImage from 'components/pageImage'
+import SEO from 'components/seo'
+
 import React, { useState } from 'react'
+import Box from 'elements/box'
+import Button from 'elements/button'
+import Flex from 'elements/flex'
+import { graphql, useStaticQuery } from 'gatsby'
+import useAvailability from 'hooks/useAvailabilityContext'
+import { up } from 'theme/media'
+
 import { css } from '@emotion/core'
 import Menu, {
   MenuList,
   MenuListItem,
   MenuListItemText,
 } from '@material/react-menu'
-import '@material/react-list/dist/list.css'
-import '@material/react-menu-surface/dist/menu-surface.css'
-import '@material/react-menu/dist/menu.css'
-import { useStaticQuery, graphql } from 'gatsby'
-import PageImage from 'components/pageImage'
-import { Cottage } from 'components/cottage'
-import CheckAvailability from 'components/checkAvailability'
-import SEO from 'components/seo'
 
-import Button from 'elements/button'
-import useAvailability from 'hooks/useAvailabilityContext'
-import Flex from 'elements/flex'
-import Box from 'elements/box'
-import { up } from 'theme/media'
-
-const Cottages = ({ data: { image, cottages, ...data } }) => {
+const Cottages = ({
+  data: {
+    image,
+    cottages,
+    site: {
+      siteMetadata: { productionUrl },
+    },
+    ...data
+  },
+}) => {
   const lakes = [{ name: 'All Lakes', wordpress_id: 0 }, ...data.lakes.nodes]
   const [page, setPage] = useState(5)
   const [lakeOpen, setLakeOpen] = useState(false)
   const [lakeAnchor, setLakeAnchor] = useState(null)
-  const {
-    site: {
-      siteMetadata: { productionUrl },
-    },
-  } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          productionUrl
-        }
-      }
-    }
-  `)
   const [lake, setLake] = useState(lakes[0])
   const handleClick = () => {
     setPage(page + 5)
@@ -152,6 +150,11 @@ export const query = graphql`
         lake
         ...Cottage
         bookedDates
+      }
+    }
+    site: site {
+      siteMetadata {
+        productionUrl
       }
     }
   }

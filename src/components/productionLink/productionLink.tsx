@@ -17,14 +17,13 @@ const ProductionLink: React.FC<ProductionLinkProps> = ({ to, ...rest }) => {
       siteMetadata: { productionUrl },
     },
   }: Response = useStaticQuery(graphql`
-  query {
-    site {
-      siteMetadata {
-        productionUrl
+    query {
+      site {
+        siteMetadata {
+          productionUrl
+        }
       }
     }
-
-  }
   `)
   return <a {...rest} href={`${productionUrl}/${to}`} />
 }
