@@ -18,7 +18,7 @@ const Header = ({ links }) => (
         <a href="mailto:hello@muskokadistrictrentals.com">
           hello@muskokadistrictrentals.com
         </a>
-        <ProductionLink href="/login">Login/Register</ProductionLink>
+        <ProductionLink to="/login">Login/Register</ProductionLink>
       </span>
 
       <hr />
