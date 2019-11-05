@@ -1,3 +1,4 @@
+import ChatBot from 'components/chatbot'
 import CheckAvailability from 'components/checkAvailability'
 import ConciergeServices from 'components/conciergeServices'
 import Contact from 'components/contact'
@@ -173,6 +174,7 @@ const IndexPage = ({
         <Button to="/blog" variant="serif" mt={3} mx="auto">
           Read More
         </Button>
+        <ChatBot />
       </Flex>
     </SwirlBackground>
     <Contact />
