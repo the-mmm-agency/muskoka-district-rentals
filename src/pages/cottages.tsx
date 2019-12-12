@@ -1,26 +1,25 @@
-import '@material/react-list/dist/list.css'
-import '@material/react-menu-surface/dist/menu-surface.css'
-import '@material/react-menu/dist/menu.css'
+import '@material/react-list/dist/list.css';
+import '@material/react-menu-surface/dist/menu-surface.css';
+import '@material/react-menu/dist/menu.css';
 
-import CheckAvailability from 'components/checkAvailability'
-import { Cottage } from 'components/cottage'
-import PageImage from 'components/pageImage'
-import SEO from 'components/seo'
-
-import React, { useState } from 'react'
-import Box from 'elements/box'
-import Button from 'elements/button'
-import Flex from 'elements/flex'
-import { graphql, useStaticQuery } from 'gatsby'
-import useAvailability from 'hooks/useAvailabilityContext'
-import { up } from 'theme/media'
-
-import { css } from '@emotion/core'
+import { css } from '@emotion/core';
 import Menu, {
   MenuList,
   MenuListItem,
   MenuListItemText,
-} from '@material/react-menu'
+} from '@material/react-menu';
+import { graphql } from 'gatsby';
+import React, { useState } from 'react';
+
+import CheckAvailability from 'components/checkAvailability';
+import { Cottage } from 'components/cottage';
+import PageImage from 'components/pageImage';
+import SEO from 'components/seo';
+import Box from 'elements/box';
+import Button from 'elements/button';
+import Flex from 'elements/flex';
+import useAvailability from 'hooks/useAvailabilityContext';
+import { up } from 'theme/media';
 
 const Cottages = ({
   data: {
@@ -32,19 +31,19 @@ const Cottages = ({
     ...data
   },
 }) => {
-  const lakes = [{ name: 'All Lakes', wordpress_id: 0 }, ...data.lakes.nodes]
-  const [page, setPage] = useState(5)
-  const [lakeOpen, setLakeOpen] = useState(false)
-  const [lakeAnchor, setLakeAnchor] = useState(null)
-  const [lake, setLake] = useState(lakes[0])
+  const lakes = [{ name: 'All Lakes', wordpress_id: 0 }, ...data.lakes.nodes];
+  const [page, setPage] = useState(5);
+  const [lakeOpen, setLakeOpen] = useState(false);
+  const [lakeAnchor, setLakeAnchor] = useState(null);
+  const [lake, setLake] = useState(lakes[0]);
   const handleClick = () => {
-    setPage(page + 5)
-  }
-  const { filterProperties } = useAvailability()
+    setPage(page + 5);
+  };
+  const { filterProperties } = useAvailability();
   const availableProperties = filterProperties(cottages.nodes).filter(
     property =>
       lake.wordpress_id === 0 || property.lake.includes(lake.wordpress_id)
-  )
+  );
   return (
     <>
       <SEO title="Our Rentals" />
@@ -72,8 +71,8 @@ const Cottages = ({
           ml="auto"
           mr={2}
           onClick={event => {
-            setLakeAnchor(event.currentTarget)
-            setLakeOpen(true)
+            setLakeAnchor(event.currentTarget);
+            setLakeOpen(true);
           }}
           fontSize={2}
         >
@@ -126,8 +125,8 @@ const Cottages = ({
         </Box>
       )}
     </>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
@@ -158,6 +157,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default Cottages
+export default Cottages;

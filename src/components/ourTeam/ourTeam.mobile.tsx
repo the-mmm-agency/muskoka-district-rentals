@@ -1,13 +1,13 @@
+import Heading from 'elements/heading'
+import Text from 'elements/text'
 import React from 'react'
 
 import { teamPropTypes } from './ourTeam'
 import { MemberImage } from './ourTeam.mobile.css'
-
+import { OurTeamProps } from './ourTeam.types'
 import Flex from 'elements/flex'
-import Text from 'elements/text'
-import Heading from 'elements/heading'
 
-const OurTeam = ({ team }) => (
+const OurTeam: React.FC<OurTeamProps> = ({ team }) => (
   <Flex as="section" flexDirection="column">
     <hr />
     <Heading my={3} textAlign="center">
@@ -33,8 +33,6 @@ const OurTeam = ({ team }) => (
       ))}
     </Flex>
   </Flex>
-)
+);
 
-OurTeam.propTypes = teamPropTypes
-
-export default OurTeam
+export default OurTeam;

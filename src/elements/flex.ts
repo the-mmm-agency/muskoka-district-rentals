@@ -4,6 +4,6 @@ import Box from 'elements/box'
 
 const Flex = styled(Box)`
   display: flex;
-`
+`;
 
-export default Flex
+export default Flex;

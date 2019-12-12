@@ -1,11 +1,11 @@
-const path = require('path')
+const path = require('path');
 
-const siteMetadata = require('./siteMetadata')
-const normalizeWordpress = require('./normalizeWordpress')
+const siteMetadata = require('./siteMetadata');
+const normalizeWordpress = require('./normalizeWordpress');
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata,
@@ -26,6 +26,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-typescript',
+    'gatsby-plugin-styled-components',
     // {
     //   resolve: 'gatsby-plugin-eslint',
     //   options: {
@@ -132,5 +133,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify-cache',
+    {
+      resolve: 'gatsby-plugin-netlify-functions',
+      options: {
+        functionsSrc: `${__dirname}/src/lambda`,
+        functionsOutput: `${__dirname}/functions`,
+      },
+    },
   ],
-}
+};

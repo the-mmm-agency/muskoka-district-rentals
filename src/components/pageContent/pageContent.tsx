@@ -1,13 +1,33 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import PropTypes from 'prop-types'
+import { SystemProps } from '@xstyled/system';
+import { graphql } from 'gatsby';
+import { FluidObject } from 'gatsby-image';
+import React from 'react';
 
-import Image from 'components/pageImage'
-import Flex from 'elements/flex'
-import ContactForm from 'components/contactForm'
-import SEO from 'components/seo'
+import ContactForm from 'components/contactForm';
+import Image from 'components/pageImage';
+import SEO from 'components/seo';
+import Flex from 'elements/flex';
 
-const PageContent = ({
+interface Page {
+  content: string;
+  featured_media: {
+    localFile: {
+      childImageSharp: {
+        fluid: FluidObject;
+      };
+    };
+  };
+  title: string;
+}
+
+interface PageContentProps extends SystemProps {
+  children: React.ReactNode;
+  contact: boolean;
+  checkAvailability: boolean;
+  page: Page;
+}
+
+const PageContent: React.FC<PageContentProps> = ({
   children,
   contact,
   checkAvailability,
@@ -25,7 +45,6 @@ const PageContent = ({
       </>
     )}
     <Flex
-      as="section"
       px={{ xs: 3, sm: 4, md: 4, xl: 5 }}
       py={{ xs: 2, sm: 3, md: 4, xl: 5 }}
       mb={{ xs: 2, md: 3, lg: 5 }}
@@ -37,7 +56,7 @@ const PageContent = ({
       {contact && <ContactForm />}
     </Flex>
   </>
-)
+);
 
 export const query = graphql`
   fragment Page on wordpress__wp_page_content {
@@ -49,21 +68,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-PageContent.defaultProps = {
-  contact: false,
-  checkAvailability: false,
-}
-
-PageContent.propTypes = {
-  checkAvailability: PropTypes.bool,
-  contact: PropTypes.bool,
-  page: PropTypes.shape({
-    content: PropTypes.string.isRequired,
-    featured_media: PropTypes.object.isRequired,
-    title: PropTypes.string.isRequired,
-  }),
-}
-
-export default PageContent
+export default PageContent;

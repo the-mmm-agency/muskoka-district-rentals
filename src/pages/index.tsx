@@ -1,92 +1,72 @@
-import ChatBot from 'components/chatbot'
-import CheckAvailability from 'components/checkAvailability'
-import ConciergeServices from 'components/conciergeServices'
-import Contact from 'components/contact'
-import Hidden from 'components/hidden'
-import HorizontalScroll from 'components/horizontalScroll'
-import PageImage from 'components/pageImage'
-import PostCard from 'components/postCard'
-import Rentals from 'components/rentals'
-import SEO from 'components/seo'
-import SwirlBackground from 'components/swirlBackground'
-import Testimonial from 'components/testimonial'
+import styled from '@xstyled/emotion';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import React from 'react';
 
-import { graphql } from 'gatsby'
-import Box from 'elements/box'
-import Button from 'elements/button'
-import Flex from 'elements/flex'
-import Heading from 'elements/heading'
-import Text from 'elements/text'
-import Img from 'gatsby-image'
-import React from 'react'
+import ChatBot from 'components/chatbot';
+import CheckAvailability from 'components/checkAvailability';
+import ConciergeServices from 'components/conciergeServices';
+import Contact from 'components/contact';
+import Hidden from 'components/hidden';
+import HorizontalScroll from 'components/horizontalScroll';
+import PageImage from 'components/pageImage';
+import PostCard from 'components/postCard';
+import Rentals from 'components/rentals';
+import SEO from 'components/seo';
+import SwirlBackground from 'components/swirlBackground';
+import Testimonial from 'components/testimonial';
+import Box from 'elements/box';
+import Button from 'elements/button';
+import Flex from 'elements/flex';
+import Heading from 'elements/heading';
+import Text from 'elements/text';
+import { up } from 'theme/media';
 
-import { up } from 'theme/media'
-
-import { css } from '@xstyled/emotion'
+const HeaderImage = styled(PageImage)`
+  min-height: 35rem;
+  span {
+    font-weight: bold;
+    font-size: 4;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-weight: normal;
+    text-transform: capitalize;
+  }
+  h1,
+  span {
+    margin-bottom: 5;
+  }
+`;
 
 const IndexPage = ({
   data: { testimonials, blogPosts, headerImg, aboutImg },
 }) => (
   <>
     <SEO title="Home" />
-    <PageImage
-      Tag="section"
-      fadeIn
-      fluid={headerImg.childImageSharp.fluid}
-      css={css`
-        min-height: 35rem;
-        span {
-          font-weight: bold;
-          font-size: 4;
-          letter-spacing: 0.35em;
-          text-transform: uppercase;
-        }
-        h1 {
-          font-weight: normal;
-          text-transform: capitalize;
-        }
-        h1,
-        span {
-          margin-bottom: 5;
-        }
-      `}
-    >
+    <HeaderImage Tag="section" fadeIn fluid={headerImg.childImageSharp.fluid}>
       <span>welcome to</span>
       <h1>muskoka district rentals</h1>
-    </PageImage>
+    </HeaderImage>
     <Flex
       alignItems="center"
       as="section"
       px={{ xs: 3, sm: 4, md: 4, xl: 5 }}
       py={{ xs: 2, sm: 3, md: 4, xl: 5 }}
       mb={{ xs: 2, md: 3, lg: 5 }}
-      mt={{ xs: 0, md: '-100px' }}
+      mt={{ xs: 0, md: '-150px' }}
       flexDirection="column"
       textAlign="center"
-      css={css`
-        ${up('md')} {
-          margin-top: -150px;
-          padding-top: 3;
-        }
-      `}
     >
+      <ChatBot />
       <CheckAvailability />
-      <Hidden down="sm">
-        <Text
-          my={{ xs: 2, sm: 4, md: 5 }}
-          color="textSecondary"
-          textTransform="uppercase"
-          letterSpacing="0.35em"
-        >
-          about us
-        </Text>
-      </Hidden>
       <Flex
         flexBasis={{ xs: '100%', lg: '50%' }}
         flexDirection={{ xs: 'column', lg: 'row' }}
         alignItems="center"
         justifyContent="center"
-        mt={{ xs: 3, sm: 0 }}
+        mt={{ xs: 3, sm: 5 }}
         p={3}
       >
         <Box
@@ -174,12 +154,11 @@ const IndexPage = ({
         <Button to="/blog" variant="serif" mt={3} mx="auto">
           Read More
         </Button>
-        <ChatBot />
       </Flex>
     </SwirlBackground>
     <Contact />
   </>
-)
+);
 
 export const query = graphql`
   query {
@@ -209,6 +188,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

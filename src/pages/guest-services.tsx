@@ -1,8 +1,8 @@
-import { css } from '@xstyled/emotion'
-import { graphql } from 'gatsby'
-import React from 'react'
+import { css } from '@xstyled/emotion';
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import PageContent from 'components/pageContent'
+import PageContent from 'components/pageContent';
 
 const GuestServices = ({ data: { page } }) => (
   <PageContent
@@ -36,7 +36,7 @@ const GuestServices = ({ data: { page } }) => (
     contact
     page={page}
   />
-)
+);
 
 export const query = graphql`
   query {
@@ -44,6 +44,6 @@ export const query = graphql`
       ...Page
     }
   }
-`
+`;
 
-export default GuestServices
+export default GuestServices;

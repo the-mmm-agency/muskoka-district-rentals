@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { Wrapper, Info, Name, Title, Bio } from './memberInfo.css'
-import { wrapper, item } from './transitions'
+import { Bio, Info, Name, Title, Wrapper } from './memberInfo.css';
+import { item, wrapper } from './transitions';
 
 const MemberInfo = ({ id, name, bio, title }) => (
   <AnimatePresence initial={false} exitBeforeEnter>
@@ -17,13 +17,13 @@ const MemberInfo = ({ id, name, bio, title }) => (
       </Bio>
     </Wrapper>
   </AnimatePresence>
-)
+);
 
 MemberInfo.propTypes = {
   bio: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-}
+};
 
-export default MemberInfo
+export default MemberInfo;

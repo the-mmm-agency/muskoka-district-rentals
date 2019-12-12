@@ -1,4 +1,29 @@
 {
   "eslint.enable": true,
-  "path-intellisence"
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    /**
+     * Normal imports
+     */
+    {
+      "type": "importMember",
+      "regex": "^$",
+      "orderLevel": 10
+    },
+    /**
+     * Relative imports
+     */
+    {
+      "regex": "^[.]",
+      "orderLevel": 40
+    },
+    /**
+     * ./src root directory
+     */
+    {
+      "regex": "^(components|elements|images|hooks|pages|styles|templates|theme|util)/.*",
+      "orderLevel": 50
+    }
+  ],
+  "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 20
 }

@@ -1,34 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react';
 
-import Mobile from './ourTeam.mobile'
-import Desktop from './ourTeam.desktop'
+import Desktop from './ourTeam.desktop';
+import Mobile from './ourTeam.mobile';
+import { useTeam } from './outTeam.useTeams';
 
-import Hidden from 'components/hidden'
+import Hidden from 'components/hidden';
 
 const OurTeam = () => {
-  const {
-    allTeamJson: { nodes: team },
-  } = useStaticQuery(graphql`
-    query {
-      allTeamJson {
-        nodes {
-          id
-          name
-          title
-          bio
-          picture {
-            childImageSharp {
-              fluid(maxWidth: 4000) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  const team = useTeam();
   return (
     <>
       <Hidden up="md">
@@ -38,16 +17,7 @@ const OurTeam = () => {
         <Desktop team={team} />
       </Hidden>
     </>
-  )
-}
+  );
+};
 
-export const teamPropTypes = {
-  team: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    picture: PropTypes.object.isRequired,
-  }).isRequired,
-}
-
-export default OurTeam
+export default OurTeam;

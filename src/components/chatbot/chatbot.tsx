@@ -1,24 +1,33 @@
-import { InferProps } from 'prop-types'
-import React from 'react'
-import SimpleChatBot from 'react-simple-chatbot'
+import css from '@emotion/css';
+import React from 'react';
+import SimpleChatBot from 'react-simple-chatbot';
+import { ThemeProvider } from 'styled-components';
 
-import { sendToAdmin } from './chatbot.email'
+import handleEnd from './chatbot.handleEnd';
+import steps from './chatbot.steps';
+import theme from './chatbot.theme';
 
-const ChatBot: React.FC<InferProps<typeof SimpleChatBot.propTypes>> = props => {
-  const handleEnd = async ({
-    steps,
-    values,
-  }: {
-    steps: Step[]
-    values: Record<string, any>
-  }) => {
-    await sendToAdmin({
-      message: `Steps \n ${JSON.stringify(steps)}\n Value \n ${JSON.stringify(
-        values
-      )}`,
-    })
-  }
-  return <SimpleChatBot handleEnd={handleEnd} steps={steps}></SimpleChatBot>
-}
-
-export default ChatBot
+const ChatBot: React.FC = props => {
+  console.log(steps);
+  return (
+    <ThemeProvider theme={theme}>
+      <SimpleChatBot
+        floating
+        css={css`
+          .cwuCQv {
+            width: 40px;
+          }
+          .rsc-content * {
+            transition: none;
+            transform: none !important;
+          }
+        `}
+        transition
+        handleEnd={handleEnd}
+        steps={steps}
+        {...props}
+      />
+    </ThemeProvider>
+  );
+};
+export default ChatBot;

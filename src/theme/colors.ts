@@ -1,4 +1,4 @@
-import { transparentize } from 'polished'
+import { transparentize } from 'polished';
 
 const colors = {
   modes: {
@@ -29,6 +29,8 @@ const colors = {
   textSecondary: '#344051',
   textParagraph: '#555',
   textLight: '#666',
-}
+};
 
-export default colors
+export type Colors = typeof colors;
+
+export default colors;

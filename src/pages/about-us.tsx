@@ -1,16 +1,16 @@
-import { graphql } from 'gatsby'
-import React from 'react'
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import Flex from 'elements/flex'
-import Contact from 'components/contact'
-import Heading from 'elements/heading'
-import Text from 'elements/text'
-import PageImage from 'components/pageImage'
-import SwirlBackground from 'components/swirlBackground'
-import HorizontalScroll from 'components/horizontalScroll'
-import Testimonial from 'components/testimonial'
-import OurTeam from 'components/ourTeam'
-import SEO from 'components/seo'
+import Contact from 'components/contact';
+import HorizontalScroll from 'components/horizontalScroll';
+import OurTeam from 'components/ourTeam';
+import PageImage from 'components/pageImage';
+import SEO from 'components/seo';
+import SwirlBackground from 'components/swirlBackground';
+import Testimonial from 'components/testimonial';
+import Flex from 'elements/flex';
+import Heading from 'elements/heading';
+import Text from 'elements/text';
 
 const AboutUs = ({ data: { image, testimonials } }) => (
   <>
@@ -61,7 +61,7 @@ const AboutUs = ({ data: { image, testimonials } }) => (
       </HorizontalScroll>
     </SwirlBackground>
   </>
-)
+);
 
 export const query = graphql`
   query {
@@ -74,5 +74,5 @@ export const query = graphql`
       ...PageImage
     }
   }
-`
-export default AboutUs
+`;
+export default AboutUs;

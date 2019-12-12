@@ -1,6 +1,6 @@
-import { css } from '@xstyled/emotion'
+import { css } from '@xstyled/emotion';
 
-import { transition } from 'theme/transitions'
+import { transition } from 'theme/transitions';
 
 const buttons = {
   radii: {
@@ -80,6 +80,6 @@ const buttons = {
       ${transition('background', { duration: 'short' })};
     `,
   },
-}
+};
 
-export default buttons
+export default buttons;

@@ -1,8 +1,8 @@
-import colors from 'theme/colors'
-import shadows from 'theme/shadows'
-import typography from 'theme/typography'
-import transitions from 'theme/transitions'
-import layout from 'theme/layout'
+import colors from 'theme/colors';
+import shadows from 'theme/shadows';
+import typography from 'theme/typography';
+import transitions from 'theme/transitions';
+import layout from 'theme/layout';
 
 export default {
   ...layout,
@@ -10,4 +10,4 @@ export default {
   colors,
   transition: transitions,
   shadows,
-}
+};

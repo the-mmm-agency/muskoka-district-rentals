@@ -1,22 +1,30 @@
-import React, { memo, useMemo } from 'react'
-import PropTypes from 'prop-types'
-import { css } from '@emotion/core'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronRight } from 'styled-icons/evil/ChevronRight'
+import { css } from '@emotion/core';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { memo, useMemo } from 'react';
+import { ChevronRight } from 'styled-icons/evil/ChevronRight';
 
-import { NextButton, TeamMember } from './memberList.css'
+import { NextButton, TeamMember } from './memberList.css';
 
-import Flex from 'elements/flex'
-import Text from 'elements/text'
+import Flex from 'elements/flex';
+import Text from 'elements/text';
 
-const MemberList = ({ selected, team }) => {
+interface MemberListProps {
+  selected: {
+    value: number;
+    increase: VoidFunction;
+    decrease: VoidFunction;
+  };
+  team: string[];
+}
+
+const MemberList: React.FC<MemberListProps> = ({ selected, team }) => {
   const members = useMemo(
     () =>
       team
         .slice(selected.value, team.length)
         .concat(team.slice(0, selected.value)),
     [team, selected]
-  )
+  );
   return (
     <Flex width={1} height="300px">
       <motion.ul
@@ -34,6 +42,7 @@ const MemberList = ({ selected, team }) => {
                 list-style: none;
               `}
               positionTransition={{ type: 'tween' }}
+              exit={{ opacity: 0 }}
               key={id}
             >
               <TeamMember fluid={picture.childImageSharp.fluid}>
@@ -49,22 +58,6 @@ const MemberList = ({ selected, team }) => {
         <ChevronRight title="Next Member" />
       </NextButton>
     </Flex>
-  )
-}
-
-MemberList.propTypes = {
-  selected: PropTypes.shape({
-    value: PropTypes.number.isRequired,
-    increase: PropTypes.func.isRequired,
-    decrease: PropTypes.func.isRequired,
-  }).isRequired,
-  team: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      picture: PropTypes.object.isRequired,
-    }).isRequired
-  ).isRequired,
-}
-
-export default memo(MemberList, () => false)
+  );
+};
+export default memo(MemberList, () => false);

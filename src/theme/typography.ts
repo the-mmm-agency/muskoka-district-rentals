@@ -1,11 +1,11 @@
-import { css } from '@xstyled/emotion'
+import { css } from '@xstyled/emotion';
 
-const baseFontSize = 14
+const baseFontSize = 14;
 const fontSizes = [75, 60, 48, 36, 24, 18, 16].map(
   value => `${value / baseFontSize}rem`
-)
+);
 
-export default {
+const typography = {
   fontSizes: { ...fontSizes, base: baseFontSize },
   fonts: {
     sans: 'Raleway, sans-serif',
@@ -44,4 +44,8 @@ export default {
       text-transform: uppercase;
     `,
   },
-}
+};
+
+export type Typography = typeof typography;
+
+export default typography;
