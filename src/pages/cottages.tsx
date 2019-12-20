@@ -2,12 +2,12 @@ import '@material/react-list/dist/list.css';
 import '@material/react-menu-surface/dist/menu-surface.css';
 import '@material/react-menu/dist/menu.css';
 
-import { css } from '@emotion/core';
 import Menu, {
   MenuList,
   MenuListItem,
   MenuListItemText,
 } from '@material/react-menu';
+import { css } from '@xstyled/emotion';
 import { graphql } from 'gatsby';
 import React, { useState } from 'react';
 
@@ -56,12 +56,6 @@ const Cottages = ({
         py={{ xs: 2, sm: 3, md: 4, xl: 5 }}
         mb={{ xs: 2, md: 3, lg: 5 }}
         flexDirection="column"
-        css={css`
-          ${up('md')} {
-            margin-top: -150px;
-            padding-top: 3;
-          }
-        `}
       >
         <CheckAvailability />
       </Flex>
