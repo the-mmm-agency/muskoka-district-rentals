@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
-import { system, variant } from '@xstyled/system'
-import { css } from '@xstyled/emotion'
+import styled from '@emotion/styled';
+import { css } from '@xstyled/emotion';
+import { system, variant } from '@xstyled/system';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Link from 'elements/link'
-import { transition } from 'theme/transitions'
+import Link from 'elements/link';
+import { transition } from 'theme/transitions';
 
 const radii = variant({
   default: 'default',
@@ -21,7 +21,7 @@ const radii = variant({
       border-radius: 30px;
     `,
   },
-})
+});
 
 const sizes = variant({
   default: 'md',
@@ -44,7 +44,7 @@ const sizes = variant({
       font-size: 1rem;
     `,
   },
-})
+});
 
 const variants = variant({
   default: 'flat',
@@ -100,9 +100,9 @@ const variants = variant({
       ${transition('background', { duration: 'short' })};
     `,
   },
-})
+});
 
-const StyledButton = styled.button(radii, system, variants, sizes)
+const StyledButton = styled.button(radii, system, variants, sizes);
 
 const Button = ({ children, to, linkProps, ...props }) =>
   to ? (
@@ -119,11 +119,11 @@ const Button = ({ children, to, linkProps, ...props }) =>
     </Link>
   ) : (
     <StyledButton {...props}>{children}</StyledButton>
-  )
+  );
 
 Button.propTypes = {
   linkProps: PropTypes.shape(Link.propTypes),
   to: PropTypes.string,
-}
+};
 
-export default Button
+export default Button;

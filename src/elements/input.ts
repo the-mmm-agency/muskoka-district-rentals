@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { system, th } from '@xstyled/system'
-import { transparentize } from 'polished'
+import styled from '@emotion/styled';
+import { system, th } from '@xstyled/system';
+import { transparentize } from 'polished';
+import React from 'react';
 
-import { transition } from 'theme/transitions'
+import { transition } from 'theme/transitions';
 
 const Wrapper = styled.div`
   position: relative;
@@ -35,13 +35,13 @@ const Wrapper = styled.div`
       transparentize(0.82, th.color('textPrimary')(props))};
   }
   ${system}
-`
+`;
 
 const Input = props => (
   <Wrapper {...props}>
     <input {...props} />
     <span />
   </Wrapper>
-)
+);
 
-export default Input
+export default Input;

@@ -12,6 +12,7 @@ const Content = styled(PageContent)`
     display: flex;
     margin-bottom: 3;
     .wp-block-media-text__content {
+      margin-top: 1em;
       h6 {
         margin-bottom: 1;
         font-size: 4;
@@ -23,11 +24,18 @@ const Content = styled(PageContent)`
       }
     }
     .wp-block-media-text__media {
+      img {
+        width: 100%;
+      }
       display: flex;
+      min-width: 4em;
+      max-width: 8em;
+      flex-grow: 1;
       align-items: center;
       margin-inline-start: 0;
       margin-inline-end: 0;
-      margin: 2 3 4 0;
+      margin-right: 4;
+      margin-bottom: 4;
     }
   }
 `;
