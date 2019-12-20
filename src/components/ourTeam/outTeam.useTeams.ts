@@ -1,11 +1,11 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby';
 
-import { Member } from './ourTeam.types'
+import { Member } from './ourTeam.types';
 
 interface Result {
   allTeamJson: {
-    nodes: Member[]
-  }
+    nodes: Member[];
+  };
 }
 
 const query = graphql`
@@ -26,9 +26,9 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
 export const useTeam = (): Member[] => {
-  const result: Result = useStaticQuery(query)
-  return result.allTeamJson.nodes
-}
+  const result: Result = useStaticQuery(query);
+  return result.allTeamJson.nodes;
+};

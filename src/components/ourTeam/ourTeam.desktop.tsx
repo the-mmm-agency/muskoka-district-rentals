@@ -1,44 +1,33 @@
-import React from 'react'
-import { css } from '@emotion/core'
-import { useNumber } from 'react-hanger'
-import Img from 'gatsby-image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion';
+import Img from 'gatsby-image';
+import React, { useMemo } from 'react';
+import { useNumber } from 'react-hanger';
 
-import { teamPropTypes } from './ourTeam'
-import MemberInfo from './memberInfo'
-import MemberList from './memberList'
+import MemberInfo from './memberInfo';
+import MemberList from './memberList';
+import { Root } from './ourTeam.desktop.css';
+import { OurTeamProps } from './ourTeam.types';
 
-import Flex from 'elements/flex'
-import Heading from 'elements/heading'
+import Flex from 'elements/flex';
+import Heading from 'elements/heading';
 
-const OurTeam = ({ team }) => {
+const OurTeam: React.FC<OurTeamProps> = ({ team }) => {
   const selected = useNumber(0, {
     lowerLimit: 0,
     upperLimit: team.length - 1,
     loop: true,
-  })
-  const current = team[selected.value]
-  const colors = ['#1A2021', '#22293A']
+  });
+  const current = team[selected.value];
+  const colors = ['#1A2021', '#22293A'];
+  const members = useMemo(
+    () =>
+      team
+        .slice(selected.value, team.length)
+        .concat(team.slice(0, selected.value)),
+    [selected.value]
+  );
   return (
-    <Flex
-      as="section"
-      position="relative"
-      flexDirection="column"
-      minHeight="100vh"
-      overflow="hidden"
-      color="white"
-      backgroundColor="white"
-      css={css`
-        &::before {
-          position: absolute;
-          z-index: 0;
-          min-width: 100%;
-          height: calc(60vh + 24.3rem);
-          background-color: ${colors[selected.value]};
-          content: '';
-        }
-      `}
-    >
+    <Root color={colors[selected.value]}>
       <Heading
         my={6}
         letterSpacing="caps"
@@ -65,28 +54,28 @@ const OurTeam = ({ team }) => {
           <Flex minWidth="100%" minHeight="60vh">
             <AnimatePresence initial={false} exitBeforeEnter>
               <motion.div
-                enter={{ opacity: 1 }}
+                initial={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 style={{ width: '100%', height: '60vh' }}
                 key={current.id}
               >
                 <Img
-                  css={css`
-                    height: 100%;
-                  `}
+                  css={{ height: '100%' }}
                   fluid={current.picture.childImageSharp.fluid}
-                  objectFit="contain"
                 />
               </motion.div>
             </AnimatePresence>
           </Flex>
-          <MemberList team={team} selected={selected} />
+          <MemberList
+            team={members}
+            handleClick={() => {
+              selected.increase();
+            }}
+          />
         </Flex>
       </Flex>
-    </Flex>
-  )
-}
+    </Root>
+  );
+};
 
-OurTeam.propTypes = teamPropTypes
-
-export default OurTeam
+export default OurTeam;

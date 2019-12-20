@@ -6,7 +6,7 @@ import { useTeam } from './outTeam.useTeams';
 
 import Hidden from 'components/hidden';
 
-const OurTeam = () => {
+const OurTeam: React.FC = () => {
   const team = useTeam();
   return (
     <>

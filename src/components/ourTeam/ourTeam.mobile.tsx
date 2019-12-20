@@ -1,11 +1,11 @@
-import Heading from 'elements/heading'
-import Text from 'elements/text'
-import React from 'react'
+import React from 'react';
 
-import { teamPropTypes } from './ourTeam'
-import { MemberImage } from './ourTeam.mobile.css'
-import { OurTeamProps } from './ourTeam.types'
-import Flex from 'elements/flex'
+import { MemberImage } from './ourTeam.mobile.css';
+import { OurTeamProps } from './ourTeam.types';
+
+import Flex from 'elements/flex';
+import Heading from 'elements/heading';
+import Text from 'elements/text';
 
 const OurTeam: React.FC<OurTeamProps> = ({ team }) => (
   <Flex as="section" flexDirection="column">

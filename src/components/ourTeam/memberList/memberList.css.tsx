@@ -1,7 +1,19 @@
-import styled from '@emotion/styled'
+import styled from '@xstyled/emotion'
+import { motion } from 'framer-motion'
 import BackgroundImage from 'gatsby-background-image'
 
 import { transition } from 'theme/transitions'
+
+export const List = styled(motion.ul)`
+  display: flex;
+  flex: 0 0 75%;
+  margin: 0;
+`;
+
+export const Item = styled(motion.li)<Record<'length', number>>`
+  flex: 0 0 calc(100% / ${props => props.length});
+  list-style: none;
+`;
 
 export const TeamMember = styled(BackgroundImage)`
   &::before,
@@ -14,7 +26,7 @@ export const TeamMember = styled(BackgroundImage)`
   width: 100%;
   height: 200px;
   text-align: center;
-`
+`;
 
 export const NextButton = styled.button`
   &:hover {
@@ -35,4 +47,4 @@ export const NextButton = styled.button`
     duration: 'complex',
     easing: 'sharp',
   })};
-`
+`;

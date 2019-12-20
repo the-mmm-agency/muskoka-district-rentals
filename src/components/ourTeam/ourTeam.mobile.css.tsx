@@ -1,5 +1,5 @@
-import Img from 'gatsby-background-image'
-import styled from '@xstyled/emotion'
+import styled from '@xstyled/emotion';
+import Img from 'gatsby-background-image';
 
 export const MemberImage = styled(Img)`
   h4,
@@ -12,4 +12,4 @@ export const MemberImage = styled(Img)`
   flex-direction: column;
   height: 400px;
   justify-content: flex-end;
-`
+`;

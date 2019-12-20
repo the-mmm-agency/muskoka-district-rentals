@@ -2,10 +2,13 @@ import { AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { Member } from '../ourTeam.types';
 import { Bio, Info, Name, Title, Wrapper } from './memberInfo.css';
 import { item, wrapper } from './transitions';
 
-const MemberInfo = ({ id, name, bio, title }) => (
+type MemberInfoProps = Omit<Member, 'picture'>;
+
+const MemberInfo: React.FC<MemberInfoProps> = ({ id, name, bio, title }) => (
   <AnimatePresence initial={false} exitBeforeEnter>
     <Wrapper key={id} {...wrapper}>
       <Info {...item}>
@@ -18,12 +21,5 @@ const MemberInfo = ({ id, name, bio, title }) => (
     </Wrapper>
   </AnimatePresence>
 );
-
-MemberInfo.propTypes = {
-  bio: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default MemberInfo;
