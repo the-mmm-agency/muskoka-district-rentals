@@ -59,7 +59,7 @@
     "@popmotion/popcorn": "^0.4.2",
     "@reach/router": "^1.2.1",
     "@styled-system/should-forward-prop": "^5.0.10",
-    "@svgr/webpack": "^4.3.3",
+    "@svgr/webpack": "^5.0.0",
     "@types/nodemailer": "^6.2.2",
     "@types/styled-components": "^4.1.21",
     "@types/xstyled__system": "^1.14.1",
