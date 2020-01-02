@@ -1,8 +1,8 @@
-import styled, { css } from '@xstyled/emotion'
+import styled, { css } from '@xstyled/emotion';
 
-const layerWidth = 20
-const layerHeight = 3
-const layerSpacing = 3
+const layerWidth = 20;
+const layerHeight = 3;
+const layerSpacing = 3;
 
 export const Button = styled.button`
   padding: 15px;
@@ -17,7 +17,7 @@ export const Button = styled.button`
   text-transform: none;
   background-color: transparent;
   margin-left: auto;
-`
+`;
 
 const activeStyle = props =>
   props.active &&
@@ -45,7 +45,7 @@ const activeStyle = props =>
       transition: right 0.125s ease-out, top 0.05s 0.125s linear,
         transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
-  `
+  `;
 
 export const Inner = styled.span`
   display: block;
@@ -85,4 +85,4 @@ export const Inner = styled.span`
     width: ${layerWidth / 2}px;
   }
   ${activeStyle}
-`
+`;

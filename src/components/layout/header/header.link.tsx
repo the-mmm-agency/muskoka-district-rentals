@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from '@xstyled/emotion'
-import Ripples from 'react-ripples'
+import styled, { css } from '@xstyled/emotion';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Ripples from 'react-ripples';
 
-import { transition } from 'theme/transitions'
-import Link from 'elements/link'
+import { transition } from 'theme/transitions';
 
-const StyledLink = styled(Link)`
+const linkStyle = css`
   color: textPrimary;
   font-weight: bold;
   letter-spacing: labels;
@@ -52,7 +52,15 @@ const StyledLink = styled(Link)`
       ${transition('transform')};
     }
   }
-`
+`;
+
+export const StyledLink = styled(Link)`
+  ${linkStyle}
+`;
+
+export const StyledA = styled.a`
+  ${linkStyle}
+`;
 
 const HeaderLink = ({ to, ...props }) => (
   <Ripples>
@@ -60,10 +68,10 @@ const HeaderLink = ({ to, ...props }) => (
       <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
     </StyledLink>
   </Ripples>
-)
+);
 
 HeaderLink.propTypes = {
   to: PropTypes.string.isRequired,
-}
+};
 
-export default HeaderLink
+export default HeaderLink;

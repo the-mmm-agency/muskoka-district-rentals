@@ -1,13 +1,13 @@
-import styled, { css } from '@xstyled/emotion'
+import styled, { css } from '@xstyled/emotion';
 
-import { StyledHeader } from './header.desktop.css'
+import { StyledHeader } from './header.desktop.css';
 
-import Link from 'elements/link'
-import { transition } from 'theme/transitions'
+import Link from 'elements/link';
+import { transition } from 'theme/transitions';
 
-const activeStyle = props => css`
-  height: ${props.active ? '35rem' : '60px'};
-`
+const activeStyle = ({ active }: { active: boolean }) => css`
+  height: ${active ? '35rem' : '60px'};
+`;
 
 const link = css`
   width: 100%;
@@ -16,14 +16,14 @@ const link = css`
   font-size: 4;
   font-family: serif;
   text-transform: capitalize;
-`
+`;
 
 export const GatsbyLink = styled(Link)`
   ${link}
-`
+`;
 export const ExternalLink = styled.a`
   ${link}
-`
+`;
 
 export const Header = styled(StyledHeader)`
   padding: 1;
@@ -31,4 +31,4 @@ export const Header = styled(StyledHeader)`
   overflow: hidden;
   ${activeStyle}
   ${transition('height', { duration: 'shorter' })};
-`
+`;

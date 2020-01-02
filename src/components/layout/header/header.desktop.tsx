@@ -1,14 +1,18 @@
-import Hidden from 'components/hidden'
-import ProductionLink from 'components/productionLink/index'
-import Button from 'elements/button'
-import PropTypes from 'prop-types'
-import React from 'react'
+import React, { FC } from 'react';
 
-import { Nav, StyledHeader } from './header.desktop.css'
-import HeaderLink from './header.link'
-import Logo from './header.logo'
+import { Nav, StyledHeader } from './header.desktop.css';
+import HeaderLink, { StyledA } from './header.link';
+import Logo from './header.logo';
 
-const Header = ({ links }) => (
+import Hidden from 'components/hidden';
+import ProductionLink from 'components/productionLink/index';
+import Button from 'elements/button';
+
+interface HeaderProps {
+  links: string[];
+}
+
+const Header: FC<HeaderProps> = ({ links }) => (
   <StyledHeader>
     <Logo />
     <Nav>
@@ -22,6 +26,9 @@ const Header = ({ links }) => (
       </span>
 
       <hr />
+      <StyledA href="https://muskokadistrictrentals.kigobook.com">
+        Cottages
+      </StyledA>
       {links.map(to => (
         <HeaderLink to={to} key={to} />
       ))}
@@ -32,10 +39,6 @@ const Header = ({ links }) => (
       </Button>
     </Hidden>
   </StyledHeader>
-)
+);
 
-Header.propTypes = {
-  links: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-}
-
-export default Header
+export default Header;

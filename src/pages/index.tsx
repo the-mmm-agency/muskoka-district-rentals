@@ -1,4 +1,4 @@
-import styled from '@xstyled/emotion';
+import styled, { css } from '@xstyled/emotion';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
@@ -7,7 +7,6 @@ import ChatBot from 'components/chatbot';
 import CheckAvailability from 'components/checkAvailability';
 import ConciergeServices from 'components/conciergeServices';
 import Contact from 'components/contact';
-import Hidden from 'components/hidden';
 import HorizontalScroll from 'components/horizontalScroll';
 import PageImage from 'components/pageImage';
 import PostCard from 'components/postCard';
@@ -20,34 +19,44 @@ import Button from 'elements/button';
 import Flex from 'elements/flex';
 import Heading from 'elements/heading';
 import Text from 'elements/text';
-import { up } from 'theme/media';
 
 const HeaderImage = styled(PageImage)`
   min-height: 35rem;
+  display: flex;
   span {
     font-weight: bold;
-    font-size: 4;
     letter-spacing: 0.35em;
     text-transform: uppercase;
   }
-  h1 {
-    font-weight: normal;
-    text-transform: capitalize;
-  }
-  h1,
-  span {
-    margin-bottom: 5;
-  }
+`;
+
+const Logo = styled(Img)`
+  height: 8rem;
+  width: 30rem;
+`;
+
+const BlogHeader = styled(Flex)`
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5;
+  padding: 0 5;
+  text-align: center;
+`;
+const VerticalLine = styled.div`
+  width: 70px;
+  margin-bottom: 4;
+  vertical-align: top;
+  border-top: 2.5px solid black;
 `;
 
 const IndexPage = ({
-  data: { testimonials, blogPosts, headerImg, aboutImg },
+  data: { testimonials, blogPosts, headerImg, aboutImg, logoImg },
 }) => (
   <>
     <SEO title="Home" />
     <HeaderImage Tag="section" fadeIn fluid={headerImg.childImageSharp.fluid}>
       <span>welcome to</span>
-      <h1>muskoka district rentals</h1>
+      <Logo fluid={logoImg.childImageSharp.fluid} />
     </HeaderImage>
     <Flex
       alignItems="center"
@@ -55,12 +64,10 @@ const IndexPage = ({
       px={{ xs: 3, sm: 4, md: 4, xl: 5 }}
       py={{ xs: 2, sm: 3, md: 4, xl: 5 }}
       mb={{ xs: 2, md: 3, lg: 5 }}
-      mt={{ xs: 0, md: '-150px' }}
       flexDirection="column"
       textAlign="center"
     >
       <ChatBot />
-      <CheckAvailability />
       <Flex
         flexBasis={{ xs: '100%', lg: '50%' }}
         flexDirection={{ xs: 'column', lg: 'row' }}
@@ -86,19 +93,12 @@ const IndexPage = ({
           width={{ xs: '100%', lg: '50%' }}
           pl={{ xs: 1, sm: 2, md: 3, lg: 5 }}
         >
-          <Box mb={3} display="flex" flexDirection="column">
-            <div
-              css={css`
-                width: 70px;
-                margin-bottom: 4;
-                vertical-align: top;
-                border-top: 2.5px solid black;
-              `}
-            />
+          <Flex mb={3} flexDirection="column">
+            <VerticalLine />
             <h2>
               Welcome <br /> Aboard!
             </h2>
-          </Box>
+          </Flex>
           <Text as="p" mb={5}>
             Muskoka District Rentals provides rental agent services for owners
             who seek a trusted partner to safely manage the entire process. We
@@ -135,15 +135,7 @@ const IndexPage = ({
           <Testimonial {...t} key={t.author} />
         ))}
       </HorizontalScroll>
-      <Flex
-        css={css`
-          flex-direction: column;
-          align-items: center;
-          margin-bottom: 5;
-          padding: 0 5;
-          text-align: center;
-        `}
-      >
+      <BlogHeader css={css``}>
         <Text variant="expanded">explore</Text>
         <Heading mb={5}>Latest from our blog</Heading>
         <HorizontalScroll>
@@ -154,7 +146,7 @@ const IndexPage = ({
         <Button to="/blog" variant="serif" mt={3} mx="auto">
           Read More
         </Button>
-      </Flex>
+      </BlogHeader>
     </SwirlBackground>
     <Contact />
   </>
@@ -162,6 +154,13 @@ const IndexPage = ({
 
 export const query = graphql`
   query {
+    logoImg: file(relativePath: { eq: "logo-white.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
     headerImg: file(relativePath: { eq: "home.jpg" }) {
       ...PageImage
     }

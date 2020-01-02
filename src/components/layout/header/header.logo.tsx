@@ -1,11 +1,11 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import styled from '@xstyled/emotion'
-import { graphql, useStaticQuery } from 'gatsby'
+import styled from '@xstyled/emotion';
+import { GatsbyLinkProps, graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import React, { FC } from 'react';
 
-import { up, down } from 'theme/media'
-import Hidden from 'components/hidden'
-import Link from 'elements/link'
+import Hidden from 'components/hidden';
+import Link from 'elements/link';
+import { down, up } from 'theme/media';
 
 const Wrapper = styled(Link)`
   ${up('md')} {
@@ -18,9 +18,9 @@ const Wrapper = styled(Link)`
   margin-left: 1;
   height: auto;
   padding: 5px;
-`
+`;
 
-const Logo = props => {
+const Logo: FC<GatsbyLinkProps<any>> = props => {
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "muskoka-logo.png" }) {
@@ -38,7 +38,7 @@ const Logo = props => {
         }
       }
     }
-  `)
+  `);
   return (
     <Wrapper to="/" {...props}>
       <Hidden down="md">
@@ -60,7 +60,7 @@ const Logo = props => {
         />
       </Hidden>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
-import Img from 'gatsby-image'
-import { graphql, useStaticQuery } from 'gatsby'
-import Fade from 'react-reveal/Fade'
-import { css } from '@xstyled/emotion'
+import { css } from '@xstyled/emotion';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import React, { useState } from 'react';
+import Fade from 'react-reveal/Fade';
 
-import ConciergeService from './conciergeService'
+import ConciergeService from './conciergeService';
 
-import Hidden from 'components/hidden'
-import Box from 'elements/box'
-import { up } from 'theme/media'
-import Text from 'elements/text'
-import Heading from 'elements/heading'
-import Flex from 'elements/flex'
-import scrollbars from 'styles/scrollbars.css'
+import Hidden from 'components/hidden';
+import Box from 'elements/box';
+import Flex from 'elements/flex';
+import Heading from 'elements/heading';
+import Text from 'elements/text';
+import scrollbars from 'styles/scrollbars.css';
+import { up } from 'theme/media';
 
 const ConciergeServices = () => {
   const {
@@ -29,8 +29,8 @@ const ConciergeServices = () => {
         }
       }
     }
-  `)
-  const [selected, setSelected] = useState(conciergeServices[0].image)
+  `);
+  const [selected, setSelected] = useState(conciergeServices[0].image);
   return (
     <Flex
       as="section"
@@ -85,7 +85,7 @@ const ConciergeServices = () => {
         </Box>
       </Hidden>
     </Flex>
-  )
-}
+  );
+};
 
-export default ConciergeServices
+export default ConciergeServices;

@@ -1,9 +1,9 @@
-import styled from '@emotion/styled'
-import { Link as GatsbyLink } from 'gatsby'
-import { system } from '@xstyled/system'
+import styled from '@emotion/styled';
+import { system } from '@xstyled/system';
+import { Link as GatsbyLink } from 'gatsby';
 
 const Link = styled(GatsbyLink)`
   ${system}
-`
+`;
 
-export default Link
+export default Link;

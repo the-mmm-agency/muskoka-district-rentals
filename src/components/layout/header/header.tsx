@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
 
-import MobileHeader from './header.mobile'
-import DesktopHeader from './header.desktop'
+import DesktopHeader from './header.desktop';
+import MobileHeader from './header.mobile';
 
-import Hidden from 'components/hidden'
+import Hidden from 'components/hidden';
 
 const Header = () => {
   const {
@@ -19,7 +19,7 @@ const Header = () => {
         }
       }
     }
-  `)
+  `);
   return (
     <>
       <Hidden up="md">
@@ -29,7 +29,7 @@ const Header = () => {
         <DesktopHeader links={links} />
       </Hidden>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
