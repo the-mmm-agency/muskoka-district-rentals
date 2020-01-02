@@ -26,7 +26,7 @@ const Header: FC<HeaderProps> = ({ links }) => (
       </span>
 
       <hr />
-      <StyledA href="https://muskokadistrictrentals.kigobook.com">
+      <StyledA href="https://muskokadistrictrentals.kigobook.com/properties/">
         Cottages
       </StyledA>
       {links.map(to => (
