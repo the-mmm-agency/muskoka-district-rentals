@@ -1,33 +1,21 @@
-import css from '@emotion/css';
 import React from 'react';
-import SimpleChatBot from 'react-simple-chatbot';
+import SimpleChatBot, { ChatBotProps } from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 
 import handleEnd from './chatbot.handleEnd';
 import steps from './chatbot.steps';
 import theme from './chatbot.theme';
 
-const ChatBot: React.FC = props => {
-  console.log(steps);
-  return (
-    <ThemeProvider theme={theme}>
-      <SimpleChatBot
-        floating
-        css={css`
-          .cwuCQv {
-            width: 40px;
-          }
-          .rsc-content * {
-            transition: none;
-            transform: none !important;
-          }
-        `}
-        transition
-        handleEnd={handleEnd}
-        steps={steps}
-        {...props}
-      />
-    </ThemeProvider>
-  );
-};
-export default ChatBot;
+const Chatbot: React.FC<ChatBotProps> = props => (
+  <ThemeProvider theme={theme}>
+    <SimpleChatBot
+      botAvatar="https://muskoka-district-rentals.netlify.com/static/3e991c7e4ee29b11de796d881cc65233/05a7b/muskoka-logo.png"
+      floating
+      handleEnd={handleEnd}
+      steps={steps}
+      {...props}
+    />
+  </ThemeProvider>
+);
+
+export default Chatbot;

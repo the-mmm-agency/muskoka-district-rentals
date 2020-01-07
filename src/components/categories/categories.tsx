@@ -1,14 +1,15 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby';
+import React, { FC } from 'react';
 
-import { Wrapper, Category } from './categories.css'
+import { CategoriesQuery } from '../../graphql-types';
+import { Category, Wrapper } from './categories.css';
 
-import HorizontalScroll from 'components/horizontalScroll'
+import HorizontalScroll from 'components/horizontalScroll';
 
-const Categories = () => {
+const Categories: FC = () => {
   const {
     allWordpressWpCategory: { nodes: categories },
-  } = useStaticQuery(graphql`
+  }: CategoriesQuery = useStaticQuery(graphql`
     query Categories {
       allWordpressWpCategory {
         nodes {
@@ -18,7 +19,7 @@ const Categories = () => {
         }
       }
     }
-  `)
+  `);
   return (
     <Wrapper>
       <HorizontalScroll>
@@ -30,7 +31,7 @@ const Categories = () => {
         ))}
       </HorizontalScroll>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;

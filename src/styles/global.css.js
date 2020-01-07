@@ -1,7 +1,7 @@
-import { css } from '@xstyled/emotion'
+import { css } from '@xstyled/emotion';
 
-import { up, down } from 'theme/media'
-import scrollbars from 'styles/scrollbars.css'
+import { up, down } from 'theme/media';
+import scrollbars from 'styles/scrollbars.css';
 
 const styles = css`
   *,
@@ -10,6 +10,16 @@ const styles = css`
     @media screen and (prefers-reduced-motion: reduce) {
       transition: none !important;
     }
+  }
+  .cwuCQv {
+    width: 40px;
+  }
+  .rsc-header-title {
+    color: white;
+  }
+  .rsc-content * {
+    transition: none;
+    transform: none !important;
   }
   html {
     box-sizing: border-box;
@@ -167,6 +177,6 @@ const styles = css`
     background-color: rgba(0, 0, 0, 0.5) !important;
     opacity: 1;
   }
-`
+`;
 
-export default styles
+export default styles;

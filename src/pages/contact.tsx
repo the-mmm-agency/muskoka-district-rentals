@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import ContactSection from 'components/contact'
-import PageImage from 'components/pageImage'
-import PageContent from 'components/pageContent'
-import SEO from 'components/seo'
+import ContactSection from 'components/contact';
+import PageContent from 'components/pageContent';
+import PageImage from 'components/pageImage';
+import SEO from 'components/seo';
 
 const Contact = ({ data: { image } }) => (
   <>
@@ -13,7 +13,7 @@ const Contact = ({ data: { image } }) => (
     <PageContent contact />
     <ContactSection />
   </>
-)
+);
 
 export const query = graphql`
   query {
@@ -21,6 +21,6 @@ export const query = graphql`
       ...PageImage
     }
   }
-`
+`;
 
-export default Contact
+export default Contact;

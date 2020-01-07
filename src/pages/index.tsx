@@ -1,10 +1,9 @@
-import styled, { css } from '@xstyled/emotion';
+import styled from '@xstyled/emotion';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 
 import ChatBot from 'components/chatbot';
-import CheckAvailability from 'components/checkAvailability';
 import ConciergeServices from 'components/conciergeServices';
 import Contact from 'components/contact';
 import HorizontalScroll from 'components/horizontalScroll';
@@ -31,17 +30,19 @@ const HeaderImage = styled(PageImage)`
 `;
 
 const Logo = styled(Img)`
-  height: 8rem;
-  width: 30rem;
+  width: 20rem;
+  margin-top: 1;
 `;
 
 const BlogHeader = styled(Flex)`
   flex-direction: column;
   align-items: center;
+  margin-top: 6;
   margin-bottom: 5;
   padding: 0 5;
   text-align: center;
 `;
+
 const VerticalLine = styled.div`
   width: 70px;
   margin-bottom: 4;
@@ -56,7 +57,7 @@ const IndexPage = ({
     <SEO title="Home" />
     <HeaderImage Tag="section" fadeIn fluid={headerImg.childImageSharp.fluid}>
       <span>welcome to</span>
-      <Logo fluid={logoImg.childImageSharp.fluid} />
+      <Logo sizes={{ ...logoImg.childImageSharp.fluid, aspectRatio: 15 / 4 }} />
     </HeaderImage>
     <Flex
       alignItems="center"
@@ -68,6 +69,14 @@ const IndexPage = ({
       textAlign="center"
     >
       <ChatBot />
+      <Button
+        variant="serif"
+        size="wide"
+        m={2}
+        href="https://muskokadistrictrentals.kigobook.com/properties/"
+      >
+        Book Now
+      </Button>
       <Flex
         flexBasis={{ xs: '100%', lg: '50%' }}
         flexDirection={{ xs: 'column', lg: 'row' }}
@@ -135,7 +144,7 @@ const IndexPage = ({
           <Testimonial {...t} key={t.author} />
         ))}
       </HorizontalScroll>
-      <BlogHeader css={css``}>
+      <BlogHeader>
         <Text variant="expanded">explore</Text>
         <Heading mb={5}>Latest from our blog</Heading>
         <HorizontalScroll>
@@ -143,7 +152,7 @@ const IndexPage = ({
             <PostCard key={edge.node.id} {...edge.node} />
           ))}
         </HorizontalScroll>
-        <Button to="/blog" variant="serif" mt={3} mx="auto">
+        <Button to="/blog" variant="serif" mt={5} mx="auto">
           Read More
         </Button>
       </BlogHeader>

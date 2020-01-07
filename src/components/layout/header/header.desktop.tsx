@@ -14,7 +14,7 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ links }) => (
   <StyledHeader>
-    <Logo />
+    <Logo to="/" />
     <Nav>
       <span>
         Toll Free Phone #:&nbsp;<a href="tel:1800-615-2537">1800-615-2537</a>
@@ -34,7 +34,12 @@ const Header: FC<HeaderProps> = ({ links }) => (
       ))}
     </Nav>
     <Hidden down="xl">
-      <Button variant="serif" size="wide" m={2} href="/cottages">
+      <Button
+        variant="serif"
+        size="wide"
+        m={2}
+        href="https://muskokadistrictrentals.kigobook.com/properties/"
+      >
         Reserve Now
       </Button>
     </Hidden>

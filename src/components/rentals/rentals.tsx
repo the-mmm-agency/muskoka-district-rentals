@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
-import { css } from '@xstyled/emotion'
-import { graphql, useStaticQuery } from 'gatsby'
+import styled from '@emotion/styled';
+import { css } from '@xstyled/emotion';
+import { graphql, useStaticQuery } from 'gatsby';
+import React, { useState } from 'react';
 
-import Rental from './rental'
+import Rental from './rental';
 
-import { CottageCard } from 'components/cottage'
-import Box from 'elements/box'
-import Hidden from 'components/hidden'
-import Flex from 'elements/flex'
-import HorizontalScroll from 'components/horizontalScroll'
-import Heading from 'elements/heading'
-import PageImage from 'components/pageImage'
-import Link from 'elements/link'
+import { CottageCard } from 'components/cottage';
+import Hidden from 'components/hidden';
+import HorizontalScroll from 'components/horizontalScroll';
+import PageImage from 'components/pageImage';
+import Box from 'elements/box';
+import Flex from 'elements/flex';
+import Heading from 'elements/heading';
+import Link from 'elements/link';
+
+const Page = styled(PageImage)`
+  min-height: 700px;
+  max-height: 700px;
+`;
 
 const Rentals = () => {
   const {
@@ -27,11 +33,11 @@ const Rentals = () => {
         }
       }
     }
-  `)
+  `);
 
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(0);
 
-  const heading = 'Our Rentals'
+  const heading = 'Our Rentals';
 
   return (
     <>
@@ -53,11 +59,7 @@ const Rentals = () => {
         </Box>
       </Hidden>
       <Hidden down="md">
-        <PageImage
-          css={css`
-            min-height: 700px;
-            max-height: 700px;
-          `}
+        <Page
           fluid={
             rentals[selected].featured_media.localFile.childImageSharp.fluid
           }
@@ -95,10 +97,10 @@ const Rentals = () => {
           >
             View All Rentals
           </Link>
-        </PageImage>
+        </Page>
       </Hidden>
     </>
-  )
-}
+  );
+};
 
-export default Rentals
+export default Rentals;

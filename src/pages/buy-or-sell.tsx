@@ -1,16 +1,16 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import PageContent from 'components/pageContent'
+import PageContent from 'components/pageContent';
 
-const BuyOrSell = ({ data: { page } }) => <PageContent contact page={page} />
+const BuyOrSell = ({ data: { page } }) => <PageContent contact page={page} />;
 
 export const query = graphql`
-  query {
+  query BuyOrSellPage {
     page: wordpressWpPageContent(slug: { eq: "buy-or-sell-cottages" }) {
       ...Page
     }
   }
-`
+`;
 
-export default BuyOrSell
+export default BuyOrSell;

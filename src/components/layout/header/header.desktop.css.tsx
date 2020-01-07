@@ -1,4 +1,4 @@
-import styled from '@xstyled/emotion'
+import styled from '@xstyled/emotion';
 
 export const Nav = styled.nav`
   flex: 1 0;
@@ -19,7 +19,7 @@ export const Nav = styled.nav`
       color: textLight;
     }
   }
-`
+`;
 
 export const StyledHeader = styled.header`
   box-shadow: 1;
@@ -32,4 +32,4 @@ export const StyledHeader = styled.header`
   padding: 2;
   text-align: center;
   background-color: backgroundLight;
-`
+`;

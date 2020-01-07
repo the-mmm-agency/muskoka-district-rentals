@@ -1,7 +1,6 @@
 import styled, { css } from '@xstyled/emotion';
-import Img from 'gatsby-image';
-import PropTypes from 'prop-types';
-import React from 'react';
+import Img, { FluidObject } from 'gatsby-image';
+import React, { FC } from 'react';
 
 import ProductionLink from 'components/productionLink/index';
 import Flex from 'elements/flex';
@@ -27,7 +26,28 @@ const RentalImg = styled(Img)`
   margin: 2 0;
 `;
 
-const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
+interface Image {
+  childImageSharp: {
+    fluid: FluidObject;
+  };
+}
+interface RentalProps {
+  featured_media: {
+    localFile: Image;
+  };
+  onMouseOver: () => void;
+  price: string;
+  slug: string;
+  title: string;
+}
+
+const Rental: FC<RentalProps> = ({
+  title,
+  price,
+  featured_media,
+  onMouseOver,
+  slug,
+}) => (
   <Root onMouseOver={onMouseOver} onFocus={onMouseOver}>
     <ProductionLink
       css={css`
@@ -50,13 +70,5 @@ const Rental = ({ title, price, featured_media, onMouseOver, slug }) => (
     </ProductionLink>
   </Root>
 );
-
-Rental.propTypes = {
-  featured_media: PropTypes.object.isRequired,
-  onMouseOver: PropTypes.func.isRequired,
-  price: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default Rental;

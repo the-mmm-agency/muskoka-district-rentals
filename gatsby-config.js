@@ -99,7 +99,7 @@ module.exports = {
         protocol: 'https',
         auth: {
           jwt_user: 'mdr5',
-          jwt_pass: 'Asteroid76!',
+          jwt_pass: '123',
           jwt_base_path: '/jwt-auth/v1/token',
         },
         includedRoutes: [
@@ -132,7 +132,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-plugin-netlify-functions',
       options: {
