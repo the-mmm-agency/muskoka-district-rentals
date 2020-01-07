@@ -23,7 +23,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({ links, handleClick }) => (
         {to.replace('/', '').replace(/-/g, ' ')}
       </GatsbyLink>
     ))}
-    <ProductionLink to="/login">Login/Register</ProductionLink>
+    <ProductionLink to="/wp-admin">Login/Register</ProductionLink>
   </Flex>
 );
 

@@ -22,7 +22,7 @@ const Header: FC<HeaderProps> = ({ links }) => (
         <a href="mailto:hello@muskokadistrictrentals.com">
           hello@muskokadistrictrentals.com
         </a>
-        <ProductionLink to="/login">Login/Register</ProductionLink>
+        <ProductionLink to="/wp-admin">Login/Register</ProductionLink>
       </span>
 
       <hr />

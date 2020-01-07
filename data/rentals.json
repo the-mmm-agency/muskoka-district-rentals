@@ -1,0 +1,61 @@
+[
+  {
+    "bedrooms": "15",
+    "price": "5000",
+    "guests": "20",
+    "title": "Breakwater",
+    "url": "https://muskokadistrictrentals.kigobook.com/properties/breakwater/",
+    "category": {
+      "name": "Cottage"
+    },
+    "picture": "../src/images/breakwater.jpg"
+  },
+  {
+    "bedrooms": "4",
+    "price": "1800",
+    "guests": "8",
+    "slug": "hemlock-lakehouse",
+    "title": "Hemlock Lakehouse",
+    "url": "https://muskokadistrictrentals.kigobook.com/properties/helmlock-lakehouse",
+    "category": {
+      "name": "Villa"
+    },
+    "picture": "../src/images/helmlock-lakehouse.png"
+  },
+  {
+    "bedrooms": "5",
+    "price": "2785",
+    "guests": "8",
+    "slug": "georgian-bay-beach-house",
+    "picture": "../src/images/georgian-bay-beach-house.jpg",
+    "title": "Georgian Bay Beach House",
+    "url": "https://muskokadistrictrentals.kigobook.com/properties/georgian-bay-beach-house",
+    "category": {
+      "name": "House"
+    }
+  },
+  {
+    "bedrooms": "4",
+    "price": "3120",
+    "guests": "8",
+    "slug": "big-sound-lake-house",
+    "picture": "../src/images/big-sound-lake-house.jpg",
+    "title": "Big Sound Lake House",
+    "url": "https://muskokadistrictrentals.kigobook.com/properties/big-sound-lake-house",
+    "category": {
+      "name": "Villa"
+    }
+  },
+  {
+    "bedrooms": "5",
+    "price": "1142",
+    "guests": "11",
+    "slug": "muskoka-family-fun",
+    "title": "Muskoka Family Fun!",
+    "picture": "../src/images/muskoka-family-fun.jpg",
+    "url": "https://muskokadistrictrentals.kigobook.com/properties/muskoka-family-fun",
+    "category": {
+      "name": "Cottage"
+    }
+  }
+]

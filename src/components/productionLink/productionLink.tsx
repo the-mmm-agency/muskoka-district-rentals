@@ -1,15 +1,15 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import React, { AnchorHTMLAttributes } from 'react'
+import { graphql, useStaticQuery } from 'gatsby';
+import React, { AnchorHTMLAttributes } from 'react';
 
 interface ProductionLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  to: string
+  to: string;
 }
 interface Response {
   site: {
     siteMetadata: {
-      productionUrl: string
-    }
-  }
+      productionUrl: string;
+    };
+  };
 }
 const ProductionLink: React.FC<ProductionLinkProps> = ({ to, ...rest }) => {
   const {
@@ -24,8 +24,8 @@ const ProductionLink: React.FC<ProductionLinkProps> = ({ to, ...rest }) => {
         }
       }
     }
-  `)
-  return <a {...rest} href={`${productionUrl}/${to}`} />
-}
+  `);
+  return <a {...rest} href={`${productionUrl}/${to}`} />;
+};
 
-export default ProductionLink
+export default ProductionLink;
