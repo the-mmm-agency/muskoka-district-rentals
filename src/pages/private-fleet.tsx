@@ -1,15 +1,15 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import PageContent from 'components/pageContent'
-import Contact from 'components/contact'
+import Contact from 'components/contact';
+import PageContent from 'components/pageContent';
 
 const PrivateFleet = ({ data: { page } }) => (
   <>
     <PageContent page={page} />
     <Contact />
   </>
-)
+);
 
 export const query = graphql`
   query {
@@ -17,6 +17,6 @@ export const query = graphql`
       ...Page
     }
   }
-`
+`;
 
-export default PrivateFleet
+export default PrivateFleet;

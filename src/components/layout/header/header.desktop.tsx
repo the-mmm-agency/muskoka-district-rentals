@@ -37,10 +37,11 @@ const Header: FC<HeaderProps> = ({ links }) => (
       <Button
         variant="serif"
         size="wide"
+        role="link"
         m={2}
         href="https://muskokadistrictrentals.kigobook.com/properties/"
       >
-        Reserve Now
+        Book Now
       </Button>
     </Hidden>
   </StyledHeader>
