@@ -24,6 +24,7 @@ const HeaderImage = styled(PageImage)`
   display: flex;
   span {
     font-weight: bold;
+    margin-bottom: 0.8;
     letter-spacing: 0.35em;
     text-transform: uppercase;
   }
