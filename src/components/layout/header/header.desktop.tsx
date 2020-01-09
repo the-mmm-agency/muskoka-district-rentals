@@ -34,15 +34,11 @@ const Header: FC<HeaderProps> = ({ links }) => (
       ))}
     </Nav>
     <Hidden down="xl">
-      <Button
-        variant="serif"
-        size="wide"
-        role="link"
-        m={2}
-        href="https://muskokadistrictrentals.kigobook.com/properties/"
-      >
-        Book Now
-      </Button>
+      <ProductionLink to="/properties">
+        <Button variant="serif" size="wide" role="link" m={2}>
+          Book Now
+        </Button>
+      </ProductionLink>
     </Hidden>
   </StyledHeader>
 );
