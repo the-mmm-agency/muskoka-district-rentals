@@ -1,7 +1,7 @@
-import { Link } from 'gatsby';
-import React, { FC } from 'react';
+import { Link } from 'gatsby'
+import React, { FC } from 'react'
 
-import ProductionLink from 'components/productionLink';
+import ProductionLink from 'components/productionLink'
 
 interface MobileNavigationItemProps {
   href?: string;
@@ -18,7 +18,7 @@ const MobileNavigationItem: FC<MobileNavigationItemProps> = ({
 }) =>
   to ? (
     production ? (
-      <ProductionLink to={to} />
+      <ProductionLink to={to}>{icon}</ProductionLink>
     ) : (
       <Link activeClassName="active" to={to}>
         {icon}

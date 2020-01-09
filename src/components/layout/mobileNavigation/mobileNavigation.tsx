@@ -1,13 +1,13 @@
-import React from 'react';
-import { Envelope as Contact } from 'styled-icons/boxicons-regular/Envelope';
-import { HomeAlt as Home } from 'styled-icons/boxicons-regular/HomeAlt';
-import { PhoneCall as Call } from 'styled-icons/boxicons-regular/PhoneCall';
-import { FormatListBulleted as Cottages } from 'styled-icons/material/FormatListBulleted';
+import React from 'react'
+import { Envelope as Contact } from 'styled-icons/boxicons-regular/Envelope'
+import { HomeAlt as Home } from 'styled-icons/boxicons-regular/HomeAlt'
+import { PhoneCall as Call } from 'styled-icons/boxicons-regular/PhoneCall'
+import { FormatListBulleted as Cottages } from 'styled-icons/material/FormatListBulleted'
 
-import AppBar from './mobileNavigation.css';
-import MobileNavigationItem from './mobileNavigationItem';
+import AppBar from './mobileNavigation.css'
+import MobileNavigationItem from './mobileNavigationItem'
 
-import Hidden from 'components/hidden';
+import Hidden from 'components/hidden'
 
 const BottomBar = () => (
   <Hidden up="md">
