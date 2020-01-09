@@ -11,18 +11,6 @@
     "picture": "../src/images/breakwater.jpg"
   },
   {
-    "bedrooms": "4",
-    "price": "1800",
-    "guests": "8",
-    "slug": "hemlock-lakehouse",
-    "title": "Hemlock Lakehouse",
-    "url": "https://muskokadistrictrentals.kigobook.com/properties/helmlock-lakehouse",
-    "category": {
-      "name": "Villa"
-    },
-    "picture": "../src/images/helmlock-lakehouse.png"
-  },
-  {
     "bedrooms": "5",
     "price": "2785",
     "guests": "8",
