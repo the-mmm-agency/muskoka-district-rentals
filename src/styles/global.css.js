@@ -21,7 +21,7 @@ const styles = css`
     transition: none;
     transform: none !important;
   }
-  .iIIFad {
+  .rsc-float-button {
     ${down('sm')} {
       bottom: 64px;
     }
