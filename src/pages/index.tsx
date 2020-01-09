@@ -24,15 +24,13 @@ const HeaderImage = styled(PageImage)`
   display: flex;
   span {
     font-weight: bold;
-    margin-bottom: 0.8;
     letter-spacing: 0.35em;
     text-transform: uppercase;
   }
 `;
 
 const Logo = styled(Img)`
-  width: 20rem;
-  margin-top: 1;
+  width: 28rem;
 `;
 
 const BlogHeader = styled(Flex)`
