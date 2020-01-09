@@ -1,16 +1,16 @@
-import { graphql } from 'gatsby';
-import React from 'react';
+import { graphql } from 'gatsby'
+import React from 'react'
 
-import Contact from 'components/contact';
-import HorizontalScroll from 'components/horizontalScroll';
-import OurTeam from 'components/ourTeam';
-import PageImage from 'components/pageImage';
-import SEO from 'components/seo';
-import SwirlBackground from 'components/swirlBackground';
-import Testimonial from 'components/testimonial';
-import Flex from 'elements/flex';
-import Heading from 'elements/heading';
-import Text from 'elements/text';
+import Contact from 'components/contact'
+import HorizontalScroll from 'components/horizontalScroll'
+import OurTeam from 'components/ourTeam'
+import PageImage from 'components/pageImage'
+import SEO from 'components/seo'
+import SwirlBackground from 'components/swirlBackground'
+import Testimonial from 'components/testimonial'
+import Flex from 'elements/flex'
+import Heading from 'elements/heading'
+import Text from 'elements/text'
 
 const AboutUs = ({ data: { image, testimonials } }) => (
   <>

@@ -1,12 +1,13 @@
-import { SystemProps } from '@xstyled/system';
-import { graphql } from 'gatsby';
-import { FluidObject } from 'gatsby-image';
-import React from 'react';
+import { SystemProps } from '@xstyled/system'
+import { graphql } from 'gatsby'
+import { FluidObject } from 'gatsby-image'
+import React from 'react'
 
-import ContactForm from 'components/contactForm';
-import Image from 'components/pageImage';
-import SEO from 'components/seo';
-import Flex from 'elements/flex';
+import ContactForm from 'components/contactForm'
+import Image from 'components/pageImage'
+import SEO from 'components/seo'
+import Flex from 'elements/flex'
+import Heading from 'elements/heading'
 
 interface Page {
   content: string;
@@ -41,7 +42,20 @@ const PageContent: React.FC<PageContentProps> = ({
         <Image
           fluid={page.featured_media.localFile.childImageSharp.fluid}
           Tag="section"
-        />
+        >
+          {' '}
+          <Heading
+            as="h1"
+            mb={1}
+            position="relative"
+            zIndex={2}
+            fontWeight={500}
+            maxWidth={500}
+            lineHeight="70px"
+          >
+            {page.title}
+          </Heading>
+        </Image>
       </>
     )}
     <Flex

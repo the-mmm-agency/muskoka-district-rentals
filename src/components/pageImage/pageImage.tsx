@@ -1,8 +1,8 @@
-import React from 'react'
 import styled from '@emotion/styled'
 import { height } from '@xstyled/system'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
+import React from 'react'
 
 const StyledImage = styled(BackgroundImage)`
   * {
@@ -19,7 +19,7 @@ const StyledImage = styled(BackgroundImage)`
   min-height: fit-content;
   text-align: center;
   ${height}
-`
+`;
 
 const PageImage = props => (
   <StyledImage
@@ -28,7 +28,7 @@ const PageImage = props => (
     Tag="section"
     fadeIn
   />
-)
+);
 
 export const query = graphql`
   fragment PageImage on File {
@@ -38,6 +38,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default PageImage
+export default PageImage;
