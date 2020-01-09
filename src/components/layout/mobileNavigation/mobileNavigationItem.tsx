@@ -1,20 +1,31 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { Link } from 'gatsby';
+import React, { FC } from 'react';
 
-const MobileNavigationItem = ({ href, to, icon }) =>
-  to ? (
-    <Link activeClassName="active" to={to}>
-      {icon}
-    </Link>
-  ) : (
-    <a href={href}>{icon}</a>
-  )
+import ProductionLink from 'components/productionLink';
 
-MobileNavigationItem.propTypes = {
-  href: PropTypes.string,
-  icon: PropTypes.element.isRequired,
-  to: PropTypes.string,
+interface MobileNavigationItemProps {
+  href?: string;
+  icon: React.ReactNode;
+  to?: string;
+  production?: boolean;
 }
 
-export default MobileNavigationItem
+const MobileNavigationItem: FC<MobileNavigationItemProps> = ({
+  href,
+  to,
+  icon,
+  production = false,
+}) =>
+  to ? (
+    production ? (
+      <ProductionLink to={to} />
+    ) : (
+      <Link activeClassName="active" to={to}>
+        {icon}
+      </Link>
+    )
+  ) : (
+    <a href={href}>{icon}</a>
+  );
+
+export default MobileNavigationItem;

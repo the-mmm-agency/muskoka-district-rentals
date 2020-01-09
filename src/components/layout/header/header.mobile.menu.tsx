@@ -15,9 +15,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({ links, handleClick }) => (
     <GatsbyLink to="/" onClick={handleClick}>
       Home
     </GatsbyLink>
-    <ExternalLink href="https://muskokadistrictrentals.kigobook.com/properties">
-      Cottages
-    </ExternalLink>
+    <ExternalLink to="/properties">Cottages</ExternalLink>
     {links.map(to => (
       <GatsbyLink key={to} to={to} onClick={handleClick}>
         {to.replace('/', '').replace(/-/g, ' ')}

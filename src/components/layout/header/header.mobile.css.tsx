@@ -2,6 +2,7 @@ import styled, { css } from '@xstyled/emotion';
 
 import { StyledHeader } from './header.desktop.css';
 
+import ProductionLink from 'components/productionLink';
 import Link from 'elements/link';
 import { transition } from 'theme/transitions';
 
@@ -21,7 +22,7 @@ const link = css`
 export const GatsbyLink = styled(Link)`
   ${link}
 `;
-export const ExternalLink = styled.a`
+export const ExternalLink = styled(ProductionLink)`
   ${link}
 `;
 
