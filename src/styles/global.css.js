@@ -21,6 +21,11 @@ const styles = css`
     transition: none;
     transform: none !important;
   }
+  .iIIFad {
+    ${down('sm')} {
+      bottom: 64px;
+    }
+  }
   html {
     box-sizing: border-box;
     font-size: 14px;
