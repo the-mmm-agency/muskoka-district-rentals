@@ -1,7 +1,7 @@
-import { css } from '@emotion/core'
-import { curry, propOr } from 'ramda'
+import { css } from '@emotion/core';
+import { curry, propOr } from 'ramda';
 
-const hasOrReturn = curry((path, property) => propOr(property, property, path))
+const hasOrReturn = curry((path, property) => propOr(property, property, path));
 
 const transitions = {
   safeAttributes: [
@@ -31,22 +31,22 @@ const transitions = {
     enteringScreen: 225,
     leavingScreen: 195,
   },
-}
+};
 
-const getEasing = hasOrReturn(transitions.easing)
-const getDuration = hasOrReturn(transitions.duration)
+const getEasing = hasOrReturn(transitions.easing);
+const getDuration = hasOrReturn(transitions.duration);
 
 export const transition = (value = transitions.safeAttributes, options) => {
-  const property = Array.isArray(value) ? value.join(',') : value
+  const property = Array.isArray(value) ? value.join(',') : value;
   const config = Object.assign(
     { easing: 'easeInOut', duration: 'standard' },
     options
-  )
+  );
 
   const { duration, easing } = {
     duration: getDuration(config.duration),
     easing: getEasing(config.easing),
-  }
+  };
 
   return css`
     transition-timing-function: ${easing};
@@ -55,7 +55,7 @@ export const transition = (value = transitions.safeAttributes, options) => {
     @media screen and (prefers-reduced-motion: reduce) {
       transition: none;
     }
-  `
-}
+  `;
+};
 
-export default transitions
+export default transitions;

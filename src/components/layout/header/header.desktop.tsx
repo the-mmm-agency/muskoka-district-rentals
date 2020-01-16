@@ -26,25 +26,25 @@ const Header: FC<HeaderProps> = ({ links }) => (
       </span>
 
       <hr />
-      <StyledA href="https://muskokadistrictrentals.kigobook.com/properties/">
-        Cottages
-      </StyledA>
+      <Hidden down="xl">
+        <StyledA href="https://muskokadistrictrentals.kigobook.com/properties/">
+          All Cottages
+        </StyledA>
+      </Hidden>
       {links.map(to => (
         <HeaderLink to={to} key={to} />
       ))}
     </Nav>
-    <Hidden down="xl">
-      <Button
-        as={ProductionLink}
-        to="/properties"
-        variant="serif"
-        size="wide"
-        role="link"
-        m={2}
-      >
-        Book Now
-      </Button>
-    </Hidden>
+    <Button
+      as={ProductionLink}
+      to="/properties"
+      variant="serif"
+      size="wide"
+      role="link"
+      m={2}
+    >
+      Book Now
+    </Button>
   </StyledHeader>
 );
 

@@ -1,8 +1,8 @@
 import styled from '@xstyled/emotion'
 import Img from 'gatsby-image'
 
-import { transition } from 'theme/transitions'
 import { down } from 'theme/media'
+import { transition } from 'theme/transitions'
 
 export const StyledFooter = styled.footer`
   background-color: footer;
@@ -15,26 +15,26 @@ export const StyledFooter = styled.footer`
     padding-left: 0;
     padding-right: 0;
   }
-`
+`;
 
 export const Hr = styled.hr`
   border-color: rgba(255, 255, 255, 0.2);
   margin-bottom: 4;
   margin-top: 4;
-`
+`;
 
 export const Copyright = styled.span`
   align-self: center;
   margin-left: 1;
   opacity: 0.5;
   margin-right: auto;
-`
+`;
 
 export const Logo = styled(Img)`
   width: 160px;
-  height: 42px;
+  height: 50px;
   margin: 2;
-`
+`;
 
 export const Info = styled.div`
   ${down('sm')} {
@@ -42,7 +42,7 @@ export const Info = styled.div`
   }
   display: flex;
   margin-right: auto;
-`
+`;
 
 export const SignUp = styled.div`
   display: flex;
@@ -76,7 +76,7 @@ export const SignUp = styled.div`
       background-color: white;
     }
   }
-`
+`;
 
 export const SocialIcons = styled.div`
   a {
@@ -92,4 +92,4 @@ export const SocialIcons = styled.div`
   display: flex;
   margin-left: auto;
   margin-top: 1em;
-`
+`;

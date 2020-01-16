@@ -1,10 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import { SystemProps } from '@xstyled/system'
+import React, { FC } from 'react'
 
 import Box from 'elements/box'
 import Link from 'elements/link'
 
-const Breadcrumb = ({ crumbs, activeColor, color, ...props }) => (
+export interface Breadcrumb {
+  link: string;
+  title: string;
+}
+
+interface BreadcrumbProps extends SystemProps {
+  crumbs: Breadcrumb[];
+  activeColor?: string;
+  color?: string;
+}
+
+const Breadcrumb: FC<BreadcrumbProps> = ({
+  crumbs,
+  activeColor = 'textPrimary',
+  color = 'textLight',
+  ...props
+}) => (
   <Box display="inline-block" {...props}>
     {crumbs.map(({ link, title }, index) => (
       <>
@@ -19,22 +35,6 @@ const Breadcrumb = ({ crumbs, activeColor, color, ...props }) => (
       </>
     ))}
   </Box>
-)
+);
 
-Breadcrumb.defaultProps = {
-  activeColor: 'textPrimary',
-  color: 'textLight',
-}
-
-Breadcrumb.propTypes = {
-  activeColor: PropTypes.string,
-  color: PropTypes.string,
-  crumbs: PropTypes.arrayOf(
-    PropTypes.shape({
-      link: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
-}
-
-export default Breadcrumb
+export default Breadcrumb;

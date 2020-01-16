@@ -1,6 +1,6 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby'
 
-import { Member } from './ourTeam.types';
+import { Member } from './ourTeam.types'
 
 interface Result {
   allTeamJson: {
@@ -9,7 +9,7 @@ interface Result {
 }
 
 const query = graphql`
-  {
+  query Team {
     allTeamJson {
       nodes {
         id

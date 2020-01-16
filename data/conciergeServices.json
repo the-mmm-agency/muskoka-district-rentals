@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Boat Rentals",
+    "image": "../src/images/boat-rentals.jpg"
+  },
+  {
+    "name": "Private Chef",
+    "image": "../src/images/private-chef.jpg"
+  },
+  {
+    "name": "Car/Airport Service",
+    "image": "../src/images/car-rental.jpg"
+  }
+]

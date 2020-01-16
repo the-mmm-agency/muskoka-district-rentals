@@ -1,23 +1,22 @@
-import styled from '@xstyled/emotion';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import React from 'react';
+import styled from '@xstyled/emotion'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import React from 'react'
 
-import ChatBot from 'components/chatbot';
-import ConciergeServices from 'components/conciergeServices';
-import Contact from 'components/contact';
-import HorizontalScroll from 'components/horizontalScroll';
-import PageImage from 'components/pageImage';
-import PostCard from 'components/postCard';
-import Rentals from 'components/rentals';
-import SEO from 'components/seo';
-import SwirlBackground from 'components/swirlBackground';
-import Testimonial from 'components/testimonial';
-import Box from 'elements/box';
-import Button from 'elements/button';
-import Flex from 'elements/flex';
-import Heading from 'elements/heading';
-import Text from 'elements/text';
+import ChatBot from 'components/chatbot'
+import ConciergeServices from 'components/conciergeServices'
+import Contact from 'components/contact'
+import HorizontalScroll from 'components/horizontalScroll'
+import PageImage from 'components/pageImage'
+import ProductionLink from 'components/productionLink'
+import Rentals from 'components/rentals'
+import SEO from 'components/seo'
+import SwirlBackground from 'components/swirlBackground'
+import Testimonial from 'components/testimonial'
+import Box from 'elements/box'
+import Button from 'elements/button'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 
 const HeaderImage = styled(PageImage)`
   min-height: 35rem;
@@ -33,15 +32,6 @@ const Logo = styled(Img)`
   width: 28rem;
 `;
 
-const BlogHeader = styled(Flex)`
-  flex-direction: column;
-  align-items: center;
-  margin-top: 6;
-  margin-bottom: 5;
-  padding: 0 5;
-  text-align: center;
-`;
-
 const VerticalLine = styled.div`
   width: 70px;
   margin-bottom: 4;
@@ -50,7 +40,7 @@ const VerticalLine = styled.div`
 `;
 
 const IndexPage = ({
-  data: { testimonials, blogPosts, headerImg, aboutImg, logoImg },
+  data: { testimonials, headerImg, aboutImg, logoImg },
 }) => (
   <>
     <SEO title="Home" />
@@ -69,10 +59,11 @@ const IndexPage = ({
     >
       <ChatBot />
       <Button
+        as={ProductionLink}
         variant="serif"
         size="wide"
         m={2}
-        href="https://muskokadistrictrentals.kigobook.com/properties/"
+        to="/properties"
       >
         Book Now
       </Button>
@@ -117,7 +108,7 @@ const IndexPage = ({
             ownership. Our team will take care of all aspects of the rental
             process for you, from guest screening through to post check out
             inspections. We have professional property maintenance crews and
-            cleaners to attend to any needs that arise. We offer a full linen
+            cleaners to attend to any needs that arise. We offer full linen
             services and all laundry is done offsite. As the most trusted rental
             agency in cottage country we operate with full transparency and you
             will always know exactly what was charged to your guests.
@@ -139,29 +130,17 @@ const IndexPage = ({
     <ConciergeServices />
     <SwirlBackground>
       <HorizontalScroll>
-        {testimonials.nodes.map(t => (
-          <Testimonial {...t} key={t.author} />
+        {testimonials.nodes.map(({ id, ...testimonial }) => (
+          <Testimonial {...testimonial} key={id} />
         ))}
       </HorizontalScroll>
-      <BlogHeader>
-        <Text variant="expanded">explore</Text>
-        <Heading mb={5}>Latest from our blog</Heading>
-        <HorizontalScroll>
-          {blogPosts.edges.map(edge => (
-            <PostCard key={edge.node.id} {...edge.node} />
-          ))}
-        </HorizontalScroll>
-        <Button to="/blog" variant="serif" mt={5} mx="auto">
-          Read More
-        </Button>
-      </BlogHeader>
     </SwirlBackground>
     <Contact />
   </>
 );
 
 export const query = graphql`
-  query {
+  query HomePage {
     logoImg: file(relativePath: { eq: "logo-white.png" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
@@ -182,16 +161,6 @@ export const query = graphql`
     testimonials: allTestimonialsJson {
       nodes {
         ...Testimonial
-      }
-    }
-    blogPosts: allWordpressWpBlogPost(
-      limit: 3
-      sort: { fields: date, order: DESC }
-    ) {
-      edges {
-        node {
-          ...PostCard
-        }
       }
     }
   }

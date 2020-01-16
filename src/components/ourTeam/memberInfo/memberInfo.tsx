@@ -1,10 +1,15 @@
-import { AnimatePresence } from 'framer-motion';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { AnimatePresence } from 'framer-motion'
+import React from 'react'
 
-import { Member } from '../ourTeam.types';
-import { Bio, Info, Name, Title, Wrapper } from './memberInfo.css';
-import { item, wrapper } from './transitions';
+import { Member } from '../ourTeam.types'
+import {
+  Bio,
+  Info,
+  Name,
+  Title,
+  Wrapper
+} from './memberInfo.css'
+import { item, wrapper } from './transitions'
 
 type MemberInfoProps = Omit<Member, 'picture'>;
 

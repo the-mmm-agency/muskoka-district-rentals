@@ -12,6 +12,7 @@ export const List = styled(motion.ul)`
 
 export const Item = styled(motion.li)<Record<'length', number>>`
   flex: 0 0 calc(100% / ${props => props.length});
+  cursor: pointer;
   list-style: none;
 `;
 

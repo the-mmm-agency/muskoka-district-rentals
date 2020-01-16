@@ -2,10 +2,10 @@ import React from 'react'
 
 import Box from 'elements/box'
 import Button from 'elements/button'
-import Text from 'elements/text'
 import Flex from 'elements/flex'
-import Input from 'elements/input'
 import Heading from 'elements/heading'
+import Input from 'elements/input'
+import Text from 'elements/text'
 
 const ContactForm = () => {
   return (
@@ -49,12 +49,12 @@ const ContactForm = () => {
           mb={4}
           placeholder="Your Message"
         />
-        <Button variant="transparent" ml="-1rem" type="submit">
-          send message
+        <Button variant="serif" ml="-1rem" type="submit">
+          Send message
         </Button>
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

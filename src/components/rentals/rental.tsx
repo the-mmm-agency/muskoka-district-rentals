@@ -1,11 +1,12 @@
-import styled, { css } from '@xstyled/emotion';
-import Img, { FluidObject } from 'gatsby-image';
-import React, { FC } from 'react';
+import styled, { css } from '@xstyled/emotion'
+import Img from 'gatsby-image'
+import React, { FC } from 'react'
+import { CottageCardFragment } from 'src/graphql-types'
 
-import ProductionLink from 'components/productionLink/index';
-import Flex from 'elements/flex';
-import Text from 'elements/text';
-import { transition } from 'theme/transitions';
+import ProductionLink from 'components/productionLink/index'
+import Flex from 'elements/flex'
+import Text from 'elements/text'
+import { transition } from 'theme/transitions'
 
 const Root = styled(Flex)`
   &:hover {
@@ -26,25 +27,14 @@ const RentalImg = styled(Img)`
   margin: 2 0;
 `;
 
-interface Image {
-  childImageSharp: {
-    fluid: FluidObject;
-  };
-}
-interface RentalProps {
-  featured_media: {
-    localFile: Image;
-  };
+interface RentalProps extends CottageCardFragment {
   onMouseOver: () => void;
-  price: string;
-  slug: string;
-  title: string;
 }
 
 const Rental: FC<RentalProps> = ({
   title,
   price,
-  featured_media,
+  picture,
   onMouseOver,
   slug,
 }) => (
@@ -60,13 +50,10 @@ const Rental: FC<RentalProps> = ({
       <Text fontWeight="medium">
         Starting from <strong color="white">${price}</strong>/Night
       </Text>
-      <RentalImg fluid={featured_media.localFile.childImageSharp.fluid} />
-      <Text
-        dangerouslySetInnerHTML={{ __html: title }}
-        fontFamily="serif"
-        fontWeight="bold"
-        fontSize={5}
-      />
+      <RentalImg fluid={picture?.childImageSharp?.fluid} />
+      <Text fontFamily="serif" fontWeight="bold" fontSize={5}>
+        {title}
+      </Text>
     </ProductionLink>
   </Root>
 );

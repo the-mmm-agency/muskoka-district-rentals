@@ -1,7 +1,7 @@
-import React from 'react'
 import styled from '@xstyled/emotion'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
+import React from 'react'
 
 import { up } from 'theme/media'
 
@@ -9,9 +9,12 @@ const Image = styled(BackgroundImage)`
   h2,
   h3,
   h4,
-  p,
-  p > strong {
+  span,
+  span > strong {
     color: white;
+  }
+  span:last-of-type {
+    margin-top: 4;
   }
   &::before,
   &::after {
@@ -19,50 +22,54 @@ const Image = styled(BackgroundImage)`
   }
   h2 {
     margin-bottom: 5;
-    ${up('sm')} {
-      margin-bottom: 6;
-    }
   }
-  span {
-    color: textLight;
+  h4 {
+    margin-top: 3;
+    margin-bottom: 1;
   }
   display: flex;
   flex-basis: 100%;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  text-align: center;
   justify-content: center;
   padding: 5 0;
   ${up('sm')} {
     padding: 6 0;
   }
-`
+`;
 
 const Contact = () => {
-  const {
-    post: { content, featured_media },
-  } = useStaticQuery(graphql`
-    query {
-      post: wordpressWpPageContent(slug: { eq: "contact-info" }) {
-        content
-        featured_media {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 4000) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+  const data = useStaticQuery(graphql`
+    query ContactImage {
+      file(relativePath: { eq: "contact-us.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
     }
-  `)
+  `);
 
   return (
-    <Image Tag="section" fluid={featured_media.localFile.childImageSharp.fluid}>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+    <Image fluid={data.file.childImageSharp.fluid}>
+      <h2>Contact us</h2>
+      <h4>Canada</h4>
+      <span>Port Carling: 113 Medora St Port Carling ON P0B 1J0</span>
+      <span>Foot’s Bay: 1007 McDonald Rd MacTier ON P0C 1H0</span>
+      <span>Simcoe County: 14-67 Fittons Rd E Orillia ON L3V 2J2</span>
+      <span>Toronto: 1520-111 St Clair Ave W Toronto ON M4V 1N5 USA 812</span>
+      <h4>USA</h4>
+      <span>812 Briny Ave Suite 7B Pompano Beach FL 33062</span>
+      <span>
+        <strong>Email:</strong> hello@muskokadistrictrentals.com
+      </span>
+      <span>Call toll free:</span>
+      <h3>+1 800 615 2537</h3>
     </Image>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

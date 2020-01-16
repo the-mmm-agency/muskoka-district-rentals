@@ -26,7 +26,6 @@ const PageImage = props => (
     height={{ xs: 200, sm: 300, md: 400, lg: 500 }}
     {...props}
     Tag="section"
-    fadeIn
   />
 );
 

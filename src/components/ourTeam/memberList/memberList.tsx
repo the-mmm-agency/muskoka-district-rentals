@@ -1,12 +1,17 @@
-import { AnimatePresence } from 'framer-motion';
-import React from 'react';
-import { ChevronRight } from 'styled-icons/evil/ChevronRight';
+import { AnimatePresence } from 'framer-motion'
+import React from 'react'
+import { ChevronRight } from 'styled-icons/evil/ChevronRight'
 
-import { OurTeamProps } from '../ourTeam.types';
-import { Item, List, NextButton, TeamMember } from './memberList.css';
+import { OurTeamProps } from '../ourTeam.types'
+import {
+  Item,
+  List,
+  NextButton,
+  TeamMember
+} from './memberList.css'
 
-import Flex from 'elements/flex';
-import Text from 'elements/text';
+import Flex from 'elements/flex'
+import Text from 'elements/text'
 
 interface MemberListProps extends OurTeamProps {
   handleClick: () => void;
@@ -21,6 +26,7 @@ const MemberList: React.FC<MemberListProps> = ({ team, handleClick }) => (
             length={team.length}
             positionTransition={{ type: 'tween' }}
             exit={{ opacity: 0 }}
+            onClick={handleClick}
             key={id}
           >
             <TeamMember fluid={picture.childImageSharp.fluid}>

@@ -1,31 +1,42 @@
-import { css } from '@xstyled/emotion';
-import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
-import React, { useState } from 'react';
-import Fade from 'react-reveal/Fade';
+import styled, { css } from '@xstyled/emotion'
+import { graphql, useStaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
+import React, { useState } from 'react'
+import Fade from 'react-reveal/Fade'
 
-import ConciergeService from './conciergeService';
+import ConciergeService from './conciergeService'
 
-import Hidden from 'components/hidden';
-import Box from 'elements/box';
-import Flex from 'elements/flex';
-import Heading from 'elements/heading';
-import Text from 'elements/text';
-import scrollbars from 'styles/scrollbars.css';
-import { up } from 'theme/media';
+import Hidden from 'components/hidden'
+import Box from 'elements/box'
+import Flex from 'elements/flex'
+import Heading from 'elements/heading'
+import Text from 'elements/text'
+import scrollbars from 'styles/scrollbars.css'
+import { up } from 'theme/media'
+
+const List = styled.ul`
+  ${up('md')} {
+    height: 500px;
+  }
+  ${scrollbars}
+  width: 100%;
+  height: 300px;
+  margin: none;
+  padding-bottom: 5;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  list-style: none;
+  -webkit-touch-scrolling: overflow;
+`;
 
 const ConciergeServices = () => {
   const {
-    wordpressWpPageContent: {
-      acf: { concierge_services: conciergeServices },
-    },
+    allConciergeServicesJson: { nodes: conciergeServices },
   } = useStaticQuery(graphql`
     query {
-      wordpressWpPageContent(slug: { eq: "concierge-services" }) {
-        acf {
-          concierge_services {
-            ...ConciergeService
-          }
+      allConciergeServicesJson {
+        nodes {
+          ...ConciergeService
         }
       }
     }
@@ -50,37 +61,22 @@ const ConciergeServices = () => {
           </Text>
           <Heading mt={2} mb={5}>
             Concierge Services
-          </Heading>{' '}
+          </Heading>
         </Box>
-        <ul
-          css={css`
-            ${up('md')} {
-              height: 500px;
-            }
-            ${scrollbars}
-            width: 100%;
-            height: 300px;
-            margin: none;
-            padding-bottom: 5;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            list-style: none;
-            -webkit-touch-scrolling: overflow;
-          `}
-        >
+        <List>
           {conciergeServices.map(conciergeService => (
             <ConciergeService
-              key={conciergeService.service}
+              key={conciergeService.name}
               setSelected={setSelected}
               {...conciergeService}
             />
           ))}
-        </ul>
+        </List>
       </Box>
       <Hidden down="lg">
         <Box col={0.5} minHeight="100%">
           <Fade spy={selected} mountOnEnter>
-            <Img fluid={selected.localFile.childImageSharp.fluid} />
+            <Img fluid={selected.childImageSharp.fluid} />
           </Fade>
         </Box>
       </Hidden>

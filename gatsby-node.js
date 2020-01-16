@@ -9,54 +9,47 @@ exports.onCreateWebpackConfig = ({ _, actions }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const fetchType = async (type, query = '') => {
-    const result = await graphql(`
+  const result = await graphql(`
     {
-      ${type} {
+      allMdx {
         edges {
           node {
             id
-            slug
-            ${query}
+            body
+            frontmatter {
+              slug
+              title
+              hero {
+                childImageSharp {
+                  fluid(maxWidth: 4096) {
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
   `);
-    return result.data[type].edges;
-  };
-
-  const generatePages = async (type, base, file) => {
-    const component = path.resolve(`./src/templates/${file}`);
-    const data = await fetchType(type);
-    data.forEach(({ node: { id, slug, name } }) => {
-      const path = `/${base}/${slug}`;
-      const context = {
-        id,
-        slug,
-        name,
-      };
+  result.data.allMdx.edges.forEach(
+    ({
+      node: {
+        frontmatter: { slug, title, hero },
+        body,
+      },
+    }) => {
       createPage({
-        path,
-        component,
-        context,
+        path: slug,
+        component: path.resolve('./src/templates/page.tsx'),
+        context: { title, hero, body },
       });
-    });
-  };
-  await generatePages('allWordpressWpCategory', 'categories', 'category.js');
-  await generatePages('allWordpressWpPostTag', 'tags', 'tag.js');
-  const posts = await fetchType('allWordpressWpBlogPost');
-  const postTemplate = path.resolve('./src/templates/blog-post.js');
-  posts.forEach(({ node: { id, slug } }) => {
-    const path = `/blog/${slug}`;
-    const context = {
-      id,
-      slug,
-    };
-    createPage({
-      path,
-      component: postTemplate,
-      context,
-    });
-  });
+    }
+  );
 };

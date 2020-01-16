@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { variant } from '@xstyled/system'
 import styled, { css } from '@xstyled/emotion'
+import { variant } from '@xstyled/system'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 import { controlFocus } from 'theme/control'
 import { transition } from 'theme/transitions'
@@ -38,7 +38,7 @@ const sizes = variant({
       }
     `,
   },
-})
+});
 
 const HiddenCheckbox = styled.input`
   position: absolute;
@@ -51,7 +51,7 @@ const HiddenCheckbox = styled.input`
   border: 0;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
-`
+`;
 
 const Icon = styled.svg`
   pointer-events: none;
@@ -60,7 +60,7 @@ const Icon = styled.svg`
   color: white;
   visibility: hidden;
   ${transition(['transform', 'visibility'])};
-`
+`;
 
 const colorStyle = props => css`
   border-color: ${props.color};
@@ -70,7 +70,7 @@ const colorStyle = props => css`
   input:focus + & {
     ${controlFocus(props.color)(props)}
   }
-`
+`;
 
 const StyledCheckbox = styled.div`
   display: flex;
@@ -90,12 +90,12 @@ const StyledCheckbox = styled.div`
       transform: scale(1);
     }
   }
-`
+`;
 
 const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
-`
+`;
 
 const Checkbox = ({ checked, color, size, ...props }) => (
   <CheckboxContainer>
@@ -109,17 +109,17 @@ const Checkbox = ({ checked, color, size, ...props }) => (
       </Icon>
     </StyledCheckbox>
   </CheckboxContainer>
-)
+);
 
 Checkbox.defaultProps = {
   color: 'primary',
   size: 'md',
-}
+};
 
 Checkbox.propTypes = {
   checked: PropTypes.bool.isRequired,
   color: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
-}
+};
 
-export default Checkbox
+export default Checkbox;

@@ -1,7 +1,6 @@
 const path = require('path');
 
 const siteMetadata = require('./siteMetadata');
-const normalizeWordpress = require('./normalizeWordpress');
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -49,7 +48,36 @@ module.exports = {
     },
     'gatsby-plugin-polished',
     'gatsby-plugin-remove-console',
-
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              wrapperStyle: 'margin-left: none;',
+              disableBgImage: true,
+              withWebp: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              ratio: 1.77,
+              related: false,
+              noIframeBorder: true,
+              urlOverrides: [
+                {
+                  id: 'youtube',
+                  embedURL: videoId =>
+                    `https://www.youtube-nocookie.com/embed/${videoId}`,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
     // Styling and site config
     'gatsby-plugin-react-helmet',
     {
@@ -91,29 +119,10 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        useACF: true,
-        baseUrl: 'https://mdr5.wpengine.com',
-        concurrentRequests: 15,
-        protocol: 'https',
-        auth: {
-          jwt_user: 'mdr5',
-          jwt_pass: '123',
-          jwt_base_path: '/jwt-auth/v1/token',
-        },
-        includedRoutes: [
-          '**/blog_post',
-          '**/category',
-          '**/lake',
-          '**/post_tag',
-          '**/media',
-          '**/property',
-          '**/property_category',
-          '**/property_features',
-          '**/page_content',
-        ],
-        normalizer: normalizeWordpress,
+        name: 'content',
+        path: `${__dirname}/src/content`,
       },
     },
 
@@ -139,5 +148,13 @@ module.exports = {
         functionsOutput: `${__dirname}/functions`,
       },
     },
+    // {
+    //   resolve: 'gatsby-plugin-graphql-codegen',
+    //   options: {
+    //     fileName: 'src/graphql-types.ts',
+    //     codegen: true,
+    //     codegenDelay: 250,
+    //   },
+    // },
   ],
 };

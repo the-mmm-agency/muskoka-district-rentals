@@ -32,6 +32,584 @@ export type BooleanQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Boolean']>>>,
 };
 
+export type ConciergeServicesJson = Node & {
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  name?: Maybe<Scalars['String']>,
+  image?: Maybe<File>,
+};
+
+export type ConciergeServicesJsonConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<ConciergeServicesJsonEdge>,
+  nodes: Array<ConciergeServicesJson>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<ConciergeServicesJsonGroupConnection>,
+};
+
+
+export type ConciergeServicesJsonConnectionDistinctArgs = {
+  field: ConciergeServicesJsonFieldsEnum
+};
+
+
+export type ConciergeServicesJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: ConciergeServicesJsonFieldsEnum
+};
+
+export type ConciergeServicesJsonEdge = {
+  next?: Maybe<ConciergeServicesJson>,
+  node: ConciergeServicesJson,
+  previous?: Maybe<ConciergeServicesJson>,
+};
+
+export type ConciergeServicesJsonFieldsEnum = 
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type' |
+  'name' |
+  'image___sourceInstanceName' |
+  'image___absolutePath' |
+  'image___relativePath' |
+  'image___extension' |
+  'image___size' |
+  'image___prettySize' |
+  'image___modifiedTime' |
+  'image___accessTime' |
+  'image___changeTime' |
+  'image___birthTime' |
+  'image___root' |
+  'image___dir' |
+  'image___base' |
+  'image___ext' |
+  'image___name' |
+  'image___relativeDirectory' |
+  'image___dev' |
+  'image___mode' |
+  'image___nlink' |
+  'image___uid' |
+  'image___gid' |
+  'image___rdev' |
+  'image___ino' |
+  'image___atimeMs' |
+  'image___mtimeMs' |
+  'image___ctimeMs' |
+  'image___atime' |
+  'image___mtime' |
+  'image___ctime' |
+  'image___birthtime' |
+  'image___birthtimeMs' |
+  'image___blksize' |
+  'image___blocks' |
+  'image___publicURL' |
+  'image___childImageSharp___fixed___base64' |
+  'image___childImageSharp___fixed___tracedSVG' |
+  'image___childImageSharp___fixed___aspectRatio' |
+  'image___childImageSharp___fixed___width' |
+  'image___childImageSharp___fixed___height' |
+  'image___childImageSharp___fixed___src' |
+  'image___childImageSharp___fixed___srcSet' |
+  'image___childImageSharp___fixed___srcWebp' |
+  'image___childImageSharp___fixed___srcSetWebp' |
+  'image___childImageSharp___fixed___originalName' |
+  'image___childImageSharp___resolutions___base64' |
+  'image___childImageSharp___resolutions___tracedSVG' |
+  'image___childImageSharp___resolutions___aspectRatio' |
+  'image___childImageSharp___resolutions___width' |
+  'image___childImageSharp___resolutions___height' |
+  'image___childImageSharp___resolutions___src' |
+  'image___childImageSharp___resolutions___srcSet' |
+  'image___childImageSharp___resolutions___srcWebp' |
+  'image___childImageSharp___resolutions___srcSetWebp' |
+  'image___childImageSharp___resolutions___originalName' |
+  'image___childImageSharp___fluid___base64' |
+  'image___childImageSharp___fluid___tracedSVG' |
+  'image___childImageSharp___fluid___aspectRatio' |
+  'image___childImageSharp___fluid___src' |
+  'image___childImageSharp___fluid___srcSet' |
+  'image___childImageSharp___fluid___srcWebp' |
+  'image___childImageSharp___fluid___srcSetWebp' |
+  'image___childImageSharp___fluid___sizes' |
+  'image___childImageSharp___fluid___originalImg' |
+  'image___childImageSharp___fluid___originalName' |
+  'image___childImageSharp___fluid___presentationWidth' |
+  'image___childImageSharp___fluid___presentationHeight' |
+  'image___childImageSharp___sizes___base64' |
+  'image___childImageSharp___sizes___tracedSVG' |
+  'image___childImageSharp___sizes___aspectRatio' |
+  'image___childImageSharp___sizes___src' |
+  'image___childImageSharp___sizes___srcSet' |
+  'image___childImageSharp___sizes___srcWebp' |
+  'image___childImageSharp___sizes___srcSetWebp' |
+  'image___childImageSharp___sizes___sizes' |
+  'image___childImageSharp___sizes___originalImg' |
+  'image___childImageSharp___sizes___originalName' |
+  'image___childImageSharp___sizes___presentationWidth' |
+  'image___childImageSharp___sizes___presentationHeight' |
+  'image___childImageSharp___original___width' |
+  'image___childImageSharp___original___height' |
+  'image___childImageSharp___original___src' |
+  'image___childImageSharp___resize___src' |
+  'image___childImageSharp___resize___tracedSVG' |
+  'image___childImageSharp___resize___width' |
+  'image___childImageSharp___resize___height' |
+  'image___childImageSharp___resize___aspectRatio' |
+  'image___childImageSharp___resize___originalName' |
+  'image___childImageSharp___id' |
+  'image___childImageSharp___parent___id' |
+  'image___childImageSharp___parent___children' |
+  'image___childImageSharp___children' |
+  'image___childImageSharp___children___id' |
+  'image___childImageSharp___children___children' |
+  'image___childImageSharp___internal___content' |
+  'image___childImageSharp___internal___contentDigest' |
+  'image___childImageSharp___internal___description' |
+  'image___childImageSharp___internal___fieldOwners' |
+  'image___childImageSharp___internal___ignoreType' |
+  'image___childImageSharp___internal___mediaType' |
+  'image___childImageSharp___internal___owner' |
+  'image___childImageSharp___internal___type' |
+  'image___id' |
+  'image___parent___id' |
+  'image___parent___parent___id' |
+  'image___parent___parent___children' |
+  'image___parent___children' |
+  'image___parent___children___id' |
+  'image___parent___children___children' |
+  'image___parent___internal___content' |
+  'image___parent___internal___contentDigest' |
+  'image___parent___internal___description' |
+  'image___parent___internal___fieldOwners' |
+  'image___parent___internal___ignoreType' |
+  'image___parent___internal___mediaType' |
+  'image___parent___internal___owner' |
+  'image___parent___internal___type' |
+  'image___children' |
+  'image___children___id' |
+  'image___children___parent___id' |
+  'image___children___parent___children' |
+  'image___children___children' |
+  'image___children___children___id' |
+  'image___children___children___children' |
+  'image___children___internal___content' |
+  'image___children___internal___contentDigest' |
+  'image___children___internal___description' |
+  'image___children___internal___fieldOwners' |
+  'image___children___internal___ignoreType' |
+  'image___children___internal___mediaType' |
+  'image___children___internal___owner' |
+  'image___children___internal___type' |
+  'image___internal___content' |
+  'image___internal___contentDigest' |
+  'image___internal___description' |
+  'image___internal___fieldOwners' |
+  'image___internal___ignoreType' |
+  'image___internal___mediaType' |
+  'image___internal___owner' |
+  'image___internal___type' |
+  'image___childrenConciergeServicesJson' |
+  'image___childrenConciergeServicesJson___id' |
+  'image___childrenConciergeServicesJson___parent___id' |
+  'image___childrenConciergeServicesJson___parent___children' |
+  'image___childrenConciergeServicesJson___children' |
+  'image___childrenConciergeServicesJson___children___id' |
+  'image___childrenConciergeServicesJson___children___children' |
+  'image___childrenConciergeServicesJson___internal___content' |
+  'image___childrenConciergeServicesJson___internal___contentDigest' |
+  'image___childrenConciergeServicesJson___internal___description' |
+  'image___childrenConciergeServicesJson___internal___fieldOwners' |
+  'image___childrenConciergeServicesJson___internal___ignoreType' |
+  'image___childrenConciergeServicesJson___internal___mediaType' |
+  'image___childrenConciergeServicesJson___internal___owner' |
+  'image___childrenConciergeServicesJson___internal___type' |
+  'image___childrenConciergeServicesJson___name' |
+  'image___childrenConciergeServicesJson___image___sourceInstanceName' |
+  'image___childrenConciergeServicesJson___image___absolutePath' |
+  'image___childrenConciergeServicesJson___image___relativePath' |
+  'image___childrenConciergeServicesJson___image___extension' |
+  'image___childrenConciergeServicesJson___image___size' |
+  'image___childrenConciergeServicesJson___image___prettySize' |
+  'image___childrenConciergeServicesJson___image___modifiedTime' |
+  'image___childrenConciergeServicesJson___image___accessTime' |
+  'image___childrenConciergeServicesJson___image___changeTime' |
+  'image___childrenConciergeServicesJson___image___birthTime' |
+  'image___childrenConciergeServicesJson___image___root' |
+  'image___childrenConciergeServicesJson___image___dir' |
+  'image___childrenConciergeServicesJson___image___base' |
+  'image___childrenConciergeServicesJson___image___ext' |
+  'image___childrenConciergeServicesJson___image___name' |
+  'image___childrenConciergeServicesJson___image___relativeDirectory' |
+  'image___childrenConciergeServicesJson___image___dev' |
+  'image___childrenConciergeServicesJson___image___mode' |
+  'image___childrenConciergeServicesJson___image___nlink' |
+  'image___childrenConciergeServicesJson___image___uid' |
+  'image___childrenConciergeServicesJson___image___gid' |
+  'image___childrenConciergeServicesJson___image___rdev' |
+  'image___childrenConciergeServicesJson___image___ino' |
+  'image___childrenConciergeServicesJson___image___atimeMs' |
+  'image___childrenConciergeServicesJson___image___mtimeMs' |
+  'image___childrenConciergeServicesJson___image___ctimeMs' |
+  'image___childrenConciergeServicesJson___image___atime' |
+  'image___childrenConciergeServicesJson___image___mtime' |
+  'image___childrenConciergeServicesJson___image___ctime' |
+  'image___childrenConciergeServicesJson___image___birthtime' |
+  'image___childrenConciergeServicesJson___image___birthtimeMs' |
+  'image___childrenConciergeServicesJson___image___blksize' |
+  'image___childrenConciergeServicesJson___image___blocks' |
+  'image___childrenConciergeServicesJson___image___publicURL' |
+  'image___childrenConciergeServicesJson___image___id' |
+  'image___childrenConciergeServicesJson___image___children' |
+  'image___childrenConciergeServicesJson___image___childrenConciergeServicesJson' |
+  'image___childrenConciergeServicesJson___image___childrenGuestServicesJson' |
+  'image___childrenConciergeServicesJson___image___childrenRentalsJson' |
+  'image___childrenConciergeServicesJson___image___childrenTeamJson' |
+  'image___childrenConciergeServicesJson___image___childrenTestimonialsJson' |
+  'image___childrenGuestServicesJson' |
+  'image___childrenGuestServicesJson___id' |
+  'image___childrenGuestServicesJson___parent___id' |
+  'image___childrenGuestServicesJson___parent___children' |
+  'image___childrenGuestServicesJson___children' |
+  'image___childrenGuestServicesJson___children___id' |
+  'image___childrenGuestServicesJson___children___children' |
+  'image___childrenGuestServicesJson___internal___content' |
+  'image___childrenGuestServicesJson___internal___contentDigest' |
+  'image___childrenGuestServicesJson___internal___description' |
+  'image___childrenGuestServicesJson___internal___fieldOwners' |
+  'image___childrenGuestServicesJson___internal___ignoreType' |
+  'image___childrenGuestServicesJson___internal___mediaType' |
+  'image___childrenGuestServicesJson___internal___owner' |
+  'image___childrenGuestServicesJson___internal___type' |
+  'image___childrenGuestServicesJson___name' |
+  'image___childrenGuestServicesJson___description' |
+  'image___childrenGuestServicesJson___icon___sourceInstanceName' |
+  'image___childrenGuestServicesJson___icon___absolutePath' |
+  'image___childrenGuestServicesJson___icon___relativePath' |
+  'image___childrenGuestServicesJson___icon___extension' |
+  'image___childrenGuestServicesJson___icon___size' |
+  'image___childrenGuestServicesJson___icon___prettySize' |
+  'image___childrenGuestServicesJson___icon___modifiedTime' |
+  'image___childrenGuestServicesJson___icon___accessTime' |
+  'image___childrenGuestServicesJson___icon___changeTime' |
+  'image___childrenGuestServicesJson___icon___birthTime' |
+  'image___childrenGuestServicesJson___icon___root' |
+  'image___childrenGuestServicesJson___icon___dir' |
+  'image___childrenGuestServicesJson___icon___base' |
+  'image___childrenGuestServicesJson___icon___ext' |
+  'image___childrenGuestServicesJson___icon___name' |
+  'image___childrenGuestServicesJson___icon___relativeDirectory' |
+  'image___childrenGuestServicesJson___icon___dev' |
+  'image___childrenGuestServicesJson___icon___mode' |
+  'image___childrenGuestServicesJson___icon___nlink' |
+  'image___childrenGuestServicesJson___icon___uid' |
+  'image___childrenGuestServicesJson___icon___gid' |
+  'image___childrenGuestServicesJson___icon___rdev' |
+  'image___childrenGuestServicesJson___icon___ino' |
+  'image___childrenGuestServicesJson___icon___atimeMs' |
+  'image___childrenGuestServicesJson___icon___mtimeMs' |
+  'image___childrenGuestServicesJson___icon___ctimeMs' |
+  'image___childrenGuestServicesJson___icon___atime' |
+  'image___childrenGuestServicesJson___icon___mtime' |
+  'image___childrenGuestServicesJson___icon___ctime' |
+  'image___childrenGuestServicesJson___icon___birthtime' |
+  'image___childrenGuestServicesJson___icon___birthtimeMs' |
+  'image___childrenGuestServicesJson___icon___blksize' |
+  'image___childrenGuestServicesJson___icon___blocks' |
+  'image___childrenGuestServicesJson___icon___publicURL' |
+  'image___childrenGuestServicesJson___icon___id' |
+  'image___childrenGuestServicesJson___icon___children' |
+  'image___childrenGuestServicesJson___icon___childrenConciergeServicesJson' |
+  'image___childrenGuestServicesJson___icon___childrenGuestServicesJson' |
+  'image___childrenGuestServicesJson___icon___childrenRentalsJson' |
+  'image___childrenGuestServicesJson___icon___childrenTeamJson' |
+  'image___childrenGuestServicesJson___icon___childrenTestimonialsJson' |
+  'image___childrenRentalsJson' |
+  'image___childrenRentalsJson___id' |
+  'image___childrenRentalsJson___parent___id' |
+  'image___childrenRentalsJson___parent___children' |
+  'image___childrenRentalsJson___children' |
+  'image___childrenRentalsJson___children___id' |
+  'image___childrenRentalsJson___children___children' |
+  'image___childrenRentalsJson___internal___content' |
+  'image___childrenRentalsJson___internal___contentDigest' |
+  'image___childrenRentalsJson___internal___description' |
+  'image___childrenRentalsJson___internal___fieldOwners' |
+  'image___childrenRentalsJson___internal___ignoreType' |
+  'image___childrenRentalsJson___internal___mediaType' |
+  'image___childrenRentalsJson___internal___owner' |
+  'image___childrenRentalsJson___internal___type' |
+  'image___childrenRentalsJson___bedrooms' |
+  'image___childrenRentalsJson___price' |
+  'image___childrenRentalsJson___guests' |
+  'image___childrenRentalsJson___title' |
+  'image___childrenRentalsJson___picture___sourceInstanceName' |
+  'image___childrenRentalsJson___picture___absolutePath' |
+  'image___childrenRentalsJson___picture___relativePath' |
+  'image___childrenRentalsJson___picture___extension' |
+  'image___childrenRentalsJson___picture___size' |
+  'image___childrenRentalsJson___picture___prettySize' |
+  'image___childrenRentalsJson___picture___modifiedTime' |
+  'image___childrenRentalsJson___picture___accessTime' |
+  'image___childrenRentalsJson___picture___changeTime' |
+  'image___childrenRentalsJson___picture___birthTime' |
+  'image___childrenRentalsJson___picture___root' |
+  'image___childrenRentalsJson___picture___dir' |
+  'image___childrenRentalsJson___picture___base' |
+  'image___childrenRentalsJson___picture___ext' |
+  'image___childrenRentalsJson___picture___name' |
+  'image___childrenRentalsJson___picture___relativeDirectory' |
+  'image___childrenRentalsJson___picture___dev' |
+  'image___childrenRentalsJson___picture___mode' |
+  'image___childrenRentalsJson___picture___nlink' |
+  'image___childrenRentalsJson___picture___uid' |
+  'image___childrenRentalsJson___picture___gid' |
+  'image___childrenRentalsJson___picture___rdev' |
+  'image___childrenRentalsJson___picture___ino' |
+  'image___childrenRentalsJson___picture___atimeMs' |
+  'image___childrenRentalsJson___picture___mtimeMs' |
+  'image___childrenRentalsJson___picture___ctimeMs' |
+  'image___childrenRentalsJson___picture___atime' |
+  'image___childrenRentalsJson___picture___mtime' |
+  'image___childrenRentalsJson___picture___ctime' |
+  'image___childrenRentalsJson___picture___birthtime' |
+  'image___childrenRentalsJson___picture___birthtimeMs' |
+  'image___childrenRentalsJson___picture___blksize' |
+  'image___childrenRentalsJson___picture___blocks' |
+  'image___childrenRentalsJson___picture___publicURL' |
+  'image___childrenRentalsJson___picture___id' |
+  'image___childrenRentalsJson___picture___children' |
+  'image___childrenRentalsJson___picture___childrenConciergeServicesJson' |
+  'image___childrenRentalsJson___picture___childrenGuestServicesJson' |
+  'image___childrenRentalsJson___picture___childrenRentalsJson' |
+  'image___childrenRentalsJson___picture___childrenTeamJson' |
+  'image___childrenRentalsJson___picture___childrenTestimonialsJson' |
+  'image___childrenRentalsJson___slug' |
+  'image___childrenRentalsJson___category' |
+  'image___childrenTeamJson' |
+  'image___childrenTeamJson___id' |
+  'image___childrenTeamJson___parent___id' |
+  'image___childrenTeamJson___parent___children' |
+  'image___childrenTeamJson___children' |
+  'image___childrenTeamJson___children___id' |
+  'image___childrenTeamJson___children___children' |
+  'image___childrenTeamJson___internal___content' |
+  'image___childrenTeamJson___internal___contentDigest' |
+  'image___childrenTeamJson___internal___description' |
+  'image___childrenTeamJson___internal___fieldOwners' |
+  'image___childrenTeamJson___internal___ignoreType' |
+  'image___childrenTeamJson___internal___mediaType' |
+  'image___childrenTeamJson___internal___owner' |
+  'image___childrenTeamJson___internal___type' |
+  'image___childrenTeamJson___name' |
+  'image___childrenTeamJson___title' |
+  'image___childrenTeamJson___picture___sourceInstanceName' |
+  'image___childrenTeamJson___picture___absolutePath' |
+  'image___childrenTeamJson___picture___relativePath' |
+  'image___childrenTeamJson___picture___extension' |
+  'image___childrenTeamJson___picture___size' |
+  'image___childrenTeamJson___picture___prettySize' |
+  'image___childrenTeamJson___picture___modifiedTime' |
+  'image___childrenTeamJson___picture___accessTime' |
+  'image___childrenTeamJson___picture___changeTime' |
+  'image___childrenTeamJson___picture___birthTime' |
+  'image___childrenTeamJson___picture___root' |
+  'image___childrenTeamJson___picture___dir' |
+  'image___childrenTeamJson___picture___base' |
+  'image___childrenTeamJson___picture___ext' |
+  'image___childrenTeamJson___picture___name' |
+  'image___childrenTeamJson___picture___relativeDirectory' |
+  'image___childrenTeamJson___picture___dev' |
+  'image___childrenTeamJson___picture___mode' |
+  'image___childrenTeamJson___picture___nlink' |
+  'image___childrenTeamJson___picture___uid' |
+  'image___childrenTeamJson___picture___gid' |
+  'image___childrenTeamJson___picture___rdev' |
+  'image___childrenTeamJson___picture___ino' |
+  'image___childrenTeamJson___picture___atimeMs' |
+  'image___childrenTeamJson___picture___mtimeMs' |
+  'image___childrenTeamJson___picture___ctimeMs' |
+  'image___childrenTeamJson___picture___atime' |
+  'image___childrenTeamJson___picture___mtime' |
+  'image___childrenTeamJson___picture___ctime' |
+  'image___childrenTeamJson___picture___birthtime' |
+  'image___childrenTeamJson___picture___birthtimeMs' |
+  'image___childrenTeamJson___picture___blksize' |
+  'image___childrenTeamJson___picture___blocks' |
+  'image___childrenTeamJson___picture___publicURL' |
+  'image___childrenTeamJson___picture___id' |
+  'image___childrenTeamJson___picture___children' |
+  'image___childrenTeamJson___picture___childrenConciergeServicesJson' |
+  'image___childrenTeamJson___picture___childrenGuestServicesJson' |
+  'image___childrenTeamJson___picture___childrenRentalsJson' |
+  'image___childrenTeamJson___picture___childrenTeamJson' |
+  'image___childrenTeamJson___picture___childrenTestimonialsJson' |
+  'image___childrenTeamJson___bio' |
+  'image___childrenTestimonialsJson' |
+  'image___childrenTestimonialsJson___id' |
+  'image___childrenTestimonialsJson___parent___id' |
+  'image___childrenTestimonialsJson___parent___children' |
+  'image___childrenTestimonialsJson___children' |
+  'image___childrenTestimonialsJson___children___id' |
+  'image___childrenTestimonialsJson___children___children' |
+  'image___childrenTestimonialsJson___internal___content' |
+  'image___childrenTestimonialsJson___internal___contentDigest' |
+  'image___childrenTestimonialsJson___internal___description' |
+  'image___childrenTestimonialsJson___internal___fieldOwners' |
+  'image___childrenTestimonialsJson___internal___ignoreType' |
+  'image___childrenTestimonialsJson___internal___mediaType' |
+  'image___childrenTestimonialsJson___internal___owner' |
+  'image___childrenTestimonialsJson___internal___type' |
+  'image___childrenTestimonialsJson___body' |
+  'image___childrenTestimonialsJson___rating' |
+  'image___childrenTestimonialsJson___author' |
+  'image___childrenTestimonialsJson___property___name' |
+  'image___childrenTestimonialsJson___property___location' |
+  'image___childMdx___rawBody' |
+  'image___childMdx___fileAbsolutePath' |
+  'image___childMdx___frontmatter___title' |
+  'image___childMdx___frontmatter___slug' |
+  'image___childMdx___frontmatter___contactForm' |
+  'image___childMdx___body' |
+  'image___childMdx___excerpt' |
+  'image___childMdx___headings' |
+  'image___childMdx___headings___value' |
+  'image___childMdx___headings___depth' |
+  'image___childMdx___html' |
+  'image___childMdx___mdxAST' |
+  'image___childMdx___tableOfContents' |
+  'image___childMdx___timeToRead' |
+  'image___childMdx___wordCount___paragraphs' |
+  'image___childMdx___wordCount___sentences' |
+  'image___childMdx___wordCount___words' |
+  'image___childMdx___id' |
+  'image___childMdx___parent___id' |
+  'image___childMdx___parent___children' |
+  'image___childMdx___children' |
+  'image___childMdx___children___id' |
+  'image___childMdx___children___children' |
+  'image___childMdx___internal___content' |
+  'image___childMdx___internal___contentDigest' |
+  'image___childMdx___internal___description' |
+  'image___childMdx___internal___fieldOwners' |
+  'image___childMdx___internal___ignoreType' |
+  'image___childMdx___internal___mediaType' |
+  'image___childMdx___internal___owner' |
+  'image___childMdx___internal___type';
+
+export type ConciergeServicesJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  image?: Maybe<FileFilterInput>,
+};
+
+export type ConciergeServicesJsonFilterListInput = {
+  elemMatch?: Maybe<ConciergeServicesJsonFilterInput>,
+};
+
+export type ConciergeServicesJsonGroupConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<ConciergeServicesJsonEdge>,
+  nodes: Array<ConciergeServicesJson>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type ConciergeServicesJsonSortInput = {
+  fields?: Maybe<Array<Maybe<ConciergeServicesJsonFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
 
 export type DateQueryOperatorInput = {
   eq?: Maybe<Scalars['Date']>,
@@ -382,7 +960,6 @@ export type File = Node & {
   birthtimeMs?: Maybe<Scalars['Float']>,
   blksize?: Maybe<Scalars['Int']>,
   blocks?: Maybe<Scalars['Int']>,
-  url?: Maybe<Scalars['String']>,
   /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars['String']>,
   childImageSharp?: Maybe<ImageSharp>,
@@ -390,8 +967,12 @@ export type File = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  childrenTestimonialsJson?: Maybe<Array<Maybe<TestimonialsJson>>>,
+  childrenConciergeServicesJson?: Maybe<Array<Maybe<ConciergeServicesJson>>>,
+  childrenGuestServicesJson?: Maybe<Array<Maybe<GuestServicesJson>>>,
+  childrenRentalsJson?: Maybe<Array<Maybe<RentalsJson>>>,
   childrenTeamJson?: Maybe<Array<Maybe<TeamJson>>>,
+  childrenTestimonialsJson?: Maybe<Array<Maybe<TestimonialsJson>>>,
+  childMdx?: Maybe<Mdx>,
 };
 
 
@@ -511,7 +1092,6 @@ export type FileFieldsEnum =
   'birthtimeMs' |
   'blksize' |
   'blocks' |
-  'url' |
   'publicURL' |
   'childImageSharp___fixed___base64' |
   'childImageSharp___fixed___tracedSVG' |
@@ -690,50 +1270,405 @@ export type FileFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
-  'childrenTestimonialsJson' |
-  'childrenTestimonialsJson___id' |
-  'childrenTestimonialsJson___parent___id' |
-  'childrenTestimonialsJson___parent___parent___id' |
-  'childrenTestimonialsJson___parent___parent___children' |
-  'childrenTestimonialsJson___parent___children' |
-  'childrenTestimonialsJson___parent___children___id' |
-  'childrenTestimonialsJson___parent___children___children' |
-  'childrenTestimonialsJson___parent___internal___content' |
-  'childrenTestimonialsJson___parent___internal___contentDigest' |
-  'childrenTestimonialsJson___parent___internal___description' |
-  'childrenTestimonialsJson___parent___internal___fieldOwners' |
-  'childrenTestimonialsJson___parent___internal___ignoreType' |
-  'childrenTestimonialsJson___parent___internal___mediaType' |
-  'childrenTestimonialsJson___parent___internal___owner' |
-  'childrenTestimonialsJson___parent___internal___type' |
-  'childrenTestimonialsJson___children' |
-  'childrenTestimonialsJson___children___id' |
-  'childrenTestimonialsJson___children___parent___id' |
-  'childrenTestimonialsJson___children___parent___children' |
-  'childrenTestimonialsJson___children___children' |
-  'childrenTestimonialsJson___children___children___id' |
-  'childrenTestimonialsJson___children___children___children' |
-  'childrenTestimonialsJson___children___internal___content' |
-  'childrenTestimonialsJson___children___internal___contentDigest' |
-  'childrenTestimonialsJson___children___internal___description' |
-  'childrenTestimonialsJson___children___internal___fieldOwners' |
-  'childrenTestimonialsJson___children___internal___ignoreType' |
-  'childrenTestimonialsJson___children___internal___mediaType' |
-  'childrenTestimonialsJson___children___internal___owner' |
-  'childrenTestimonialsJson___children___internal___type' |
-  'childrenTestimonialsJson___internal___content' |
-  'childrenTestimonialsJson___internal___contentDigest' |
-  'childrenTestimonialsJson___internal___description' |
-  'childrenTestimonialsJson___internal___fieldOwners' |
-  'childrenTestimonialsJson___internal___ignoreType' |
-  'childrenTestimonialsJson___internal___mediaType' |
-  'childrenTestimonialsJson___internal___owner' |
-  'childrenTestimonialsJson___internal___type' |
-  'childrenTestimonialsJson___body' |
-  'childrenTestimonialsJson___rating' |
-  'childrenTestimonialsJson___author' |
-  'childrenTestimonialsJson___property___name' |
-  'childrenTestimonialsJson___property___location' |
+  'childrenConciergeServicesJson' |
+  'childrenConciergeServicesJson___id' |
+  'childrenConciergeServicesJson___parent___id' |
+  'childrenConciergeServicesJson___parent___parent___id' |
+  'childrenConciergeServicesJson___parent___parent___children' |
+  'childrenConciergeServicesJson___parent___children' |
+  'childrenConciergeServicesJson___parent___children___id' |
+  'childrenConciergeServicesJson___parent___children___children' |
+  'childrenConciergeServicesJson___parent___internal___content' |
+  'childrenConciergeServicesJson___parent___internal___contentDigest' |
+  'childrenConciergeServicesJson___parent___internal___description' |
+  'childrenConciergeServicesJson___parent___internal___fieldOwners' |
+  'childrenConciergeServicesJson___parent___internal___ignoreType' |
+  'childrenConciergeServicesJson___parent___internal___mediaType' |
+  'childrenConciergeServicesJson___parent___internal___owner' |
+  'childrenConciergeServicesJson___parent___internal___type' |
+  'childrenConciergeServicesJson___children' |
+  'childrenConciergeServicesJson___children___id' |
+  'childrenConciergeServicesJson___children___parent___id' |
+  'childrenConciergeServicesJson___children___parent___children' |
+  'childrenConciergeServicesJson___children___children' |
+  'childrenConciergeServicesJson___children___children___id' |
+  'childrenConciergeServicesJson___children___children___children' |
+  'childrenConciergeServicesJson___children___internal___content' |
+  'childrenConciergeServicesJson___children___internal___contentDigest' |
+  'childrenConciergeServicesJson___children___internal___description' |
+  'childrenConciergeServicesJson___children___internal___fieldOwners' |
+  'childrenConciergeServicesJson___children___internal___ignoreType' |
+  'childrenConciergeServicesJson___children___internal___mediaType' |
+  'childrenConciergeServicesJson___children___internal___owner' |
+  'childrenConciergeServicesJson___children___internal___type' |
+  'childrenConciergeServicesJson___internal___content' |
+  'childrenConciergeServicesJson___internal___contentDigest' |
+  'childrenConciergeServicesJson___internal___description' |
+  'childrenConciergeServicesJson___internal___fieldOwners' |
+  'childrenConciergeServicesJson___internal___ignoreType' |
+  'childrenConciergeServicesJson___internal___mediaType' |
+  'childrenConciergeServicesJson___internal___owner' |
+  'childrenConciergeServicesJson___internal___type' |
+  'childrenConciergeServicesJson___name' |
+  'childrenConciergeServicesJson___image___sourceInstanceName' |
+  'childrenConciergeServicesJson___image___absolutePath' |
+  'childrenConciergeServicesJson___image___relativePath' |
+  'childrenConciergeServicesJson___image___extension' |
+  'childrenConciergeServicesJson___image___size' |
+  'childrenConciergeServicesJson___image___prettySize' |
+  'childrenConciergeServicesJson___image___modifiedTime' |
+  'childrenConciergeServicesJson___image___accessTime' |
+  'childrenConciergeServicesJson___image___changeTime' |
+  'childrenConciergeServicesJson___image___birthTime' |
+  'childrenConciergeServicesJson___image___root' |
+  'childrenConciergeServicesJson___image___dir' |
+  'childrenConciergeServicesJson___image___base' |
+  'childrenConciergeServicesJson___image___ext' |
+  'childrenConciergeServicesJson___image___name' |
+  'childrenConciergeServicesJson___image___relativeDirectory' |
+  'childrenConciergeServicesJson___image___dev' |
+  'childrenConciergeServicesJson___image___mode' |
+  'childrenConciergeServicesJson___image___nlink' |
+  'childrenConciergeServicesJson___image___uid' |
+  'childrenConciergeServicesJson___image___gid' |
+  'childrenConciergeServicesJson___image___rdev' |
+  'childrenConciergeServicesJson___image___ino' |
+  'childrenConciergeServicesJson___image___atimeMs' |
+  'childrenConciergeServicesJson___image___mtimeMs' |
+  'childrenConciergeServicesJson___image___ctimeMs' |
+  'childrenConciergeServicesJson___image___atime' |
+  'childrenConciergeServicesJson___image___mtime' |
+  'childrenConciergeServicesJson___image___ctime' |
+  'childrenConciergeServicesJson___image___birthtime' |
+  'childrenConciergeServicesJson___image___birthtimeMs' |
+  'childrenConciergeServicesJson___image___blksize' |
+  'childrenConciergeServicesJson___image___blocks' |
+  'childrenConciergeServicesJson___image___publicURL' |
+  'childrenConciergeServicesJson___image___childImageSharp___id' |
+  'childrenConciergeServicesJson___image___childImageSharp___children' |
+  'childrenConciergeServicesJson___image___id' |
+  'childrenConciergeServicesJson___image___parent___id' |
+  'childrenConciergeServicesJson___image___parent___children' |
+  'childrenConciergeServicesJson___image___children' |
+  'childrenConciergeServicesJson___image___children___id' |
+  'childrenConciergeServicesJson___image___children___children' |
+  'childrenConciergeServicesJson___image___internal___content' |
+  'childrenConciergeServicesJson___image___internal___contentDigest' |
+  'childrenConciergeServicesJson___image___internal___description' |
+  'childrenConciergeServicesJson___image___internal___fieldOwners' |
+  'childrenConciergeServicesJson___image___internal___ignoreType' |
+  'childrenConciergeServicesJson___image___internal___mediaType' |
+  'childrenConciergeServicesJson___image___internal___owner' |
+  'childrenConciergeServicesJson___image___internal___type' |
+  'childrenConciergeServicesJson___image___childrenConciergeServicesJson' |
+  'childrenConciergeServicesJson___image___childrenConciergeServicesJson___id' |
+  'childrenConciergeServicesJson___image___childrenConciergeServicesJson___children' |
+  'childrenConciergeServicesJson___image___childrenConciergeServicesJson___name' |
+  'childrenConciergeServicesJson___image___childrenGuestServicesJson' |
+  'childrenConciergeServicesJson___image___childrenGuestServicesJson___id' |
+  'childrenConciergeServicesJson___image___childrenGuestServicesJson___children' |
+  'childrenConciergeServicesJson___image___childrenGuestServicesJson___name' |
+  'childrenConciergeServicesJson___image___childrenGuestServicesJson___description' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson___id' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson___children' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson___bedrooms' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson___price' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson___guests' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson___title' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson___slug' |
+  'childrenConciergeServicesJson___image___childrenRentalsJson___category' |
+  'childrenConciergeServicesJson___image___childrenTeamJson' |
+  'childrenConciergeServicesJson___image___childrenTeamJson___id' |
+  'childrenConciergeServicesJson___image___childrenTeamJson___children' |
+  'childrenConciergeServicesJson___image___childrenTeamJson___name' |
+  'childrenConciergeServicesJson___image___childrenTeamJson___title' |
+  'childrenConciergeServicesJson___image___childrenTeamJson___bio' |
+  'childrenConciergeServicesJson___image___childrenTestimonialsJson' |
+  'childrenConciergeServicesJson___image___childrenTestimonialsJson___id' |
+  'childrenConciergeServicesJson___image___childrenTestimonialsJson___children' |
+  'childrenConciergeServicesJson___image___childrenTestimonialsJson___body' |
+  'childrenConciergeServicesJson___image___childrenTestimonialsJson___rating' |
+  'childrenConciergeServicesJson___image___childrenTestimonialsJson___author' |
+  'childrenConciergeServicesJson___image___childMdx___rawBody' |
+  'childrenConciergeServicesJson___image___childMdx___fileAbsolutePath' |
+  'childrenConciergeServicesJson___image___childMdx___body' |
+  'childrenConciergeServicesJson___image___childMdx___excerpt' |
+  'childrenConciergeServicesJson___image___childMdx___headings' |
+  'childrenConciergeServicesJson___image___childMdx___html' |
+  'childrenConciergeServicesJson___image___childMdx___mdxAST' |
+  'childrenConciergeServicesJson___image___childMdx___tableOfContents' |
+  'childrenConciergeServicesJson___image___childMdx___timeToRead' |
+  'childrenConciergeServicesJson___image___childMdx___id' |
+  'childrenConciergeServicesJson___image___childMdx___children' |
+  'childrenGuestServicesJson' |
+  'childrenGuestServicesJson___id' |
+  'childrenGuestServicesJson___parent___id' |
+  'childrenGuestServicesJson___parent___parent___id' |
+  'childrenGuestServicesJson___parent___parent___children' |
+  'childrenGuestServicesJson___parent___children' |
+  'childrenGuestServicesJson___parent___children___id' |
+  'childrenGuestServicesJson___parent___children___children' |
+  'childrenGuestServicesJson___parent___internal___content' |
+  'childrenGuestServicesJson___parent___internal___contentDigest' |
+  'childrenGuestServicesJson___parent___internal___description' |
+  'childrenGuestServicesJson___parent___internal___fieldOwners' |
+  'childrenGuestServicesJson___parent___internal___ignoreType' |
+  'childrenGuestServicesJson___parent___internal___mediaType' |
+  'childrenGuestServicesJson___parent___internal___owner' |
+  'childrenGuestServicesJson___parent___internal___type' |
+  'childrenGuestServicesJson___children' |
+  'childrenGuestServicesJson___children___id' |
+  'childrenGuestServicesJson___children___parent___id' |
+  'childrenGuestServicesJson___children___parent___children' |
+  'childrenGuestServicesJson___children___children' |
+  'childrenGuestServicesJson___children___children___id' |
+  'childrenGuestServicesJson___children___children___children' |
+  'childrenGuestServicesJson___children___internal___content' |
+  'childrenGuestServicesJson___children___internal___contentDigest' |
+  'childrenGuestServicesJson___children___internal___description' |
+  'childrenGuestServicesJson___children___internal___fieldOwners' |
+  'childrenGuestServicesJson___children___internal___ignoreType' |
+  'childrenGuestServicesJson___children___internal___mediaType' |
+  'childrenGuestServicesJson___children___internal___owner' |
+  'childrenGuestServicesJson___children___internal___type' |
+  'childrenGuestServicesJson___internal___content' |
+  'childrenGuestServicesJson___internal___contentDigest' |
+  'childrenGuestServicesJson___internal___description' |
+  'childrenGuestServicesJson___internal___fieldOwners' |
+  'childrenGuestServicesJson___internal___ignoreType' |
+  'childrenGuestServicesJson___internal___mediaType' |
+  'childrenGuestServicesJson___internal___owner' |
+  'childrenGuestServicesJson___internal___type' |
+  'childrenGuestServicesJson___name' |
+  'childrenGuestServicesJson___description' |
+  'childrenGuestServicesJson___icon___sourceInstanceName' |
+  'childrenGuestServicesJson___icon___absolutePath' |
+  'childrenGuestServicesJson___icon___relativePath' |
+  'childrenGuestServicesJson___icon___extension' |
+  'childrenGuestServicesJson___icon___size' |
+  'childrenGuestServicesJson___icon___prettySize' |
+  'childrenGuestServicesJson___icon___modifiedTime' |
+  'childrenGuestServicesJson___icon___accessTime' |
+  'childrenGuestServicesJson___icon___changeTime' |
+  'childrenGuestServicesJson___icon___birthTime' |
+  'childrenGuestServicesJson___icon___root' |
+  'childrenGuestServicesJson___icon___dir' |
+  'childrenGuestServicesJson___icon___base' |
+  'childrenGuestServicesJson___icon___ext' |
+  'childrenGuestServicesJson___icon___name' |
+  'childrenGuestServicesJson___icon___relativeDirectory' |
+  'childrenGuestServicesJson___icon___dev' |
+  'childrenGuestServicesJson___icon___mode' |
+  'childrenGuestServicesJson___icon___nlink' |
+  'childrenGuestServicesJson___icon___uid' |
+  'childrenGuestServicesJson___icon___gid' |
+  'childrenGuestServicesJson___icon___rdev' |
+  'childrenGuestServicesJson___icon___ino' |
+  'childrenGuestServicesJson___icon___atimeMs' |
+  'childrenGuestServicesJson___icon___mtimeMs' |
+  'childrenGuestServicesJson___icon___ctimeMs' |
+  'childrenGuestServicesJson___icon___atime' |
+  'childrenGuestServicesJson___icon___mtime' |
+  'childrenGuestServicesJson___icon___ctime' |
+  'childrenGuestServicesJson___icon___birthtime' |
+  'childrenGuestServicesJson___icon___birthtimeMs' |
+  'childrenGuestServicesJson___icon___blksize' |
+  'childrenGuestServicesJson___icon___blocks' |
+  'childrenGuestServicesJson___icon___publicURL' |
+  'childrenGuestServicesJson___icon___childImageSharp___id' |
+  'childrenGuestServicesJson___icon___childImageSharp___children' |
+  'childrenGuestServicesJson___icon___id' |
+  'childrenGuestServicesJson___icon___parent___id' |
+  'childrenGuestServicesJson___icon___parent___children' |
+  'childrenGuestServicesJson___icon___children' |
+  'childrenGuestServicesJson___icon___children___id' |
+  'childrenGuestServicesJson___icon___children___children' |
+  'childrenGuestServicesJson___icon___internal___content' |
+  'childrenGuestServicesJson___icon___internal___contentDigest' |
+  'childrenGuestServicesJson___icon___internal___description' |
+  'childrenGuestServicesJson___icon___internal___fieldOwners' |
+  'childrenGuestServicesJson___icon___internal___ignoreType' |
+  'childrenGuestServicesJson___icon___internal___mediaType' |
+  'childrenGuestServicesJson___icon___internal___owner' |
+  'childrenGuestServicesJson___icon___internal___type' |
+  'childrenGuestServicesJson___icon___childrenConciergeServicesJson' |
+  'childrenGuestServicesJson___icon___childrenConciergeServicesJson___id' |
+  'childrenGuestServicesJson___icon___childrenConciergeServicesJson___children' |
+  'childrenGuestServicesJson___icon___childrenConciergeServicesJson___name' |
+  'childrenGuestServicesJson___icon___childrenGuestServicesJson' |
+  'childrenGuestServicesJson___icon___childrenGuestServicesJson___id' |
+  'childrenGuestServicesJson___icon___childrenGuestServicesJson___children' |
+  'childrenGuestServicesJson___icon___childrenGuestServicesJson___name' |
+  'childrenGuestServicesJson___icon___childrenGuestServicesJson___description' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson___id' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson___children' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson___bedrooms' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson___price' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson___guests' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson___title' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson___slug' |
+  'childrenGuestServicesJson___icon___childrenRentalsJson___category' |
+  'childrenGuestServicesJson___icon___childrenTeamJson' |
+  'childrenGuestServicesJson___icon___childrenTeamJson___id' |
+  'childrenGuestServicesJson___icon___childrenTeamJson___children' |
+  'childrenGuestServicesJson___icon___childrenTeamJson___name' |
+  'childrenGuestServicesJson___icon___childrenTeamJson___title' |
+  'childrenGuestServicesJson___icon___childrenTeamJson___bio' |
+  'childrenGuestServicesJson___icon___childrenTestimonialsJson' |
+  'childrenGuestServicesJson___icon___childrenTestimonialsJson___id' |
+  'childrenGuestServicesJson___icon___childrenTestimonialsJson___children' |
+  'childrenGuestServicesJson___icon___childrenTestimonialsJson___body' |
+  'childrenGuestServicesJson___icon___childrenTestimonialsJson___rating' |
+  'childrenGuestServicesJson___icon___childrenTestimonialsJson___author' |
+  'childrenGuestServicesJson___icon___childMdx___rawBody' |
+  'childrenGuestServicesJson___icon___childMdx___fileAbsolutePath' |
+  'childrenGuestServicesJson___icon___childMdx___body' |
+  'childrenGuestServicesJson___icon___childMdx___excerpt' |
+  'childrenGuestServicesJson___icon___childMdx___headings' |
+  'childrenGuestServicesJson___icon___childMdx___html' |
+  'childrenGuestServicesJson___icon___childMdx___mdxAST' |
+  'childrenGuestServicesJson___icon___childMdx___tableOfContents' |
+  'childrenGuestServicesJson___icon___childMdx___timeToRead' |
+  'childrenGuestServicesJson___icon___childMdx___id' |
+  'childrenGuestServicesJson___icon___childMdx___children' |
+  'childrenRentalsJson' |
+  'childrenRentalsJson___id' |
+  'childrenRentalsJson___parent___id' |
+  'childrenRentalsJson___parent___parent___id' |
+  'childrenRentalsJson___parent___parent___children' |
+  'childrenRentalsJson___parent___children' |
+  'childrenRentalsJson___parent___children___id' |
+  'childrenRentalsJson___parent___children___children' |
+  'childrenRentalsJson___parent___internal___content' |
+  'childrenRentalsJson___parent___internal___contentDigest' |
+  'childrenRentalsJson___parent___internal___description' |
+  'childrenRentalsJson___parent___internal___fieldOwners' |
+  'childrenRentalsJson___parent___internal___ignoreType' |
+  'childrenRentalsJson___parent___internal___mediaType' |
+  'childrenRentalsJson___parent___internal___owner' |
+  'childrenRentalsJson___parent___internal___type' |
+  'childrenRentalsJson___children' |
+  'childrenRentalsJson___children___id' |
+  'childrenRentalsJson___children___parent___id' |
+  'childrenRentalsJson___children___parent___children' |
+  'childrenRentalsJson___children___children' |
+  'childrenRentalsJson___children___children___id' |
+  'childrenRentalsJson___children___children___children' |
+  'childrenRentalsJson___children___internal___content' |
+  'childrenRentalsJson___children___internal___contentDigest' |
+  'childrenRentalsJson___children___internal___description' |
+  'childrenRentalsJson___children___internal___fieldOwners' |
+  'childrenRentalsJson___children___internal___ignoreType' |
+  'childrenRentalsJson___children___internal___mediaType' |
+  'childrenRentalsJson___children___internal___owner' |
+  'childrenRentalsJson___children___internal___type' |
+  'childrenRentalsJson___internal___content' |
+  'childrenRentalsJson___internal___contentDigest' |
+  'childrenRentalsJson___internal___description' |
+  'childrenRentalsJson___internal___fieldOwners' |
+  'childrenRentalsJson___internal___ignoreType' |
+  'childrenRentalsJson___internal___mediaType' |
+  'childrenRentalsJson___internal___owner' |
+  'childrenRentalsJson___internal___type' |
+  'childrenRentalsJson___bedrooms' |
+  'childrenRentalsJson___price' |
+  'childrenRentalsJson___guests' |
+  'childrenRentalsJson___title' |
+  'childrenRentalsJson___picture___sourceInstanceName' |
+  'childrenRentalsJson___picture___absolutePath' |
+  'childrenRentalsJson___picture___relativePath' |
+  'childrenRentalsJson___picture___extension' |
+  'childrenRentalsJson___picture___size' |
+  'childrenRentalsJson___picture___prettySize' |
+  'childrenRentalsJson___picture___modifiedTime' |
+  'childrenRentalsJson___picture___accessTime' |
+  'childrenRentalsJson___picture___changeTime' |
+  'childrenRentalsJson___picture___birthTime' |
+  'childrenRentalsJson___picture___root' |
+  'childrenRentalsJson___picture___dir' |
+  'childrenRentalsJson___picture___base' |
+  'childrenRentalsJson___picture___ext' |
+  'childrenRentalsJson___picture___name' |
+  'childrenRentalsJson___picture___relativeDirectory' |
+  'childrenRentalsJson___picture___dev' |
+  'childrenRentalsJson___picture___mode' |
+  'childrenRentalsJson___picture___nlink' |
+  'childrenRentalsJson___picture___uid' |
+  'childrenRentalsJson___picture___gid' |
+  'childrenRentalsJson___picture___rdev' |
+  'childrenRentalsJson___picture___ino' |
+  'childrenRentalsJson___picture___atimeMs' |
+  'childrenRentalsJson___picture___mtimeMs' |
+  'childrenRentalsJson___picture___ctimeMs' |
+  'childrenRentalsJson___picture___atime' |
+  'childrenRentalsJson___picture___mtime' |
+  'childrenRentalsJson___picture___ctime' |
+  'childrenRentalsJson___picture___birthtime' |
+  'childrenRentalsJson___picture___birthtimeMs' |
+  'childrenRentalsJson___picture___blksize' |
+  'childrenRentalsJson___picture___blocks' |
+  'childrenRentalsJson___picture___publicURL' |
+  'childrenRentalsJson___picture___childImageSharp___id' |
+  'childrenRentalsJson___picture___childImageSharp___children' |
+  'childrenRentalsJson___picture___id' |
+  'childrenRentalsJson___picture___parent___id' |
+  'childrenRentalsJson___picture___parent___children' |
+  'childrenRentalsJson___picture___children' |
+  'childrenRentalsJson___picture___children___id' |
+  'childrenRentalsJson___picture___children___children' |
+  'childrenRentalsJson___picture___internal___content' |
+  'childrenRentalsJson___picture___internal___contentDigest' |
+  'childrenRentalsJson___picture___internal___description' |
+  'childrenRentalsJson___picture___internal___fieldOwners' |
+  'childrenRentalsJson___picture___internal___ignoreType' |
+  'childrenRentalsJson___picture___internal___mediaType' |
+  'childrenRentalsJson___picture___internal___owner' |
+  'childrenRentalsJson___picture___internal___type' |
+  'childrenRentalsJson___picture___childrenConciergeServicesJson' |
+  'childrenRentalsJson___picture___childrenConciergeServicesJson___id' |
+  'childrenRentalsJson___picture___childrenConciergeServicesJson___children' |
+  'childrenRentalsJson___picture___childrenConciergeServicesJson___name' |
+  'childrenRentalsJson___picture___childrenGuestServicesJson' |
+  'childrenRentalsJson___picture___childrenGuestServicesJson___id' |
+  'childrenRentalsJson___picture___childrenGuestServicesJson___children' |
+  'childrenRentalsJson___picture___childrenGuestServicesJson___name' |
+  'childrenRentalsJson___picture___childrenGuestServicesJson___description' |
+  'childrenRentalsJson___picture___childrenRentalsJson' |
+  'childrenRentalsJson___picture___childrenRentalsJson___id' |
+  'childrenRentalsJson___picture___childrenRentalsJson___children' |
+  'childrenRentalsJson___picture___childrenRentalsJson___bedrooms' |
+  'childrenRentalsJson___picture___childrenRentalsJson___price' |
+  'childrenRentalsJson___picture___childrenRentalsJson___guests' |
+  'childrenRentalsJson___picture___childrenRentalsJson___title' |
+  'childrenRentalsJson___picture___childrenRentalsJson___slug' |
+  'childrenRentalsJson___picture___childrenRentalsJson___category' |
+  'childrenRentalsJson___picture___childrenTeamJson' |
+  'childrenRentalsJson___picture___childrenTeamJson___id' |
+  'childrenRentalsJson___picture___childrenTeamJson___children' |
+  'childrenRentalsJson___picture___childrenTeamJson___name' |
+  'childrenRentalsJson___picture___childrenTeamJson___title' |
+  'childrenRentalsJson___picture___childrenTeamJson___bio' |
+  'childrenRentalsJson___picture___childrenTestimonialsJson' |
+  'childrenRentalsJson___picture___childrenTestimonialsJson___id' |
+  'childrenRentalsJson___picture___childrenTestimonialsJson___children' |
+  'childrenRentalsJson___picture___childrenTestimonialsJson___body' |
+  'childrenRentalsJson___picture___childrenTestimonialsJson___rating' |
+  'childrenRentalsJson___picture___childrenTestimonialsJson___author' |
+  'childrenRentalsJson___picture___childMdx___rawBody' |
+  'childrenRentalsJson___picture___childMdx___fileAbsolutePath' |
+  'childrenRentalsJson___picture___childMdx___body' |
+  'childrenRentalsJson___picture___childMdx___excerpt' |
+  'childrenRentalsJson___picture___childMdx___headings' |
+  'childrenRentalsJson___picture___childMdx___html' |
+  'childrenRentalsJson___picture___childMdx___mdxAST' |
+  'childrenRentalsJson___picture___childMdx___tableOfContents' |
+  'childrenRentalsJson___picture___childMdx___timeToRead' |
+  'childrenRentalsJson___picture___childMdx___id' |
+  'childrenRentalsJson___picture___childMdx___children' |
+  'childrenRentalsJson___slug' |
+  'childrenRentalsJson___category' |
   'childrenTeamJson' |
   'childrenTeamJson___id' |
   'childrenTeamJson___parent___id' |
@@ -808,7 +1743,6 @@ export type FileFieldsEnum =
   'childrenTeamJson___picture___birthtimeMs' |
   'childrenTeamJson___picture___blksize' |
   'childrenTeamJson___picture___blocks' |
-  'childrenTeamJson___picture___url' |
   'childrenTeamJson___picture___publicURL' |
   'childrenTeamJson___picture___childImageSharp___id' |
   'childrenTeamJson___picture___childImageSharp___children' |
@@ -826,19 +1760,188 @@ export type FileFieldsEnum =
   'childrenTeamJson___picture___internal___mediaType' |
   'childrenTeamJson___picture___internal___owner' |
   'childrenTeamJson___picture___internal___type' |
-  'childrenTeamJson___picture___childrenTestimonialsJson' |
-  'childrenTeamJson___picture___childrenTestimonialsJson___id' |
-  'childrenTeamJson___picture___childrenTestimonialsJson___children' |
-  'childrenTeamJson___picture___childrenTestimonialsJson___body' |
-  'childrenTeamJson___picture___childrenTestimonialsJson___rating' |
-  'childrenTeamJson___picture___childrenTestimonialsJson___author' |
+  'childrenTeamJson___picture___childrenConciergeServicesJson' |
+  'childrenTeamJson___picture___childrenConciergeServicesJson___id' |
+  'childrenTeamJson___picture___childrenConciergeServicesJson___children' |
+  'childrenTeamJson___picture___childrenConciergeServicesJson___name' |
+  'childrenTeamJson___picture___childrenGuestServicesJson' |
+  'childrenTeamJson___picture___childrenGuestServicesJson___id' |
+  'childrenTeamJson___picture___childrenGuestServicesJson___children' |
+  'childrenTeamJson___picture___childrenGuestServicesJson___name' |
+  'childrenTeamJson___picture___childrenGuestServicesJson___description' |
+  'childrenTeamJson___picture___childrenRentalsJson' |
+  'childrenTeamJson___picture___childrenRentalsJson___id' |
+  'childrenTeamJson___picture___childrenRentalsJson___children' |
+  'childrenTeamJson___picture___childrenRentalsJson___bedrooms' |
+  'childrenTeamJson___picture___childrenRentalsJson___price' |
+  'childrenTeamJson___picture___childrenRentalsJson___guests' |
+  'childrenTeamJson___picture___childrenRentalsJson___title' |
+  'childrenTeamJson___picture___childrenRentalsJson___slug' |
+  'childrenTeamJson___picture___childrenRentalsJson___category' |
   'childrenTeamJson___picture___childrenTeamJson' |
   'childrenTeamJson___picture___childrenTeamJson___id' |
   'childrenTeamJson___picture___childrenTeamJson___children' |
   'childrenTeamJson___picture___childrenTeamJson___name' |
   'childrenTeamJson___picture___childrenTeamJson___title' |
   'childrenTeamJson___picture___childrenTeamJson___bio' |
-  'childrenTeamJson___bio';
+  'childrenTeamJson___picture___childrenTestimonialsJson' |
+  'childrenTeamJson___picture___childrenTestimonialsJson___id' |
+  'childrenTeamJson___picture___childrenTestimonialsJson___children' |
+  'childrenTeamJson___picture___childrenTestimonialsJson___body' |
+  'childrenTeamJson___picture___childrenTestimonialsJson___rating' |
+  'childrenTeamJson___picture___childrenTestimonialsJson___author' |
+  'childrenTeamJson___picture___childMdx___rawBody' |
+  'childrenTeamJson___picture___childMdx___fileAbsolutePath' |
+  'childrenTeamJson___picture___childMdx___body' |
+  'childrenTeamJson___picture___childMdx___excerpt' |
+  'childrenTeamJson___picture___childMdx___headings' |
+  'childrenTeamJson___picture___childMdx___html' |
+  'childrenTeamJson___picture___childMdx___mdxAST' |
+  'childrenTeamJson___picture___childMdx___tableOfContents' |
+  'childrenTeamJson___picture___childMdx___timeToRead' |
+  'childrenTeamJson___picture___childMdx___id' |
+  'childrenTeamJson___picture___childMdx___children' |
+  'childrenTeamJson___bio' |
+  'childrenTestimonialsJson' |
+  'childrenTestimonialsJson___id' |
+  'childrenTestimonialsJson___parent___id' |
+  'childrenTestimonialsJson___parent___parent___id' |
+  'childrenTestimonialsJson___parent___parent___children' |
+  'childrenTestimonialsJson___parent___children' |
+  'childrenTestimonialsJson___parent___children___id' |
+  'childrenTestimonialsJson___parent___children___children' |
+  'childrenTestimonialsJson___parent___internal___content' |
+  'childrenTestimonialsJson___parent___internal___contentDigest' |
+  'childrenTestimonialsJson___parent___internal___description' |
+  'childrenTestimonialsJson___parent___internal___fieldOwners' |
+  'childrenTestimonialsJson___parent___internal___ignoreType' |
+  'childrenTestimonialsJson___parent___internal___mediaType' |
+  'childrenTestimonialsJson___parent___internal___owner' |
+  'childrenTestimonialsJson___parent___internal___type' |
+  'childrenTestimonialsJson___children' |
+  'childrenTestimonialsJson___children___id' |
+  'childrenTestimonialsJson___children___parent___id' |
+  'childrenTestimonialsJson___children___parent___children' |
+  'childrenTestimonialsJson___children___children' |
+  'childrenTestimonialsJson___children___children___id' |
+  'childrenTestimonialsJson___children___children___children' |
+  'childrenTestimonialsJson___children___internal___content' |
+  'childrenTestimonialsJson___children___internal___contentDigest' |
+  'childrenTestimonialsJson___children___internal___description' |
+  'childrenTestimonialsJson___children___internal___fieldOwners' |
+  'childrenTestimonialsJson___children___internal___ignoreType' |
+  'childrenTestimonialsJson___children___internal___mediaType' |
+  'childrenTestimonialsJson___children___internal___owner' |
+  'childrenTestimonialsJson___children___internal___type' |
+  'childrenTestimonialsJson___internal___content' |
+  'childrenTestimonialsJson___internal___contentDigest' |
+  'childrenTestimonialsJson___internal___description' |
+  'childrenTestimonialsJson___internal___fieldOwners' |
+  'childrenTestimonialsJson___internal___ignoreType' |
+  'childrenTestimonialsJson___internal___mediaType' |
+  'childrenTestimonialsJson___internal___owner' |
+  'childrenTestimonialsJson___internal___type' |
+  'childrenTestimonialsJson___body' |
+  'childrenTestimonialsJson___rating' |
+  'childrenTestimonialsJson___author' |
+  'childrenTestimonialsJson___property___name' |
+  'childrenTestimonialsJson___property___location' |
+  'childMdx___rawBody' |
+  'childMdx___fileAbsolutePath' |
+  'childMdx___frontmatter___title' |
+  'childMdx___frontmatter___hero___sourceInstanceName' |
+  'childMdx___frontmatter___hero___absolutePath' |
+  'childMdx___frontmatter___hero___relativePath' |
+  'childMdx___frontmatter___hero___extension' |
+  'childMdx___frontmatter___hero___size' |
+  'childMdx___frontmatter___hero___prettySize' |
+  'childMdx___frontmatter___hero___modifiedTime' |
+  'childMdx___frontmatter___hero___accessTime' |
+  'childMdx___frontmatter___hero___changeTime' |
+  'childMdx___frontmatter___hero___birthTime' |
+  'childMdx___frontmatter___hero___root' |
+  'childMdx___frontmatter___hero___dir' |
+  'childMdx___frontmatter___hero___base' |
+  'childMdx___frontmatter___hero___ext' |
+  'childMdx___frontmatter___hero___name' |
+  'childMdx___frontmatter___hero___relativeDirectory' |
+  'childMdx___frontmatter___hero___dev' |
+  'childMdx___frontmatter___hero___mode' |
+  'childMdx___frontmatter___hero___nlink' |
+  'childMdx___frontmatter___hero___uid' |
+  'childMdx___frontmatter___hero___gid' |
+  'childMdx___frontmatter___hero___rdev' |
+  'childMdx___frontmatter___hero___ino' |
+  'childMdx___frontmatter___hero___atimeMs' |
+  'childMdx___frontmatter___hero___mtimeMs' |
+  'childMdx___frontmatter___hero___ctimeMs' |
+  'childMdx___frontmatter___hero___atime' |
+  'childMdx___frontmatter___hero___mtime' |
+  'childMdx___frontmatter___hero___ctime' |
+  'childMdx___frontmatter___hero___birthtime' |
+  'childMdx___frontmatter___hero___birthtimeMs' |
+  'childMdx___frontmatter___hero___blksize' |
+  'childMdx___frontmatter___hero___blocks' |
+  'childMdx___frontmatter___hero___publicURL' |
+  'childMdx___frontmatter___hero___id' |
+  'childMdx___frontmatter___hero___children' |
+  'childMdx___frontmatter___hero___childrenConciergeServicesJson' |
+  'childMdx___frontmatter___hero___childrenGuestServicesJson' |
+  'childMdx___frontmatter___hero___childrenRentalsJson' |
+  'childMdx___frontmatter___hero___childrenTeamJson' |
+  'childMdx___frontmatter___hero___childrenTestimonialsJson' |
+  'childMdx___frontmatter___slug' |
+  'childMdx___frontmatter___contactForm' |
+  'childMdx___body' |
+  'childMdx___excerpt' |
+  'childMdx___headings' |
+  'childMdx___headings___value' |
+  'childMdx___headings___depth' |
+  'childMdx___html' |
+  'childMdx___mdxAST' |
+  'childMdx___tableOfContents' |
+  'childMdx___timeToRead' |
+  'childMdx___wordCount___paragraphs' |
+  'childMdx___wordCount___sentences' |
+  'childMdx___wordCount___words' |
+  'childMdx___id' |
+  'childMdx___parent___id' |
+  'childMdx___parent___parent___id' |
+  'childMdx___parent___parent___children' |
+  'childMdx___parent___children' |
+  'childMdx___parent___children___id' |
+  'childMdx___parent___children___children' |
+  'childMdx___parent___internal___content' |
+  'childMdx___parent___internal___contentDigest' |
+  'childMdx___parent___internal___description' |
+  'childMdx___parent___internal___fieldOwners' |
+  'childMdx___parent___internal___ignoreType' |
+  'childMdx___parent___internal___mediaType' |
+  'childMdx___parent___internal___owner' |
+  'childMdx___parent___internal___type' |
+  'childMdx___children' |
+  'childMdx___children___id' |
+  'childMdx___children___parent___id' |
+  'childMdx___children___parent___children' |
+  'childMdx___children___children' |
+  'childMdx___children___children___id' |
+  'childMdx___children___children___children' |
+  'childMdx___children___internal___content' |
+  'childMdx___children___internal___contentDigest' |
+  'childMdx___children___internal___description' |
+  'childMdx___children___internal___fieldOwners' |
+  'childMdx___children___internal___ignoreType' |
+  'childMdx___children___internal___mediaType' |
+  'childMdx___children___internal___owner' |
+  'childMdx___children___internal___type' |
+  'childMdx___internal___content' |
+  'childMdx___internal___contentDigest' |
+  'childMdx___internal___description' |
+  'childMdx___internal___fieldOwners' |
+  'childMdx___internal___ignoreType' |
+  'childMdx___internal___mediaType' |
+  'childMdx___internal___owner' |
+  'childMdx___internal___type';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>,
@@ -874,15 +1977,18 @@ export type FileFilterInput = {
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
-  url?: Maybe<StringQueryOperatorInput>,
   publicURL?: Maybe<StringQueryOperatorInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  childrenTestimonialsJson?: Maybe<TestimonialsJsonFilterListInput>,
+  childrenConciergeServicesJson?: Maybe<ConciergeServicesJsonFilterListInput>,
+  childrenGuestServicesJson?: Maybe<GuestServicesJsonFilterListInput>,
+  childrenRentalsJson?: Maybe<RentalsJsonFilterListInput>,
   childrenTeamJson?: Maybe<TeamJsonFilterListInput>,
+  childrenTestimonialsJson?: Maybe<TestimonialsJsonFilterListInput>,
+  childMdx?: Maybe<MdxFilterInput>,
 };
 
 export type FileGroupConnection = {
@@ -909,6 +2015,595 @@ export type FloatQueryOperatorInput = {
   in?: Maybe<Array<Maybe<Scalars['Float']>>>,
   nin?: Maybe<Array<Maybe<Scalars['Float']>>>,
 };
+
+export type GuestServicesJson = Node & {
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  name?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  icon?: Maybe<File>,
+};
+
+export type GuestServicesJsonConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<GuestServicesJsonEdge>,
+  nodes: Array<GuestServicesJson>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<GuestServicesJsonGroupConnection>,
+};
+
+
+export type GuestServicesJsonConnectionDistinctArgs = {
+  field: GuestServicesJsonFieldsEnum
+};
+
+
+export type GuestServicesJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: GuestServicesJsonFieldsEnum
+};
+
+export type GuestServicesJsonEdge = {
+  next?: Maybe<GuestServicesJson>,
+  node: GuestServicesJson,
+  previous?: Maybe<GuestServicesJson>,
+};
+
+export type GuestServicesJsonFieldsEnum = 
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type' |
+  'name' |
+  'description' |
+  'icon___sourceInstanceName' |
+  'icon___absolutePath' |
+  'icon___relativePath' |
+  'icon___extension' |
+  'icon___size' |
+  'icon___prettySize' |
+  'icon___modifiedTime' |
+  'icon___accessTime' |
+  'icon___changeTime' |
+  'icon___birthTime' |
+  'icon___root' |
+  'icon___dir' |
+  'icon___base' |
+  'icon___ext' |
+  'icon___name' |
+  'icon___relativeDirectory' |
+  'icon___dev' |
+  'icon___mode' |
+  'icon___nlink' |
+  'icon___uid' |
+  'icon___gid' |
+  'icon___rdev' |
+  'icon___ino' |
+  'icon___atimeMs' |
+  'icon___mtimeMs' |
+  'icon___ctimeMs' |
+  'icon___atime' |
+  'icon___mtime' |
+  'icon___ctime' |
+  'icon___birthtime' |
+  'icon___birthtimeMs' |
+  'icon___blksize' |
+  'icon___blocks' |
+  'icon___publicURL' |
+  'icon___childImageSharp___fixed___base64' |
+  'icon___childImageSharp___fixed___tracedSVG' |
+  'icon___childImageSharp___fixed___aspectRatio' |
+  'icon___childImageSharp___fixed___width' |
+  'icon___childImageSharp___fixed___height' |
+  'icon___childImageSharp___fixed___src' |
+  'icon___childImageSharp___fixed___srcSet' |
+  'icon___childImageSharp___fixed___srcWebp' |
+  'icon___childImageSharp___fixed___srcSetWebp' |
+  'icon___childImageSharp___fixed___originalName' |
+  'icon___childImageSharp___resolutions___base64' |
+  'icon___childImageSharp___resolutions___tracedSVG' |
+  'icon___childImageSharp___resolutions___aspectRatio' |
+  'icon___childImageSharp___resolutions___width' |
+  'icon___childImageSharp___resolutions___height' |
+  'icon___childImageSharp___resolutions___src' |
+  'icon___childImageSharp___resolutions___srcSet' |
+  'icon___childImageSharp___resolutions___srcWebp' |
+  'icon___childImageSharp___resolutions___srcSetWebp' |
+  'icon___childImageSharp___resolutions___originalName' |
+  'icon___childImageSharp___fluid___base64' |
+  'icon___childImageSharp___fluid___tracedSVG' |
+  'icon___childImageSharp___fluid___aspectRatio' |
+  'icon___childImageSharp___fluid___src' |
+  'icon___childImageSharp___fluid___srcSet' |
+  'icon___childImageSharp___fluid___srcWebp' |
+  'icon___childImageSharp___fluid___srcSetWebp' |
+  'icon___childImageSharp___fluid___sizes' |
+  'icon___childImageSharp___fluid___originalImg' |
+  'icon___childImageSharp___fluid___originalName' |
+  'icon___childImageSharp___fluid___presentationWidth' |
+  'icon___childImageSharp___fluid___presentationHeight' |
+  'icon___childImageSharp___sizes___base64' |
+  'icon___childImageSharp___sizes___tracedSVG' |
+  'icon___childImageSharp___sizes___aspectRatio' |
+  'icon___childImageSharp___sizes___src' |
+  'icon___childImageSharp___sizes___srcSet' |
+  'icon___childImageSharp___sizes___srcWebp' |
+  'icon___childImageSharp___sizes___srcSetWebp' |
+  'icon___childImageSharp___sizes___sizes' |
+  'icon___childImageSharp___sizes___originalImg' |
+  'icon___childImageSharp___sizes___originalName' |
+  'icon___childImageSharp___sizes___presentationWidth' |
+  'icon___childImageSharp___sizes___presentationHeight' |
+  'icon___childImageSharp___original___width' |
+  'icon___childImageSharp___original___height' |
+  'icon___childImageSharp___original___src' |
+  'icon___childImageSharp___resize___src' |
+  'icon___childImageSharp___resize___tracedSVG' |
+  'icon___childImageSharp___resize___width' |
+  'icon___childImageSharp___resize___height' |
+  'icon___childImageSharp___resize___aspectRatio' |
+  'icon___childImageSharp___resize___originalName' |
+  'icon___childImageSharp___id' |
+  'icon___childImageSharp___parent___id' |
+  'icon___childImageSharp___parent___children' |
+  'icon___childImageSharp___children' |
+  'icon___childImageSharp___children___id' |
+  'icon___childImageSharp___children___children' |
+  'icon___childImageSharp___internal___content' |
+  'icon___childImageSharp___internal___contentDigest' |
+  'icon___childImageSharp___internal___description' |
+  'icon___childImageSharp___internal___fieldOwners' |
+  'icon___childImageSharp___internal___ignoreType' |
+  'icon___childImageSharp___internal___mediaType' |
+  'icon___childImageSharp___internal___owner' |
+  'icon___childImageSharp___internal___type' |
+  'icon___id' |
+  'icon___parent___id' |
+  'icon___parent___parent___id' |
+  'icon___parent___parent___children' |
+  'icon___parent___children' |
+  'icon___parent___children___id' |
+  'icon___parent___children___children' |
+  'icon___parent___internal___content' |
+  'icon___parent___internal___contentDigest' |
+  'icon___parent___internal___description' |
+  'icon___parent___internal___fieldOwners' |
+  'icon___parent___internal___ignoreType' |
+  'icon___parent___internal___mediaType' |
+  'icon___parent___internal___owner' |
+  'icon___parent___internal___type' |
+  'icon___children' |
+  'icon___children___id' |
+  'icon___children___parent___id' |
+  'icon___children___parent___children' |
+  'icon___children___children' |
+  'icon___children___children___id' |
+  'icon___children___children___children' |
+  'icon___children___internal___content' |
+  'icon___children___internal___contentDigest' |
+  'icon___children___internal___description' |
+  'icon___children___internal___fieldOwners' |
+  'icon___children___internal___ignoreType' |
+  'icon___children___internal___mediaType' |
+  'icon___children___internal___owner' |
+  'icon___children___internal___type' |
+  'icon___internal___content' |
+  'icon___internal___contentDigest' |
+  'icon___internal___description' |
+  'icon___internal___fieldOwners' |
+  'icon___internal___ignoreType' |
+  'icon___internal___mediaType' |
+  'icon___internal___owner' |
+  'icon___internal___type' |
+  'icon___childrenConciergeServicesJson' |
+  'icon___childrenConciergeServicesJson___id' |
+  'icon___childrenConciergeServicesJson___parent___id' |
+  'icon___childrenConciergeServicesJson___parent___children' |
+  'icon___childrenConciergeServicesJson___children' |
+  'icon___childrenConciergeServicesJson___children___id' |
+  'icon___childrenConciergeServicesJson___children___children' |
+  'icon___childrenConciergeServicesJson___internal___content' |
+  'icon___childrenConciergeServicesJson___internal___contentDigest' |
+  'icon___childrenConciergeServicesJson___internal___description' |
+  'icon___childrenConciergeServicesJson___internal___fieldOwners' |
+  'icon___childrenConciergeServicesJson___internal___ignoreType' |
+  'icon___childrenConciergeServicesJson___internal___mediaType' |
+  'icon___childrenConciergeServicesJson___internal___owner' |
+  'icon___childrenConciergeServicesJson___internal___type' |
+  'icon___childrenConciergeServicesJson___name' |
+  'icon___childrenConciergeServicesJson___image___sourceInstanceName' |
+  'icon___childrenConciergeServicesJson___image___absolutePath' |
+  'icon___childrenConciergeServicesJson___image___relativePath' |
+  'icon___childrenConciergeServicesJson___image___extension' |
+  'icon___childrenConciergeServicesJson___image___size' |
+  'icon___childrenConciergeServicesJson___image___prettySize' |
+  'icon___childrenConciergeServicesJson___image___modifiedTime' |
+  'icon___childrenConciergeServicesJson___image___accessTime' |
+  'icon___childrenConciergeServicesJson___image___changeTime' |
+  'icon___childrenConciergeServicesJson___image___birthTime' |
+  'icon___childrenConciergeServicesJson___image___root' |
+  'icon___childrenConciergeServicesJson___image___dir' |
+  'icon___childrenConciergeServicesJson___image___base' |
+  'icon___childrenConciergeServicesJson___image___ext' |
+  'icon___childrenConciergeServicesJson___image___name' |
+  'icon___childrenConciergeServicesJson___image___relativeDirectory' |
+  'icon___childrenConciergeServicesJson___image___dev' |
+  'icon___childrenConciergeServicesJson___image___mode' |
+  'icon___childrenConciergeServicesJson___image___nlink' |
+  'icon___childrenConciergeServicesJson___image___uid' |
+  'icon___childrenConciergeServicesJson___image___gid' |
+  'icon___childrenConciergeServicesJson___image___rdev' |
+  'icon___childrenConciergeServicesJson___image___ino' |
+  'icon___childrenConciergeServicesJson___image___atimeMs' |
+  'icon___childrenConciergeServicesJson___image___mtimeMs' |
+  'icon___childrenConciergeServicesJson___image___ctimeMs' |
+  'icon___childrenConciergeServicesJson___image___atime' |
+  'icon___childrenConciergeServicesJson___image___mtime' |
+  'icon___childrenConciergeServicesJson___image___ctime' |
+  'icon___childrenConciergeServicesJson___image___birthtime' |
+  'icon___childrenConciergeServicesJson___image___birthtimeMs' |
+  'icon___childrenConciergeServicesJson___image___blksize' |
+  'icon___childrenConciergeServicesJson___image___blocks' |
+  'icon___childrenConciergeServicesJson___image___publicURL' |
+  'icon___childrenConciergeServicesJson___image___id' |
+  'icon___childrenConciergeServicesJson___image___children' |
+  'icon___childrenConciergeServicesJson___image___childrenConciergeServicesJson' |
+  'icon___childrenConciergeServicesJson___image___childrenGuestServicesJson' |
+  'icon___childrenConciergeServicesJson___image___childrenRentalsJson' |
+  'icon___childrenConciergeServicesJson___image___childrenTeamJson' |
+  'icon___childrenConciergeServicesJson___image___childrenTestimonialsJson' |
+  'icon___childrenGuestServicesJson' |
+  'icon___childrenGuestServicesJson___id' |
+  'icon___childrenGuestServicesJson___parent___id' |
+  'icon___childrenGuestServicesJson___parent___children' |
+  'icon___childrenGuestServicesJson___children' |
+  'icon___childrenGuestServicesJson___children___id' |
+  'icon___childrenGuestServicesJson___children___children' |
+  'icon___childrenGuestServicesJson___internal___content' |
+  'icon___childrenGuestServicesJson___internal___contentDigest' |
+  'icon___childrenGuestServicesJson___internal___description' |
+  'icon___childrenGuestServicesJson___internal___fieldOwners' |
+  'icon___childrenGuestServicesJson___internal___ignoreType' |
+  'icon___childrenGuestServicesJson___internal___mediaType' |
+  'icon___childrenGuestServicesJson___internal___owner' |
+  'icon___childrenGuestServicesJson___internal___type' |
+  'icon___childrenGuestServicesJson___name' |
+  'icon___childrenGuestServicesJson___description' |
+  'icon___childrenGuestServicesJson___icon___sourceInstanceName' |
+  'icon___childrenGuestServicesJson___icon___absolutePath' |
+  'icon___childrenGuestServicesJson___icon___relativePath' |
+  'icon___childrenGuestServicesJson___icon___extension' |
+  'icon___childrenGuestServicesJson___icon___size' |
+  'icon___childrenGuestServicesJson___icon___prettySize' |
+  'icon___childrenGuestServicesJson___icon___modifiedTime' |
+  'icon___childrenGuestServicesJson___icon___accessTime' |
+  'icon___childrenGuestServicesJson___icon___changeTime' |
+  'icon___childrenGuestServicesJson___icon___birthTime' |
+  'icon___childrenGuestServicesJson___icon___root' |
+  'icon___childrenGuestServicesJson___icon___dir' |
+  'icon___childrenGuestServicesJson___icon___base' |
+  'icon___childrenGuestServicesJson___icon___ext' |
+  'icon___childrenGuestServicesJson___icon___name' |
+  'icon___childrenGuestServicesJson___icon___relativeDirectory' |
+  'icon___childrenGuestServicesJson___icon___dev' |
+  'icon___childrenGuestServicesJson___icon___mode' |
+  'icon___childrenGuestServicesJson___icon___nlink' |
+  'icon___childrenGuestServicesJson___icon___uid' |
+  'icon___childrenGuestServicesJson___icon___gid' |
+  'icon___childrenGuestServicesJson___icon___rdev' |
+  'icon___childrenGuestServicesJson___icon___ino' |
+  'icon___childrenGuestServicesJson___icon___atimeMs' |
+  'icon___childrenGuestServicesJson___icon___mtimeMs' |
+  'icon___childrenGuestServicesJson___icon___ctimeMs' |
+  'icon___childrenGuestServicesJson___icon___atime' |
+  'icon___childrenGuestServicesJson___icon___mtime' |
+  'icon___childrenGuestServicesJson___icon___ctime' |
+  'icon___childrenGuestServicesJson___icon___birthtime' |
+  'icon___childrenGuestServicesJson___icon___birthtimeMs' |
+  'icon___childrenGuestServicesJson___icon___blksize' |
+  'icon___childrenGuestServicesJson___icon___blocks' |
+  'icon___childrenGuestServicesJson___icon___publicURL' |
+  'icon___childrenGuestServicesJson___icon___id' |
+  'icon___childrenGuestServicesJson___icon___children' |
+  'icon___childrenGuestServicesJson___icon___childrenConciergeServicesJson' |
+  'icon___childrenGuestServicesJson___icon___childrenGuestServicesJson' |
+  'icon___childrenGuestServicesJson___icon___childrenRentalsJson' |
+  'icon___childrenGuestServicesJson___icon___childrenTeamJson' |
+  'icon___childrenGuestServicesJson___icon___childrenTestimonialsJson' |
+  'icon___childrenRentalsJson' |
+  'icon___childrenRentalsJson___id' |
+  'icon___childrenRentalsJson___parent___id' |
+  'icon___childrenRentalsJson___parent___children' |
+  'icon___childrenRentalsJson___children' |
+  'icon___childrenRentalsJson___children___id' |
+  'icon___childrenRentalsJson___children___children' |
+  'icon___childrenRentalsJson___internal___content' |
+  'icon___childrenRentalsJson___internal___contentDigest' |
+  'icon___childrenRentalsJson___internal___description' |
+  'icon___childrenRentalsJson___internal___fieldOwners' |
+  'icon___childrenRentalsJson___internal___ignoreType' |
+  'icon___childrenRentalsJson___internal___mediaType' |
+  'icon___childrenRentalsJson___internal___owner' |
+  'icon___childrenRentalsJson___internal___type' |
+  'icon___childrenRentalsJson___bedrooms' |
+  'icon___childrenRentalsJson___price' |
+  'icon___childrenRentalsJson___guests' |
+  'icon___childrenRentalsJson___title' |
+  'icon___childrenRentalsJson___picture___sourceInstanceName' |
+  'icon___childrenRentalsJson___picture___absolutePath' |
+  'icon___childrenRentalsJson___picture___relativePath' |
+  'icon___childrenRentalsJson___picture___extension' |
+  'icon___childrenRentalsJson___picture___size' |
+  'icon___childrenRentalsJson___picture___prettySize' |
+  'icon___childrenRentalsJson___picture___modifiedTime' |
+  'icon___childrenRentalsJson___picture___accessTime' |
+  'icon___childrenRentalsJson___picture___changeTime' |
+  'icon___childrenRentalsJson___picture___birthTime' |
+  'icon___childrenRentalsJson___picture___root' |
+  'icon___childrenRentalsJson___picture___dir' |
+  'icon___childrenRentalsJson___picture___base' |
+  'icon___childrenRentalsJson___picture___ext' |
+  'icon___childrenRentalsJson___picture___name' |
+  'icon___childrenRentalsJson___picture___relativeDirectory' |
+  'icon___childrenRentalsJson___picture___dev' |
+  'icon___childrenRentalsJson___picture___mode' |
+  'icon___childrenRentalsJson___picture___nlink' |
+  'icon___childrenRentalsJson___picture___uid' |
+  'icon___childrenRentalsJson___picture___gid' |
+  'icon___childrenRentalsJson___picture___rdev' |
+  'icon___childrenRentalsJson___picture___ino' |
+  'icon___childrenRentalsJson___picture___atimeMs' |
+  'icon___childrenRentalsJson___picture___mtimeMs' |
+  'icon___childrenRentalsJson___picture___ctimeMs' |
+  'icon___childrenRentalsJson___picture___atime' |
+  'icon___childrenRentalsJson___picture___mtime' |
+  'icon___childrenRentalsJson___picture___ctime' |
+  'icon___childrenRentalsJson___picture___birthtime' |
+  'icon___childrenRentalsJson___picture___birthtimeMs' |
+  'icon___childrenRentalsJson___picture___blksize' |
+  'icon___childrenRentalsJson___picture___blocks' |
+  'icon___childrenRentalsJson___picture___publicURL' |
+  'icon___childrenRentalsJson___picture___id' |
+  'icon___childrenRentalsJson___picture___children' |
+  'icon___childrenRentalsJson___picture___childrenConciergeServicesJson' |
+  'icon___childrenRentalsJson___picture___childrenGuestServicesJson' |
+  'icon___childrenRentalsJson___picture___childrenRentalsJson' |
+  'icon___childrenRentalsJson___picture___childrenTeamJson' |
+  'icon___childrenRentalsJson___picture___childrenTestimonialsJson' |
+  'icon___childrenRentalsJson___slug' |
+  'icon___childrenRentalsJson___category' |
+  'icon___childrenTeamJson' |
+  'icon___childrenTeamJson___id' |
+  'icon___childrenTeamJson___parent___id' |
+  'icon___childrenTeamJson___parent___children' |
+  'icon___childrenTeamJson___children' |
+  'icon___childrenTeamJson___children___id' |
+  'icon___childrenTeamJson___children___children' |
+  'icon___childrenTeamJson___internal___content' |
+  'icon___childrenTeamJson___internal___contentDigest' |
+  'icon___childrenTeamJson___internal___description' |
+  'icon___childrenTeamJson___internal___fieldOwners' |
+  'icon___childrenTeamJson___internal___ignoreType' |
+  'icon___childrenTeamJson___internal___mediaType' |
+  'icon___childrenTeamJson___internal___owner' |
+  'icon___childrenTeamJson___internal___type' |
+  'icon___childrenTeamJson___name' |
+  'icon___childrenTeamJson___title' |
+  'icon___childrenTeamJson___picture___sourceInstanceName' |
+  'icon___childrenTeamJson___picture___absolutePath' |
+  'icon___childrenTeamJson___picture___relativePath' |
+  'icon___childrenTeamJson___picture___extension' |
+  'icon___childrenTeamJson___picture___size' |
+  'icon___childrenTeamJson___picture___prettySize' |
+  'icon___childrenTeamJson___picture___modifiedTime' |
+  'icon___childrenTeamJson___picture___accessTime' |
+  'icon___childrenTeamJson___picture___changeTime' |
+  'icon___childrenTeamJson___picture___birthTime' |
+  'icon___childrenTeamJson___picture___root' |
+  'icon___childrenTeamJson___picture___dir' |
+  'icon___childrenTeamJson___picture___base' |
+  'icon___childrenTeamJson___picture___ext' |
+  'icon___childrenTeamJson___picture___name' |
+  'icon___childrenTeamJson___picture___relativeDirectory' |
+  'icon___childrenTeamJson___picture___dev' |
+  'icon___childrenTeamJson___picture___mode' |
+  'icon___childrenTeamJson___picture___nlink' |
+  'icon___childrenTeamJson___picture___uid' |
+  'icon___childrenTeamJson___picture___gid' |
+  'icon___childrenTeamJson___picture___rdev' |
+  'icon___childrenTeamJson___picture___ino' |
+  'icon___childrenTeamJson___picture___atimeMs' |
+  'icon___childrenTeamJson___picture___mtimeMs' |
+  'icon___childrenTeamJson___picture___ctimeMs' |
+  'icon___childrenTeamJson___picture___atime' |
+  'icon___childrenTeamJson___picture___mtime' |
+  'icon___childrenTeamJson___picture___ctime' |
+  'icon___childrenTeamJson___picture___birthtime' |
+  'icon___childrenTeamJson___picture___birthtimeMs' |
+  'icon___childrenTeamJson___picture___blksize' |
+  'icon___childrenTeamJson___picture___blocks' |
+  'icon___childrenTeamJson___picture___publicURL' |
+  'icon___childrenTeamJson___picture___id' |
+  'icon___childrenTeamJson___picture___children' |
+  'icon___childrenTeamJson___picture___childrenConciergeServicesJson' |
+  'icon___childrenTeamJson___picture___childrenGuestServicesJson' |
+  'icon___childrenTeamJson___picture___childrenRentalsJson' |
+  'icon___childrenTeamJson___picture___childrenTeamJson' |
+  'icon___childrenTeamJson___picture___childrenTestimonialsJson' |
+  'icon___childrenTeamJson___bio' |
+  'icon___childrenTestimonialsJson' |
+  'icon___childrenTestimonialsJson___id' |
+  'icon___childrenTestimonialsJson___parent___id' |
+  'icon___childrenTestimonialsJson___parent___children' |
+  'icon___childrenTestimonialsJson___children' |
+  'icon___childrenTestimonialsJson___children___id' |
+  'icon___childrenTestimonialsJson___children___children' |
+  'icon___childrenTestimonialsJson___internal___content' |
+  'icon___childrenTestimonialsJson___internal___contentDigest' |
+  'icon___childrenTestimonialsJson___internal___description' |
+  'icon___childrenTestimonialsJson___internal___fieldOwners' |
+  'icon___childrenTestimonialsJson___internal___ignoreType' |
+  'icon___childrenTestimonialsJson___internal___mediaType' |
+  'icon___childrenTestimonialsJson___internal___owner' |
+  'icon___childrenTestimonialsJson___internal___type' |
+  'icon___childrenTestimonialsJson___body' |
+  'icon___childrenTestimonialsJson___rating' |
+  'icon___childrenTestimonialsJson___author' |
+  'icon___childrenTestimonialsJson___property___name' |
+  'icon___childrenTestimonialsJson___property___location' |
+  'icon___childMdx___rawBody' |
+  'icon___childMdx___fileAbsolutePath' |
+  'icon___childMdx___frontmatter___title' |
+  'icon___childMdx___frontmatter___slug' |
+  'icon___childMdx___frontmatter___contactForm' |
+  'icon___childMdx___body' |
+  'icon___childMdx___excerpt' |
+  'icon___childMdx___headings' |
+  'icon___childMdx___headings___value' |
+  'icon___childMdx___headings___depth' |
+  'icon___childMdx___html' |
+  'icon___childMdx___mdxAST' |
+  'icon___childMdx___tableOfContents' |
+  'icon___childMdx___timeToRead' |
+  'icon___childMdx___wordCount___paragraphs' |
+  'icon___childMdx___wordCount___sentences' |
+  'icon___childMdx___wordCount___words' |
+  'icon___childMdx___id' |
+  'icon___childMdx___parent___id' |
+  'icon___childMdx___parent___children' |
+  'icon___childMdx___children' |
+  'icon___childMdx___children___id' |
+  'icon___childMdx___children___children' |
+  'icon___childMdx___internal___content' |
+  'icon___childMdx___internal___contentDigest' |
+  'icon___childMdx___internal___description' |
+  'icon___childMdx___internal___fieldOwners' |
+  'icon___childMdx___internal___ignoreType' |
+  'icon___childMdx___internal___mediaType' |
+  'icon___childMdx___internal___owner' |
+  'icon___childMdx___internal___type';
+
+export type GuestServicesJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  icon?: Maybe<FileFilterInput>,
+};
+
+export type GuestServicesJsonFilterListInput = {
+  elemMatch?: Maybe<GuestServicesJsonFilterInput>,
+};
+
+export type GuestServicesJsonGroupConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<GuestServicesJsonEdge>,
+  nodes: Array<GuestServicesJson>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type GuestServicesJsonSortInput = {
+  fields?: Maybe<Array<Maybe<GuestServicesJsonFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
+export type HeadingsMdx = 
+  'h1' |
+  'h2' |
+  'h3' |
+  'h4' |
+  'h5' |
+  'h6';
 
 export type ImageCropFocus = 
   'CENTER' |
@@ -1251,10 +2946,10 @@ export type ImageSharpFixed = {
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
-  width?: Maybe<Scalars['Float']>,
-  height?: Maybe<Scalars['Float']>,
-  src?: Maybe<Scalars['String']>,
-  srcSet?: Maybe<Scalars['String']>,
+  width: Scalars['Float'],
+  height: Scalars['Float'],
+  src: Scalars['String'],
+  srcSet: Scalars['String'],
   srcWebp?: Maybe<Scalars['String']>,
   srcSetWebp?: Maybe<Scalars['String']>,
   originalName?: Maybe<Scalars['String']>,
@@ -1276,12 +2971,12 @@ export type ImageSharpFixedFilterInput = {
 export type ImageSharpFluid = {
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
-  aspectRatio?: Maybe<Scalars['Float']>,
-  src?: Maybe<Scalars['String']>,
-  srcSet?: Maybe<Scalars['String']>,
+  aspectRatio: Scalars['Float'],
+  src: Scalars['String'],
+  srcSet: Scalars['String'],
   srcWebp?: Maybe<Scalars['String']>,
   srcSetWebp?: Maybe<Scalars['String']>,
-  sizes?: Maybe<Scalars['String']>,
+  sizes: Scalars['String'],
   originalImg?: Maybe<Scalars['String']>,
   originalName?: Maybe<Scalars['String']>,
   presentationWidth?: Maybe<Scalars['Int']>,
@@ -1346,10 +3041,10 @@ export type ImageSharpResolutions = {
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
-  width?: Maybe<Scalars['Float']>,
-  height?: Maybe<Scalars['Float']>,
-  src?: Maybe<Scalars['String']>,
-  srcSet?: Maybe<Scalars['String']>,
+  width: Scalars['Float'],
+  height: Scalars['Float'],
+  src: Scalars['String'],
+  srcSet: Scalars['String'],
   srcWebp?: Maybe<Scalars['String']>,
   srcSetWebp?: Maybe<Scalars['String']>,
   originalName?: Maybe<Scalars['String']>,
@@ -1371,12 +3066,12 @@ export type ImageSharpResolutionsFilterInput = {
 export type ImageSharpSizes = {
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
-  aspectRatio?: Maybe<Scalars['Float']>,
-  src?: Maybe<Scalars['String']>,
-  srcSet?: Maybe<Scalars['String']>,
+  aspectRatio: Scalars['Float'],
+  src: Scalars['String'],
+  srcSet: Scalars['String'],
   srcWebp?: Maybe<Scalars['String']>,
   srcSetWebp?: Maybe<Scalars['String']>,
-  sizes?: Maybe<Scalars['String']>,
+  sizes: Scalars['String'],
   originalImg?: Maybe<Scalars['String']>,
   originalName?: Maybe<Scalars['String']>,
   presentationWidth?: Maybe<Scalars['Int']>,
@@ -1437,6 +3132,343 @@ export type IntQueryOperatorInput = {
 };
 
 
+export type JsonQueryOperatorInput = {
+  eq?: Maybe<Scalars['JSON']>,
+  ne?: Maybe<Scalars['JSON']>,
+  in?: Maybe<Array<Maybe<Scalars['JSON']>>>,
+  nin?: Maybe<Array<Maybe<Scalars['JSON']>>>,
+  regex?: Maybe<Scalars['JSON']>,
+  glob?: Maybe<Scalars['JSON']>,
+};
+
+export type Mdx = Node & {
+  rawBody: Scalars['String'],
+  fileAbsolutePath: Scalars['String'],
+  frontmatter?: Maybe<MdxFrontmatter>,
+  body: Scalars['String'],
+  excerpt: Scalars['String'],
+  headings?: Maybe<Array<Maybe<MdxHeadingMdx>>>,
+  html?: Maybe<Scalars['String']>,
+  mdxAST?: Maybe<Scalars['JSON']>,
+  tableOfContents?: Maybe<Scalars['JSON']>,
+  timeToRead?: Maybe<Scalars['Int']>,
+  wordCount?: Maybe<MdxWordCount>,
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+};
+
+
+export type MdxExcerptArgs = {
+  pruneLength?: Maybe<Scalars['Int']>
+};
+
+
+export type MdxHeadingsArgs = {
+  depth?: Maybe<HeadingsMdx>
+};
+
+
+export type MdxTableOfContentsArgs = {
+  maxDepth?: Maybe<Scalars['Int']>
+};
+
+export type MdxConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<MdxEdge>,
+  nodes: Array<Mdx>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<MdxGroupConnection>,
+};
+
+
+export type MdxConnectionDistinctArgs = {
+  field: MdxFieldsEnum
+};
+
+
+export type MdxConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: MdxFieldsEnum
+};
+
+export type MdxEdge = {
+  next?: Maybe<Mdx>,
+  node: Mdx,
+  previous?: Maybe<Mdx>,
+};
+
+export type MdxFieldsEnum = 
+  'rawBody' |
+  'fileAbsolutePath' |
+  'frontmatter___title' |
+  'frontmatter___hero___sourceInstanceName' |
+  'frontmatter___hero___absolutePath' |
+  'frontmatter___hero___relativePath' |
+  'frontmatter___hero___extension' |
+  'frontmatter___hero___size' |
+  'frontmatter___hero___prettySize' |
+  'frontmatter___hero___modifiedTime' |
+  'frontmatter___hero___accessTime' |
+  'frontmatter___hero___changeTime' |
+  'frontmatter___hero___birthTime' |
+  'frontmatter___hero___root' |
+  'frontmatter___hero___dir' |
+  'frontmatter___hero___base' |
+  'frontmatter___hero___ext' |
+  'frontmatter___hero___name' |
+  'frontmatter___hero___relativeDirectory' |
+  'frontmatter___hero___dev' |
+  'frontmatter___hero___mode' |
+  'frontmatter___hero___nlink' |
+  'frontmatter___hero___uid' |
+  'frontmatter___hero___gid' |
+  'frontmatter___hero___rdev' |
+  'frontmatter___hero___ino' |
+  'frontmatter___hero___atimeMs' |
+  'frontmatter___hero___mtimeMs' |
+  'frontmatter___hero___ctimeMs' |
+  'frontmatter___hero___atime' |
+  'frontmatter___hero___mtime' |
+  'frontmatter___hero___ctime' |
+  'frontmatter___hero___birthtime' |
+  'frontmatter___hero___birthtimeMs' |
+  'frontmatter___hero___blksize' |
+  'frontmatter___hero___blocks' |
+  'frontmatter___hero___publicURL' |
+  'frontmatter___hero___childImageSharp___id' |
+  'frontmatter___hero___childImageSharp___children' |
+  'frontmatter___hero___id' |
+  'frontmatter___hero___parent___id' |
+  'frontmatter___hero___parent___children' |
+  'frontmatter___hero___children' |
+  'frontmatter___hero___children___id' |
+  'frontmatter___hero___children___children' |
+  'frontmatter___hero___internal___content' |
+  'frontmatter___hero___internal___contentDigest' |
+  'frontmatter___hero___internal___description' |
+  'frontmatter___hero___internal___fieldOwners' |
+  'frontmatter___hero___internal___ignoreType' |
+  'frontmatter___hero___internal___mediaType' |
+  'frontmatter___hero___internal___owner' |
+  'frontmatter___hero___internal___type' |
+  'frontmatter___hero___childrenConciergeServicesJson' |
+  'frontmatter___hero___childrenConciergeServicesJson___id' |
+  'frontmatter___hero___childrenConciergeServicesJson___children' |
+  'frontmatter___hero___childrenConciergeServicesJson___name' |
+  'frontmatter___hero___childrenGuestServicesJson' |
+  'frontmatter___hero___childrenGuestServicesJson___id' |
+  'frontmatter___hero___childrenGuestServicesJson___children' |
+  'frontmatter___hero___childrenGuestServicesJson___name' |
+  'frontmatter___hero___childrenGuestServicesJson___description' |
+  'frontmatter___hero___childrenRentalsJson' |
+  'frontmatter___hero___childrenRentalsJson___id' |
+  'frontmatter___hero___childrenRentalsJson___children' |
+  'frontmatter___hero___childrenRentalsJson___bedrooms' |
+  'frontmatter___hero___childrenRentalsJson___price' |
+  'frontmatter___hero___childrenRentalsJson___guests' |
+  'frontmatter___hero___childrenRentalsJson___title' |
+  'frontmatter___hero___childrenRentalsJson___slug' |
+  'frontmatter___hero___childrenRentalsJson___category' |
+  'frontmatter___hero___childrenTeamJson' |
+  'frontmatter___hero___childrenTeamJson___id' |
+  'frontmatter___hero___childrenTeamJson___children' |
+  'frontmatter___hero___childrenTeamJson___name' |
+  'frontmatter___hero___childrenTeamJson___title' |
+  'frontmatter___hero___childrenTeamJson___bio' |
+  'frontmatter___hero___childrenTestimonialsJson' |
+  'frontmatter___hero___childrenTestimonialsJson___id' |
+  'frontmatter___hero___childrenTestimonialsJson___children' |
+  'frontmatter___hero___childrenTestimonialsJson___body' |
+  'frontmatter___hero___childrenTestimonialsJson___rating' |
+  'frontmatter___hero___childrenTestimonialsJson___author' |
+  'frontmatter___hero___childMdx___rawBody' |
+  'frontmatter___hero___childMdx___fileAbsolutePath' |
+  'frontmatter___hero___childMdx___body' |
+  'frontmatter___hero___childMdx___excerpt' |
+  'frontmatter___hero___childMdx___headings' |
+  'frontmatter___hero___childMdx___html' |
+  'frontmatter___hero___childMdx___mdxAST' |
+  'frontmatter___hero___childMdx___tableOfContents' |
+  'frontmatter___hero___childMdx___timeToRead' |
+  'frontmatter___hero___childMdx___id' |
+  'frontmatter___hero___childMdx___children' |
+  'frontmatter___slug' |
+  'frontmatter___contactForm' |
+  'body' |
+  'excerpt' |
+  'headings' |
+  'headings___value' |
+  'headings___depth' |
+  'html' |
+  'mdxAST' |
+  'tableOfContents' |
+  'timeToRead' |
+  'wordCount___paragraphs' |
+  'wordCount___sentences' |
+  'wordCount___words' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
+
+export type MdxFilterInput = {
+  rawBody?: Maybe<StringQueryOperatorInput>,
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>,
+  frontmatter?: Maybe<MdxFrontmatterFilterInput>,
+  body?: Maybe<StringQueryOperatorInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  headings?: Maybe<MdxHeadingMdxFilterListInput>,
+  html?: Maybe<StringQueryOperatorInput>,
+  mdxAST?: Maybe<JsonQueryOperatorInput>,
+  tableOfContents?: Maybe<JsonQueryOperatorInput>,
+  timeToRead?: Maybe<IntQueryOperatorInput>,
+  wordCount?: Maybe<MdxWordCountFilterInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+};
+
+export type MdxFrontmatter = {
+  title: Scalars['String'],
+  hero?: Maybe<File>,
+  slug?: Maybe<Scalars['String']>,
+  contactForm?: Maybe<Scalars['Boolean']>,
+};
+
+export type MdxFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  hero?: Maybe<FileFilterInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
+  contactForm?: Maybe<BooleanQueryOperatorInput>,
+};
+
+export type MdxGroupConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<MdxEdge>,
+  nodes: Array<Mdx>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type MdxHeadingMdx = {
+  value?: Maybe<Scalars['String']>,
+  depth?: Maybe<Scalars['Int']>,
+};
+
+export type MdxHeadingMdxFilterInput = {
+  value?: Maybe<StringQueryOperatorInput>,
+  depth?: Maybe<IntQueryOperatorInput>,
+};
+
+export type MdxHeadingMdxFilterListInput = {
+  elemMatch?: Maybe<MdxHeadingMdxFilterInput>,
+};
+
+export type MdxSortInput = {
+  fields?: Maybe<Array<Maybe<MdxFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
+export type MdxWordCount = {
+  paragraphs?: Maybe<Scalars['Int']>,
+  sentences?: Maybe<Scalars['Int']>,
+  words?: Maybe<Scalars['Int']>,
+};
+
+export type MdxWordCountFilterInput = {
+  paragraphs?: Maybe<IntQueryOperatorInput>,
+  sentences?: Maybe<IntQueryOperatorInput>,
+  words?: Maybe<IntQueryOperatorInput>,
+};
+
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'],
@@ -1492,84 +3524,18 @@ export type Query = {
   allDirectory: DirectoryConnection,
   imageSharp?: Maybe<ImageSharp>,
   allImageSharp: ImageSharpConnection,
-  wordpressAcfOptions?: Maybe<Wordpress__Acf_Options>,
-  allWordpressAcfOptions: Wordpress__Acf_OptionsConnection,
-  wordpressWpLake?: Maybe<Wordpress__Wp_Lake>,
-  allWordpressWpLake: Wordpress__Wp_LakeConnection,
-  wordpressWpPropertyFeatures?: Maybe<Wordpress__Wp_Property_Features>,
-  allWordpressWpPropertyFeatures: Wordpress__Wp_Property_FeaturesConnection,
-  wordpressWpPropertyCategory?: Maybe<Wordpress__Wp_Property_Category>,
-  allWordpressWpPropertyCategory: Wordpress__Wp_Property_CategoryConnection,
-  wordpressWpPostTag?: Maybe<Wordpress__Wp_Post_Tag>,
-  allWordpressWpPostTag: Wordpress__Wp_Post_TagConnection,
-  wordpressWpCategory?: Maybe<Wordpress__Wp_Category>,
-  allWordpressWpCategory: Wordpress__Wp_CategoryConnection,
-  wordpressWpBlogPost?: Maybe<Wordpress__Wp_Blog_Post>,
-  allWordpressWpBlogPost: Wordpress__Wp_Blog_PostConnection,
-  wordpressWpPageContent?: Maybe<Wordpress__Wp_Page_Content>,
-  allWordpressWpPageContent: Wordpress__Wp_Page_ContentConnection,
-  wordpressWpProperty?: Maybe<Wordpress__Wp_Property>,
-  allWordpressWpProperty: Wordpress__Wp_PropertyConnection,
-  wordpressWpMedia?: Maybe<Wordpress__Wp_Media>,
-  allWordpressWpMedia: Wordpress__Wp_MediaConnection,
-  wordpressAcfUsers?: Maybe<Wordpress__Acf_Users>,
-  allWordpressAcfUsers: Wordpress__Acf_UsersConnection,
-  wordpressAcfLake?: Maybe<Wordpress__Acf_Lake>,
-  allWordpressAcfLake: Wordpress__Acf_LakeConnection,
-  wordpressAcfProductType?: Maybe<Wordpress__Acf_Product_Type>,
-  allWordpressAcfProductType: Wordpress__Acf_Product_TypeConnection,
-  wordpressAcfActionGroup?: Maybe<Wordpress__Acf_Action_Group>,
-  allWordpressAcfActionGroup: Wordpress__Acf_Action_GroupConnection,
-  wordpressAcfPropertyFeatures?: Maybe<Wordpress__Acf_Property_Features>,
-  allWordpressAcfPropertyFeatures: Wordpress__Acf_Property_FeaturesConnection,
-  wordpressAcfPropertyArea?: Maybe<Wordpress__Acf_Property_Area>,
-  allWordpressAcfPropertyArea: Wordpress__Acf_Property_AreaConnection,
-  wordpressAcfPropertyCity?: Maybe<Wordpress__Acf_Property_City>,
-  allWordpressAcfPropertyCity: Wordpress__Acf_Property_CityConnection,
-  wordpressAcfPropertyCategory?: Maybe<Wordpress__Acf_Property_Category>,
-  allWordpressAcfPropertyCategory: Wordpress__Acf_Property_CategoryConnection,
-  wordpressAcfCategory?: Maybe<Wordpress__Acf_Category>,
-  allWordpressAcfCategory: Wordpress__Acf_CategoryConnection,
-  wordpressAcfBlogPost?: Maybe<Wordpress__Acf_Blog_Post>,
-  allWordpressAcfBlogPost: Wordpress__Acf_Blog_PostConnection,
-  wordpressAcfPageContent?: Maybe<Wordpress__Acf_Page_Content>,
-  allWordpressAcfPageContent: Wordpress__Acf_Page_ContentConnection,
-  wordpressAcfWpcf7ContactForm?: Maybe<Wordpress__Acf_Wpcf7_Contact_Form>,
-  allWordpressAcfWpcf7ContactForm: Wordpress__Acf_Wpcf7_Contact_FormConnection,
-  wordpressAcfShopCoupon?: Maybe<Wordpress__Acf_Shop_Coupon>,
-  allWordpressAcfShopCoupon: Wordpress__Acf_Shop_CouponConnection,
-  wordpressAcfProductVariation?: Maybe<Wordpress__Acf_Product_Variation>,
-  allWordpressAcfProductVariation: Wordpress__Acf_Product_VariationConnection,
-  wordpressAcfProduct?: Maybe<Wordpress__Acf_Product>,
-  allWordpressAcfProduct: Wordpress__Acf_ProductConnection,
-  wordpressAcfAcfField?: Maybe<Wordpress__Acf_Acf_Field>,
-  allWordpressAcfAcfField: Wordpress__Acf_Acf_FieldConnection,
-  wordpressAcfAcfFieldGroup?: Maybe<Wordpress__Acf_Acf_Field_Group>,
-  allWordpressAcfAcfFieldGroup: Wordpress__Acf_Acf_Field_GroupConnection,
-  wordpressAcfScheduledAction?: Maybe<Wordpress__Acf_Scheduled_Action>,
-  allWordpressAcfScheduledAction: Wordpress__Acf_Scheduled_ActionConnection,
-  wordpressAcfWpestateMessage?: Maybe<Wordpress__Acf_Wpestate_Message>,
-  allWordpressAcfWpestateMessage: Wordpress__Acf_Wpestate_MessageConnection,
-  wordpressAcfMembershipPackage?: Maybe<Wordpress__Acf_Membership_Package>,
-  allWordpressAcfMembershipPackage: Wordpress__Acf_Membership_PackageConnection,
-  wordpressAcfWpestateInvoice?: Maybe<Wordpress__Acf_Wpestate_Invoice>,
-  allWordpressAcfWpestateInvoice: Wordpress__Acf_Wpestate_InvoiceConnection,
-  wordpressAcfWpestateBooking?: Maybe<Wordpress__Acf_Wpestate_Booking>,
-  allWordpressAcfWpestateBooking: Wordpress__Acf_Wpestate_BookingConnection,
-  wordpressAcfEstateAgent?: Maybe<Wordpress__Acf_Estate_Agent>,
-  allWordpressAcfEstateAgent: Wordpress__Acf_Estate_AgentConnection,
-  wordpressAcfProperty?: Maybe<Wordpress__Acf_Property>,
-  allWordpressAcfProperty: Wordpress__Acf_PropertyConnection,
-  wordpressAcfMedia?: Maybe<Wordpress__Acf_Media>,
-  allWordpressAcfMedia: Wordpress__Acf_MediaConnection,
-  wordpressAcfPosts?: Maybe<Wordpress__Acf_Posts>,
-  allWordpressAcfPosts: Wordpress__Acf_PostsConnection,
-  wordpressSiteMetadata?: Maybe<Wordpress__Site_Metadata>,
-  allWordpressSiteMetadata: Wordpress__Site_MetadataConnection,
-  teamJson?: Maybe<TeamJson>,
-  allTeamJson: TeamJsonConnection,
+  mdx?: Maybe<Mdx>,
+  allMdx: MdxConnection,
   testimonialsJson?: Maybe<TestimonialsJson>,
   allTestimonialsJson: TestimonialsJsonConnection,
+  teamJson?: Maybe<TeamJson>,
+  allTeamJson: TeamJsonConnection,
+  rentalsJson?: Maybe<RentalsJson>,
+  allRentalsJson: RentalsJsonConnection,
+  guestServicesJson?: Maybe<GuestServicesJson>,
+  allGuestServicesJson: GuestServicesJsonConnection,
+  conciergeServicesJson?: Maybe<ConciergeServicesJson>,
+  allConciergeServicesJson: ConciergeServicesJsonConnection,
   site?: Maybe<Site>,
   allSite: SiteConnection,
   sitePlugin?: Maybe<SitePlugin>,
@@ -1613,15 +3579,18 @@ export type QueryFileArgs = {
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
-  url?: Maybe<StringQueryOperatorInput>,
   publicURL?: Maybe<StringQueryOperatorInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
+  childrenConciergeServicesJson?: Maybe<ConciergeServicesJsonFilterListInput>,
+  childrenGuestServicesJson?: Maybe<GuestServicesJsonFilterListInput>,
+  childrenRentalsJson?: Maybe<RentalsJsonFilterListInput>,
+  childrenTeamJson?: Maybe<TeamJsonFilterListInput>,
   childrenTestimonialsJson?: Maybe<TestimonialsJsonFilterListInput>,
-  childrenTeamJson?: Maybe<TeamJsonFilterListInput>
+  childMdx?: Maybe<MdxFilterInput>
 };
 
 
@@ -1704,771 +3673,48 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryWordpressAcfOptionsArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfOptionsArgs = {
-  filter?: Maybe<Wordpress__Acf_OptionsFilterInput>,
-  sort?: Maybe<Wordpress__Acf_OptionsSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressWpLakeArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Lake_LinksFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressWpLakeArgs = {
-  filter?: Maybe<Wordpress__Wp_LakeFilterInput>,
-  sort?: Maybe<Wordpress__Wp_LakeSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressWpPropertyFeaturesArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  wordpress_parent?: Maybe<IntQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Property_Features_LinksFilterInput>,
-  parent_element?: Maybe<Wordpress__Wp_Property_FeaturesFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressWpPropertyFeaturesArgs = {
-  filter?: Maybe<Wordpress__Wp_Property_FeaturesFilterInput>,
-  sort?: Maybe<Wordpress__Wp_Property_FeaturesSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressWpPropertyCategoryArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  wordpress_parent?: Maybe<IntQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Property_Category_LinksFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressWpPropertyCategoryArgs = {
-  filter?: Maybe<Wordpress__Wp_Property_CategoryFilterInput>,
-  sort?: Maybe<Wordpress__Wp_Property_CategorySortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressWpPostTagArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Post_Tag_LinksFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressWpPostTagArgs = {
-  filter?: Maybe<Wordpress__Wp_Post_TagFilterInput>,
-  sort?: Maybe<Wordpress__Wp_Post_TagSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressWpCategoryArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  wordpress_parent?: Maybe<IntQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Category_LinksFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressWpCategoryArgs = {
-  filter?: Maybe<Wordpress__Wp_CategoryFilterInput>,
-  sort?: Maybe<Wordpress__Wp_CategorySortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressWpBlogPostArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  guid?: Maybe<StringQueryOperatorInput>,
-  modified?: Maybe<DateQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
-  type?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  content?: Maybe<StringQueryOperatorInput>,
-  template?: Maybe<StringQueryOperatorInput>,
-  category?: Maybe<Wordpress__Wp_CategoryFilterInput>,
-  _links?: Maybe<Wordpress__Wp_Blog_Post_LinksFilterInput>,
-  featured_media?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-  tags?: Maybe<Wordpress__Wp_Post_TagFilterListInput>
-};
-
-
-export type QueryAllWordpressWpBlogPostArgs = {
-  filter?: Maybe<Wordpress__Wp_Blog_PostFilterInput>,
-  sort?: Maybe<Wordpress__Wp_Blog_PostSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressWpPageContentArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  guid?: Maybe<StringQueryOperatorInput>,
-  modified?: Maybe<DateQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
-  type?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  content?: Maybe<StringQueryOperatorInput>,
-  template?: Maybe<StringQueryOperatorInput>,
-  acf?: Maybe<Wordpress__Wp_Page_ContentAcfFilterInput>,
-  _links?: Maybe<Wordpress__Wp_Page_Content_LinksFilterInput>,
-  featured_media?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressWpPageContentArgs = {
-  filter?: Maybe<Wordpress__Wp_Page_ContentFilterInput>,
-  sort?: Maybe<Wordpress__Wp_Page_ContentSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressWpPropertyArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  guid?: Maybe<StringQueryOperatorInput>,
-  modified?: Maybe<DateQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
-  type?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  content?: Maybe<StringQueryOperatorInput>,
+export type QueryMdxArgs = {
+  rawBody?: Maybe<StringQueryOperatorInput>,
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>,
+  frontmatter?: Maybe<MdxFrontmatterFilterInput>,
+  body?: Maybe<StringQueryOperatorInput>,
   excerpt?: Maybe<StringQueryOperatorInput>,
-  comment_status?: Maybe<StringQueryOperatorInput>,
-  ping_status?: Maybe<StringQueryOperatorInput>,
-  template?: Maybe<StringQueryOperatorInput>,
-  property_city?: Maybe<IntQueryOperatorInput>,
-  property_area?: Maybe<IntQueryOperatorInput>,
-  property_features?: Maybe<IntQueryOperatorInput>,
-  lake?: Maybe<IntQueryOperatorInput>,
-  suitability?: Maybe<StringQueryOperatorInput>,
-  size?: Maybe<StringQueryOperatorInput>,
-  bathrooms?: Maybe<StringQueryOperatorInput>,
-  bedrooms?: Maybe<StringQueryOperatorInput>,
-  latitude?: Maybe<StringQueryOperatorInput>,
-  longitude?: Maybe<StringQueryOperatorInput>,
-  houseRules?: Maybe<StringQueryOperatorInput>,
-  guests?: Maybe<StringQueryOperatorInput>,
-  price?: Maybe<StringQueryOperatorInput>,
-  pricePerWeek?: Maybe<StringQueryOperatorInput>,
-  pricePerMonth?: Maybe<StringQueryOperatorInput>,
-  rooms?: Maybe<StringQueryOperatorInput>,
-  address?: Maybe<StringQueryOperatorInput>,
-  order?: Maybe<StringQueryOperatorInput>,
-  featured?: Maybe<StringQueryOperatorInput>,
-  acf?: Maybe<Wordpress__Wp_PropertyAcfFilterInput>,
-  bookedDates?: Maybe<IntQueryOperatorInput>,
-  property_images?: Maybe<IntQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Property_LinksFilterInput>,
-  featured_media?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-  category?: Maybe<Wordpress__Wp_Property_CategoryFilterInput>
+  headings?: Maybe<MdxHeadingMdxFilterListInput>,
+  html?: Maybe<StringQueryOperatorInput>,
+  mdxAST?: Maybe<JsonQueryOperatorInput>,
+  tableOfContents?: Maybe<JsonQueryOperatorInput>,
+  timeToRead?: Maybe<IntQueryOperatorInput>,
+  wordCount?: Maybe<MdxWordCountFilterInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>
 };
 
 
-export type QueryAllWordpressWpPropertyArgs = {
-  filter?: Maybe<Wordpress__Wp_PropertyFilterInput>,
-  sort?: Maybe<Wordpress__Wp_PropertySortInput>,
+export type QueryAllMdxArgs = {
+  filter?: Maybe<MdxFilterInput>,
+  sort?: Maybe<MdxSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
 
 
-export type QueryWordpressWpMediaArgs = {
+export type QueryTestimonialsJsonArgs = {
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  guid?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  modified?: Maybe<DateQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
-  type?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  author?: Maybe<IntQueryOperatorInput>,
-  comment_status?: Maybe<StringQueryOperatorInput>,
-  ping_status?: Maybe<StringQueryOperatorInput>,
-  template?: Maybe<StringQueryOperatorInput>,
-  meta?: Maybe<Wordpress__Wp_MediaMetaFilterInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  caption?: Maybe<StringQueryOperatorInput>,
-  alt_text?: Maybe<StringQueryOperatorInput>,
-  media_type?: Maybe<StringQueryOperatorInput>,
-  mime_type?: Maybe<StringQueryOperatorInput>,
-  media_details?: Maybe<Wordpress__Wp_MediaMedia_DetailsFilterInput>,
-  post?: Maybe<IntQueryOperatorInput>,
-  source_url?: Maybe<StringQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Media_LinksFilterInput>,
-  localFile?: Maybe<FileFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>
+  body?: Maybe<StringQueryOperatorInput>,
+  rating?: Maybe<IntQueryOperatorInput>,
+  author?: Maybe<StringQueryOperatorInput>,
+  property?: Maybe<TestimonialsJsonPropertyFilterInput>
 };
 
 
-export type QueryAllWordpressWpMediaArgs = {
-  filter?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  sort?: Maybe<Wordpress__Wp_MediaSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfUsersArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfUsersArgs = {
-  filter?: Maybe<Wordpress__Acf_UsersFilterInput>,
-  sort?: Maybe<Wordpress__Acf_UsersSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfLakeArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfLakeArgs = {
-  filter?: Maybe<Wordpress__Acf_LakeFilterInput>,
-  sort?: Maybe<Wordpress__Acf_LakeSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfProductTypeArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfProductTypeArgs = {
-  filter?: Maybe<Wordpress__Acf_Product_TypeFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Product_TypeSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfActionGroupArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfActionGroupArgs = {
-  filter?: Maybe<Wordpress__Acf_Action_GroupFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Action_GroupSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfPropertyFeaturesArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfPropertyFeaturesArgs = {
-  filter?: Maybe<Wordpress__Acf_Property_FeaturesFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Property_FeaturesSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfPropertyAreaArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfPropertyAreaArgs = {
-  filter?: Maybe<Wordpress__Acf_Property_AreaFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Property_AreaSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfPropertyCityArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfPropertyCityArgs = {
-  filter?: Maybe<Wordpress__Acf_Property_CityFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Property_CitySortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfPropertyCategoryArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfPropertyCategoryArgs = {
-  filter?: Maybe<Wordpress__Acf_Property_CategoryFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Property_CategorySortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfCategoryArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfCategoryArgs = {
-  filter?: Maybe<Wordpress__Acf_CategoryFilterInput>,
-  sort?: Maybe<Wordpress__Acf_CategorySortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfBlogPostArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfBlogPostArgs = {
-  filter?: Maybe<Wordpress__Acf_Blog_PostFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Blog_PostSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfPageContentArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  acf?: Maybe<Wordpress__Acf_Page_ContentAcfFilterInput>
-};
-
-
-export type QueryAllWordpressAcfPageContentArgs = {
-  filter?: Maybe<Wordpress__Acf_Page_ContentFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Page_ContentSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfWpcf7ContactFormArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfWpcf7ContactFormArgs = {
-  filter?: Maybe<Wordpress__Acf_Wpcf7_Contact_FormFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Wpcf7_Contact_FormSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfShopCouponArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfShopCouponArgs = {
-  filter?: Maybe<Wordpress__Acf_Shop_CouponFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Shop_CouponSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfProductVariationArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfProductVariationArgs = {
-  filter?: Maybe<Wordpress__Acf_Product_VariationFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Product_VariationSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfProductArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfProductArgs = {
-  filter?: Maybe<Wordpress__Acf_ProductFilterInput>,
-  sort?: Maybe<Wordpress__Acf_ProductSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfAcfFieldArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfAcfFieldArgs = {
-  filter?: Maybe<Wordpress__Acf_Acf_FieldFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Acf_FieldSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfAcfFieldGroupArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfAcfFieldGroupArgs = {
-  filter?: Maybe<Wordpress__Acf_Acf_Field_GroupFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Acf_Field_GroupSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfScheduledActionArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfScheduledActionArgs = {
-  filter?: Maybe<Wordpress__Acf_Scheduled_ActionFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Scheduled_ActionSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfWpestateMessageArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfWpestateMessageArgs = {
-  filter?: Maybe<Wordpress__Acf_Wpestate_MessageFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Wpestate_MessageSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfMembershipPackageArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfMembershipPackageArgs = {
-  filter?: Maybe<Wordpress__Acf_Membership_PackageFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Membership_PackageSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfWpestateInvoiceArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfWpestateInvoiceArgs = {
-  filter?: Maybe<Wordpress__Acf_Wpestate_InvoiceFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Wpestate_InvoiceSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfWpestateBookingArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfWpestateBookingArgs = {
-  filter?: Maybe<Wordpress__Acf_Wpestate_BookingFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Wpestate_BookingSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfEstateAgentArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfEstateAgentArgs = {
-  filter?: Maybe<Wordpress__Acf_Estate_AgentFilterInput>,
-  sort?: Maybe<Wordpress__Acf_Estate_AgentSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfPropertyArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  acf?: Maybe<Wordpress__Acf_PropertyAcfFilterInput>
-};
-
-
-export type QueryAllWordpressAcfPropertyArgs = {
-  filter?: Maybe<Wordpress__Acf_PropertyFilterInput>,
-  sort?: Maybe<Wordpress__Acf_PropertySortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfMediaArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfMediaArgs = {
-  filter?: Maybe<Wordpress__Acf_MediaFilterInput>,
-  sort?: Maybe<Wordpress__Acf_MediaSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressAcfPostsArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressAcfPostsArgs = {
-  filter?: Maybe<Wordpress__Acf_PostsFilterInput>,
-  sort?: Maybe<Wordpress__Acf_PostsSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryWordpressSiteMetadataArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  url?: Maybe<StringQueryOperatorInput>,
-  home?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllWordpressSiteMetadataArgs = {
-  filter?: Maybe<Wordpress__Site_MetadataFilterInput>,
-  sort?: Maybe<Wordpress__Site_MetadataSortInput>,
+export type QueryAllTestimonialsJsonArgs = {
+  filter?: Maybe<TestimonialsJsonFilterInput>,
+  sort?: Maybe<TestimonialsJsonSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -2494,21 +3740,61 @@ export type QueryAllTeamJsonArgs = {
 };
 
 
-export type QueryTestimonialsJsonArgs = {
+export type QueryRentalsJsonArgs = {
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  body?: Maybe<StringQueryOperatorInput>,
-  rating?: Maybe<IntQueryOperatorInput>,
-  author?: Maybe<StringQueryOperatorInput>,
-  property?: Maybe<TestimonialsJsonPropertyFilterInput>
+  bedrooms?: Maybe<IntQueryOperatorInput>,
+  price?: Maybe<IntQueryOperatorInput>,
+  guests?: Maybe<IntQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  picture?: Maybe<FileFilterInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
+  category?: Maybe<StringQueryOperatorInput>
 };
 
 
-export type QueryAllTestimonialsJsonArgs = {
-  filter?: Maybe<TestimonialsJsonFilterInput>,
-  sort?: Maybe<TestimonialsJsonSortInput>,
+export type QueryAllRentalsJsonArgs = {
+  filter?: Maybe<RentalsJsonFilterInput>,
+  sort?: Maybe<RentalsJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryGuestServicesJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  icon?: Maybe<FileFilterInput>
+};
+
+
+export type QueryAllGuestServicesJsonArgs = {
+  filter?: Maybe<GuestServicesJsonFilterInput>,
+  sort?: Maybe<GuestServicesJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryConciergeServicesJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  image?: Maybe<FileFilterInput>
+};
+
+
+export type QueryAllConciergeServicesJsonArgs = {
+  filter?: Maybe<ConciergeServicesJsonFilterInput>,
+  sort?: Maybe<ConciergeServicesJsonSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -2583,6 +3869,599 @@ export type QueryAllSitePageArgs = {
   sort?: Maybe<SitePageSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
+};
+
+export type RentalsJson = Node & {
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  bedrooms?: Maybe<Scalars['Int']>,
+  price?: Maybe<Scalars['Int']>,
+  guests?: Maybe<Scalars['Int']>,
+  title?: Maybe<Scalars['String']>,
+  picture?: Maybe<File>,
+  slug?: Maybe<Scalars['String']>,
+  category?: Maybe<Scalars['String']>,
+};
+
+export type RentalsJsonConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<RentalsJsonEdge>,
+  nodes: Array<RentalsJson>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<RentalsJsonGroupConnection>,
+};
+
+
+export type RentalsJsonConnectionDistinctArgs = {
+  field: RentalsJsonFieldsEnum
+};
+
+
+export type RentalsJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: RentalsJsonFieldsEnum
+};
+
+export type RentalsJsonEdge = {
+  next?: Maybe<RentalsJson>,
+  node: RentalsJson,
+  previous?: Maybe<RentalsJson>,
+};
+
+export type RentalsJsonFieldsEnum = 
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type' |
+  'bedrooms' |
+  'price' |
+  'guests' |
+  'title' |
+  'picture___sourceInstanceName' |
+  'picture___absolutePath' |
+  'picture___relativePath' |
+  'picture___extension' |
+  'picture___size' |
+  'picture___prettySize' |
+  'picture___modifiedTime' |
+  'picture___accessTime' |
+  'picture___changeTime' |
+  'picture___birthTime' |
+  'picture___root' |
+  'picture___dir' |
+  'picture___base' |
+  'picture___ext' |
+  'picture___name' |
+  'picture___relativeDirectory' |
+  'picture___dev' |
+  'picture___mode' |
+  'picture___nlink' |
+  'picture___uid' |
+  'picture___gid' |
+  'picture___rdev' |
+  'picture___ino' |
+  'picture___atimeMs' |
+  'picture___mtimeMs' |
+  'picture___ctimeMs' |
+  'picture___atime' |
+  'picture___mtime' |
+  'picture___ctime' |
+  'picture___birthtime' |
+  'picture___birthtimeMs' |
+  'picture___blksize' |
+  'picture___blocks' |
+  'picture___publicURL' |
+  'picture___childImageSharp___fixed___base64' |
+  'picture___childImageSharp___fixed___tracedSVG' |
+  'picture___childImageSharp___fixed___aspectRatio' |
+  'picture___childImageSharp___fixed___width' |
+  'picture___childImageSharp___fixed___height' |
+  'picture___childImageSharp___fixed___src' |
+  'picture___childImageSharp___fixed___srcSet' |
+  'picture___childImageSharp___fixed___srcWebp' |
+  'picture___childImageSharp___fixed___srcSetWebp' |
+  'picture___childImageSharp___fixed___originalName' |
+  'picture___childImageSharp___resolutions___base64' |
+  'picture___childImageSharp___resolutions___tracedSVG' |
+  'picture___childImageSharp___resolutions___aspectRatio' |
+  'picture___childImageSharp___resolutions___width' |
+  'picture___childImageSharp___resolutions___height' |
+  'picture___childImageSharp___resolutions___src' |
+  'picture___childImageSharp___resolutions___srcSet' |
+  'picture___childImageSharp___resolutions___srcWebp' |
+  'picture___childImageSharp___resolutions___srcSetWebp' |
+  'picture___childImageSharp___resolutions___originalName' |
+  'picture___childImageSharp___fluid___base64' |
+  'picture___childImageSharp___fluid___tracedSVG' |
+  'picture___childImageSharp___fluid___aspectRatio' |
+  'picture___childImageSharp___fluid___src' |
+  'picture___childImageSharp___fluid___srcSet' |
+  'picture___childImageSharp___fluid___srcWebp' |
+  'picture___childImageSharp___fluid___srcSetWebp' |
+  'picture___childImageSharp___fluid___sizes' |
+  'picture___childImageSharp___fluid___originalImg' |
+  'picture___childImageSharp___fluid___originalName' |
+  'picture___childImageSharp___fluid___presentationWidth' |
+  'picture___childImageSharp___fluid___presentationHeight' |
+  'picture___childImageSharp___sizes___base64' |
+  'picture___childImageSharp___sizes___tracedSVG' |
+  'picture___childImageSharp___sizes___aspectRatio' |
+  'picture___childImageSharp___sizes___src' |
+  'picture___childImageSharp___sizes___srcSet' |
+  'picture___childImageSharp___sizes___srcWebp' |
+  'picture___childImageSharp___sizes___srcSetWebp' |
+  'picture___childImageSharp___sizes___sizes' |
+  'picture___childImageSharp___sizes___originalImg' |
+  'picture___childImageSharp___sizes___originalName' |
+  'picture___childImageSharp___sizes___presentationWidth' |
+  'picture___childImageSharp___sizes___presentationHeight' |
+  'picture___childImageSharp___original___width' |
+  'picture___childImageSharp___original___height' |
+  'picture___childImageSharp___original___src' |
+  'picture___childImageSharp___resize___src' |
+  'picture___childImageSharp___resize___tracedSVG' |
+  'picture___childImageSharp___resize___width' |
+  'picture___childImageSharp___resize___height' |
+  'picture___childImageSharp___resize___aspectRatio' |
+  'picture___childImageSharp___resize___originalName' |
+  'picture___childImageSharp___id' |
+  'picture___childImageSharp___parent___id' |
+  'picture___childImageSharp___parent___children' |
+  'picture___childImageSharp___children' |
+  'picture___childImageSharp___children___id' |
+  'picture___childImageSharp___children___children' |
+  'picture___childImageSharp___internal___content' |
+  'picture___childImageSharp___internal___contentDigest' |
+  'picture___childImageSharp___internal___description' |
+  'picture___childImageSharp___internal___fieldOwners' |
+  'picture___childImageSharp___internal___ignoreType' |
+  'picture___childImageSharp___internal___mediaType' |
+  'picture___childImageSharp___internal___owner' |
+  'picture___childImageSharp___internal___type' |
+  'picture___id' |
+  'picture___parent___id' |
+  'picture___parent___parent___id' |
+  'picture___parent___parent___children' |
+  'picture___parent___children' |
+  'picture___parent___children___id' |
+  'picture___parent___children___children' |
+  'picture___parent___internal___content' |
+  'picture___parent___internal___contentDigest' |
+  'picture___parent___internal___description' |
+  'picture___parent___internal___fieldOwners' |
+  'picture___parent___internal___ignoreType' |
+  'picture___parent___internal___mediaType' |
+  'picture___parent___internal___owner' |
+  'picture___parent___internal___type' |
+  'picture___children' |
+  'picture___children___id' |
+  'picture___children___parent___id' |
+  'picture___children___parent___children' |
+  'picture___children___children' |
+  'picture___children___children___id' |
+  'picture___children___children___children' |
+  'picture___children___internal___content' |
+  'picture___children___internal___contentDigest' |
+  'picture___children___internal___description' |
+  'picture___children___internal___fieldOwners' |
+  'picture___children___internal___ignoreType' |
+  'picture___children___internal___mediaType' |
+  'picture___children___internal___owner' |
+  'picture___children___internal___type' |
+  'picture___internal___content' |
+  'picture___internal___contentDigest' |
+  'picture___internal___description' |
+  'picture___internal___fieldOwners' |
+  'picture___internal___ignoreType' |
+  'picture___internal___mediaType' |
+  'picture___internal___owner' |
+  'picture___internal___type' |
+  'picture___childrenConciergeServicesJson' |
+  'picture___childrenConciergeServicesJson___id' |
+  'picture___childrenConciergeServicesJson___parent___id' |
+  'picture___childrenConciergeServicesJson___parent___children' |
+  'picture___childrenConciergeServicesJson___children' |
+  'picture___childrenConciergeServicesJson___children___id' |
+  'picture___childrenConciergeServicesJson___children___children' |
+  'picture___childrenConciergeServicesJson___internal___content' |
+  'picture___childrenConciergeServicesJson___internal___contentDigest' |
+  'picture___childrenConciergeServicesJson___internal___description' |
+  'picture___childrenConciergeServicesJson___internal___fieldOwners' |
+  'picture___childrenConciergeServicesJson___internal___ignoreType' |
+  'picture___childrenConciergeServicesJson___internal___mediaType' |
+  'picture___childrenConciergeServicesJson___internal___owner' |
+  'picture___childrenConciergeServicesJson___internal___type' |
+  'picture___childrenConciergeServicesJson___name' |
+  'picture___childrenConciergeServicesJson___image___sourceInstanceName' |
+  'picture___childrenConciergeServicesJson___image___absolutePath' |
+  'picture___childrenConciergeServicesJson___image___relativePath' |
+  'picture___childrenConciergeServicesJson___image___extension' |
+  'picture___childrenConciergeServicesJson___image___size' |
+  'picture___childrenConciergeServicesJson___image___prettySize' |
+  'picture___childrenConciergeServicesJson___image___modifiedTime' |
+  'picture___childrenConciergeServicesJson___image___accessTime' |
+  'picture___childrenConciergeServicesJson___image___changeTime' |
+  'picture___childrenConciergeServicesJson___image___birthTime' |
+  'picture___childrenConciergeServicesJson___image___root' |
+  'picture___childrenConciergeServicesJson___image___dir' |
+  'picture___childrenConciergeServicesJson___image___base' |
+  'picture___childrenConciergeServicesJson___image___ext' |
+  'picture___childrenConciergeServicesJson___image___name' |
+  'picture___childrenConciergeServicesJson___image___relativeDirectory' |
+  'picture___childrenConciergeServicesJson___image___dev' |
+  'picture___childrenConciergeServicesJson___image___mode' |
+  'picture___childrenConciergeServicesJson___image___nlink' |
+  'picture___childrenConciergeServicesJson___image___uid' |
+  'picture___childrenConciergeServicesJson___image___gid' |
+  'picture___childrenConciergeServicesJson___image___rdev' |
+  'picture___childrenConciergeServicesJson___image___ino' |
+  'picture___childrenConciergeServicesJson___image___atimeMs' |
+  'picture___childrenConciergeServicesJson___image___mtimeMs' |
+  'picture___childrenConciergeServicesJson___image___ctimeMs' |
+  'picture___childrenConciergeServicesJson___image___atime' |
+  'picture___childrenConciergeServicesJson___image___mtime' |
+  'picture___childrenConciergeServicesJson___image___ctime' |
+  'picture___childrenConciergeServicesJson___image___birthtime' |
+  'picture___childrenConciergeServicesJson___image___birthtimeMs' |
+  'picture___childrenConciergeServicesJson___image___blksize' |
+  'picture___childrenConciergeServicesJson___image___blocks' |
+  'picture___childrenConciergeServicesJson___image___publicURL' |
+  'picture___childrenConciergeServicesJson___image___id' |
+  'picture___childrenConciergeServicesJson___image___children' |
+  'picture___childrenConciergeServicesJson___image___childrenConciergeServicesJson' |
+  'picture___childrenConciergeServicesJson___image___childrenGuestServicesJson' |
+  'picture___childrenConciergeServicesJson___image___childrenRentalsJson' |
+  'picture___childrenConciergeServicesJson___image___childrenTeamJson' |
+  'picture___childrenConciergeServicesJson___image___childrenTestimonialsJson' |
+  'picture___childrenGuestServicesJson' |
+  'picture___childrenGuestServicesJson___id' |
+  'picture___childrenGuestServicesJson___parent___id' |
+  'picture___childrenGuestServicesJson___parent___children' |
+  'picture___childrenGuestServicesJson___children' |
+  'picture___childrenGuestServicesJson___children___id' |
+  'picture___childrenGuestServicesJson___children___children' |
+  'picture___childrenGuestServicesJson___internal___content' |
+  'picture___childrenGuestServicesJson___internal___contentDigest' |
+  'picture___childrenGuestServicesJson___internal___description' |
+  'picture___childrenGuestServicesJson___internal___fieldOwners' |
+  'picture___childrenGuestServicesJson___internal___ignoreType' |
+  'picture___childrenGuestServicesJson___internal___mediaType' |
+  'picture___childrenGuestServicesJson___internal___owner' |
+  'picture___childrenGuestServicesJson___internal___type' |
+  'picture___childrenGuestServicesJson___name' |
+  'picture___childrenGuestServicesJson___description' |
+  'picture___childrenGuestServicesJson___icon___sourceInstanceName' |
+  'picture___childrenGuestServicesJson___icon___absolutePath' |
+  'picture___childrenGuestServicesJson___icon___relativePath' |
+  'picture___childrenGuestServicesJson___icon___extension' |
+  'picture___childrenGuestServicesJson___icon___size' |
+  'picture___childrenGuestServicesJson___icon___prettySize' |
+  'picture___childrenGuestServicesJson___icon___modifiedTime' |
+  'picture___childrenGuestServicesJson___icon___accessTime' |
+  'picture___childrenGuestServicesJson___icon___changeTime' |
+  'picture___childrenGuestServicesJson___icon___birthTime' |
+  'picture___childrenGuestServicesJson___icon___root' |
+  'picture___childrenGuestServicesJson___icon___dir' |
+  'picture___childrenGuestServicesJson___icon___base' |
+  'picture___childrenGuestServicesJson___icon___ext' |
+  'picture___childrenGuestServicesJson___icon___name' |
+  'picture___childrenGuestServicesJson___icon___relativeDirectory' |
+  'picture___childrenGuestServicesJson___icon___dev' |
+  'picture___childrenGuestServicesJson___icon___mode' |
+  'picture___childrenGuestServicesJson___icon___nlink' |
+  'picture___childrenGuestServicesJson___icon___uid' |
+  'picture___childrenGuestServicesJson___icon___gid' |
+  'picture___childrenGuestServicesJson___icon___rdev' |
+  'picture___childrenGuestServicesJson___icon___ino' |
+  'picture___childrenGuestServicesJson___icon___atimeMs' |
+  'picture___childrenGuestServicesJson___icon___mtimeMs' |
+  'picture___childrenGuestServicesJson___icon___ctimeMs' |
+  'picture___childrenGuestServicesJson___icon___atime' |
+  'picture___childrenGuestServicesJson___icon___mtime' |
+  'picture___childrenGuestServicesJson___icon___ctime' |
+  'picture___childrenGuestServicesJson___icon___birthtime' |
+  'picture___childrenGuestServicesJson___icon___birthtimeMs' |
+  'picture___childrenGuestServicesJson___icon___blksize' |
+  'picture___childrenGuestServicesJson___icon___blocks' |
+  'picture___childrenGuestServicesJson___icon___publicURL' |
+  'picture___childrenGuestServicesJson___icon___id' |
+  'picture___childrenGuestServicesJson___icon___children' |
+  'picture___childrenGuestServicesJson___icon___childrenConciergeServicesJson' |
+  'picture___childrenGuestServicesJson___icon___childrenGuestServicesJson' |
+  'picture___childrenGuestServicesJson___icon___childrenRentalsJson' |
+  'picture___childrenGuestServicesJson___icon___childrenTeamJson' |
+  'picture___childrenGuestServicesJson___icon___childrenTestimonialsJson' |
+  'picture___childrenRentalsJson' |
+  'picture___childrenRentalsJson___id' |
+  'picture___childrenRentalsJson___parent___id' |
+  'picture___childrenRentalsJson___parent___children' |
+  'picture___childrenRentalsJson___children' |
+  'picture___childrenRentalsJson___children___id' |
+  'picture___childrenRentalsJson___children___children' |
+  'picture___childrenRentalsJson___internal___content' |
+  'picture___childrenRentalsJson___internal___contentDigest' |
+  'picture___childrenRentalsJson___internal___description' |
+  'picture___childrenRentalsJson___internal___fieldOwners' |
+  'picture___childrenRentalsJson___internal___ignoreType' |
+  'picture___childrenRentalsJson___internal___mediaType' |
+  'picture___childrenRentalsJson___internal___owner' |
+  'picture___childrenRentalsJson___internal___type' |
+  'picture___childrenRentalsJson___bedrooms' |
+  'picture___childrenRentalsJson___price' |
+  'picture___childrenRentalsJson___guests' |
+  'picture___childrenRentalsJson___title' |
+  'picture___childrenRentalsJson___picture___sourceInstanceName' |
+  'picture___childrenRentalsJson___picture___absolutePath' |
+  'picture___childrenRentalsJson___picture___relativePath' |
+  'picture___childrenRentalsJson___picture___extension' |
+  'picture___childrenRentalsJson___picture___size' |
+  'picture___childrenRentalsJson___picture___prettySize' |
+  'picture___childrenRentalsJson___picture___modifiedTime' |
+  'picture___childrenRentalsJson___picture___accessTime' |
+  'picture___childrenRentalsJson___picture___changeTime' |
+  'picture___childrenRentalsJson___picture___birthTime' |
+  'picture___childrenRentalsJson___picture___root' |
+  'picture___childrenRentalsJson___picture___dir' |
+  'picture___childrenRentalsJson___picture___base' |
+  'picture___childrenRentalsJson___picture___ext' |
+  'picture___childrenRentalsJson___picture___name' |
+  'picture___childrenRentalsJson___picture___relativeDirectory' |
+  'picture___childrenRentalsJson___picture___dev' |
+  'picture___childrenRentalsJson___picture___mode' |
+  'picture___childrenRentalsJson___picture___nlink' |
+  'picture___childrenRentalsJson___picture___uid' |
+  'picture___childrenRentalsJson___picture___gid' |
+  'picture___childrenRentalsJson___picture___rdev' |
+  'picture___childrenRentalsJson___picture___ino' |
+  'picture___childrenRentalsJson___picture___atimeMs' |
+  'picture___childrenRentalsJson___picture___mtimeMs' |
+  'picture___childrenRentalsJson___picture___ctimeMs' |
+  'picture___childrenRentalsJson___picture___atime' |
+  'picture___childrenRentalsJson___picture___mtime' |
+  'picture___childrenRentalsJson___picture___ctime' |
+  'picture___childrenRentalsJson___picture___birthtime' |
+  'picture___childrenRentalsJson___picture___birthtimeMs' |
+  'picture___childrenRentalsJson___picture___blksize' |
+  'picture___childrenRentalsJson___picture___blocks' |
+  'picture___childrenRentalsJson___picture___publicURL' |
+  'picture___childrenRentalsJson___picture___id' |
+  'picture___childrenRentalsJson___picture___children' |
+  'picture___childrenRentalsJson___picture___childrenConciergeServicesJson' |
+  'picture___childrenRentalsJson___picture___childrenGuestServicesJson' |
+  'picture___childrenRentalsJson___picture___childrenRentalsJson' |
+  'picture___childrenRentalsJson___picture___childrenTeamJson' |
+  'picture___childrenRentalsJson___picture___childrenTestimonialsJson' |
+  'picture___childrenRentalsJson___slug' |
+  'picture___childrenRentalsJson___category' |
+  'picture___childrenTeamJson' |
+  'picture___childrenTeamJson___id' |
+  'picture___childrenTeamJson___parent___id' |
+  'picture___childrenTeamJson___parent___children' |
+  'picture___childrenTeamJson___children' |
+  'picture___childrenTeamJson___children___id' |
+  'picture___childrenTeamJson___children___children' |
+  'picture___childrenTeamJson___internal___content' |
+  'picture___childrenTeamJson___internal___contentDigest' |
+  'picture___childrenTeamJson___internal___description' |
+  'picture___childrenTeamJson___internal___fieldOwners' |
+  'picture___childrenTeamJson___internal___ignoreType' |
+  'picture___childrenTeamJson___internal___mediaType' |
+  'picture___childrenTeamJson___internal___owner' |
+  'picture___childrenTeamJson___internal___type' |
+  'picture___childrenTeamJson___name' |
+  'picture___childrenTeamJson___title' |
+  'picture___childrenTeamJson___picture___sourceInstanceName' |
+  'picture___childrenTeamJson___picture___absolutePath' |
+  'picture___childrenTeamJson___picture___relativePath' |
+  'picture___childrenTeamJson___picture___extension' |
+  'picture___childrenTeamJson___picture___size' |
+  'picture___childrenTeamJson___picture___prettySize' |
+  'picture___childrenTeamJson___picture___modifiedTime' |
+  'picture___childrenTeamJson___picture___accessTime' |
+  'picture___childrenTeamJson___picture___changeTime' |
+  'picture___childrenTeamJson___picture___birthTime' |
+  'picture___childrenTeamJson___picture___root' |
+  'picture___childrenTeamJson___picture___dir' |
+  'picture___childrenTeamJson___picture___base' |
+  'picture___childrenTeamJson___picture___ext' |
+  'picture___childrenTeamJson___picture___name' |
+  'picture___childrenTeamJson___picture___relativeDirectory' |
+  'picture___childrenTeamJson___picture___dev' |
+  'picture___childrenTeamJson___picture___mode' |
+  'picture___childrenTeamJson___picture___nlink' |
+  'picture___childrenTeamJson___picture___uid' |
+  'picture___childrenTeamJson___picture___gid' |
+  'picture___childrenTeamJson___picture___rdev' |
+  'picture___childrenTeamJson___picture___ino' |
+  'picture___childrenTeamJson___picture___atimeMs' |
+  'picture___childrenTeamJson___picture___mtimeMs' |
+  'picture___childrenTeamJson___picture___ctimeMs' |
+  'picture___childrenTeamJson___picture___atime' |
+  'picture___childrenTeamJson___picture___mtime' |
+  'picture___childrenTeamJson___picture___ctime' |
+  'picture___childrenTeamJson___picture___birthtime' |
+  'picture___childrenTeamJson___picture___birthtimeMs' |
+  'picture___childrenTeamJson___picture___blksize' |
+  'picture___childrenTeamJson___picture___blocks' |
+  'picture___childrenTeamJson___picture___publicURL' |
+  'picture___childrenTeamJson___picture___id' |
+  'picture___childrenTeamJson___picture___children' |
+  'picture___childrenTeamJson___picture___childrenConciergeServicesJson' |
+  'picture___childrenTeamJson___picture___childrenGuestServicesJson' |
+  'picture___childrenTeamJson___picture___childrenRentalsJson' |
+  'picture___childrenTeamJson___picture___childrenTeamJson' |
+  'picture___childrenTeamJson___picture___childrenTestimonialsJson' |
+  'picture___childrenTeamJson___bio' |
+  'picture___childrenTestimonialsJson' |
+  'picture___childrenTestimonialsJson___id' |
+  'picture___childrenTestimonialsJson___parent___id' |
+  'picture___childrenTestimonialsJson___parent___children' |
+  'picture___childrenTestimonialsJson___children' |
+  'picture___childrenTestimonialsJson___children___id' |
+  'picture___childrenTestimonialsJson___children___children' |
+  'picture___childrenTestimonialsJson___internal___content' |
+  'picture___childrenTestimonialsJson___internal___contentDigest' |
+  'picture___childrenTestimonialsJson___internal___description' |
+  'picture___childrenTestimonialsJson___internal___fieldOwners' |
+  'picture___childrenTestimonialsJson___internal___ignoreType' |
+  'picture___childrenTestimonialsJson___internal___mediaType' |
+  'picture___childrenTestimonialsJson___internal___owner' |
+  'picture___childrenTestimonialsJson___internal___type' |
+  'picture___childrenTestimonialsJson___body' |
+  'picture___childrenTestimonialsJson___rating' |
+  'picture___childrenTestimonialsJson___author' |
+  'picture___childrenTestimonialsJson___property___name' |
+  'picture___childrenTestimonialsJson___property___location' |
+  'picture___childMdx___rawBody' |
+  'picture___childMdx___fileAbsolutePath' |
+  'picture___childMdx___frontmatter___title' |
+  'picture___childMdx___frontmatter___slug' |
+  'picture___childMdx___frontmatter___contactForm' |
+  'picture___childMdx___body' |
+  'picture___childMdx___excerpt' |
+  'picture___childMdx___headings' |
+  'picture___childMdx___headings___value' |
+  'picture___childMdx___headings___depth' |
+  'picture___childMdx___html' |
+  'picture___childMdx___mdxAST' |
+  'picture___childMdx___tableOfContents' |
+  'picture___childMdx___timeToRead' |
+  'picture___childMdx___wordCount___paragraphs' |
+  'picture___childMdx___wordCount___sentences' |
+  'picture___childMdx___wordCount___words' |
+  'picture___childMdx___id' |
+  'picture___childMdx___parent___id' |
+  'picture___childMdx___parent___children' |
+  'picture___childMdx___children' |
+  'picture___childMdx___children___id' |
+  'picture___childMdx___children___children' |
+  'picture___childMdx___internal___content' |
+  'picture___childMdx___internal___contentDigest' |
+  'picture___childMdx___internal___description' |
+  'picture___childMdx___internal___fieldOwners' |
+  'picture___childMdx___internal___ignoreType' |
+  'picture___childMdx___internal___mediaType' |
+  'picture___childMdx___internal___owner' |
+  'picture___childMdx___internal___type' |
+  'slug' |
+  'category';
+
+export type RentalsJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  bedrooms?: Maybe<IntQueryOperatorInput>,
+  price?: Maybe<IntQueryOperatorInput>,
+  guests?: Maybe<IntQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  picture?: Maybe<FileFilterInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
+  category?: Maybe<StringQueryOperatorInput>,
+};
+
+export type RentalsJsonFilterListInput = {
+  elemMatch?: Maybe<RentalsJsonFilterInput>,
+};
+
+export type RentalsJsonGroupConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<RentalsJsonEdge>,
+  nodes: Array<RentalsJson>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type RentalsJsonSortInput = {
+  fields?: Maybe<Array<Maybe<RentalsJsonFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
 export type Site = Node & {
@@ -2799,13 +4678,51 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-  id?: Maybe<Scalars['String']>,
-  slug?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  hero?: Maybe<SitePageContextHero>,
+  body?: Maybe<Scalars['String']>,
 };
 
 export type SitePageContextFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  hero?: Maybe<SitePageContextHeroFilterInput>,
+  body?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextHero = {
+  childImageSharp?: Maybe<SitePageContextHeroChildImageSharp>,
+};
+
+export type SitePageContextHeroChildImageSharp = {
+  fluid?: Maybe<SitePageContextHeroChildImageSharpFluid>,
+};
+
+export type SitePageContextHeroChildImageSharpFilterInput = {
+  fluid?: Maybe<SitePageContextHeroChildImageSharpFluidFilterInput>,
+};
+
+export type SitePageContextHeroChildImageSharpFluid = {
+  base64?: Maybe<Scalars['String']>,
+  aspectRatio?: Maybe<Scalars['Float']>,
+  src?: Maybe<Scalars['String']>,
+  srcSet?: Maybe<Scalars['String']>,
+  srcWebp?: Maybe<Scalars['String']>,
+  srcSetWebp?: Maybe<Scalars['String']>,
+  sizes?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextHeroChildImageSharpFluidFilterInput = {
+  base64?: Maybe<StringQueryOperatorInput>,
+  aspectRatio?: Maybe<FloatQueryOperatorInput>,
+  src?: Maybe<StringQueryOperatorInput>,
+  srcSet?: Maybe<StringQueryOperatorInput>,
+  srcWebp?: Maybe<StringQueryOperatorInput>,
+  srcSetWebp?: Maybe<StringQueryOperatorInput>,
+  sizes?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextHeroFilterInput = {
+  childImageSharp?: Maybe<SitePageContextHeroChildImageSharpFilterInput>,
 };
 
 export type SitePageEdge = {
@@ -2906,8 +4823,8 @@ export type SitePageFieldsEnum =
   'component' |
   'componentChunkName' |
   'isCreatedByStatefulCreatePages' |
-  'context___id' |
-  'context___slug' |
+  'context___title' |
+  'context___body' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
@@ -2959,6 +4876,8 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___theme' |
   'pluginCreator___pluginOptions___util' |
   'pluginCreator___pluginOptions___instances' |
+  'pluginCreator___pluginOptions___gatsbyRemarkPlugins' |
+  'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve' |
   'pluginCreator___pluginOptions___color' |
   'pluginCreator___pluginOptions___showSpinner' |
   'pluginCreator___pluginOptions___name' |
@@ -2970,20 +4889,12 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___icon' |
   'pluginCreator___pluginOptions___defaultQuality' |
   'pluginCreator___pluginOptions___path' |
-  'pluginCreator___pluginOptions___useACF' |
-  'pluginCreator___pluginOptions___baseUrl' |
-  'pluginCreator___pluginOptions___concurrentRequests' |
-  'pluginCreator___pluginOptions___protocol' |
-  'pluginCreator___pluginOptions___auth___jwt_user' |
-  'pluginCreator___pluginOptions___auth___jwt_pass' |
-  'pluginCreator___pluginOptions___auth___jwt_base_path' |
-  'pluginCreator___pluginOptions___includedRoutes' |
   'pluginCreator___pluginOptions___allPageHeaders' |
+  'pluginCreator___pluginOptions___functionsSrc' |
+  'pluginCreator___pluginOptions___functionsOutput' |
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___codegen' |
   'pluginCreator___pluginOptions___codegenDelay' |
-  'pluginCreator___pluginOptions___functionsSrc' |
-  'pluginCreator___pluginOptions___functionsOutput' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
   'pluginCreator___browserAPIs' |
@@ -3181,6 +5092,24 @@ export type SitePluginFieldsEnum =
   'pluginOptions___theme' |
   'pluginOptions___util' |
   'pluginOptions___instances' |
+  'pluginOptions___gatsbyRemarkPlugins' |
+  'pluginOptions___gatsbyRemarkPlugins___resolve' |
+  'pluginOptions___gatsbyRemarkPlugins___options___wrapperStyle' |
+  'pluginOptions___gatsbyRemarkPlugins___options___disableBgImage' |
+  'pluginOptions___gatsbyRemarkPlugins___options___withWebp' |
+  'pluginOptions___gatsbyRemarkPlugins___options___pathPrefix' |
+  'pluginOptions___gatsbyRemarkPlugins___options___maxWidth' |
+  'pluginOptions___gatsbyRemarkPlugins___options___backgroundColor' |
+  'pluginOptions___gatsbyRemarkPlugins___options___linkImagesToOriginal' |
+  'pluginOptions___gatsbyRemarkPlugins___options___showCaptions' |
+  'pluginOptions___gatsbyRemarkPlugins___options___markdownCaptions' |
+  'pluginOptions___gatsbyRemarkPlugins___options___tracedSVG' |
+  'pluginOptions___gatsbyRemarkPlugins___options___loading' |
+  'pluginOptions___gatsbyRemarkPlugins___options___disableBgImageOnAlpha' |
+  'pluginOptions___gatsbyRemarkPlugins___options___ratio' |
+  'pluginOptions___gatsbyRemarkPlugins___options___related' |
+  'pluginOptions___gatsbyRemarkPlugins___options___noIframeBorder' |
+  'pluginOptions___gatsbyRemarkPlugins___options___urlOverrides' |
   'pluginOptions___color' |
   'pluginOptions___showSpinner' |
   'pluginOptions___name' |
@@ -3192,20 +5121,12 @@ export type SitePluginFieldsEnum =
   'pluginOptions___icon' |
   'pluginOptions___defaultQuality' |
   'pluginOptions___path' |
-  'pluginOptions___useACF' |
-  'pluginOptions___baseUrl' |
-  'pluginOptions___concurrentRequests' |
-  'pluginOptions___protocol' |
-  'pluginOptions___auth___jwt_user' |
-  'pluginOptions___auth___jwt_pass' |
-  'pluginOptions___auth___jwt_base_path' |
-  'pluginOptions___includedRoutes' |
   'pluginOptions___allPageHeaders' |
+  'pluginOptions___functionsSrc' |
+  'pluginOptions___functionsOutput' |
   'pluginOptions___fileName' |
   'pluginOptions___codegen' |
   'pluginOptions___codegenDelay' |
-  'pluginOptions___functionsSrc' |
-  'pluginOptions___functionsOutput' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
   'browserAPIs' |
@@ -3332,6 +5253,7 @@ export type SitePluginPluginOptions = {
   theme?: Maybe<Scalars['String']>,
   util?: Maybe<Scalars['String']>,
   instances?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>,
   color?: Maybe<Scalars['String']>,
   showSpinner?: Maybe<Scalars['Boolean']>,
   name?: Maybe<Scalars['String']>,
@@ -3343,31 +5265,13 @@ export type SitePluginPluginOptions = {
   icon?: Maybe<Scalars['String']>,
   defaultQuality?: Maybe<Scalars['Int']>,
   path?: Maybe<Scalars['String']>,
-  useACF?: Maybe<Scalars['Boolean']>,
-  baseUrl?: Maybe<Scalars['String']>,
-  concurrentRequests?: Maybe<Scalars['Int']>,
-  protocol?: Maybe<Scalars['String']>,
-  auth?: Maybe<SitePluginPluginOptionsAuth>,
-  includedRoutes?: Maybe<Array<Maybe<Scalars['String']>>>,
   allPageHeaders?: Maybe<Array<Maybe<Scalars['String']>>>,
+  functionsSrc?: Maybe<Scalars['String']>,
+  functionsOutput?: Maybe<Scalars['String']>,
   fileName?: Maybe<Scalars['String']>,
   codegen?: Maybe<Scalars['Boolean']>,
   codegenDelay?: Maybe<Scalars['Int']>,
-  functionsSrc?: Maybe<Scalars['String']>,
-  functionsOutput?: Maybe<Scalars['String']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
-};
-
-export type SitePluginPluginOptionsAuth = {
-  jwt_user?: Maybe<Scalars['String']>,
-  jwt_pass?: Maybe<Scalars['String']>,
-  jwt_base_path?: Maybe<Scalars['String']>,
-};
-
-export type SitePluginPluginOptionsAuthFilterInput = {
-  jwt_user?: Maybe<StringQueryOperatorInput>,
-  jwt_pass?: Maybe<StringQueryOperatorInput>,
-  jwt_base_path?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -3381,6 +5285,7 @@ export type SitePluginPluginOptionsFilterInput = {
   theme?: Maybe<StringQueryOperatorInput>,
   util?: Maybe<StringQueryOperatorInput>,
   instances?: Maybe<StringQueryOperatorInput>,
+  gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>,
   color?: Maybe<StringQueryOperatorInput>,
   showSpinner?: Maybe<BooleanQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
@@ -3392,19 +5297,77 @@ export type SitePluginPluginOptionsFilterInput = {
   icon?: Maybe<StringQueryOperatorInput>,
   defaultQuality?: Maybe<IntQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
-  useACF?: Maybe<BooleanQueryOperatorInput>,
-  baseUrl?: Maybe<StringQueryOperatorInput>,
-  concurrentRequests?: Maybe<IntQueryOperatorInput>,
-  protocol?: Maybe<StringQueryOperatorInput>,
-  auth?: Maybe<SitePluginPluginOptionsAuthFilterInput>,
-  includedRoutes?: Maybe<StringQueryOperatorInput>,
   allPageHeaders?: Maybe<StringQueryOperatorInput>,
+  functionsSrc?: Maybe<StringQueryOperatorInput>,
+  functionsOutput?: Maybe<StringQueryOperatorInput>,
   fileName?: Maybe<StringQueryOperatorInput>,
   codegen?: Maybe<BooleanQueryOperatorInput>,
   codegenDelay?: Maybe<IntQueryOperatorInput>,
-  functionsSrc?: Maybe<StringQueryOperatorInput>,
-  functionsOutput?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPlugins = {
+  resolve?: Maybe<Scalars['String']>,
+  options?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptions>,
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput = {
+  resolve?: Maybe<StringQueryOperatorInput>,
+  options?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput>,
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput>,
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
+  wrapperStyle?: Maybe<Scalars['String']>,
+  disableBgImage?: Maybe<Scalars['Boolean']>,
+  withWebp?: Maybe<Scalars['Boolean']>,
+  pathPrefix?: Maybe<Scalars['String']>,
+  maxWidth?: Maybe<Scalars['Int']>,
+  backgroundColor?: Maybe<Scalars['String']>,
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
+  showCaptions?: Maybe<Scalars['Boolean']>,
+  markdownCaptions?: Maybe<Scalars['Boolean']>,
+  tracedSVG?: Maybe<Scalars['Boolean']>,
+  loading?: Maybe<Scalars['String']>,
+  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
+  ratio?: Maybe<Scalars['Float']>,
+  related?: Maybe<Scalars['Boolean']>,
+  noIframeBorder?: Maybe<Scalars['Boolean']>,
+  urlOverrides?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptionsUrlOverrides>>>,
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
+  wrapperStyle?: Maybe<StringQueryOperatorInput>,
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>,
+  withWebp?: Maybe<BooleanQueryOperatorInput>,
+  pathPrefix?: Maybe<StringQueryOperatorInput>,
+  maxWidth?: Maybe<IntQueryOperatorInput>,
+  backgroundColor?: Maybe<StringQueryOperatorInput>,
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
+  showCaptions?: Maybe<BooleanQueryOperatorInput>,
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
+  loading?: Maybe<StringQueryOperatorInput>,
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
+  ratio?: Maybe<FloatQueryOperatorInput>,
+  related?: Maybe<BooleanQueryOperatorInput>,
+  noIframeBorder?: Maybe<BooleanQueryOperatorInput>,
+  urlOverrides?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptionsUrlOverridesFilterListInput>,
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsUrlOverrides = {
+  id?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsUrlOverridesFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsUrlOverridesFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptionsUrlOverridesFilterInput>,
 };
 
 export type SitePluginSortInput = {
@@ -3630,7 +5593,6 @@ export type TeamJsonFieldsEnum =
   'picture___birthtimeMs' |
   'picture___blksize' |
   'picture___blocks' |
-  'picture___url' |
   'picture___publicURL' |
   'picture___childImageSharp___fixed___base64' |
   'picture___childImageSharp___fixed___tracedSVG' |
@@ -3737,26 +5699,183 @@ export type TeamJsonFieldsEnum =
   'picture___internal___mediaType' |
   'picture___internal___owner' |
   'picture___internal___type' |
-  'picture___childrenTestimonialsJson' |
-  'picture___childrenTestimonialsJson___id' |
-  'picture___childrenTestimonialsJson___parent___id' |
-  'picture___childrenTestimonialsJson___parent___children' |
-  'picture___childrenTestimonialsJson___children' |
-  'picture___childrenTestimonialsJson___children___id' |
-  'picture___childrenTestimonialsJson___children___children' |
-  'picture___childrenTestimonialsJson___internal___content' |
-  'picture___childrenTestimonialsJson___internal___contentDigest' |
-  'picture___childrenTestimonialsJson___internal___description' |
-  'picture___childrenTestimonialsJson___internal___fieldOwners' |
-  'picture___childrenTestimonialsJson___internal___ignoreType' |
-  'picture___childrenTestimonialsJson___internal___mediaType' |
-  'picture___childrenTestimonialsJson___internal___owner' |
-  'picture___childrenTestimonialsJson___internal___type' |
-  'picture___childrenTestimonialsJson___body' |
-  'picture___childrenTestimonialsJson___rating' |
-  'picture___childrenTestimonialsJson___author' |
-  'picture___childrenTestimonialsJson___property___name' |
-  'picture___childrenTestimonialsJson___property___location' |
+  'picture___childrenConciergeServicesJson' |
+  'picture___childrenConciergeServicesJson___id' |
+  'picture___childrenConciergeServicesJson___parent___id' |
+  'picture___childrenConciergeServicesJson___parent___children' |
+  'picture___childrenConciergeServicesJson___children' |
+  'picture___childrenConciergeServicesJson___children___id' |
+  'picture___childrenConciergeServicesJson___children___children' |
+  'picture___childrenConciergeServicesJson___internal___content' |
+  'picture___childrenConciergeServicesJson___internal___contentDigest' |
+  'picture___childrenConciergeServicesJson___internal___description' |
+  'picture___childrenConciergeServicesJson___internal___fieldOwners' |
+  'picture___childrenConciergeServicesJson___internal___ignoreType' |
+  'picture___childrenConciergeServicesJson___internal___mediaType' |
+  'picture___childrenConciergeServicesJson___internal___owner' |
+  'picture___childrenConciergeServicesJson___internal___type' |
+  'picture___childrenConciergeServicesJson___name' |
+  'picture___childrenConciergeServicesJson___image___sourceInstanceName' |
+  'picture___childrenConciergeServicesJson___image___absolutePath' |
+  'picture___childrenConciergeServicesJson___image___relativePath' |
+  'picture___childrenConciergeServicesJson___image___extension' |
+  'picture___childrenConciergeServicesJson___image___size' |
+  'picture___childrenConciergeServicesJson___image___prettySize' |
+  'picture___childrenConciergeServicesJson___image___modifiedTime' |
+  'picture___childrenConciergeServicesJson___image___accessTime' |
+  'picture___childrenConciergeServicesJson___image___changeTime' |
+  'picture___childrenConciergeServicesJson___image___birthTime' |
+  'picture___childrenConciergeServicesJson___image___root' |
+  'picture___childrenConciergeServicesJson___image___dir' |
+  'picture___childrenConciergeServicesJson___image___base' |
+  'picture___childrenConciergeServicesJson___image___ext' |
+  'picture___childrenConciergeServicesJson___image___name' |
+  'picture___childrenConciergeServicesJson___image___relativeDirectory' |
+  'picture___childrenConciergeServicesJson___image___dev' |
+  'picture___childrenConciergeServicesJson___image___mode' |
+  'picture___childrenConciergeServicesJson___image___nlink' |
+  'picture___childrenConciergeServicesJson___image___uid' |
+  'picture___childrenConciergeServicesJson___image___gid' |
+  'picture___childrenConciergeServicesJson___image___rdev' |
+  'picture___childrenConciergeServicesJson___image___ino' |
+  'picture___childrenConciergeServicesJson___image___atimeMs' |
+  'picture___childrenConciergeServicesJson___image___mtimeMs' |
+  'picture___childrenConciergeServicesJson___image___ctimeMs' |
+  'picture___childrenConciergeServicesJson___image___atime' |
+  'picture___childrenConciergeServicesJson___image___mtime' |
+  'picture___childrenConciergeServicesJson___image___ctime' |
+  'picture___childrenConciergeServicesJson___image___birthtime' |
+  'picture___childrenConciergeServicesJson___image___birthtimeMs' |
+  'picture___childrenConciergeServicesJson___image___blksize' |
+  'picture___childrenConciergeServicesJson___image___blocks' |
+  'picture___childrenConciergeServicesJson___image___publicURL' |
+  'picture___childrenConciergeServicesJson___image___id' |
+  'picture___childrenConciergeServicesJson___image___children' |
+  'picture___childrenConciergeServicesJson___image___childrenConciergeServicesJson' |
+  'picture___childrenConciergeServicesJson___image___childrenGuestServicesJson' |
+  'picture___childrenConciergeServicesJson___image___childrenRentalsJson' |
+  'picture___childrenConciergeServicesJson___image___childrenTeamJson' |
+  'picture___childrenConciergeServicesJson___image___childrenTestimonialsJson' |
+  'picture___childrenGuestServicesJson' |
+  'picture___childrenGuestServicesJson___id' |
+  'picture___childrenGuestServicesJson___parent___id' |
+  'picture___childrenGuestServicesJson___parent___children' |
+  'picture___childrenGuestServicesJson___children' |
+  'picture___childrenGuestServicesJson___children___id' |
+  'picture___childrenGuestServicesJson___children___children' |
+  'picture___childrenGuestServicesJson___internal___content' |
+  'picture___childrenGuestServicesJson___internal___contentDigest' |
+  'picture___childrenGuestServicesJson___internal___description' |
+  'picture___childrenGuestServicesJson___internal___fieldOwners' |
+  'picture___childrenGuestServicesJson___internal___ignoreType' |
+  'picture___childrenGuestServicesJson___internal___mediaType' |
+  'picture___childrenGuestServicesJson___internal___owner' |
+  'picture___childrenGuestServicesJson___internal___type' |
+  'picture___childrenGuestServicesJson___name' |
+  'picture___childrenGuestServicesJson___description' |
+  'picture___childrenGuestServicesJson___icon___sourceInstanceName' |
+  'picture___childrenGuestServicesJson___icon___absolutePath' |
+  'picture___childrenGuestServicesJson___icon___relativePath' |
+  'picture___childrenGuestServicesJson___icon___extension' |
+  'picture___childrenGuestServicesJson___icon___size' |
+  'picture___childrenGuestServicesJson___icon___prettySize' |
+  'picture___childrenGuestServicesJson___icon___modifiedTime' |
+  'picture___childrenGuestServicesJson___icon___accessTime' |
+  'picture___childrenGuestServicesJson___icon___changeTime' |
+  'picture___childrenGuestServicesJson___icon___birthTime' |
+  'picture___childrenGuestServicesJson___icon___root' |
+  'picture___childrenGuestServicesJson___icon___dir' |
+  'picture___childrenGuestServicesJson___icon___base' |
+  'picture___childrenGuestServicesJson___icon___ext' |
+  'picture___childrenGuestServicesJson___icon___name' |
+  'picture___childrenGuestServicesJson___icon___relativeDirectory' |
+  'picture___childrenGuestServicesJson___icon___dev' |
+  'picture___childrenGuestServicesJson___icon___mode' |
+  'picture___childrenGuestServicesJson___icon___nlink' |
+  'picture___childrenGuestServicesJson___icon___uid' |
+  'picture___childrenGuestServicesJson___icon___gid' |
+  'picture___childrenGuestServicesJson___icon___rdev' |
+  'picture___childrenGuestServicesJson___icon___ino' |
+  'picture___childrenGuestServicesJson___icon___atimeMs' |
+  'picture___childrenGuestServicesJson___icon___mtimeMs' |
+  'picture___childrenGuestServicesJson___icon___ctimeMs' |
+  'picture___childrenGuestServicesJson___icon___atime' |
+  'picture___childrenGuestServicesJson___icon___mtime' |
+  'picture___childrenGuestServicesJson___icon___ctime' |
+  'picture___childrenGuestServicesJson___icon___birthtime' |
+  'picture___childrenGuestServicesJson___icon___birthtimeMs' |
+  'picture___childrenGuestServicesJson___icon___blksize' |
+  'picture___childrenGuestServicesJson___icon___blocks' |
+  'picture___childrenGuestServicesJson___icon___publicURL' |
+  'picture___childrenGuestServicesJson___icon___id' |
+  'picture___childrenGuestServicesJson___icon___children' |
+  'picture___childrenGuestServicesJson___icon___childrenConciergeServicesJson' |
+  'picture___childrenGuestServicesJson___icon___childrenGuestServicesJson' |
+  'picture___childrenGuestServicesJson___icon___childrenRentalsJson' |
+  'picture___childrenGuestServicesJson___icon___childrenTeamJson' |
+  'picture___childrenGuestServicesJson___icon___childrenTestimonialsJson' |
+  'picture___childrenRentalsJson' |
+  'picture___childrenRentalsJson___id' |
+  'picture___childrenRentalsJson___parent___id' |
+  'picture___childrenRentalsJson___parent___children' |
+  'picture___childrenRentalsJson___children' |
+  'picture___childrenRentalsJson___children___id' |
+  'picture___childrenRentalsJson___children___children' |
+  'picture___childrenRentalsJson___internal___content' |
+  'picture___childrenRentalsJson___internal___contentDigest' |
+  'picture___childrenRentalsJson___internal___description' |
+  'picture___childrenRentalsJson___internal___fieldOwners' |
+  'picture___childrenRentalsJson___internal___ignoreType' |
+  'picture___childrenRentalsJson___internal___mediaType' |
+  'picture___childrenRentalsJson___internal___owner' |
+  'picture___childrenRentalsJson___internal___type' |
+  'picture___childrenRentalsJson___bedrooms' |
+  'picture___childrenRentalsJson___price' |
+  'picture___childrenRentalsJson___guests' |
+  'picture___childrenRentalsJson___title' |
+  'picture___childrenRentalsJson___picture___sourceInstanceName' |
+  'picture___childrenRentalsJson___picture___absolutePath' |
+  'picture___childrenRentalsJson___picture___relativePath' |
+  'picture___childrenRentalsJson___picture___extension' |
+  'picture___childrenRentalsJson___picture___size' |
+  'picture___childrenRentalsJson___picture___prettySize' |
+  'picture___childrenRentalsJson___picture___modifiedTime' |
+  'picture___childrenRentalsJson___picture___accessTime' |
+  'picture___childrenRentalsJson___picture___changeTime' |
+  'picture___childrenRentalsJson___picture___birthTime' |
+  'picture___childrenRentalsJson___picture___root' |
+  'picture___childrenRentalsJson___picture___dir' |
+  'picture___childrenRentalsJson___picture___base' |
+  'picture___childrenRentalsJson___picture___ext' |
+  'picture___childrenRentalsJson___picture___name' |
+  'picture___childrenRentalsJson___picture___relativeDirectory' |
+  'picture___childrenRentalsJson___picture___dev' |
+  'picture___childrenRentalsJson___picture___mode' |
+  'picture___childrenRentalsJson___picture___nlink' |
+  'picture___childrenRentalsJson___picture___uid' |
+  'picture___childrenRentalsJson___picture___gid' |
+  'picture___childrenRentalsJson___picture___rdev' |
+  'picture___childrenRentalsJson___picture___ino' |
+  'picture___childrenRentalsJson___picture___atimeMs' |
+  'picture___childrenRentalsJson___picture___mtimeMs' |
+  'picture___childrenRentalsJson___picture___ctimeMs' |
+  'picture___childrenRentalsJson___picture___atime' |
+  'picture___childrenRentalsJson___picture___mtime' |
+  'picture___childrenRentalsJson___picture___ctime' |
+  'picture___childrenRentalsJson___picture___birthtime' |
+  'picture___childrenRentalsJson___picture___birthtimeMs' |
+  'picture___childrenRentalsJson___picture___blksize' |
+  'picture___childrenRentalsJson___picture___blocks' |
+  'picture___childrenRentalsJson___picture___publicURL' |
+  'picture___childrenRentalsJson___picture___id' |
+  'picture___childrenRentalsJson___picture___children' |
+  'picture___childrenRentalsJson___picture___childrenConciergeServicesJson' |
+  'picture___childrenRentalsJson___picture___childrenGuestServicesJson' |
+  'picture___childrenRentalsJson___picture___childrenRentalsJson' |
+  'picture___childrenRentalsJson___picture___childrenTeamJson' |
+  'picture___childrenRentalsJson___picture___childrenTestimonialsJson' |
+  'picture___childrenRentalsJson___slug' |
+  'picture___childrenRentalsJson___category' |
   'picture___childrenTeamJson' |
   'picture___childrenTeamJson___id' |
   'picture___childrenTeamJson___parent___id' |
@@ -3807,13 +5926,66 @@ export type TeamJsonFieldsEnum =
   'picture___childrenTeamJson___picture___birthtimeMs' |
   'picture___childrenTeamJson___picture___blksize' |
   'picture___childrenTeamJson___picture___blocks' |
-  'picture___childrenTeamJson___picture___url' |
   'picture___childrenTeamJson___picture___publicURL' |
   'picture___childrenTeamJson___picture___id' |
   'picture___childrenTeamJson___picture___children' |
-  'picture___childrenTeamJson___picture___childrenTestimonialsJson' |
+  'picture___childrenTeamJson___picture___childrenConciergeServicesJson' |
+  'picture___childrenTeamJson___picture___childrenGuestServicesJson' |
+  'picture___childrenTeamJson___picture___childrenRentalsJson' |
   'picture___childrenTeamJson___picture___childrenTeamJson' |
+  'picture___childrenTeamJson___picture___childrenTestimonialsJson' |
   'picture___childrenTeamJson___bio' |
+  'picture___childrenTestimonialsJson' |
+  'picture___childrenTestimonialsJson___id' |
+  'picture___childrenTestimonialsJson___parent___id' |
+  'picture___childrenTestimonialsJson___parent___children' |
+  'picture___childrenTestimonialsJson___children' |
+  'picture___childrenTestimonialsJson___children___id' |
+  'picture___childrenTestimonialsJson___children___children' |
+  'picture___childrenTestimonialsJson___internal___content' |
+  'picture___childrenTestimonialsJson___internal___contentDigest' |
+  'picture___childrenTestimonialsJson___internal___description' |
+  'picture___childrenTestimonialsJson___internal___fieldOwners' |
+  'picture___childrenTestimonialsJson___internal___ignoreType' |
+  'picture___childrenTestimonialsJson___internal___mediaType' |
+  'picture___childrenTestimonialsJson___internal___owner' |
+  'picture___childrenTestimonialsJson___internal___type' |
+  'picture___childrenTestimonialsJson___body' |
+  'picture___childrenTestimonialsJson___rating' |
+  'picture___childrenTestimonialsJson___author' |
+  'picture___childrenTestimonialsJson___property___name' |
+  'picture___childrenTestimonialsJson___property___location' |
+  'picture___childMdx___rawBody' |
+  'picture___childMdx___fileAbsolutePath' |
+  'picture___childMdx___frontmatter___title' |
+  'picture___childMdx___frontmatter___slug' |
+  'picture___childMdx___frontmatter___contactForm' |
+  'picture___childMdx___body' |
+  'picture___childMdx___excerpt' |
+  'picture___childMdx___headings' |
+  'picture___childMdx___headings___value' |
+  'picture___childMdx___headings___depth' |
+  'picture___childMdx___html' |
+  'picture___childMdx___mdxAST' |
+  'picture___childMdx___tableOfContents' |
+  'picture___childMdx___timeToRead' |
+  'picture___childMdx___wordCount___paragraphs' |
+  'picture___childMdx___wordCount___sentences' |
+  'picture___childMdx___wordCount___words' |
+  'picture___childMdx___id' |
+  'picture___childMdx___parent___id' |
+  'picture___childMdx___parent___children' |
+  'picture___childMdx___children' |
+  'picture___childMdx___children___id' |
+  'picture___childMdx___children___children' |
+  'picture___childMdx___internal___content' |
+  'picture___childMdx___internal___contentDigest' |
+  'picture___childMdx___internal___description' |
+  'picture___childMdx___internal___fieldOwners' |
+  'picture___childMdx___internal___ignoreType' |
+  'picture___childMdx___internal___mediaType' |
+  'picture___childMdx___internal___owner' |
+  'picture___childMdx___internal___type' |
   'bio';
 
 export type TeamJsonFilterInput = {
@@ -4015,8692 +6187,95 @@ export type TestimonialsJsonSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
-export type Wordpress__Acf_Acf_Field = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Acf_Field_Group = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Acf_Field_GroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Acf_Field_GroupEdge>,
-  nodes: Array<Wordpress__Acf_Acf_Field_Group>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Acf_Field_GroupGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Acf_Field_GroupConnectionDistinctArgs = {
-  field: Wordpress__Acf_Acf_Field_GroupFieldsEnum
-};
-
-
-export type Wordpress__Acf_Acf_Field_GroupConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Acf_Field_GroupFieldsEnum
-};
-
-export type Wordpress__Acf_Acf_Field_GroupEdge = {
-  next?: Maybe<Wordpress__Acf_Acf_Field_Group>,
-  node: Wordpress__Acf_Acf_Field_Group,
-  previous?: Maybe<Wordpress__Acf_Acf_Field_Group>,
-};
-
-export type Wordpress__Acf_Acf_Field_GroupFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Acf_Field_GroupFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Acf_Field_GroupGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Acf_Field_GroupEdge>,
-  nodes: Array<Wordpress__Acf_Acf_Field_Group>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Acf_Field_GroupSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Acf_Field_GroupFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Acf_FieldConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Acf_FieldEdge>,
-  nodes: Array<Wordpress__Acf_Acf_Field>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Acf_FieldGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Acf_FieldConnectionDistinctArgs = {
-  field: Wordpress__Acf_Acf_FieldFieldsEnum
-};
-
-
-export type Wordpress__Acf_Acf_FieldConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Acf_FieldFieldsEnum
-};
-
-export type Wordpress__Acf_Acf_FieldEdge = {
-  next?: Maybe<Wordpress__Acf_Acf_Field>,
-  node: Wordpress__Acf_Acf_Field,
-  previous?: Maybe<Wordpress__Acf_Acf_Field>,
-};
-
-export type Wordpress__Acf_Acf_FieldFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Acf_FieldFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Acf_FieldGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Acf_FieldEdge>,
-  nodes: Array<Wordpress__Acf_Acf_Field>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Acf_FieldSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Acf_FieldFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Action_Group = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Action_GroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Action_GroupEdge>,
-  nodes: Array<Wordpress__Acf_Action_Group>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Action_GroupGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Action_GroupConnectionDistinctArgs = {
-  field: Wordpress__Acf_Action_GroupFieldsEnum
-};
-
-
-export type Wordpress__Acf_Action_GroupConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Action_GroupFieldsEnum
-};
-
-export type Wordpress__Acf_Action_GroupEdge = {
-  next?: Maybe<Wordpress__Acf_Action_Group>,
-  node: Wordpress__Acf_Action_Group,
-  previous?: Maybe<Wordpress__Acf_Action_Group>,
-};
-
-export type Wordpress__Acf_Action_GroupFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Action_GroupFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Action_GroupGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Action_GroupEdge>,
-  nodes: Array<Wordpress__Acf_Action_Group>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Action_GroupSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Action_GroupFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Blog_Post = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Blog_PostConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Blog_PostEdge>,
-  nodes: Array<Wordpress__Acf_Blog_Post>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Blog_PostGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Blog_PostConnectionDistinctArgs = {
-  field: Wordpress__Acf_Blog_PostFieldsEnum
-};
-
-
-export type Wordpress__Acf_Blog_PostConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Blog_PostFieldsEnum
-};
-
-export type Wordpress__Acf_Blog_PostEdge = {
-  next?: Maybe<Wordpress__Acf_Blog_Post>,
-  node: Wordpress__Acf_Blog_Post,
-  previous?: Maybe<Wordpress__Acf_Blog_Post>,
-};
-
-export type Wordpress__Acf_Blog_PostFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Blog_PostFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Blog_PostGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Blog_PostEdge>,
-  nodes: Array<Wordpress__Acf_Blog_Post>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Blog_PostSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Blog_PostFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Category = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_CategoryConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_CategoryEdge>,
-  nodes: Array<Wordpress__Acf_Category>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_CategoryGroupConnection>,
-};
-
-
-export type Wordpress__Acf_CategoryConnectionDistinctArgs = {
-  field: Wordpress__Acf_CategoryFieldsEnum
-};
-
-
-export type Wordpress__Acf_CategoryConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_CategoryFieldsEnum
-};
-
-export type Wordpress__Acf_CategoryEdge = {
-  next?: Maybe<Wordpress__Acf_Category>,
-  node: Wordpress__Acf_Category,
-  previous?: Maybe<Wordpress__Acf_Category>,
-};
-
-export type Wordpress__Acf_CategoryFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_CategoryFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_CategoryGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_CategoryEdge>,
-  nodes: Array<Wordpress__Acf_Category>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_CategorySortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_CategoryFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Estate_Agent = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Estate_AgentConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Estate_AgentEdge>,
-  nodes: Array<Wordpress__Acf_Estate_Agent>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Estate_AgentGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Estate_AgentConnectionDistinctArgs = {
-  field: Wordpress__Acf_Estate_AgentFieldsEnum
-};
-
-
-export type Wordpress__Acf_Estate_AgentConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Estate_AgentFieldsEnum
-};
-
-export type Wordpress__Acf_Estate_AgentEdge = {
-  next?: Maybe<Wordpress__Acf_Estate_Agent>,
-  node: Wordpress__Acf_Estate_Agent,
-  previous?: Maybe<Wordpress__Acf_Estate_Agent>,
-};
-
-export type Wordpress__Acf_Estate_AgentFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Estate_AgentFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Estate_AgentGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Estate_AgentEdge>,
-  nodes: Array<Wordpress__Acf_Estate_Agent>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Estate_AgentSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Estate_AgentFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Lake = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_LakeConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_LakeEdge>,
-  nodes: Array<Wordpress__Acf_Lake>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_LakeGroupConnection>,
-};
-
-
-export type Wordpress__Acf_LakeConnectionDistinctArgs = {
-  field: Wordpress__Acf_LakeFieldsEnum
-};
-
-
-export type Wordpress__Acf_LakeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_LakeFieldsEnum
-};
-
-export type Wordpress__Acf_LakeEdge = {
-  next?: Maybe<Wordpress__Acf_Lake>,
-  node: Wordpress__Acf_Lake,
-  previous?: Maybe<Wordpress__Acf_Lake>,
-};
-
-export type Wordpress__Acf_LakeFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_LakeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_LakeGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_LakeEdge>,
-  nodes: Array<Wordpress__Acf_Lake>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_LakeSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_LakeFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Media = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_MediaConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_MediaEdge>,
-  nodes: Array<Wordpress__Acf_Media>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_MediaGroupConnection>,
-};
-
-
-export type Wordpress__Acf_MediaConnectionDistinctArgs = {
-  field: Wordpress__Acf_MediaFieldsEnum
-};
-
-
-export type Wordpress__Acf_MediaConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_MediaFieldsEnum
-};
-
-export type Wordpress__Acf_MediaEdge = {
-  next?: Maybe<Wordpress__Acf_Media>,
-  node: Wordpress__Acf_Media,
-  previous?: Maybe<Wordpress__Acf_Media>,
-};
-
-export type Wordpress__Acf_MediaFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_MediaFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_MediaGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_MediaEdge>,
-  nodes: Array<Wordpress__Acf_Media>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_MediaSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_MediaFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Membership_Package = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Membership_PackageConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Membership_PackageEdge>,
-  nodes: Array<Wordpress__Acf_Membership_Package>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Membership_PackageGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Membership_PackageConnectionDistinctArgs = {
-  field: Wordpress__Acf_Membership_PackageFieldsEnum
-};
-
-
-export type Wordpress__Acf_Membership_PackageConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Membership_PackageFieldsEnum
-};
-
-export type Wordpress__Acf_Membership_PackageEdge = {
-  next?: Maybe<Wordpress__Acf_Membership_Package>,
-  node: Wordpress__Acf_Membership_Package,
-  previous?: Maybe<Wordpress__Acf_Membership_Package>,
-};
-
-export type Wordpress__Acf_Membership_PackageFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Membership_PackageFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Membership_PackageGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Membership_PackageEdge>,
-  nodes: Array<Wordpress__Acf_Membership_Package>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Membership_PackageSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Membership_PackageFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Options = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_OptionsConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_OptionsEdge>,
-  nodes: Array<Wordpress__Acf_Options>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_OptionsGroupConnection>,
-};
-
-
-export type Wordpress__Acf_OptionsConnectionDistinctArgs = {
-  field: Wordpress__Acf_OptionsFieldsEnum
-};
-
-
-export type Wordpress__Acf_OptionsConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_OptionsFieldsEnum
-};
-
-export type Wordpress__Acf_OptionsEdge = {
-  next?: Maybe<Wordpress__Acf_Options>,
-  node: Wordpress__Acf_Options,
-  previous?: Maybe<Wordpress__Acf_Options>,
-};
-
-export type Wordpress__Acf_OptionsFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_OptionsFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_OptionsGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_OptionsEdge>,
-  nodes: Array<Wordpress__Acf_Options>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_OptionsSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_OptionsFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Page_Content = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  acf?: Maybe<Wordpress__Acf_Page_ContentAcf>,
-};
-
-export type Wordpress__Acf_Page_ContentAcf = {
-  concierge_services?: Maybe<Array<Maybe<Wordpress__Acf_Page_ContentAcfConcierge_Services>>>,
-};
-
-export type Wordpress__Acf_Page_ContentAcfConcierge_Services = {
-  service?: Maybe<Scalars['String']>,
-  image?: Maybe<Wordpress__Wp_Media>,
-};
-
-export type Wordpress__Acf_Page_ContentAcfConcierge_ServicesFilterInput = {
-  service?: Maybe<StringQueryOperatorInput>,
-  image?: Maybe<Wordpress__Wp_MediaFilterInput>,
-};
-
-export type Wordpress__Acf_Page_ContentAcfConcierge_ServicesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Acf_Page_ContentAcfConcierge_ServicesFilterInput>,
-};
-
-export type Wordpress__Acf_Page_ContentAcfFilterInput = {
-  concierge_services?: Maybe<Wordpress__Acf_Page_ContentAcfConcierge_ServicesFilterListInput>,
-};
-
-export type Wordpress__Acf_Page_ContentConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Page_ContentEdge>,
-  nodes: Array<Wordpress__Acf_Page_Content>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Page_ContentGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Page_ContentConnectionDistinctArgs = {
-  field: Wordpress__Acf_Page_ContentFieldsEnum
-};
-
-
-export type Wordpress__Acf_Page_ContentConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Page_ContentFieldsEnum
-};
-
-export type Wordpress__Acf_Page_ContentEdge = {
-  next?: Maybe<Wordpress__Acf_Page_Content>,
-  node: Wordpress__Acf_Page_Content,
-  previous?: Maybe<Wordpress__Acf_Page_Content>,
-};
-
-export type Wordpress__Acf_Page_ContentFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'acf___concierge_services' |
-  'acf___concierge_services___service' |
-  'acf___concierge_services___image___id' |
-  'acf___concierge_services___image___children' |
-  'acf___concierge_services___image___wordpress_id' |
-  'acf___concierge_services___image___date' |
-  'acf___concierge_services___image___modified' |
-  'acf___concierge_services___image___slug' |
-  'acf___concierge_services___image___status' |
-  'acf___concierge_services___image___type' |
-  'acf___concierge_services___image___link' |
-  'acf___concierge_services___image___title' |
-  'acf___concierge_services___image___author' |
-  'acf___concierge_services___image___comment_status' |
-  'acf___concierge_services___image___ping_status' |
-  'acf___concierge_services___image___template' |
-  'acf___concierge_services___image___description' |
-  'acf___concierge_services___image___caption' |
-  'acf___concierge_services___image___alt_text' |
-  'acf___concierge_services___image___media_type' |
-  'acf___concierge_services___image___mime_type' |
-  'acf___concierge_services___image___post' |
-  'acf___concierge_services___image___source_url' |
-  'acf___concierge_services___image___path';
-
-export type Wordpress__Acf_Page_ContentFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  acf?: Maybe<Wordpress__Acf_Page_ContentAcfFilterInput>,
-};
-
-export type Wordpress__Acf_Page_ContentGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Page_ContentEdge>,
-  nodes: Array<Wordpress__Acf_Page_Content>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Page_ContentSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Page_ContentFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Posts = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_PostsConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_PostsEdge>,
-  nodes: Array<Wordpress__Acf_Posts>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_PostsGroupConnection>,
-};
-
-
-export type Wordpress__Acf_PostsConnectionDistinctArgs = {
-  field: Wordpress__Acf_PostsFieldsEnum
-};
-
-
-export type Wordpress__Acf_PostsConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_PostsFieldsEnum
-};
-
-export type Wordpress__Acf_PostsEdge = {
-  next?: Maybe<Wordpress__Acf_Posts>,
-  node: Wordpress__Acf_Posts,
-  previous?: Maybe<Wordpress__Acf_Posts>,
-};
-
-export type Wordpress__Acf_PostsFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_PostsFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_PostsGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_PostsEdge>,
-  nodes: Array<Wordpress__Acf_Posts>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_PostsSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_PostsFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Product = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Product_Type = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Product_TypeConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Product_TypeEdge>,
-  nodes: Array<Wordpress__Acf_Product_Type>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Product_TypeGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Product_TypeConnectionDistinctArgs = {
-  field: Wordpress__Acf_Product_TypeFieldsEnum
-};
-
-
-export type Wordpress__Acf_Product_TypeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Product_TypeFieldsEnum
-};
-
-export type Wordpress__Acf_Product_TypeEdge = {
-  next?: Maybe<Wordpress__Acf_Product_Type>,
-  node: Wordpress__Acf_Product_Type,
-  previous?: Maybe<Wordpress__Acf_Product_Type>,
-};
-
-export type Wordpress__Acf_Product_TypeFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Product_TypeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Product_TypeGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Product_TypeEdge>,
-  nodes: Array<Wordpress__Acf_Product_Type>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Product_TypeSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Product_TypeFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Product_Variation = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Product_VariationConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Product_VariationEdge>,
-  nodes: Array<Wordpress__Acf_Product_Variation>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Product_VariationGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Product_VariationConnectionDistinctArgs = {
-  field: Wordpress__Acf_Product_VariationFieldsEnum
-};
-
-
-export type Wordpress__Acf_Product_VariationConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Product_VariationFieldsEnum
-};
-
-export type Wordpress__Acf_Product_VariationEdge = {
-  next?: Maybe<Wordpress__Acf_Product_Variation>,
-  node: Wordpress__Acf_Product_Variation,
-  previous?: Maybe<Wordpress__Acf_Product_Variation>,
-};
-
-export type Wordpress__Acf_Product_VariationFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Product_VariationFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Product_VariationGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Product_VariationEdge>,
-  nodes: Array<Wordpress__Acf_Product_Variation>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Product_VariationSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Product_VariationFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_ProductConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_ProductEdge>,
-  nodes: Array<Wordpress__Acf_Product>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_ProductGroupConnection>,
-};
-
-
-export type Wordpress__Acf_ProductConnectionDistinctArgs = {
-  field: Wordpress__Acf_ProductFieldsEnum
-};
-
-
-export type Wordpress__Acf_ProductConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_ProductFieldsEnum
-};
-
-export type Wordpress__Acf_ProductEdge = {
-  next?: Maybe<Wordpress__Acf_Product>,
-  node: Wordpress__Acf_Product,
-  previous?: Maybe<Wordpress__Acf_Product>,
-};
-
-export type Wordpress__Acf_ProductFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_ProductFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_ProductGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_ProductEdge>,
-  nodes: Array<Wordpress__Acf_Product>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_ProductSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_ProductFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Property = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  acf?: Maybe<Wordpress__Acf_PropertyAcf>,
-};
-
-export type Wordpress__Acf_Property_Area = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Property_AreaConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Property_AreaEdge>,
-  nodes: Array<Wordpress__Acf_Property_Area>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Property_AreaGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Property_AreaConnectionDistinctArgs = {
-  field: Wordpress__Acf_Property_AreaFieldsEnum
-};
-
-
-export type Wordpress__Acf_Property_AreaConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Property_AreaFieldsEnum
-};
-
-export type Wordpress__Acf_Property_AreaEdge = {
-  next?: Maybe<Wordpress__Acf_Property_Area>,
-  node: Wordpress__Acf_Property_Area,
-  previous?: Maybe<Wordpress__Acf_Property_Area>,
-};
-
-export type Wordpress__Acf_Property_AreaFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Property_AreaFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Property_AreaGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Property_AreaEdge>,
-  nodes: Array<Wordpress__Acf_Property_Area>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Property_AreaSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Property_AreaFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Property_Category = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Property_CategoryConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Property_CategoryEdge>,
-  nodes: Array<Wordpress__Acf_Property_Category>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Property_CategoryGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Property_CategoryConnectionDistinctArgs = {
-  field: Wordpress__Acf_Property_CategoryFieldsEnum
-};
-
-
-export type Wordpress__Acf_Property_CategoryConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Property_CategoryFieldsEnum
-};
-
-export type Wordpress__Acf_Property_CategoryEdge = {
-  next?: Maybe<Wordpress__Acf_Property_Category>,
-  node: Wordpress__Acf_Property_Category,
-  previous?: Maybe<Wordpress__Acf_Property_Category>,
-};
-
-export type Wordpress__Acf_Property_CategoryFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Property_CategoryFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Property_CategoryGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Property_CategoryEdge>,
-  nodes: Array<Wordpress__Acf_Property_Category>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Property_CategorySortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Property_CategoryFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Property_City = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Property_CityConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Property_CityEdge>,
-  nodes: Array<Wordpress__Acf_Property_City>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Property_CityGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Property_CityConnectionDistinctArgs = {
-  field: Wordpress__Acf_Property_CityFieldsEnum
-};
-
-
-export type Wordpress__Acf_Property_CityConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Property_CityFieldsEnum
-};
-
-export type Wordpress__Acf_Property_CityEdge = {
-  next?: Maybe<Wordpress__Acf_Property_City>,
-  node: Wordpress__Acf_Property_City,
-  previous?: Maybe<Wordpress__Acf_Property_City>,
-};
-
-export type Wordpress__Acf_Property_CityFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Property_CityFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Property_CityGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Property_CityEdge>,
-  nodes: Array<Wordpress__Acf_Property_City>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Property_CitySortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Property_CityFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Property_Features = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Property_FeaturesConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Property_FeaturesEdge>,
-  nodes: Array<Wordpress__Acf_Property_Features>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Property_FeaturesGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Property_FeaturesConnectionDistinctArgs = {
-  field: Wordpress__Acf_Property_FeaturesFieldsEnum
-};
-
-
-export type Wordpress__Acf_Property_FeaturesConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Property_FeaturesFieldsEnum
-};
-
-export type Wordpress__Acf_Property_FeaturesEdge = {
-  next?: Maybe<Wordpress__Acf_Property_Features>,
-  node: Wordpress__Acf_Property_Features,
-  previous?: Maybe<Wordpress__Acf_Property_Features>,
-};
-
-export type Wordpress__Acf_Property_FeaturesFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Property_FeaturesFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Property_FeaturesGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Property_FeaturesEdge>,
-  nodes: Array<Wordpress__Acf_Property_Features>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Property_FeaturesSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Property_FeaturesFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_PropertyAcf = {
-  order?: Maybe<Scalars['String']>,
-  featured?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Acf_PropertyAcfFilterInput = {
-  order?: Maybe<StringQueryOperatorInput>,
-  featured?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_PropertyConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_PropertyEdge>,
-  nodes: Array<Wordpress__Acf_Property>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_PropertyGroupConnection>,
-};
-
-
-export type Wordpress__Acf_PropertyConnectionDistinctArgs = {
-  field: Wordpress__Acf_PropertyFieldsEnum
-};
-
-
-export type Wordpress__Acf_PropertyConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_PropertyFieldsEnum
-};
-
-export type Wordpress__Acf_PropertyEdge = {
-  next?: Maybe<Wordpress__Acf_Property>,
-  node: Wordpress__Acf_Property,
-  previous?: Maybe<Wordpress__Acf_Property>,
-};
-
-export type Wordpress__Acf_PropertyFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'acf___order' |
-  'acf___featured';
-
-export type Wordpress__Acf_PropertyFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  acf?: Maybe<Wordpress__Acf_PropertyAcfFilterInput>,
-};
-
-export type Wordpress__Acf_PropertyGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_PropertyEdge>,
-  nodes: Array<Wordpress__Acf_Property>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_PropertySortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_PropertyFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Scheduled_Action = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Scheduled_ActionConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Scheduled_ActionEdge>,
-  nodes: Array<Wordpress__Acf_Scheduled_Action>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Scheduled_ActionGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Scheduled_ActionConnectionDistinctArgs = {
-  field: Wordpress__Acf_Scheduled_ActionFieldsEnum
-};
-
-
-export type Wordpress__Acf_Scheduled_ActionConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Scheduled_ActionFieldsEnum
-};
-
-export type Wordpress__Acf_Scheduled_ActionEdge = {
-  next?: Maybe<Wordpress__Acf_Scheduled_Action>,
-  node: Wordpress__Acf_Scheduled_Action,
-  previous?: Maybe<Wordpress__Acf_Scheduled_Action>,
-};
-
-export type Wordpress__Acf_Scheduled_ActionFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Scheduled_ActionFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Scheduled_ActionGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Scheduled_ActionEdge>,
-  nodes: Array<Wordpress__Acf_Scheduled_Action>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Scheduled_ActionSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Scheduled_ActionFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Shop_Coupon = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Shop_CouponConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Shop_CouponEdge>,
-  nodes: Array<Wordpress__Acf_Shop_Coupon>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Shop_CouponGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Shop_CouponConnectionDistinctArgs = {
-  field: Wordpress__Acf_Shop_CouponFieldsEnum
-};
-
-
-export type Wordpress__Acf_Shop_CouponConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Shop_CouponFieldsEnum
-};
-
-export type Wordpress__Acf_Shop_CouponEdge = {
-  next?: Maybe<Wordpress__Acf_Shop_Coupon>,
-  node: Wordpress__Acf_Shop_Coupon,
-  previous?: Maybe<Wordpress__Acf_Shop_Coupon>,
-};
-
-export type Wordpress__Acf_Shop_CouponFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Shop_CouponFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Shop_CouponGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Shop_CouponEdge>,
-  nodes: Array<Wordpress__Acf_Shop_Coupon>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Shop_CouponSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Shop_CouponFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Users = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_UsersConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_UsersEdge>,
-  nodes: Array<Wordpress__Acf_Users>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_UsersGroupConnection>,
-};
-
-
-export type Wordpress__Acf_UsersConnectionDistinctArgs = {
-  field: Wordpress__Acf_UsersFieldsEnum
-};
-
-
-export type Wordpress__Acf_UsersConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_UsersFieldsEnum
-};
-
-export type Wordpress__Acf_UsersEdge = {
-  next?: Maybe<Wordpress__Acf_Users>,
-  node: Wordpress__Acf_Users,
-  previous?: Maybe<Wordpress__Acf_Users>,
-};
-
-export type Wordpress__Acf_UsersFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_UsersFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_UsersGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_UsersEdge>,
-  nodes: Array<Wordpress__Acf_Users>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_UsersSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_UsersFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Wpcf7_Contact_Form = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Wpcf7_Contact_FormConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Wpcf7_Contact_FormEdge>,
-  nodes: Array<Wordpress__Acf_Wpcf7_Contact_Form>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Wpcf7_Contact_FormGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Wpcf7_Contact_FormConnectionDistinctArgs = {
-  field: Wordpress__Acf_Wpcf7_Contact_FormFieldsEnum
-};
-
-
-export type Wordpress__Acf_Wpcf7_Contact_FormConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Wpcf7_Contact_FormFieldsEnum
-};
-
-export type Wordpress__Acf_Wpcf7_Contact_FormEdge = {
-  next?: Maybe<Wordpress__Acf_Wpcf7_Contact_Form>,
-  node: Wordpress__Acf_Wpcf7_Contact_Form,
-  previous?: Maybe<Wordpress__Acf_Wpcf7_Contact_Form>,
-};
-
-export type Wordpress__Acf_Wpcf7_Contact_FormFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Wpcf7_Contact_FormFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Wpcf7_Contact_FormGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Wpcf7_Contact_FormEdge>,
-  nodes: Array<Wordpress__Acf_Wpcf7_Contact_Form>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Wpcf7_Contact_FormSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Wpcf7_Contact_FormFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Wpestate_Booking = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Wpestate_BookingConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Wpestate_BookingEdge>,
-  nodes: Array<Wordpress__Acf_Wpestate_Booking>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Wpestate_BookingGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Wpestate_BookingConnectionDistinctArgs = {
-  field: Wordpress__Acf_Wpestate_BookingFieldsEnum
-};
-
-
-export type Wordpress__Acf_Wpestate_BookingConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Wpestate_BookingFieldsEnum
-};
-
-export type Wordpress__Acf_Wpestate_BookingEdge = {
-  next?: Maybe<Wordpress__Acf_Wpestate_Booking>,
-  node: Wordpress__Acf_Wpestate_Booking,
-  previous?: Maybe<Wordpress__Acf_Wpestate_Booking>,
-};
-
-export type Wordpress__Acf_Wpestate_BookingFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Wpestate_BookingFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Wpestate_BookingGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Wpestate_BookingEdge>,
-  nodes: Array<Wordpress__Acf_Wpestate_Booking>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Wpestate_BookingSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Wpestate_BookingFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Wpestate_Invoice = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Wpestate_InvoiceConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Wpestate_InvoiceEdge>,
-  nodes: Array<Wordpress__Acf_Wpestate_Invoice>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Wpestate_InvoiceGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Wpestate_InvoiceConnectionDistinctArgs = {
-  field: Wordpress__Acf_Wpestate_InvoiceFieldsEnum
-};
-
-
-export type Wordpress__Acf_Wpestate_InvoiceConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Wpestate_InvoiceFieldsEnum
-};
-
-export type Wordpress__Acf_Wpestate_InvoiceEdge = {
-  next?: Maybe<Wordpress__Acf_Wpestate_Invoice>,
-  node: Wordpress__Acf_Wpestate_Invoice,
-  previous?: Maybe<Wordpress__Acf_Wpestate_Invoice>,
-};
-
-export type Wordpress__Acf_Wpestate_InvoiceFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Wpestate_InvoiceFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Wpestate_InvoiceGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Wpestate_InvoiceEdge>,
-  nodes: Array<Wordpress__Acf_Wpestate_Invoice>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Wpestate_InvoiceSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Wpestate_InvoiceFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Acf_Wpestate_Message = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-};
-
-export type Wordpress__Acf_Wpestate_MessageConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Wpestate_MessageEdge>,
-  nodes: Array<Wordpress__Acf_Wpestate_Message>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Acf_Wpestate_MessageGroupConnection>,
-};
-
-
-export type Wordpress__Acf_Wpestate_MessageConnectionDistinctArgs = {
-  field: Wordpress__Acf_Wpestate_MessageFieldsEnum
-};
-
-
-export type Wordpress__Acf_Wpestate_MessageConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Acf_Wpestate_MessageFieldsEnum
-};
-
-export type Wordpress__Acf_Wpestate_MessageEdge = {
-  next?: Maybe<Wordpress__Acf_Wpestate_Message>,
-  node: Wordpress__Acf_Wpestate_Message,
-  previous?: Maybe<Wordpress__Acf_Wpestate_Message>,
-};
-
-export type Wordpress__Acf_Wpestate_MessageFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id';
-
-export type Wordpress__Acf_Wpestate_MessageFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-};
-
-export type Wordpress__Acf_Wpestate_MessageGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Acf_Wpestate_MessageEdge>,
-  nodes: Array<Wordpress__Acf_Wpestate_Message>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Acf_Wpestate_MessageSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Acf_Wpestate_MessageFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Site_Metadata = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  name?: Maybe<Scalars['String']>,
-  description?: Maybe<Scalars['String']>,
-  url?: Maybe<Scalars['String']>,
-  home?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Site_MetadataConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Site_MetadataEdge>,
-  nodes: Array<Wordpress__Site_Metadata>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Site_MetadataGroupConnection>,
-};
-
-
-export type Wordpress__Site_MetadataConnectionDistinctArgs = {
-  field: Wordpress__Site_MetadataFieldsEnum
-};
-
-
-export type Wordpress__Site_MetadataConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Site_MetadataFieldsEnum
-};
-
-export type Wordpress__Site_MetadataEdge = {
-  next?: Maybe<Wordpress__Site_Metadata>,
-  node: Wordpress__Site_Metadata,
-  previous?: Maybe<Wordpress__Site_Metadata>,
-};
-
-export type Wordpress__Site_MetadataFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'name' |
-  'description' |
-  'url' |
-  'home';
-
-export type Wordpress__Site_MetadataFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  url?: Maybe<StringQueryOperatorInput>,
-  home?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Site_MetadataGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Site_MetadataEdge>,
-  nodes: Array<Wordpress__Site_Metadata>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Site_MetadataSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Site_MetadataFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Blog_Post = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  date?: Maybe<Scalars['Date']>,
-  guid?: Maybe<Scalars['String']>,
-  modified?: Maybe<Scalars['Date']>,
-  slug?: Maybe<Scalars['String']>,
-  status?: Maybe<Scalars['String']>,
-  type?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  title?: Maybe<Scalars['String']>,
-  content?: Maybe<Scalars['String']>,
-  template?: Maybe<Scalars['String']>,
-  category?: Maybe<Wordpress__Wp_Category>,
-  _links?: Maybe<Wordpress__Wp_Blog_Post_Links>,
-  featured_media?: Maybe<Wordpress__Wp_Media>,
-  path?: Maybe<Scalars['String']>,
-  tags?: Maybe<Array<Maybe<Wordpress__Wp_Post_Tag>>>,
-};
-
-
-export type Wordpress__Wp_Blog_PostDateArgs = {
-  formatString?: Maybe<Scalars['String']>,
-  fromNow?: Maybe<Scalars['Boolean']>,
-  difference?: Maybe<Scalars['String']>,
-  locale?: Maybe<Scalars['String']>
-};
-
-
-export type Wordpress__Wp_Blog_PostModifiedArgs = {
-  formatString?: Maybe<Scalars['String']>,
-  fromNow?: Maybe<Scalars['Boolean']>,
-  difference?: Maybe<Scalars['String']>,
-  locale?: Maybe<Scalars['String']>
-};
-
-export type Wordpress__Wp_Blog_Post_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Blog_Post_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Blog_Post_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Blog_Post_LinksAbout>>>,
-  wp_featuredmedia?: Maybe<Array<Maybe<Wordpress__Wp_Blog_Post_LinksWp_Featuredmedia>>>,
-  wp_attachment?: Maybe<Array<Maybe<Wordpress__Wp_Blog_Post_LinksWp_Attachment>>>,
-  wp_term?: Maybe<Array<Maybe<Wordpress__Wp_Blog_Post_LinksWp_Term>>>,
-  curies?: Maybe<Array<Maybe<Wordpress__Wp_Blog_Post_LinksCuries>>>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Blog_Post_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Blog_Post_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksCuries = {
-  name?: Maybe<Scalars['String']>,
-  href?: Maybe<Scalars['String']>,
-  templated?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksCuriesFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-  templated?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksCuriesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Blog_Post_LinksCuriesFilterInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Blog_Post_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Blog_Post_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Blog_Post_LinksAboutFilterListInput>,
-  wp_featuredmedia?: Maybe<Wordpress__Wp_Blog_Post_LinksWp_FeaturedmediaFilterListInput>,
-  wp_attachment?: Maybe<Wordpress__Wp_Blog_Post_LinksWp_AttachmentFilterListInput>,
-  wp_term?: Maybe<Wordpress__Wp_Blog_Post_LinksWp_TermFilterListInput>,
-  curies?: Maybe<Wordpress__Wp_Blog_Post_LinksCuriesFilterListInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Blog_Post_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_Attachment = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_AttachmentFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_AttachmentFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Blog_Post_LinksWp_AttachmentFilterInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_Featuredmedia = {
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_FeaturedmediaFilterInput = {
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_FeaturedmediaFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Blog_Post_LinksWp_FeaturedmediaFilterInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_Term = {
-  taxonomy?: Maybe<Scalars['String']>,
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_TermFilterInput = {
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Blog_Post_LinksWp_TermFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Blog_Post_LinksWp_TermFilterInput>,
-};
-
-export type Wordpress__Wp_Blog_PostConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Blog_PostEdge>,
-  nodes: Array<Wordpress__Wp_Blog_Post>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_Blog_PostGroupConnection>,
-};
-
-
-export type Wordpress__Wp_Blog_PostConnectionDistinctArgs = {
-  field: Wordpress__Wp_Blog_PostFieldsEnum
-};
-
-
-export type Wordpress__Wp_Blog_PostConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_Blog_PostFieldsEnum
-};
-
-export type Wordpress__Wp_Blog_PostEdge = {
-  next?: Maybe<Wordpress__Wp_Blog_Post>,
-  node: Wordpress__Wp_Blog_Post,
-  previous?: Maybe<Wordpress__Wp_Blog_Post>,
-};
-
-export type Wordpress__Wp_Blog_PostFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'date' |
-  'guid' |
-  'modified' |
-  'slug' |
-  'status' |
-  'type' |
-  'link' |
-  'title' |
-  'content' |
-  'template' |
-  'category___id' |
-  'category___parent___id' |
-  'category___parent___parent___id' |
-  'category___parent___parent___children' |
-  'category___parent___children' |
-  'category___parent___children___id' |
-  'category___parent___children___children' |
-  'category___parent___internal___content' |
-  'category___parent___internal___contentDigest' |
-  'category___parent___internal___description' |
-  'category___parent___internal___fieldOwners' |
-  'category___parent___internal___ignoreType' |
-  'category___parent___internal___mediaType' |
-  'category___parent___internal___owner' |
-  'category___parent___internal___type' |
-  'category___children' |
-  'category___children___id' |
-  'category___children___parent___id' |
-  'category___children___parent___children' |
-  'category___children___children' |
-  'category___children___children___id' |
-  'category___children___children___children' |
-  'category___children___internal___content' |
-  'category___children___internal___contentDigest' |
-  'category___children___internal___description' |
-  'category___children___internal___fieldOwners' |
-  'category___children___internal___ignoreType' |
-  'category___children___internal___mediaType' |
-  'category___children___internal___owner' |
-  'category___children___internal___type' |
-  'category___internal___content' |
-  'category___internal___contentDigest' |
-  'category___internal___description' |
-  'category___internal___fieldOwners' |
-  'category___internal___ignoreType' |
-  'category___internal___mediaType' |
-  'category___internal___owner' |
-  'category___internal___type' |
-  'category___wordpress_id' |
-  'category___count' |
-  'category___description' |
-  'category___link' |
-  'category___name' |
-  'category___slug' |
-  'category___taxonomy' |
-  'category___wordpress_parent' |
-  'category____links___self' |
-  'category____links___self___href' |
-  'category____links___collection' |
-  'category____links___collection___href' |
-  'category____links___about' |
-  'category____links___about___href' |
-  'category____links___wp_post_type' |
-  'category____links___wp_post_type___href' |
-  'category____links___curies' |
-  'category____links___curies___name' |
-  'category____links___curies___href' |
-  'category____links___curies___templated' |
-  'category___path' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___wp_featuredmedia' |
-  '_links___wp_featuredmedia___embeddable' |
-  '_links___wp_featuredmedia___href' |
-  '_links___wp_attachment' |
-  '_links___wp_attachment___href' |
-  '_links___wp_term' |
-  '_links___wp_term___taxonomy' |
-  '_links___wp_term___embeddable' |
-  '_links___wp_term___href' |
-  '_links___curies' |
-  '_links___curies___name' |
-  '_links___curies___href' |
-  '_links___curies___templated' |
-  'featured_media___id' |
-  'featured_media___parent___id' |
-  'featured_media___parent___parent___id' |
-  'featured_media___parent___parent___children' |
-  'featured_media___parent___children' |
-  'featured_media___parent___children___id' |
-  'featured_media___parent___children___children' |
-  'featured_media___parent___internal___content' |
-  'featured_media___parent___internal___contentDigest' |
-  'featured_media___parent___internal___description' |
-  'featured_media___parent___internal___fieldOwners' |
-  'featured_media___parent___internal___ignoreType' |
-  'featured_media___parent___internal___mediaType' |
-  'featured_media___parent___internal___owner' |
-  'featured_media___parent___internal___type' |
-  'featured_media___children' |
-  'featured_media___children___id' |
-  'featured_media___children___parent___id' |
-  'featured_media___children___parent___children' |
-  'featured_media___children___children' |
-  'featured_media___children___children___id' |
-  'featured_media___children___children___children' |
-  'featured_media___children___internal___content' |
-  'featured_media___children___internal___contentDigest' |
-  'featured_media___children___internal___description' |
-  'featured_media___children___internal___fieldOwners' |
-  'featured_media___children___internal___ignoreType' |
-  'featured_media___children___internal___mediaType' |
-  'featured_media___children___internal___owner' |
-  'featured_media___children___internal___type' |
-  'featured_media___internal___content' |
-  'featured_media___internal___contentDigest' |
-  'featured_media___internal___description' |
-  'featured_media___internal___fieldOwners' |
-  'featured_media___internal___ignoreType' |
-  'featured_media___internal___mediaType' |
-  'featured_media___internal___owner' |
-  'featured_media___internal___type' |
-  'featured_media___wordpress_id' |
-  'featured_media___date' |
-  'featured_media___guid___id' |
-  'featured_media___guid___parent___id' |
-  'featured_media___guid___parent___children' |
-  'featured_media___guid___children' |
-  'featured_media___guid___children___id' |
-  'featured_media___guid___children___children' |
-  'featured_media___guid___internal___content' |
-  'featured_media___guid___internal___contentDigest' |
-  'featured_media___guid___internal___description' |
-  'featured_media___guid___internal___fieldOwners' |
-  'featured_media___guid___internal___ignoreType' |
-  'featured_media___guid___internal___mediaType' |
-  'featured_media___guid___internal___owner' |
-  'featured_media___guid___internal___type' |
-  'featured_media___guid___wordpress_id' |
-  'featured_media___guid___date' |
-  'featured_media___guid___guid___id' |
-  'featured_media___guid___guid___children' |
-  'featured_media___guid___guid___wordpress_id' |
-  'featured_media___guid___guid___date' |
-  'featured_media___guid___guid___modified' |
-  'featured_media___guid___guid___slug' |
-  'featured_media___guid___guid___status' |
-  'featured_media___guid___guid___type' |
-  'featured_media___guid___guid___link' |
-  'featured_media___guid___guid___title' |
-  'featured_media___guid___guid___author' |
-  'featured_media___guid___guid___comment_status' |
-  'featured_media___guid___guid___ping_status' |
-  'featured_media___guid___guid___template' |
-  'featured_media___guid___guid___description' |
-  'featured_media___guid___guid___caption' |
-  'featured_media___guid___guid___alt_text' |
-  'featured_media___guid___guid___media_type' |
-  'featured_media___guid___guid___mime_type' |
-  'featured_media___guid___guid___post' |
-  'featured_media___guid___guid___source_url' |
-  'featured_media___guid___guid___path' |
-  'featured_media___guid___modified' |
-  'featured_media___guid___slug' |
-  'featured_media___guid___status' |
-  'featured_media___guid___type' |
-  'featured_media___guid___link' |
-  'featured_media___guid___title' |
-  'featured_media___guid___author' |
-  'featured_media___guid___comment_status' |
-  'featured_media___guid___ping_status' |
-  'featured_media___guid___template' |
-  'featured_media___guid___meta___lbn_published_stage' |
-  'featured_media___guid___meta___lbn_published_production' |
-  'featured_media___guid___description' |
-  'featured_media___guid___caption' |
-  'featured_media___guid___alt_text' |
-  'featured_media___guid___media_type' |
-  'featured_media___guid___mime_type' |
-  'featured_media___guid___media_details___width' |
-  'featured_media___guid___media_details___height' |
-  'featured_media___guid___media_details___file' |
-  'featured_media___guid___media_details___dummy' |
-  'featured_media___guid___post' |
-  'featured_media___guid___source_url' |
-  'featured_media___guid____links___self' |
-  'featured_media___guid____links___collection' |
-  'featured_media___guid____links___about' |
-  'featured_media___guid____links___author' |
-  'featured_media___guid____links___replies' |
-  'featured_media___guid___localFile___sourceInstanceName' |
-  'featured_media___guid___localFile___absolutePath' |
-  'featured_media___guid___localFile___relativePath' |
-  'featured_media___guid___localFile___extension' |
-  'featured_media___guid___localFile___size' |
-  'featured_media___guid___localFile___prettySize' |
-  'featured_media___guid___localFile___modifiedTime' |
-  'featured_media___guid___localFile___accessTime' |
-  'featured_media___guid___localFile___changeTime' |
-  'featured_media___guid___localFile___birthTime' |
-  'featured_media___guid___localFile___root' |
-  'featured_media___guid___localFile___dir' |
-  'featured_media___guid___localFile___base' |
-  'featured_media___guid___localFile___ext' |
-  'featured_media___guid___localFile___name' |
-  'featured_media___guid___localFile___relativeDirectory' |
-  'featured_media___guid___localFile___dev' |
-  'featured_media___guid___localFile___mode' |
-  'featured_media___guid___localFile___nlink' |
-  'featured_media___guid___localFile___uid' |
-  'featured_media___guid___localFile___gid' |
-  'featured_media___guid___localFile___rdev' |
-  'featured_media___guid___localFile___ino' |
-  'featured_media___guid___localFile___atimeMs' |
-  'featured_media___guid___localFile___mtimeMs' |
-  'featured_media___guid___localFile___ctimeMs' |
-  'featured_media___guid___localFile___atime' |
-  'featured_media___guid___localFile___mtime' |
-  'featured_media___guid___localFile___ctime' |
-  'featured_media___guid___localFile___birthtime' |
-  'featured_media___guid___localFile___birthtimeMs' |
-  'featured_media___guid___localFile___blksize' |
-  'featured_media___guid___localFile___blocks' |
-  'featured_media___guid___localFile___url' |
-  'featured_media___guid___localFile___publicURL' |
-  'featured_media___guid___localFile___id' |
-  'featured_media___guid___localFile___children' |
-  'featured_media___guid___localFile___childrenTestimonialsJson' |
-  'featured_media___guid___localFile___childrenTeamJson' |
-  'featured_media___guid___path' |
-  'featured_media___modified' |
-  'featured_media___slug' |
-  'featured_media___status' |
-  'featured_media___type' |
-  'featured_media___link' |
-  'featured_media___title' |
-  'featured_media___author' |
-  'featured_media___comment_status' |
-  'featured_media___ping_status' |
-  'featured_media___template' |
-  'featured_media___meta___lbn_published_stage' |
-  'featured_media___meta___lbn_published_production' |
-  'featured_media___description' |
-  'featured_media___caption' |
-  'featured_media___alt_text' |
-  'featured_media___media_type' |
-  'featured_media___mime_type' |
-  'featured_media___media_details___width' |
-  'featured_media___media_details___height' |
-  'featured_media___media_details___file' |
-  'featured_media___media_details___image_meta___aperture' |
-  'featured_media___media_details___image_meta___credit' |
-  'featured_media___media_details___image_meta___camera' |
-  'featured_media___media_details___image_meta___caption' |
-  'featured_media___media_details___image_meta___created_timestamp' |
-  'featured_media___media_details___image_meta___copyright' |
-  'featured_media___media_details___image_meta___focal_length' |
-  'featured_media___media_details___image_meta___iso' |
-  'featured_media___media_details___image_meta___shutter_speed' |
-  'featured_media___media_details___image_meta___title' |
-  'featured_media___media_details___image_meta___orientation' |
-  'featured_media___media_details___dummy' |
-  'featured_media___post' |
-  'featured_media___source_url' |
-  'featured_media____links___self' |
-  'featured_media____links___self___href' |
-  'featured_media____links___collection' |
-  'featured_media____links___collection___href' |
-  'featured_media____links___about' |
-  'featured_media____links___about___href' |
-  'featured_media____links___author' |
-  'featured_media____links___author___embeddable' |
-  'featured_media____links___author___href' |
-  'featured_media____links___replies' |
-  'featured_media____links___replies___embeddable' |
-  'featured_media____links___replies___href' |
-  'featured_media___localFile___sourceInstanceName' |
-  'featured_media___localFile___absolutePath' |
-  'featured_media___localFile___relativePath' |
-  'featured_media___localFile___extension' |
-  'featured_media___localFile___size' |
-  'featured_media___localFile___prettySize' |
-  'featured_media___localFile___modifiedTime' |
-  'featured_media___localFile___accessTime' |
-  'featured_media___localFile___changeTime' |
-  'featured_media___localFile___birthTime' |
-  'featured_media___localFile___root' |
-  'featured_media___localFile___dir' |
-  'featured_media___localFile___base' |
-  'featured_media___localFile___ext' |
-  'featured_media___localFile___name' |
-  'featured_media___localFile___relativeDirectory' |
-  'featured_media___localFile___dev' |
-  'featured_media___localFile___mode' |
-  'featured_media___localFile___nlink' |
-  'featured_media___localFile___uid' |
-  'featured_media___localFile___gid' |
-  'featured_media___localFile___rdev' |
-  'featured_media___localFile___ino' |
-  'featured_media___localFile___atimeMs' |
-  'featured_media___localFile___mtimeMs' |
-  'featured_media___localFile___ctimeMs' |
-  'featured_media___localFile___atime' |
-  'featured_media___localFile___mtime' |
-  'featured_media___localFile___ctime' |
-  'featured_media___localFile___birthtime' |
-  'featured_media___localFile___birthtimeMs' |
-  'featured_media___localFile___blksize' |
-  'featured_media___localFile___blocks' |
-  'featured_media___localFile___url' |
-  'featured_media___localFile___publicURL' |
-  'featured_media___localFile___childImageSharp___id' |
-  'featured_media___localFile___childImageSharp___children' |
-  'featured_media___localFile___id' |
-  'featured_media___localFile___parent___id' |
-  'featured_media___localFile___parent___children' |
-  'featured_media___localFile___children' |
-  'featured_media___localFile___children___id' |
-  'featured_media___localFile___children___children' |
-  'featured_media___localFile___internal___content' |
-  'featured_media___localFile___internal___contentDigest' |
-  'featured_media___localFile___internal___description' |
-  'featured_media___localFile___internal___fieldOwners' |
-  'featured_media___localFile___internal___ignoreType' |
-  'featured_media___localFile___internal___mediaType' |
-  'featured_media___localFile___internal___owner' |
-  'featured_media___localFile___internal___type' |
-  'featured_media___localFile___childrenTestimonialsJson' |
-  'featured_media___localFile___childrenTestimonialsJson___id' |
-  'featured_media___localFile___childrenTestimonialsJson___children' |
-  'featured_media___localFile___childrenTestimonialsJson___body' |
-  'featured_media___localFile___childrenTestimonialsJson___rating' |
-  'featured_media___localFile___childrenTestimonialsJson___author' |
-  'featured_media___localFile___childrenTeamJson' |
-  'featured_media___localFile___childrenTeamJson___id' |
-  'featured_media___localFile___childrenTeamJson___children' |
-  'featured_media___localFile___childrenTeamJson___name' |
-  'featured_media___localFile___childrenTeamJson___title' |
-  'featured_media___localFile___childrenTeamJson___bio' |
-  'featured_media___path' |
-  'path' |
-  'tags' |
-  'tags___id' |
-  'tags___parent___id' |
-  'tags___parent___parent___id' |
-  'tags___parent___parent___children' |
-  'tags___parent___children' |
-  'tags___parent___children___id' |
-  'tags___parent___children___children' |
-  'tags___parent___internal___content' |
-  'tags___parent___internal___contentDigest' |
-  'tags___parent___internal___description' |
-  'tags___parent___internal___fieldOwners' |
-  'tags___parent___internal___ignoreType' |
-  'tags___parent___internal___mediaType' |
-  'tags___parent___internal___owner' |
-  'tags___parent___internal___type' |
-  'tags___children' |
-  'tags___children___id' |
-  'tags___children___parent___id' |
-  'tags___children___parent___children' |
-  'tags___children___children' |
-  'tags___children___children___id' |
-  'tags___children___children___children' |
-  'tags___children___internal___content' |
-  'tags___children___internal___contentDigest' |
-  'tags___children___internal___description' |
-  'tags___children___internal___fieldOwners' |
-  'tags___children___internal___ignoreType' |
-  'tags___children___internal___mediaType' |
-  'tags___children___internal___owner' |
-  'tags___children___internal___type' |
-  'tags___internal___content' |
-  'tags___internal___contentDigest' |
-  'tags___internal___description' |
-  'tags___internal___fieldOwners' |
-  'tags___internal___ignoreType' |
-  'tags___internal___mediaType' |
-  'tags___internal___owner' |
-  'tags___internal___type' |
-  'tags___wordpress_id' |
-  'tags___count' |
-  'tags___description' |
-  'tags___link' |
-  'tags___name' |
-  'tags___slug' |
-  'tags___taxonomy' |
-  'tags____links___self' |
-  'tags____links___self___href' |
-  'tags____links___collection' |
-  'tags____links___collection___href' |
-  'tags____links___about' |
-  'tags____links___about___href' |
-  'tags____links___wp_post_type' |
-  'tags____links___wp_post_type___href' |
-  'tags____links___curies' |
-  'tags____links___curies___name' |
-  'tags____links___curies___href' |
-  'tags____links___curies___templated' |
-  'tags___path';
-
-export type Wordpress__Wp_Blog_PostFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  guid?: Maybe<StringQueryOperatorInput>,
-  modified?: Maybe<DateQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
-  type?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  content?: Maybe<StringQueryOperatorInput>,
-  template?: Maybe<StringQueryOperatorInput>,
-  category?: Maybe<Wordpress__Wp_CategoryFilterInput>,
-  _links?: Maybe<Wordpress__Wp_Blog_Post_LinksFilterInput>,
-  featured_media?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-  tags?: Maybe<Wordpress__Wp_Post_TagFilterListInput>,
-};
-
-export type Wordpress__Wp_Blog_PostGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Blog_PostEdge>,
-  nodes: Array<Wordpress__Wp_Blog_Post>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Blog_PostSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_Blog_PostFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Category = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  count?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
-  slug?: Maybe<Scalars['String']>,
-  taxonomy?: Maybe<Scalars['String']>,
-  wordpress_parent?: Maybe<Scalars['Int']>,
-  _links?: Maybe<Wordpress__Wp_Category_Links>,
-  path?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Category_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Category_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Category_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Category_LinksAbout>>>,
-  wp_post_type?: Maybe<Array<Maybe<Wordpress__Wp_Category_LinksWp_Post_Type>>>,
-  curies?: Maybe<Array<Maybe<Wordpress__Wp_Category_LinksCuries>>>,
-};
-
-export type Wordpress__Wp_Category_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Category_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Category_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Category_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Category_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Category_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Category_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Category_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Category_LinksCuries = {
-  name?: Maybe<Scalars['String']>,
-  href?: Maybe<Scalars['String']>,
-  templated?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_Category_LinksCuriesFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-  templated?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Category_LinksCuriesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Category_LinksCuriesFilterInput>,
-};
-
-export type Wordpress__Wp_Category_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Category_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Category_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Category_LinksAboutFilterListInput>,
-  wp_post_type?: Maybe<Wordpress__Wp_Category_LinksWp_Post_TypeFilterListInput>,
-  curies?: Maybe<Wordpress__Wp_Category_LinksCuriesFilterListInput>,
-};
-
-export type Wordpress__Wp_Category_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Category_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Category_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Category_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_Category_LinksWp_Post_Type = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Category_LinksWp_Post_TypeFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Category_LinksWp_Post_TypeFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Category_LinksWp_Post_TypeFilterInput>,
-};
-
-export type Wordpress__Wp_CategoryConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_CategoryEdge>,
-  nodes: Array<Wordpress__Wp_Category>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_CategoryGroupConnection>,
-};
-
-
-export type Wordpress__Wp_CategoryConnectionDistinctArgs = {
-  field: Wordpress__Wp_CategoryFieldsEnum
-};
-
-
-export type Wordpress__Wp_CategoryConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_CategoryFieldsEnum
-};
-
-export type Wordpress__Wp_CategoryEdge = {
-  next?: Maybe<Wordpress__Wp_Category>,
-  node: Wordpress__Wp_Category,
-  previous?: Maybe<Wordpress__Wp_Category>,
-};
-
-export type Wordpress__Wp_CategoryFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'count' |
-  'description' |
-  'link' |
-  'name' |
-  'slug' |
-  'taxonomy' |
-  'wordpress_parent' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___wp_post_type' |
-  '_links___wp_post_type___href' |
-  '_links___curies' |
-  '_links___curies___name' |
-  '_links___curies___href' |
-  '_links___curies___templated' |
-  'path';
-
-export type Wordpress__Wp_CategoryFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  wordpress_parent?: Maybe<IntQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Category_LinksFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_CategoryGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_CategoryEdge>,
-  nodes: Array<Wordpress__Wp_Category>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_CategorySortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_CategoryFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Lake = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  count?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
-  slug?: Maybe<Scalars['String']>,
-  taxonomy?: Maybe<Scalars['String']>,
-  _links?: Maybe<Wordpress__Wp_Lake_Links>,
-  path?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Lake_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Lake_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Lake_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Lake_LinksAbout>>>,
-  wp_post_type?: Maybe<Array<Maybe<Wordpress__Wp_Lake_LinksWp_Post_Type>>>,
-  curies?: Maybe<Array<Maybe<Wordpress__Wp_Lake_LinksCuries>>>,
-};
-
-export type Wordpress__Wp_Lake_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Lake_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Lake_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Lake_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Lake_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksCuries = {
-  name?: Maybe<Scalars['String']>,
-  href?: Maybe<Scalars['String']>,
-  templated?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_Lake_LinksCuriesFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-  templated?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksCuriesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Lake_LinksCuriesFilterInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Lake_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Lake_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Lake_LinksAboutFilterListInput>,
-  wp_post_type?: Maybe<Wordpress__Wp_Lake_LinksWp_Post_TypeFilterListInput>,
-  curies?: Maybe<Wordpress__Wp_Lake_LinksCuriesFilterListInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Lake_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Lake_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksWp_Post_Type = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Lake_LinksWp_Post_TypeFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Lake_LinksWp_Post_TypeFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Lake_LinksWp_Post_TypeFilterInput>,
-};
-
-export type Wordpress__Wp_LakeConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_LakeEdge>,
-  nodes: Array<Wordpress__Wp_Lake>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_LakeGroupConnection>,
-};
-
-
-export type Wordpress__Wp_LakeConnectionDistinctArgs = {
-  field: Wordpress__Wp_LakeFieldsEnum
-};
-
-
-export type Wordpress__Wp_LakeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_LakeFieldsEnum
-};
-
-export type Wordpress__Wp_LakeEdge = {
-  next?: Maybe<Wordpress__Wp_Lake>,
-  node: Wordpress__Wp_Lake,
-  previous?: Maybe<Wordpress__Wp_Lake>,
-};
-
-export type Wordpress__Wp_LakeFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'count' |
-  'description' |
-  'link' |
-  'name' |
-  'slug' |
-  'taxonomy' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___wp_post_type' |
-  '_links___wp_post_type___href' |
-  '_links___curies' |
-  '_links___curies___name' |
-  '_links___curies___href' |
-  '_links___curies___templated' |
-  'path';
-
-export type Wordpress__Wp_LakeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Lake_LinksFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_LakeGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_LakeEdge>,
-  nodes: Array<Wordpress__Wp_Lake>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_LakeSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_LakeFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Media = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  date?: Maybe<Scalars['Date']>,
-  guid?: Maybe<Wordpress__Wp_Media>,
-  modified?: Maybe<Scalars['Date']>,
-  slug?: Maybe<Scalars['String']>,
-  status?: Maybe<Scalars['String']>,
-  type?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  title?: Maybe<Scalars['String']>,
-  author?: Maybe<Scalars['Int']>,
-  comment_status?: Maybe<Scalars['String']>,
-  ping_status?: Maybe<Scalars['String']>,
-  template?: Maybe<Scalars['String']>,
-  meta?: Maybe<Wordpress__Wp_MediaMeta>,
-  description?: Maybe<Scalars['String']>,
-  caption?: Maybe<Scalars['String']>,
-  alt_text?: Maybe<Scalars['String']>,
-  media_type?: Maybe<Scalars['String']>,
-  mime_type?: Maybe<Scalars['String']>,
-  media_details?: Maybe<Wordpress__Wp_MediaMedia_Details>,
-  post?: Maybe<Scalars['Int']>,
-  source_url?: Maybe<Scalars['String']>,
-  _links?: Maybe<Wordpress__Wp_Media_Links>,
-  localFile?: Maybe<File>,
-  path?: Maybe<Scalars['String']>,
-};
-
-
-export type Wordpress__Wp_MediaDateArgs = {
-  formatString?: Maybe<Scalars['String']>,
-  fromNow?: Maybe<Scalars['Boolean']>,
-  difference?: Maybe<Scalars['String']>,
-  locale?: Maybe<Scalars['String']>
-};
-
-
-export type Wordpress__Wp_MediaModifiedArgs = {
-  formatString?: Maybe<Scalars['String']>,
-  fromNow?: Maybe<Scalars['Boolean']>,
-  difference?: Maybe<Scalars['String']>,
-  locale?: Maybe<Scalars['String']>
-};
-
-export type Wordpress__Wp_Media_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Media_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Media_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Media_LinksAbout>>>,
-  author?: Maybe<Array<Maybe<Wordpress__Wp_Media_LinksAuthor>>>,
-  replies?: Maybe<Array<Maybe<Wordpress__Wp_Media_LinksReplies>>>,
-};
-
-export type Wordpress__Wp_Media_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Media_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Media_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Media_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Media_LinksAuthor = {
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Media_LinksAuthorFilterInput = {
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Media_LinksAuthorFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Media_LinksAuthorFilterInput>,
-};
-
-export type Wordpress__Wp_Media_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Media_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Media_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Media_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Media_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Media_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Media_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Media_LinksAboutFilterListInput>,
-  author?: Maybe<Wordpress__Wp_Media_LinksAuthorFilterListInput>,
-  replies?: Maybe<Wordpress__Wp_Media_LinksRepliesFilterListInput>,
-};
-
-export type Wordpress__Wp_Media_LinksReplies = {
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Media_LinksRepliesFilterInput = {
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Media_LinksRepliesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Media_LinksRepliesFilterInput>,
-};
-
-export type Wordpress__Wp_Media_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Media_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Media_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Media_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_MediaConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_MediaEdge>,
-  nodes: Array<Wordpress__Wp_Media>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_MediaGroupConnection>,
-};
-
-
-export type Wordpress__Wp_MediaConnectionDistinctArgs = {
-  field: Wordpress__Wp_MediaFieldsEnum
-};
-
-
-export type Wordpress__Wp_MediaConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_MediaFieldsEnum
-};
-
-export type Wordpress__Wp_MediaEdge = {
-  next?: Maybe<Wordpress__Wp_Media>,
-  node: Wordpress__Wp_Media,
-  previous?: Maybe<Wordpress__Wp_Media>,
-};
-
-export type Wordpress__Wp_MediaFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'date' |
-  'guid___id' |
-  'guid___parent___id' |
-  'guid___parent___parent___id' |
-  'guid___parent___parent___children' |
-  'guid___parent___children' |
-  'guid___parent___children___id' |
-  'guid___parent___children___children' |
-  'guid___parent___internal___content' |
-  'guid___parent___internal___contentDigest' |
-  'guid___parent___internal___description' |
-  'guid___parent___internal___fieldOwners' |
-  'guid___parent___internal___ignoreType' |
-  'guid___parent___internal___mediaType' |
-  'guid___parent___internal___owner' |
-  'guid___parent___internal___type' |
-  'guid___children' |
-  'guid___children___id' |
-  'guid___children___parent___id' |
-  'guid___children___parent___children' |
-  'guid___children___children' |
-  'guid___children___children___id' |
-  'guid___children___children___children' |
-  'guid___children___internal___content' |
-  'guid___children___internal___contentDigest' |
-  'guid___children___internal___description' |
-  'guid___children___internal___fieldOwners' |
-  'guid___children___internal___ignoreType' |
-  'guid___children___internal___mediaType' |
-  'guid___children___internal___owner' |
-  'guid___children___internal___type' |
-  'guid___internal___content' |
-  'guid___internal___contentDigest' |
-  'guid___internal___description' |
-  'guid___internal___fieldOwners' |
-  'guid___internal___ignoreType' |
-  'guid___internal___mediaType' |
-  'guid___internal___owner' |
-  'guid___internal___type' |
-  'guid___wordpress_id' |
-  'guid___date' |
-  'guid___guid___id' |
-  'guid___guid___parent___id' |
-  'guid___guid___parent___children' |
-  'guid___guid___children' |
-  'guid___guid___children___id' |
-  'guid___guid___children___children' |
-  'guid___guid___internal___content' |
-  'guid___guid___internal___contentDigest' |
-  'guid___guid___internal___description' |
-  'guid___guid___internal___fieldOwners' |
-  'guid___guid___internal___ignoreType' |
-  'guid___guid___internal___mediaType' |
-  'guid___guid___internal___owner' |
-  'guid___guid___internal___type' |
-  'guid___guid___wordpress_id' |
-  'guid___guid___date' |
-  'guid___guid___guid___id' |
-  'guid___guid___guid___children' |
-  'guid___guid___guid___wordpress_id' |
-  'guid___guid___guid___date' |
-  'guid___guid___guid___modified' |
-  'guid___guid___guid___slug' |
-  'guid___guid___guid___status' |
-  'guid___guid___guid___type' |
-  'guid___guid___guid___link' |
-  'guid___guid___guid___title' |
-  'guid___guid___guid___author' |
-  'guid___guid___guid___comment_status' |
-  'guid___guid___guid___ping_status' |
-  'guid___guid___guid___template' |
-  'guid___guid___guid___description' |
-  'guid___guid___guid___caption' |
-  'guid___guid___guid___alt_text' |
-  'guid___guid___guid___media_type' |
-  'guid___guid___guid___mime_type' |
-  'guid___guid___guid___post' |
-  'guid___guid___guid___source_url' |
-  'guid___guid___guid___path' |
-  'guid___guid___modified' |
-  'guid___guid___slug' |
-  'guid___guid___status' |
-  'guid___guid___type' |
-  'guid___guid___link' |
-  'guid___guid___title' |
-  'guid___guid___author' |
-  'guid___guid___comment_status' |
-  'guid___guid___ping_status' |
-  'guid___guid___template' |
-  'guid___guid___meta___lbn_published_stage' |
-  'guid___guid___meta___lbn_published_production' |
-  'guid___guid___description' |
-  'guid___guid___caption' |
-  'guid___guid___alt_text' |
-  'guid___guid___media_type' |
-  'guid___guid___mime_type' |
-  'guid___guid___media_details___width' |
-  'guid___guid___media_details___height' |
-  'guid___guid___media_details___file' |
-  'guid___guid___media_details___dummy' |
-  'guid___guid___post' |
-  'guid___guid___source_url' |
-  'guid___guid____links___self' |
-  'guid___guid____links___collection' |
-  'guid___guid____links___about' |
-  'guid___guid____links___author' |
-  'guid___guid____links___replies' |
-  'guid___guid___localFile___sourceInstanceName' |
-  'guid___guid___localFile___absolutePath' |
-  'guid___guid___localFile___relativePath' |
-  'guid___guid___localFile___extension' |
-  'guid___guid___localFile___size' |
-  'guid___guid___localFile___prettySize' |
-  'guid___guid___localFile___modifiedTime' |
-  'guid___guid___localFile___accessTime' |
-  'guid___guid___localFile___changeTime' |
-  'guid___guid___localFile___birthTime' |
-  'guid___guid___localFile___root' |
-  'guid___guid___localFile___dir' |
-  'guid___guid___localFile___base' |
-  'guid___guid___localFile___ext' |
-  'guid___guid___localFile___name' |
-  'guid___guid___localFile___relativeDirectory' |
-  'guid___guid___localFile___dev' |
-  'guid___guid___localFile___mode' |
-  'guid___guid___localFile___nlink' |
-  'guid___guid___localFile___uid' |
-  'guid___guid___localFile___gid' |
-  'guid___guid___localFile___rdev' |
-  'guid___guid___localFile___ino' |
-  'guid___guid___localFile___atimeMs' |
-  'guid___guid___localFile___mtimeMs' |
-  'guid___guid___localFile___ctimeMs' |
-  'guid___guid___localFile___atime' |
-  'guid___guid___localFile___mtime' |
-  'guid___guid___localFile___ctime' |
-  'guid___guid___localFile___birthtime' |
-  'guid___guid___localFile___birthtimeMs' |
-  'guid___guid___localFile___blksize' |
-  'guid___guid___localFile___blocks' |
-  'guid___guid___localFile___url' |
-  'guid___guid___localFile___publicURL' |
-  'guid___guid___localFile___id' |
-  'guid___guid___localFile___children' |
-  'guid___guid___localFile___childrenTestimonialsJson' |
-  'guid___guid___localFile___childrenTeamJson' |
-  'guid___guid___path' |
-  'guid___modified' |
-  'guid___slug' |
-  'guid___status' |
-  'guid___type' |
-  'guid___link' |
-  'guid___title' |
-  'guid___author' |
-  'guid___comment_status' |
-  'guid___ping_status' |
-  'guid___template' |
-  'guid___meta___lbn_published_stage' |
-  'guid___meta___lbn_published_production' |
-  'guid___description' |
-  'guid___caption' |
-  'guid___alt_text' |
-  'guid___media_type' |
-  'guid___mime_type' |
-  'guid___media_details___width' |
-  'guid___media_details___height' |
-  'guid___media_details___file' |
-  'guid___media_details___image_meta___aperture' |
-  'guid___media_details___image_meta___credit' |
-  'guid___media_details___image_meta___camera' |
-  'guid___media_details___image_meta___caption' |
-  'guid___media_details___image_meta___created_timestamp' |
-  'guid___media_details___image_meta___copyright' |
-  'guid___media_details___image_meta___focal_length' |
-  'guid___media_details___image_meta___iso' |
-  'guid___media_details___image_meta___shutter_speed' |
-  'guid___media_details___image_meta___title' |
-  'guid___media_details___image_meta___orientation' |
-  'guid___media_details___dummy' |
-  'guid___post' |
-  'guid___source_url' |
-  'guid____links___self' |
-  'guid____links___self___href' |
-  'guid____links___collection' |
-  'guid____links___collection___href' |
-  'guid____links___about' |
-  'guid____links___about___href' |
-  'guid____links___author' |
-  'guid____links___author___embeddable' |
-  'guid____links___author___href' |
-  'guid____links___replies' |
-  'guid____links___replies___embeddable' |
-  'guid____links___replies___href' |
-  'guid___localFile___sourceInstanceName' |
-  'guid___localFile___absolutePath' |
-  'guid___localFile___relativePath' |
-  'guid___localFile___extension' |
-  'guid___localFile___size' |
-  'guid___localFile___prettySize' |
-  'guid___localFile___modifiedTime' |
-  'guid___localFile___accessTime' |
-  'guid___localFile___changeTime' |
-  'guid___localFile___birthTime' |
-  'guid___localFile___root' |
-  'guid___localFile___dir' |
-  'guid___localFile___base' |
-  'guid___localFile___ext' |
-  'guid___localFile___name' |
-  'guid___localFile___relativeDirectory' |
-  'guid___localFile___dev' |
-  'guid___localFile___mode' |
-  'guid___localFile___nlink' |
-  'guid___localFile___uid' |
-  'guid___localFile___gid' |
-  'guid___localFile___rdev' |
-  'guid___localFile___ino' |
-  'guid___localFile___atimeMs' |
-  'guid___localFile___mtimeMs' |
-  'guid___localFile___ctimeMs' |
-  'guid___localFile___atime' |
-  'guid___localFile___mtime' |
-  'guid___localFile___ctime' |
-  'guid___localFile___birthtime' |
-  'guid___localFile___birthtimeMs' |
-  'guid___localFile___blksize' |
-  'guid___localFile___blocks' |
-  'guid___localFile___url' |
-  'guid___localFile___publicURL' |
-  'guid___localFile___childImageSharp___id' |
-  'guid___localFile___childImageSharp___children' |
-  'guid___localFile___id' |
-  'guid___localFile___parent___id' |
-  'guid___localFile___parent___children' |
-  'guid___localFile___children' |
-  'guid___localFile___children___id' |
-  'guid___localFile___children___children' |
-  'guid___localFile___internal___content' |
-  'guid___localFile___internal___contentDigest' |
-  'guid___localFile___internal___description' |
-  'guid___localFile___internal___fieldOwners' |
-  'guid___localFile___internal___ignoreType' |
-  'guid___localFile___internal___mediaType' |
-  'guid___localFile___internal___owner' |
-  'guid___localFile___internal___type' |
-  'guid___localFile___childrenTestimonialsJson' |
-  'guid___localFile___childrenTestimonialsJson___id' |
-  'guid___localFile___childrenTestimonialsJson___children' |
-  'guid___localFile___childrenTestimonialsJson___body' |
-  'guid___localFile___childrenTestimonialsJson___rating' |
-  'guid___localFile___childrenTestimonialsJson___author' |
-  'guid___localFile___childrenTeamJson' |
-  'guid___localFile___childrenTeamJson___id' |
-  'guid___localFile___childrenTeamJson___children' |
-  'guid___localFile___childrenTeamJson___name' |
-  'guid___localFile___childrenTeamJson___title' |
-  'guid___localFile___childrenTeamJson___bio' |
-  'guid___path' |
-  'modified' |
-  'slug' |
-  'status' |
-  'type' |
-  'link' |
-  'title' |
-  'author' |
-  'comment_status' |
-  'ping_status' |
-  'template' |
-  'meta___lbn_published_stage' |
-  'meta___lbn_published_production' |
-  'description' |
-  'caption' |
-  'alt_text' |
-  'media_type' |
-  'mime_type' |
-  'media_details___width' |
-  'media_details___height' |
-  'media_details___file' |
-  'media_details___image_meta___aperture' |
-  'media_details___image_meta___credit' |
-  'media_details___image_meta___camera' |
-  'media_details___image_meta___caption' |
-  'media_details___image_meta___created_timestamp' |
-  'media_details___image_meta___copyright' |
-  'media_details___image_meta___focal_length' |
-  'media_details___image_meta___iso' |
-  'media_details___image_meta___shutter_speed' |
-  'media_details___image_meta___title' |
-  'media_details___image_meta___orientation' |
-  'media_details___dummy' |
-  'post' |
-  'source_url' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___author' |
-  '_links___author___embeddable' |
-  '_links___author___href' |
-  '_links___replies' |
-  '_links___replies___embeddable' |
-  '_links___replies___href' |
-  'localFile___sourceInstanceName' |
-  'localFile___absolutePath' |
-  'localFile___relativePath' |
-  'localFile___extension' |
-  'localFile___size' |
-  'localFile___prettySize' |
-  'localFile___modifiedTime' |
-  'localFile___accessTime' |
-  'localFile___changeTime' |
-  'localFile___birthTime' |
-  'localFile___root' |
-  'localFile___dir' |
-  'localFile___base' |
-  'localFile___ext' |
-  'localFile___name' |
-  'localFile___relativeDirectory' |
-  'localFile___dev' |
-  'localFile___mode' |
-  'localFile___nlink' |
-  'localFile___uid' |
-  'localFile___gid' |
-  'localFile___rdev' |
-  'localFile___ino' |
-  'localFile___atimeMs' |
-  'localFile___mtimeMs' |
-  'localFile___ctimeMs' |
-  'localFile___atime' |
-  'localFile___mtime' |
-  'localFile___ctime' |
-  'localFile___birthtime' |
-  'localFile___birthtimeMs' |
-  'localFile___blksize' |
-  'localFile___blocks' |
-  'localFile___url' |
-  'localFile___publicURL' |
-  'localFile___childImageSharp___fixed___base64' |
-  'localFile___childImageSharp___fixed___tracedSVG' |
-  'localFile___childImageSharp___fixed___aspectRatio' |
-  'localFile___childImageSharp___fixed___width' |
-  'localFile___childImageSharp___fixed___height' |
-  'localFile___childImageSharp___fixed___src' |
-  'localFile___childImageSharp___fixed___srcSet' |
-  'localFile___childImageSharp___fixed___srcWebp' |
-  'localFile___childImageSharp___fixed___srcSetWebp' |
-  'localFile___childImageSharp___fixed___originalName' |
-  'localFile___childImageSharp___resolutions___base64' |
-  'localFile___childImageSharp___resolutions___tracedSVG' |
-  'localFile___childImageSharp___resolutions___aspectRatio' |
-  'localFile___childImageSharp___resolutions___width' |
-  'localFile___childImageSharp___resolutions___height' |
-  'localFile___childImageSharp___resolutions___src' |
-  'localFile___childImageSharp___resolutions___srcSet' |
-  'localFile___childImageSharp___resolutions___srcWebp' |
-  'localFile___childImageSharp___resolutions___srcSetWebp' |
-  'localFile___childImageSharp___resolutions___originalName' |
-  'localFile___childImageSharp___fluid___base64' |
-  'localFile___childImageSharp___fluid___tracedSVG' |
-  'localFile___childImageSharp___fluid___aspectRatio' |
-  'localFile___childImageSharp___fluid___src' |
-  'localFile___childImageSharp___fluid___srcSet' |
-  'localFile___childImageSharp___fluid___srcWebp' |
-  'localFile___childImageSharp___fluid___srcSetWebp' |
-  'localFile___childImageSharp___fluid___sizes' |
-  'localFile___childImageSharp___fluid___originalImg' |
-  'localFile___childImageSharp___fluid___originalName' |
-  'localFile___childImageSharp___fluid___presentationWidth' |
-  'localFile___childImageSharp___fluid___presentationHeight' |
-  'localFile___childImageSharp___sizes___base64' |
-  'localFile___childImageSharp___sizes___tracedSVG' |
-  'localFile___childImageSharp___sizes___aspectRatio' |
-  'localFile___childImageSharp___sizes___src' |
-  'localFile___childImageSharp___sizes___srcSet' |
-  'localFile___childImageSharp___sizes___srcWebp' |
-  'localFile___childImageSharp___sizes___srcSetWebp' |
-  'localFile___childImageSharp___sizes___sizes' |
-  'localFile___childImageSharp___sizes___originalImg' |
-  'localFile___childImageSharp___sizes___originalName' |
-  'localFile___childImageSharp___sizes___presentationWidth' |
-  'localFile___childImageSharp___sizes___presentationHeight' |
-  'localFile___childImageSharp___original___width' |
-  'localFile___childImageSharp___original___height' |
-  'localFile___childImageSharp___original___src' |
-  'localFile___childImageSharp___resize___src' |
-  'localFile___childImageSharp___resize___tracedSVG' |
-  'localFile___childImageSharp___resize___width' |
-  'localFile___childImageSharp___resize___height' |
-  'localFile___childImageSharp___resize___aspectRatio' |
-  'localFile___childImageSharp___resize___originalName' |
-  'localFile___childImageSharp___id' |
-  'localFile___childImageSharp___parent___id' |
-  'localFile___childImageSharp___parent___children' |
-  'localFile___childImageSharp___children' |
-  'localFile___childImageSharp___children___id' |
-  'localFile___childImageSharp___children___children' |
-  'localFile___childImageSharp___internal___content' |
-  'localFile___childImageSharp___internal___contentDigest' |
-  'localFile___childImageSharp___internal___description' |
-  'localFile___childImageSharp___internal___fieldOwners' |
-  'localFile___childImageSharp___internal___ignoreType' |
-  'localFile___childImageSharp___internal___mediaType' |
-  'localFile___childImageSharp___internal___owner' |
-  'localFile___childImageSharp___internal___type' |
-  'localFile___id' |
-  'localFile___parent___id' |
-  'localFile___parent___parent___id' |
-  'localFile___parent___parent___children' |
-  'localFile___parent___children' |
-  'localFile___parent___children___id' |
-  'localFile___parent___children___children' |
-  'localFile___parent___internal___content' |
-  'localFile___parent___internal___contentDigest' |
-  'localFile___parent___internal___description' |
-  'localFile___parent___internal___fieldOwners' |
-  'localFile___parent___internal___ignoreType' |
-  'localFile___parent___internal___mediaType' |
-  'localFile___parent___internal___owner' |
-  'localFile___parent___internal___type' |
-  'localFile___children' |
-  'localFile___children___id' |
-  'localFile___children___parent___id' |
-  'localFile___children___parent___children' |
-  'localFile___children___children' |
-  'localFile___children___children___id' |
-  'localFile___children___children___children' |
-  'localFile___children___internal___content' |
-  'localFile___children___internal___contentDigest' |
-  'localFile___children___internal___description' |
-  'localFile___children___internal___fieldOwners' |
-  'localFile___children___internal___ignoreType' |
-  'localFile___children___internal___mediaType' |
-  'localFile___children___internal___owner' |
-  'localFile___children___internal___type' |
-  'localFile___internal___content' |
-  'localFile___internal___contentDigest' |
-  'localFile___internal___description' |
-  'localFile___internal___fieldOwners' |
-  'localFile___internal___ignoreType' |
-  'localFile___internal___mediaType' |
-  'localFile___internal___owner' |
-  'localFile___internal___type' |
-  'localFile___childrenTestimonialsJson' |
-  'localFile___childrenTestimonialsJson___id' |
-  'localFile___childrenTestimonialsJson___parent___id' |
-  'localFile___childrenTestimonialsJson___parent___children' |
-  'localFile___childrenTestimonialsJson___children' |
-  'localFile___childrenTestimonialsJson___children___id' |
-  'localFile___childrenTestimonialsJson___children___children' |
-  'localFile___childrenTestimonialsJson___internal___content' |
-  'localFile___childrenTestimonialsJson___internal___contentDigest' |
-  'localFile___childrenTestimonialsJson___internal___description' |
-  'localFile___childrenTestimonialsJson___internal___fieldOwners' |
-  'localFile___childrenTestimonialsJson___internal___ignoreType' |
-  'localFile___childrenTestimonialsJson___internal___mediaType' |
-  'localFile___childrenTestimonialsJson___internal___owner' |
-  'localFile___childrenTestimonialsJson___internal___type' |
-  'localFile___childrenTestimonialsJson___body' |
-  'localFile___childrenTestimonialsJson___rating' |
-  'localFile___childrenTestimonialsJson___author' |
-  'localFile___childrenTestimonialsJson___property___name' |
-  'localFile___childrenTestimonialsJson___property___location' |
-  'localFile___childrenTeamJson' |
-  'localFile___childrenTeamJson___id' |
-  'localFile___childrenTeamJson___parent___id' |
-  'localFile___childrenTeamJson___parent___children' |
-  'localFile___childrenTeamJson___children' |
-  'localFile___childrenTeamJson___children___id' |
-  'localFile___childrenTeamJson___children___children' |
-  'localFile___childrenTeamJson___internal___content' |
-  'localFile___childrenTeamJson___internal___contentDigest' |
-  'localFile___childrenTeamJson___internal___description' |
-  'localFile___childrenTeamJson___internal___fieldOwners' |
-  'localFile___childrenTeamJson___internal___ignoreType' |
-  'localFile___childrenTeamJson___internal___mediaType' |
-  'localFile___childrenTeamJson___internal___owner' |
-  'localFile___childrenTeamJson___internal___type' |
-  'localFile___childrenTeamJson___name' |
-  'localFile___childrenTeamJson___title' |
-  'localFile___childrenTeamJson___picture___sourceInstanceName' |
-  'localFile___childrenTeamJson___picture___absolutePath' |
-  'localFile___childrenTeamJson___picture___relativePath' |
-  'localFile___childrenTeamJson___picture___extension' |
-  'localFile___childrenTeamJson___picture___size' |
-  'localFile___childrenTeamJson___picture___prettySize' |
-  'localFile___childrenTeamJson___picture___modifiedTime' |
-  'localFile___childrenTeamJson___picture___accessTime' |
-  'localFile___childrenTeamJson___picture___changeTime' |
-  'localFile___childrenTeamJson___picture___birthTime' |
-  'localFile___childrenTeamJson___picture___root' |
-  'localFile___childrenTeamJson___picture___dir' |
-  'localFile___childrenTeamJson___picture___base' |
-  'localFile___childrenTeamJson___picture___ext' |
-  'localFile___childrenTeamJson___picture___name' |
-  'localFile___childrenTeamJson___picture___relativeDirectory' |
-  'localFile___childrenTeamJson___picture___dev' |
-  'localFile___childrenTeamJson___picture___mode' |
-  'localFile___childrenTeamJson___picture___nlink' |
-  'localFile___childrenTeamJson___picture___uid' |
-  'localFile___childrenTeamJson___picture___gid' |
-  'localFile___childrenTeamJson___picture___rdev' |
-  'localFile___childrenTeamJson___picture___ino' |
-  'localFile___childrenTeamJson___picture___atimeMs' |
-  'localFile___childrenTeamJson___picture___mtimeMs' |
-  'localFile___childrenTeamJson___picture___ctimeMs' |
-  'localFile___childrenTeamJson___picture___atime' |
-  'localFile___childrenTeamJson___picture___mtime' |
-  'localFile___childrenTeamJson___picture___ctime' |
-  'localFile___childrenTeamJson___picture___birthtime' |
-  'localFile___childrenTeamJson___picture___birthtimeMs' |
-  'localFile___childrenTeamJson___picture___blksize' |
-  'localFile___childrenTeamJson___picture___blocks' |
-  'localFile___childrenTeamJson___picture___url' |
-  'localFile___childrenTeamJson___picture___publicURL' |
-  'localFile___childrenTeamJson___picture___id' |
-  'localFile___childrenTeamJson___picture___children' |
-  'localFile___childrenTeamJson___picture___childrenTestimonialsJson' |
-  'localFile___childrenTeamJson___picture___childrenTeamJson' |
-  'localFile___childrenTeamJson___bio' |
-  'path';
-
-export type Wordpress__Wp_MediaFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  guid?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  modified?: Maybe<DateQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
-  type?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  author?: Maybe<IntQueryOperatorInput>,
-  comment_status?: Maybe<StringQueryOperatorInput>,
-  ping_status?: Maybe<StringQueryOperatorInput>,
-  template?: Maybe<StringQueryOperatorInput>,
-  meta?: Maybe<Wordpress__Wp_MediaMetaFilterInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  caption?: Maybe<StringQueryOperatorInput>,
-  alt_text?: Maybe<StringQueryOperatorInput>,
-  media_type?: Maybe<StringQueryOperatorInput>,
-  mime_type?: Maybe<StringQueryOperatorInput>,
-  media_details?: Maybe<Wordpress__Wp_MediaMedia_DetailsFilterInput>,
-  post?: Maybe<IntQueryOperatorInput>,
-  source_url?: Maybe<StringQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Media_LinksFilterInput>,
-  localFile?: Maybe<FileFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_MediaGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_MediaEdge>,
-  nodes: Array<Wordpress__Wp_Media>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_MediaMedia_Details = {
-  width?: Maybe<Scalars['Int']>,
-  height?: Maybe<Scalars['Int']>,
-  file?: Maybe<Scalars['String']>,
-  image_meta?: Maybe<Wordpress__Wp_MediaMedia_DetailsImage_Meta>,
-  dummy?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_MediaMedia_DetailsFilterInput = {
-  width?: Maybe<IntQueryOperatorInput>,
-  height?: Maybe<IntQueryOperatorInput>,
-  file?: Maybe<StringQueryOperatorInput>,
-  image_meta?: Maybe<Wordpress__Wp_MediaMedia_DetailsImage_MetaFilterInput>,
-  dummy?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_MediaMedia_DetailsImage_Meta = {
-  aperture?: Maybe<Scalars['String']>,
-  credit?: Maybe<Scalars['String']>,
-  camera?: Maybe<Scalars['String']>,
-  caption?: Maybe<Scalars['String']>,
-  created_timestamp?: Maybe<Scalars['String']>,
-  copyright?: Maybe<Scalars['String']>,
-  focal_length?: Maybe<Scalars['String']>,
-  iso?: Maybe<Scalars['String']>,
-  shutter_speed?: Maybe<Scalars['String']>,
-  title?: Maybe<Scalars['String']>,
-  orientation?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_MediaMedia_DetailsImage_MetaFilterInput = {
-  aperture?: Maybe<StringQueryOperatorInput>,
-  credit?: Maybe<StringQueryOperatorInput>,
-  camera?: Maybe<StringQueryOperatorInput>,
-  caption?: Maybe<StringQueryOperatorInput>,
-  created_timestamp?: Maybe<StringQueryOperatorInput>,
-  copyright?: Maybe<StringQueryOperatorInput>,
-  focal_length?: Maybe<StringQueryOperatorInput>,
-  iso?: Maybe<StringQueryOperatorInput>,
-  shutter_speed?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  orientation?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_MediaMeta = {
-  lbn_published_stage?: Maybe<Scalars['Boolean']>,
-  lbn_published_production?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_MediaMetaFilterInput = {
-  lbn_published_stage?: Maybe<BooleanQueryOperatorInput>,
-  lbn_published_production?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_MediaSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_MediaFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Page_Content = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  date?: Maybe<Scalars['Date']>,
-  guid?: Maybe<Scalars['String']>,
-  modified?: Maybe<Scalars['Date']>,
-  slug?: Maybe<Scalars['String']>,
-  status?: Maybe<Scalars['String']>,
-  type?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  title?: Maybe<Scalars['String']>,
-  content?: Maybe<Scalars['String']>,
-  template?: Maybe<Scalars['String']>,
-  acf?: Maybe<Wordpress__Wp_Page_ContentAcf>,
-  _links?: Maybe<Wordpress__Wp_Page_Content_Links>,
-  featured_media?: Maybe<Wordpress__Wp_Media>,
-  path?: Maybe<Scalars['String']>,
-};
-
-
-export type Wordpress__Wp_Page_ContentDateArgs = {
-  formatString?: Maybe<Scalars['String']>,
-  fromNow?: Maybe<Scalars['Boolean']>,
-  difference?: Maybe<Scalars['String']>,
-  locale?: Maybe<Scalars['String']>
-};
-
-
-export type Wordpress__Wp_Page_ContentModifiedArgs = {
-  formatString?: Maybe<Scalars['String']>,
-  fromNow?: Maybe<Scalars['Boolean']>,
-  difference?: Maybe<Scalars['String']>,
-  locale?: Maybe<Scalars['String']>
-};
-
-export type Wordpress__Wp_Page_Content_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Page_Content_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Page_Content_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Page_Content_LinksAbout>>>,
-  wp_featuredmedia?: Maybe<Array<Maybe<Wordpress__Wp_Page_Content_LinksWp_Featuredmedia>>>,
-  wp_attachment?: Maybe<Array<Maybe<Wordpress__Wp_Page_Content_LinksWp_Attachment>>>,
-  curies?: Maybe<Array<Maybe<Wordpress__Wp_Page_Content_LinksCuries>>>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Page_Content_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Page_Content_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksCuries = {
-  name?: Maybe<Scalars['String']>,
-  href?: Maybe<Scalars['String']>,
-  templated?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksCuriesFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-  templated?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksCuriesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Page_Content_LinksCuriesFilterInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Page_Content_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Page_Content_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Page_Content_LinksAboutFilterListInput>,
-  wp_featuredmedia?: Maybe<Wordpress__Wp_Page_Content_LinksWp_FeaturedmediaFilterListInput>,
-  wp_attachment?: Maybe<Wordpress__Wp_Page_Content_LinksWp_AttachmentFilterListInput>,
-  curies?: Maybe<Wordpress__Wp_Page_Content_LinksCuriesFilterListInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Page_Content_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksWp_Attachment = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksWp_AttachmentFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksWp_AttachmentFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Page_Content_LinksWp_AttachmentFilterInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksWp_Featuredmedia = {
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksWp_FeaturedmediaFilterInput = {
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Page_Content_LinksWp_FeaturedmediaFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Page_Content_LinksWp_FeaturedmediaFilterInput>,
-};
-
-export type Wordpress__Wp_Page_ContentAcf = {
-  concierge_services?: Maybe<Array<Maybe<Wordpress__Wp_Page_ContentAcfConcierge_Services>>>,
-};
-
-export type Wordpress__Wp_Page_ContentAcfConcierge_Services = {
-  service?: Maybe<Scalars['String']>,
-  image?: Maybe<Wordpress__Wp_Media>,
-};
-
-export type Wordpress__Wp_Page_ContentAcfConcierge_ServicesFilterInput = {
-  service?: Maybe<StringQueryOperatorInput>,
-  image?: Maybe<Wordpress__Wp_MediaFilterInput>,
-};
-
-export type Wordpress__Wp_Page_ContentAcfConcierge_ServicesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Page_ContentAcfConcierge_ServicesFilterInput>,
-};
-
-export type Wordpress__Wp_Page_ContentAcfFilterInput = {
-  concierge_services?: Maybe<Wordpress__Wp_Page_ContentAcfConcierge_ServicesFilterListInput>,
-};
-
-export type Wordpress__Wp_Page_ContentConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Page_ContentEdge>,
-  nodes: Array<Wordpress__Wp_Page_Content>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_Page_ContentGroupConnection>,
-};
-
-
-export type Wordpress__Wp_Page_ContentConnectionDistinctArgs = {
-  field: Wordpress__Wp_Page_ContentFieldsEnum
-};
-
-
-export type Wordpress__Wp_Page_ContentConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_Page_ContentFieldsEnum
-};
-
-export type Wordpress__Wp_Page_ContentEdge = {
-  next?: Maybe<Wordpress__Wp_Page_Content>,
-  node: Wordpress__Wp_Page_Content,
-  previous?: Maybe<Wordpress__Wp_Page_Content>,
-};
-
-export type Wordpress__Wp_Page_ContentFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'date' |
-  'guid' |
-  'modified' |
-  'slug' |
-  'status' |
-  'type' |
-  'link' |
-  'title' |
-  'content' |
-  'template' |
-  'acf___concierge_services' |
-  'acf___concierge_services___service' |
-  'acf___concierge_services___image___id' |
-  'acf___concierge_services___image___children' |
-  'acf___concierge_services___image___wordpress_id' |
-  'acf___concierge_services___image___date' |
-  'acf___concierge_services___image___modified' |
-  'acf___concierge_services___image___slug' |
-  'acf___concierge_services___image___status' |
-  'acf___concierge_services___image___type' |
-  'acf___concierge_services___image___link' |
-  'acf___concierge_services___image___title' |
-  'acf___concierge_services___image___author' |
-  'acf___concierge_services___image___comment_status' |
-  'acf___concierge_services___image___ping_status' |
-  'acf___concierge_services___image___template' |
-  'acf___concierge_services___image___description' |
-  'acf___concierge_services___image___caption' |
-  'acf___concierge_services___image___alt_text' |
-  'acf___concierge_services___image___media_type' |
-  'acf___concierge_services___image___mime_type' |
-  'acf___concierge_services___image___post' |
-  'acf___concierge_services___image___source_url' |
-  'acf___concierge_services___image___path' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___wp_featuredmedia' |
-  '_links___wp_featuredmedia___embeddable' |
-  '_links___wp_featuredmedia___href' |
-  '_links___wp_attachment' |
-  '_links___wp_attachment___href' |
-  '_links___curies' |
-  '_links___curies___name' |
-  '_links___curies___href' |
-  '_links___curies___templated' |
-  'featured_media___id' |
-  'featured_media___parent___id' |
-  'featured_media___parent___parent___id' |
-  'featured_media___parent___parent___children' |
-  'featured_media___parent___children' |
-  'featured_media___parent___children___id' |
-  'featured_media___parent___children___children' |
-  'featured_media___parent___internal___content' |
-  'featured_media___parent___internal___contentDigest' |
-  'featured_media___parent___internal___description' |
-  'featured_media___parent___internal___fieldOwners' |
-  'featured_media___parent___internal___ignoreType' |
-  'featured_media___parent___internal___mediaType' |
-  'featured_media___parent___internal___owner' |
-  'featured_media___parent___internal___type' |
-  'featured_media___children' |
-  'featured_media___children___id' |
-  'featured_media___children___parent___id' |
-  'featured_media___children___parent___children' |
-  'featured_media___children___children' |
-  'featured_media___children___children___id' |
-  'featured_media___children___children___children' |
-  'featured_media___children___internal___content' |
-  'featured_media___children___internal___contentDigest' |
-  'featured_media___children___internal___description' |
-  'featured_media___children___internal___fieldOwners' |
-  'featured_media___children___internal___ignoreType' |
-  'featured_media___children___internal___mediaType' |
-  'featured_media___children___internal___owner' |
-  'featured_media___children___internal___type' |
-  'featured_media___internal___content' |
-  'featured_media___internal___contentDigest' |
-  'featured_media___internal___description' |
-  'featured_media___internal___fieldOwners' |
-  'featured_media___internal___ignoreType' |
-  'featured_media___internal___mediaType' |
-  'featured_media___internal___owner' |
-  'featured_media___internal___type' |
-  'featured_media___wordpress_id' |
-  'featured_media___date' |
-  'featured_media___guid___id' |
-  'featured_media___guid___parent___id' |
-  'featured_media___guid___parent___children' |
-  'featured_media___guid___children' |
-  'featured_media___guid___children___id' |
-  'featured_media___guid___children___children' |
-  'featured_media___guid___internal___content' |
-  'featured_media___guid___internal___contentDigest' |
-  'featured_media___guid___internal___description' |
-  'featured_media___guid___internal___fieldOwners' |
-  'featured_media___guid___internal___ignoreType' |
-  'featured_media___guid___internal___mediaType' |
-  'featured_media___guid___internal___owner' |
-  'featured_media___guid___internal___type' |
-  'featured_media___guid___wordpress_id' |
-  'featured_media___guid___date' |
-  'featured_media___guid___guid___id' |
-  'featured_media___guid___guid___children' |
-  'featured_media___guid___guid___wordpress_id' |
-  'featured_media___guid___guid___date' |
-  'featured_media___guid___guid___modified' |
-  'featured_media___guid___guid___slug' |
-  'featured_media___guid___guid___status' |
-  'featured_media___guid___guid___type' |
-  'featured_media___guid___guid___link' |
-  'featured_media___guid___guid___title' |
-  'featured_media___guid___guid___author' |
-  'featured_media___guid___guid___comment_status' |
-  'featured_media___guid___guid___ping_status' |
-  'featured_media___guid___guid___template' |
-  'featured_media___guid___guid___description' |
-  'featured_media___guid___guid___caption' |
-  'featured_media___guid___guid___alt_text' |
-  'featured_media___guid___guid___media_type' |
-  'featured_media___guid___guid___mime_type' |
-  'featured_media___guid___guid___post' |
-  'featured_media___guid___guid___source_url' |
-  'featured_media___guid___guid___path' |
-  'featured_media___guid___modified' |
-  'featured_media___guid___slug' |
-  'featured_media___guid___status' |
-  'featured_media___guid___type' |
-  'featured_media___guid___link' |
-  'featured_media___guid___title' |
-  'featured_media___guid___author' |
-  'featured_media___guid___comment_status' |
-  'featured_media___guid___ping_status' |
-  'featured_media___guid___template' |
-  'featured_media___guid___meta___lbn_published_stage' |
-  'featured_media___guid___meta___lbn_published_production' |
-  'featured_media___guid___description' |
-  'featured_media___guid___caption' |
-  'featured_media___guid___alt_text' |
-  'featured_media___guid___media_type' |
-  'featured_media___guid___mime_type' |
-  'featured_media___guid___media_details___width' |
-  'featured_media___guid___media_details___height' |
-  'featured_media___guid___media_details___file' |
-  'featured_media___guid___media_details___dummy' |
-  'featured_media___guid___post' |
-  'featured_media___guid___source_url' |
-  'featured_media___guid____links___self' |
-  'featured_media___guid____links___collection' |
-  'featured_media___guid____links___about' |
-  'featured_media___guid____links___author' |
-  'featured_media___guid____links___replies' |
-  'featured_media___guid___localFile___sourceInstanceName' |
-  'featured_media___guid___localFile___absolutePath' |
-  'featured_media___guid___localFile___relativePath' |
-  'featured_media___guid___localFile___extension' |
-  'featured_media___guid___localFile___size' |
-  'featured_media___guid___localFile___prettySize' |
-  'featured_media___guid___localFile___modifiedTime' |
-  'featured_media___guid___localFile___accessTime' |
-  'featured_media___guid___localFile___changeTime' |
-  'featured_media___guid___localFile___birthTime' |
-  'featured_media___guid___localFile___root' |
-  'featured_media___guid___localFile___dir' |
-  'featured_media___guid___localFile___base' |
-  'featured_media___guid___localFile___ext' |
-  'featured_media___guid___localFile___name' |
-  'featured_media___guid___localFile___relativeDirectory' |
-  'featured_media___guid___localFile___dev' |
-  'featured_media___guid___localFile___mode' |
-  'featured_media___guid___localFile___nlink' |
-  'featured_media___guid___localFile___uid' |
-  'featured_media___guid___localFile___gid' |
-  'featured_media___guid___localFile___rdev' |
-  'featured_media___guid___localFile___ino' |
-  'featured_media___guid___localFile___atimeMs' |
-  'featured_media___guid___localFile___mtimeMs' |
-  'featured_media___guid___localFile___ctimeMs' |
-  'featured_media___guid___localFile___atime' |
-  'featured_media___guid___localFile___mtime' |
-  'featured_media___guid___localFile___ctime' |
-  'featured_media___guid___localFile___birthtime' |
-  'featured_media___guid___localFile___birthtimeMs' |
-  'featured_media___guid___localFile___blksize' |
-  'featured_media___guid___localFile___blocks' |
-  'featured_media___guid___localFile___url' |
-  'featured_media___guid___localFile___publicURL' |
-  'featured_media___guid___localFile___id' |
-  'featured_media___guid___localFile___children' |
-  'featured_media___guid___localFile___childrenTestimonialsJson' |
-  'featured_media___guid___localFile___childrenTeamJson' |
-  'featured_media___guid___path' |
-  'featured_media___modified' |
-  'featured_media___slug' |
-  'featured_media___status' |
-  'featured_media___type' |
-  'featured_media___link' |
-  'featured_media___title' |
-  'featured_media___author' |
-  'featured_media___comment_status' |
-  'featured_media___ping_status' |
-  'featured_media___template' |
-  'featured_media___meta___lbn_published_stage' |
-  'featured_media___meta___lbn_published_production' |
-  'featured_media___description' |
-  'featured_media___caption' |
-  'featured_media___alt_text' |
-  'featured_media___media_type' |
-  'featured_media___mime_type' |
-  'featured_media___media_details___width' |
-  'featured_media___media_details___height' |
-  'featured_media___media_details___file' |
-  'featured_media___media_details___image_meta___aperture' |
-  'featured_media___media_details___image_meta___credit' |
-  'featured_media___media_details___image_meta___camera' |
-  'featured_media___media_details___image_meta___caption' |
-  'featured_media___media_details___image_meta___created_timestamp' |
-  'featured_media___media_details___image_meta___copyright' |
-  'featured_media___media_details___image_meta___focal_length' |
-  'featured_media___media_details___image_meta___iso' |
-  'featured_media___media_details___image_meta___shutter_speed' |
-  'featured_media___media_details___image_meta___title' |
-  'featured_media___media_details___image_meta___orientation' |
-  'featured_media___media_details___dummy' |
-  'featured_media___post' |
-  'featured_media___source_url' |
-  'featured_media____links___self' |
-  'featured_media____links___self___href' |
-  'featured_media____links___collection' |
-  'featured_media____links___collection___href' |
-  'featured_media____links___about' |
-  'featured_media____links___about___href' |
-  'featured_media____links___author' |
-  'featured_media____links___author___embeddable' |
-  'featured_media____links___author___href' |
-  'featured_media____links___replies' |
-  'featured_media____links___replies___embeddable' |
-  'featured_media____links___replies___href' |
-  'featured_media___localFile___sourceInstanceName' |
-  'featured_media___localFile___absolutePath' |
-  'featured_media___localFile___relativePath' |
-  'featured_media___localFile___extension' |
-  'featured_media___localFile___size' |
-  'featured_media___localFile___prettySize' |
-  'featured_media___localFile___modifiedTime' |
-  'featured_media___localFile___accessTime' |
-  'featured_media___localFile___changeTime' |
-  'featured_media___localFile___birthTime' |
-  'featured_media___localFile___root' |
-  'featured_media___localFile___dir' |
-  'featured_media___localFile___base' |
-  'featured_media___localFile___ext' |
-  'featured_media___localFile___name' |
-  'featured_media___localFile___relativeDirectory' |
-  'featured_media___localFile___dev' |
-  'featured_media___localFile___mode' |
-  'featured_media___localFile___nlink' |
-  'featured_media___localFile___uid' |
-  'featured_media___localFile___gid' |
-  'featured_media___localFile___rdev' |
-  'featured_media___localFile___ino' |
-  'featured_media___localFile___atimeMs' |
-  'featured_media___localFile___mtimeMs' |
-  'featured_media___localFile___ctimeMs' |
-  'featured_media___localFile___atime' |
-  'featured_media___localFile___mtime' |
-  'featured_media___localFile___ctime' |
-  'featured_media___localFile___birthtime' |
-  'featured_media___localFile___birthtimeMs' |
-  'featured_media___localFile___blksize' |
-  'featured_media___localFile___blocks' |
-  'featured_media___localFile___url' |
-  'featured_media___localFile___publicURL' |
-  'featured_media___localFile___childImageSharp___id' |
-  'featured_media___localFile___childImageSharp___children' |
-  'featured_media___localFile___id' |
-  'featured_media___localFile___parent___id' |
-  'featured_media___localFile___parent___children' |
-  'featured_media___localFile___children' |
-  'featured_media___localFile___children___id' |
-  'featured_media___localFile___children___children' |
-  'featured_media___localFile___internal___content' |
-  'featured_media___localFile___internal___contentDigest' |
-  'featured_media___localFile___internal___description' |
-  'featured_media___localFile___internal___fieldOwners' |
-  'featured_media___localFile___internal___ignoreType' |
-  'featured_media___localFile___internal___mediaType' |
-  'featured_media___localFile___internal___owner' |
-  'featured_media___localFile___internal___type' |
-  'featured_media___localFile___childrenTestimonialsJson' |
-  'featured_media___localFile___childrenTestimonialsJson___id' |
-  'featured_media___localFile___childrenTestimonialsJson___children' |
-  'featured_media___localFile___childrenTestimonialsJson___body' |
-  'featured_media___localFile___childrenTestimonialsJson___rating' |
-  'featured_media___localFile___childrenTestimonialsJson___author' |
-  'featured_media___localFile___childrenTeamJson' |
-  'featured_media___localFile___childrenTeamJson___id' |
-  'featured_media___localFile___childrenTeamJson___children' |
-  'featured_media___localFile___childrenTeamJson___name' |
-  'featured_media___localFile___childrenTeamJson___title' |
-  'featured_media___localFile___childrenTeamJson___bio' |
-  'featured_media___path' |
-  'path';
-
-export type Wordpress__Wp_Page_ContentFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  guid?: Maybe<StringQueryOperatorInput>,
-  modified?: Maybe<DateQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
-  type?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  content?: Maybe<StringQueryOperatorInput>,
-  template?: Maybe<StringQueryOperatorInput>,
-  acf?: Maybe<Wordpress__Wp_Page_ContentAcfFilterInput>,
-  _links?: Maybe<Wordpress__Wp_Page_Content_LinksFilterInput>,
-  featured_media?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Page_ContentGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Page_ContentEdge>,
-  nodes: Array<Wordpress__Wp_Page_Content>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Page_ContentSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_Page_ContentFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Post_Tag = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  count?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
-  slug?: Maybe<Scalars['String']>,
-  taxonomy?: Maybe<Scalars['String']>,
-  _links?: Maybe<Wordpress__Wp_Post_Tag_Links>,
-  path?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Post_Tag_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Post_Tag_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Post_Tag_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Post_Tag_LinksAbout>>>,
-  wp_post_type?: Maybe<Array<Maybe<Wordpress__Wp_Post_Tag_LinksWp_Post_Type>>>,
-  curies?: Maybe<Array<Maybe<Wordpress__Wp_Post_Tag_LinksCuries>>>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Post_Tag_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Post_Tag_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksCuries = {
-  name?: Maybe<Scalars['String']>,
-  href?: Maybe<Scalars['String']>,
-  templated?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksCuriesFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-  templated?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksCuriesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Post_Tag_LinksCuriesFilterInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Post_Tag_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Post_Tag_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Post_Tag_LinksAboutFilterListInput>,
-  wp_post_type?: Maybe<Wordpress__Wp_Post_Tag_LinksWp_Post_TypeFilterListInput>,
-  curies?: Maybe<Wordpress__Wp_Post_Tag_LinksCuriesFilterListInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Post_Tag_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksWp_Post_Type = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksWp_Post_TypeFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Post_Tag_LinksWp_Post_TypeFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Post_Tag_LinksWp_Post_TypeFilterInput>,
-};
-
-export type Wordpress__Wp_Post_TagConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Post_TagEdge>,
-  nodes: Array<Wordpress__Wp_Post_Tag>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_Post_TagGroupConnection>,
-};
-
-
-export type Wordpress__Wp_Post_TagConnectionDistinctArgs = {
-  field: Wordpress__Wp_Post_TagFieldsEnum
-};
-
-
-export type Wordpress__Wp_Post_TagConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_Post_TagFieldsEnum
-};
-
-export type Wordpress__Wp_Post_TagEdge = {
-  next?: Maybe<Wordpress__Wp_Post_Tag>,
-  node: Wordpress__Wp_Post_Tag,
-  previous?: Maybe<Wordpress__Wp_Post_Tag>,
-};
-
-export type Wordpress__Wp_Post_TagFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'count' |
-  'description' |
-  'link' |
-  'name' |
-  'slug' |
-  'taxonomy' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___wp_post_type' |
-  '_links___wp_post_type___href' |
-  '_links___curies' |
-  '_links___curies___name' |
-  '_links___curies___href' |
-  '_links___curies___templated' |
-  'path';
-
-export type Wordpress__Wp_Post_TagFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Post_Tag_LinksFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Post_TagFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Post_TagFilterInput>,
-};
-
-export type Wordpress__Wp_Post_TagGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Post_TagEdge>,
-  nodes: Array<Wordpress__Wp_Post_Tag>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Post_TagSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_Post_TagFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Property = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  date?: Maybe<Scalars['Date']>,
-  guid?: Maybe<Scalars['String']>,
-  modified?: Maybe<Scalars['Date']>,
-  slug?: Maybe<Scalars['String']>,
-  status?: Maybe<Scalars['String']>,
-  type?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  title?: Maybe<Scalars['String']>,
-  content?: Maybe<Scalars['String']>,
-  excerpt?: Maybe<Scalars['String']>,
-  comment_status?: Maybe<Scalars['String']>,
-  ping_status?: Maybe<Scalars['String']>,
-  template?: Maybe<Scalars['String']>,
-  property_city?: Maybe<Array<Maybe<Scalars['Int']>>>,
-  property_area?: Maybe<Array<Maybe<Scalars['Int']>>>,
-  property_features?: Maybe<Array<Maybe<Scalars['Int']>>>,
-  lake?: Maybe<Array<Maybe<Scalars['Int']>>>,
-  suitability?: Maybe<Array<Maybe<Scalars['String']>>>,
-  size?: Maybe<Scalars['String']>,
-  bathrooms?: Maybe<Scalars['String']>,
-  bedrooms?: Maybe<Scalars['String']>,
-  latitude?: Maybe<Scalars['String']>,
-  longitude?: Maybe<Scalars['String']>,
-  houseRules?: Maybe<Scalars['String']>,
-  guests?: Maybe<Scalars['String']>,
-  price?: Maybe<Scalars['String']>,
-  pricePerWeek?: Maybe<Scalars['String']>,
-  pricePerMonth?: Maybe<Scalars['String']>,
-  rooms?: Maybe<Scalars['String']>,
-  address?: Maybe<Scalars['String']>,
-  order?: Maybe<Scalars['String']>,
-  featured?: Maybe<Scalars['String']>,
-  acf?: Maybe<Wordpress__Wp_PropertyAcf>,
-  bookedDates?: Maybe<Array<Maybe<Scalars['Int']>>>,
-  property_images?: Maybe<Array<Maybe<Scalars['Int']>>>,
-  _links?: Maybe<Wordpress__Wp_Property_Links>,
-  featured_media?: Maybe<Wordpress__Wp_Media>,
-  path?: Maybe<Scalars['String']>,
-  category?: Maybe<Wordpress__Wp_Property_Category>,
-};
-
-
-export type Wordpress__Wp_PropertyDateArgs = {
-  formatString?: Maybe<Scalars['String']>,
-  fromNow?: Maybe<Scalars['Boolean']>,
-  difference?: Maybe<Scalars['String']>,
-  locale?: Maybe<Scalars['String']>
-};
-
-
-export type Wordpress__Wp_PropertyModifiedArgs = {
-  formatString?: Maybe<Scalars['String']>,
-  fromNow?: Maybe<Scalars['Boolean']>,
-  difference?: Maybe<Scalars['String']>,
-  locale?: Maybe<Scalars['String']>
-};
-
-export type Wordpress__Wp_Property_Category = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  count?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
-  slug?: Maybe<Scalars['String']>,
-  taxonomy?: Maybe<Scalars['String']>,
-  wordpress_parent?: Maybe<Scalars['Int']>,
-  _links?: Maybe<Wordpress__Wp_Property_Category_Links>,
-  path?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Category_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Property_Category_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Property_Category_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Property_Category_LinksAbout>>>,
-  wp_post_type?: Maybe<Array<Maybe<Wordpress__Wp_Property_Category_LinksWp_Post_Type>>>,
-  curies?: Maybe<Array<Maybe<Wordpress__Wp_Property_Category_LinksCuries>>>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Category_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Category_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksCuries = {
-  name?: Maybe<Scalars['String']>,
-  href?: Maybe<Scalars['String']>,
-  templated?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksCuriesFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-  templated?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksCuriesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Category_LinksCuriesFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Property_Category_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Property_Category_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Property_Category_LinksAboutFilterListInput>,
-  wp_post_type?: Maybe<Wordpress__Wp_Property_Category_LinksWp_Post_TypeFilterListInput>,
-  curies?: Maybe<Wordpress__Wp_Property_Category_LinksCuriesFilterListInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Category_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksWp_Post_Type = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksWp_Post_TypeFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Category_LinksWp_Post_TypeFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Category_LinksWp_Post_TypeFilterInput>,
-};
-
-export type Wordpress__Wp_Property_CategoryConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Property_CategoryEdge>,
-  nodes: Array<Wordpress__Wp_Property_Category>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_Property_CategoryGroupConnection>,
-};
-
-
-export type Wordpress__Wp_Property_CategoryConnectionDistinctArgs = {
-  field: Wordpress__Wp_Property_CategoryFieldsEnum
-};
-
-
-export type Wordpress__Wp_Property_CategoryConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_Property_CategoryFieldsEnum
-};
-
-export type Wordpress__Wp_Property_CategoryEdge = {
-  next?: Maybe<Wordpress__Wp_Property_Category>,
-  node: Wordpress__Wp_Property_Category,
-  previous?: Maybe<Wordpress__Wp_Property_Category>,
-};
-
-export type Wordpress__Wp_Property_CategoryFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'count' |
-  'description' |
-  'link' |
-  'name' |
-  'slug' |
-  'taxonomy' |
-  'wordpress_parent' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___wp_post_type' |
-  '_links___wp_post_type___href' |
-  '_links___curies' |
-  '_links___curies___name' |
-  '_links___curies___href' |
-  '_links___curies___templated' |
-  'path';
-
-export type Wordpress__Wp_Property_CategoryFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  wordpress_parent?: Maybe<IntQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Property_Category_LinksFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_CategoryGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Property_CategoryEdge>,
-  nodes: Array<Wordpress__Wp_Property_Category>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_CategorySortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_Property_CategoryFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Property_Features = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  wordpress_id?: Maybe<Scalars['Int']>,
-  count?: Maybe<Scalars['Int']>,
-  description?: Maybe<Scalars['String']>,
-  link?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
-  slug?: Maybe<Scalars['String']>,
-  taxonomy?: Maybe<Scalars['String']>,
-  wordpress_parent?: Maybe<Scalars['Int']>,
-  _links?: Maybe<Wordpress__Wp_Property_Features_Links>,
-  parent_element?: Maybe<Wordpress__Wp_Property_Features>,
-  path?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Features_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Property_Features_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Property_Features_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Property_Features_LinksAbout>>>,
-  up?: Maybe<Array<Maybe<Wordpress__Wp_Property_Features_LinksUp>>>,
-  wp_post_type?: Maybe<Array<Maybe<Wordpress__Wp_Property_Features_LinksWp_Post_Type>>>,
-  curies?: Maybe<Array<Maybe<Wordpress__Wp_Property_Features_LinksCuries>>>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Features_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Features_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksCuries = {
-  name?: Maybe<Scalars['String']>,
-  href?: Maybe<Scalars['String']>,
-  templated?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksCuriesFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-  templated?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksCuriesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Features_LinksCuriesFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Property_Features_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Property_Features_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Property_Features_LinksAboutFilterListInput>,
-  up?: Maybe<Wordpress__Wp_Property_Features_LinksUpFilterListInput>,
-  wp_post_type?: Maybe<Wordpress__Wp_Property_Features_LinksWp_Post_TypeFilterListInput>,
-  curies?: Maybe<Wordpress__Wp_Property_Features_LinksCuriesFilterListInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Features_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksUp = {
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksUpFilterInput = {
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksUpFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Features_LinksUpFilterInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksWp_Post_Type = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksWp_Post_TypeFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_Features_LinksWp_Post_TypeFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_Features_LinksWp_Post_TypeFilterInput>,
-};
-
-export type Wordpress__Wp_Property_FeaturesConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Property_FeaturesEdge>,
-  nodes: Array<Wordpress__Wp_Property_Features>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_Property_FeaturesGroupConnection>,
-};
-
-
-export type Wordpress__Wp_Property_FeaturesConnectionDistinctArgs = {
-  field: Wordpress__Wp_Property_FeaturesFieldsEnum
-};
-
-
-export type Wordpress__Wp_Property_FeaturesConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_Property_FeaturesFieldsEnum
-};
-
-export type Wordpress__Wp_Property_FeaturesEdge = {
-  next?: Maybe<Wordpress__Wp_Property_Features>,
-  node: Wordpress__Wp_Property_Features,
-  previous?: Maybe<Wordpress__Wp_Property_Features>,
-};
-
-export type Wordpress__Wp_Property_FeaturesFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'count' |
-  'description' |
-  'link' |
-  'name' |
-  'slug' |
-  'taxonomy' |
-  'wordpress_parent' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___up' |
-  '_links___up___embeddable' |
-  '_links___up___href' |
-  '_links___wp_post_type' |
-  '_links___wp_post_type___href' |
-  '_links___curies' |
-  '_links___curies___name' |
-  '_links___curies___href' |
-  '_links___curies___templated' |
-  'parent_element___id' |
-  'parent_element___parent___id' |
-  'parent_element___parent___parent___id' |
-  'parent_element___parent___parent___children' |
-  'parent_element___parent___children' |
-  'parent_element___parent___children___id' |
-  'parent_element___parent___children___children' |
-  'parent_element___parent___internal___content' |
-  'parent_element___parent___internal___contentDigest' |
-  'parent_element___parent___internal___description' |
-  'parent_element___parent___internal___fieldOwners' |
-  'parent_element___parent___internal___ignoreType' |
-  'parent_element___parent___internal___mediaType' |
-  'parent_element___parent___internal___owner' |
-  'parent_element___parent___internal___type' |
-  'parent_element___children' |
-  'parent_element___children___id' |
-  'parent_element___children___parent___id' |
-  'parent_element___children___parent___children' |
-  'parent_element___children___children' |
-  'parent_element___children___children___id' |
-  'parent_element___children___children___children' |
-  'parent_element___children___internal___content' |
-  'parent_element___children___internal___contentDigest' |
-  'parent_element___children___internal___description' |
-  'parent_element___children___internal___fieldOwners' |
-  'parent_element___children___internal___ignoreType' |
-  'parent_element___children___internal___mediaType' |
-  'parent_element___children___internal___owner' |
-  'parent_element___children___internal___type' |
-  'parent_element___internal___content' |
-  'parent_element___internal___contentDigest' |
-  'parent_element___internal___description' |
-  'parent_element___internal___fieldOwners' |
-  'parent_element___internal___ignoreType' |
-  'parent_element___internal___mediaType' |
-  'parent_element___internal___owner' |
-  'parent_element___internal___type' |
-  'parent_element___wordpress_id' |
-  'parent_element___count' |
-  'parent_element___description' |
-  'parent_element___link' |
-  'parent_element___name' |
-  'parent_element___slug' |
-  'parent_element___taxonomy' |
-  'parent_element___wordpress_parent' |
-  'parent_element____links___self' |
-  'parent_element____links___self___href' |
-  'parent_element____links___collection' |
-  'parent_element____links___collection___href' |
-  'parent_element____links___about' |
-  'parent_element____links___about___href' |
-  'parent_element____links___up' |
-  'parent_element____links___up___embeddable' |
-  'parent_element____links___up___href' |
-  'parent_element____links___wp_post_type' |
-  'parent_element____links___wp_post_type___href' |
-  'parent_element____links___curies' |
-  'parent_element____links___curies___name' |
-  'parent_element____links___curies___href' |
-  'parent_element____links___curies___templated' |
-  'parent_element___parent_element___id' |
-  'parent_element___parent_element___parent___id' |
-  'parent_element___parent_element___parent___children' |
-  'parent_element___parent_element___children' |
-  'parent_element___parent_element___children___id' |
-  'parent_element___parent_element___children___children' |
-  'parent_element___parent_element___internal___content' |
-  'parent_element___parent_element___internal___contentDigest' |
-  'parent_element___parent_element___internal___description' |
-  'parent_element___parent_element___internal___fieldOwners' |
-  'parent_element___parent_element___internal___ignoreType' |
-  'parent_element___parent_element___internal___mediaType' |
-  'parent_element___parent_element___internal___owner' |
-  'parent_element___parent_element___internal___type' |
-  'parent_element___parent_element___wordpress_id' |
-  'parent_element___parent_element___count' |
-  'parent_element___parent_element___description' |
-  'parent_element___parent_element___link' |
-  'parent_element___parent_element___name' |
-  'parent_element___parent_element___slug' |
-  'parent_element___parent_element___taxonomy' |
-  'parent_element___parent_element___wordpress_parent' |
-  'parent_element___parent_element____links___self' |
-  'parent_element___parent_element____links___collection' |
-  'parent_element___parent_element____links___about' |
-  'parent_element___parent_element____links___up' |
-  'parent_element___parent_element____links___wp_post_type' |
-  'parent_element___parent_element____links___curies' |
-  'parent_element___parent_element___parent_element___id' |
-  'parent_element___parent_element___parent_element___children' |
-  'parent_element___parent_element___parent_element___wordpress_id' |
-  'parent_element___parent_element___parent_element___count' |
-  'parent_element___parent_element___parent_element___description' |
-  'parent_element___parent_element___parent_element___link' |
-  'parent_element___parent_element___parent_element___name' |
-  'parent_element___parent_element___parent_element___slug' |
-  'parent_element___parent_element___parent_element___taxonomy' |
-  'parent_element___parent_element___parent_element___wordpress_parent' |
-  'parent_element___parent_element___parent_element___path' |
-  'parent_element___parent_element___path' |
-  'parent_element___path' |
-  'path';
-
-export type Wordpress__Wp_Property_FeaturesFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  count?: Maybe<IntQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  wordpress_parent?: Maybe<IntQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Property_Features_LinksFilterInput>,
-  parent_element?: Maybe<Wordpress__Wp_Property_FeaturesFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_FeaturesGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_Property_FeaturesEdge>,
-  nodes: Array<Wordpress__Wp_Property_Features>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_FeaturesSortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_Property_FeaturesFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type Wordpress__Wp_Property_Links = {
-  self?: Maybe<Array<Maybe<Wordpress__Wp_Property_LinksSelf>>>,
-  collection?: Maybe<Array<Maybe<Wordpress__Wp_Property_LinksCollection>>>,
-  about?: Maybe<Array<Maybe<Wordpress__Wp_Property_LinksAbout>>>,
-  replies?: Maybe<Array<Maybe<Wordpress__Wp_Property_LinksReplies>>>,
-  wp_featuredmedia?: Maybe<Array<Maybe<Wordpress__Wp_Property_LinksWp_Featuredmedia>>>,
-  wp_attachment?: Maybe<Array<Maybe<Wordpress__Wp_Property_LinksWp_Attachment>>>,
-  wp_term?: Maybe<Array<Maybe<Wordpress__Wp_Property_LinksWp_Term>>>,
-  curies?: Maybe<Array<Maybe<Wordpress__Wp_Property_LinksCuries>>>,
-};
-
-export type Wordpress__Wp_Property_LinksAbout = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_LinksAboutFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_LinksAboutFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_LinksAboutFilterInput>,
-};
-
-export type Wordpress__Wp_Property_LinksCollection = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_LinksCollectionFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_LinksCollectionFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_LinksCollectionFilterInput>,
-};
-
-export type Wordpress__Wp_Property_LinksCuries = {
-  name?: Maybe<Scalars['String']>,
-  href?: Maybe<Scalars['String']>,
-  templated?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_Property_LinksCuriesFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-  templated?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_LinksCuriesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_LinksCuriesFilterInput>,
-};
-
-export type Wordpress__Wp_Property_LinksFilterInput = {
-  self?: Maybe<Wordpress__Wp_Property_LinksSelfFilterListInput>,
-  collection?: Maybe<Wordpress__Wp_Property_LinksCollectionFilterListInput>,
-  about?: Maybe<Wordpress__Wp_Property_LinksAboutFilterListInput>,
-  replies?: Maybe<Wordpress__Wp_Property_LinksRepliesFilterListInput>,
-  wp_featuredmedia?: Maybe<Wordpress__Wp_Property_LinksWp_FeaturedmediaFilterListInput>,
-  wp_attachment?: Maybe<Wordpress__Wp_Property_LinksWp_AttachmentFilterListInput>,
-  wp_term?: Maybe<Wordpress__Wp_Property_LinksWp_TermFilterListInput>,
-  curies?: Maybe<Wordpress__Wp_Property_LinksCuriesFilterListInput>,
-};
-
-export type Wordpress__Wp_Property_LinksReplies = {
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_LinksRepliesFilterInput = {
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_LinksRepliesFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_LinksRepliesFilterInput>,
-};
-
-export type Wordpress__Wp_Property_LinksSelf = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_LinksSelfFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_LinksSelfFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_LinksSelfFilterInput>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_Attachment = {
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_AttachmentFilterInput = {
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_AttachmentFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_LinksWp_AttachmentFilterInput>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_Featuredmedia = {
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_FeaturedmediaFilterInput = {
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_FeaturedmediaFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_LinksWp_FeaturedmediaFilterInput>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_Term = {
-  taxonomy?: Maybe<Scalars['String']>,
-  embeddable?: Maybe<Scalars['Boolean']>,
-  href?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_TermFilterInput = {
-  taxonomy?: Maybe<StringQueryOperatorInput>,
-  embeddable?: Maybe<BooleanQueryOperatorInput>,
-  href?: Maybe<StringQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_Property_LinksWp_TermFilterListInput = {
-  elemMatch?: Maybe<Wordpress__Wp_Property_LinksWp_TermFilterInput>,
-};
-
-export type Wordpress__Wp_PropertyAcf = {
-  order?: Maybe<Scalars['String']>,
-  featured?: Maybe<Scalars['Boolean']>,
-};
-
-export type Wordpress__Wp_PropertyAcfFilterInput = {
-  order?: Maybe<StringQueryOperatorInput>,
-  featured?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type Wordpress__Wp_PropertyConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_PropertyEdge>,
-  nodes: Array<Wordpress__Wp_Property>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<Wordpress__Wp_PropertyGroupConnection>,
-};
-
-
-export type Wordpress__Wp_PropertyConnectionDistinctArgs = {
-  field: Wordpress__Wp_PropertyFieldsEnum
-};
-
-
-export type Wordpress__Wp_PropertyConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>,
-  field: Wordpress__Wp_PropertyFieldsEnum
-};
-
-export type Wordpress__Wp_PropertyEdge = {
-  next?: Maybe<Wordpress__Wp_Property>,
-  node: Wordpress__Wp_Property,
-  previous?: Maybe<Wordpress__Wp_Property>,
-};
-
-export type Wordpress__Wp_PropertyFieldsEnum = 
-  'id' |
-  'parent___id' |
-  'parent___parent___id' |
-  'parent___parent___parent___id' |
-  'parent___parent___parent___children' |
-  'parent___parent___children' |
-  'parent___parent___children___id' |
-  'parent___parent___children___children' |
-  'parent___parent___internal___content' |
-  'parent___parent___internal___contentDigest' |
-  'parent___parent___internal___description' |
-  'parent___parent___internal___fieldOwners' |
-  'parent___parent___internal___ignoreType' |
-  'parent___parent___internal___mediaType' |
-  'parent___parent___internal___owner' |
-  'parent___parent___internal___type' |
-  'parent___children' |
-  'parent___children___id' |
-  'parent___children___parent___id' |
-  'parent___children___parent___children' |
-  'parent___children___children' |
-  'parent___children___children___id' |
-  'parent___children___children___children' |
-  'parent___children___internal___content' |
-  'parent___children___internal___contentDigest' |
-  'parent___children___internal___description' |
-  'parent___children___internal___fieldOwners' |
-  'parent___children___internal___ignoreType' |
-  'parent___children___internal___mediaType' |
-  'parent___children___internal___owner' |
-  'parent___children___internal___type' |
-  'parent___internal___content' |
-  'parent___internal___contentDigest' |
-  'parent___internal___description' |
-  'parent___internal___fieldOwners' |
-  'parent___internal___ignoreType' |
-  'parent___internal___mediaType' |
-  'parent___internal___owner' |
-  'parent___internal___type' |
-  'children' |
-  'children___id' |
-  'children___parent___id' |
-  'children___parent___parent___id' |
-  'children___parent___parent___children' |
-  'children___parent___children' |
-  'children___parent___children___id' |
-  'children___parent___children___children' |
-  'children___parent___internal___content' |
-  'children___parent___internal___contentDigest' |
-  'children___parent___internal___description' |
-  'children___parent___internal___fieldOwners' |
-  'children___parent___internal___ignoreType' |
-  'children___parent___internal___mediaType' |
-  'children___parent___internal___owner' |
-  'children___parent___internal___type' |
-  'children___children' |
-  'children___children___id' |
-  'children___children___parent___id' |
-  'children___children___parent___children' |
-  'children___children___children' |
-  'children___children___children___id' |
-  'children___children___children___children' |
-  'children___children___internal___content' |
-  'children___children___internal___contentDigest' |
-  'children___children___internal___description' |
-  'children___children___internal___fieldOwners' |
-  'children___children___internal___ignoreType' |
-  'children___children___internal___mediaType' |
-  'children___children___internal___owner' |
-  'children___children___internal___type' |
-  'children___internal___content' |
-  'children___internal___contentDigest' |
-  'children___internal___description' |
-  'children___internal___fieldOwners' |
-  'children___internal___ignoreType' |
-  'children___internal___mediaType' |
-  'children___internal___owner' |
-  'children___internal___type' |
-  'internal___content' |
-  'internal___contentDigest' |
-  'internal___description' |
-  'internal___fieldOwners' |
-  'internal___ignoreType' |
-  'internal___mediaType' |
-  'internal___owner' |
-  'internal___type' |
-  'wordpress_id' |
-  'date' |
-  'guid' |
-  'modified' |
-  'slug' |
-  'status' |
-  'type' |
-  'link' |
-  'title' |
-  'content' |
-  'excerpt' |
-  'comment_status' |
-  'ping_status' |
-  'template' |
-  'property_city' |
-  'property_area' |
-  'property_features' |
-  'lake' |
-  'suitability' |
-  'size' |
-  'bathrooms' |
-  'bedrooms' |
-  'latitude' |
-  'longitude' |
-  'houseRules' |
-  'guests' |
-  'price' |
-  'pricePerWeek' |
-  'pricePerMonth' |
-  'rooms' |
-  'address' |
-  'order' |
-  'featured' |
-  'acf___order' |
-  'acf___featured' |
-  'bookedDates' |
-  'property_images' |
-  '_links___self' |
-  '_links___self___href' |
-  '_links___collection' |
-  '_links___collection___href' |
-  '_links___about' |
-  '_links___about___href' |
-  '_links___replies' |
-  '_links___replies___embeddable' |
-  '_links___replies___href' |
-  '_links___wp_featuredmedia' |
-  '_links___wp_featuredmedia___embeddable' |
-  '_links___wp_featuredmedia___href' |
-  '_links___wp_attachment' |
-  '_links___wp_attachment___href' |
-  '_links___wp_term' |
-  '_links___wp_term___taxonomy' |
-  '_links___wp_term___embeddable' |
-  '_links___wp_term___href' |
-  '_links___curies' |
-  '_links___curies___name' |
-  '_links___curies___href' |
-  '_links___curies___templated' |
-  'featured_media___id' |
-  'featured_media___parent___id' |
-  'featured_media___parent___parent___id' |
-  'featured_media___parent___parent___children' |
-  'featured_media___parent___children' |
-  'featured_media___parent___children___id' |
-  'featured_media___parent___children___children' |
-  'featured_media___parent___internal___content' |
-  'featured_media___parent___internal___contentDigest' |
-  'featured_media___parent___internal___description' |
-  'featured_media___parent___internal___fieldOwners' |
-  'featured_media___parent___internal___ignoreType' |
-  'featured_media___parent___internal___mediaType' |
-  'featured_media___parent___internal___owner' |
-  'featured_media___parent___internal___type' |
-  'featured_media___children' |
-  'featured_media___children___id' |
-  'featured_media___children___parent___id' |
-  'featured_media___children___parent___children' |
-  'featured_media___children___children' |
-  'featured_media___children___children___id' |
-  'featured_media___children___children___children' |
-  'featured_media___children___internal___content' |
-  'featured_media___children___internal___contentDigest' |
-  'featured_media___children___internal___description' |
-  'featured_media___children___internal___fieldOwners' |
-  'featured_media___children___internal___ignoreType' |
-  'featured_media___children___internal___mediaType' |
-  'featured_media___children___internal___owner' |
-  'featured_media___children___internal___type' |
-  'featured_media___internal___content' |
-  'featured_media___internal___contentDigest' |
-  'featured_media___internal___description' |
-  'featured_media___internal___fieldOwners' |
-  'featured_media___internal___ignoreType' |
-  'featured_media___internal___mediaType' |
-  'featured_media___internal___owner' |
-  'featured_media___internal___type' |
-  'featured_media___wordpress_id' |
-  'featured_media___date' |
-  'featured_media___guid___id' |
-  'featured_media___guid___parent___id' |
-  'featured_media___guid___parent___children' |
-  'featured_media___guid___children' |
-  'featured_media___guid___children___id' |
-  'featured_media___guid___children___children' |
-  'featured_media___guid___internal___content' |
-  'featured_media___guid___internal___contentDigest' |
-  'featured_media___guid___internal___description' |
-  'featured_media___guid___internal___fieldOwners' |
-  'featured_media___guid___internal___ignoreType' |
-  'featured_media___guid___internal___mediaType' |
-  'featured_media___guid___internal___owner' |
-  'featured_media___guid___internal___type' |
-  'featured_media___guid___wordpress_id' |
-  'featured_media___guid___date' |
-  'featured_media___guid___guid___id' |
-  'featured_media___guid___guid___children' |
-  'featured_media___guid___guid___wordpress_id' |
-  'featured_media___guid___guid___date' |
-  'featured_media___guid___guid___modified' |
-  'featured_media___guid___guid___slug' |
-  'featured_media___guid___guid___status' |
-  'featured_media___guid___guid___type' |
-  'featured_media___guid___guid___link' |
-  'featured_media___guid___guid___title' |
-  'featured_media___guid___guid___author' |
-  'featured_media___guid___guid___comment_status' |
-  'featured_media___guid___guid___ping_status' |
-  'featured_media___guid___guid___template' |
-  'featured_media___guid___guid___description' |
-  'featured_media___guid___guid___caption' |
-  'featured_media___guid___guid___alt_text' |
-  'featured_media___guid___guid___media_type' |
-  'featured_media___guid___guid___mime_type' |
-  'featured_media___guid___guid___post' |
-  'featured_media___guid___guid___source_url' |
-  'featured_media___guid___guid___path' |
-  'featured_media___guid___modified' |
-  'featured_media___guid___slug' |
-  'featured_media___guid___status' |
-  'featured_media___guid___type' |
-  'featured_media___guid___link' |
-  'featured_media___guid___title' |
-  'featured_media___guid___author' |
-  'featured_media___guid___comment_status' |
-  'featured_media___guid___ping_status' |
-  'featured_media___guid___template' |
-  'featured_media___guid___meta___lbn_published_stage' |
-  'featured_media___guid___meta___lbn_published_production' |
-  'featured_media___guid___description' |
-  'featured_media___guid___caption' |
-  'featured_media___guid___alt_text' |
-  'featured_media___guid___media_type' |
-  'featured_media___guid___mime_type' |
-  'featured_media___guid___media_details___width' |
-  'featured_media___guid___media_details___height' |
-  'featured_media___guid___media_details___file' |
-  'featured_media___guid___media_details___dummy' |
-  'featured_media___guid___post' |
-  'featured_media___guid___source_url' |
-  'featured_media___guid____links___self' |
-  'featured_media___guid____links___collection' |
-  'featured_media___guid____links___about' |
-  'featured_media___guid____links___author' |
-  'featured_media___guid____links___replies' |
-  'featured_media___guid___localFile___sourceInstanceName' |
-  'featured_media___guid___localFile___absolutePath' |
-  'featured_media___guid___localFile___relativePath' |
-  'featured_media___guid___localFile___extension' |
-  'featured_media___guid___localFile___size' |
-  'featured_media___guid___localFile___prettySize' |
-  'featured_media___guid___localFile___modifiedTime' |
-  'featured_media___guid___localFile___accessTime' |
-  'featured_media___guid___localFile___changeTime' |
-  'featured_media___guid___localFile___birthTime' |
-  'featured_media___guid___localFile___root' |
-  'featured_media___guid___localFile___dir' |
-  'featured_media___guid___localFile___base' |
-  'featured_media___guid___localFile___ext' |
-  'featured_media___guid___localFile___name' |
-  'featured_media___guid___localFile___relativeDirectory' |
-  'featured_media___guid___localFile___dev' |
-  'featured_media___guid___localFile___mode' |
-  'featured_media___guid___localFile___nlink' |
-  'featured_media___guid___localFile___uid' |
-  'featured_media___guid___localFile___gid' |
-  'featured_media___guid___localFile___rdev' |
-  'featured_media___guid___localFile___ino' |
-  'featured_media___guid___localFile___atimeMs' |
-  'featured_media___guid___localFile___mtimeMs' |
-  'featured_media___guid___localFile___ctimeMs' |
-  'featured_media___guid___localFile___atime' |
-  'featured_media___guid___localFile___mtime' |
-  'featured_media___guid___localFile___ctime' |
-  'featured_media___guid___localFile___birthtime' |
-  'featured_media___guid___localFile___birthtimeMs' |
-  'featured_media___guid___localFile___blksize' |
-  'featured_media___guid___localFile___blocks' |
-  'featured_media___guid___localFile___url' |
-  'featured_media___guid___localFile___publicURL' |
-  'featured_media___guid___localFile___id' |
-  'featured_media___guid___localFile___children' |
-  'featured_media___guid___localFile___childrenTestimonialsJson' |
-  'featured_media___guid___localFile___childrenTeamJson' |
-  'featured_media___guid___path' |
-  'featured_media___modified' |
-  'featured_media___slug' |
-  'featured_media___status' |
-  'featured_media___type' |
-  'featured_media___link' |
-  'featured_media___title' |
-  'featured_media___author' |
-  'featured_media___comment_status' |
-  'featured_media___ping_status' |
-  'featured_media___template' |
-  'featured_media___meta___lbn_published_stage' |
-  'featured_media___meta___lbn_published_production' |
-  'featured_media___description' |
-  'featured_media___caption' |
-  'featured_media___alt_text' |
-  'featured_media___media_type' |
-  'featured_media___mime_type' |
-  'featured_media___media_details___width' |
-  'featured_media___media_details___height' |
-  'featured_media___media_details___file' |
-  'featured_media___media_details___image_meta___aperture' |
-  'featured_media___media_details___image_meta___credit' |
-  'featured_media___media_details___image_meta___camera' |
-  'featured_media___media_details___image_meta___caption' |
-  'featured_media___media_details___image_meta___created_timestamp' |
-  'featured_media___media_details___image_meta___copyright' |
-  'featured_media___media_details___image_meta___focal_length' |
-  'featured_media___media_details___image_meta___iso' |
-  'featured_media___media_details___image_meta___shutter_speed' |
-  'featured_media___media_details___image_meta___title' |
-  'featured_media___media_details___image_meta___orientation' |
-  'featured_media___media_details___dummy' |
-  'featured_media___post' |
-  'featured_media___source_url' |
-  'featured_media____links___self' |
-  'featured_media____links___self___href' |
-  'featured_media____links___collection' |
-  'featured_media____links___collection___href' |
-  'featured_media____links___about' |
-  'featured_media____links___about___href' |
-  'featured_media____links___author' |
-  'featured_media____links___author___embeddable' |
-  'featured_media____links___author___href' |
-  'featured_media____links___replies' |
-  'featured_media____links___replies___embeddable' |
-  'featured_media____links___replies___href' |
-  'featured_media___localFile___sourceInstanceName' |
-  'featured_media___localFile___absolutePath' |
-  'featured_media___localFile___relativePath' |
-  'featured_media___localFile___extension' |
-  'featured_media___localFile___size' |
-  'featured_media___localFile___prettySize' |
-  'featured_media___localFile___modifiedTime' |
-  'featured_media___localFile___accessTime' |
-  'featured_media___localFile___changeTime' |
-  'featured_media___localFile___birthTime' |
-  'featured_media___localFile___root' |
-  'featured_media___localFile___dir' |
-  'featured_media___localFile___base' |
-  'featured_media___localFile___ext' |
-  'featured_media___localFile___name' |
-  'featured_media___localFile___relativeDirectory' |
-  'featured_media___localFile___dev' |
-  'featured_media___localFile___mode' |
-  'featured_media___localFile___nlink' |
-  'featured_media___localFile___uid' |
-  'featured_media___localFile___gid' |
-  'featured_media___localFile___rdev' |
-  'featured_media___localFile___ino' |
-  'featured_media___localFile___atimeMs' |
-  'featured_media___localFile___mtimeMs' |
-  'featured_media___localFile___ctimeMs' |
-  'featured_media___localFile___atime' |
-  'featured_media___localFile___mtime' |
-  'featured_media___localFile___ctime' |
-  'featured_media___localFile___birthtime' |
-  'featured_media___localFile___birthtimeMs' |
-  'featured_media___localFile___blksize' |
-  'featured_media___localFile___blocks' |
-  'featured_media___localFile___url' |
-  'featured_media___localFile___publicURL' |
-  'featured_media___localFile___childImageSharp___id' |
-  'featured_media___localFile___childImageSharp___children' |
-  'featured_media___localFile___id' |
-  'featured_media___localFile___parent___id' |
-  'featured_media___localFile___parent___children' |
-  'featured_media___localFile___children' |
-  'featured_media___localFile___children___id' |
-  'featured_media___localFile___children___children' |
-  'featured_media___localFile___internal___content' |
-  'featured_media___localFile___internal___contentDigest' |
-  'featured_media___localFile___internal___description' |
-  'featured_media___localFile___internal___fieldOwners' |
-  'featured_media___localFile___internal___ignoreType' |
-  'featured_media___localFile___internal___mediaType' |
-  'featured_media___localFile___internal___owner' |
-  'featured_media___localFile___internal___type' |
-  'featured_media___localFile___childrenTestimonialsJson' |
-  'featured_media___localFile___childrenTestimonialsJson___id' |
-  'featured_media___localFile___childrenTestimonialsJson___children' |
-  'featured_media___localFile___childrenTestimonialsJson___body' |
-  'featured_media___localFile___childrenTestimonialsJson___rating' |
-  'featured_media___localFile___childrenTestimonialsJson___author' |
-  'featured_media___localFile___childrenTeamJson' |
-  'featured_media___localFile___childrenTeamJson___id' |
-  'featured_media___localFile___childrenTeamJson___children' |
-  'featured_media___localFile___childrenTeamJson___name' |
-  'featured_media___localFile___childrenTeamJson___title' |
-  'featured_media___localFile___childrenTeamJson___bio' |
-  'featured_media___path' |
-  'path' |
-  'category___id' |
-  'category___parent___id' |
-  'category___parent___parent___id' |
-  'category___parent___parent___children' |
-  'category___parent___children' |
-  'category___parent___children___id' |
-  'category___parent___children___children' |
-  'category___parent___internal___content' |
-  'category___parent___internal___contentDigest' |
-  'category___parent___internal___description' |
-  'category___parent___internal___fieldOwners' |
-  'category___parent___internal___ignoreType' |
-  'category___parent___internal___mediaType' |
-  'category___parent___internal___owner' |
-  'category___parent___internal___type' |
-  'category___children' |
-  'category___children___id' |
-  'category___children___parent___id' |
-  'category___children___parent___children' |
-  'category___children___children' |
-  'category___children___children___id' |
-  'category___children___children___children' |
-  'category___children___internal___content' |
-  'category___children___internal___contentDigest' |
-  'category___children___internal___description' |
-  'category___children___internal___fieldOwners' |
-  'category___children___internal___ignoreType' |
-  'category___children___internal___mediaType' |
-  'category___children___internal___owner' |
-  'category___children___internal___type' |
-  'category___internal___content' |
-  'category___internal___contentDigest' |
-  'category___internal___description' |
-  'category___internal___fieldOwners' |
-  'category___internal___ignoreType' |
-  'category___internal___mediaType' |
-  'category___internal___owner' |
-  'category___internal___type' |
-  'category___wordpress_id' |
-  'category___count' |
-  'category___description' |
-  'category___link' |
-  'category___name' |
-  'category___slug' |
-  'category___taxonomy' |
-  'category___wordpress_parent' |
-  'category____links___self' |
-  'category____links___self___href' |
-  'category____links___collection' |
-  'category____links___collection___href' |
-  'category____links___about' |
-  'category____links___about___href' |
-  'category____links___wp_post_type' |
-  'category____links___wp_post_type___href' |
-  'category____links___curies' |
-  'category____links___curies___name' |
-  'category____links___curies___href' |
-  'category____links___curies___templated' |
-  'category___path';
-
-export type Wordpress__Wp_PropertyFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  wordpress_id?: Maybe<IntQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  guid?: Maybe<StringQueryOperatorInput>,
-  modified?: Maybe<DateQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
-  type?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
-  content?: Maybe<StringQueryOperatorInput>,
-  excerpt?: Maybe<StringQueryOperatorInput>,
-  comment_status?: Maybe<StringQueryOperatorInput>,
-  ping_status?: Maybe<StringQueryOperatorInput>,
-  template?: Maybe<StringQueryOperatorInput>,
-  property_city?: Maybe<IntQueryOperatorInput>,
-  property_area?: Maybe<IntQueryOperatorInput>,
-  property_features?: Maybe<IntQueryOperatorInput>,
-  lake?: Maybe<IntQueryOperatorInput>,
-  suitability?: Maybe<StringQueryOperatorInput>,
-  size?: Maybe<StringQueryOperatorInput>,
-  bathrooms?: Maybe<StringQueryOperatorInput>,
-  bedrooms?: Maybe<StringQueryOperatorInput>,
-  latitude?: Maybe<StringQueryOperatorInput>,
-  longitude?: Maybe<StringQueryOperatorInput>,
-  houseRules?: Maybe<StringQueryOperatorInput>,
-  guests?: Maybe<StringQueryOperatorInput>,
-  price?: Maybe<StringQueryOperatorInput>,
-  pricePerWeek?: Maybe<StringQueryOperatorInput>,
-  pricePerMonth?: Maybe<StringQueryOperatorInput>,
-  rooms?: Maybe<StringQueryOperatorInput>,
-  address?: Maybe<StringQueryOperatorInput>,
-  order?: Maybe<StringQueryOperatorInput>,
-  featured?: Maybe<StringQueryOperatorInput>,
-  acf?: Maybe<Wordpress__Wp_PropertyAcfFilterInput>,
-  bookedDates?: Maybe<IntQueryOperatorInput>,
-  property_images?: Maybe<IntQueryOperatorInput>,
-  _links?: Maybe<Wordpress__Wp_Property_LinksFilterInput>,
-  featured_media?: Maybe<Wordpress__Wp_MediaFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-  category?: Maybe<Wordpress__Wp_Property_CategoryFilterInput>,
-};
-
-export type Wordpress__Wp_PropertyGroupConnection = {
-  totalCount: Scalars['Int'],
-  edges: Array<Wordpress__Wp_PropertyEdge>,
-  nodes: Array<Wordpress__Wp_Property>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue?: Maybe<Scalars['String']>,
-};
-
-export type Wordpress__Wp_PropertySortInput = {
-  fields?: Maybe<Array<Maybe<Wordpress__Wp_PropertyFieldsEnum>>>,
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type CategoriesQueryVariables = {};
-
-
-export type CategoriesQuery = { allWordpressWpCategory: { nodes: Array<Pick<Wordpress__Wp_Category, 'id' | 'name' | 'slug'>> } };
-
 export type ConciergeServiceFragment = (
-  Pick<Wordpress__Wp_Page_ContentAcfConcierge_Services, 'service'>
-  & { image: Maybe<{ localFile: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }> }
+  Pick<ConciergeServicesJson, 'name'>
+  & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }
 );
 
 export type Unnamed_1_QueryVariables = {};
 
 
-export type Unnamed_1_Query = { wordpressWpPageContent: Maybe<{ acf: Maybe<{ concierge_services: Maybe<Array<Maybe<ConciergeServiceFragment>>> }> }> };
+export type Unnamed_1_Query = { allConciergeServicesJson: { nodes: Array<ConciergeServiceFragment> } };
+
+export type CottageCardFragment = (
+  Pick<RentalsJson, 'id' | 'bedrooms' | 'price' | 'guests' | 'slug' | 'title' | 'category'>
+  & { picture: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }
+);
+
+export type GuestServiceFragment = (
+  Pick<GuestServicesJson, 'name' | 'description'>
+  & { icon: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }
+);
+
+export type GuestServicesQueryVariables = {};
+
+
+export type GuestServicesQuery = { allGuestServicesJson: { nodes: Array<(
+      Pick<GuestServicesJson, 'id'>
+      & GuestServiceFragment
+    )> } };
 
 export type Unnamed_2_QueryVariables = {};
 
 
-export type Unnamed_2_Query = { post: Maybe<(
-    Pick<Wordpress__Wp_Page_Content, 'content'>
-    & { featured_media: Maybe<{ localFile: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }> }
-  )> };
-
-export type CottageCardFragment = (
-  Pick<Wordpress__Wp_Property, 'id' | 'bedrooms' | 'price' | 'guests' | 'slug' | 'title'>
-  & { category: Maybe<Pick<Wordpress__Wp_Property_Category, 'name'>>, featured_media: Maybe<{ localFile: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }> }
-);
-
-export type CottageInfoFragment = (
-  Pick<Wordpress__Wp_Property, 'bedrooms' | 'guests' | 'size'>
-  & { category: Maybe<Pick<Wordpress__Wp_Property_Category, 'name'>> }
-);
-
-export type CottageFragment = (
-  Pick<Wordpress__Wp_Property, 'id' | 'content' | 'suitability' | 'price' | 'slug' | 'title'>
-  & { featured_media: Maybe<{ localFile: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }> }
-  & CottageInfoFragment
-);
+export type Unnamed_2_Query = { logo: Maybe<{ childImageSharp: Maybe<{ fixed: Maybe<> }> }>, links: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'footerLinks'>> }> };
 
 export type Unnamed_3_QueryVariables = {};
 
 
-export type Unnamed_3_Query = { logo: Maybe<{ childImageSharp: Maybe<{ fixed: Maybe<> }> }>, links: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'footerLinks'>> }> };
+export type Unnamed_3_Query = { logo: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }>, icon: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> };
 
 export type Unnamed_4_QueryVariables = {};
 
 
-export type Unnamed_4_Query = { logo: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }>, icon: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> };
+export type Unnamed_4_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'headerLinks'>> }> };
 
-export type Unnamed_5_QueryVariables = {};
-
-
-export type Unnamed_5_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'headerLinks'>> }> };
-
-export type Unnamed_6_QueryVariables = {};
+export type TeamQueryVariables = {};
 
 
-export type Unnamed_6_Query = { allTeamJson: { nodes: Array<(
+export type TeamQuery = { allTeamJson: { nodes: Array<(
       Pick<TeamJson, 'id' | 'name' | 'title' | 'bio'>
       & { picture: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }
     )> } };
 
-export type PageFragment = (
-  Pick<Wordpress__Wp_Page_Content, 'title' | 'content'>
-  & { featured_media: Maybe<{ localFile: Maybe<PageImageFragment> }> }
-);
-
 export type PageImageFragment = { childImageSharp: Maybe<{ fluid: Maybe<> }> };
 
-export type PostCardFragment = (
-  Pick<Wordpress__Wp_Blog_Post, 'id' | 'slug' | 'title' | 'date'>
-  & { featured_media: Maybe<{ localFile: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> }> }
-);
+export type Unnamed_5_QueryVariables = {};
+
+
+export type Unnamed_5_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'productionUrl'>> }> };
+
+export type RentalsQueryVariables = {};
+
+
+export type RentalsQuery = { allRentalsJson: { nodes: Array<CottageCardFragment> } };
+
+export type Unnamed_6_QueryVariables = {};
+
+
+export type Unnamed_6_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 export type Unnamed_7_QueryVariables = {};
 
 
-export type Unnamed_7_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'productionUrl'>> }> };
-
-export type Unnamed_8_QueryVariables = {};
-
-
-export type Unnamed_8_Query = { roomTypes: { nodes: Array<CottageCardFragment> } };
-
-export type Unnamed_9_QueryVariables = {};
-
-
-export type Unnamed_9_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
-
-export type Unnamed_10_QueryVariables = {};
-
-
-export type Unnamed_10_Query = { swirl: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> };
+export type Unnamed_7_Query = { swirl: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }> };
 
 export type TestimonialFragment = (
   Pick<TestimonialsJson, 'author' | 'body' | 'rating'>
   & { property: Maybe<Pick<TestimonialsJsonProperty, 'name' | 'location'>> }
 );
 
-export type Unnamed_11_QueryVariables = {};
+export type Unnamed_8_QueryVariables = {};
 
 
-export type Unnamed_11_Query = { testimonials: { nodes: Array<TestimonialFragment> }, image: Maybe<PageImageFragment> };
+export type Unnamed_8_Query = { testimonials: { nodes: Array<TestimonialFragment> }, image: Maybe<PageImageFragment> };
 
-export type BlogPageQueryVariables = {};
-
-
-export type BlogPageQuery = { allWordpressWpBlogPost: { nodes: Array<PostCardFragment> } };
-
-export type BuyOrSellPageQueryVariables = {};
+export type Unnamed_9_QueryVariables = {};
 
 
-export type BuyOrSellPageQuery = { page: Maybe<PageFragment> };
+export type Unnamed_9_Query = { image: Maybe<PageImageFragment> };
 
-export type Unnamed_12_QueryVariables = {};
-
-
-export type Unnamed_12_Query = { image: Maybe<PageImageFragment> };
-
-export type Unnamed_13_QueryVariables = {};
+export type HomePageQueryVariables = {};
 
 
-export type Unnamed_13_Query = { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }>, lakes: { nodes: Array<Pick<Wordpress__Wp_Lake, 'wordpress_id' | 'name'>> }, cottages: { nodes: Array<(
-      Pick<Wordpress__Wp_Property, 'id' | 'lake' | 'bookedDates'>
-      & CottageFragment
-    )> }, site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'productionUrl'>> }> };
-
-export type Unnamed_14_QueryVariables = {};
-
-
-export type Unnamed_14_Query = { page: Maybe<PageFragment> };
-
-export type Unnamed_15_QueryVariables = {};
-
-
-export type Unnamed_15_Query = { logoImg: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }>, headerImg: Maybe<PageImageFragment>, aboutImg: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }>, testimonials: { nodes: Array<TestimonialFragment> }, blogPosts: { edges: Array<{ node: PostCardFragment }> } };
-
-export type Unnamed_16_QueryVariables = {};
-
-
-export type Unnamed_16_Query = { page: Maybe<PageFragment> };
-
-export type Unnamed_17_QueryVariables = {};
-
-
-export type Unnamed_17_Query = { page: Maybe<PageFragment> };
+export type HomePageQuery = { logoImg: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }>, headerImg: Maybe<PageImageFragment>, aboutImg: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<> }> }>, testimonials: { nodes: Array<TestimonialFragment> } };

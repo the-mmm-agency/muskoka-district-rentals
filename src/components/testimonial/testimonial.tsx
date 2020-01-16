@@ -1,13 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import React, { FC } from 'react'
+import { TestimonialFragment } from 'src/graphql-types'
 
+import StarRating from 'components/cottage/cottage.rating'
 import Flex from 'elements/flex'
 import Heading from 'elements/heading'
 import Text from 'elements/text'
-import StarRating from 'components/cottage/cottage.rating'
 
-const Testimonial = ({ body, rating, author, property }) => (
+const Testimonial: FC<TestimonialFragment> = ({
+  body,
+  rating,
+  author,
+  property,
+}) => (
   <Flex
     display="flex"
     flexDirection="column"
@@ -47,21 +52,11 @@ const Testimonial = ({ body, rating, author, property }) => (
     </Text>
     <StarRating rating={rating} starDimension="1.5rem" />
     <Text fontWeight="medium" mt={{ xs: 3, sm: 5 }} mb={0}>
-      <b>{author} -</b> Review for {property.name} from{' '}
-      <b>{property.location}</b>
+      <b>{author} -</b> Review for {property?.name} from{' '}
+      <b>{property?.location}</b>
     </Text>
   </Flex>
-)
-
-Testimonial.propTypes = {
-  author: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  property: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-  }).isRequired,
-  rating: PropTypes.number.isRequired,
-}
+);
 
 export const query = graphql`
   fragment Testimonial on TestimonialsJson {
@@ -73,6 +68,6 @@ export const query = graphql`
     }
     rating
   }
-`
+`;
 
-export default Testimonial
+export default Testimonial;

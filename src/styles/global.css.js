@@ -14,6 +14,10 @@ const styles = css`
   .cwuCQv {
     width: 40px;
   }
+  .gatsby-resp-image-wrapper {
+    margin-left: 0 !important;
+    max-width: 300px !important;
+  }
   .rsc-header-title {
     color: white;
   }

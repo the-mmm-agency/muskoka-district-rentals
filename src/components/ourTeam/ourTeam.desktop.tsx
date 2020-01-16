@@ -1,15 +1,15 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import Img from 'gatsby-image';
-import React, { useMemo } from 'react';
-import { useNumber } from 'react-hanger';
+import { AnimatePresence, motion } from 'framer-motion'
+import Img from 'gatsby-image'
+import React, { useMemo } from 'react'
+import { useNumber } from 'react-hanger'
 
-import MemberInfo from './memberInfo';
-import MemberList from './memberList';
-import { Root } from './ourTeam.desktop.css';
-import { OurTeamProps } from './ourTeam.types';
+import MemberInfo from './memberInfo'
+import MemberList from './memberList'
+import { Root } from './ourTeam.desktop.css'
+import { OurTeamProps } from './ourTeam.types'
 
-import Flex from 'elements/flex';
-import Heading from 'elements/heading';
+import Flex from 'elements/flex'
+import Heading from 'elements/heading'
 
 const OurTeam: React.FC<OurTeamProps> = ({ team }) => {
   const selected = useNumber(0, {

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Travel Insurance",
+    "description": "We offer Travel Medical and Trip Interruption Insurance options for our guests through TD Travel Insurance and Manulife Insurance.",
+    "icon": "../src/images/travel-insurance.png"
+  },
+  {
+    "name": "Guest Concierge",
+    "description": "Our concierge can assist with enhanced services such as private chefs, water sports lessons, childcare, yoga on the dock, hot tub rentals, special events & much more. Email our Concierge here!",
+    "icon": "../src/images/guest-concierge.png"
+  },
+  {
+    "name": "Vacation Property Searches",
+    "description": "We search for premium rental properties based on your preferred region, lake or community, number of guests & budget. Searches are complimentary. Search Now.",
+    "icon": "../src/images/property-search.png"
+  },
+  {
+    "name": "Guest Pre-approval Registration",
+    "description": "For maximum selection in choosing any of our luxury rental properties, complete our online guest profile to become a pre-approved guest. Register Now.",
+    "icon": "../src/images/registration.png"
+  }
+]

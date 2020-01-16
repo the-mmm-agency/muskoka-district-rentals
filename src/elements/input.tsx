@@ -1,13 +1,14 @@
-import styled from '@emotion/styled';
-import { system, th } from '@xstyled/system';
-import { transparentize } from 'polished';
-import React from 'react';
+import styled from '@emotion/styled'
+import { system, th } from '@xstyled/system'
+import { transparentize } from 'polished'
+import React from 'react'
 
-import { transition } from 'theme/transitions';
+import { transition } from 'theme/transitions'
 
 const Wrapper = styled.div`
   position: relative;
   display: inline-flex;
+  background-color: #eaeaea;
   flex-grow: 1;
   span {
     position: absolute;
@@ -23,6 +24,9 @@ const Wrapper = styled.div`
     ${transition('transform')};
   }
   input {
+    ::placeholder {
+      margin-left: 1em;
+    }
     &:focus {
       & ~ span {
         transform: scaleX(1);

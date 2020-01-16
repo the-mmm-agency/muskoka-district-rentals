@@ -1,30 +1,30 @@
-import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Send } from 'styled-icons/boxicons-regular/Send'
-import { Youtube } from 'styled-icons/boxicons-logos/Youtube'
-import { Instagram } from 'styled-icons/boxicons-logos/Instagram'
+import React from 'react'
 import { Facebook } from 'styled-icons/boxicons-logos/Facebook'
+import { Instagram } from 'styled-icons/boxicons-logos/Instagram'
+import { Youtube } from 'styled-icons/boxicons-logos/Youtube'
+import { Send } from 'styled-icons/boxicons-regular/Send'
 
-import FooterList from './footerList'
 import {
   Copyright,
-  Logo,
-  StyledFooter,
-  Info,
   Hr,
-  SocialIcons,
+  Info,
+  Logo,
   SignUp,
+  SocialIcons,
+  StyledFooter
 } from './footer.css'
+import FooterList from './footerList'
 
-import Input from 'elements/input'
 import Flex from 'elements/flex'
+import Input from 'elements/input'
 
 const Footer = () => {
   const { logo, links } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "logo-white.png" }) {
         childImageSharp {
-          fixed(width: 160, height: 42) {
+          fixed(width: 160, height: 50) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -35,7 +35,7 @@ const Footer = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <StyledFooter>
@@ -78,7 +78,7 @@ const Footer = () => {
         </SocialIcons>
       </Flex>
     </StyledFooter>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

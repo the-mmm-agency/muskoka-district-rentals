@@ -1,23 +1,31 @@
-import ProductionLink from 'components/productionLink'
-import Card, { CardContent } from 'elements/card'
-import Text from 'elements/text'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
-import React from 'react'
-
 import { css } from '@xstyled/emotion'
+import { graphql } from 'gatsby'
+import Img, { FluidObject } from 'gatsby-image'
+import React, { FC } from 'react'
 
 import CottageInfo from './cottage.info'
 import StarRating from './cottage.rating'
 
-const CottageCard = ({
+import ProductionLink from 'components/productionLink'
+import Card, { CardContent } from 'elements/card'
+import Text from 'elements/text'
+
+interface CottageCardProps {
+  bedrooms: number;
+  category: string;
+  price: number;
+  guests: number;
+  slug: string;
+  title: string;
+  picture: { childImageSharp: { fluid: FluidObject } };
+}
+
+const CottageCard: FC<CottageCardProps> = ({
   bedrooms,
-  featured_media,
+  picture,
   guests,
   category,
   price,
-  reviewAvg,
   slug,
   title,
 }) => (
@@ -30,14 +38,14 @@ const CottageCard = ({
         }
       `}
     >
-      <Img fluid={featured_media.localFile.childImageSharp.fluid} />
+      <Img fluid={picture.childImageSharp.fluid} />
       <CardContent>
         <h6 dangerouslySetInnerHTML={{ __html: title }} />
         <StarRating
           padding={0}
           marginBottom={1}
           css={{ padding: 0 }}
-          rating={reviewAvg}
+          rating={5}
           starDimension="1rem"
         />
         <CottageInfo category={category} guests={guests} bedrooms={bedrooms} />
@@ -51,43 +59,25 @@ const CottageCard = ({
       </CardContent>
     </ProductionLink>
   </Card>
-)
-
-CottageCard.propTypes = {
-  bedrooms: PropTypes.string.isRequired,
-  category: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }).isRequired,
-  featured_media: PropTypes.object.isRequired,
-  guests: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  reviewAvg: PropTypes.number.isRequired,
-  reviewCount: PropTypes.number.isRequired,
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-}
+);
 
 export const query = graphql`
-  fragment CottageCard on wordpress__wp_property {
+  fragment CottageCard on RentalsJson {
     id
     bedrooms
     price
     guests
     slug
     title
-    category {
-      name
-    }
-    featured_media {
-      localFile {
-        childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+    category
+    picture {
+      childImageSharp {
+        fluid(maxWidth: 3000) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
   }
-`
+`;
 
-export default CottageCard
+export default CottageCard;

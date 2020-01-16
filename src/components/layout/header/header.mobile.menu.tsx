@@ -1,9 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-import { ExternalLink, GatsbyLink } from './header.mobile.css';
+import {
+  ExternalLink,
+  GatsbyLink
+} from './header.mobile.css'
 
-import ProductionLink from 'components/productionLink/index';
-import Flex from 'elements/flex';
+import ProductionLink from 'components/productionLink/index'
+import Flex from 'elements/flex'
 
 interface HeaderMenuProps {
   handleClick: () => void;
@@ -15,7 +18,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({ links, handleClick }) => (
     <GatsbyLink to="/" onClick={handleClick}>
       Home
     </GatsbyLink>
-    <ExternalLink to="/properties">Cottages</ExternalLink>
+    <ExternalLink to="/properties">All Cottages</ExternalLink>
     {links.map(to => (
       <GatsbyLink key={to} to={to} onClick={handleClick}>
         {to.replace('/', '').replace(/-/g, ' ')}
