@@ -43,7 +43,7 @@ const GuestService: FC<GuestServiceProps> = ({ name, description, icon }) => (
         {name}
       </Heading>
       <Text as="p" maxWidth="800px">
-        {description}
+        <div dangerouslySetInnerHTML={{ __html: description as string }} />
       </Text>
     </Box>
   </Flex>

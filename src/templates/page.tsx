@@ -23,7 +23,7 @@ const PageTemplate: FC<PageProps> = ({
 }) => (
   <>
     <SEO title={title} />
-    <Image fluid={hero.childImageSharp.fluid} Tag="section">
+    <Image fluid={hero?.childImageSharp?.fluid} Tag="section">
       <Heading
         as="h1"
         mb={1}
