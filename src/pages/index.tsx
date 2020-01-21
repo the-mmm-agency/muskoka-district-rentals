@@ -114,7 +114,8 @@ const IndexPage = ({
             will always know exactly what was charged to your guests.
           </Text>
           <span>
-            <b>Ross Halloran -</b> Founder Muskoka District Rentals
+            <b>Ross Halloran &amp; Maryrose Coleman -</b> Co-founders of Muskoka
+            District Rentals
             <br />
             <b>Email:</b>&nbsp;
             <a href="mailto:hello@muskokadistrictrentals.com">

@@ -42,6 +42,8 @@ const ContactForm = () => {
         />
         <Box
           as="textarea"
+          minHeight="200px"
+          backgroundColor="#eaeaea"
           name="message"
           rows={6}
           width="100%"

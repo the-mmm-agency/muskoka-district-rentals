@@ -52,7 +52,7 @@ const Footer = () => {
         <SignUp>
           <span>Sign up for our newsletter</span>
           <span>
-            <Input placeholder="Your email..." />
+            <Input backgroundColor="transparent" placeholder="Your email..." />
             <Send />
           </span>
         </SignUp>

@@ -55,7 +55,7 @@ const Contact = () => {
 
   return (
     <Image fluid={data.file.childImageSharp.fluid}>
-      <h2>Contact us</h2>
+      <h2>Get in Touch With Us</h2>
       <h4>Canada</h4>
       <span>Port Carling: 113 Medora St Port Carling ON P0B 1J0</span>
       <span>Foot’s Bay: 1007 McDonald Rd MacTier ON P0C 1H0</span>
@@ -64,7 +64,10 @@ const Contact = () => {
       <h4>USA</h4>
       <span>812 Briny Ave Suite 7B Pompano Beach FL 33062</span>
       <span>
-        <strong>Email:</strong> hello@muskokadistrictrentals.com
+        <strong>Email:</strong>{' '}
+        <a href="mailto:hello@muskokadistrictrentals.com">
+          hello@muskokadistrictrentals.com
+        </a>
       </span>
       <span>Call toll free:</span>
       <h3>+1 800 615 2537</h3>

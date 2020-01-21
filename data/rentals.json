@@ -1,5 +1,14 @@
 [
   {
+    "bedrooms": 6,
+    "price": 2315,
+    "guests": 14,
+    "title": "Lake House",
+    "picture": "../src/images/muskoka-wonderland.jpg",
+    "slug": "muskoka-wonderland",
+    "category": "Cottage"
+  },
+  {
     "bedrooms": 15,
     "price": 5000,
     "guests": 20,
