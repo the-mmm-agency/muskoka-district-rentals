@@ -26,7 +26,7 @@ const styles = css`
     transform: none !important;
   }
   .rsc-float-button {
-    ${down('sm')} {
+    ${down('md')} {
       bottom: 64px;
     }
   }
