@@ -27,7 +27,7 @@ const Header: FC<HeaderProps> = ({ links }) => (
 
       <hr />
       <Hidden down="xl">
-        <StyledA href="https://muskokadistrictrentals.kigobook.com/properties/">
+        <StyledA href="https://www.muskokadistrictrentals.com/cottages">
           All Cottages
         </StyledA>
       </Hidden>
