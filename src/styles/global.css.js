@@ -18,6 +18,9 @@ const styles = css`
     margin-left: 0 !important;
     max-width: 300px !important;
   }
+  .rsc-container {
+    z-index: 9999;
+  }
   .rsc-header-title {
     color: white;
   }
