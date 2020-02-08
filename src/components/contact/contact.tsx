@@ -55,7 +55,7 @@ const Contact = () => {
 
   return (
     <Image fluid={data.file.childImageSharp.fluid}>
-      <h2>Get in Touch With Us</h2>
+      <h2>Get In Touch With Us</h2>
       <h4>Canada</h4>
       <span>Port Carling: 113 Medora St Port Carling ON P0B 1J0</span>
       <span>Foot’s Bay: 1007 McDonald Rd MacTier ON P0C 1H0</span>
