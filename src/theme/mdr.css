@@ -1,0 +1,73 @@
+div#call-to-action-div {
+  display: flex;
+  align-items: center;
+}
+.call-to-actions .call-to-action-inner .actions {
+  display: none !important;
+}
+.call-to-actions .call-to-action-inner,
+.actions-wrapper {
+  width: 10% !important;
+}
+.btn-default {
+  color: #fff !important;
+  background-color: #212a38 !important;
+}
+a {
+  color: #212a38 !important;
+}
+.navbar {
+  border: none;
+}
+.nav.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.navbar-default {
+  color: #212a38 !important;
+  border-color: transparent !important;
+  background-color: #fff !important;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  color: #212a38 !important;
+  background-color: #fff !important;
+}
+header.navbar .top-level-nav ul.navbar-nav li a {
+  font-family: serif !important;
+  font-size: 1.7rem;
+}
+.sidebar-search .panel-group {
+  border: 1px solid #eaecef !important;
+}
+.sidebar-search .panel-group .panel.panel-default {
+  background-color: #fcfcfc !important;
+}
+#footer {
+  display: none !important;
+}
+.property-list.luxury .property-tile:hover {
+  border-color: #212a38 !important;
+}
+.property-list.luxury .property-tile:hover .property-headline .price {
+  border-bottom-color: #212a38 !important;
+}
+.property-list.luxury .property-tile:hover::after {
+  border-top-color: #212a38 !important;
+}
+.pagination>.active > a,
+.pagination>.active > span,
+.pagination>.active > a:hover,
+.pagination>.active > span:hover,
+.pagination>.active > a:focus,
+.pagination>.active > span:focus {
+  color: #fff !important;
+  border-color: #212a38 !important;
+  background-color: #212a38 !important;
+}
+.pagination>li > a,
+.pagination>li > span {
+  color: #212a38 !important;
+}

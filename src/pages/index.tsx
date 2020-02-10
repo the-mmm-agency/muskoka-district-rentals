@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import React from 'react'
 
 import ChatBot from 'components/chatbot'
+import CheckAvailability from 'components/checkAvailability'
 import ConciergeServices from 'components/conciergeServices'
 import Contact from 'components/contact'
 import HorizontalScroll from 'components/horizontalScroll'
@@ -48,6 +49,7 @@ const IndexPage = ({
       <span>welcome to</span>
       <Logo sizes={{ ...logoImg.childImageSharp.fluid, aspectRatio: 15 / 4 }} />
     </HeaderImage>
+    <CheckAvailability />
     <Flex
       alignItems="center"
       as="section"

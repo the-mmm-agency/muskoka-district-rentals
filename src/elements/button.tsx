@@ -79,6 +79,7 @@ const variants = variant({
       })};
       color: white;
       font-weight: bold;
+      text-align: center;
       font-family: serif;
       letter-spacing: 0.1em;
       text-transform: uppercase;

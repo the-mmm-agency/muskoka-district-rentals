@@ -1,0 +1,69 @@
+$primary = #212a38
+$white = #fff
+$bg = #f1f1f1
+$dark = #eaecef
+$light = #fcfcfc
+i = !important;
+
+c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
+  if x is a 'call' or x is a 'rgba' {            color: xi is 0? x : x i }
+  if y is a 'call' or y is a 'rgba' {     border-color: yi is 0? y : y i }
+  if z is a 'call' or z is a 'rgba' { background-color: zi is 0? z : z i }
+}
+
+
+
+div#call-to-action-div
+  display flex
+  align-items center
+
+
+.call-to-actions .call-to-action-inner .actions
+  display none i
+
+.call-to-actions .call-to-action-inner,
+.actions-wrapper
+  width 10% i
+
+
+.btn-default { c: $white 0 $primary }
+a { c: $primary }
+.navbar
+  border none
+.nav.navbar-nav
+  width 100%
+  display flex
+  justify-content center
+.navbar-default { c: $primary transparent $white }
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus
+  c $primary 0 $white
+
+header.navbar .top-level-nav ul.navbar-nav li a
+  font-family serif i
+  font-size 1.7rem
+
+
+.sidebar-search
+  .panel-group
+    border 1px solid $dark i
+    .panel.panel-default { c: 0 0 $light }
+
+
+#footer
+  display none i
+
+.property-list.luxury .property-tile:hover
+  border-color $primary i
+  .property-headline .price
+      border-bottom-color $primary i
+    &::after
+      border-top-color $primary i
+
+
+.pagination>.active
+  & > a, & > span
+    &, &:hover, &:focus
+      c $white $primary $primary
+
+.pagination>li
+  & > a, & > span { c: $primary; }
