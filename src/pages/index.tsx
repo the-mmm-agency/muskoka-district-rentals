@@ -9,13 +9,11 @@ import ConciergeServices from 'components/conciergeServices'
 import Contact from 'components/contact'
 import HorizontalScroll from 'components/horizontalScroll'
 import PageImage from 'components/pageImage'
-import ProductionLink from 'components/productionLink'
 import Rentals from 'components/rentals'
 import SEO from 'components/seo'
 import SwirlBackground from 'components/swirlBackground'
 import Testimonial from 'components/testimonial'
 import Box from 'elements/box'
-import Button from 'elements/button'
 import Flex from 'elements/flex'
 import Text from 'elements/text'
 
@@ -60,15 +58,6 @@ const IndexPage = ({
       textAlign="center"
     >
       <ChatBot />
-      <Button
-        as={ProductionLink}
-        variant="serif"
-        size="wide"
-        m={2}
-        to="/properties"
-      >
-        Book Now
-      </Button>
       <Flex
         flexBasis={{ xs: '100%', lg: '50%' }}
         flexDirection={{ xs: 'column', lg: 'row' }}
