@@ -10,7 +10,7 @@ export const Wrapper = styled(Flex)`
     background-color: backgroundLight;
     border-color: transparent;
     box-shadow: 25;
-    margin-top: 5;
+    margin-top: -5;
     width: 80%;
     z-index: 999;
     padding-left: 3;

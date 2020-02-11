@@ -19,6 +19,7 @@ import Text from 'elements/text'
 
 const HeaderImage = styled(PageImage)`
   min-height: 35rem;
+  z-index: -1;
   display: flex;
   span {
     font-weight: bold;
