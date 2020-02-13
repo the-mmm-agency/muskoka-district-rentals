@@ -27,6 +27,13 @@ const Image = styled(BackgroundImage)`
     margin-top: 3;
     margin-bottom: 1;
   }
+  a {
+    color: white;
+    transition: color ease cubic-bezier(0.645, 0.045, 0.355, 1);
+    &:hover {
+      color: secondary;
+    }
+  }
   display: flex;
   flex-basis: 100%;
   flex-direction: column;
