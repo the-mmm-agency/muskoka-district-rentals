@@ -3,6 +3,15 @@ import styled from '@xstyled/emotion'
 import Flex from 'elements/flex'
 import scrollbars from 'styles/scrollbars.css'
 
+export const Button = styled.button`
+  border-radius: 50%;
+  background: backgroundDark;
+  width: 4em;
+  height: 4em;
+  position: absolute;
+  top: 50%;
+`;
+
 const HorizontalScrollInner = styled(Flex)`
   width: 100vw;
   div[data-elastic-wrapper='true'] {
@@ -20,6 +29,6 @@ const HorizontalScrollInner = styled(Flex)`
     width: 100vw;
     ${scrollbars};
   }
-`
+`;
 
-export default HorizontalScrollInner
+export default HorizontalScrollInner;

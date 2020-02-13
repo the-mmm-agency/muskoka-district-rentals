@@ -1,13 +1,42 @@
-import React from 'react'
+import React, {
+  FC,
+  MutableRefObject,
+  RefObject,
+  useRef
+} from 'react'
 
-import HorizontalScrollInner from './horizontalScroll.css'
+import HorizontalScrollInner, { Button } from './horizontalScroll.css'
 
 import ElasticScroll from 'components/elasticScroll'
 
-const HorizontalScroll = ({ children, ...props }) => (
-  <ElasticScroll>
-    <HorizontalScrollInner {...props}>{children}</HorizontalScrollInner>
-  </ElasticScroll>
-)
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactElement;
+}
 
-export default HorizontalScroll
+const HorizontalScroll: FC<Props> = ({ children, ...props }) => {
+  if (typeof document === 'undefined') return null;
+  const ref = useRef<HTMLDivElement>();
+  const right = () => {
+    const el = ref?.current?.querySelector('[data-elastic-wrapper=true]');
+    el?.scroll(el.scrollLeft + 300, 0);
+  };
+  const left = () => {
+    const el = ref?.current?.querySelector('[data-elastic-wrapper=true]');
+    el?.scroll(el.scrollLeft - 300, 0);
+  };
+  return (
+    <>
+      <ElasticScroll>
+        <HorizontalScrollInner ref={ref} {...props}>
+          {children}
+        </HorizontalScrollInner>
+      </ElasticScroll>
+      <Button onClick={left}>&#8249;</Button>
+      <Button onClick={right} css={{ right: 0 }}>
+        &#8250;
+      </Button>
+    </>
+  );
+};
+
+export default HorizontalScroll;
