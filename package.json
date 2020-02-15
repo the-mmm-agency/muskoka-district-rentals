@@ -77,7 +77,7 @@
     "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-preset-gatsby": "^0.2.18",
     "child_process": "^1.0.2",
-    "constate": "^1.2.0",
+    "constate": "^2.0.0",
     "dayjs": "^1.8.20",
     "dayjs-plugin-utc": "^0.1.2",
     "dotenv": "^8.0.0",
