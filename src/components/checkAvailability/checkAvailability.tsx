@@ -126,6 +126,7 @@ const CheckAvailability = ({ theme, ...props }) => {
             <Select
               options={lakes.map(name => ({ label: name, value: name }))}
               style={{ width: '100%' }}
+              placeholder="Select your lakes"
               className="select"
               onChange={setLake}
               isMulti
