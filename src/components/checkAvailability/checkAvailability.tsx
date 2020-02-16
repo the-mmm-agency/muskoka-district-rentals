@@ -12,6 +12,7 @@ import dayjs from 'dayjs'
 import { range } from 'ramda'
 import React, { useState } from 'react'
 import { DateUtils } from 'react-day-picker'
+import Select from 'react-select'
 import { ChevronDown } from 'styled-icons/evil/ChevronDown'
 import { useMediaLayout } from 'use-media'
 
@@ -25,6 +26,7 @@ import {
 } from './checkAvailability.css'
 import DateSection from './dateSection'
 import LabelCheck from './labelCheck'
+import { lakes } from './lakes'
 
 import Modal from 'components/modal'
 import ProductionLink from 'components/productionLink'
@@ -39,14 +41,12 @@ const CheckAvailability = ({ theme, ...props }) => {
     to,
     handleFrom,
     handleTo,
-    pets,
-    children,
-    handlePets,
-    handleChildren,
     guests,
     handleGuests,
   } = useAvailability();
   const [open, setOpen] = useState(false);
+  const [lake, setLake] = useState('');
+  console.log(lake);
   const [localRange, setLocalRange] = useState({
     from: null,
     to: null,
@@ -123,11 +123,13 @@ const CheckAvailability = ({ theme, ...props }) => {
       >
         <SectionWrapper borderRight="transparent !important" px={2}>
           <Flex justifyContent="space-between" mb={3}>
-            <LabelCheck label="Pets" checked={pets} onChange={handlePets} />
-            <LabelCheck
-              label="Children"
-              checked={children}
-              onChange={handleChildren}
+            <Select
+              options={lakes.map(name => ({ label: name, value: name }))}
+              style={{ width: '100%' }}
+              className="select"
+              onChange={setLake}
+              isMulti
+              closeMenuOnSelect={false}
             />
           </Flex>
           <Button
@@ -141,7 +143,7 @@ const CheckAvailability = ({ theme, ...props }) => {
             variant="serif"
             to={`/#?a=${dayjs(localRange.from).format('YYYY-MM-DD')}&d=${dayjs(
               localRange.to
-            ).format('YYYY-MM-DD')}&g=${guests}&ad=2`}
+            ).format('YYYY-MM-DD')}&g=${guests}&ad=2?l=${lakes.join(',')}`}
           >
             check availability
           </Button>

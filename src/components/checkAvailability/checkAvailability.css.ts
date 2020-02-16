@@ -15,6 +15,9 @@ export const Wrapper = styled(Flex)`
     z-index: 999;
     padding-left: 3;
   }
+  .select {
+    min-width: 100%;
+  }
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
