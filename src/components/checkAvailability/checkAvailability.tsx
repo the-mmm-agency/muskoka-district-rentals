@@ -26,7 +26,7 @@ import {
 } from './checkAvailability.css'
 import DateSection from './dateSection'
 import LabelCheck from './labelCheck'
-import { lakes } from './lakes'
+import { Lakes } from './lakes'
 
 import Modal from 'components/modal'
 import ProductionLink from 'components/productionLink'
@@ -45,8 +45,7 @@ const CheckAvailability = ({ theme, ...props }) => {
     handleGuests,
   } = useAvailability();
   const [open, setOpen] = useState(false);
-  const [lake, setLake] = useState('');
-  console.log(lake);
+  const [lake, setLake] = useState([]);
   const [localRange, setLocalRange] = useState({
     from: null,
     to: null,
@@ -82,6 +81,7 @@ const CheckAvailability = ({ theme, ...props }) => {
     setGuests(true);
   };
 
+  console.log(lake);
   return (
     <Wrapper {...props}>
       <DateSection
@@ -124,7 +124,10 @@ const CheckAvailability = ({ theme, ...props }) => {
         <SectionWrapper borderRight="transparent !important" px={2}>
           <Flex justifyContent="space-between" mb={3}>
             <Select
-              options={lakes.map(name => ({ label: name, value: name }))}
+              options={Object.entries(Lakes).map(([label, value]) => ({
+                label,
+                value,
+              }))}
               style={{ width: '100%' }}
               placeholder="Select your lakes"
               className="select"
@@ -144,7 +147,9 @@ const CheckAvailability = ({ theme, ...props }) => {
             variant="serif"
             to={`/#?a=${dayjs(localRange.from).format('YYYY-MM-DD')}&d=${dayjs(
               localRange.to
-            ).format('YYYY-MM-DD')}&g=${guests}&ad=2?l=${lakes.join(',')}`}
+            ).format('YYYY-MM-DD')}&g=${guests}&ad=2&gp=${lake
+              ?.map(({ value }) => value)
+              ?.join(',')}`}
           >
             check availability
           </Button>
