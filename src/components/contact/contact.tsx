@@ -77,7 +77,7 @@ const Contact = () => {
         </a>
       </span>
       <span>Call toll free:</span>
-      <h3>+1 800 615 2537</h3>
+      <h3>+1-800-615-2537</h3>
     </Image>
   );
 };
