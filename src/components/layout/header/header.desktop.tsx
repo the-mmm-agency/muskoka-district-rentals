@@ -47,12 +47,17 @@ const Header: FC<HeaderProps> = ({ links }) => {
             onClose={() => setMenu(false)}
           >
             <MenuList>
-              {Object.entries(Lakes).map(([lake, id]) => (
-                <MenuListItem key={id}>
-                  <ProductionLink to={`/#?gp=${id}`}>
-                    <MenuListItemText primaryText={lake} />
-                  </ProductionLink>
+              <ProductionLink to="/cottages">
+                <MenuListItem>
+                  <MenuListItemText primaryText="All Cottages" />
                 </MenuListItem>
+              </ProductionLink>
+              {Object.entries(Lakes).map(([lake, id]) => (
+                <ProductionLink to={`/#?gp=${id}`}>
+                  <MenuListItem key={id}>
+                    <MenuListItemText primaryText={lake} />
+                  </MenuListItem>
+                </ProductionLink>
               ))}
             </MenuList>
           </Menu>
