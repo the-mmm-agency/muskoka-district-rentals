@@ -31,9 +31,11 @@ const HorizontalScroll: FC<Props> = ({ children, ...props }) => {
           {children}
         </HorizontalScrollInner>
       </ElasticScroll>
-      <Button onMouseDown={left}>&#8249;</Button>
+      <Button onMouseDown={left}>
+        <span>&#8249;</span>
+      </Button>
       <Button onMouseDown={right} css={{ right: 0 }}>
-        &#8250;
+        <span>&#8250;</span>
       </Button>
     </>
   );
