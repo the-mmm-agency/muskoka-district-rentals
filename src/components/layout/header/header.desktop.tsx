@@ -49,7 +49,7 @@ const Header: FC<HeaderProps> = ({ links }) => {
             <MenuList>
               {Object.entries(Lakes).map(([lake, id]) => (
                 <MenuListItem key={id}>
-                  <ProductionLink to={`/#?g=${id}`}>
+                  <ProductionLink to={`/#?gp=${id}`}>
                     <MenuListItemText primaryText={lake} />
                   </ProductionLink>
                 </MenuListItem>
