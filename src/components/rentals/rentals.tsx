@@ -35,7 +35,7 @@ const Rentals = () => {
 
   const [selected, setSelected] = useState(0);
 
-  const heading = 'Our Rentals';
+  const heading = 'Rent a Cottage';
 
   return (
     <>
@@ -69,6 +69,10 @@ const Rentals = () => {
             css={css`
               width: 100%;
               margin-top: 5;
+              text-transform: uppercase;
+              letter-spacing: 0.15em;
+              font-size: 1.2rem;
+              text-decoration: underline;
               color: white;
               font-weight: bold;
               line-height: 100px;

@@ -16,7 +16,7 @@ const styles = css`
   }
   .gatsby-resp-image-wrapper {
     margin-left: 0 !important;
-    max-width: 300px !important;
+    max-width: 250px !important;
   }
   .rsc-container {
     z-index: 9999;
@@ -33,6 +33,7 @@ const styles = css`
       bottom: 64px;
     }
   }
+
   html {
     box-sizing: border-box;
     font-size: 14px;

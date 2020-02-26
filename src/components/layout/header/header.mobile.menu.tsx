@@ -1,11 +1,9 @@
-import React, { FC } from 'react'
+import Menu from '@material/react-menu'
+import React, { FC, useState } from 'react'
 
-import {
-  ExternalLink,
-  GatsbyLink
-} from './header.mobile.css'
+import CottageMenu from './header.cottages'
+import { GatsbyLink, Text } from './header.mobile.css'
 
-import ProductionLink from 'components/productionLink/index'
 import Flex from 'elements/flex'
 
 interface HeaderMenuProps {
@@ -13,18 +11,34 @@ interface HeaderMenuProps {
   links: string[];
 }
 
-const HeaderMenu: FC<HeaderMenuProps> = ({ links, handleClick }) => (
-  <Flex as="nav" width="100%" flexWrap="wrap" maxHeight="100%">
-    <GatsbyLink to="/" onClick={handleClick}>
-      Home
-    </GatsbyLink>
-    <ExternalLink to="/properties">All Cottages</ExternalLink>
-    {links.map(to => (
-      <GatsbyLink key={to} to={to} onClick={handleClick}>
-        {to.replace('/', '').replace(/-/g, ' ')}
+const HeaderMenu: FC<HeaderMenuProps> = ({ links, handleClick }) => {
+  const [menuOpen, setMenu] = useState(false);
+
+  const [menuAnchor, setMenuAnchor] = useState(null);
+  const openMenu = event => {
+    setMenuAnchor(event.currentTarget);
+    setMenu(true);
+  };
+  return (
+    <Flex as="nav" width="100%" flexWrap="wrap" maxHeight="100%">
+      <GatsbyLink to="/" onClick={handleClick}>
+        Home
       </GatsbyLink>
-    ))}
-  </Flex>
-);
+      <Menu
+        open={menuOpen}
+        anchorElement={menuAnchor}
+        onClose={() => setMenu(false)}
+      >
+        <CottageMenu />
+      </Menu>
+      <Text onClick={openMenu}>Locations &#9660;</Text>
+      {links.map(to => (
+        <GatsbyLink key={to} to={to} onClick={handleClick}>
+          {to.replace('/', '').replace(/-/g, ' ')}
+        </GatsbyLink>
+      ))}
+    </Flex>
+  );
+};
 
 export default HeaderMenu;

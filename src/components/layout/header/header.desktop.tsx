@@ -1,19 +1,12 @@
-import Menu, {
-  MenuList,
-  MenuListItem,
-  MenuListItemText
-} from '@material/react-menu'
-import { range } from 'ramda'
+import Menu from '@material/react-menu'
 import React, { FC, useState } from 'react'
 
-import { Lakes } from '../../checkAvailability/lakes'
+import CottageMenu from './header.cottages'
 import { Nav, StyledHeader } from './header.desktop.css'
 import HeaderLink, { StyledA } from './header.link'
 import Logo from './header.logo'
 
 import Hidden from 'components/hidden'
-import ProductionLink from 'components/productionLink'
-import Button from 'elements/button'
 
 interface HeaderProps {
   links: string[];
@@ -46,22 +39,9 @@ const Header: FC<HeaderProps> = ({ links }) => {
             anchorElement={menuAnchor}
             onClose={() => setMenu(false)}
           >
-            <MenuList>
-              <ProductionLink to="/cottages">
-                <MenuListItem>
-                  <MenuListItemText primaryText="All Cottages" />
-                </MenuListItem>
-              </ProductionLink>
-              {Object.entries(Lakes).map(([lake, id]) => (
-                <ProductionLink to={`/#?gp=${id}`}>
-                  <MenuListItem key={id}>
-                    <MenuListItemText primaryText={lake} />
-                  </MenuListItem>
-                </ProductionLink>
-              ))}
-            </MenuList>
+            <CottageMenu />
           </Menu>
-          <StyledA onClick={openMenu}>Our Cottages</StyledA>
+          <StyledA onClick={openMenu}>Locations &#9660;</StyledA>
         </Hidden>
         {links.map(to => (
           <HeaderLink to={to} key={to} />

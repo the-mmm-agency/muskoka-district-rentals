@@ -16,7 +16,7 @@ const Root = styled(Flex)`
   margin: 3;
   color: white;
   text-align: left;
-  opacity: 0.5;
+  opacity: 0.8;
   ${transition('opacity')};
 `;
 

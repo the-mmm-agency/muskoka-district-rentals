@@ -106,7 +106,7 @@ const CheckAvailability = ({ theme, ...props }) => {
               onSelected={index => handleGuests(index + 1)}
             >
               <MenuList>
-                {range(1, 15).map(number => (
+                {range(1, 36).map(number => (
                   <MenuListItem key={number}>
                     <MenuListItemText primaryText={number} />
                   </MenuListItem>

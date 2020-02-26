@@ -3,6 +3,7 @@ $white = #fff
 $bg = #f1f1f1
 $dark = #eaecef
 $light = #fcfcfc
+$footer = #212020
 i = !important;
 
 c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
@@ -11,11 +12,13 @@ c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
   if z is a 'call' or z is a 'rgba' { background-color: zi is 0? z : z i }
 }
 
-
-
 div#call-to-action-div
   display flex
   align-items center
+
+.dropdown-menu
+  max-height 300px
+  overflow hidden scroll
 
 
 .call-to-actions .call-to-action-inner .actions
@@ -67,3 +70,107 @@ header.navbar .top-level-nav ul.navbar-nav li a
 
 .pagination>li
   & > a, & > span { c: $primary; }
+
+
+.my-footer
+  c 0 0 $footer
+  padding 4.8rem 9.6rem
+
+
+.css-iftjh7
+  c 0 0 rgba(255,255,255,0.2)
+  height 1px
+  width 100%
+  margin-bottom 2.4rem
+  margin-top 2.4rem
+
+.css-1buokca
+  box-sizing border-box
+  flex-basis 0
+  flex-grow 1
+  max-width 25%
+  flex 0 0 25%
+  align-items center
+  flex-wrap wrap
+  justify-content center
+  min-width 100%
+  display flex
+
+.css-19d5ipa
+  c $white 0 $footer
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  padding 4.8rem 9.6rem
+
+
+.css-1yvyndl
+  c: $white
+  font-size 14px
+  text-transform capitalize
+  opacity 0.4
+  transition-timing-function cubic-bezier(0.4,0,0.2,1)
+  transition-duration 300ms
+  transition-property opacity
+
+.css-igzj34 a
+  opacity 0.5
+  c $white
+  width 1.5em
+  margin-right 1.2rem
+  transition-timing-function cubic-bezier(0.4,0,0.2,1)
+  transition-duration 300ms
+  transition-property opacity
+
+
+.css-igzj34 a
+  opacity 0.5
+  c $white
+  width 1.5em
+  margin-right 1.2rem
+  -webkit-transition-timing-function cubic-bezier(0.4, 0, 0.2, 1)
+  transition-timing-function cubic-bezier(0.4, 0, 0.2, 1)
+  -webkit-transition-duration 300ms
+  transition-duration 300ms
+  -webkit-transition-property opacity
+  transition-property opacity
+
+  svg.sc-bdVaJa.iJCmgd
+    opacity 0.5
+    c $white
+    width 1.5em !important
+    margin-right 1.2rem
+    -webkit-transition-timing-function cubic-bezier(0.4, 0, 0.2, 1)
+    transition-timing-function cubic-bezier(0.4, 0, 0.2, 1)
+    -webkit-transition-duration 300ms
+    transition-duration 300ms
+    -webkit-transition-property opacity
+    transition-property opacity
+
+.css-1rs6kqg
+  width 100%
+  display flex
+
+
+.css-iftjh7
+    border-color rgba(255,255,255,0.2)
+    margin-bottom 2.4rem
+    margin-top 2.4rem
+
+
+
+.css-1s72sdz
+  display flex
+  margin-right auto
+
+.footerList___StyledUl-g1pxob-0
+  list-style none
+
+.css-igzj34
+  display: flex;
+  margin-left: auto;
+  margin-top: 1em;
+
+.panel-group
+  overlfow scroll
+  max-height 50vh

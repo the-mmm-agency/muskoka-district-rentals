@@ -1,10 +1,10 @@
-import styled, { css } from '@xstyled/emotion';
+import styled, { css } from '@xstyled/emotion'
 
-import { StyledHeader } from './header.desktop.css';
+import { StyledHeader } from './header.desktop.css'
 
-import ProductionLink from 'components/productionLink';
-import Link from 'elements/link';
-import { transition } from 'theme/transitions';
+import ProductionLink from 'components/productionLink'
+import Link from 'elements/link'
+import { transition } from 'theme/transitions'
 
 const activeStyle = ({ active }: { active: boolean }) => css`
   height: ${active ? '35rem' : '60px'};
@@ -17,6 +17,10 @@ const link = css`
   font-size: 4;
   font-family: serif;
   text-transform: capitalize;
+`;
+
+export const Text = styled.span`
+  ${link}
 `;
 
 export const GatsbyLink = styled(Link)`

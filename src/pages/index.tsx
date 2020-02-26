@@ -49,6 +49,9 @@ const IndexPage = ({
       <Logo sizes={{ ...logoImg.childImageSharp.fluid, aspectRatio: 15 / 4 }} />
     </HeaderImage>
     <CheckAvailability />
+    <Flex mt={5} css={{ '& > *': { width: '100%' } }} width="100%">
+      <Rentals />
+    </Flex>
     <Flex
       alignItems="center"
       as="section"
@@ -114,12 +117,11 @@ const IndexPage = ({
               hello@muskokadistrictrentals.com
             </a>
             <br />
-            <b>Phone:</b>&nbsp;<a href="tel:1800-615-2537">1800-615-2537</a>
+            <b>Phone:</b>&nbsp;<a href="tel:1800-615-2537">1.800.615.2537</a>
           </span>
         </Flex>
       </Flex>
     </Flex>
-    <Rentals />
     <ConciergeServices />
     <SwirlBackground>
       <HorizontalScroll>

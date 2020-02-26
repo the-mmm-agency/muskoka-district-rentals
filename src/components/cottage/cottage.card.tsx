@@ -38,7 +38,11 @@ const CottageCard: FC<CottageCardProps> = ({
         }
       `}
     >
-      <Img fluid={picture.childImageSharp.fluid} />
+      <Img
+        css={{ height: 200 }}
+        imgStyle={{ height: 200 }}
+        fluid={picture.childImageSharp.fluid}
+      />
       <CardContent>
         <h6 dangerouslySetInnerHTML={{ __html: title }} />
         <StarRating

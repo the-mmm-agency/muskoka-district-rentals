@@ -17,7 +17,7 @@ const AboutUs = ({ data: { image, testimonials } }) => (
     <SEO title="About Us" />
     <PageImage fluid={image.childImageSharp.fluid}>
       <Heading
-        as="h1"
+        as="h3"
         mb={1}
         position="relative"
         zIndex={2}
@@ -25,7 +25,7 @@ const AboutUs = ({ data: { image, testimonials } }) => (
         maxWidth={500}
         lineHeight="70px"
       >
-        About Us
+        Welcome To Muskoka District Rentals
       </Heading>
     </PageImage>
     <Flex

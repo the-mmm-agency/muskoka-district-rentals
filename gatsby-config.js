@@ -57,6 +57,7 @@ module.exports = {
             options: {
               wrapperStyle: 'margin-left: none;',
               disableBgImage: true,
+              maxWidth: 400,
               withWebp: true,
             },
           },

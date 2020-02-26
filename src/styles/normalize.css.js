@@ -1,4 +1,4 @@
-import { css } from '@xstyled/emotion'
+import { css } from '@xstyled/emotion';
 
 const normalize = css`
   * {
@@ -99,9 +99,6 @@ const normalize = css`
       border-style: none;
     }
     &:hover {
-      @media (hover: none) {
-        background-color: transparent;
-      }
       text-decoration: none;
     }
     svg {
@@ -171,5 +168,5 @@ const normalize = css`
   tr {
     text-align: left;
   }
-`
-export default normalize
+`;
+export default normalize;
