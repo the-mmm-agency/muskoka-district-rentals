@@ -33,16 +33,14 @@ const Header: FC<HeaderProps> = ({ links }) => {
         </span>
 
         <hr />
-        <Hidden down="xl">
-          <Menu
-            open={menuOpen}
-            anchorElement={menuAnchor}
-            onClose={() => setMenu(false)}
-          >
-            <CottageMenu />
-          </Menu>
-          <StyledA onClick={openMenu}>Locations &#9660;</StyledA>
-        </Hidden>
+        <Menu
+          open={menuOpen}
+          anchorElement={menuAnchor}
+          onClose={() => setMenu(false)}
+        >
+          <CottageMenu />
+        </Menu>
+        <StyledA onClick={openMenu}>Locations &#9660;</StyledA>
         {links.map(to => (
           <HeaderLink to={to} key={to} />
         ))}
