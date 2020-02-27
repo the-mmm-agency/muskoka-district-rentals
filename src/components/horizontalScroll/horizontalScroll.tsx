@@ -1,4 +1,5 @@
 import React, { FC, useRef } from 'react'
+import { ChevronLeft, ChevronRight } from 'react-feather'
 
 import HorizontalScrollInner, { Button } from './horizontalScroll.css'
 
@@ -30,10 +31,10 @@ const HorizontalScroll: FC<Props> = ({ children, ...props }) => {
         </HorizontalScrollInner>
       </ElasticScroll>
       <Button onMouseDown={() => scroll('left')}>
-        <span css={{ marginTop: -1 }}>&#8249;</span>
+        <ChevronLeft size="3em" fill="none" />
       </Button>
       <Button onMouseDown={() => scroll('right')} css={{ right: 0 }}>
-        <span css={{ marginTop: -1 }}>&#8250;</span>
+        <ChevronRight size="3em" fill="none" />
       </Button>
     </Flex>
   );

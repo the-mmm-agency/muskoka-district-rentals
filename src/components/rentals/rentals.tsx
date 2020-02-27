@@ -52,8 +52,13 @@ const Rentals = () => {
         </Box>
       </Hidden>
       <Hidden down="md">
-        <Page fluid={rentals[selected]?.picture?.childImageSharp?.fluid}>
-          <Heading as="h3" fontSize={1} color="white" mb={5}>
+        <Flex
+          as="section"
+          alignItems="center"
+          flexDirection="column"
+          textAlign="center"
+        >
+          <Heading as="h3" fontSize={1} mb={5}>
             {heading}
           </Heading>
           <Flex flexBasis="calc(100% / 3)" listStyle="none">
@@ -68,12 +73,12 @@ const Rentals = () => {
           <ProductionLink
             css={css`
               width: 100%;
+              color: textPrimary;
               margin-top: 5;
               text-transform: uppercase;
               letter-spacing: 0.15em;
               font-size: 1.2rem;
               text-decoration: underline;
-              color: white;
               font-weight: bold;
               line-height: 100px;
               text-align: center;
@@ -82,7 +87,7 @@ const Rentals = () => {
           >
             View All Rentals
           </ProductionLink>
-        </Page>
+        </Flex>
       </Hidden>
     </>
   );

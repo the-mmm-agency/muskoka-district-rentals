@@ -5,12 +5,10 @@ import scrollbars from 'styles/scrollbars.css'
 
 export const Button = styled.button`
   border-radius: 50%;
-  color: white;
   font-size: 2rem;
-  background-color: primary;
-  margin: 2;
-  width: 2em;
-  height: 2em;
+  background: transparent;
+  width: 2.5em;
+  height: 2.5em;
   position: absolute;
   top: 50%;
 `;

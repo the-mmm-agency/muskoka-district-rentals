@@ -14,7 +14,6 @@ const Root = styled(Flex)`
   }
   flex-direction: column;
   margin: 3;
-  color: white;
   text-align: left;
   opacity: 0.8;
   ${transition('opacity')};
@@ -44,6 +43,7 @@ const Rental: FC<RentalProps> = ({
         &:hover {
           text-decoration: none;
         }
+        color: #000000;
       `}
       to={`/cottages/${slug}`}
     >

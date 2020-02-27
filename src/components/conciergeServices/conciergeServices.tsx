@@ -20,7 +20,9 @@ const List = styled.ul`
   }
   ${scrollbars}
   width: 100%;
-  height: 300px;
+  height: 450px;
+
+  max-height: 77%;
   margin: none;
   padding-bottom: 5;
   overflow-x: hidden;
@@ -45,8 +47,8 @@ const ConciergeServices = () => {
   return (
     <Flex
       as="section"
-      minHeight={{ xs: 500, sm: 600, md: 700, lg: 800 }}
-      maxHeight={{ xs: 500, sm: 600, md: 700, lg: 800 }}
+      minHeight={{ xs: 900, sm: 900, md: 900, lg: 800 }}
+      maxHeight={{ xs: 900, sm: 900, md: 900, lg: 800 }}
       flexGrow={0}
     >
       <Box

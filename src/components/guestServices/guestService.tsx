@@ -8,15 +8,19 @@ import Box from 'elements/box'
 import Flex from 'elements/flex'
 import Heading from 'elements/heading'
 import Text from 'elements/text'
+import { down, up } from 'theme/media'
 
 const Icon = styled(Img)`
   img {
     width: 100%;
   }
   display: flex;
-  min-width: 4em;
-  max-width: 8em;
-  flex-grow: 1;
+  width: 8em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  ${down('sm')} {
+    display: none;
+  }
   align-items: center;
   margin-inline-start: 0;
   margin-inline-end: 0;
