@@ -1,7 +1,7 @@
-import React from 'react'
 import { css } from '@xstyled/emotion'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
+import React from 'react'
 
 const SwirlBackground = ({ children, ...props }) => {
   const {
@@ -18,7 +18,7 @@ const SwirlBackground = ({ children, ...props }) => {
         }
       }
     }
-  `)
+  `);
   return (
     <BackgroundImage
       css={css`
@@ -30,7 +30,6 @@ const SwirlBackground = ({ children, ...props }) => {
         display: flex;
         flex-direction: column;
         width: 100%;
-        min-height: 100vh;
         background-repeat: repeat;
         background-position: top left;
         background-size: auto;
@@ -41,7 +40,7 @@ const SwirlBackground = ({ children, ...props }) => {
     >
       {children}
     </BackgroundImage>
-  )
-}
+  );
+};
 
-export default SwirlBackground
+export default SwirlBackground;
