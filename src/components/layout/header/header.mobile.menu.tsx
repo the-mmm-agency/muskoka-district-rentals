@@ -1,5 +1,6 @@
 import Menu from '@material/react-menu'
 import React, { FC, useState } from 'react'
+import { ChevronDown } from 'react-feather'
 
 import CottageMenu from './header.cottages'
 import { GatsbyLink, Text } from './header.mobile.css'
@@ -31,7 +32,9 @@ const HeaderMenu: FC<HeaderMenuProps> = ({ links, handleClick }) => {
       >
         <CottageMenu />
       </Menu>
-      <Text onClick={openMenu}>Locations &#9660;</Text>
+      <Text onClick={openMenu}>
+        Locations <ChevronDown size="1em" />
+      </Text>
       {links.map(to => (
         <GatsbyLink key={to} to={to} onClick={handleClick}>
           {to.replace('/', '').replace(/-/g, ' ')}

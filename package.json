@@ -151,6 +151,7 @@
     "react": "^16.10.2",
     "react-day-picker": "^7.3.0",
     "react-dom": "^16.10.2",
+    "react-feather": "^2.0.3",
     "react-hanger": "^2.0.0",
     "react-headroom": "^3.0.0",
     "react-helmet": "^5.2.1",

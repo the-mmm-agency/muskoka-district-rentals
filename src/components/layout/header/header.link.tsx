@@ -1,10 +1,10 @@
-import styled, { css } from '@xstyled/emotion';
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
-import Ripples from 'react-ripples';
+import styled, { css } from '@xstyled/emotion'
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Ripples from 'react-ripples'
 
-import { transition } from 'theme/transitions';
+import { transition } from 'theme/transitions'
 
 const linkStyle = css`
   color: textPrimary;
@@ -30,6 +30,9 @@ const linkStyle = css`
   &:hover {
     text-decoration: none;
     background: rgba(0, 0, 0, 0.1);
+  }
+  svg {
+    margin: auto;
   }
   span {
     position: relative;

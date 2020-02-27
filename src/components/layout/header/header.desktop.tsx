@@ -1,5 +1,6 @@
 import Menu from '@material/react-menu'
 import React, { FC, useState } from 'react'
+import { ChevronDown } from 'react-feather'
 
 import CottageMenu from './header.cottages'
 import { Nav, StyledHeader } from './header.desktop.css'
@@ -40,7 +41,9 @@ const Header: FC<HeaderProps> = ({ links }) => {
         >
           <CottageMenu />
         </Menu>
-        <StyledA onClick={openMenu}>Locations &#9660;</StyledA>
+        <StyledA onClick={openMenu}>
+          Locations <ChevronDown size="1em" />
+        </StyledA>
         {links.map(to => (
           <HeaderLink to={to} key={to} />
         ))}
