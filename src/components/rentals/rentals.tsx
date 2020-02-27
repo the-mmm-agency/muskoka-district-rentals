@@ -40,7 +40,12 @@ const Rentals = () => {
   return (
     <>
       <Hidden up="md">
-        <Box py={3} mx={0} backgroundColor="backgroundDark">
+        <Flex
+          flexDirection="column"
+          py={3}
+          mx={0}
+          backgroundColor="backgroundDark"
+        >
           <Heading as="h3" my={{ sm: 3, md: 4, lg: 5 }} textAlign="center">
             {heading}
           </Heading>
@@ -49,7 +54,24 @@ const Rentals = () => {
               <CottageCard {...rental} reviewAvg={4.5} key={rental.id} />
             ))}
           </HorizontalScroll>
-        </Box>
+          <ProductionLink
+            css={css`
+              width: 100%;
+              color: textPrimary;
+              margin-top: 5;
+              text-transform: uppercase;
+              letter-spacing: 0.15em;
+              font-size: 1.2rem;
+              text-decoration: underline;
+              font-weight: bold;
+              line-height: 100px;
+              text-align: center;
+            `}
+            to="/properties"
+          >
+            View All Rentals
+          </ProductionLink>
+        </Flex>
       </Hidden>
       <Hidden down="md">
         <Flex
