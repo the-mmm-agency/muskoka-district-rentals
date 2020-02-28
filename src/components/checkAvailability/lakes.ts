@@ -4,7 +4,7 @@ export const LakeNames = [
   'Lake Joseph',
   'Lake Rosseau',
   'Lake Muskoka',
-  'Lake of Bays',
+  'Lake of Bays & Other Lakes',
   'Lake Simcoe',
   'Haliburton',
   'Toronto',
@@ -12,13 +12,12 @@ export const LakeNames = [
 ];
 
 export const LakeIds = [
-  '10d0e6c133279360',
-  'bf0bee3a74d7f870',
-  'afc29f03f16ed586',
-  'af3052a85311ccfe',
-  'affc17d6f20a4755',
+  'f4ce2ae03011559b',
+  'd2f8ff8a2cc1e9a1',
+  '9c78ea096e6aa845',
+  '95cf8e560435499f',
+  'cf763491e6c296e7',
   '1bd9a3b260f967ef',
-  '1466847ff885aa34',
 ];
 
 export const LakePairs = A.zip(LakeNames, LakeIds);
