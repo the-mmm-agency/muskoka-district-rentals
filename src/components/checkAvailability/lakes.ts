@@ -8,6 +8,7 @@ export const LakeNames = [
   'Lake Simcoe',
   'Haliburton',
   'Toronto',
+  'Other Lakes',
 ];
 
 export const LakeIds = [
