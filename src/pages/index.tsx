@@ -17,7 +17,7 @@ import Box from 'elements/box'
 import Flex from 'elements/flex'
 import Text from 'elements/text'
 
-const HeaderImage = styled(PageImage)`
+export const HeaderImage = styled(PageImage)`
   min-height: 35rem;
   z-index: -1;
   display: flex;
@@ -44,9 +44,11 @@ const IndexPage = ({
 }) => (
   <>
     <SEO title="Home" />
-    <HeaderImage Tag="section" fadeIn fluid={headerImg.childImageSharp.fluid}>
+    <HeaderImage Tag="section" fadeIn fluid={headerImg?.childImageSharp?.fluid}>
       <span>welcome to</span>
-      <Logo sizes={{ ...logoImg.childImageSharp.fluid, aspectRatio: 15 / 4 }} />
+      <Logo
+        sizes={{ ...logoImg?.childImageSharp?.fluid, aspectRatio: 15 / 4 }}
+      />
     </HeaderImage>
     <CheckAvailability />
     <Flex mt={5} css={{ '& > *': { width: '100%' } }} width="100%">

@@ -13,6 +13,7 @@ export const Wrapper = styled(Flex)`
     margin-top: -5;
     width: 80%;
     z-index: 999;
+    max-width: 1000px;
     padding-left: 3;
   }
   .select {

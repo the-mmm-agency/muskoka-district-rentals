@@ -1,10 +1,12 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 
+import { HeaderImage } from './index'
+
 import Contact from 'components/contact'
 import HorizontalScroll from 'components/horizontalScroll'
+import { Logo } from 'components/layout/footer/footer.css'
 import OurTeam from 'components/ourTeam'
-import PageImage from 'components/pageImage'
 import SEO from 'components/seo'
 import SwirlBackground from 'components/swirlBackground'
 import Testimonial from 'components/testimonial'
@@ -12,22 +14,15 @@ import Flex from 'elements/flex'
 import Heading from 'elements/heading'
 import Text from 'elements/text'
 
-const AboutUs = ({ data: { image, testimonials } }) => (
+const AboutUs = ({ data: { testimonials, logoImg, headerImg } }) => (
   <>
     <SEO title="About Us" />
-    <PageImage fluid={image.childImageSharp.fluid}>
-      <Heading
-        as="h3"
-        mb={1}
-        position="relative"
-        zIndex={2}
-        fontWeight={500}
-        maxWidth={500}
-        lineHeight="70px"
-      >
-        Welcome To Muskoka District Rentals
-      </Heading>
-    </PageImage>
+    <HeaderImage Tag="section" fadeIn fluid={headerImg?.childImageSharp?.fluid}>
+      <span>welcome to</span>
+      <Logo
+        sizes={{ ...logoImg?.childImageSharp?.fluid, aspectRatio: 15 / 4 }}
+      />
+    </HeaderImage>
     <Flex
       as="section"
       px={{ xs: 3, sm: 6 }}
@@ -62,16 +57,22 @@ const AboutUs = ({ data: { image, testimonials } }) => (
     </SwirlBackground>
   </>
 );
-
 export const query = graphql`
-  query {
+  query aboutUsPage {
     testimonials: allTestimonialsJson {
       nodes {
         ...Testimonial
       }
     }
-    image: file(relativePath: { eq: "home.jpg" }) {
+    headerImg: file(relativePath: { eq: "home.jpg" }) {
       ...PageImage
+    }
+    logoImg: file(relativePath: { eq: "logo-white.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
     }
   }
 `;
