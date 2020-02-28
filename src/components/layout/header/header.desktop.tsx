@@ -35,6 +35,9 @@ const Header: FC<HeaderProps> = ({ links }) => {
 
         <hr />
         <Menu
+          css={{
+            zIndex: 9999,
+          }}
           open={menuOpen}
           anchorElement={menuAnchor}
           onClose={() => setMenu(false)}

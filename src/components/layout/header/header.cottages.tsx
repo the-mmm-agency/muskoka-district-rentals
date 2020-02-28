@@ -9,7 +9,7 @@ import { LakePairs } from 'components/checkAvailability/lakes'
 import ProductionLink from 'components/productionLink'
 
 const Cottages: FC = () => (
-  <MenuList>
+  <MenuList style={{ zIndex: 9999 }}>
     <ProductionLink to="/cottages">
       <MenuListItem>
         <MenuListItemText
