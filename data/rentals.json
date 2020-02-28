@@ -1,47 +1,47 @@
 [
   {
     "bedrooms": 6,
-    "price": 2315,
+    "category": "Cottage",
     "guests": 14,
-    "title": "Muskoka Wonderland",
     "picture": "../src/images/muskoka-wonderland.jpg",
+    "price": 2315,
     "slug": "muskoka-wonderland",
-    "category": "Cottage"
-  },
-  {
-    "bedrooms": 15,
-    "price": 5000,
-    "guests": 20,
-    "title": "Breakwater",
-    "picture": "../src/images/breakwater.jpg",
-    "slug": "breakwater",
-    "category": "Cottage"
+    "title": "Muskoka Wonderland"
   },
   {
     "bedrooms": 5,
-    "price": 2785,
+    "category": "House",
     "guests": 8,
-    "slug": "georgian-bay-beach-house",
     "picture": "../src/images/georgian-bay-beach-house.jpg",
-    "title": "Georgian Bay Beach House",
-    "category": "House"
+    "price": 2785,
+    "slug": "georgian-bay-beach-house",
+    "title": "Georgian Bay Beach House"
+  },
+  {
+    "bedrooms": 5,
+    "category": "Cottage",
+    "guests": 16,
+    "picture": "../src/images/juddhaven.jpg",
+    "price": 2900,
+    "slug": "juddhaven",
+    "title": "Juddhaven"
+  },
+  {
+    "bedrooms": 6,
+    "category": "Cottage",
+    "guests": 12,
+    "picture": "../src/images/red-pines.jpg",
+    "price": 2515,
+    "slug": "red-pines",
+    "title": "Red Pines"
   },
   {
     "bedrooms": 4,
-    "price": 3120,
+    "category": "Cottage",
     "guests": 8,
-    "slug": "big-sound-lake-house",
-    "picture": "../src/images/big-sound-lake-house.jpg",
-    "title": "Big Sound Lake House",
-    "category": "Villa"
-  },
-  {
-    "bedrooms": 5,
-    "price": 1142,
-    "guests": 11,
-    "slug": "muskoka-family-fun",
-    "title": "Muskoka Family Fun!",
-    "picture": "../src/images/muskoka-family-fun.jpg",
-    "category": "Cottage"
+    "picture": "../src/images/lakehouse.jpg",
+    "price": 2230,
+    "slug": "lakehouse",
+    "title": "Lakehouse"
   }
 ]

@@ -1,11 +1,10 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 
-import { HeaderImage } from './index'
+import { HeaderImage, Logo } from './index'
 
 import Contact from 'components/contact'
 import HorizontalScroll from 'components/horizontalScroll'
-import { Logo } from 'components/layout/footer/footer.css'
 import OurTeam from 'components/ourTeam'
 import SEO from 'components/seo'
 import SwirlBackground from 'components/swirlBackground'
@@ -16,13 +15,23 @@ import Text from 'elements/text'
 
 const AboutUs = ({ data: { testimonials, logoImg, headerImg } }) => (
   <>
-    <SEO title="About Us" />
-    <HeaderImage Tag="section" fadeIn fluid={headerImg?.childImageSharp?.fluid}>
-      <span>welcome to</span>
-      <Logo
-        sizes={{ ...logoImg?.childImageSharp?.fluid, aspectRatio: 15 / 4 }}
-      />
-    </HeaderImage>
+    <Flex
+      css={{ '& > *': { minWidth: '100vw' } }}
+      fontSize="1.5rem"
+      minWidth="100vw"
+    >
+      <SEO title="About Us" />
+      <HeaderImage
+        Tag="section"
+        fadeIn
+        fluid={headerImg?.childImageSharp?.fluid}
+      >
+        <span>welcome to</span>
+        <Logo
+          sizes={{ ...logoImg?.childImageSharp?.fluid, aspectRatio: 15 / 4 }}
+        />
+      </HeaderImage>
+    </Flex>
     <Flex
       as="section"
       px={{ xs: 3, sm: 6 }}

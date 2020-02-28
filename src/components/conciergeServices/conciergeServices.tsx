@@ -20,7 +20,6 @@ const List = styled.ul`
   }
   ${scrollbars}
   width: 100%;
-  height: 450px;
 
   max-height: 77%;
   margin: none;

@@ -21,7 +21,6 @@ const Root = styled(Flex)`
 
 const RentalImg = styled(Img)`
   position: relative;
-  width: 210px;
   height: 130px;
   margin: 2 0;
 `;
@@ -50,7 +49,9 @@ const Rental: FC<RentalProps> = ({
       <Text fontWeight="medium">
         Starting from <strong color="white">${price}</strong>/Night
       </Text>
-      <RentalImg fluid={picture?.childImageSharp?.fluid} />
+      <RentalImg
+        fluid={{ ...picture?.childImageSharp?.fluid, aspectRatio: 21 / 13 }}
+      />
       <Text fontFamily="serif" fontWeight="bold" fontSize={5}>
         {title}
       </Text>

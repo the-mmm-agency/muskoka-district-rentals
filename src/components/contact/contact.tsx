@@ -6,6 +6,10 @@ import React from 'react'
 import { up } from 'theme/media'
 
 const Image = styled(BackgroundImage)`
+  * {
+    text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px,
+      rgba(0, 0, 0, 0.5) 1px 1px 1px;
+  }
   h2,
   h3,
   h4,
@@ -18,7 +22,7 @@ const Image = styled(BackgroundImage)`
   }
   &::before,
   &::after {
-    filter: brightness(0.4);
+    filter: brightness(0.8);
   }
   h2 {
     margin-bottom: 5;

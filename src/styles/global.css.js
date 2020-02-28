@@ -29,9 +29,7 @@ const styles = css`
     transform: none !important;
   }
   .rsc-float-button {
-    ${down('md')} {
-      bottom: 64px;
-    }
+    bottom: 64px;
   }
 
   html {

@@ -10,7 +10,7 @@ const StyledImage = styled(BackgroundImage)`
   }
   &::before,
   &::after {
-    filter: brightness(0.4);
+    filter: brightness(0.8);
   }
   display: flex;
   flex-direction: column;

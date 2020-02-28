@@ -1,4 +1,3 @@
-import styled from '@emotion/styled'
 import { css } from '@xstyled/emotion'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState } from 'react'
@@ -9,16 +8,9 @@ import Rental from './rental'
 import { CottageCard } from 'components/cottage'
 import Hidden from 'components/hidden'
 import HorizontalScroll from 'components/horizontalScroll'
-import PageImage from 'components/pageImage'
 import ProductionLink from 'components/productionLink'
-import Box from 'elements/box'
 import Flex from 'elements/flex'
 import Heading from 'elements/heading'
-
-const Page = styled(PageImage)`
-  min-height: 700px;
-  max-height: 700px;
-`;
 
 const Rentals = () => {
   const {
@@ -33,8 +25,6 @@ const Rentals = () => {
     }
   `);
 
-  const [selected, setSelected] = useState(0);
-
   const heading = 'Rent a Cottage';
 
   return (
@@ -43,6 +33,7 @@ const Rentals = () => {
         <Flex
           flexDirection="column"
           py={3}
+          px={2}
           mx={0}
           backgroundColor="backgroundDark"
         >
@@ -85,11 +76,7 @@ const Rentals = () => {
           </Heading>
           <Flex flexBasis="calc(100% / 3)" listStyle="none">
             {rentals.map(({ id, ...rental }, index) => (
-              <Rental
-                key={id}
-                onMouseOver={() => setSelected(index)}
-                {...rental}
-              />
+              <Rental key={id} {...rental} />
             ))}
           </Flex>
           <ProductionLink

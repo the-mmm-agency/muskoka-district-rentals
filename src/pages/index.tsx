@@ -28,7 +28,7 @@ export const HeaderImage = styled(PageImage)`
   }
 `;
 
-const Logo = styled(Img)`
+export const Logo = styled(Img)`
   width: 28rem;
 `;
 
@@ -98,17 +98,20 @@ const IndexPage = ({
           <Text as="p" mb={5}>
             Muskoka District Rentals provides rental agent services for owners
             who seek a trusted partner to safely manage the entire process. We
-            also offer premium rental experiences for guests. Let us take away
-            the stress of renting your cottage. As a full service, boutique
+            also offer premium rental experiences for guests. As a full service
             luxury rental agency, our focus is on protecting your valuable real
-            estate assets while helping you safely mitigate the costs of
-            ownership. Our team will take care of all aspects of the rental
-            process for you, from guest screening through to post check out
-            inspections. We have professional property maintenance crews and
-            cleaners to attend to any needs that arise. We offer full linen
-            services and all laundry is done offsite. As the most trusted rental
-            agency in cottage country we operate with full transparency and you
-            will always know exactly what was charged to your guests.
+            estate assets while helping you safely mitigate costs of ownership.
+            Our team manages all aspects of the rental process for you, from
+            marketing and advertising your cottage rental to maintaining
+            stringent guest screening, timely turnovers and mid stay cleans
+            right through post check out inspections. As the most trusted rental
+            agency in cottage country we are fully transparent and provide our
+            owners with detailed financial reporting that tracks rental income
+            and expenses for your property. We also maintain in house
+            professional property maintenance and cleaning crews and offer full
+            linen services to ensure your property is kept in optimal condition
+            at all times. Whether you’re renting a cottage or renting your
+            cottage, Muskoka District Rentals has you covered.
           </Text>
           <span>
             <b>Ross Halloran &amp; Maryrose Coleman -</b> Co-founders of Muskoka

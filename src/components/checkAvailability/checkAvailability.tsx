@@ -25,8 +25,7 @@ import {
   Wrapper
 } from './checkAvailability.css'
 import DateSection from './dateSection'
-import LabelCheck from './labelCheck'
-import { Lakes } from './lakes'
+import { LakePairs } from './lakes'
 
 import Modal from 'components/modal'
 import ProductionLink from 'components/productionLink'
@@ -106,7 +105,7 @@ const CheckAvailability = ({ theme, ...props }) => {
               onSelected={index => handleGuests(index + 1)}
             >
               <MenuList>
-                {range(1, 35).map(number => (
+                {range(1, 36).map(number => (
                   <MenuListItem key={number}>
                     <MenuListItemText primaryText={number} />
                   </MenuListItem>
@@ -124,7 +123,7 @@ const CheckAvailability = ({ theme, ...props }) => {
         <SectionWrapper borderRight="transparent !important" px={2}>
           <Flex justifyContent="space-between" mb={3}>
             <Select
-              options={Object.entries(Lakes).map(([label, value]) => ({
+              options={LakePairs.map(([label, value]) => ({
                 label,
                 value,
               }))}
