@@ -33,7 +33,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({ links, handleClick }) => {
         <CottageMenu />
       </Menu>
       <Text onClick={openMenu}>
-        Locations <ChevronDown size="1em" />
+        Rent a Cottage <ChevronDown size="1em" />
       </Text>
       {links.map(to => (
         <GatsbyLink key={to} to={to} onClick={handleClick}>

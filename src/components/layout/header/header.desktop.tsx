@@ -45,7 +45,7 @@ const Header: FC<HeaderProps> = ({ links }) => {
           <CottageMenu />
         </Menu>
         <StyledA onClick={openMenu}>
-          Locations <ChevronDown size="1em" />
+          Rent a Cottage <ChevronDown size="1em" />
         </StyledA>
         {links.map(to => (
           <HeaderLink to={to} key={to} />
