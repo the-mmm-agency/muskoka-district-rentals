@@ -92,7 +92,6 @@ const Rentals = () => {
               line-height: 100px;
               text-align: center;
             `}
-            to="/cottages"
           >
             View All Rentals
           </ProductionLink>
