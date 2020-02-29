@@ -1,3 +1,5 @@
+import '@material/react-menu/dist/menu.min.css'
+
 import Menu from '@material/react-menu'
 import React, { FC, useState } from 'react'
 import { ChevronDown } from 'react-feather'
