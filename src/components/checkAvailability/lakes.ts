@@ -4,7 +4,7 @@ export const LakeNames = [
   'Lake Joseph',
   'Lake Rosseau',
   'Lake Muskoka',
-  'Lake of Bays & Other Lakes',
+  'Lake of Bays',
   'Lake Simcoe',
   'Haliburton',
   'Toronto',
