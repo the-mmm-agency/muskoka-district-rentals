@@ -1,4 +1,5 @@
 export const LakeNames = {
+  'All Cottages': '',
   'Lake Joseph': 'f4ce2ae03011559b',
   'Lake Rosseau': 'd2f8ff8a2cc1e9a1',
   'Lake Muskoka': '9c78ea096e6aa845',
