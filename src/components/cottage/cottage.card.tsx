@@ -31,7 +31,7 @@ const CottageCard: FC<CottageCardProps> = ({
 }) => (
   <Card>
     <ProductionLink
-      to={`properties/${slug}`}
+      to={slug}
       css={css`
         &:hover {
           text-decoration: none;
