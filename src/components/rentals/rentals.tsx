@@ -58,6 +58,7 @@ const Rentals = () => {
               line-height: 100px;
               text-align: center;
             `}
+            to="/"
           >
             View All Rentals
           </ProductionLink>
@@ -91,6 +92,7 @@ const Rentals = () => {
               line-height: 100px;
               text-align: center;
             `}
+            to="/"
           >
             View All Rentals
           </ProductionLink>
