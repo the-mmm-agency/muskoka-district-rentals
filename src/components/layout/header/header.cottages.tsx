@@ -10,18 +10,6 @@ import ProductionLink from 'components/productionLink'
 
 const Cottages: FC = () => (
   <MenuList style={{ zIndex: 9999 }}>
-    <ProductionLink to="/cottages">
-      <MenuListItem>
-        <MenuListItemText
-          css={{
-            textDecoration: 'none',
-            color: 'black',
-            '&:hover': { textDecoration: 'none', color: 'black ' },
-          }}
-          primaryText="All Cottages"
-        />
-      </MenuListItem>
-    </ProductionLink>
     {LakePairs.map(([lake, id]) => (
       <ProductionLink to={`/#?gp=${id}`}>
         <MenuListItem key={id}>
