@@ -13,7 +13,7 @@ const BottomBar = () => (
   <Hidden up="md">
     <AppBar>
       <MobileNavigationItem to="/" icon={<Home />} />
-      <MobileNavigationItem production to="/cottages" icon={<Cottages />} />
+      <MobileNavigationItem production to="/" icon={<Cottages />} />
       <MobileNavigationItem href="tel:1800-615-2537" icon={<Call />} />
       <MobileNavigationItem to="/contact" icon={<Contact />} />
     </AppBar>
