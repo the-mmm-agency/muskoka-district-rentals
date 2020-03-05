@@ -111,6 +111,7 @@
     "gatsby-plugin-emotion": "^4.1.10",
     "gatsby-plugin-eslint": "^2.0.5",
     "gatsby-plugin-fastclick": "^1.0.1",
+    "gatsby-plugin-google-analytics": "^2.1.36",
     "gatsby-plugin-graphql-codegen": "^2.1.1",
     "gatsby-plugin-manifest": "^2.2.33",
     "gatsby-plugin-mdx": "^1.0.67",

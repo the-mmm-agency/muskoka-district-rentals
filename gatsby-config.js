@@ -49,6 +49,12 @@ module.exports = {
     'gatsby-plugin-polished',
     'gatsby-plugin-remove-console',
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: '863663114',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         gatsbyRemarkPlugins: [
