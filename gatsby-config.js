@@ -96,7 +96,10 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-manifest',
-      options: siteMetadata.manifest,
+      options: {
+        ...siteMetadata.manifest,
+        icon: 'src/images/mdr.svg',
+      },
     },
     'gatsby-plugin-fastclick',
 
