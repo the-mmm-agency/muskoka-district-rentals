@@ -44,7 +44,7 @@ const Rental: FC<RentalProps> = ({
         }
         color: #000000;
       `}
-      to={`/cottages/${slug}`}
+      to={slug}
     >
       <Text fontWeight="medium">
         Starting from <strong color="white">${price}</strong>/Night
