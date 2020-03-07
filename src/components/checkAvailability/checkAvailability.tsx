@@ -1,3 +1,4 @@
+// @ts-nocheck
 import '@material/react-list/dist/list.css'
 import '@material/react-menu-surface/dist/menu-surface.css'
 import '@material/react-menu/dist/menu.css'
@@ -56,6 +57,7 @@ const CheckAvailability = ({ theme, ...props }) => {
   const handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, localRange);
     setLocalRange(range);
+    console.log(range);
     if (range.to) {
       handleFrom(range.from);
       handleTo(range.to);
@@ -63,16 +65,9 @@ const CheckAvailability = ({ theme, ...props }) => {
     }
   };
   const handleToClick = () => {
-    setLocalRange({
-      to: null,
-    });
     setOpen(true);
   };
   const handleFromClick = () => {
-    setLocalRange({
-      from: null,
-      to: null,
-    });
     setOpen(true);
   };
   const openGuestsMenu = event => {
