@@ -36,19 +36,12 @@ import useAvailability from 'hooks/useAvailabilityContext'
 import Calendar from 'styles/calendar.css'
 
 const CheckAvailability = ({ theme, ...props }) => {
-  const {
-    from,
-    to,
-    handleFrom,
-    handleTo,
-    guests,
-    handleGuests,
-  } = useAvailability();
+  const { guests, handleGuests } = useAvailability();
   const [open, setOpen] = useState(false);
   const [lake, setLake] = useState([]);
   const [localRange, setLocalRange] = useState({
-    from: null,
-    to: null,
+    from: undefined,
+    to: undefined,
   });
   const [guestsActive, setGuests] = useState(false);
   const [menuAnchor, setMenuAnchor] = useState(null);
@@ -57,17 +50,11 @@ const CheckAvailability = ({ theme, ...props }) => {
   const handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, localRange);
     setLocalRange(range);
-    console.log(range);
     if (range.to) {
-      handleFrom(range.from);
-      handleTo(range.to);
       setOpen(false);
     }
   };
-  const handleToClick = () => {
-    setOpen(true);
-  };
-  const handleFromClick = () => {
+  const openCalendar = () => {
     setOpen(true);
   };
   const openGuestsMenu = event => {
@@ -80,10 +67,14 @@ const CheckAvailability = ({ theme, ...props }) => {
     <Wrapper {...props}>
       <DateSection
         title="check-in"
-        value={from}
-        handleClick={handleFromClick}
+        value={localRange?.from}
+        handleClick={openCalendar}
       />
-      <DateSection title="check-out" value={to} handleClick={handleToClick} />
+      <DateSection
+        title="check-out"
+        value={localRange?.to}
+        handleClick={openCalendar}
+      />
       <Section col={{ xs: 1 / 4, sm: 1 / 4 }}>
         <SectionWrapper borderRight="transparent !important">
           <Header>guests</Header>
@@ -139,8 +130,8 @@ const CheckAvailability = ({ theme, ...props }) => {
             }}
             width={1}
             variant="serif"
-            to={`/#?a=${dayjs(localRange.from).format('YYYY-MM-DD')}&d=${dayjs(
-              localRange.to
+            to={`/#?a=${dayjs(localRange?.to).format('YYYY-MM-DD')}&d=${dayjs(
+              localRange?.to
             ).format('YYYY-MM-DD')}&g=${guests}&ad=2&gp=${lake
               ?.map(({ value }) => value)
               ?.join(',')}`}
@@ -155,11 +146,11 @@ const CheckAvailability = ({ theme, ...props }) => {
             margin: 0,
           }}
           numberOfMonths={matches ? 2 : 1}
-          disabledDays={{ before: localRange.from }}
-          selectedDays={[localRange.from, { ...localRange }]}
+          disabledDays={{ before: localRange?.from }}
+          selectedDays={[localRange?.from, { ...localRange }]}
           modifiers={{
-            start: localRange.from,
-            end: localRange.to,
+            start: localRange?.from,
+            end: localRange?.to,
           }}
           onDayClick={handleDayClick}
         />
