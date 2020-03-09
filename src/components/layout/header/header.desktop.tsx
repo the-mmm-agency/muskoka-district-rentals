@@ -2,7 +2,7 @@ import '@material/react-menu/dist/menu.min.css'
 
 import Menu from '@material/react-menu'
 import React, { FC, useState } from 'react'
-import { ChevronDown } from 'react-feather'
+import { ChevronDown, ExternalLink } from 'react-feather'
 
 import CottageMenu from './header.cottages'
 import { Nav, StyledHeader } from './header.desktop.css'
@@ -52,6 +52,7 @@ const Header: FC<HeaderProps> = ({ links }) => {
         {links.map(to => (
           <HeaderLink to={to} key={to} />
         ))}
+        <StyledA href="https://blogmuskoka.com/">Blog</StyledA>
       </Nav>
     </StyledHeader>
   );

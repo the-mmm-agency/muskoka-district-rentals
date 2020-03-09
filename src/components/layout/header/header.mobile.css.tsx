@@ -23,6 +23,10 @@ export const Text = styled.span`
   ${link}
 `;
 
+export const StyledLink = styled.a`
+  ${link}
+`;
+
 export const GatsbyLink = styled(Link)`
   ${link}
 `;

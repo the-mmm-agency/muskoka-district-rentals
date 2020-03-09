@@ -3,7 +3,11 @@ import React, { FC, useState } from 'react'
 import { ChevronDown } from 'react-feather'
 
 import CottageMenu from './header.cottages'
-import { GatsbyLink, Text } from './header.mobile.css'
+import {
+  GatsbyLink,
+  StyledLink,
+  Text
+} from './header.mobile.css'
 
 import Flex from 'elements/flex'
 
@@ -40,6 +44,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({ links, handleClick }) => {
           {to.replace('/', '').replace(/-/g, ' ')}
         </GatsbyLink>
       ))}
+      <StyledLink href="https://blogmuskoka.com/">Blog</StyledLink>
     </Flex>
   );
 };
