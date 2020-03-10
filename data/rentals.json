@@ -5,7 +5,7 @@
     "guests": 14,
     "picture": "../src/images/muskoka-wonderland.jpg",
     "price": 2315,
-    "slug": "muskoka-wonderland",
+    "slug": "muskoka-wonderland?path=%2Fcottages%2F",
     "title": "Muskoka Wonderland"
   },
   {
@@ -14,7 +14,7 @@
     "guests": 8,
     "picture": "../src/images/georgian-bay-beach-house.jpg",
     "price": 2785,
-    "slug": "georgian-bay-beach-house",
+    "slug": "georgian-bay-beach-house?path=%2Fcottages%2F",
     "title": "Georgian Bay Beach House"
   },
   {
@@ -23,7 +23,7 @@
     "guests": 16,
     "picture": "../src/images/juddhaven.jpg",
     "price": 2900,
-    "slug": "juddhaven",
+    "slug": "juddhaven?path=%2Fcottages%2F",
     "title": "Juddhaven"
   },
   {
@@ -32,7 +32,7 @@
     "guests": 12,
     "picture": "../src/images/red-pines.jpg",
     "price": 2515,
-    "slug": "red-pines",
+    "slug": "red-pines?path=%2Fcottages%2F",
     "title": "Red Pines"
   },
   {
@@ -41,7 +41,7 @@
     "guests": 8,
     "picture": "../src/images/lakehouse.jpg",
     "price": 2230,
-    "slug": "lakehouse",
+    "slug": "lakehouse?path=%2Fcottages%2F",
     "title": "Lakehouse"
   }
 ]
