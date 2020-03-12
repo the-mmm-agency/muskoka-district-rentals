@@ -210,7 +210,7 @@
     "@storybook/addons": "^5.2.3",
     "@storybook/react": "^5.2.3",
     "@storybook/theming": "^5.2.3",
-    "@testing-library/cypress": "^5.0.1",
+    "@testing-library/cypress": "^6.0.0",
     "babel-jest": "^24.8.0",
     "cypress": "^3.2.0",
     "eslint-plugin-cypress": "^2.7.0",
