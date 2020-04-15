@@ -26,5 +26,21 @@
   {
     "name": "Yoga on the Dock",
     "image": "../src/images/yoga-on-the-dock.jpg"
+  },
+  {
+    "name": "Yoga mat",
+    "image": "../src/images/yoga-mat.jpg"
+  },
+  {
+    "name": "Equipment",
+    "image": "../src/images/equipment.jpg"
+  },
+  {
+    "name": "Boat Captain",
+    "image": "../src/images/boat-captain.jpg"
+  },
+  {
+    "name": "Childcare Services",
+    "image": "../src/images/childcare-services.jpg"
   }
 ]
