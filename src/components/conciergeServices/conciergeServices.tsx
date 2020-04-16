@@ -6,7 +6,6 @@ import Fade from 'react-reveal/Fade';
 
 import ConciergeService from './conciergeService';
 
-import Hidden from 'components/hidden';
 import Box from 'elements/box';
 import Flex from 'elements/flex';
 import Heading from 'elements/heading';
@@ -69,13 +68,6 @@ const ConciergeServices = () => {
           ))}
         </List>
       </Box>
-      <Hidden down="lg">
-        <Box col={0.5} minHeight="100%">
-          <Fade spy={selected} mountOnEnter>
-            <Img fluid={selected.childImageSharp.fluid} />
-          </Fade>
-        </Box>
-      </Hidden>
     </Flex>
   );
 };
