@@ -1,18 +1,13 @@
-import styled, { css } from '@xstyled/emotion'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { css } from '@xstyled/emotion';
+import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
 
-import Link from 'elements/link'
-import { transition } from 'theme/transitions'
+import { transition } from 'theme/transitions';
+import Link from 'elements/link';
 
-const Header = styled.h6`
-  margin-left: 4;
-  font-size: 4;
-`;
-
-const ConciergeService = ({ name, image, setSelected }) => (
+const ConciergeService = ({ service, image, setSelected }) => (
   <li
     css={css`
       &:hover {
@@ -39,24 +34,39 @@ const ConciergeService = ({ name, image, setSelected }) => (
           min-height: 8rem;
           max-height: 8rem;
         `}
-        fluid={image.childImageSharp.fluid}
+        fluid={image.localFile.childImageSharp.fluid}
       />
-      <Header>{name}</Header>
+      <h6
+        css={css`
+          margin-left: 4;
+          font-size: 4;
+        `}
+      >
+        {service}
+      </h6>
     </Link>
   </li>
 );
 
 export const query = graphql`
-  fragment ConciergeService on ConciergeServicesJson {
+  fragment ConciergeService on wordpress__wp_page_contentAcfConcierge_services {
     image {
-      childImageSharp {
-        fluid(maxWidth: 2000) {
-          ...GatsbyImageSharpFluid_withWebp
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
     }
-    name
+    service
   }
 `;
+
+ConciergeService.propTypes = {
+  image: PropTypes.object.isRequired,
+  service: PropTypes.string.isRequired,
+  setSelected: PropTypes.func.isRequired,
+};
 
 export default ConciergeService;
