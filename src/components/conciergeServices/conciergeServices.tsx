@@ -1,18 +1,18 @@
-import styled, { css } from '@xstyled/emotion'
-import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
-import React, { useState } from 'react'
-import Fade from 'react-reveal/Fade'
+import styled, { css } from '@xstyled/emotion';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import React, { useState } from 'react';
+import Fade from 'react-reveal/Fade';
 
-import ConciergeService from './conciergeService'
+import ConciergeService from './conciergeService';
 
-import Hidden from 'components/hidden'
-import Box from 'elements/box'
-import Flex from 'elements/flex'
-import Heading from 'elements/heading'
-import Text from 'elements/text'
-import scrollbars from 'styles/scrollbars.css'
-import { up } from 'theme/media'
+import Hidden from 'components/hidden';
+import Box from 'elements/box';
+import Flex from 'elements/flex';
+import Heading from 'elements/heading';
+import Text from 'elements/text';
+import scrollbars from 'styles/scrollbars.css';
+import { up } from 'theme/media';
 
 const List = styled.ul`
   ${up('md')} {
@@ -46,16 +46,11 @@ const ConciergeServices = () => {
   return (
     <Flex
       as="section"
-      minHeight={{ xs: 900, sm: 900, md: 900, lg: 800 }}
-      maxHeight={{ xs: 900, sm: 900, md: 900, lg: 800 }}
+      minHeight={{ xs: 900 }}
+      maxHeight={{ xs: 900 }}
       flexGrow={0}
     >
-      <Box
-        col={{ xs: 1, lg: 0.5 }}
-        py={{ xs: 4, md: 5 }}
-        pl={{ xs: 4, md: 5 }}
-        pr={{ xs: 4, lg: 0 }}
-      >
+      <Box col={{ xs: 1 }} py={{ xs: 4 }} pl={{ xs: 4 }} pr={{ xs: 4 }}>
         <Box textAlign={{ xs: 'center', sm: 'left' }}>
           <Text letterSpacing="headers" pl={2} textTransform="uppercase">
             Experience Muskoka
