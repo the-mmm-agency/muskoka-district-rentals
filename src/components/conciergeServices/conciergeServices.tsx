@@ -1,17 +1,15 @@
-import styled, { css } from '@xstyled/emotion';
-import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
-import React, { useState } from 'react';
-import Fade from 'react-reveal/Fade';
+import styled from '@xstyled/emotion'
+import { graphql, useStaticQuery } from 'gatsby'
+import React, { useState } from 'react'
 
-import ConciergeService from './conciergeService';
+import ConciergeService from './conciergeService'
 
-import Box from 'elements/box';
-import Flex from 'elements/flex';
-import Heading from 'elements/heading';
-import Text from 'elements/text';
-import scrollbars from 'styles/scrollbars.css';
-import { up } from 'theme/media';
+import Box from 'elements/box'
+import Flex from 'elements/flex'
+import Heading from 'elements/heading'
+import Text from 'elements/text'
+import scrollbars from 'styles/scrollbars.css'
+import { up } from 'theme/media'
 
 const List = styled.ul`
   ${up('md')} {
@@ -29,18 +27,22 @@ const List = styled.ul`
   -webkit-touch-scrolling: overflow;
 `;
 
-const ConciergeServices = () => {
-  const {
-    allConciergeServicesJson: { nodes: conciergeServices },
-  } = useStaticQuery(graphql`
+const ConciergeServices = ({ rentalPage = false }) => {
+  const { home, rentals } = useStaticQuery(graphql`
     query {
-      allConciergeServicesJson {
+      home: allConciergeServicesJson {
+        nodes {
+          ...ConciergeService
+        }
+      }
+      rentals: allRentalConciergeServicesJson {
         nodes {
           ...ConciergeService
         }
       }
     }
   `);
+  const services = rentalPage ? rentals : home;
   const [selected, setSelected] = useState(conciergeServices[0].image);
   return (
     <Flex
@@ -59,12 +61,8 @@ const ConciergeServices = () => {
           </Heading>
         </Box>
         <List>
-          {conciergeServices.map(conciergeService => (
-            <ConciergeService
-              key={conciergeService.name}
-              setSelected={setSelected}
-              {...conciergeService}
-            />
+          {services.map(({ name, ...rest }) => (
+            <ConciergeService key={name} setSelected={setSelected} {...rest} />
           ))}
         </List>
       </Box>

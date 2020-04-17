@@ -1,18 +1,30 @@
 [
   {
-    "name": "Yoga mat",
-    "image": "../src/images/yoga-mat.jpg"
+    "name": "Boat Rentals",
+    "image": "../src/images/boat-rentals.jpg"
   },
   {
-    "name": "Equipment",
-    "image": "../src/images/equipment.jpg"
+    "name": "Private Chef",
+    "image": "../src/images/private-chef.jpg"
   },
   {
-    "name": "Boat Captain",
-    "image": "../src/images/boat-captain.jpg"
+    "name": "Car/Airport Service",
+    "image": "../src/images/car-rental.jpg"
   },
   {
-    "name": "Childcare Services",
-    "image": "../src/images/childcare-services.jpg"
+    "name": "Babysitting",
+    "image": "../src/images/babysitting.jpg"
+  },
+  {
+    "name": "Grocery Shopping",
+    "image": "../src/images/grocery-shopping.jpg"
+  },
+  {
+    "name": "Lessons for Children",
+    "image": "../src/images/lessons-for-children.jpg"
+  },
+  {
+    "name": "Yoga on the Dock",
+    "image": "../src/images/yoga-on-the-dock.jpg"
   }
 ]
