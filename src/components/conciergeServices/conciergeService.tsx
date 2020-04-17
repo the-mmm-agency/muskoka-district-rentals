@@ -4,13 +4,9 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Heading from 'elements/heading';
 import Link from 'elements/link';
 import { transition } from 'theme/transitions';
-
-const Header = styled.h6`
-  margin-left: 4;
-  font-size: 4;
-`;
 
 const ConciergeService = ({ name, image, setSelected }) => (
   <li
@@ -41,7 +37,9 @@ const ConciergeService = ({ name, image, setSelected }) => (
         `}
         fluid={image.childImageSharp.fluid}
       />
-      <Header>{name}</Header>
+      <Heading as="h6" ml={4} fontSize={4}>
+        {name}
+      </Heading>
     </Link>
   </li>
 );

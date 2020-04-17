@@ -35,11 +35,7 @@ const ConciergeServices = ({ rentalPage = false }) => {
     query {
       home: allConciergeServicesJson {
         nodes {
-          ...ConciergeService
-        }
-      }
-      rentals: allRentalConciergeServicesJson {
-        nodes {
+          name
           image {
             childImageSharp {
               fluid(maxWidth: 2000) {
@@ -47,13 +43,24 @@ const ConciergeServices = ({ rentalPage = false }) => {
               }
             }
           }
+        }
+      }
+      rentals: allRentalConciergeServicesJson {
+        nodes {
           name
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2000) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
         }
       }
     }
   `);
-  const services = rentalPage ? rentals : home;
-  const [selected, setSelected] = useState(conciergeServices[0].image);
+  const { nodes: services } = rentalPage ? rentals : home;
+  const [selected, setSelected] = useState(services[0].image);
   return (
     <Flex
       as="section"
@@ -79,7 +86,12 @@ const ConciergeServices = ({ rentalPage = false }) => {
         )}
         <List>
           {services.map(({ name, ...rest }) => (
-            <ConciergeService key={name} setSelected={setSelected} {...rest} />
+            <ConciergeService
+              key={name}
+              name={name}
+              setSelected={setSelected}
+              {...rest}
+            />
           ))}
         </List>
       </Box>
