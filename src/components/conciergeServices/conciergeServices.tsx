@@ -96,7 +96,7 @@ const ConciergeServices = ({ rentalPage = false }) => {
         </List>
       </Box>
       <Hidden down="lg">
-        <Box col={0.5} minHeight="100%">
+        <Box col={0.5} minHeight="100%" overflow="hidden">
           <Fade spy={selected} mountOnEnter>
             <Img fluid={selected.childImageSharp.fluid} />
           </Fade>
