@@ -40,7 +40,14 @@ const ConciergeServices = ({ rentalPage = false }) => {
       }
       rentals: allRentalConciergeServicesJson {
         nodes {
-          ...ConciergeService
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2000) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          name
         }
       }
     }
