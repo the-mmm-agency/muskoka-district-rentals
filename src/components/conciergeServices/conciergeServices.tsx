@@ -38,7 +38,7 @@ const ConciergeServices = ({ rentalPage = false }) => {
           name
           image {
             childImageSharp {
-              fluid(maxWidth: 200) {
+              fluid(maxWidth: 100) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
