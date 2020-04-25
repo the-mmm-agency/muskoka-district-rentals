@@ -38,7 +38,7 @@ const ConciergeServices = ({ rentalPage = false }) => {
           name
           image {
             childImageSharp {
-              fluid(maxWidth: 100) {
+              fluid(maxWidth: 1000) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -96,7 +96,7 @@ const ConciergeServices = ({ rentalPage = false }) => {
         </List>
       </Box>
       <Hidden down="lg">
-        <Box col={0.5} minHeight="100%" overflow="hidden">
+        <Box pl="20px" col={0.5} minHeight="100%" overflow="hidden">
           <Fade spy={selected} mountOnEnter>
             <Img fluid={selected.childImageSharp.fluid} />
           </Fade>
