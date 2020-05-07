@@ -25,8 +25,7 @@ const PageTemplate: FC<PageProps> = ({
   <>
     <SEO title={title} />
     <Image fluid={hero?.childImageSharp?.fluid} Tag="section">
-      {!hideTitle && (
-        <Heading
+      <Heading
           as="h1"
           mb={1}
           position="relative"
@@ -35,9 +34,9 @@ const PageTemplate: FC<PageProps> = ({
           maxWidth={500}
           lineHeight="70px"
         >
-          {title}
+          {(() => { console.log(title, hideTitle) })()}
+          {!hideTitle && title}
         </Heading>
-      )}
     </Image>
     <Flex
       px={{ xs: 3, sm: 4, md: 4, xl: 5 }}

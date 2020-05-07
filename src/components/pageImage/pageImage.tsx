@@ -23,7 +23,7 @@ const StyledImage = styled(BackgroundImage)`
 
 const PageImage = props => (
   <StyledImage
-    height={{ xs: 200, sm: 300, md: 400, lg: 500 }}
+    height={{ xs: 400, sm: 500, md: 600, lg: 800 }}
     {...props}
     Tag="section"
   />
@@ -32,7 +32,7 @@ const PageImage = props => (
 export const query = graphql`
   fragment PageImage on File {
     childImageSharp {
-      fluid(maxWidth: 4096) {
+      fluid(maxHeight: 800) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }

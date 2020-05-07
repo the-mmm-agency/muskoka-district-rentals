@@ -19,6 +19,8 @@ exports.createPages = async ({ actions, graphql }) => {
             frontmatter {
               slug
               title
+              hideTitle
+              contactForm
               hero {
                 childImageSharp {
                   fluid(maxWidth: 4096) {
@@ -41,14 +43,14 @@ exports.createPages = async ({ actions, graphql }) => {
   result.data.allMdx.edges.forEach(
     ({
       node: {
-        frontmatter: { slug, title, hero },
+        frontmatter: { slug, title, hero, hideTitle, contactForm },
         body,
       },
     }) => {
       createPage({
         path: slug,
         component: path.resolve('./src/templates/page.tsx'),
-        context: { title, hero, body },
+        context: { title, hero, body, hideTitle, contactForm },
       });
     }
   );
