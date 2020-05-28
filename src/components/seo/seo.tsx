@@ -1,7 +1,7 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
-import React from 'react'
-import Helmet from 'react-helmet'
+import { graphql, useStaticQuery } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Helmet from 'react-helmet';
 
 function SEO({ description, lang, meta, keywords, title }) {
   const { site } = useStaticQuery(
@@ -74,7 +74,18 @@ function SEO({ description, lang, meta, keywords, title }) {
             : []
         )
         .concat(meta)}
-    />
+    >
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-863663114"
+      ></script>
+      <script>
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-863663114');`}
+      </script>
+    </Helmet>
   );
 }
 
