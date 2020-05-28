@@ -1,13 +1,18 @@
 [
   {
-    "name": "Travel Insurance",
-    "description": "We offer Travel Medical and Trip Interruption Insurance options for our guests through <a href='https://www.td.com/ca/en/personal-banking/products/insurance/travel-medical-insurance/'>TD Travel Insurance</a> and <a href='https://www.ingleinternational.com/en/travel-insurance/canadian-travellers-non-medical/manulife-global-trip-cancellation'>Manulife Insurance.</a>",
-    "icon": "../src/images/travel-insurance.png"
-  },
-  {
     "name": "Guest Concierge",
     "description": "Our concierge can assist with enhanced services such as private chefs, water sports lessons, childcare, yoga on the dock, hot tub rentals, special events & much more. Email our Concierge <a href='mailto:hello@muskokadistrictrentals.com'>here!</a>",
     "icon": "../src/images/guest-concierge.png"
+  },
+  {
+    "name": "Boat Rentals",
+    "description": "Enroll in Private Fleet ©. It's Simple and Secure. A Simple and safe way to offset the costs of boat ownership",
+    "icon": "../src/images/private-fleet-logo.webp"
+  },
+  {
+    "name": "Travel Insurance",
+    "description": "We offer Travel Medical and Trip Interruption Insurance options for our guests through <a href='https://www.td.com/ca/en/personal-banking/products/insurance/travel-medical-insurance/'>TD Travel Insurance</a> and <a href='https://www.ingleinternational.com/en/travel-insurance/canadian-travellers-non-medical/manulife-global-trip-cancellation'>Manulife Insurance.</a>",
+    "icon": "../src/images/travel-insurance.png"
   },
   {
     "name": "Vacation Property Searches",
