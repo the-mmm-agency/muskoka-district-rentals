@@ -43,6 +43,7 @@ cottage cleans</span>
           </aside>
       </div>
       </Flex>
+      <Flex width={1}>
       <Logo to="/" />
       <Nav>
         <span>
@@ -71,6 +72,7 @@ cottage cleans</span>
         ))}
         <StyledA href="https://blogmuskoka.com/">Blog</StyledA>
       </Nav>
+        </Flex>
     </StyledHeader>
   );
 };
