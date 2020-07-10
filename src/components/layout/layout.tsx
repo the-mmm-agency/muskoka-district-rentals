@@ -16,6 +16,16 @@ const Layout = ({
   },
 }) => (
   <>
+    <Box>
+      <div>
+      <aside style={{padding:'20px 80px'}}>
+        <a  href="#" target="_blank">
+          <span >we are using Covid19 best practices for our
+cottage cleans</span>
+        </a>
+          </aside>
+      </div>
+    </Box>
     <Header />
     <Box
       css={css`
