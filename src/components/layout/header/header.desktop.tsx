@@ -25,16 +25,7 @@ const Header: FC<HeaderProps> = ({ links }) => {
     setMenu(true);
   };
   return (
-   
-    <StyledHeader>
-      <Flex
-        col={1 / 4}
-        alignItems="center"
-        flexWrap="wrap"
-        justifyContent="center"
-        minWidth="100%"
-      >
-      <div>
+   <div>
       <aside >
         <a  href="#" target="_blank">
           <span >we are using Covid19 best practices for our
@@ -42,8 +33,7 @@ cottage cleans</span>
         </a>
           </aside>
       </div>
-      </Flex>
-      <Flex width={1}>
+    <StyledHeader>
       <Logo to="/" />
       <Nav>
         <span>
@@ -72,7 +62,6 @@ cottage cleans</span>
         ))}
         <StyledA href="https://blogmuskoka.com/">Blog</StyledA>
       </Nav>
-        </Flex>
     </StyledHeader>
   );
 };
