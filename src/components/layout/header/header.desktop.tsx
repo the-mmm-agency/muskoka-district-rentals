@@ -10,6 +10,7 @@ import HeaderLink, { StyledA } from './header.link'
 import Logo from './header.logo'
 
 import Hidden from 'components/hidden'
+import Flex from 'elements/flex'
 
 interface HeaderProps {
   links: string[];
@@ -24,17 +25,24 @@ const Header: FC<HeaderProps> = ({ links }) => {
     setMenu(true);
   };
   return (
+   
     <StyledHeader>
+      <Flex
+        col={1 / 4}
+        alignItems="center"
+        flexWrap="wrap"
+        justifyContent="center"
+        minWidth="100%"
+      >
       <div>
-      <aside style="padding:20 80px !important;text-align: center;">
-        <a  href="/covid" target="_blank">
+      <aside >
+        <a  href="#" target="_blank">
           <span >we are using Covid19 best practices for our
 cottage cleans</span>
         </a>
           </aside>
       </div>
-    </StyledHeader>
-    <StyledHeader>
+      </Flex>
       <Logo to="/" />
       <Nav>
         <span>
