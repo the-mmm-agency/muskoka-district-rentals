@@ -28,7 +28,6 @@ const Header: FC<HeaderProps> = ({ links }) => {
       <Logo to="/" />
       <Nav>
         <span>
-          Toll Free Phone #:&nbsp;<a href="tel:1800-615-2537">1.800.615.2537</a>
           Email:&nbsp;
           <a href="mailto:hello@muskokadistrictrentals.com">
             hello@muskokadistrictrentals.com
