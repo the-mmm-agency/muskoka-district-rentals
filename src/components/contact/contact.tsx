@@ -80,8 +80,6 @@ const Contact = () => {
           hello@muskokadistrictrentals.com
         </a>
       </span>
-      <span>Call toll free:</span>
-      <h3>+1.800.615.2537</h3>
     </Image>
   );
 };
