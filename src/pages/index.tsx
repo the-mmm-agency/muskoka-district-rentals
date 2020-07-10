@@ -121,8 +121,6 @@ const IndexPage = ({
             <a href="mailto:hello@muskokadistrictrentals.com">
               hello@muskokadistrictrentals.com
             </a>
-            <br />
-            <b>Phone:</b>&nbsp;<a href="tel:1800-615-2537">1.800.615.2537</a>
           </span>
         </Flex>
       </Flex>
