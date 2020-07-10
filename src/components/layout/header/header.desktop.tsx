@@ -25,6 +25,16 @@ const Header: FC<HeaderProps> = ({ links }) => {
   };
   return (
     <StyledHeader>
+      <div>
+      <aside style="padding:20 80px !important;text-align: center;">
+        <a  href="/covid" target="_blank">
+          <span >we are using Covid19 best practices for our
+cottage cleans</span>
+        </a>
+          </aside>
+      </div>
+    </StyledHeader>
+    <StyledHeader>
       <Logo to="/" />
       <Nav>
         <span>
