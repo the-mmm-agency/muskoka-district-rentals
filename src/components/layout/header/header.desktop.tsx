@@ -24,8 +24,9 @@ const Header: FC<HeaderProps> = ({ links }) => {
     setMenuAnchor(event.currentTarget);
     setMenu(true);
   };
-  return (
-   <div>
+  return (   
+    <StyledHeader>
+      <div>
       <aside >
         <a  href="#" target="_blank">
           <span >we are using Covid19 best practices for our
@@ -33,7 +34,7 @@ cottage cleans</span>
         </a>
           </aside>
       </div>
-    <StyledHeader>
+      <br>
       <Logo to="/" />
       <Nav>
         <span>
