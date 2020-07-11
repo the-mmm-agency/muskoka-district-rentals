@@ -18,7 +18,7 @@ const Layout = ({
   <>
     <Box>
       <div>
-      <aside style={{padding:'20px 80px'}}>
+      <aside style={{padding:'20px 80px',textAlign:'center'}}>
         <a  href="#" target="_blank">
           <span >we are using Covid19 best practices for our
 cottage cleans</span>
