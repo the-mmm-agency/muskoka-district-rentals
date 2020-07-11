@@ -6,7 +6,10 @@ import format from './format'
 
 const FooterLink = ({ to }) => (
   <li>
-    <Link to={(format(to) == 'cottages' ? 'https://mdr.myvr.com/cottages/#?gp=' : (format(to) == 'blog' ? 'https://blogmuskoka.com' : to))}>{format(to)}</Link>
+    {format(to) == 'cottages' || format(to) == 'blog'
+      ?  <a href={ format(to) == 'cottages' ? 'https://mdr.myvr.com/cottages/#?gp=' : 'https//blogmuskoka.com' }>{format(to)}</a>
+      : <Link to={to}>{format(to)}</Link>
+    }
   </li>
 )
 
