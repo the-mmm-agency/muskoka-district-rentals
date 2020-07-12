@@ -25,7 +25,7 @@ const ConciergeService = ({ name, image, setSelected }) => (
       display="inline-flex"
       width={1}
       alignItems="center"
-      to="/boat-rentals"
+      to={name == 'Boat Rentals' ? '/boat-rentals' : '/guest-services'}
     >
       <Img
         css={css`
