@@ -68,7 +68,7 @@ export const StyledA = styled.a`
 const HeaderLink = ({ to, ...props }) => (
   <Ripples>
     <StyledLink {...props} to={to} activeClassName="active">
-      <span>{to.replace('/', '').replace(/-/g, ' ')}</span>
+      { to.replace('/', '').replace(/-/g, ' ') != 'buy or sell' ? <span>{to.replace('/', '').replace(/-/g, ' ')}</span> : '' }
     </StyledLink>
   </Ripples>
 );
