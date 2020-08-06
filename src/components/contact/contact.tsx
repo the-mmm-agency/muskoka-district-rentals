@@ -68,8 +68,7 @@ const Contact = () => {
     <Image fluid={data.file.childImageSharp.fluid}>
       <h2>Get In Touch With Us</h2>
       <h4>Canada</h4>
-      <span>Port Carling: 113 Medora St Port Carling ON P0B 1J0</span>
-      <span>Foot’s Bay: 1007 McDonald Rd MacTier ON P0C 1H0</span>
+      <span>Port Carling: 123 Medora St Port Carling ON P0B 1J0</span>
       <span>Simcoe County: 14-67 Fittons Rd E Orillia ON L3V 2J2</span>
       <span>Toronto: 1520-111 St Clair Ave W Toronto ON M4V 1N5 USA 812</span>
       <h4>USA</h4>
