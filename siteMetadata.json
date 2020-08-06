@@ -12,7 +12,7 @@
   "footerLinks": [
     ["/", "/blog"],
     ["/about-us", "/cottages", "/rent-your-cottage"],
-    ["/contact", "/guest-services", "/boat-rentals"]
+    ["/contact", "/guestservices", "/boat-rentals"]
   ],
   "manifest": {
     "name": "Muskoka District Rentals",
