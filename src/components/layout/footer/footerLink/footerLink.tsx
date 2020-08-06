@@ -8,7 +8,6 @@ const FooterLink = ({ to }) => (
   <li>
     {format(to) == 'cottages' || format(to) == 'blog'
       ?  <a class={'css-1yvyndl'} href={ format(to) == 'cottages' ? 'https://mdr.myvr.com/cottages/#?gp=' : 'https://blogmuskoka.com' }>{format(to)}</a>
-      :  <Link to={to}>{format(to)}</Link>
     }
   </li>
 )
