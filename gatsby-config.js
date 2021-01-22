@@ -2,6 +2,7 @@ const path = require('path');
 
 const siteMetadata = require('./siteMetadata');
 
+// Test
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
