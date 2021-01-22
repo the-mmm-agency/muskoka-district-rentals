@@ -1,13 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { css } from '@xstyled/emotion'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { css } from '@xstyled/emotion';
 
-import MobileNavigation from './mobileNavigation'
-import Footer from './footer'
-import Header from './header'
-import Transition from './transition'
+import MobileNavigation from './mobileNavigation';
+import Footer from './footer';
+import Header from './header';
+import Transition from './transition';
 
-import Box from 'elements/box'
+import Box from 'elements/box';
 
 const Layout = ({
   element,
@@ -18,11 +18,14 @@ const Layout = ({
   <>
     <Box>
       <div>
-      <aside style={{padding:'20px 80px',textAlign:'center'}}>
-        <a  href="https://blogmuskoka.com/an-update-regarding-covid-19-coronavirus/" target="_blank">
-          <span >We are using Covid19 best practices for our cottage cleans</span>
-        </a>
-          </aside>
+        <aside style={{ padding: '20px 80px', textAlign: 'center' }}>
+          <a
+            href="https://blogmuskoka.com/covid-cancellation-policy/"
+            target="_blank"
+          >
+            <span>Covid cancelation policy</span>
+          </a>
+        </aside>
       </div>
     </Box>
     <Header />
@@ -39,7 +42,7 @@ const Layout = ({
       <Footer />
     </Box>
   </>
-)
+);
 
 Layout.propTypes = {
   element: PropTypes.element.isRequired,
@@ -48,6 +51,6 @@ Layout.propTypes = {
       pathname: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
-}
+};
 
-export default Layout
+export default Layout;
