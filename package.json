@@ -141,7 +141,7 @@
     "gatsby-transformer-sharp": "^2.2.21",
     "graphql": "^14.5.8",
     "graphqlgen": "^0.6.0-rc9",
-    "intersection-observer": "^0.7.0",
+    "intersection-observer": "^0.12.0",
     "keyboardjs": "^2.5.1",
     "monocle-ts": "^2.0.0",
     "netlify-lambda": "^1.6.3",
